@@ -7,7 +7,7 @@
 
 ### ZENTAOPMS EXTENSION REPO 
 
-* This repo is used to share extensions of changercms.
+* This repo is used to share extensions of zentaopms.
 * Please send pull request to summit your extension.
 * Please select a directory for your extension.
 * Please change the README.MD to add your extension.
