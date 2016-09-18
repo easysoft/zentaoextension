@@ -14,15 +14,15 @@
 
 ### Extension list
 
- #### bug
- #### case
- #### doc
- #### language
- #### plan
- #### product
- #### project
- #### release
- #### story
- #### task
- #### todo
- #### user
+#### bug
+#### case
+#### doc
+#### language
+#### plan
+#### product
+#### project
+#### release
+#### story
+#### task
+#### todo
+#### user
