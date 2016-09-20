@@ -8,9 +8,9 @@ if(empty($argv[1])) die("Must give a language file path.\n");
 $filePath = $argv[1];                        /* The merged language file, such as lang.en.php. */
 $extPath  = empty($argv[2]) ? '' : $argv[2]; /* The separated files will be write in this directory. */
 $filename = explode('.', basename($filePath));
-if(count($filename) != 3 || $filename[0] != 'lang' || $filename[2] != 'php') die("The format of language filename must be lang.xxx.php. xxx is the abbreviation of language, such as lang.en.php.\n");
+if(count($filename) != 2 || $filename[1] != 'php') die("The format of language filename must be xxx.php. xxx is the abbreviation of language, such as zh-cn.php.\n");
 
-$lang     = $filename[1];
+$lang     = $filename[0];
 $content  = ltrim(file_get_contents($filePath), "<?php\n");;
 preg_match_all("/\/\*.*?\*\//s", $content, $out);
 $modules  = $out[0];

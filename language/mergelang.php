@@ -22,7 +22,7 @@ if($handle)
     }  
     closedir($handle);
 
-    $mergedFile = 'lang.zh-cn.php';
+    $mergedFile = 'zh-cn.php';
     if($mergedPath)
     {
         if(!file_exists($mergedPath)) @mkdir($mergedPath, 0777, true);
