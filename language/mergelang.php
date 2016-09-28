@@ -1,12 +1,13 @@
 #!/usr/bin/env php
 <?php
 /**
- * The script can merge zh-cn language files of zentaoPMS to one file.  
+ * The script can merge language files of zentaoPMS to one file.  
  */
 if(empty($argv[1])) die("Must give a zentaopms root path.\n");
 
-$zentaoRoot = $argv[1];                        /* Root of zentaoPMS. */
-$mergedPath = empty($argv[2]) ? '' : $argv[2]; /* The merged file will be write in this directory. */
+$zentaoRoot = $argv[1];                             /* Root of zentaoPMS. */
+$mergedPath = empty($argv[2]) ? ''      : $argv[2]; /* The merged file will be write in this directory. */
+$lang       = empty($argv[3]) ? 'zh-cn' : $argv[3]; /* Language to be merged. */
 $moduleRoot = $zentaoRoot . DIRECTORY_SEPARATOR . 'module' . DIRECTORY_SEPARATOR;
 $handle     = opendir($moduleRoot);  
 if($handle)  
@@ -14,7 +15,7 @@ if($handle)
     $langFiles = array();
     while(($module = readdir($handle)) !== false)  
     {  
-        $filePath = $moduleRoot . $module . DIRECTORY_SEPARATOR . 'lang' . DIRECTORY_SEPARATOR . 'zh-cn.php';
+        $filePath = $moduleRoot . $module . DIRECTORY_SEPARATOR . 'lang' . DIRECTORY_SEPARATOR . $lang . '.php';
         if(!file_exists($filePath)) continue;
 
         /* Remove the comments and start tag of php. */
@@ -22,7 +23,7 @@ if($handle)
     }  
     closedir($handle);
 
-    $mergedFile = 'zh-cn.php';
+    $mergedFile = $lang . '.php';
     if($mergedPath)
     {
         if(!file_exists($mergedPath)) @mkdir($mergedPath, 0777, true);
