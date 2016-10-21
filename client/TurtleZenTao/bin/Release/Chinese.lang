@@ -1,0 +1,47 @@
+Choose Issue	从禅道中选择 
+login failed	登录失败
+statusStrip1	状态栏
+none	无
+Search	搜索
+Bug	Bug
+Operate	操作
+Title	标题
+Task	任务
+TaskID	任务编号
+Task Name	任务名称
+Estimate	预计用时
+Consumed	已用时
+Left Time	剩余用时
+All	全选
+None	不选
+OK	确定
+Cancel	取消
+Issue Dialog	Bug与任务
+UserName	用户名
+Password	密码
+Website	网址
+Add	添加
+Validate	验证
+Site Edit Dialog	网站编辑
+Add Website	添加站点
+Install Plugin	安装扩展
+No	序号
+Edit	编辑
+Remove	移除
+Website Manage Dialog	网站管理
+LoginSuccess	登录成功
+Resolved	已解决
+BugID	BugID
+Select	选择
+Finished	完成
+IsFinished	是否完成
+TaskName	任务名称
+ConsumeTime	已耗时
+LeftTime	剩余时间
+WorkTimeEdit	工时统计
+OperateSucess	操作成功
+InstallSuccess	安装成功
+InstallFailed	安装失败
+Loading	加载中
+WebsiteName	网站名称
+LoadFailed	加载失败

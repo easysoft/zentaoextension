@@ -1,0 +1,47 @@
+Choose Issue	Choose From ZenTao
+login failed	Login Failed
+statusStrip1	Status
+none	None
+Search	Search
+Bug	Bug
+Operate	Operate
+Title	Title
+Task	Task
+TaskID	TaskID
+Task Name	Task Name
+Estimate	Estimate
+Consumed	Consumed
+Left Time	Left Time
+All	All
+None	None
+OK	OK
+Cancel	Cancel
+Issue Dialog	Issue Dialog
+UserName	UserName
+Password	Password
+Website	Website
+Add	Add
+Validate	Validate
+Site Edit Dialog	Site Edit Dialog
+Add Website	Add Website
+Install Plugin	Install Plugin
+No	No
+Edit	Edit
+Remove	Remove
+Website Manage Dialog	Website Manage Dialog
+LoginSuccess	Login Success
+Resolved	Resolved
+BugID	BugID
+Select	Select
+Finished	Finished
+IsFinished	Is Finished
+TaskName	Task Name
+ConsumeTime	Consumed Time
+LeftTime	Left Time
+WorkTimeEdit	Task Time Edit Dialog
+OperateSucess	Operate Sucess
+InstallSuccess	Plugin Install Success
+InstallFailed	Plugin Install Failed
+Loading	Waiting
+WebsiteName	WebsiteName
+LoadFailed	Load Failed
