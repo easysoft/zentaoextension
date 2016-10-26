@@ -136,6 +136,7 @@ namespace TurtleZenTaoLib
            log.repoUrl = repoUrl;
            log.revision = Convert.ToString(revision);
            log.message = logMessage;
+           bool isMatched = false;
 
            string bugReg = "(Fix\\s+)?[Bb]ug#(\\d+)";
            MatchCollection matches = Regex.Matches(logMessage, bugReg);
@@ -148,6 +149,8 @@ namespace TurtleZenTaoLib
                if (match.Groups[1].Success) {
                    resText += "Bug#" + bugId + "已解决\r\n";
                    zenTaoManage.updateBug(bugId, "");
+
+                   isMatched = true;
                }
 
            }
@@ -164,14 +167,18 @@ namespace TurtleZenTaoLib
                TaskInfo task = issForm.queryTaskById(taskId);
 
                zenTaoManage.updateTask(task);
-
+               isMatched = true;
                if (match.Groups[1].Success)
                {
                    resText += "Task#" + taskId + "," + taskId + ", " + consumed + ", " + left + "已完成\r\n";
                }
            }
 
-           zenTaoManage.saveSVNLog(log);
+           if (isMatched)
+           {
+               zenTaoManage.saveSVNLog(log);
+           }
+           
 
            return resText;
        }

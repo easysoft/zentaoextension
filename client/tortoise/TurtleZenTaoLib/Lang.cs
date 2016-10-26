@@ -38,6 +38,17 @@ namespace TurtleZenTaoLib
                 parent.Text = getText(parent.Text);
             }
 
+
+            if (parent.ContextMenuStrip != null)
+            {
+                ContextMenuStrip menu = parent.ContextMenuStrip;
+
+                foreach (ToolStripItem item in menu.Items)
+                {
+                    item.Text = Plugin.lang.getText(item.Text);
+                }
+            }
+
             //listview处理替换列头
             if (parent is ListView)
             {
@@ -57,7 +68,6 @@ namespace TurtleZenTaoLib
                 listview.EndUpdate();
 
                 graph.Dispose();
-                return;
             }
 
             //递归处理子项

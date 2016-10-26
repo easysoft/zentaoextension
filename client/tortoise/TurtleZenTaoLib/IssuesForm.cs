@@ -123,7 +123,7 @@ namespace TurtleZenTaoLib
 
 
             task.name = editForm.getTaskName();
-            task.currentConsumed = Convert.ToString(int.Parse(editForm.getConsumed()) - int.Parse(task.consumed));
+            task.currentConsumed = Convert.ToString(float.Parse(editForm.getConsumed()) - float.Parse(task.consumed));
             task.consumed = editForm.getConsumed();
             task.left = editForm.getLeft();
             task.isDone = editForm.isFinished();
@@ -249,7 +249,7 @@ namespace TurtleZenTaoLib
 
             item.SubItems.Add(bug.id);
             item.SubItems.Add(bug.title);
-            item.SubItems.Add("");
+            item.SubItems.Add("").Tag = false;
             
             bugList.Items.Add(item);
             bugList.EndUpdate();
@@ -541,6 +541,7 @@ namespace TurtleZenTaoLib
         {
             ListViewItem.ListViewSubItem subItem = hit.SubItem;
 
+
             //任务已解决
             if (hit.Item.SubItems[3] == subItem)
             {
@@ -550,6 +551,15 @@ namespace TurtleZenTaoLib
                 //绘制复选框
                 drawCheckBox(bugList, subItem, (bool)subItem.Tag);
             }
+
+            if (hit.Item.Tag == null)
+            {
+                hit.Item.Tag = false;
+            }
+
+            hit.Item.Tag = !(bool)hit.Item.Tag;
+
+            hit.Item.Checked = (bool)hit.Item.Tag;
         }
 
         private void listView_DrawItem(object sender, DrawListViewItemEventArgs e)

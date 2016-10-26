@@ -25,7 +25,7 @@ namespace TurtleZenTaoLib
 
             initSiteList();
             Plugin.lang.langProcess(this);
-
+            
             this.statusStrip1.Hide();
         }
 

@@ -45,3 +45,4 @@ InstallFailed	安装失败
 Loading	加载中
 WebsiteName	网站名称
 LoadFailed	加载失败
+ServerResponseError	服务器返回内容出错,请检查你配置的地址
