@@ -45,3 +45,4 @@ InstallFailed	Plugin Install Failed
 Loading	Waiting
 WebsiteName	WebsiteName
 LoadFailed	Load Failed
+ServerResponseError	Server Response Error.Please Check Your Site Url.

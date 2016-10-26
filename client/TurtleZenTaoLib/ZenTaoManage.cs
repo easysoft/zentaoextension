@@ -84,7 +84,7 @@ namespace TurtleZenTaoLib
             catch (Exception e)
             {
                 result.status = 0;
-                result.msg = e.Message;
+                result.msg = Plugin.lang.getText("ServerResponseError");
                 result.data = "";
             }
 
