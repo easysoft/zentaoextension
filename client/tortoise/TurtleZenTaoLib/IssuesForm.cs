@@ -123,7 +123,7 @@ namespace TurtleZenTaoLib
 
 
             task.name = editForm.getTaskName();
-            task.currentConsumed = Convert.ToString(int.Parse(editForm.getConsumed()) - int.Parse(task.consumed));
+            task.currentConsumed = Convert.ToString(float.Parse(editForm.getConsumed()) - float.Parse(task.consumed));
             task.consumed = editForm.getConsumed();
             task.left = editForm.getLeft();
             task.isDone = editForm.isFinished();
