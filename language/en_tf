@@ -73,12 +73,12 @@ $lang->loading       = 'Loading...';
 $lang->notFound      = 'Not found!';
 $lang->showAll       = '[[Show All]]';
 
-$lang->future       = 'Coming';
+$lang->future       = 'Future';
 $lang->year         = 'Year';
 $lang->workingHour  = 'Man-Hour';
 
 $lang->idAB         = 'ID';
-$lang->priAB        = 'Privilege';
+$lang->priAB        = 'Privil';
 $lang->statusAB     = 'Status';
 $lang->openedByAB   = 'Open';
 $lang->assignedToAB = 'To';
@@ -100,14 +100,14 @@ $lang->menu->admin    = 'Administration|admin|index';
 $lang->searchObjects['bug']         = 'Bug';
 $lang->searchObjects['story']       = 'Story';
 $lang->searchObjects['task']        = 'Task';
-$lang->searchObjects['testcase']    = 'Case';
+$lang->searchObjects['testcase']    = 'Test Case';
 $lang->searchObjects['project']     = $lang->projectCommon;
 $lang->searchObjects['product']     = $lang->productCommon;
 $lang->searchObjects['user']        = 'User';
 $lang->searchObjects['build']       = 'Build';
 $lang->searchObjects['release']     = 'Release';
 $lang->searchObjects['productplan'] = $lang->productCommon . 'Planning';
-$lang->searchObjects['testtask']    = 'Testing Build';
+$lang->searchObjects['testtask']    = 'Test Task';
 $lang->searchObjects['doc']         = 'Document';
 $lang->searchTips                   = 'ID (ctrl+g)';
 
@@ -134,14 +134,14 @@ $lang->themes['blackberry']  = 'Blackberry';
 $lang->index = new stdclass();
 $lang->index->menu = new stdclass();
 
-$lang->index->menu->product = "View{$lang->productCommon}|product|browse";
-$lang->index->menu->project = "View{$lang->projectCommon}|project|browse";
+$lang->index->menu->product = "View {$lang->productCommon}|product|browse";
+$lang->index->menu->project = "View {$lang->projectCommon}|project|browse";
 
 $lang->my = new stdclass();
 $lang->my->menu = new stdclass();
 
 $lang->my->menu->account        = array('link' => '<span id="myname"><i class="icon-user"></i> %s' . $lang->arrow . '</span>', 'fixed' => true);
-$lang->my->menu->index          = 'Homepage|my|index';
+$lang->my->menu->index          = 'Homep|my|index';
 $lang->my->menu->todo           = array('link' => 'To-Do|my|todo|', 'subModule' => 'todo');
 $lang->my->menu->task           = array('link' => 'Task|my|task|', 'subModule' => 'task');
 $lang->my->menu->bug            = array('link' => 'Bug|my|bug|',   'subModule' => 'bug');
@@ -277,7 +277,7 @@ $lang->user->menu  = $lang->company->menu;
 
 $lang->admin = new stdclass();
 $lang->admin->menu = new stdclass();
-$lang->admin->menu->index     = array('link' => 'Homepage|admin|index');
+$lang->admin->menu->index     = array('link' => 'Home|admin|index');
 $lang->admin->menu->extension = array('link' => 'Extension|extension|browse', 'subModule' => 'extension');
 $lang->admin->menu->custom    = array('link' => 'Custom|custom|index', 'subModule' => 'custom');
 $lang->admin->menu->mail      = array('link' => 'Email|mail|index', 'subModule' => 'mail');
@@ -353,12 +353,12 @@ $lang->error->float           = "『%s』should be numbers, decimals included.";
 $lang->error->email           = "『%s』should be valid EMAIL.";
 $lang->error->date            = "『%s』should be valid date.";
 $lang->error->account         = "『%s』should be valid account.";
-$lang->error->passwordsame    = "Two passwords should be consistent.";
+$lang->error->passwordsame    = "Passwords should be consistent.";
 $lang->error->passwordrule    = "Password should meet requirements. It should be 6 characters at least.";
 $lang->error->accessDenied    = 'Access is denied.';
 $lang->error->pasteImg        = 'Paste Image is not allowed in your browser!';
 $lang->error->noData          = 'No Data';
-$lang->error->editedByOther   = 'This record might have been modified. Please refresh and try to edit again!';
+$lang->error->editedByOther   = 'This record might have been modified. Please refresh and edit again!';
 $lang->error->tutorialData    = 'No data can be imported in tutorial mode. Please exit tutorial first!';
 
 $lang->pager = new stdclass();
@@ -380,7 +380,7 @@ $lang->noticeImport  = "<p style='font-size:14px'>Imported data contains data th
 
 $lang->noResultsMatch     = "No results match!";
 $lang->searchMore         = "More results：";
-$lang->chooseUsersToMail  = "Choose users you want send Email to...";
+$lang->chooseUsersToMail  = "Choose users you want to send Email to...";
 $lang->browserNotice      = 'Your current browser might not show the best effect. Please use Chrome, Firefox, IE9+, Opera or Safari.';
 
 define('DT_DATETIME1',  'Y-m-d H:i:s');
@@ -500,9 +500,9 @@ $lang->action->trash       = 'Recycle';
 $lang->action->undelete    = 'Restore';
 $lang->action->hideOne     = 'Hide';
 $lang->action->hideAll     = 'Hide All';
-$lang->action->editComment = 'Edit Note';
+$lang->action->editComment = 'Edit Comment';
 
-$lang->action->trashTips      = 'Note: The action of Delete in ZenTao is logic.';
+$lang->action->trashTips      = 'Note: The action of Delete in ZenTao is tag deletion.';
 $lang->action->textDiff       = 'Text Format';
 $lang->action->original       = 'Original Format';
 $lang->action->confirmHideAll = 'Do you want to hide all the records?';
@@ -511,7 +511,7 @@ $lang->action->needEdit       = '%s you want to restore has already existed. Ple
 $lang->action->dynamic = new stdclass();
 $lang->action->dynamic->today      = 'Today';
 $lang->action->dynamic->yesterday  = 'Yesterday';
-$lang->action->dynamic->twoDaysAgo = 'Two Days Ago';
+$lang->action->dynamic->twoDaysAgo = '2 Days Ago';
 $lang->action->dynamic->thisWeek   = 'This Week';
 $lang->action->dynamic->lastWeek   = 'Last Week';
 $lang->action->dynamic->thisMonth  = 'This Month';
@@ -620,8 +620,8 @@ $lang->action->label->subdividestory      = "Decompose Story";
 $lang->action->label->unlinkchildstory    = "Unlink decomposed Story";
 $lang->action->label->started             = 'Initiated';
 $lang->action->label->restarted           = 'Continued';
-$lang->action->label->recordestimate      = 'Historyed Man-Hour';
-$lang->action->label->editestimate        = 'Edited Man-Hour';
+$lang->action->label->recordestimate      = 'Estimated Man-Hour';
+$lang->action->label->editestimate        = 'Edit Man-Hour';
 $lang->action->label->canceled            = 'Cancelled';
 $lang->action->label->finished            = 'Finished';
 $lang->action->label->paused              = 'Paused';
@@ -641,8 +641,8 @@ $lang->action->label->build       = 'Build|build|view|buildID=%s';
 $lang->action->label->bug         = 'Bug|bug|view|bugID=%s';
 $lang->action->label->case        = 'Case|testcase|view|caseID=%s';
 $lang->action->label->testtask    = 'Test Task|testtask|view|caseID=%s';
-$lang->action->label->todo        = 'To-Dos|todo|view|todoID=%s';
-$lang->action->label->doclib      = 'Doc Lib|doc|browse|libID=%s';
+$lang->action->label->todo        = 'To-Do|todo|view|todoID=%s';
+$lang->action->label->doclib      = 'DocLib|doc|browse|libID=%s';
 $lang->action->label->doc         = 'Document|doc|view|docID=%s';
 $lang->action->label->user        = 'User|user|view|account=%s';
 $lang->action->label->space       = ' ';
@@ -659,8 +659,8 @@ $lang->action->search->objectTypeList['task']        = 'Task';
 $lang->action->search->objectTypeList['testtask']    = 'Test Task';     
 $lang->action->search->objectTypeList['user']        = 'User'; 
 $lang->action->search->objectTypeList['doc']         = 'Document';
-$lang->action->search->objectTypeList['doclib']      = 'Doc Lib';
-$lang->action->search->objectTypeList['todo']        = 'To-Dos';
+$lang->action->search->objectTypeList['doclib']      = 'DocLib';
+$lang->action->search->objectTypeList['todo']        = 'To-Do';
 $lang->action->search->objectTypeList['build']       = 'Build';
 $lang->action->search->objectTypeList['release']     = 'Release';
 $lang->action->search->objectTypeList['productplan'] = 'Planning';
@@ -708,9 +708,9 @@ $lang->action->search->label['login']               = $lang->action->label->logi
 $lang->action->search->label['logout']              = $lang->action->label->logout;
 /* admin */
 $lang->admin->common  = 'Administration';
-$lang->admin->index   = 'Admin Homepage';
+$lang->admin->index   = 'Home';
 $lang->admin->checkDB = 'Check Database Library';
-$lang->admin->sso     = 'RangerTeam';
+$lang->admin->sso     = 'Ranger';
 $lang->admin->safeIndex = 'Security';
 $lang->admin->checkWeak = 'Weak Password Check';
 
