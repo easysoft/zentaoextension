@@ -141,7 +141,7 @@ $lang->my = new stdclass();
 $lang->my->menu = new stdclass();
 
 $lang->my->menu->account        = array('link' => '<span id="myname"><i class="icon-user"></i> %s' . $lang->arrow . '</span>', 'fixed' => true);
-$lang->my->menu->index          = 'Homep|my|index';
+$lang->my->menu->index          = 'Home|my|index';
 $lang->my->menu->todo           = array('link' => 'To-Do|my|todo|', 'subModule' => 'todo');
 $lang->my->menu->task           = array('link' => 'Task|my|task|', 'subModule' => 'task');
 $lang->my->menu->bug            = array('link' => 'Bug|my|bug|',   'subModule' => 'bug');
@@ -345,7 +345,7 @@ $lang->error->reg             = "『%s』Format Error. It should be『%s』.";
 $lang->error->unique          = "『%s』『%s』existed. Please go to Admin->Recycle to restore it, if you are sure it has been deleted.";
 $lang->error->gt              = "『%s』should be >『%s』.";
 $lang->error->ge              = "『%s』should be >=『%s』.";
-$lang->error->notempty        = "『%s』should not be blank.";
+$lang->error->notempty        = "『%s』should not be empty.";
 $lang->error->empty           = "『%s』should be null.";
 $lang->error->equal           = "『%s』has to be『%s』.";
 $lang->error->int             = array("『%s』has to be numbers", "『%s』should be 『%s-%s』.");
@@ -369,7 +369,7 @@ $lang->pager->first     = "<i class='icon-step-backward' title='Homepage'></i>";
 $lang->pager->pre       = "<i class='icon-play icon-rotate-180' title='Previous Page'></i>";
 $lang->pager->next      = "<i class='icon-play' title='Next Page'></i>";
 $lang->pager->last      = "<i class='icon-step-forward' title='Last Page'></i>";
-$lang->pager->locate    = "GO!";
+$lang->pager->locate    = "Go!";
 
 $lang->proVersion     = "<a href='http://api.zentao.net/goto.php?item=proversion&from=footer' target='_blank' id='proLink' class='text-important'>ZenTao Pro <i class='text-danger icon-pro-version'></i></a> &nbsp; ";
 $lang->downNotify     = "Download Desktop Notification";
@@ -720,7 +720,7 @@ $lang->admin->info->links   = 'You can visit ';
 $lang->admin->info->account = "Your ZenTao account is %s.";
 
 $lang->admin->notice = new stdclass();
-$lang->admin->notice->register = "Note: You haven't registered in ZenTao(www.zentao.net), register %s and get the latest ZenTao news.";
+$lang->admin->notice->register = "You haven't registered in ZenTao(www.zentao.net), register %s and get the latest ZenTao news.";
 $lang->admin->notice->ignore   = "Ignore";
 
 $lang->admin->register = new stdclass();
@@ -729,7 +729,7 @@ $lang->admin->register->click      = 'Click Here';
 $lang->admin->register->lblAccount = 'must be 3 characters combination of letters and numbers at least.';
 $lang->admin->register->lblPasswd  = 'must be 6 characters combination of letters and numbers at least.';
 $lang->admin->register->submit     = 'Register';
-$lang->admin->register->bind       = "If you have already registered an account, link your account %s.";
+$lang->admin->register->bind       = "If you have already had an account, link your account %s.";
 $lang->admin->register->success    = "You have registered with us!";
 
 $lang->admin->bind = new stdclass();
@@ -778,7 +778,7 @@ $lang->api->error = new stdclass();
 $lang->api->error->onlySelect = 'SQL interface only allow SELECT query.';
 /* backup */
 $lang->backup->common   = 'Backup';
-$lang->backup->index    = 'Homepage';
+$lang->backup->index    = 'Home';
 $lang->backup->history  = 'History';
 $lang->backup->delete   = 'Delete';
 $lang->backup->backup   = 'Backup';
@@ -824,8 +824,8 @@ $lang->block->params = new stdclass();
 $lang->block->params->name  = 'Name';
 $lang->block->params->value = 'Value';
 
-$lang->block->createBlock        = 'Add Block';
-$lang->block->editBlock          = 'Edit Block';
+$lang->block->createBlock        = 'Add a Block';
+$lang->block->editBlock          = 'Edit';
 $lang->block->ordersSaved        = 'Sequence saved.';
 $lang->block->confirmRemoveBlock = 'Do you want to remove Block【{0}】?';
 $lang->block->refresh            = 'Refresh';
@@ -920,16 +920,16 @@ $lang->block->orderBy  = 'Sequence';
 $lang->block->availableBlocks = new stdclass();
 
 $lang->block->availableBlocks->todo     = 'My To-Dos';
-$lang->block->availableBlocks->task     = 'My Task';
-$lang->block->availableBlocks->bug      = 'My Bug';
-$lang->block->availableBlocks->case     = 'My Case';
-$lang->block->availableBlocks->story    = 'My Story';
+$lang->block->availableBlocks->task     = 'My Tasks';
+$lang->block->availableBlocks->bug      = 'My Bugs';
+$lang->block->availableBlocks->case     = 'My Cases';
+$lang->block->availableBlocks->story    = 'My Stories';
 $lang->block->availableBlocks->product  = $lang->productCommon . 'List';
 $lang->block->availableBlocks->project  = $lang->projectCommon . 'List';
-$lang->block->availableBlocks->plan     = 'Planning List';
-$lang->block->availableBlocks->release  = 'Release List';
-$lang->block->availableBlocks->build    = 'Build List';
-$lang->block->availableBlocks->testtask = 'Test Build List';
+$lang->block->availableBlocks->plan     = 'Plannings';
+$lang->block->availableBlocks->release  = 'Releases';
+$lang->block->availableBlocks->build    = 'Builds';
+$lang->block->availableBlocks->testtask = 'Test Builds';
 
 $lang->block->moduleList['product'] = $lang->productCommon;
 $lang->block->moduleList['project'] = $lang->projectCommon;
@@ -939,22 +939,22 @@ $lang->block->moduleList['todo']    = 'To-Dos';
 $lang->block->modules['product'] = new stdclass();
 $lang->block->modules['product']->availableBlocks = new stdclass();
 $lang->block->modules['product']->availableBlocks->list    = $lang->productCommon . 'List';
-$lang->block->modules['product']->availableBlocks->story   = 'Story List';
-$lang->block->modules['product']->availableBlocks->plan    = 'Planning List';
-$lang->block->modules['product']->availableBlocks->release = 'Release List';
+$lang->block->modules['product']->availableBlocks->story   = 'Stories';
+$lang->block->modules['product']->availableBlocks->plan    = 'Plannings';
+$lang->block->modules['product']->availableBlocks->release = 'Releases';
 $lang->block->modules['project'] = new stdclass();
 $lang->block->modules['project']->availableBlocks = new stdclass();
 $lang->block->modules['project']->availableBlocks->list  = $lang->projectCommon . 'List';
-$lang->block->modules['project']->availableBlocks->task  = 'Task List';
-$lang->block->modules['project']->availableBlocks->build = 'Build List';
+$lang->block->modules['project']->availableBlocks->task  = 'Tasks';
+$lang->block->modules['project']->availableBlocks->build = 'Builds';
 $lang->block->modules['qa']      = new stdclass();
 $lang->block->modules['qa']->availableBlocks = new stdclass();
-$lang->block->modules['qa']->availableBlocks->bug      = 'Bug List';
-$lang->block->modules['qa']->availableBlocks->case     = 'Case List';
-$lang->block->modules['qa']->availableBlocks->testtask = 'Test Build List';
+$lang->block->modules['qa']->availableBlocks->bug      = 'Bugs';
+$lang->block->modules['qa']->availableBlocks->case     = 'Cases';
+$lang->block->modules['qa']->availableBlocks->testtask = 'Test Builds';
 $lang->block->modules['todo'] = new stdclass();
 $lang->block->modules['todo']->availableBlocks = new stdclass();
-$lang->block->modules['todo']->availableBlocks->list = 'To-Do List';
+$lang->block->modules['todo']->availableBlocks->list = 'To-Dos';
 
 $lang->block->orderByList = new stdclass();
 
@@ -1023,8 +1023,8 @@ $lang->block->typeList->project['undone']  = 'Undone';
 $lang->block->typeList->project['isdoing'] = 'Doing';
 $lang->block->typeList->project['all']     = 'All';
 
-$lang->block->typeList->testtask['wait'] = 'Testing Pending';
-$lang->block->typeList->testtask['done'] = 'Tested';
+$lang->block->typeList->testtask['wait'] = 'Wait';
+$lang->block->typeList->testtask['done'] = 'Done';
 $lang->block->typeList->testtask['all']  = 'All';
 
 $lang->block->modules['product']->moreLinkList = new stdclass();
@@ -1051,8 +1051,8 @@ $lang->block->flowchart[] = array('R&D Team', 'Claim a Task/Bug', 'Update Status
 $lang->block->flowchart[] = array('Testing Team', 'Write a Case', 'Implement a Case', 'Submit a Bug', 'Bug', 'Off a Bug');
 /* branch */
 $lang->branch->common = 'Branch';
-$lang->branch->manage = 'Manage a Branch';
-$lang->branch->delete = 'Delete Branch';
+$lang->branch->manage = 'Manage';
+$lang->branch->delete = 'Delete';
 
 $lang->branch->manageTitle = '%s Management';
 $lang->branch->all         = 'All';
@@ -1114,9 +1114,9 @@ $lang->bug->fromCase         = 'From a Case';
 $lang->bug->toCase           = 'To a Case';
 $lang->bug->colorTag         = 'Color Tag';
 
-$lang->bug->index              = 'Homepage';
-$lang->bug->create             = 'Create Bug';
-$lang->bug->batchCreate        = 'Batch Create';
+$lang->bug->index              = 'Home';
+$lang->bug->create             = 'Add a Bug';
+$lang->bug->batchCreate        = 'Batch Add';
 $lang->bug->confirmBug         = 'Confirm';
 $lang->bug->batchConfirm       = 'Batch Confirm';
 $lang->bug->edit               = 'Edit';
@@ -1125,21 +1125,21 @@ $lang->bug->batchChangeModule  = 'Batch Modify';
 $lang->bug->batchOff         = 'Batch Close';
 $lang->bug->assignTo           = 'Assign';
 $lang->bug->batchAssignTo      = 'Batch Assign';
-$lang->bug->browse             = 'Bug List';
-$lang->bug->view               = 'Bug Details';
+$lang->bug->browse             = 'Bugs';
+$lang->bug->view               = 'Details';
 $lang->bug->resolve            = 'Solve';
 $lang->bug->batchResolve       = 'Batch Resolve';
 $lang->bug->close              = 'Close';
 $lang->bug->activate           = 'Activate';
 $lang->bug->reportChart        = 'Report';
 $lang->bug->export             = 'Export Data';
-$lang->bug->delete             = 'Delete Bug';
+$lang->bug->delete             = 'Delete';
 $lang->bug->deleted            = 'Deleted';
-$lang->bug->saveTemplate       = 'Save Template';
+$lang->bug->saveTemplate       = 'Save';
 $lang->bug->setPublic          = 'Set as Public';
-$lang->bug->deleteTemplate     = 'Delete Template';
+$lang->bug->deleteTemplate     = 'Delete';
 $lang->bug->confirmStoryChange = 'Story Change Confirmation';
-$lang->bug->copy               = 'Duplicate a Bug';
+$lang->bug->copy               = 'Duplicate';
 
 $lang->bug->assignToMe     = 'Assigned to Me';
 $lang->bug->openedByMe     = 'Created by Me';
@@ -1157,7 +1157,7 @@ $lang->bug->needConfirm    = 'Story Change';
 $lang->bug->allProduct     = 'All' . $lang->productCommon;
 
 $lang->bug->ditto       = 'Ditto';
-$lang->bug->dittoNotice = 'This bug does not affiliate to the same product as the last one!';
+$lang->bug->dittoNotice = 'This bug does not link to the same product as the last one!';
 
 $lang->bug->lblAssignedTo               = 'Current Assign';
 $lang->bug->lblMailto                   = 'Mail To';
@@ -1178,12 +1178,12 @@ $lang->bug->legendMisc                  = 'Miscellaneous';
 
 $lang->bug->buttonConfirm        = 'Confirm';
 
-$lang->bug->confirmChangeProduct = "Modification on {$lang->productCommon} will cause related {$lang->projectCommon},Story and Task change. Do you want to do this?";
+$lang->bug->confirmChangeProduct = "Modification on {$lang->productCommon} will cause related {$lang->projectCommon}, Stories and Tasks change. Do you want to do this?";
 $lang->bug->confirmDelete        = 'Do you want to delete this bug?';
 $lang->bug->setTemplateTitle     = 'Please enter the title of template.';
-$lang->bug->remindTask           = 'This Bug has been converted to Task. Do you want to update Status of Task(ID %s)?';
+$lang->bug->remindTask           = 'This Bug has been converted to Task. Do you want to update Status of Task (ID %s)?';
 $lang->bug->skipOff            = 'Bug %s is not solved. You cannot close it.';
-$lang->bug->applyTemplate        = 'Apply Template';
+$lang->bug->applyTemplate        = 'Apply';
 
 $lang->bug->tplStep   = "<p>[Steps]</p>\n";
 $lang->bug->tplResult = "<p>[Results]</p>\n";
@@ -1249,7 +1249,7 @@ $lang->bug->typeList['']             = '';
 $lang->bug->typeList['codeerror']    = 'Code Error';
 $lang->bug->typeList['interface']    = 'Interface Optimization';
 $lang->bug->typeList['designchange'] = 'Design Change';
-$lang->bug->typeList['newfeature']   = 'New Feature';
+$lang->bug->typeList['newfeature']   = 'New Features';
 $lang->bug->typeList['designdefect'] = 'Design Defect';
 $lang->bug->typeList['config']       = 'Config';
 $lang->bug->typeList['install']      = 'Install/Deploy';
@@ -1270,7 +1270,7 @@ $lang->bug->confirmedList[0] = 'Not Confirmed';
 
 $lang->bug->resolutionList['']           = '';
 $lang->bug->resolutionList['bydesign']   = 'Design Issue';
-$lang->bug->resolutionList['duplicate']  = 'Duplicate Bug';
+$lang->bug->resolutionList['duplicate']  = 'Duplicated Bug';
 $lang->bug->resolutionList['external']   = 'External Reasons';
 $lang->bug->resolutionList['fixed']      = 'Solved';
 $lang->bug->resolutionList['notrepro']   = 'Irreproducible';
@@ -1284,14 +1284,14 @@ $lang->bug->report->select = 'Select Report Type ';
 $lang->bug->report->create = 'Generate a Report';
 
 $lang->bug->report->charts['bugsPerProject']        = $lang->projectCommon . 'Bug Count';
-$lang->bug->report->charts['bugsPerBuild']          = 'Bug Count Per Build';
-$lang->bug->report->charts['bugsPerModule']         = 'Bug Count Per Module';
-$lang->bug->report->charts['openedBugsPerDay']      = 'Bug Count Per Day';
-$lang->bug->report->charts['resolvedBugsPerDay']    = 'Solved Bug Per Day';
-$lang->bug->report->charts['closedBugsPerDay']      = 'Closed Bug Per Day';
-$lang->bug->report->charts['openedBugsPerUser']     = 'Submitted Bug Per User';
-$lang->bug->report->charts['resolvedBugsPerUser']   = 'Solved Bug Per User';
-$lang->bug->report->charts['closedBugsPerUser']     = 'Closed Bug Per User';
+$lang->bug->report->charts['bugsPerBuild']          = 'Per Build';
+$lang->bug->report->charts['bugsPerModule']         = 'Per Module';
+$lang->bug->report->charts['openedBugsPerDay']      = 'Per Day';
+$lang->bug->report->charts['resolvedBugsPerDay']    = 'Solved Per Day';
+$lang->bug->report->charts['closedBugsPerDay']      = 'ClosedPer Day';
+$lang->bug->report->charts['openedBugsPerUser']     = 'Submitted Per User';
+$lang->bug->report->charts['resolvedBugsPerUser']   = 'Solved Per User';
+$lang->bug->report->charts['closedBugsPerUser']     = 'Closed Per User';
 $lang->bug->report->charts['bugsPerSeverity']       = 'Bug Priority Report';
 $lang->bug->report->charts['bugsPerResolution']     = 'Bug Solution Report';
 $lang->bug->report->charts['bugsPerStatus']         = 'Bug Status Report';
@@ -1363,7 +1363,7 @@ $lang->bug->report->closedBugsPerUser->graph->xAxisName  = 'User';
 $lang->bug->report->bugsPerSeverity->graph->xAxisName       = 'Priority';
 $lang->bug->report->bugsPerResolution->graph->xAxisName     = 'Solution';
 $lang->bug->report->bugsPerStatus->graph->xAxisName         = 'Status';
-$lang->bug->report->bugsPerActivatedCount->graph->xAxisName = 'Activation Count';
+$lang->bug->report->bugsPerActivatedCount->graph->xAxisName = 'Activated Count';
 $lang->bug->report->bugsPerType->graph->xAxisName           = 'Type';
 $lang->bug->report->bugsPerAssignedTo->graph->xAxisName     = 'Assigned To';
 $lang->bug->report->bugLiveDays->graph->xAxisName           = 'Handling Time';
@@ -1399,9 +1399,9 @@ $lang->build->create    = "Create";
 $lang->build->edit      = "Edit";
 $lang->build->linkStory = "Link Story";
 $lang->build->linkBug   = "Link Bug";
-$lang->build->delete    = "Delete Build";
+$lang->build->delete    = "Delete";
 $lang->build->deleted   = "Deleted";
-$lang->build->view      = "Build Details";
+$lang->build->view      = "Details";
 $lang->build->batchUnlink          = 'Batch Removal';
 $lang->build->batchUnlinkStory     = 'Batch Story Removal';
 $lang->build->batchUnlinkBug       = 'Batch Bug Removal';
@@ -1420,7 +1420,7 @@ $lang->build->builder   = 'Builder';
 $lang->build->scmPath   = 'SCM Path';
 $lang->build->filePath  = 'File Path';
 $lang->build->desc      = 'Description';
-$lang->build->files     = 'Upload Files';
+$lang->build->files     = 'Files';
 $lang->build->last      = 'Last Build';
 $lang->build->unlinkStory        = 'Remove Story';
 $lang->build->unlinkBug          = 'Remove Bug';
@@ -1441,7 +1441,7 @@ $lang->build->action = new stdclass();
 $lang->build->action->buildopened = '$date, created by <strong>$actor</strong>, Build <strong>$extra</strong>.' . "\n";
 /* company */
 $lang->company->common   = 'Company';
-$lang->company->index    = "Homepage";
+$lang->company->index    = "Home";
 $lang->company->edit     = "Edit";
 $lang->company->view     = "Info";
 $lang->company->browse   = "User List";
@@ -1503,7 +1503,7 @@ $lang->convert->fail        = '<span class="text-danger"><i class="icon-remove-s
 
 $lang->convert->dbHost      = 'Database Server';
 $lang->convert->dbPort      = 'Server Port';
-$lang->convert->dbUser      = 'Databse User Name';
+$lang->convert->dbUser      = 'Database User Name';
 $lang->convert->dbPassword  = 'Database Password';
 $lang->convert->dbName      = 'Databse used in %s';
 $lang->convert->dbCharset   = '%s Database Code';
@@ -1520,30 +1520,30 @@ $lang->convert->count      = 'Count';
 $lang->convert->info       = 'Info';
 
 $lang->convert->bugfree = new stdclass();
-$lang->convert->bugfree->users    = 'User';
+$lang->convert->bugfree->users    = 'Users';
 $lang->convert->bugfree->projects = $lang->projectCommon;
-$lang->convert->bugfree->modules  = 'Module';
-$lang->convert->bugfree->bugs     = 'Bug';
-$lang->convert->bugfree->cases    = 'Test Case';
-$lang->convert->bugfree->results  = 'Result';
+$lang->convert->bugfree->modules  = 'Modules';
+$lang->convert->bugfree->bugs     = 'Bugs';
+$lang->convert->bugfree->cases    = 'Test Cases';
+$lang->convert->bugfree->results  = 'Results';
 $lang->convert->bugfree->actions  = 'History';
-$lang->convert->bugfree->files    = 'File';
+$lang->convert->bugfree->files    = 'Files';
 
 $lang->convert->redmine = new stdclass();
-$lang->convert->redmine->users        = 'User';
-$lang->convert->redmine->groups       = 'Group';
+$lang->convert->redmine->users        = 'Users';
+$lang->convert->redmine->groups       = 'Groups';
 $lang->convert->redmine->products     = $lang->productCommon;
 $lang->convert->redmine->projects     = $lang->projectCommon;
-$lang->convert->redmine->stories      = 'Story';
-$lang->convert->redmine->tasks        = 'Task';
-$lang->convert->redmine->bugs         = 'Bug';
+$lang->convert->redmine->stories      = 'Stories';
+$lang->convert->redmine->tasks        = 'Tasks';
+$lang->convert->redmine->bugs         = 'Bugs';
 $lang->convert->redmine->productPlans = $lang->productCommon . 'Planning';
-$lang->convert->redmine->teams        = 'Team';
-$lang->convert->redmine->releases     = 'Release';
-$lang->convert->redmine->builds       = 'Build';
+$lang->convert->redmine->teams        = 'Teams';
+$lang->convert->redmine->releases     = 'Releases';
+$lang->convert->redmine->builds       = 'Builds';
 $lang->convert->redmine->docLibs      = 'Doc Lib';
 $lang->convert->redmine->docs         = 'Doc';
-$lang->convert->redmine->files        = 'File';
+$lang->convert->redmine->files        = 'Files';
 
 $lang->convert->errorFileNotExits  = 'File %s is not found.';
 $lang->convert->errorUserExists    = 'User %s existed.';
@@ -1624,7 +1624,7 @@ $lang->cron->notice->help = 'Note：If the server is restarted, or Planned Task 
 $lang->cron->notice->errorRule = '"%s" is not valid';
 /* custom */
 $lang->custom->common    = 'Custom';
-$lang->custom->index     = 'Homepage';
+$lang->custom->index     = 'Home';
 $lang->custom->set       = 'Customize';
 $lang->custom->restore   = 'Reset to Default';
 $lang->custom->key       = 'Key';
@@ -1633,22 +1633,22 @@ $lang->custom->flow      = 'Process';
 $lang->custom->select    = 'Select Process';
 $lang->custom->branch    = 'Multi Branch';
 
-$lang->custom->object['story']    = 'Story';
-$lang->custom->object['task']     = 'Task';
-$lang->custom->object['bug']      = 'Bug';
-$lang->custom->object['testcase'] = 'Case';
-$lang->custom->object['testtask'] = 'Build';
+$lang->custom->object['story']    = 'Stories';
+$lang->custom->object['task']     = 'Tasks';
+$lang->custom->object['bug']      = 'Bugs';
+$lang->custom->object['testcase'] = 'Cases';
+$lang->custom->object['testtask'] = 'Builds';
 $lang->custom->object['todo']     = 'To-Dos';
-$lang->custom->object['user']     = 'User';
+$lang->custom->object['user']     = 'Users';
 
 $lang->custom->story = new stdClass();
 $lang->custom->story->fields['priList']          = 'Priority';
 $lang->custom->story->fields['sourceList']       = 'Source';
-$lang->custom->story->fields['reasonList']       = 'Reason';
-$lang->custom->story->fields['stageList']        = 'Stage';
+$lang->custom->story->fields['reasonList']       = 'Reasons';
+$lang->custom->story->fields['stageList']        = 'Stages';
 $lang->custom->story->fields['statusList']       = 'Status';
-$lang->custom->story->fields['reviewResultList'] = 'Result';
-$lang->custom->story->fields['review']           = 'Review';
+$lang->custom->story->fields['reviewResultList'] = 'Results';
+$lang->custom->story->fields['review']           = 'Reviews';
 
 $lang->custom->task = new stdClass();
 $lang->custom->task->fields['priList']    = 'Priority';
@@ -1692,9 +1692,9 @@ $lang->custom->confirmRestore = 'Do you want to reset to Default?';
 
 $lang->custom->notice = new stdclass();
 $lang->custom->notice->userRole  = 'Key must be no more than 20 characters!';
-$lang->custom->notice->indexPage['product'] = "ZenTao 8.2+ has Product Homepage. Do you want to enter Product Homepage?";
-$lang->custom->notice->indexPage['project'] = "ZenTao 8.2+ has Project Homepage. Do you want to enter Project Homepage?";
-$lang->custom->notice->indexPage['qa']      = "ZenTao 8.2+ has Testing Homepage. Do you want to enter Testing Homepage?";
+$lang->custom->notice->indexPage['product'] = "ZenTao 8.2+ has Product Home. Do you want to enter Product Home?";
+$lang->custom->notice->indexPage['project'] = "ZenTao 8.2+ has Project Home. Do you want to enter Project Home?";
+$lang->custom->notice->indexPage['qa']      = "ZenTao 8.2+ has Testing Home. Do you want to enter Testing Home?";
 
 $lang->custom->storyReview   = 'Review';
 $lang->custom->reviewList[1] = 'On';
@@ -1731,23 +1731,23 @@ $lang->datatable->showModuleList['base'] = 'Base node';
 $lang->datatable->showModuleList['end']  = 'End node';
 /* dept */
 $lang->dept->common      = 'Department';
-$lang->dept->manageChild = "Child Dept";
-$lang->dept->edit        = "Edit Dept";
-$lang->dept->delete      = "Delete Dept";
-$lang->dept->parent      = "Parent Dept";
+$lang->dept->manageChild = "Children";
+$lang->dept->edit        = "Edit";
+$lang->dept->delete      = "Delete";
+$lang->dept->parent      = "Parent";
 $lang->dept->manager     = "Manager";
 $lang->dept->name        = "Dept Name";
-$lang->dept->browse      = "View Dept";
-$lang->dept->manage      = "Maintain Dept";
+$lang->dept->browse      = "View";
+$lang->dept->manage      = "Manage";
 $lang->dept->updateOrder = "Update/Order";
-$lang->dept->add         = "Add Dept";
+$lang->dept->add         = "Add";
 $lang->dept->dragAndSort = "Drag and Sort";
 
 $lang->dept->confirmDelete = " Do you want to delete this Dept?";
 $lang->dept->successSave   = " Saved!";
 
 $lang->dept->error = new stdclass();
-$lang->dept->error->hasSons  = 'This Dept has child Dept. You cannot be deleted!';
+$lang->dept->error->hasSons  = 'This Dept has children Dept. You cannot be deleted!';
 $lang->dept->error->hasUsers = 'This Dept has staff. It cannot be deleted!';
 /* dev */
 $lang->dev->common     = 'Reproduct';
@@ -1755,7 +1755,7 @@ $lang->dev->api        = 'API';
 $lang->dev->db         = 'Database';
 $lang->dev->editor     = 'Editor';
 $lang->dev->dbList     = 'Database';
-$lang->dev->moduleList = 'ModuleList';
+$lang->dev->moduleList = 'Modules';
 $lang->dev->params     = 'Parameters';
 $lang->dev->type       = 'Type';
 $lang->dev->desc       = 'Description';
@@ -1817,11 +1817,11 @@ $lang->dev->tableList['common']         = 'Common';
 $lang->dev->tableList['convert']        = 'Convert';
 $lang->dev->tableList['dev']            = 'Reproduct';
 $lang->dev->tableList['git']            = 'GIT';
-$lang->dev->tableList['index']          = 'Homepage';
+$lang->dev->tableList['index']          = 'Home';
 $lang->dev->tableList['install']        = 'Install';
 $lang->dev->tableList['mail']           = 'Email';
 $lang->dev->tableList['misc']           = 'Misc';
-$lang->dev->tableList['my']             = 'My Zone';
+$lang->dev->tableList['my']             = 'Dashboard';
 $lang->dev->tableList['qa']             = 'QA';
 $lang->dev->tableList['report']         = 'Report';
 $lang->dev->tableList['search']         = 'Search';
@@ -1834,7 +1834,7 @@ $lang->dev->tableList['cron']           = 'Scheduled Task';
 $lang->dev->tableList['mailqueue']      = 'Mail Queue';
 $lang->dev->tableList['datatable']      = 'Data Table';
 
-$lang->dev->groupList['my']      = 'My Zone';
+$lang->dev->groupList['my']      = 'Dashboard';
 $lang->dev->groupList['product'] = $lang->productCommon;
 $lang->dev->groupList['project'] = $lang->projectCommon;
 $lang->dev->groupList['qa']      = 'Testing';
@@ -1857,7 +1857,7 @@ $lang->doc->type           = 'Type';
 $lang->doc->content        = 'Text';
 $lang->doc->keywords       = 'Keyword';
 $lang->doc->url            = 'URL';
-$lang->doc->files          = 'File';
+$lang->doc->files          = 'Files';
 $lang->doc->addedBy        = 'Added By';
 $lang->doc->addedDate      = 'Added Date';
 $lang->doc->editedBy       = 'Edited By';
@@ -1869,19 +1869,19 @@ $lang->doc->moduleDoc      = 'By Module';
 $lang->doc->searchDoc      = 'By Search';
 //$lang->doc->allDoc         = 'All Document';
 
-$lang->doc->index          = 'Homepage';
+$lang->doc->index          = 'Home';
 $lang->doc->create         = 'Create';
 $lang->doc->edit           = 'Edit';
 $lang->doc->delete         = 'Delete';
 $lang->doc->browse         = 'List';
 $lang->doc->view           = 'Details';
 $lang->doc->manageType     = 'Type';
-$lang->doc->addType        = 'Add Type';
+$lang->doc->addType        = 'Add';
 
 $lang->doc->libName        = 'Library Name';
-$lang->doc->createLib      = 'Create Library';
-$lang->doc->editLib        = 'Edit Library';
-$lang->doc->deleteLib      = 'Delete Library';
+$lang->doc->createLib      = 'Create';
+$lang->doc->editLib        = 'Edit';
+$lang->doc->deleteLib      = 'Delete';
 
 $lang->doc->allProduct     = 'All' . $lang->productCommon;
 $lang->doc->allProject     = 'All' . $lang->projectCommon;
@@ -1907,7 +1907,7 @@ $lang->doclib->name = 'Library Name';
 /* editor */
 $lang->editor->common    = 'Editor';
 $lang->editor->api       = 'API';
-$lang->editor->index     = 'Homepage';
+$lang->editor->index     = 'Home';
 $lang->editor->newMethod = 'New Method';
 $lang->editor->extend    = 'Extension';
 $lang->editor->api       = 'API';
@@ -1917,11 +1917,11 @@ $lang->editor->newHook   = 'New Hook';
 $lang->editor->newExtend = 'New Extension';
 $lang->editor->newPage   = 'New Page';
 $lang->editor->override  = 'Override';
-$lang->editor->edit      = 'Edit Extension';
-$lang->editor->save      = 'Save Page';
-$lang->editor->delete    = 'Delete Page';
+$lang->editor->edit      = 'Edit';
+$lang->editor->save      = 'Save';
+$lang->editor->delete    = 'Delete';
 
-$lang->editor->moduleList   = 'Module List';
+$lang->editor->moduleList   = 'Modules';
 $lang->editor->filePath     = "Extension:";
 $lang->editor->sourceFile   = 'Source File:';
 $lang->editor->fileName     = "File Name:";
@@ -1959,7 +1959,7 @@ $lang->editor->modules['doc']         = 'Document';
 $lang->editor->modules['extension']   = 'Extensiona';
 $lang->editor->modules['file']        = 'File';
 $lang->editor->modules['group']       = 'Group';
-$lang->editor->modules['index']       = 'Homepage';
+$lang->editor->modules['index']       = 'Home';
 $lang->editor->modules['install']     = 'Install';
 $lang->editor->modules['misc']        = 'Misc';
 $lang->editor->modules['my']          = 'Dashboard';
@@ -1974,7 +1974,7 @@ $lang->editor->modules['story']       = 'Story';
 $lang->editor->modules['task']        = 'Task';
 $lang->editor->modules['testcase']    = 'Case';
 $lang->editor->modules['testtask']    = 'Test Task';
-$lang->editor->modules['todo']        = 'To-Dos';
+$lang->editor->modules['todo']        = 'To-Do';
 $lang->editor->modules['tree']        = 'Module';
 $lang->editor->modules['upgrade']     = 'Upgrade';
 $lang->editor->modules['user']        = 'User';
@@ -2032,14 +2032,14 @@ $lang->extension->uninstallFinished        = 'Extension has been uninstalled.';
 $lang->extension->deactivateFinished       = 'Extension has been deactivated.';
 $lang->extension->activateFinished         = 'Extension has been activated.';
 $lang->extension->eraseFinished            = 'Extension has been removed.';
-$lang->extension->unremovedFiles           = 'File or direcroty cannot be deleted. You have to manually delete';
+$lang->extension->unremovedFiles           = 'File or direcroty cannot be deleted. You have to manually delete it.';
 $lang->extension->executeCommands          = '<h3>Execute command lines below to fix the problem:</h3>';
 $lang->extension->successDownloadedPackage = 'Extension downloaded!';
 $lang->extension->successCopiedFiles       = 'File copied!';
 $lang->extension->successInstallDB         = 'Database installed!';
-$lang->extension->viewInstalled            = 'View Installed';
-$lang->extension->viewAvailable            = 'View Available';
-$lang->extension->viewDeactivated          = 'View Deactivated';
+$lang->extension->viewInstalled            = 'Installed';
+$lang->extension->viewAvailable            = 'Available';
+$lang->extension->viewDeactivated          = 'Deactivated';
 $lang->extension->backDBFile               = 'Extension related data has been backed up to %s!';
 $lang->extension->noticeOkFile             = '<h5>For security reasons, your Admin account has to be confirmed.</h5>
     <h5>Plese Login your ZenTao server and create %s.</h5>
@@ -2076,7 +2076,7 @@ $lang->extension->errorIncompatible            = 'Incompatible with this version
 $lang->extension->errorUninstallDepends        = '“%s” is dependent on this extension. Please do not install it.';
 /* file */
 $lang->file = new stdclass();
-$lang->file->common        = 'Attachment';
+$lang->file->common        = 'File';
 $lang->file->uploadImages  = 'Batch Upload Images';
 $lang->file->download      = 'Download Files';
 $lang->file->edit          = 'Rename';
@@ -2098,7 +2098,7 @@ $lang->file->errorFileSize    = " File size exceeds the limit. It cannot be uplo
 $lang->file->errorFileUpload  = " Uploading failed. File size might exceeds the limit.";
 $lang->file->dangerFile       = " File has been rejected to upload for security issues.";
 $lang->file->errorSuffix      = 'Format is incorrect. .zip files ONLY!';
-$lang->file->errorExtract     = 'Extracting file failed. File might be damaged or invalid files in the zip package.';
+$lang->file->errorExtract     = 'Extracting files failed. Files might be damaged or invalid files in the zip package.';
 $lang->file->uploadImagesExplain = <<<EOD
 <p>1. If the uploaded file is image zip package, the file name will be the label and images will be the content.</p>
 <p>2. If the file name containing numbers/underlines, they will be omitted.</p>
@@ -2112,15 +2112,15 @@ $lang->git->diff    = 'Diff Code';
 $lang->git->apiSync = 'API: Sync Git Log';
 /* group */
 $lang->group->common             = 'Group Privilege';
-$lang->group->browse             = 'View Group';
-$lang->group->create             = 'Add Group';
-$lang->group->edit               = 'Edit Group';
-$lang->group->copy               = 'Copy Group';
-$lang->group->delete             = 'Delete Group';
-$lang->group->manageView         = 'View';
+$lang->group->browse             = 'View';
+$lang->group->create             = 'Add';
+$lang->group->edit               = 'Edit';
+$lang->group->copy               = 'Copy';
+$lang->group->delete             = 'Deletp';
+$lang->group->manageView         = 'Manage';
 $lang->group->managePriv         = 'Privilege ';
-$lang->group->managePrivByGroup  = 'Maintain by Group';
-$lang->group->managePrivByModule = 'Maintain by Module';
+$lang->group->managePrivByGroup  = 'By Groups';
+$lang->group->managePrivByModule = 'By Modules';
 $lang->group->byModuleTips       = '<span class="tips">( Press shift/control to multi select)</span>';
 $lang->group->manageMember       = 'Members';
 $lang->group->confirmDelete      = 'Do you want to delete this User Group?';
@@ -2190,8 +2190,8 @@ $lang->group->versions['1_0_1']     = 'ZenTao1.0.1';
 
 include (dirname(__FILE__) . '/resource.php');
 /* index */
-$lang->index->common = 'Homepage';
-$lang->index->index  = 'Homepage';
+$lang->index->common = 'Home';
+$lang->index->index  = 'Home';
 /* install */
 $lang->install = new stdclass();
 
@@ -2201,9 +2201,9 @@ $lang->install->pre     = 'Back';
 $lang->install->reload  = 'Reload';
 $lang->install->error   = 'Error ';
 
-$lang->install->start            = 'Start to Install';
+$lang->install->start            = 'Start Installing';
 $lang->install->keepInstalling   = 'Continue installing this version.';
-$lang->install->seeLatestRelease = 'View Latest Version';
+$lang->install->seeLatestRelease = 'Latest Version';
 $lang->install->welcome          = 'Welcome to ZenTao Project Management Software!';
 $lang->install->license          = 'ZenTao PMS is under  Z PUBLIC LICENSE(ZPL) 1.2';
 $lang->install->desc             = <<<EOT
@@ -2256,7 +2256,7 @@ $lang->install->chmod        = ' "%s" privilege has to be modified.<br /> Run <b
 $lang->install->defaultLang    = 'Default Lang';
 $lang->install->dbHost         = 'Database Host';
 $lang->install->dbHostNote     = 'If 127.0.0.1 is not accessible, try localhost.';
-$lang->install->dbPort         = 'host Port';
+$lang->install->dbPort         = 'Database Port';
 $lang->install->dbUser         = 'Database User';
 $lang->install->dbPassword     = 'Database Password';
 $lang->install->dbName         = 'Database Library';
@@ -2290,8 +2290,8 @@ $lang->install->errorEmptyPassword = 'Password should not be blank.';
 
 $lang->install->groupList['ADMIN']['name']  = 'Admin';
 $lang->install->groupList['ADMIN']['desc']  = 'System Admin';
-$lang->install->groupList['DEV']['name']    = 'R&D';
-$lang->install->groupList['DEV']['desc']    = 'R&D Team';
+$lang->install->groupList['DEV']['name']    = 'Dev';
+$lang->install->groupList['DEV']['desc']    = 'Dev Team';
 $lang->install->groupList['QA']['name']     = 'Testing';
 $lang->install->groupList['QA']['desc']     = 'Testing Team';
 $lang->install->groupList['PM']['name']     = 'Project Manager';
@@ -2320,7 +2320,7 @@ EOT;
 
 $lang->install->promotion = "Products of Nature Easy Soft:";
 $lang->install->chanzhi   = new stdclass();
-$lang->install->chanzhi->name = 'Changer CMS';
+$lang->install->chanzhi->name = 'Changer';
 $lang->install->chanzhi->desc = <<<EOD
 <ul>
   <li>Professional Content Management Sysytem</li>
@@ -2330,7 +2330,7 @@ $lang->install->chanzhi->desc = <<<EOD
 </ul>
 EOD;
 $lang->install->ranzhi = new stdclass();
-$lang->install->ranzhi->name = 'Ranger Collaborative System';
+$lang->install->ranzhi->name = 'Ranger';
 $lang->install->ranzhi->desc = <<<EOD
 <ul>
   <li>Customer Management and Order Tracking</li>
@@ -2351,7 +2351,7 @@ $lang->install->yidou->desc = <<<EOD
 EOD;
 /* mail */
 $lang->mail->common = 'Email Settings';
-$lang->mail->index  = 'Homepage';
+$lang->mail->index  = 'Home';
 $lang->mail->detect = 'Testing';
 $lang->mail->edit   = 'Edit Settings';
 $lang->mail->save   = 'Saved';
@@ -2421,18 +2421,18 @@ $lang->mail->subject        = 'Testing Email';
 $lang->mail->content        = 'Email configured!';
 $lang->mail->successSended  = 'Sent!';
 $lang->mail->confirmDelete  = 'Do you want to delete it?';
-$lang->mail->sendmailTips   = 'Note: Email author will not receive this email.';
+$lang->mail->sendmailTips   = 'Note: Email sender will not receive this email.';
 $lang->mail->needConfigure  = 'Email configuration is not found. Please cinfigure the Email first.';
 $lang->mail->nofsocket      = 'fsocket related function has been deactivated. Mails cannot send out. Please modify allow_url_fopen in php.ini to turn on Onopenssl, and restart Apache.';
 $lang->mail->noOpenssl      = 'Please turn on Onopenssl, and restart Apache.';
 $lang->mail->sendCloudFail  = 'Failed. Reason:';
 $lang->mail->sendCloudHelp  = <<<EOD
-<p>1、Notice SendCloud是SendCloud的Team通知服务。具体可以到<a href="http://notice.sendcloud.net/" target="_blank">notice.sendcloud.net</a>查看</p>
-<p>2、accessKey和secretKey可以到登陆后的"设置"页面查看。Email人地址和名称也在"设置"页面设置。</p>
-<p>3、Email时，Notice SendCloudContact里面的昵称要跟Email一致，否则无法成功Email。可以到[<a href='%s'>同步Contact</a>]页面，将ZenTaoUser同步到SendCloudContact中</p>
+<p>1、Notice SendCloud is a notification service of SendCloud. Please refer to <a href="http://notice.sendcloud.net/" target="_blank">notice.sendcloud.net</a> View</p>
+<p>2、accessKey and secretKey can be viewed at Settings.Email addresses can be found there too.</p>
+<p>3、When sending an Email，Nickname in Notice SendCloud Contact should be the sone one as in Email. Otherwise，Email cannot be sent out. Go to [<a href='%s'> to synchronize Contact</a>], and use ZenTao account to synchronize SendCloud Contact</p>
 EOD;
-$lang->mail->sendCloudSuccess = '操作成功';
-$lang->mail->closeSendCloud   = '关闭发送';
+$lang->mail->sendCloudSuccess = 'Done';
+$lavng->mail->closeSendCloud   = 'Close';
 /* misc */
 $lang->misc = new stdclass();
 $lang->misc->common = 'Misc';
@@ -2454,16 +2454,16 @@ $lang->misc->zentao->about['proversion']   = 'ZenTao Pro';
 $lang->misc->zentao->about['official']     = "Official Website";
 $lang->misc->zentao->about['changelog']    = "Version Log";
 $lang->misc->zentao->about['license']      = "License";
-$lang->misc->zentao->about['extension']    = "Extension Platform";
+$lang->misc->zentao->about['extension']    = "Extensions";
 
 $lang->misc->zentao->support['vip']        = "VIP Technical Support";
 $lang->misc->zentao->support['manual']     = "User Manual";
 $lang->misc->zentao->support['faq']        = "FAQ";
 $lang->misc->zentao->support['ask']        = "Q&A";
-$lang->misc->zentao->support['qqgroup']    = "官方QQ群";
+$lang->misc->zentao->support['qqgroup']    = "QQ Group";
 
 $lang->misc->zentao->cowin['donate']       = "Donate";
-$lang->misc->zentao->cowin['reportbug']    = "Report Bug ";
+$lang->misc->zentao->cowin['reportbug']    = "Report a Bug";
 $lang->misc->zentao->cowin['feedback']     = "Feedback";
 $lang->misc->zentao->cowin['recommend']    = "Refer a Friend";
 $lang->misc->zentao->cowin['cowinmore']    = "More";
@@ -2476,7 +2476,7 @@ $lang->misc->zentao->service['install']    = 'ZenTao Installation Service';
 $lang->misc->zentao->service['fixissue']   = 'ZenTao Trouble Shooting';
 $lang->misc->zentao->service['servicemore']= 'More';
 
-$lang->misc->mobile      = "Mobile Access";
+$lang->misc->mobile      = "Mobile";
 $lang->misc->noGDLib     = "Please use the browser on your phone to visit <strong>%s</strong>";
 $lang->misc->copyright   = "&copy; 2009 - 2016 <a href='http://www.cnezsoft.com' target='_blank'>Qingdao Nature Easy Soft Co., Ltd</a> Tel 4006-8899-23 Email <a href='mailto:co@zentao.net'>co@zentao.net</a>";
 $lang->misc->checkTable  = "Check Data Table";
@@ -2498,23 +2498,23 @@ $lang->misc->feature->all['latest'][] = array('title'=>'Custom Export', 'desc' =
 $lang->misc->feature->all['latest'][] = array('title'=>'Story/Task/Bug/Case Combinatorial Search ', 'desc' => '<p>On Story/Task/Bug/Case List page, you can do combinatorial search on Modules and Tabs.</p>');
 $lang->misc->feature->all['latest'][] = array('title'=>'Rookies' Tutorial', 'desc' => '<p>Tutorial for Rookies is added for users to know how to use ZenTao.</p>');
 /* my */
-$lang->my->common = 'My Zone';
+$lang->my->common = 'Dashboard';
 
 /* 方法List。*/
-$lang->my->index          = 'Homepage';
+$lang->my->index          = 'Home';
 $lang->my->todo           = 'My To-Dos';
-$lang->my->task           = 'My Task';
-$lang->my->bug            = 'My Bug';
-$lang->my->testTask       = 'My Version';
-$lang->my->testCase       = 'My Case';
-$lang->my->story          = 'My Story';
+$lang->my->task           = 'My Tasks';
+$lang->my->bug            = 'My Bugs';
+$lang->my->testTask       = 'My Tasks';
+$lang->my->testCase       = 'My Cases';
+$lang->my->story          = 'My Stories';
 $lang->my->myProject      = "My {$lang->projectCommon}";
 $lang->my->profile        = 'My Profile';
 $lang->my->dynamic        = 'My Dynamic';
-$lang->my->editProfile    = 'Edi Profile';
+$lang->my->editProfile    = 'Edit Profile';
 $lang->my->changePassword = 'Edit Password';
 $lang->my->unbind         = 'Unbind Ranger';
-$lang->my->manageContacts = 'Maintain Contact';
+$lang->my->manageContacts = 'Manage Contact';
 $lang->my->deleteContacts = 'Delete Contact';
 
 $lang->my->taskMenu = new stdclass();
@@ -2535,8 +2535,8 @@ $lang->my->home->latest        = 'Latest Dynamic';
 $lang->my->home->action        = "%s, %s <em>%s</em> %s <a href='%s'>%s</a>.";
 $lang->my->home->projects      = $lang->projectCommon;
 $lang->my->home->products      = $lang->productCommon;
-$lang->my->home->createProject = "Create {$lang->projectCommon}";
-$lang->my->home->createProduct = "Create {$lang->productCommon}";
+$lang->my->home->createProject = "Create a {$lang->projectCommon}";
+$lang->my->home->createProduct = "Create a {$lang->productCommon}";
 $lang->my->home->help          = "<a href='http://www.zentao.net/help-read-79236.html' target='_blank'>Help</a>";
 $lang->my->home->noProductsTip = "No {$lang->productCommon} found here.";
 
@@ -2557,7 +2557,7 @@ $lang->product->delete      = "Delete {$lang->productCommon}";
 $lang->product->deleted     = "Deleted";
 $lang->product->close       = "Close";
 $lang->product->select      = "Please select {$lang->productCommon}";
-$lang->product->mine        = 'My responsibility:';
+$lang->product->mine        = 'My duty:';
 $lang->product->other       = 'Other:';
 $lang->product->closed      = 'Closed';
 $lang->product->updateOrder = 'Sort';
@@ -2566,15 +2566,15 @@ $lang->product->all         = "All {$lang->productCommon}";
 $lang->product->basicInfo = 'Basic Info';
 $lang->product->otherInfo = 'Other Info';
 
-$lang->product->plans    = 'Planning Count';
-$lang->product->releases = 'Release Count';
-$lang->product->docs     = 'Document Count';
+$lang->product->plans    = 'Plannings';
+$lang->product->releases = 'Releases';
+$lang->product->docs     = 'Documents';
 $lang->product->bugs     = 'Linked Bug';
 $lang->product->projects = "Linked {$lang->projectCommon} Count";
-$lang->product->cases    = 'Case Count';
-$lang->product->builds   = 'Build Count';
+$lang->product->cases    = 'Cases';
+$lang->product->builds   = 'Builds';
 $lang->product->roadmap  = 'Roadmap';
-$lang->product->doc      = 'Document List';
+$lang->product->doc      = 'Documents';
 $lang->product->project  = $lang->projectCommon . 'List';
 
 $lang->product->confirmDelete   = " Do you want to delete {$lang->productCommon}?";
@@ -2607,7 +2607,7 @@ $lang->product->willOff    = 'To be Closed';
 $lang->product->closedStory  = 'Closed';
 $lang->product->unclosed     = 'Open';
 
-$lang->product->allStory    = 'AllStory';
+$lang->product->allStory    = 'All Stories';
 $lang->product->allProduct  = 'All' . $lang->productCommon;
 $lang->product->allProductsOfProject = 'All related' . $lang->productCommon;
 
@@ -2624,9 +2624,9 @@ $lang->product->statusList['']       = '';
 $lang->product->statusList['normal'] = 'Normal';
 $lang->product->statusList['closed'] = 'Closed';
 
-$lang->product->aclList['open']    = "Default({$lang->productCommon} with View permission can access to it)";
-$lang->product->aclList['private'] = "Private{$lang->productCommon}({$lang->projectCommon}team members only)";
-$lang->product->aclList['custom']  = 'Custom(Team members and Whitelisr members have access to it.)';
+$lang->product->aclList['open']    = "Default ({$lang->productCommon} with View permission can access to it)";
+$lang->product->aclList['private'] = "Private {$lang->productCommon}({$lang->projectCommon}team members only)";
+$lang->product->aclList['custom']  = 'Custom (Team members and Whitelisr members have access to it.)';
 
 $lang->product->storySummary = " <strong>%s</strong> Story in total on this page, <strong>%s</strong> man-hour estimated. Case coverage is <strong>%s</strong>.";
 $lang->product->noMatched    = '"%s" cannot be found.' . $lang->productCommon;
@@ -2678,13 +2678,13 @@ $lang->productplan->desc    = 'Desc';
 $lang->productplan->begin   = 'Begin';
 $lang->productplan->end     = 'End';
 
-$lang->productplan->endList[7]   = 'One Week';
-$lang->productplan->endList[14]  = 'Two Weeks';
-$lang->productplan->endList[31]  = 'One Month';
+$lang->productplan->endList[7]   = '1 Week';
+$lang->productplan->endList[14]  = '2 Weeks';
+$lang->productplan->endList[31]  = '1 Month';
 $lang->productplan->endList[62]  = '2 Months';
 $lang->productplan->endList[93]  = '3 Months';
 $lang->productplan->endList[186] = '6 Months';
-$lang->productplan->endList[365] = 'One Year';
+$lang->productplan->endList[365] = '1 Year';
 
 $lang->productplan->errorNoTitle = 'ID %s title should not be empty.';
 $lang->productplan->errorNoBegin = 'ID %s begin time should not be empty.';
@@ -2714,15 +2714,15 @@ $lang->project->teamname      = 'Team Name';
 $lang->project->order         = "Sort {$lang->projectCommon}";
 $lang->project->products      = "Link {$lang->productCommon}";
 $lang->project->whitelist     = 'Whitelist';
-$lang->project->totalEstimate = 'Estimation';
+$lang->project->totalEstimate = 'Estimated';
 $lang->project->totalConsumed = 'Consumed';
-$lang->project->totalLeft     = 'Total Left';
-$lang->project->Left          = 'Left';
+$lang->project->totalLeft     = 'Total Remain';
+$lang->project->Left          = 'Remain';
 $lang->project->progess       = 'Progess';
-$lang->project->hours         = 'Estimate %s, Consumed %s, Left %s';
-$lang->project->viewBug       = 'View Bug';
+$lang->project->hours         = 'Estimated %s, Consumed %s, Remain %s';
+$lang->project->viewBug       = 'View Bugs';
 $lang->project->noProduct     = "No {$lang->productCommon}";
-$lang->project->createStory   = "Add Story";
+$lang->project->createStory   = "Add a Story";
 $lang->project->all           = 'All';
 $lang->project->undone        = 'Undone';
 $lang->project->unclosed      = 'Unclosed';
@@ -2734,7 +2734,7 @@ $lang->project->delayed       = 'Delayed';
 
 $lang->project->start    = 'Start';
 $lang->project->activate = 'Activate';
-$lang->project->putoff   = 'Putoff';
+$lang->project->putoff   = 'Postpone';
 $lang->project->suspend  = 'Suspend';
 $lang->project->close    = 'Close';
 
@@ -2742,13 +2742,13 @@ $lang->project->typeList['sprint']    = 'Sprint';
 $lang->project->typeList['waterfall'] = 'Waterfall';
 $lang->project->typeList['ops']       = 'OPS';
 
-$lang->project->endList[7]   = 'One Week';
+$lang->project->endList[7]   = '1 Week';
 $lang->project->endList[14]  = '2 Weeks';
-$lang->project->endList[31]  = 'One Month';
+$lang->project->endList[31]  = '1 Month';
 $lang->project->endList[62]  = '2 Months';
 $lang->project->endList[93]  = '3 Months';
 $lang->project->endList[186] = '6 Months';
-$lang->project->endList[365] = 'One Year';
+$lang->project->endList[365] = '1 Year';
 
 $lang->team = new stdclass();
 $lang->team->account    = 'Account';
@@ -2761,20 +2761,20 @@ $lang->team->totalHours = 'Total';
 $lang->project->basicInfo = 'Basic Info';
 $lang->project->otherInfo = 'Other Info';
 
-$lang->project->statusList['wait']      = 'Pending';
-$lang->project->statusList['doing']     = 'In Progress';
+$lang->project->statusList['wait']      = 'Wait';
+$lang->project->statusList['doing']     = 'Doing';
 $lang->project->statusList['suspended'] = 'Suspended';
 $lang->project->statusList['done']      = 'Done';
 
-$lang->project->aclList['open']    = "Default(With View permission of {$lang->projectCommon}, you will have access to {$lang->projectCommon}.)";
-$lang->project->aclList['private'] = 'Private(Only team members can access to it.)';
-$lang->project->aclList['custom']  = 'Whitelist(Team members and the whitelist members can access to it.)';
+$lang->project->aclList['open']    = "Default (With the permission of {$lang->projectCommon}, you can access to {$lang->projectCommon}.)";
+$lang->project->aclList['private'] = 'Private (Only team members can access to it.)';
+$lang->project->aclList['custom']  = 'Whitelist (Team members and the whitelist members can access to it.)';
 
 $lang->project->index            = "Home";
-$lang->project->task             = 'Task';
+$lang->project->task             = 'Tasks';
 $lang->project->groupTask        = 'View Task by Group';
-$lang->project->story            = 'Story';
-$lang->project->bug              = 'Bug';
+$lang->project->story            = 'Stories';
+$lang->project->bug              = 'Bugs';
 $lang->project->dynamic          = 'Dynamic';
 $lang->project->build            = 'Build';
 $lang->project->testtask         = 'Test Task';
@@ -2802,20 +2802,20 @@ $lang->project->batchUnlinkStory = 'Batch Remove Story';
 $lang->project->importTask       = 'Import Task';
 $lang->project->importBug        = 'Import Bug';
 $lang->project->updateOrder      = 'Order';
-$lang->project->tree             = 'Tree Diagram';
+$lang->project->tree             = 'Tree';
 
 $lang->project->allTasks             = 'All';
 $lang->project->assignedToMe         = 'Assigned to Me';
 
 $lang->project->statusSelects['']             = 'More';
-$lang->project->statusSelects['wait']         = 'Pending';
-$lang->project->statusSelects['doing']        = 'Ongoing';
+$lang->project->statusSelects['wait']         = 'Wait';
+$lang->project->statusSelects['doing']        = 'Doing';
 $lang->project->statusSelects['finishedbyme'] = 'Finished by Me';
 $lang->project->statusSelects['done']         = 'Done';
 $lang->project->statusSelects['closed']       = 'Closed';
 $lang->project->statusSelects['cancel']       = 'Cancelled';
 
-$lang->project->groups['']           = 'Group View';
+$lang->project->groups['']           = 'View';
 $lang->project->groups['story']      = 'By Story';
 $lang->project->groups['status']     = 'By Status';
 $lang->project->groups['pri']        = 'By Priority';
@@ -2840,7 +2840,7 @@ $lang->project->groupFilter['deadline']['setted']   = 'Configured';
 
 $lang->project->byQuery              = 'Search';
 
-$lang->project->allProject      = "All{$lang->projectCommon}";
+$lang->project->allProject      = "All {$lang->projectCommon}";
 $lang->project->aboveAllProduct = "All the Above {$lang->productCommon}";
 $lang->project->aboveAllProject = "All the Above {$lang->projectCommon}";
 
@@ -2878,7 +2878,7 @@ $lang->project->tips                  = 'Note';
 $lang->project->afterInfo             = "{$lang->projectCommon} created. You can do: ";
 $lang->project->setTeam               = 'Team Settings';
 $lang->project->linkStory             = 'Link Story';
-$lang->project->createTask            = 'Creat Task';
+$lang->project->createTask            = 'Create a Task';
 $lang->project->goback                = "Back";
 $lang->project->noweekend             = 'Without Weekend';
 $lang->project->withweekend           = 'With Weekend';
@@ -2912,7 +2912,7 @@ $lang->project->orderList['stage_desc'] = "Stage Desc";
 
 $lang->project->kanban      = "Kanban";
 $lang->project->printKanban = "Print Kanban";
-$lang->project->bugList     = "Bug List";
+$lang->project->bugList     = "Bugs";
 
 $lang->printKanban = new stdclass();
 $lang->printKanban->common  = 'Print Kanban';
@@ -2965,8 +2965,8 @@ $lang->release->date                  = 'Date';
 $lang->release->desc                  = 'Desc';
 $lang->release->status                = 'Status';
 $lang->release->last                  = 'Last Release';
-$lang->release->unlinkStory           = 'Remove Story';
-$lang->release->unlinkBug             = 'Remove Bug';
+$lang->release->unlinkStory           = 'Unlink Story';
+$lang->release->unlinkBug             = 'Unlink Bug';
 $lang->release->stories               = 'Finished Story';
 $lang->release->bugs                  = 'Solved Bug';
 $lang->release->generatedBugs         = 'Generated Bug';
@@ -3054,7 +3054,7 @@ $lang->report->unplanned     = 'Unplanned';
 $lang->report->workday       = 'Man-Hour per Day';
 $lang->report->diffDays      = 'Work Days';
 
-$lang->report->conditions    = 'Conditions:';
+$lang->report->conditions    = 'Filter by';
 $lang->report->closedProduct = 'Closed ' . $lang->productCommon;
 $lang->report->overduePlan   = 'Overdue Plan';
 
@@ -3128,8 +3128,8 @@ $lang->sso->help = <<<EOD
 <p>1. Interface address is required. If use PATH_INFO, it is http://YOUR RANGER ADDRESS/sys/sso-check.html If GET, it is http://YOUR RANGER ADDRESS/sys/index.php?m=sso&f=check</p>
 <p>2. Code and Key must be the same as set in Ranger.</p>
 EOD;
-$lang->sso->bindNotice     = 'User just added has no rivilege. You have to ask ZenTao Admin to grant permissions to the User.';
-$lang->sso->bindNoPassword = 'Password should not be blank.';
+$lang->sso->bindNotice     = 'User just added has no privilege. You have to ask your Admin to grant permissions to the User.';
+$lang->sso->bindNoPassword = 'Password should not be empty.';
 $lang->sso->bindNoUser     = 'Password is wrong, or this User cannot be found!';
 $lang->sso->bindHasAccount = 'This username already exists. Change your username or bind to it.';
 /* story */
@@ -3219,7 +3219,7 @@ $lang->story->statusList['changed']   = 'Changed';
 $lang->story->stageList['']           = '';
 $lang->story->stageList['wait']       = 'Pending';
 $lang->story->stageList['planned']    = 'Planned';
-$lang->story->stageList['projected']  = '已立项';
+$lang->story->stageList['projected']  = 'Projected';
 $lang->story->stageList['developing'] = 'Developing';
 $lang->story->stageList['developed']  = 'Developed';
 $lang->story->stageList['testing']    = 'Testing';
@@ -3279,7 +3279,7 @@ $lang->story->legendCases          = 'Linked Case';
 $lang->story->legendLinkStories    = 'Linked Story';
 $lang->story->legendChildStories   = 'Subdivide Story';
 $lang->story->legendSpec           = 'Story Desc';
-$lang->story->legendVerify         = 'Acceptance Criteria';
+$lang->story->legendVerify         = 'Verification';
 $lang->story->legendMisc           = 'Misc ';
 
 $lang->story->lblChange            = 'Change';
@@ -3302,7 +3302,7 @@ $lang->story->mustChoosePreVersion  = 'Please select a Version to revert.';
 
 $lang->story->form = new stdclass();
 $lang->story->form->area      = 'Story Affiliation';
-$lang->story->form->desc      = 'Description and criteria. What Story is it? How to accept it?';
+$lang->story->form->desc      = 'Description and verification. What Story is it? How to accept it?';
 $lang->story->form->resource  = 'Resource allocation. How finished it? How long does it take?';
 $lang->story->form->file      = 'Files. If there are Story related files, please click Here to upload.';
 
@@ -3325,17 +3325,17 @@ $lang->story->report->create = 'Generate';
 $lang->story->report->value  = 'Story Count';
 
 $lang->story->report->charts['storysPerProduct']        = $lang->productCommon . 'Story Count';
-$lang->story->report->charts['storysPerModule']         = 'Story per Module';
-$lang->story->report->charts['storysPerSource']         = 'Story per Source';
-$lang->story->report->charts['storysPerPlan']           = 'Story per Planning';
-$lang->story->report->charts['storysPerStatus']         = 'Story per Status';
-$lang->story->report->charts['storysPerStage']          = 'Story per Stage';
-$lang->story->report->charts['storysPerPri']            = 'Story per Priority';
-$lang->story->report->charts['storysPerEstimate']       = 'Story per Estimated Man-Hour';
-$lang->story->report->charts['storysPerOpenedBy']       = 'Story per CreatedBy';
-$lang->story->report->charts['storysPerAssignedTo']     = 'Story per AssignedTo';
-$lang->story->report->charts['storysPerClosedReason']   = 'Story per Closed Reason';
-$lang->story->report->charts['storysPerChange']         = 'Story per Change';
+$lang->story->report->charts['storysPerModule']         = 'per Module';
+$lang->story->report->charts['storysPerSource']         = 'per Source';
+$lang->story->report->charts['storysPerPlan']           = 'per Planning';
+$lang->story->report->charts['storysPerStatus']         = 'per Status';
+$lang->story->report->charts['storysPerStage']          = 'per Stage';
+$lang->story->report->charts['storysPerPri']            = 'per Priority';
+$lang->story->report->charts['storysPerEstimate']       = 'per Estimated Man-Hour';
+$lang->story->report->charts['storysPerOpenedBy']       = 'per CreatedBy';
+$lang->story->report->charts['storysPerAssignedTo']     = 'per AssignedTo';
+$lang->story->report->charts['storysPerClosedReason']   = 'per Closed Reason';
+$lang->story->report->charts['storysPerChange']         = 'per Change';
 
 $lang->story->report->options = new stdclass();
 $lang->story->report->options->graph   = new stdclass();
@@ -3417,7 +3417,7 @@ $lang->task->delete             = "Delete";
 $lang->task->deleted            = "Deleted";
 $lang->task->view               = "Info";
 $lang->task->logEfforts         = "Man-Hour Log";
-$lang->task->record             = "Estimate";
+$lang->task->record             = "Est.";
 $lang->task->start              = "Start";
 $lang->task->restart            = "Continue";
 $lang->task->finish             = "Finish";
@@ -3438,20 +3438,20 @@ $lang->task->module            = 'Module';
 $lang->task->moduleAB          = 'Module';
 $lang->task->story             = 'Story';
 $lang->task->storySpec         = 'Description';
-$lang->task->storyVerify       = 'Acceptance Criteria';
+$lang->task->storyVerify       = 'Verification';
 $lang->task->name              = 'Name';
 $lang->task->type              = 'Type';
 $lang->task->pri               = 'Priority';
 $lang->task->mailto            = 'Mailto';
-$lang->task->estimate          = 'Estimation';
+$lang->task->estimate          = 'Est.';
 $lang->task->estimateAB        = 'Estimated';
-$lang->task->left              = 'Estimated Left';
-$lang->task->leftAB            = 'Left';
+$lang->task->left              = 'Estimated Remain';
+$lang->task->leftAB            = 'Remain';
 $lang->task->consumed          = 'Total Consumed';
-$lang->task->consumedAB        = 'Consume';
+$lang->task->consumedAB        = 'Consumed';
 $lang->task->hour              = 'Hour';
 $lang->task->consumedThisTime  = 'Man-Hour';
-$lang->task->leftThisTime      = 'Left';
+$lang->task->leftThisTime      = 'Remain';
 $lang->task->datePlan          = 'Schedule';
 $lang->task->estStarted        = 'Estimated Start Time';
 $lang->task->realStarted       = 'Actual Start Time';
@@ -3496,8 +3496,8 @@ $lang->task->noFinished    = 'Unfinished';
 $lang->task->noClosed      = 'Unclosed';
 
 $lang->task->statusList['']        = '';
-$lang->task->statusList['wait']    = 'Pending';
-$lang->task->statusList['doing']   = 'Ongoing';
+$lang->task->statusList['wait']    = 'Wait';
+$lang->task->statusList['doing']   = 'Doing';
 $lang->task->statusList['done']    = 'Done';
 $lang->task->statusList['pause']   = 'Paused';
 $lang->task->statusList['cancel']  = 'Cancelled';
@@ -3523,25 +3523,25 @@ $lang->task->reasonList['']       = '';
 $lang->task->reasonList['done']   = 'Done';
 $lang->task->reasonList['cancel'] = 'Cancelled';
 
-$lang->task->afterChoices['continueAdding'] = 'Contine Add Task';
-$lang->task->afterChoices['toTaskList']     = 'Back to Task List';
-$lang->task->afterChoices['toStoryList']    = 'Back to Story List';
+$lang->task->afterChoices['continueAdding'] = 'Continue adding Tasks';
+$lang->task->afterChoices['toTaskList']     = 'Back to Tasks';
+$lang->task->afterChoices['toStoryList']    = 'Back to Stores';
 
 $lang->task->legendBasic  = 'Basic Info';
 $lang->task->legendEffort = 'Man-Hour';
 $lang->task->legendLife   = 'Task Life';
-$lang->task->legendDesc   = 'Task Desn';
+$lang->task->legendDesc   = 'Task Desc';
 
 $lang->task->confirmDelete         = "Do you want to delete this Task?";
 $lang->task->confirmDeleteEstimate = "Do you want to delete it?";
-$lang->task->copyStoryTitle        = "Same Story";
-$lang->task->afterSubmit           = "After Created";
+$lang->task->copyStoryTitle        = "Ditto";
+$lang->task->afterSubmit           = "Once Created,";
 $lang->task->successSaved          = "Created!";
 $lang->task->delayWarning          = " <strong class='delayed f-14px'> Delay %s days </strong>";
-$lang->task->remindBug             = "This Task is converted from a Bug. Do you want to update te Bug:%s?";
+$lang->task->remindBug             = "This Task is converted from a Bug. Do you want to update the Bug:%s?";
 $lang->task->confirmChangeProject  = "If you change {$lang->projectCommon}, the related Module,Story and Assignor will be changed. Do you want to do it?";
-$lang->task->confirmFinish         = '"Estimated Left" is 0. Do you want to change the Status to "Done"?';
-$lang->task->confirmHistory         = '"Left" is 0. Do you want to set Task as "Done"?';
+$lang->task->confirmFinish         = '"Estimated remian man-hour" is 0. Do you want to change the Status to "Done"?';
+$lang->task->confirmHistory         = '"Remain man-hour" is 0. Do you want to set Task as "Done"?';
 $lang->task->noticeSaveHistory      = 'Your man-hour is not saved. Please save it first.';
 $lang->task->commentActions        = '%s. %s, commented by <strong>%s</strong>.';
 
@@ -3550,30 +3550,30 @@ $lang->task->error->consumedNumber   = '"Consumed" must be numbers.';
 $lang->task->error->estimateNumber   = '"Estimated" must be numbers.';
 $lang->task->error->consumedSmall    = '"Consumed" must larger than before.';
 $lang->task->error->consumedThisTime = 'Please enter "Man-Hour"';
-$lang->task->error->left             = 'Please enter "Left"';
-$lang->task->error->work             = '"Remark" must be less than 255 characteres.';
-$lang->task->error->skipOff        = 'Task: %s is not“Done”或“Cancelled”. You cannot close it!';
+$lang->task->error->left             = 'Please enter "Remain man-hour"';
+$lang->task->error->work             = '"Remarks" must be less than 255 characteres.';
+$lang->task->error->skipOff        = 'Task: %s is not “Done” or “Cancelled”. You cannot close it!';
 $lang->task->error->consumed         = 'Task: %s man-hour must be more than 0. Ignore changes to this Task.';
 
 $lang->task->report = new stdclass();
 $lang->task->report->common = 'Report';
-$lang->task->report->select = 'Please select the type of the Task';
+$lang->task->report->select = 'Please select the type';
 $lang->task->report->create = 'Create';
 $lang->task->report->value  = 'Task Count';
 
 $lang->task->report->charts['tasksPerProject']      = $lang->projectCommon . ' Tasks';
-$lang->task->report->charts['tasksPerModule']       = 'Module Tasks';
+$lang->task->report->charts['tasksPerModule']       = 'Module';
 $lang->task->report->charts['tasksPerAssignedTo']   = 'Assigned To';
 $lang->task->report->charts['tasksPerType']         = 'Type';
 $lang->task->report->charts['tasksPerPri']          = 'Priority';
 $lang->task->report->charts['tasksPerStatus']       = 'Status';
 $lang->task->report->charts['tasksPerDeadline']     = 'Deadline';
-$lang->task->report->charts['tasksPerEstimate']     = 'Estimated Time';
-$lang->task->report->charts['tasksPerLeft']         = 'Time Left';
-$lang->task->report->charts['tasksPerConsumed']     = 'Time Consumed';
+$lang->task->report->charts['tasksPerEstimate']     = 'Estimated ';
+$lang->task->report->charts['tasksPerLeft']         = 'Remained';
+$lang->task->report->charts['tasksPerConsumed']     = 'Consumed';
 $lang->task->report->charts['tasksPerFinishedBy']   = 'Finished By';
 $lang->task->report->charts['tasksPerClosedReason'] = 'Close Reason';
-$lang->task->report->charts['finishedTasksPerDay']  = 'Tasks Finished per Day';
+$lang->task->report->charts['finishedTasksPerDay']  = 'Finished per Day';
 
 $lang->task->report->options = new stdclass();
 $lang->task->report->options->graph = new stdclass();
@@ -3602,11 +3602,11 @@ $lang->task->report->tasksPerType->item         = 'Type';
 $lang->task->report->tasksPerPri->item          = 'Priority';
 $lang->task->report->tasksPerStatus->item       = 'Status';
 $lang->task->report->tasksPerDeadline->item     = 'Date';
-$lang->task->report->tasksPerEstimate->item     = '预计';
-$lang->task->report->tasksPerLeft->item         = '剩余';
-$lang->task->report->tasksPerConsumed->item     = '消耗';
+$lang->task->report->tasksPerEstimate->item     = 'Estimated';
+$lang->task->report->tasksPerLeft->item         = 'Remained';
+$lang->task->report->tasksPerConsumed->item     = 'Consumed';
 $lang->task->report->tasksPerFinishedBy->item   = 'User';
-$lang->task->report->tasksPerClosedReason->item = '原因';
+$lang->task->report->tasksPerClosedReason->item = 'Reasons';
 $lang->task->report->finishedTasksPerDay->item  = 'Date';
 
 $lang->task->report->tasksPerProject->graph      = new stdclass();
@@ -3666,7 +3666,7 @@ $lang->testcase->lastEditedDateAB = 'Last Edited Date';
 $lang->testcase->lastEditedDate   = 'Last Edited Date';
 $lang->testcase->version          = 'Case Version';
 $lang->testcase->lastRunner       = 'Last Run By';
-$lang->testcase->lastRunDate      = 'Run Date';
+$lang->testcase->lastRunDate      = 'Last Run Date';
 $lang->testcase->assignedTo       = 'Assigned To';
 $lang->testcase->colorTag         = 'Color Tag';
 $lang->testcase->lastRunResult    = 'Result';
@@ -3679,7 +3679,7 @@ $lang->case = $lang->testcase;  // For dao checking using. Because 'case' is a p
 
 $lang->testcase->stepID     = 'ID';
 $lang->testcase->stepDesc   = 'Step';
-$lang->testcase->stepExpect = 'Expect';
+$lang->testcase->stepExpect = 'Expected';
 
 $lang->testcase->common             = 'Case';
 $lang->testcase->index              = "Index";
@@ -3689,11 +3689,11 @@ $lang->testcase->delete             = "Delete";
 $lang->testcase->view               = "Info";
 $lang->testcase->edit               = "Edit";
 $lang->testcase->batchEdit          = "Batch Edit ";
-$lang->testcase->batchChangeModule  = "Batch Change Module";
+$lang->testcase->batchChangeModule  = "Batch Change";
 $lang->testcase->delete             = "Delete";
 $lang->testcase->batchDelete        = "Batch Delete ";
 $lang->testcase->browse             = "Case List";
-$lang->testcase->groupCase          = "Group View";
+$lang->testcase->groupCase          = "View";
 $lang->testcase->import             = "Import";
 $lang->testcase->showImport         = "Show Import";
 $lang->testcase->exportTemplet      = "Export Template";
@@ -3718,15 +3718,15 @@ $lang->testcase->bySearch      = 'Search';
 
 $lang->testcase->lblStory                    = 'Story';
 $lang->testcase->lblLastEdited               = 'Last Edit';
-$lang->testcase->lblTypeValue                = 'Type List';
-$lang->testcase->lblStageValue               = 'Stage List';
+$lang->testcase->lblTypeValue                = 'Types';
+$lang->testcase->lblStageValue               = 'Stages';
 $lang->testcase->lblStatusValue              = 'Status List';
 
 $lang->testcase->legendBasicInfo    = 'Basic Info';
-$lang->testcase->legendAttatch      = 'File';
-$lang->testcase->legendLinkBugs     = 'Bug';
+$lang->testcase->legendAttatch      = 'Files';
+$lang->testcase->legendLinkBugs     = 'Bugs';
 $lang->testcase->legendOpenAndEdit  = 'Create/Edit';
-$lang->testcase->legendComment      = 'Remark';
+$lang->testcase->legendComment      = 'Remarks';
 
 $lang->testcase->confirmDelete      = 'Do you want to delete this Test Case?';
 $lang->testcase->confirmBatchDelete = 'Do you want to batch delete thess Test Cases?';
@@ -3774,7 +3774,7 @@ $lang->testcase->errorEncode = 'No Data. Please select right encoding and upload
 $lang->testcase->noFunction  = 'Iconv and mb_convert_encoding is not found. You cannot convert the data into the desired one!';
 $lang->testcase->noRequire   = "Row %s has“%s”which is a required field and it should not be blank.";
 
-$lang->testcase->searchStories = 'Enter to searcu Story';
+$lang->testcase->searchStories = 'Enter to search Story';
 
 $lang->testcase->featureBar['browse']['all']         = $lang->testcase->allCases;
 $lang->testcase->featureBar['browse']['needconfirm'] = $lang->testcase->needConfirm;
@@ -3797,13 +3797,13 @@ $lang->testtask->results        = "Result";
 $lang->testtask->createBug      = "Bug(+)";
 $lang->testtask->assign         = 'Assign';
 $lang->testtask->cases          = 'Cases';
-$lang->testtask->groupCase      = "View by Group";
+$lang->testtask->groupCase      = "View By";
 $lang->testtask->pre            = 'Previous';
 $lang->testtask->next           = 'Next';
 $lang->testtask->start          = "Start";
 $lang->testtask->close          = "Close";
-$lang->testtask->wait           = "Build to be Tested";
-$lang->testtask->done           = "Tested Build";
+$lang->testtask->wait           = "Wait";
+$lang->testtask->done           = "Done";
 
 $lang->testtask->common         = 'Test build';
 $lang->testtask->product        = $lang->productCommon;
@@ -3812,8 +3812,8 @@ $lang->testtask->build          = 'Build';
 $lang->testtask->owner          = 'Owner';
 $lang->testtask->pri            = 'Priority';
 $lang->testtask->name           = 'Name';
-$lang->testtask->begin          = 'Begin Date';
-$lang->testtask->end            = 'End Date';
+$lang->testtask->begin          = 'Begin';
+$lang->testtask->end            = 'End';
 $lang->testtask->desc           = 'Desc';
 $lang->testtask->mailto         = 'Mailto';
 $lang->testtask->status         = 'Status';
@@ -3823,14 +3823,14 @@ $lang->testtask->lastRunAccount = "Run";
 $lang->testtask->lastRunTime    = 'Time';
 $lang->testtask->lastRunResult  = 'Result';
 $lang->testtask->report         = 'Report';
-$lang->testtask->files          = 'Upload Files';
+$lang->testtask->files          = 'Files';
 
 $lang->testtask->legendDesc      = 'Desc';
 $lang->testtask->legendReport    = 'Report';
 $lang->testtask->legendBasicInfo = 'Basic Info';
 
-$lang->testtask->statusList['wait']    = 'Pending';
-$lang->testtask->statusList['doing']   = 'Ongoing';
+$lang->testtask->statusList['wait']    = 'Wait';
+$lang->testtask->statusList['doing']   = 'Doing';
 $lang->testtask->statusList['done']    = 'Done';
 $lang->testtask->statusList['blocked'] = 'Blocked';
 
@@ -3841,9 +3841,9 @@ $lang->testtask->priList[2] = '2';
 $lang->testtask->priList[4] = '4';
 
 $lang->testtask->unlinkedCases = 'Unlinked';
-$lang->testtask->linkByStory   = 'Link by Story';
-$lang->testtask->linkByBug     = 'Link by Bug';
-$lang->testtask->passAll       = 'All Pass';
+$lang->testtask->linkByStory   = 'by Story';
+$lang->testtask->linkByBug     = 'by Bug';
+$lang->testtask->passAll       = 'Pass All';
 $lang->testtask->pass          = 'Pass';
 $lang->testtask->fail          = 'Failed';
 $lang->testtask->showResult    = 'Executed <span class="text-info">%s</span> times';
@@ -3855,14 +3855,14 @@ $lang->testtask->confirmUnlinkCase = 'Do you want to remove this Case?';
 $lang->testtask->assignedToMe  = 'Assigned to Me';
 $lang->testtask->allCases      = 'All Cases';
 
-$lang->testtask->lblCases      = 'Case List';
+$lang->testtask->lblCases      = 'Cases';
 $lang->testtask->lblUnlinkCase = 'Remove Case';
 $lang->testtask->lblRunCase    = 'Run Case';
 $lang->testtask->lblResults    = 'Result';
 
 $lang->testtask->placeholder = new stdclass();
-$lang->testtask->placeholder->begin = 'Begin Date';
-$lang->testtask->placeholder->end   = 'End Date';
+$lang->testtask->placeholder->begin = 'Begin';
+$lang->testtask->placeholder->end   = 'End';
 
 $lang->testtask->mail = new stdclass();
 $lang->testtask->mail->create = new stdclass();
@@ -3907,11 +3907,11 @@ $lang->todo->private     = 'Private';
 $lang->todo->confirmBug   = 'This To-Do is linked to Bug #%s. Do you want to edit it?';
 $lang->todo->confirmTask  = 'This To-Do is linked to Task #%s，Do you want to edit it?';
 
-$lang->todo->statusList['wait']     = 'Pending';
-$lang->todo->statusList['doing']    = 'Ongoing';
+$lang->todo->statusList['wait']     = 'Wait';
+$lang->todo->statusList['doing']    = 'Doing';
 $lang->todo->statusList['done']     = 'Done';
 //$lang->todo->statusList['cancel']   = 'Cancelled';
-//$lang->todo->statusList['postpone'] = 'Delayed';
+//$lang->todo->statusList['postpone'] = 'Postponed';
 
 $lang->todo->priList[3] = '3';
 $lang->todo->priList[1] = '1';
@@ -3922,9 +3922,9 @@ $lang->todo->typeList['custom'] = 'Custom';
 $lang->todo->typeList['bug']    = 'Bug';
 $lang->todo->typeList['task']   = $lang->projectCommon . 'Task';
 
-$lang->todo->confirmDelete  = "Are you sure to delete this todo?";
-$lang->todo->thisIsPrivate  = 'This is a private todo。:)';
-$lang->todo->lblDisableDate = 'Set time lately';
+$lang->todo->confirmDelete  = "Are you sure to delete this To-Do?";
+$lang->todo->thisIsPrivate  = 'This is a private To-Do:)';
+$lang->todo->lblDisableDate = 'Set time later';
 
 $lang->todo->periods['today']      = 'Today';
 $lang->todo->periods['yesterday']  = 'Yesterday';
@@ -3943,12 +3943,12 @@ $lang->todo->action->finished  = array('main' => '$date, is finished by <strong>
 $lang->todo->action->marked    = array('main' => '$date, is marked by <strong>$actor</strong> as <strong>$extra</strong>.', 'extra' => 'statusList');
 /* tree */
 $lang->tree = new stdclass();
-$lang->tree->common            = 'Module';
+$lang->tree->common            = 'Modules';
 $lang->tree->edit              = 'Edit';
 $lang->tree->delete            = 'Delete';
-$lang->tree->browse            = 'General Module';
-$lang->tree->browseTask        = 'Task Module';
-$lang->tree->manage            = 'Module';
+$lang->tree->browse            = 'View';
+$lang->tree->browseTask        = 'Tasks';
+$lang->tree->manage            = 'Manage';
 $lang->tree->fix               = 'Fix';
 $lang->tree->manageProduct     = "Manage {$lang->productCommon} Module";
 $lang->tree->manageProject     = "Manage {$lang->projectCommon} Project";
@@ -3963,10 +3963,10 @@ $lang->tree->manageCaseChild   = 'Manage Child Case';
 $lang->tree->manageTaskChild   = "Manage Child {$lang->projectCommon}";
 $lang->tree->syncFromProduct   = 'Copy';
 $lang->tree->dragAndSort       = "Drag and Sort";
-$lang->tree->addChild          = "Add Child Module";
+$lang->tree->addChild          = "Add Children";
 
-$lang->tree->confirmDelete = 'Do you want to delete this Module and its Child?';
-$lang->tree->confirmRoot   = "Modify the module {$lang->productCommon}s, modified the {$lang->productCommon}s belong to the needs of the module, bug, use case, and {$lang->projectCommon} and {$lang->productCommon} relationship. This is dangerous, please be careful. To confirm the change?";
+$lang->tree->confirmDelete = 'Do you want to delete this Module and its Children?';
+$lang->tree->confirmRoot   = "Changes on {$lang->productCommon} will change the Stories, Bugs, Cases of {$lang->productCommon} it belongs to, and the relatiosn of {$lang->projectCommon} and {$lang->productCommon}. Please be aware of it. Do you want to change it?";
 $lang->tree->successSave   = 'Successfully saved';
 $lang->tree->successFixed  = 'Successfully fixed.';
 $lang->tree->repeatName    = 'The name "%s" has exists!';
@@ -3976,7 +3976,7 @@ $lang->tree->parent     = 'Parent';
 $lang->tree->child      = 'Child';
 $lang->tree->owner      = 'Owner';
 $lang->tree->order      = 'Order';
-$lang->tree->short      = 'Sort';
+$lang->tree->short      = 'Short';
 $lang->tree->all        = 'All Modules';
 $lang->tree->projectDoc = "{$lang->projectCommon} Doc";
 $lang->tree->product    = $lang->productCommon;
@@ -3997,7 +3997,7 @@ $lang->tutorial->openTargetPage   = 'Open <strong class="task-page-name">target<
 $lang->tutorial->atTargetPage     = 'On <strong class="task-page-name">target</strong>';
 $lang->tutorial->reloadTargetPage = 'Reload';
 $lang->tutorial->target           = 'Target';
-$lang->tutorial->targetPageTip     = 'Open【%s】page by following this instruction.';
+$lang->tutorial->targetPageTip     = 'Open【%s】page by following the instructions.';
 $lang->tutorial->requiredTip      = '【%s】is required.';
 $lang->tutorial->congratulateTask = 'Congratulations! You have finished【<span class="task-name-current"></span>】!';
 $lang->tutorial->serverErrorTip   = 'Error!';
@@ -4025,7 +4025,7 @@ $lang->tutorial->tasks['createProject']['desc'] = "<p>Create a new project: </p>
 
 $lang->tutorial->tasks['manageTeam']         = array('title' => 'Manage Project Team');
 $lang->tutorial->tasks['manageTeam']['nav']  = array('module' => 'project', 'method' => 'managemembers', 'menu' => 'team', 'target' => '.manage-team-btn', 'form' => '#teamForm', 'requiredFields' => 'account1', 'submit' => '#submit', 'targetPageName' => 'Manage team members');
-$lang->tutorial->tasks['manageTeam']['desc'] = "<p>Manage project team members: </p><ul><li data-target='nav'>Open <span class='task-nav'> Project <i class='icon icon-angle-right'></i> Team <i class='icon icon-angle-right'></i> Manage Team Members</span> Page；</li><li data-target='form'>Choose users for the team.</li><li data-target='submit'>Save</li></ul>";
+$lang->tutorial->tasks['manageTeam']['desc'] = "<p>Manage project members: </p><ul><li data-target='nav'> Open <span class='task-nav'> Project <i class='icon icon-angle-right'></i> Team <i class='icon icon-angle-right'></i> Manage Team Members</span> Page；</li><li data-target='form'>Choose users for the team.</li><li data-target='submit'>Save</li></ul>";
 
 $lang->tutorial->tasks['linkStory']         = array('title' => 'Link Story');
 $lang->tutorial->tasks['linkStory']['nav']  = array('module' => 'project', 'method' => 'linkStory', 'menu' => 'story', 'target' => '.link-story-btn', 'form' => '#linkStoryForm', 'formType' => 'table', 'submit' => '#submit', 'targetPageName' => 'Link Story');
@@ -4044,11 +4044,11 @@ $lang->upgrade->result  = 'Result';
 $lang->upgrade->fail    = 'Failed';
 $lang->upgrade->success = 'Upgraded';
 $lang->upgrade->tohome  = 'Visit ZenTao';
-$lang->upgrade->license = 'Zentao PMS has started using Z PUBLIC LICENSE(ZPL) 1.2.';
+$lang->upgrade->license = 'Zentao is using Z PUBLIC LICENSE(ZPL) 1.2 now.';
 $lang->upgrade->warnning= 'Warning!';
-$lang->upgrade->checkExtension  = 'Check Extension';
+$lang->upgrade->checkExtension  = 'Check Extensions';
 $lang->upgrade->warnningContent = <<<EOT
-<p>Please backup your database before upgrading ZenTao!</p>
+<p>Please back up your database before upgrading ZenTao!</p>
 <pre>
 1. Use phpMyAdmin to backup.
 2. Use mysqlCommand to backup.
@@ -4161,7 +4161,7 @@ $lang->user->skype       = 'Skype';
 $lang->user->qq          = 'QQ';
 $lang->user->yahoo       = 'Yahoo!';
 $lang->user->gtalk       = 'GTalk';
-$lang->user->wangwang    = '旺旺';
+$lang->user->wangwang    = 'Wangwang';
 $lang->user->mobile      = 'Mobile';
 $lang->user->phone       = 'Phone';
 $lang->user->address     = 'Address';
@@ -4179,7 +4179,7 @@ $lang->user->resetPassword    = 'Forgot Password?';
 $lang->user->index           = "Home";
 $lang->user->view            = "Info";
 $lang->user->create          = "Add";
-$lang->user->batchCreate     = "Batch Add User";
+$lang->user->batchCreate     = "Batch Add";
 $lang->user->edit            = "Edit";
 $lang->user->batchEdit       = "Batch Edit";
 $lang->user->unlock          = "Unlock";
@@ -4199,13 +4199,13 @@ $lang->user->deleted         = '(Deleted)';
 
 $lang->user->profile     = 'Profile';
 $lang->user->project     = $lang->projectCommon;
-$lang->user->task        = 'Task';
-$lang->user->bug         = 'Bug';
+$lang->user->task        = 'Tasks';
+$lang->user->bug         = 'Bugs';
 $lang->user->test        = 'Testing';
 $lang->user->testTask    = 'Test Task';
 $lang->user->testCase    = 'Test Case';
 $lang->user->todo        = 'To-Do';
-$lang->user->story       = 'Story';
+$lang->user->story       = 'Stories';
 $lang->user->dynamic     = 'Dynamic';
 
 $lang->user->openedBy    = 'Opened by him';
@@ -4216,9 +4216,9 @@ $lang->user->closedBy    = 'Closed by him';
 $lang->user->reviewedBy  = 'Reviewed by him';
 $lang->user->canceledBy  = 'Cancelled by him';
 
-$lang->user->testTask2Him = 'His Build';
-$lang->user->case2Him     = 'His Case';
-$lang->user->caseByHim    = 'Case Opened by Him';
+$lang->user->testTask2Him = 'Builds';
+$lang->user->case2Him     = 'Cases';
+$lang->user->caseByHim    = 'Case Opened';
 
 $lang->user->errorDeny    = "Sorry, your access to <b>%s</b> Module <b>%s</b> Feature has been denied. Please contact Admin to get permission. Click Back to return.";
 $lang->user->loginFailed  = "Login failed. Please check your account and password.";
@@ -4281,7 +4281,7 @@ $lang->user->contacts->contactsList  = 'List';
 $lang->user->contacts->selectedUsers = 'Select User';
 $lang->user->contacts->selectList    = 'Select List';
 $lang->user->contacts->createList    = 'Create a List';
-$lang->user->contacts->noListYet     = 'No contacts list exist. Please create a list first.';
+$lang->user->contacts->noListYet     = 'No contact lists exist. Please create one first.';
 $lang->user->contacts->confirmDelete = 'Do you want to delete this list?';
 $lang->user->contacts->or            = ' or ';
 
