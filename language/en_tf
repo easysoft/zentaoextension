@@ -97,17 +97,17 @@ $lang->menu->report   = 'Report|report|index';
 $lang->menu->company  = 'Company|company|index';
 $lang->menu->admin    = 'Administration|admin|index';
 
-$lang->searchObjects['bug']         = 'Bug';
-$lang->searchObjects['story']       = 'Story';
-$lang->searchObjects['task']        = 'Task';
-$lang->searchObjects['testcase']    = 'Test Case';
+$lang->searchObjects['bug']         = 'Bugs';
+$lang->searchObjects['story']       = 'Stories';
+$lang->searchObjects['task']        = 'Tasks';
+$lang->searchObjects['testcase']    = 'Test Cases';
 $lang->searchObjects['project']     = $lang->projectCommon;
 $lang->searchObjects['product']     = $lang->productCommon;
-$lang->searchObjects['user']        = 'User';
-$lang->searchObjects['build']       = 'Build';
+$lang->searchObjects['user']        = 'Users';
+$lang->searchObjects['build']       = 'Builds';
 $lang->searchObjects['release']     = 'Release';
 $lang->searchObjects['productplan'] = $lang->productCommon . 'Planning';
-$lang->searchObjects['testtask']    = 'Test Task';
+$lang->searchObjects['testtask']    = 'Test Tasks';
 $lang->searchObjects['doc']         = 'Document';
 $lang->searchTips                   = 'ID (ctrl+g)';
 
@@ -170,9 +170,9 @@ $lang->product->menu->branch  = '@branch@|branch|manage|productID=%s';
 $lang->product->menu->module  = 'Module|tree|browse|productID=%s&view=story';
 $lang->product->menu->view    = array('link' => 'Overview|product|view|productID=%s', 'alias' => 'edit');
 $lang->product->menu->project = "{$lang->projectCommon}|product|project|status=all&productID=%s";
-$lang->product->menu->create  = array('link' => "<i class='icon-plus'></i>&nbsp;Add{$lang->productCommon}|product|create", 'float' => 'right');
-$lang->product->menu->all     = array('link' => "<i class='icon-cubes'></i>&nbsp;All{$lang->productCommon}|product|all|productID=%s", 'float' => 'right');
-$lang->product->menu->index   = array('link' => "<i class='icon-home'></i>{$lang->productCommon}Homepage|product|index|locate=no", 'float' => 'right');
+$lang->product->menu->create  = array('link' => "<i class='icon-plus'></i>&nbsp;Add a {$lang->productCommon}|product|create", 'float' => 'right');
+$lang->product->menu->all     = array('link' => "<i class='icon-cubes'></i>&nbsp;All {$lang->productCommon}|product|all|productID=%s", 'float' => 'right');
+$lang->product->menu->index   = array('link' => "<i class='icon-home'></i>{$lang->productCommon} Home|product|index|locate=no", 'float' => 'right');
 
 $lang->story       = new stdclass();
 $lang->productplan = new stdclass();
@@ -188,19 +188,19 @@ $lang->project = new stdclass();
 $lang->project->menu = new stdclass();
 
 $lang->project->menu->list      = array('link' => '%s', 'fixed' => true);
-$lang->project->menu->task      = array('link' => 'Task|project|task|projectID=%s', 'subModule' => 'task,tree', 'alias' => 'grouptask,importtask,burn,importbug,kanban,printkanban,tree');
-$lang->project->menu->story     = array('link' => 'Story|project|story|projectID=%s', 'subModule' => 'story', 'alias' => 'linkstory');
+$lang->project->menu->task      = array('link' => 'Tasks|project|task|projectID=%s', 'subModule' => 'task,tree', 'alias' => 'grouptask,importtask,burn,importbug,kanban,printkanban,tree');
+$lang->project->menu->story     = array('link' => 'Stories|project|story|projectID=%s', 'subModule' => 'story', 'alias' => 'linkstory');
 $lang->project->menu->bug       = 'Bug|project|bug|projectID=%s';
 $lang->project->menu->dynamic   = 'Dynamic|project|dynamic|projectID=%s';
-$lang->project->menu->build     = array('link' => 'Build|project|build|projectID=%s', 'subModule' => 'build');
+$lang->project->menu->build     = array('link' => 'Builds|project|build|projectID=%s', 'subModule' => 'build');
 $lang->project->menu->testtask  = 'Testing|project|testtask|projectID=%s';
 $lang->project->menu->team      = array('link' => 'Team|project|team|projectID=%s', 'alias' => 'managemembers');
 $lang->project->menu->doc       = array('link' => 'Document|project|doc|porjectID=%s', 'subModule' => 'doc');
 $lang->project->menu->product   = $lang->productCommon . '|project|manageproducts|projectID=%s';
 $lang->project->menu->view      = array('link' => 'Overview|project|view|projectID=%s', 'alias' => 'edit,start,suspend,putoff,close');
-$lang->project->menu->create    = array('link' => "<i class='icon-plus'></i>&nbsp;Add{$lang->projectCommon}|project|create", 'float' => 'right');
-$lang->project->menu->all       = array('link' => "<i class='icon-th-large'></i>&nbsp;All{$lang->projectCommon}|project|all|status=undone&projectID=%s", 'float' => 'right');
-$lang->project->menu->index     = array('link' => "<i class='icon-home'></i>{$lang->projectCommon}Homepage|project|index|locate=no", 'float' => 'right');
+$lang->project->menu->create    = array('link' => "<i class='icon-plus'></i>&nbsp;Add a {$lang->projectCommon}|project|create", 'float' => 'right');
+$lang->project->menu->all       = array('link' => "<i class='icon-th-large'></i>&nbsp;All {$lang->projectCommon}|project|all|status=undone&projectID=%s", 'float' => 'right');
+$lang->project->menu->index     = array('link' => "<i class='icon-home'></i>{$lang->projectCommon} Home|project|index|locate=no", 'float' => 'right');
 
 $lang->task  = new stdclass();
 $lang->build = new stdclass();
@@ -211,28 +211,28 @@ $lang->qa = new stdclass();
 $lang->qa->menu = new stdclass();
 
 $lang->qa->menu->product  = array('link' => '%s', 'fixed' => true);
-$lang->qa->menu->bug      = array('link' => 'Bug|bug|browse|productID=%s');
-$lang->qa->menu->testcase = array('link' => 'Case|testcase|browse|productID=%s');
-$lang->qa->menu->testtask = array('link' => 'Build|testtask|browse|productID=%s');
-$lang->qa->menu->index    = array('link' => "<i class='icon-home'></i>TestingHomepage|qa|index|locate=no&productID=%s", 'float' => 'right');
+$lang->qa->menu->bug      = array('link' => 'Bugs|bug|browse|productID=%s');
+$lang->qa->menu->testcase = array('link' => 'Cases|testcase|browse|productID=%s');
+$lang->qa->menu->testtask = array('link' => 'Builds|testtask|browse|productID=%s');
+$lang->qa->menu->index    = array('link' => "<i class='icon-home'></i>Testing Home|qa|index|locate=no&productID=%s", 'float' => 'right');
 
 $lang->bug = new stdclass();
 $lang->bug->menu = new stdclass();
 
 $lang->bug->menu->product  = array('link' => '%s', 'fixed' => true);
-$lang->bug->menu->bug      = array('link' => 'Bug|bug|browse|productID=%s', 'alias' => 'view,create,batchcreate,edit,resolve,close,activate,report,batchedit,confirmbug,assignto', 'subModule' => 'tree');
-$lang->bug->menu->testcase = array('link' => 'Case|testcase|browse|productID=%s');
-$lang->bug->menu->testtask = array('link' => 'Build|testtask|browse|productID=%s');
-$lang->bug->menu->index    = array('link' => "<i class='icon-home'></i>TestingHomepage|qa|index|locate=no&productID=%s", 'float' => 'right');
+$lang->bug->menu->bug      = array('link' => 'Bugs|bug|browse|productID=%s', 'alias' => 'view,create,batchcreate,edit,resolve,close,activate,report,batchedit,confirmbug,assignto', 'subModule' => 'tree');
+$lang->bug->menu->testcase = array('link' => 'Cases|testcase|browse|productID=%s');
+$lang->bug->menu->testtask = array('link' => 'Builds|testtask|browse|productID=%s');
+$lang->bug->menu->index    = array('link' => "<i class='icon-home'></i>Testing Home|qa|index|locate=no&productID=%s", 'float' => 'right');
 
 $lang->testcase = new stdclass();
 $lang->testcase->menu = new stdclass();
 
 $lang->testcase->menu->product  = array('link' => '%s', 'fixed' => true);
-$lang->testcase->menu->bug      = array('link' => 'Bug|bug|browse|productID=%s');
-$lang->testcase->menu->testcase = array('link' => 'Case|testcase|browse|productID=%s', 'alias' => 'view,create,batchcreate,edit,batchedit,showimport,groupcase', 'subModule' => 'tree');
-$lang->testcase->menu->testtask = array('link' => 'Build|testtask|browse|productID=%s', 'alias' => 'view,create,edit,linkcase,cases,start,close,batchrun,groupcase');
-$lang->testcase->menu->index    = array('link' => "<i class='icon-home'></i>TestingHomepage|qa|index|locate=no&productID=%s", 'float' => 'right');
+$lang->testcase->menu->bug      = array('link' => 'Bugs|bug|browse|productID=%s');
+$lang->testcase->menu->testcase = array('link' => 'Cases|testcase|browse|productID=%s', 'alias' => 'view,create,batchcreate,edit,batchedit,showimport,groupcase', 'subModule' => 'tree');
+$lang->testcase->menu->testtask = array('link' => 'Builds|testtask|browse|productID=%s', 'alias' => 'view,create,edit,linkcase,cases,start,close,batchrun,groupcase');
+$lang->testcase->menu->index    = array('link' => "<i class='icon-home'></i>Testing Home|qa|index|locate=no&productID=%s", 'float' => 'right');
 
 $lang->testtask = new stdclass();
 $lang->testtask->menu = $lang->testcase->menu;
@@ -521,22 +521,22 @@ $lang->action->dynamic->hidden     = 'Hidden';
 $lang->action->dynamic->search     = 'Search';
 
 $lang->action->objectTypes['product']     = $lang->productCommon;
-$lang->action->objectTypes['story']       = 'Story';
+$lang->action->objectTypes['story']       = 'Stories';
 $lang->action->objectTypes['productplan'] = 'Planning';
 $lang->action->objectTypes['release']     = 'Release';
 $lang->action->objectTypes['project']     = $lang->projectCommon;
-$lang->action->objectTypes['task']        = 'Task';
-$lang->action->objectTypes['build']       = 'Build';
-$lang->action->objectTypes['bug']         = 'Bug';
-$lang->action->objectTypes['case']        = 'Case';
-$lang->action->objectTypes['caseresult']  = 'Case Result';
+$lang->action->objectTypes['task']        = 'Tasks';
+$lang->action->objectTypes['build']       = 'Builds';
+$lang->action->objectTypes['bug']         = 'Bugs';
+$lang->action->objectTypes['case']        = 'Cases';
+$lang->action->objectTypes['caseresult']  = 'Case Results';
 $lang->action->objectTypes['stepresult']  = 'Case Steps';
-$lang->action->objectTypes['testtask']    = 'Test Task';
-$lang->action->objectTypes['user']        = 'User';
+$lang->action->objectTypes['testtask']    = 'Test Tasks';
+$lang->action->objectTypes['user']        = 'Users';
 $lang->action->objectTypes['doc']         = 'Document';
 $lang->action->objectTypes['doclib']      = 'Doc Lib';
 $lang->action->objectTypes['todo']        = 'To-Dos';
-$lang->action->objectTypes['branch']      = 'Branch';
+$lang->action->objectTypes['branch']      = 'Branches';
 
 $lang->action->desc = new stdclass();
 $lang->action->desc->common         = '$date, <strong>$action</strong> by <strong>$actor</strong>.' . "\n";
@@ -581,7 +581,7 @@ $lang->action->desc->unlinkrelatedcase = '$date, <strong>$actor</strong> removed
 
 $lang->action->label = new stdclass();
 $lang->action->label->created             = 'Created';
-$lang->action->label->opened              = 'Opened';
+$lang->action->label->opened              = 'Open';
 $lang->action->label->changed             = 'Changed';
 $lang->action->label->edited              = 'Edited';
 $lang->action->label->assigned            = 'Assigned';
@@ -636,15 +636,15 @@ $lang->action->label->productplan = 'Planning|productplan|view|productID=%s';
 $lang->action->label->release     = 'Release|release|view|productID=%s';
 $lang->action->label->story       = 'Story|story|view|storyID=%s';
 $lang->action->label->project     = "{$lang->projectCommon}|project|view|projectID=%s";
-$lang->action->label->task        = 'Task|task|view|taskID=%s';
-$lang->action->label->build       = 'Build|build|view|buildID=%s';
-$lang->action->label->bug         = 'Bug|bug|view|bugID=%s';
-$lang->action->label->case        = 'Case|testcase|view|caseID=%s';
-$lang->action->label->testtask    = 'Test Task|testtask|view|caseID=%s';
-$lang->action->label->todo        = 'To-Do|todo|view|todoID=%s';
+$lang->action->label->task        = 'Tasks|task|view|taskID=%s';
+$lang->action->label->build       = 'Builds|build|view|buildID=%s';
+$lang->action->label->bug         = 'Bugs|bug|view|bugID=%s';
+$lang->action->label->case        = 'Cases|testcase|view|caseID=%s';
+$lang->action->label->testtask    = 'Test Tasks|testtask|view|caseID=%s';
+$lang->action->label->todo        = 'To-Dos|todo|view|todoID=%s';
 $lang->action->label->doclib      = 'DocLib|doc|browse|libID=%s';
 $lang->action->label->doc         = 'Document|doc|view|docID=%s';
-$lang->action->label->user        = 'User|user|view|account=%s';
+$lang->action->label->user        = 'Users|user|view|account=%s';
 $lang->action->label->space       = ' ';
 
 $lang->action->search->objectTypeList['']            = '';    
@@ -707,7 +707,7 @@ $lang->action->search->label['paused']              = $lang->action->label->paus
 $lang->action->search->label['login']               = $lang->action->label->login;
 $lang->action->search->label['logout']              = $lang->action->label->logout;
 /* admin */
-$lang->admin->common  = 'Administration';
+$lang->admin->common  = 'Admin';
 $lang->admin->index   = 'Home';
 $lang->admin->checkDB = 'Check Database Library';
 $lang->admin->sso     = 'Ranger';
@@ -720,7 +720,7 @@ $lang->admin->info->links   = 'You can visit ';
 $lang->admin->info->account = "Your ZenTao account is %s.";
 
 $lang->admin->notice = new stdclass();
-$lang->admin->notice->register = "You haven't registered in ZenTao(www.zentao.net), register %s and get the latest ZenTao news.";
+$lang->admin->notice->register = "You haven't registered in ZenTao(www.zentao.pm). Please register %s and get the latest ZenTao news.";
 $lang->admin->notice->ignore   = "Ignore";
 
 $lang->admin->register = new stdclass();
@@ -740,22 +740,22 @@ $lang->admin->safe = new stdclass();
 $lang->admin->safe->common    = 'Security';
 $lang->admin->safe->set       = 'Password Security Settings';
 $lang->admin->safe->password  = 'Password Security';
-$lang->admin->safe->weak      = 'Common Weak Password';
-$lang->admin->safe->reason    = 'Type';
+$lang->admin->safe->weak      = 'Weak Password';
+$lang->admin->safe->reason    = 'Reason';
 $lang->admin->safe->checkWeak = 'Weak Password Check';
 
 $lang->admin->safe->modeList[0] = 'N/A';
 $lang->admin->safe->modeList[1] = 'Medium';
 $lang->admin->safe->modeList[2] = 'Strong';
 
-$lang->admin->safe->reasonList['weak']     = 'Common Weak Password';
+$lang->admin->safe->reasonList['weak']     = 'Weak Password';
 $lang->admin->safe->reasonList['account']  = 'Same as your account';
 $lang->admin->safe->reasonList['mobile']   = 'Same as your mobile number';
 $lang->admin->safe->reasonList['phone']    = 'Same as your phone number';
 $lang->admin->safe->reasonList['birthday'] = 'Same as your DOB';
 
-$lang->admin->safe->noticeMode   = 'User password will be checked when login, add/edit user password.';
-$lang->admin->safe->noticeStrong = 'The more capitalized letters and numbers a password has, the more secure it is!';
+$lang->admin->safe->noticeMode   = 'User password will be checked when login, add and edit user password.';
+$lang->admin->safe->noticeStrong = 'The more capitalized letters and numbers, the more secure it is!';
 /* api */
 $lang->api = new stdclass();
 $lang->api->common   = 'API';
@@ -1084,10 +1084,10 @@ $lang->bug->confirmed        = 'Confirmed';
 $lang->bug->toTask           = 'Convert to Task';
 $lang->bug->toStory          = 'Convert to Story';
 $lang->bug->mailto           = 'Mail To';
-$lang->bug->openedBy         = 'Opened By';
-$lang->bug->openedDate       = 'Opened Date';
-$lang->bug->openedDateAB     = 'Opened Date';
-$lang->bug->openedBuild      = 'Opened Build';
+$lang->bug->openedBy         = 'Open By';
+$lang->bug->openedDate       = 'Open Date';
+$lang->bug->openedDateAB     = 'Open Date';
+$lang->bug->openedBuild      = 'Open Build';
 $lang->bug->assignedTo       = 'Assigned To';
 $lang->bug->assignedDate     = 'Assigned Date';
 $lang->bug->resolvedBy       = 'Resolved By';
@@ -1443,12 +1443,12 @@ $lang->build->action->buildopened = '$date, created by <strong>$actor</strong>, 
 $lang->company->common   = 'Company';
 $lang->company->index    = "Home";
 $lang->company->edit     = "Edit";
-$lang->company->view     = "Info";
-$lang->company->browse   = "User List";
+$lang->company->view     = "Company Info";
+$lang->company->browse   = "Users";
 $lang->company->dynamic  = "Dynamic";
 $lang->company->orgView  = 'View';
 
-$lang->company->name     = 'Company Name';
+$lang->company->name     = 'Name';
 $lang->company->phone    = 'Phone';
 $lang->company->fax      = 'Fax';
 $lang->company->address  = 'Mailing Address';
@@ -1464,13 +1464,13 @@ $lang->company->user    = 'User';
 $lang->company->guestList[0] = 'On';
 $lang->company->guestList[1] = 'Off';
 /* convert */
-$lang->convert->common  = 'Imported';
-$lang->convert->index   = 'Homepage';
+$lang->convert->common  = 'Import';
+$lang->convert->index   = 'Home';
 
 $lang->convert->start   = 'Start';
 $lang->convert->desc    = <<<EOT
-<p>Welcome to the System Conversion Wizard, this program will assist you to convert data to ZenTao PMS.</p>
-<strong>There is certain risk of conversion, so it is strongly recommended that you back up your databse and relavant files before conversion, and make sure no one is operating on either systems.</strong>
+<p>Welcome to the System Conversion Wizard, this program will assist you to convert data to ZenTao.</p>
+<strong>There is risks to convert, so it is strongly recommended that you back up your database and files before conversion, and make sure no one is operating on either one of the two systems.</strong>
 EOT;
 
 $lang->convert->setConfig      = 'Source Config';
@@ -1481,10 +1481,10 @@ $lang->convert->checkRedmine   = 'Check Redmine';
 $lang->convert->convertRedmine = 'Convert Redmine';
 $lang->convert->convertBugFree = 'Convert BugFree';
 
-$lang->convert->selectSource     = 'Select source system and its version';
+$lang->convert->selectSource     = 'Select the system and its version';
 $lang->convert->mustSelectSource = "You must select a source system.";
 
-$lang->convert->direction             = "{$lang->projectCommon} converted to";
+$lang->convert->direction             = "{$lang->projectCommon} is converted to";
 $lang->convert->questionTypeOfRedmine = 'Type in Redmine';
 $lang->convert->aimTypeOfZentao       = 'Convert to Type in Zentao';
 
@@ -1503,16 +1503,16 @@ $lang->convert->fail        = '<span class="text-danger"><i class="icon-remove-s
 
 $lang->convert->dbHost      = 'Database Server';
 $lang->convert->dbPort      = 'Server Port';
-$lang->convert->dbUser      = 'Database User Name';
-$lang->convert->dbPassword  = 'Database Password';
-$lang->convert->dbName      = 'Databse used in %s';
+$lang->convert->dbUser      = 'User Name';
+$lang->convert->dbPassword  = 'Password';
+$lang->convert->dbName      = 'Database used in %s';
 $lang->convert->dbCharset   = '%s Database Code';
 $lang->convert->dbPrefix    = '%s Table Prefix';
 $lang->convert->installPath = '%s Installed path';
 
 $lang->convert->checkDB    = 'Database';
 $lang->convert->checkTable = 'Table';
-$lang->convert->checkPath  = 'Installed Path';
+$lang->convert->checkPath  = 'Installation Path';
 
 $lang->convert->execute    = 'Convert';
 $lang->convert->item       = 'Item Converted';
@@ -1626,7 +1626,7 @@ $lang->cron->notice->errorRule = '"%s" is not valid';
 $lang->custom->common    = 'Custom';
 $lang->custom->index     = 'Home';
 $lang->custom->set       = 'Customize';
-$lang->custom->restore   = 'Reset to Default';
+$lang->custom->restore   = 'Reset';
 $lang->custom->key       = 'Key';
 $lang->custom->value     = 'Value';
 $lang->custom->flow      = 'Process';
@@ -1841,7 +1841,7 @@ $lang->dev->groupList['qa']      = 'Testing';
 $lang->dev->groupList['doc']     = 'Document';
 $lang->dev->groupList['report']  = 'Report';
 $lang->dev->groupList['company'] = 'Company';
-$lang->dev->groupList['admin']   = 'Administration';
+$lang->dev->groupList['admin']   = 'Admin';
 $lang->dev->groupList['other']   = 'Other Module';
 /* doc */
 $lang->doc->common         = 'Doc';
@@ -1866,7 +1866,7 @@ $lang->doc->basicInfo      = 'Basic Info';
 $lang->doc->deleted        = 'Deleted';
 
 $lang->doc->moduleDoc      = 'By Module';
-$lang->doc->searchDoc      = 'By Search';
+$lang->doc->searchDoc      = 'Search';
 //$lang->doc->allDoc         = 'All Document';
 
 $lang->doc->index          = 'Home';
@@ -2002,7 +2002,7 @@ $lang->extension->available   = 'Downloaded';
 
 $lang->extension->version     = 'Version';
 $lang->extension->compatible  = 'Compatible';
-$lang->extension->latest      = '<small>Latest:<strong><a href="%s" target="_blank" class="extension">%s</a></strong>，need zentao <a href="http://api.zentao.net/goto.php?item=latest" target="_blank"><strong>%s</strong></small>';
+$lang->extension->latest      = '<small>Latest:<strong><a href="%s" target="_blank" class="extension">%s</a></strong>，need ZenTao <a href="http://api.zentao.net/goto.php?item=latest" target="_blank"><strong>%s</strong></small>';
 $lang->extension->author      = 'Author';
 $lang->extension->license     = 'License';
 $lang->extension->site        = 'Official Website';
@@ -2018,10 +2018,10 @@ $lang->extension->compatibleList[0] = 'Unknown';
 $lang->extension->compatibleList[1] = 'Compatible';
 
 $lang->extension->byDownloads   = 'Downloads';
-$lang->extension->byAddedTime   = 'Latest Added';
-$lang->extension->byUpdatedTime = 'Latest Update';
+$lang->extension->byAddedTime   = 'Last Added';
+$lang->extension->byUpdatedTime = 'Last Updated';
 $lang->extension->bySearch      = 'Search';
-$lang->extension->byCategory    = 'Category';
+$lang->extension->byCategory    = 'Categories';
 
 $lang->extension->installFailed            = '%s failed. Error:';
 $lang->extension->uninstallFailed          = 'Uninstall failed. Error:';
@@ -2546,13 +2546,13 @@ $lang->my->form->lblContact = 'Contact Info';
 $lang->my->form->lblAccount = 'Account Info';
 /* product */
 $lang->product->common      = $lang->productCommon . 'View';
-$lang->product->index       = $lang->productCommon . "Homepage";
-$lang->product->browse      = "View{$lang->productCommon}";
+$lang->product->index       = $lang->productCommon . "Home";
+$lang->product->browse      = "View {$lang->productCommon}";
 $lang->product->dynamic     = "Dynamic";
-$lang->product->view        = "{$lang->productCommon}Overview";
+$lang->product->view        = "{$lang->productCommon} Overview";
 $lang->product->edit        = "Edit {$lang->productCommon}";
 $lang->product->batchEdit   = "Batch Edit";
-$lang->product->create      = "Create {$lang->productCommon}";
+$lang->product->create      = "Create a {$lang->productCommon}";
 $lang->product->delete      = "Delete {$lang->productCommon}";
 $lang->product->deleted     = "Deleted";
 $lang->product->close       = "Close";
@@ -2579,18 +2579,18 @@ $lang->product->project  = $lang->projectCommon . 'List';
 
 $lang->product->confirmDelete   = " Do you want to delete {$lang->productCommon}?";
 
-$lang->product->errorNoProduct = "{$lang->productCommon} is not created yet!";
+$lang->product->errorNoProduct = "No {$lang->productCommon} is created yet! Please create it first.";
 $lang->product->accessDenied   = "You have no access to {$lang->productCommon}.";
 
 $lang->product->name      = "{$lang->productCommon} Name";
-$lang->product->code      = "{$lang->productCommon} Code";
+$lang->product->code      = "{$lang->productCommon} ID";
 $lang->product->order     = 'Sort;
 $lang->product->type      = "{$lang->productCommon} Type";
 $lang->product->status    = 'Status';
 $lang->product->desc      = 'Desc';
-$lang->product->PO        = "{$lang->productCommon} owner";
-$lang->product->QD        = 'Quality director';
-$lang->product->RD        = 'Release director';
+$lang->product->PO        = "{$lang->productCommon} Owner";
+$lang->product->QD        = 'Quality Director';
+$lang->product->RD        = 'Release Director';
 $lang->product->acl       = 'Access Control';
 $lang->product->whitelist = 'Whitelist';
 $lang->product->branch    = '%s';
@@ -2875,9 +2875,9 @@ $lang->project->confirmUnlinkStory    = "Do you want to remove this Story from {
 $lang->project->errorNoLinkedProducts = "No linked {$lang->productCommon} found in {$lang->projectCommon}. You will be directed to {$lang->productCommon}linked page.";
 $lang->project->accessDenied          = "Access to {$lang->projectCommon} denied!";
 $lang->project->tips                  = 'Note';
-$lang->project->afterInfo             = "{$lang->projectCommon} created. You can do: ";
+$lang->project->afterInfo             = "{$lang->projectCommon} created. You can do";
 $lang->project->setTeam               = 'Team Settings';
-$lang->project->linkStory             = 'Link Story';
+$lang->project->linkStory             = 'Link a Story';
 $lang->project->createTask            = 'Create a Task';
 $lang->project->goback                = "Back";
 $lang->project->noweekend             = 'Without Weekend';
@@ -2897,7 +2897,7 @@ $lang->project->charts->burn->graph->rotateNames  = 1;
 $lang->project->charts->burn->graph->showValues   = 0;
 
 $lang->project->placeholder = new stdclass();
-$lang->project->placeholder->code      = "{$lang->projectCommon} Code";
+$lang->project->placeholder->code      = "{$lang->projectCommon} ID";
 $lang->project->placeholder->totalLeft = 'Total man-hour left when start Project';
 
 $lang->project->selectGroup = new stdclass();
@@ -3022,7 +3022,7 @@ $lang->report->bugCreate        = 'Bug Summary';
 $lang->report->bugAssign        = 'Bug Assignment';
 $lang->report->workload         = 'Workload';
 $lang->report->workloadAB       = 'Workload';
-$lang->report->bugOpenedDate    = 'Bug Opened Date';
+$lang->report->bugOpenedDate    = 'Bug Open Date';
 $lang->report->taskAssignedDate = 'Time Frame';
 $lang->report->beginAndEnd      = 'Date';
 $lang->report->dept             = 'Dept';
@@ -3121,11 +3121,11 @@ $lang->sso->turnonList[0] = 'Off';
 $lang->sso->bindType = 'Binding Type';
 $lang->sso->bindUser = 'User Binding';
 
-$lang->sso->bindTypeList['bind'] = 'Bind to existing User';
-$lang->sso->bindTypeList['add']  = 'Add User';
+$lang->sso->bindTypeList['bind'] = 'Bind to an existing User';
+$lang->sso->bindTypeList['add']  = 'Add';
 
 $lang->sso->help = <<<EOD
-<p>1. Interface address is required. If use PATH_INFO, it is http://YOUR RANGER ADDRESS/sys/sso-check.html If GET, it is http://YOUR RANGER ADDRESS/sys/index.php?m=sso&f=check</p>
+<p>1. Ranger address is required. If use PATH_INFO, it is http://YOUR RANGER ADDRESS/sys/sso-check.html If GET, it is http://YOUR RANGER ADDRESS/sys/index.php?m=sso&f=check</p>
 <p>2. Code and Key must be the same as set in Ranger.</p>
 EOD;
 $lang->sso->bindNotice     = 'User just added has no privilege. You have to ask your Admin to grant permissions to the User.';
@@ -3178,8 +3178,8 @@ $lang->story->status         = 'Status';
 $lang->story->stage          = 'Stage';
 $lang->story->stageAB        = 'Stage';
 $lang->story->mailto         = 'Mailto';
-$lang->story->openedBy       = 'Opened By';
-$lang->story->openedDate     = 'Opened Date';
+$lang->story->openedBy       = 'Open By';
+$lang->story->openedDate     = 'Open Date';
 $lang->story->assignedTo     = 'Assigned To';
 $lang->story->assignedDate   = 'Assigned Date';
 $lang->story->lastEditedBy   = 'Last Edited By';
@@ -3200,7 +3200,7 @@ $lang->story->duplicateStory = 'Duplicate Story';
 $lang->story->reviewResult   = 'Review Result';
 $lang->story->preVersion     = 'Previous Version';
 $lang->story->keywords       = 'Keyword';
-$lang->story->newStory       = 'Continue Add Story.';
+$lang->story->newStory       = 'Continue adding Stories.';
 $lang->story->colorTag       = 'Color Tag';
 $lang->story->files          = 'Files';
 
@@ -3650,8 +3650,8 @@ $lang->testcase->pri              = 'Priority';
 $lang->testcase->type             = 'Type';
 $lang->testcase->status           = 'Status';
 $lang->testcase->steps            = 'Steps';
-$lang->testcase->openedBy         = 'Opened By';
-$lang->testcase->openedDate       = 'Opened Date';
+$lang->testcase->openedBy         = 'Open By';
+$lang->testcase->openedDate       = 'Open Date';
 $lang->testcase->lastEditedBy     = 'Last Edited by';
 $lang->testcase->result           = 'Result';
 $lang->testcase->real             = 'Real';
@@ -3683,7 +3683,7 @@ $lang->testcase->stepExpect = 'Expected';
 
 $lang->testcase->common             = 'Case';
 $lang->testcase->index              = "Index";
-$lang->testcase->create             = "Create Case";
+$lang->testcase->create             = "Create a Case";
 $lang->testcase->batchCreate        = "Batch Create";
 $lang->testcase->delete             = "Delete";
 $lang->testcase->view               = "Info";
@@ -3967,9 +3967,9 @@ $lang->tree->addChild          = "Add Children";
 
 $lang->tree->confirmDelete = 'Do you want to delete this Module and its Children?';
 $lang->tree->confirmRoot   = "Changes on {$lang->productCommon} will change the Stories, Bugs, Cases of {$lang->productCommon} it belongs to, and the relatiosn of {$lang->projectCommon} and {$lang->productCommon}. Please be aware of it. Do you want to change it?";
-$lang->tree->successSave   = 'Successfully saved';
-$lang->tree->successFixed  = 'Successfully fixed.';
-$lang->tree->repeatName    = 'The name "%s" has exists!';
+$lang->tree->successSave   = 'Saved';
+$lang->tree->successFixed  = 'Fixed.';
+$lang->tree->repeatName    = 'The name "%s" has existed!';
 
 $lang->tree->name       = 'Name';
 $lang->tree->parent     = 'Parent';
@@ -4008,7 +4008,7 @@ $lang->tutorial->dataNotSave      = "Data generated in the Tutorial will not be 
 $lang->tutorial->tasks = array();
 
 $lang->tutorial->tasks['createAccount']         = array('title' => 'Create an Account');
-$lang->tutorial->tasks['createAccount']['nav']  = array('module' => 'user', 'method' => 'create', 'menuModule' => 'company', 'menu' => 'addUser', 'form' => '#dataform', 'submit' => '#submit', 'targetPageName' => 'Add User');
+$lang->tutorial->tasks['createAccount']['nav']  = array('module' => 'user', 'method' => 'create', 'menuModule' => 'company', 'menu' => 'addUser', 'form' => '#dataform', 'submit' => '#submit', 'targetPageName' => 'Add Users');
 $lang->tutorial->tasks['createAccount']['desc'] = "<p>Create an account: </p><ul><li data-target='nav'>Open <span class='task-nav'>Company <i class='icon icon-angle-right'></i> Users<i class='icon icon-angle-right'></i> New;</span></li><li data-target='form'>Fill the form with user information;</li><li data-target='submit'>Save</li></ul>";
 
 $lang->tutorial->tasks['createProduct']         = array('title' => 'Create a Product');
@@ -4144,12 +4144,12 @@ $lang->user->company     = 'Company';
 $lang->user->dept        = 'Department';
 $lang->user->account     = 'Account';
 $lang->user->password    = 'Password';
-$lang->user->password2   = 'Repeat password';
+$lang->user->password2   = 'Repeat Password';
 $lang->user->role        = 'Role';
 $lang->user->group       = 'Group';
 $lang->user->realname    = 'Real Name';
 $lang->user->nickname    = 'Nickname';
-$lang->user->commiter    = 'Commit Account';
+$lang->user->commiter    = 'Commiter';
 $lang->user->birthyear   = 'Birth Year';
 $lang->user->gender      = 'Gender';
 $lang->user->email       = 'Email';
@@ -4187,7 +4187,7 @@ $lang->user->delete          = "Delete";
 $lang->user->unbind          = "Unbind Ranger";
 $lang->user->login           = "Login";
 $lang->user->mobileLogin     = "Mobile";
-$lang->user->editProfile     = "Edit Profile";
+$lang->user->editProfile     = "Edit";
 $lang->user->deny            = "Access Denied";
 $lang->user->confirmDelete   = "Are you sure to delete this user?";
 $lang->user->confirmUnlock   = "Are you sure to unlock this user?";
@@ -4208,7 +4208,7 @@ $lang->user->todo        = 'To-Do';
 $lang->user->story       = 'Stories';
 $lang->user->dynamic     = 'Dynamic';
 
-$lang->user->openedBy    = 'Opened by him';
+$lang->user->openedBy    = 'Open by him';
 $lang->user->assignedTo  = 'Assigned to him';
 $lang->user->finishedBy  = 'Finished by him';
 $lang->user->resolvedBy  = 'Resolved by him';
@@ -4218,7 +4218,7 @@ $lang->user->canceledBy  = 'Cancelled by him';
 
 $lang->user->testTask2Him = 'Builds';
 $lang->user->case2Him     = 'Cases';
-$lang->user->caseByHim    = 'Case Opened';
+$lang->user->caseByHim    = 'Open Cases';
 
 $lang->user->errorDeny    = "Sorry, your access to <b>%s</b> Module <b>%s</b> Feature has been denied. Please contact Admin to get permission. Click Back to return.";
 $lang->user->loginFailed  = "Login failed. Please check your account and password.";
