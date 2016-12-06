@@ -1,0 +1,12 @@
+#!/bin/bash
+
+zentaoDir=$0
+
+if [ -f "/usr/bin/zentao" ]; then
+	script=`ls -l /usr/bin/zentao`
+	zentaoDir=`dirname ${script#*->}`
+else
+	zentaoDir=`dirname $0`
+fi
+
+$zentaoDir/node $zentaoDir/app.js $@
