@@ -198,7 +198,7 @@ var ARROW_DOWN_TEXT = '↓';
         var location = URL.parse(url);
         
         var options = {};
-        options.host = location.host;
+        options.hostname = location.hostname;
         options.port = location.port;
         options.path = location.path;
         options.method = "GET";
@@ -253,7 +253,7 @@ var ARROW_DOWN_TEXT = '↓';
         var self = this;
 
         var options = {};
-        options.host = location.host;
+        options.hostname = location.hostname;
         options.port = location.port;
         options.path = location.path;
         options.method = "POST";
