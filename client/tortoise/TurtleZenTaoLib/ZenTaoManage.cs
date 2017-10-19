@@ -6,6 +6,8 @@ using System.Text;
 using System.IO;
 using Newtonsoft.Json;
 using System.Net;
+using System.Windows.Forms;
+using System.Web;
 
 namespace TurtleZenTaoLib
 {
@@ -237,10 +239,9 @@ namespace TurtleZenTaoLib
 
             string updateUrl = getAPIUrl(name);
 
-            string data = "resolution=fixed&resolvedBuild=trunk&resolvedDate=" + DateTime.Now.ToString("yyyy-MM-dd%20hh:mm:ss")
-                + "&assignedTo=" + username;
+            string data = "resolution=fixed&resolvedBuild=trunk&resolvedDate=" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")+ "&assignedTo=" + username;
 
-            string body = HttpClient.post(updateUrl, Encoding.Default.GetBytes(data));
+            string body = HttpClient.post(updateUrl, Encoding.UTF8.GetBytes(data));
 
             Result<string> result = new Result<string>();
             result.status = 1;
@@ -260,16 +261,15 @@ namespace TurtleZenTaoLib
             string taskId = task.id;
             string consumed = task.consumed;
             string left = task.left;
-
             Result<string> result = new Result<string>();
             result.status = 1;
             result.msg = Plugin.lang.getText("OperateSucess");
             result.data = "";
-
+           
             string operate = "recordEstimate";
 
-            string data = "id%5B1%5D=" + taskId + "&dates%5B1%5D=" + DateTime.Now.ToString("yyyy-MM-dd") + "&consumed%5B1%5D=" + task.currentConsumed
-                + "&left%5B1%5D=" + left + "&work%5B1%5D=";
+            string data = "id[1]=1"  + "&dates[1]=" + DateTime.Now.ToString("yyyy-MM-dd") + "&consumed[1]=" + task.currentConsumed
+                + "&left[1]=" + left + $"&work[1]=handle task#{task.id} {task.name}&objectType[1]=task&objectID[1]="+ taskId;
 
             if (int.Parse(left) < 1)
             {
@@ -282,12 +282,14 @@ namespace TurtleZenTaoLib
             string name = "index.php?t=json&m=task&f=" + operate  + "&taskID=" + taskId;
             if (type == RequestType.PATH_INFO)
             {
+                if(operate.Equals("finish"))
                 name = "task-" + operate + "-" + taskId + ".json";
+                else
+                    name = "effort-createForObject-task-" + taskId + ".json";
             }
 
             string updateUrl = getAPIUrl(name);
-
-            string body = HttpClient.post(updateUrl, Encoding.Default.GetBytes(data));
+            string body = HttpClient.post(updateUrl, Encoding.UTF8.GetBytes(data));
 
             return result;
         }
