@@ -2884,7 +2884,7 @@ $lang->file->pathname  = '路径';
 $lang->file->title     = '标题';
 $lang->file->fileName  = '文件名';
 $lang->file->untitled  = '未命名';
-$lang->file->extension = '扩展名';
+$lang->file->extension = '文件类型';
 $lang->file->size      = '大小';
 $lang->file->encoding  = '编码';
 $lang->file->addedBy   = '由谁添加';
@@ -4507,6 +4507,7 @@ $lang->story->errorEmptyChildStory  = '『细分需求』不能为空。';
 $lang->story->mustChooseResult      = '必须选择评审结果';
 $lang->story->mustChoosePreVersion  = '必须选择回溯的版本';
 $lang->story->noStory               = '暂时没有需求。';
+$lang->story->failChangeStage       = '需求 %s 为草稿状态，没有修改其阶段。';
 
 $lang->story->form = new stdclass();
 $lang->story->form->area      = '该需求所属范围';
