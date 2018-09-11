@@ -257,7 +257,7 @@ $lang->bug->menu = new stdclass();
 
 $lang->bug->menu->bug       = array('link' => 'Bug|bug|browse|productID=%s', 'alias' => 'view,create,batchcreate,edit,resolve,close,activate,report,batchedit,batchactivate,confirmbug,assignto', 'subModule' => 'tree');
 $lang->bug->menu->testcase  = array('link' => 'Case|testcase|browse|productID=%s');
-$lang->bug->menu->testtask  = array('link' => 'Build|testtask|browse|productID=%s');
+$lang->bug->menu->testtask  = array('link' => 'Test Task|testtask|browse|productID=%s');
 $lang->bug->menu->testsuite = array('link' => 'Suite|testsuite|browse|productID=%s');
 $lang->bug->menu->report    = array('link' => 'Report|testreport|browse|productID=%s');
 $lang->bug->menu->caselib   = array('link' => 'Library|testsuite|library');
@@ -266,7 +266,7 @@ $lang->testcase = new stdclass();
 $lang->testcase->menu = new stdclass();
 $lang->testcase->menu->bug       = array('link' => 'Bug|bug|browse|productID=%s');
 $lang->testcase->menu->testcase  = array('link' => 'Case|testcase|browse|productID=%s', 'alias' => 'view,create,batchcreate,edit,batchedit,showimport,groupcase,importfromlib', 'subModule' => 'tree');
-$lang->testcase->menu->testtask  = array('link' => 'Build|testtask|browse|productID=%s');
+$lang->testcase->menu->testtask  = array('link' => 'Test Task|testtask|browse|productID=%s');
 $lang->testcase->menu->testsuite = array('link' => 'Suite|testsuite|browse|productID=%s');
 $lang->testcase->menu->report    = array('link' => 'Report|testreport|browse|productID=%s');
 $lang->testcase->menu->caselib   = array('link' => 'Library|testsuite|library');
@@ -275,7 +275,7 @@ $lang->testtask = new stdclass();
 $lang->testtask->menu = new stdclass();
 $lang->testtask->menu->bug       = array('link' => 'Bug|bug|browse|productID=%s');
 $lang->testtask->menu->testcase  = array('link' => 'Case|testcase|browse|productID=%s');
-$lang->testtask->menu->testtask  = array('link' => 'Build|testtask|browse|productID=%s', 'alias' => 'view,create,edit,linkcase,cases,start,close,batchrun,groupcase,report');
+$lang->testtask->menu->testtask  = array('link' => 'Test Task|testtask|browse|productID=%s', 'alias' => 'view,create,edit,linkcase,cases,start,close,batchrun,groupcase,report');
 $lang->testtask->menu->testsuite = array('link' => 'Suite|testsuite|browse|productID=%s');
 $lang->testtask->menu->report    = array('link' => 'Report|testreport|browse|productID=%s');
 $lang->testtask->menu->caselib   = array('link' => 'Library|testsuite|library');
@@ -284,7 +284,7 @@ $lang->testsuite = new stdclass();
 $lang->testsuite->menu = new stdclass();
 $lang->testsuite->menu->bug       = array('link' => 'Bug|bug|browse|productID=%s');
 $lang->testsuite->menu->testcase  = array('link' => 'Case|testcase|browse|productID=%s');
-$lang->testsuite->menu->testtask  = array('link' => 'Build|testtask|browse|productID=%s');
+$lang->testsuite->menu->testtask  = array('link' => 'Test Task|testtask|browse|productID=%s');
 $lang->testsuite->menu->testsuite = array('link' => 'Suite|testsuite|browse|productID=%s', 'alias' => 'view,create,edit,linkcase');
 $lang->testsuite->menu->report    = array('link' => 'Report|testreport|browse|productID=%s');
 $lang->testsuite->menu->caselib   = array('link' => 'Library|testsuite|library');
@@ -293,7 +293,7 @@ $lang->testreport = new stdclass();
 $lang->testreport->menu = new stdclass();
 $lang->testreport->menu->bug       = array('link' => 'Bug|bug|browse|productID=%s');
 $lang->testreport->menu->testcase  = array('link' => 'Case|testcase|browse|productID=%s');
-$lang->testreport->menu->testtask  = array('link' => 'Build|testtask|browse|productID=%s');
+$lang->testreport->menu->testtask  = array('link' => 'Test Task|testtask|browse|productID=%s');
 $lang->testreport->menu->testsuite = array('link' => 'Suite|testsuite|browse|productID=%s');
 $lang->testreport->menu->report    = array('link' => 'Report|testreport|browse|productID=%s', 'alias' => 'view,create,edit');
 $lang->testreport->menu->caselib   = array('link' => 'Library|testsuite|library');
@@ -302,7 +302,7 @@ $lang->caselib = new stdclass();
 $lang->caselib->menu = new stdclass();
 $lang->caselib->menu->bug       = array('link' => 'Bug|bug|browse|');
 $lang->caselib->menu->testcase  = array('link' => 'Case|testcase|browse|');
-$lang->caselib->menu->testtask  = array('link' => 'Build|testtask|browse|');
+$lang->caselib->menu->testtask  = array('link' => 'Test Task|testtask|browse|');
 $lang->caselib->menu->testsuite = array('link' => 'Suite|testsuite|browse|');
 $lang->caselib->menu->report    = array('link' => 'Report|testreport|browse|');
 $lang->caselib->menu->caselib   = array('link' => 'Library|testsuite|library', 'alias' => 'createlib,createcase,libview,edit,batchcreatecase,showimport', 'subModule' => 'tree,testcase');
@@ -5127,10 +5127,10 @@ $lang->testreport->errorTrunk     = "The trunk version cannot create a test repo
 $lang->testreport->moreProduct    = "A test report can only be generated for the same product.";
 
 $lang->testreport->bugSummary = <<<EOD
-<strong>%s</strong> Bug(s) generated in total <a data-toggle='tooltip' class='text-warning' title='{$lang->testreport->foundBugTip}'><i class='icon-exclamation-sign'></i></a>,
-<strong>%s</strong> Bug(s) remained unresolve <a data-toggle='tooltip' class='text-warning' title='{$lang->testreport->legacyBugTip}'><i class='icon-exclamation-sign'></i></a>,
-<strong>%s</strong> Bug(s) failure of case <a data-toggle='tooltip' class='text-warning' title='{$lang->testreport->fromCaseBugTip}'><i class='icon-exclamation-sign'></i></a>.
-Bug Effective Rate <a data-toggle='tooltip' class='text-warning' title='resolution is resolved or delayedg / status is resolved or closed'><i class='icon-exclamation-sign'></i></a>: <strong>%s</strong>，Bugs created from case Rate<a data-toggle='tooltip' class='text-warning' title='Bugs created from cases / bugs'><i class='icon-exclamation-sign'></i></a>: <strong>%s</strong>
+<strong>%s</strong> Bug(s) generated in total <a data-toggle='tooltip' class='text-warning' title='{$lang->testreport->foundBugTip}'><i class='icon-help'></i></a>,
+<strong>%s</strong> Bug(s) remained unresolve <a data-toggle='tooltip' class='text-warning' title='{$lang->testreport->legacyBugTip}'><i class='icon-help'></i></a>,
+<strong>%s</strong> Bug(s) failure of case <a data-toggle='tooltip' class='text-warning' title='{$lang->testreport->fromCaseBugTip}'><i class='icon-help'></i></a>.
+Bug Effective Rate <a data-toggle='tooltip' class='text-warning' title='resolution is resolved or delayedg / status is resolved or closed'><i class='icon-help'></i></a>: <strong>%s</strong>，Bugs created from case Rate<a data-toggle='tooltip' class='text-warning' title='Bugs created from cases / bugs'><i class='icon-help'></i></a>: <strong>%s</strong>
 EOD;
 /* testsuite */
 $lang->testsuite->index            = "Home";
@@ -5281,6 +5281,7 @@ $lang->testtask->confirmDelete     = 'Do you want to delete this test build?';
 $lang->testtask->confirmUnlinkCase = 'Do you want to unlink this Case?';
 $lang->testtask->noticeNoOther     = 'There are no other test task for this product';
 $lang->testtask->noTesttask        = 'No test tasks. ';
+$lang->testtask->checkLinked       = "Please check if the testtask product is linked to project.";
 
 $lang->testtask->assignedToMe  = 'My';
 $lang->testtask->allCases      = 'AllCases';

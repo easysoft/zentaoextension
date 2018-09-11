@@ -5151,9 +5151,9 @@ $lang->testreport->errorTrunk     = "主干版本不能创建测试报告，请�
 $lang->testreport->moreProduct    = "只能对同一个产品生成测试报告。";
 
 $lang->testreport->bugSummary = <<<EOD
-共发现<strong>%s</strong>个Bug <a data-toggle='tooltip' class='text-warning' title='{$lang->testreport->foundBugTip}'><i class='icon-exclamation-sign'></i></a>，
-遗留<strong>%s</strong>个Bug <a data-toggle='tooltip' class='text-warning' title='{$lang->testreport->legacyBugTip}'><i class='icon-exclamation-sign'></i></a>。
-用例执行产生<strong>%s</strong>个Bug <a data-toggle='tooltip' class='text-warning' title='{$lang->testreport->fromCaseBugTip}'><i class='icon-exclamation-sign'></i></a>。
+共发现<strong>%s</strong>个Bug <a data-toggle='tooltip' class='text-warning' title='{$lang->testreport->foundBugTip}'><i class='icon-help'></i></a>，
+遗留<strong>%s</strong>个Bug <a data-toggle='tooltip' class='text-warning' title='{$lang->testreport->legacyBugTip}'><i class='icon-help'></i></a>。
+用例执行产生<strong>%s</strong>个Bug <a data-toggle='tooltip' class='text-warning' title='{$lang->testreport->fromCaseBugTip}'><i class='icon-help'></i></a>。
 有效Bug率（方案为已解决或延期 / 状态为已解决或已关闭）：<strong>%s</strong>，用例发现Bug率（用例创建的Bug / 发现Bug数）：<strong>%s</strong>
 EOD;
 /* testsuite */
@@ -5305,6 +5305,7 @@ $lang->testtask->confirmDelete     = '您确认要删除该版本吗？';
 $lang->testtask->confirmUnlinkCase = '您确认要移除该用例吗？';
 $lang->testtask->noticeNoOther     = '该产品还没有其他测试版本';
 $lang->testtask->noTesttask        = '暂时没有测试版本。';
+$lang->testtask->checkLinked       = '请检查测试单的产品是否与项目相关联';
 
 $lang->testtask->assignedToMe  = '指派给我';
 $lang->testtask->allCases      = '所有用例';
