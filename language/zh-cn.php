@@ -112,8 +112,7 @@ $lang->menu->qa      = '测试|qa|index';
 $lang->menu->doc     = '文档|doc|index';
 $lang->menu->report  = '统计|report|index';
 $lang->menu->company = '组织|company|index';
-
-$lang->adminMenu = '后台|admin|index';
+$lang->menu->admin   = '后台|admin|index';
 
 $lang->dividerMenu = ',qa,';
 
@@ -327,8 +326,8 @@ $lang->company->menu = new stdclass();
 $lang->company->menu->browseUser  = array('link' => '用户|company|browse', 'subModule' => 'user');
 $lang->company->menu->dept        = array('link' => '部门|dept|browse', 'subModule' => 'dept');
 $lang->company->menu->browseGroup = array('link' => '权限|group|browse', 'subModule' => 'group');
-$lang->company->menu->view        = array('link' => '公司|company|view');
 $lang->company->menu->dynamic     = '动态|company|dynamic|';
+$lang->company->menu->view        = array('link' => '公司|company|view');
 
 $lang->dept  = new stdclass();
 $lang->group = new stdclass();
@@ -1226,7 +1225,7 @@ $lang->block->confirmClose       = '确定永久关闭该区块吗？关闭后�
 $lang->block->remove             = '移除';
 $lang->block->refresh            = '刷新';
 $lang->block->hidden             = '隐藏';
-$lang->block->dynamicInfo        = "<span class='timeline-tag'>%s</span> <span class='timeline-text'>%s <em>%s</em> %s <a href='%s'>%s</a></span>";
+$lang->block->dynamicInfo        = "<span class='timeline-tag'>%s</span> <span class='timeline-text'>%s <em>%s</em> %s <a href='%s' title='%s'>%s</a></span>";
 
 $lang->block->default['product']['1']['title'] = $lang->productCommon . '统计';
 $lang->block->default['product']['1']['block'] = 'statistic';
@@ -2599,7 +2598,7 @@ $lang->doc->fastMenuIconList['openedbyme']    = 'icon-folder-account';
 $lang->doc->fastMenuIconList['collectedbyme'] = 'icon-folder-star';
 
 $lang->doc->customObjectLibs['files']       = '显示附件库';
-$lang->doc->customObjectLibs['customFiles'] = '显示自定义文件';
+$lang->doc->customObjectLibs['customFiles'] = '显示自定义文档库';
 
 $lang->doc->confirmDelete      = "您确定删除该文档吗？";
 $lang->doc->confirmDeleteLib   = "您确定删除该文档库吗？";
@@ -3669,6 +3668,7 @@ $lang->productplan->unlinkBug        = "移除Bug";
 $lang->productplan->batchUnlinkBug   = "批量移除Bug";
 $lang->productplan->linkedBugs       = 'Bug';
 $lang->productplan->unlinkedBugs     = '未关联Bug';
+$lang->productplan->unexpired        = '未过期计划';
 
 $lang->productplan->confirmDelete      = "您确认删除该计划吗？";
 $lang->productplan->confirmUnlinkStory = "您确认移除该需求吗？";
@@ -4138,10 +4138,10 @@ $lang->report->unplanned     = '未计划';
 $lang->report->workday       = '每天工时';
 $lang->report->diffDays      = '工作日天数';
 
-$lang->report->typeList['']     = '默认';
-$lang->report->typeList['pie']  = '饼图';
-$lang->report->typeList['bar']  = '柱状图';
-$lang->report->typeList['line'] = '折线图';
+$lang->report->typeList['default'] = '默认';
+$lang->report->typeList['pie']     = '饼图';
+$lang->report->typeList['bar']     = '柱状图';
+$lang->report->typeList['line']    = '折线图';
 
 $lang->report->conditions    = '筛选条件：';
 $lang->report->closedProduct = '关闭' . $lang->productCommon;
@@ -5146,7 +5146,7 @@ $lang->testreport->exportNotice   = "由<a href='http://www.zentao.net' target='
 $lang->testreport->noReport       = "报表还没有生成，请稍候查看。";
 $lang->testreport->foundBugTip    = "影响版本在测试轮次内，并且创建时间在测试时间范围内产生的Bug数。";
 $lang->testreport->legacyBugTip   = "Bug状态是激活，或Bug的解决时间在测试结束时间之后。";
-$lang->testreport->fromCaseBugTip = "测试时间范围内，用例执行失败后创建的Bug";
+$lang->testreport->fromCaseBugTip = "测试时间范围内，用例执行失败后创建的Bug。";
 $lang->testreport->errorTrunk     = "主干版本不能创建测试报告，请修改关联版本！";
 $lang->testreport->moreProduct    = "只能对同一个产品生成测试报告。";
 

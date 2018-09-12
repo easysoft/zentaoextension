@@ -112,8 +112,7 @@ $lang->menu->qa      = 'QA|qa|index';
 $lang->menu->doc     = 'Doc|doc|index';
 $lang->menu->report  = 'Report|report|index';
 $lang->menu->company = 'Company|company|index';
-
-$lang->adminMenu = 'Admin|admin|index';
+$lang->menu->admin   = 'Admin|admin|index';
 
 $lang->dividerMenu = ',qa,';
 
@@ -327,8 +326,8 @@ $lang->company->menu = new stdclass();
 $lang->company->menu->browseUser  = array('link' => 'User|company|browse', 'subModule' => 'user');
 $lang->company->menu->dept        = array('link' => 'Department|dept|browse', 'subModule' => 'dept');
 $lang->company->menu->browseGroup = array('link' => 'Group|group|browse', 'subModule' => 'group');
-$lang->company->menu->view        = array('link' => 'Company|company|view');
 $lang->company->menu->dynamic     = 'Dynamic|company|dynamic|';
+$lang->company->menu->view        = array('link' => 'Company|company|view');
 
 $lang->dept  = new stdclass();
 $lang->group = new stdclass();
@@ -1226,7 +1225,7 @@ $lang->block->confirmClose       = 'Do you want to permanently close this block?
 $lang->block->remove             = 'Remove';
 $lang->block->refresh            = 'Refresh';
 $lang->block->hidden             = 'Hide';
-$lang->block->dynamicInfo        = "<span class='timeline-tag'>%s</span> <span class='timeline-text'>%s <em>%s</em> %s <a href='%s'>%s</a></span>";
+$lang->block->dynamicInfo        = "<span class='timeline-tag'>%s</span> <span class='timeline-text'>%s <em>%s</em> %s <a href='%s' title='%s'>%s</a></span>";
 
 $lang->block->default['product']['1']['title'] = $lang->productCommon . ' Report';
 $lang->block->default['product']['1']['block'] = 'statistic';
@@ -3645,6 +3644,7 @@ $lang->productplan->unlinkBug        = "Unlink Bug";
 $lang->productplan->batchUnlinkBug   = "Batch Unlink Bug";
 $lang->productplan->linkedBugs       = 'Linked Bug';
 $lang->productplan->unlinkedBugs     = 'Unlinked';
+$lang->productplan->unexpired        = 'Unexpired Plan';
 
 $lang->productplan->confirmDelete      = "Do you want to delete this Plan?";
 $lang->productplan->confirmUnlinkStory = "Do you want to unlink this Story?";
@@ -4114,10 +4114,10 @@ $lang->report->unplanned     = 'Unplanned';
 $lang->report->workday       = 'Hours/Day';
 $lang->report->diffDays      = 'Man-Day';
 
-$lang->report->typeList['']     = 'Default';
-$lang->report->typeList['pie']  = 'Pie';
-$lang->report->typeList['bar']  = 'Bar';
-$lang->report->typeList['line'] = 'Line';
+$lang->report->typeList['default'] = 'Default';
+$lang->report->typeList['pie']     = 'Pie';
+$lang->report->typeList['bar']     = 'Bar';
+$lang->report->typeList['line']    = 'Line';
 
 $lang->report->conditions    = 'Filter by:';
 $lang->report->closedProduct = 'Closed ' . $lang->productCommon;
