@@ -209,9 +209,10 @@ $lang->release->menu     = $lang->product->menu;
 $lang->project = new stdclass();
 $lang->project->menu = new stdclass();
 
-$lang->project->menu->list     = array('link' => 'Task List|project|task|projectID=%s', 'subModule' => 'task,grouptask,tree', 'alias' => 'grouptask,importtask,importbug,tree', 'class' => 'dropdown dropdown-hover');
+$lang->project->menu->task     = array('link' => 'Task|project|task|projectID=%s', 'subModule' => 'task,tree');
 $lang->project->menu->kanban   = array('link' => 'Kanban|project|kanban|projectID=%s');
 $lang->project->menu->burn     = array('link' => 'Burn|project|burn|projectID=%s');
+$lang->project->menu->list     = array('link' => 'More|project|grouptask|projectID=%s', 'alias' => 'grouptask,importtask,importbug,tree', 'class' => 'dropdown dropdown-hover');
 $lang->project->menu->story    = array('link' => 'Story|project|story|projectID=%s', 'subModule' => 'story', 'alias' => 'linkstory,storykanban');
 $lang->project->menu->qa       = array('link' => 'Bug|project|bug|projectID=%s', 'subModule' => 'bug,build,testtask', 'alias' => 'build,testtask', 'class' => 'dropdown dropdown-hover');
 $lang->project->menu->doc      = array('link' => 'Doc|doc|objectLibs|type=project&objectID=%s&from=project', 'subModule' => 'doc');
@@ -222,7 +223,6 @@ $lang->project->menu->view     = array('link' => 'Overview|project|view|projectI
 
 $lang->project->subMenu = new stdclass();
 $lang->project->subMenu->list = new stdclass();
-$lang->project->subMenu->list->task      = 'Task List|project|task|projectID=%s';
 $lang->project->subMenu->list->groupTask = 'Group View|project|groupTask|projectID=%s';
 $lang->project->subMenu->list->tree      = 'Tree View|project|tree|projectID=%s';
 
@@ -539,7 +539,7 @@ $lang->icons['batchCreate']        = 'plus-sign';
 $lang->icons['batchEdit']          = 'edit-sign';
 $lang->icons['batchClose']         = 'off';
 $lang->icons['edit']               = 'edit';
-$lang->icons['delete']             = 'trash';
+$lang->icons['delete']             = 'close';
 $lang->icons['copy']               = 'copy';
 $lang->icons['report']             = 'bar-chart';
 $lang->icons['export']             = 'export';
@@ -1234,7 +1234,6 @@ $lang->block->default['product']['1']['grid']  = 8;
 
 $lang->block->default['product']['1']['params']['orderBy'] = 'id_desc';
 $lang->block->default['product']['1']['params']['type']    = 'all';
-$lang->block->default['product']['1']['params']['num']     = 5;
 
 $lang->block->default['product']['2']['title'] = $lang->productCommon . ' Overview';
 $lang->block->default['product']['2']['block'] = 'overview';
@@ -1261,7 +1260,6 @@ $lang->block->default['project']['1']['grid']  = 8;
 
 $lang->block->default['project']['1']['params']['orderBy'] = 'id_desc';
 $lang->block->default['project']['1']['params']['type']    = 'all';
-$lang->block->default['project']['1']['params']['num']     = 5;
 
 $lang->block->default['project']['2']['title'] = $lang->projectCommon . ' Overview';
 $lang->block->default['project']['2']['block'] = 'overview';
@@ -3383,6 +3381,7 @@ $lang->misc->feature = new stdclass();
 $lang->misc->feature->lastest  = 'Latest Version';
 $lang->misc->feature->detailed = 'Details';
 
+$lang->misc->releaseDate['10.3.stable'] = '2018-08-10';
 $lang->misc->releaseDate['10.2.stable'] = '2018-08-02';
 $lang->misc->releaseDate['10.0.stable'] = '2018-06-26';
 $lang->misc->releaseDate['9.8.stable']  = '2018-01-17';
@@ -3399,6 +3398,7 @@ $lang->misc->releaseDate['7.2.stable']  = '2015-05-22';
 $lang->misc->releaseDate['7.1.stable']  = '2015-03-07';
 $lang->misc->releaseDate['6.3.stable']  = '2014-11-07';
 
+$lang->misc->feature->all['10.3.stable'][] = array('title'=>'Fix Bug.', 'desc' => '');
 $lang->misc->feature->all['10.2.stable'][] = array('title'=>'Xuan.im is integrated!', 'desc' => '');
 
 $lang->misc->feature->all['10.0.stable'][] = array('title'=>'New UI/UX and new experience', 'desc' => '<ol><li>My Dashboard</li><li>Dynamic</li><li>Product Home</li><li>Product overview</li><li>Roadmap</li><li>Project Home</li><li>Project overview</li><li>QA Home</li><li>Document Home</li><li>Added work report on My Dashboard</li><li>Add/Edit/Finish todos on My Dashboard</li><li>Add prodcut report on Product Home</li><li>Add prodcut overview on Product Home</li><li>Add project report on Project Home</li><li>Add project overview on Project Home</li><li>Add QA report on QA Home</li><li>All Product/product Home/All Project/Project Home/QA Home is moved from the right of the secondary Narbar to the left.</li><li>Kanban/Burndown/Tree/ByGroup of Project/Task has been moved from the third Navbar to the secondary one; Tree/ByGroup/Task Liat has been integrated to a drop-down.</li><li>Bug/Build of Project on the secondary Navbar has been integrated to a drop-down.</li><li>Display build and list by group, which is more reasonable.</li><li>Added tree to display docuemnt on the left of the page.</li><li>Added quick entry to document, including Last Update, My Doc and My Favorite</li><li>Added My Favorite to Doc module.</li></ol>');
@@ -4494,7 +4494,7 @@ $lang->story->errorEmptyChildStory  = '『Subdivide Story』canot be blank.';
 $lang->story->mustChooseResult      = 'Select Result';
 $lang->story->mustChoosePreVersion  = 'Select the Version to revert to.';
 $lang->story->noStory               = 'No stories. ';
-$lang->story->failChangeStage       = 'The status of story %s is draft, that fail to change stage.';
+$lang->story->ignoreChangeStage     = 'The status of story %s is draft, that fail to change stage.';
 
 $lang->story->form = new stdclass();
 $lang->story->form->area      = 'Story Scope';
