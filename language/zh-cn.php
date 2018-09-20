@@ -1200,6 +1200,7 @@ $lang->block->dynamic      = '最新动态';
 $lang->block->assignToMe   = '指派给我';
 $lang->block->lblFlowchart = '流程图';
 $lang->block->welcome      = '欢迎总览';
+$lang->block->lblTesttask  = '查看测试详情';
 
 $lang->block->leftToday = '今天剩余工作总计';
 $lang->block->myTask    = '我的任务';
@@ -1232,8 +1233,8 @@ $lang->block->default['product']['1']['title'] = $lang->productCommon . '统计'
 $lang->block->default['product']['1']['block'] = 'statistic';
 $lang->block->default['product']['1']['grid']  = 8;
 
-$lang->block->default['product']['1']['params']['orderBy'] = 'id_desc';
-$lang->block->default['product']['1']['params']['type']    = 'all';
+$lang->block->default['product']['1']['params']['type'] = 'all';
+$lang->block->default['product']['1']['params']['num']  = '20';
 
 $lang->block->default['product']['2']['title'] = $lang->productCommon . '总览';
 $lang->block->default['product']['2']['block'] = 'overview';
@@ -1258,8 +1259,8 @@ $lang->block->default['project']['1']['title'] = $lang->projectCommon . '统计'
 $lang->block->default['project']['1']['block'] = 'statistic';
 $lang->block->default['project']['1']['grid']  = 8;
 
-$lang->block->default['project']['1']['params']['orderBy'] = 'id_desc';
-$lang->block->default['project']['1']['params']['type']    = 'all';
+$lang->block->default['project']['1']['params']['type'] = 'all';
+$lang->block->default['project']['1']['params']['num']  = '20';
 
 $lang->block->default['project']['2']['title'] = $lang->projectCommon . '总览';
 $lang->block->default['project']['2']['block'] = 'overview';
@@ -1731,8 +1732,6 @@ $lang->bug->remindTask            = '该Bug已经转化为任务，是否更新�
 $lang->bug->skipClose             = 'Bug %s 不是已解决状态，不能关闭。';
 $lang->bug->applyTemplate         = '应用模板';
 $lang->bug->confirmDeleteTemplate = '您确认要删除该模板吗？';
-$lang->bug->hasSubmittedTest      = '开发已提交测试申请，';
-$lang->bug->nowToTest             = '现在去测试';
 
 $lang->bug->tplStep   = "<p>[步骤]</p><br/>";
 $lang->bug->tplResult = "<p>[结果]</p><br/>";

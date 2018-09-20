@@ -1200,6 +1200,7 @@ $lang->block->dynamic      = 'Dynamic';
 $lang->block->assignToMe   = 'Assign To Me';
 $lang->block->lblFlowchart = 'Workflow';
 $lang->block->welcome      = 'Welcome';
+$lang->block->lblTesttask  = 'Show test task';
 
 $lang->block->leftToday = 'Works for Today';
 $lang->block->myTask    = 'My Task';
@@ -1731,8 +1732,6 @@ $lang->bug->remindTask            = 'This Bug has been converted to Task. Do you
 $lang->bug->skipClose             = 'Bug %s is not resolved. You cannot close it.';
 $lang->bug->applyTemplate         = 'Template';
 $lang->bug->confirmDeleteTemplate = 'Do you want to delete this template?';
-$lang->bug->hasSubmittedTest      = 'Developer has submitted test task,';
-$lang->bug->nowToTest             = 'Now to test';
 
 $lang->bug->tplStep   = "<p>[Steps]</p><br/>";
 $lang->bug->tplResult = "<p>[Results]</p><br/>";
