@@ -72,7 +72,7 @@ $lang->homepage        = 'Set as Home';
 $lang->tutorial        = 'Tutorial';
 $lang->changeLog       = 'Change Log';
 $lang->manual          = 'Manual';
-$lang->manualUrl       = 'http://www.zentao.net/book/zentaopmshelp.html?fullScreen=zentao';
+$lang->manualUrl       = 'https://www.zentao.net/book/zentaopmshelp.html?fullScreen=zentao';
 $lang->customMenu      = 'Custom Menu';
 $lang->customField     = 'Custom Field';
 $lang->lineNumber      = 'Line No.';
@@ -451,9 +451,9 @@ $lang->pager->previousPage = "Prev";
 $lang->pager->nextPage     = "Next";
 $lang->pager->summery      = "<strong>%s-%s</strong> of <strong>%s</strong>.";
 
-$lang->proVersion     = "<a href='http://api.zentao.net/goto.php?item=proversion&from=footer' target='_blank' id='proLink' class='text-important'>ZenTao Pro <i class='text-danger icon-pro-version'></i></a> &nbsp; ";
+$lang->proVersion     = "<a href='https://api.zentao.net/goto.php?item=proversion&from=footer' target='_blank' id='proLink' class='text-important'>ZenTao Pro <i class='text-danger icon-pro-version'></i></a> &nbsp; ";
 $lang->downNotify     = "Download Desktop Notification";
-$lang->website        = "http://www.zentao.net";
+$lang->website        = "https://www.zentao.net";
 
 $lang->suhosinInfo     = "Warning! Data is reaching the limit. Please change <font color=red>sohusin.post.max_vars</font> and <font color=red>sohusin.request.max_vars</font> (set larger %s value) in php.ini, then save and restart Apache or php-fpm, or some data will not be saved.";
 $lang->maxVarsInfo     = "Warning! Data is reaching the limit. Please change <font color=red>max_input_vars</font> (set larger %s value) in php.ini, then save and restart Apache or php-fpm, or some data will not be saved.";
@@ -2779,7 +2779,7 @@ $lang->extension->dirs        = 'Directories';
 $lang->extension->files       = 'Files';
 $lang->extension->status      = 'Status';
 $lang->extension->version     = 'Version';
-$lang->extension->latest      = '<small>Latest:<strong><a href="%s" target="_blank" class="extension">%s</a></strong>，need zentao <a href="http://api.zentao.net/goto.php?item=latest" target="_blank"><strong>%s</strong></small>';
+$lang->extension->latest      = '<small>Latest:<strong><a href="%s" target="_blank" class="extension">%s</a></strong>，need zentao <a href="https://api.zentao.net/goto.php?item=latest" target="_blank"><strong>%s</strong></small>';
 $lang->extension->author      = 'Author';
 $lang->extension->license     = 'License';
 $lang->extension->site        = 'Website';
@@ -3026,8 +3026,8 @@ ZenTao PMS is built on PHP + MySQL and based on ZenTaoPHP framework, an independ
 EOT;
 $lang->install->links = <<<EOT
 ZenTao PMS is developed by <strong><a href='http://easysoft.ltd' target='_blank' class='text-danger'>Nature Easy Soft Co., LTD</a></strong>.
-Official Website : <a href='http://www.zentao.pm' target='_blank'>http://www.zentao.pm</a>
-Technical Support : <a href='http://www.zentao.pm/forum/' target='_blank'>http://www.zentao.pm/forum/</a>
+Official Website : <a href='https://www.zentao.pm' target='_blank'>https://www.zentao.pm</a>
+Technical Support : <a href='https://www.zentao.pm/forum/' target='_blank'>https://www.zentao.pm/forum/</a>
 WhatsApp Group : <a href='https://chat.whatsapp.com/B6pi6b3gv0S7x7jqMxwhbF' target='_blank'>https://chat.whatsapp.com/B6pi6b3gv0S7x7jqMxwhbF</a>
 Twitter: <a href='https://twitter.com/cneasysoft' target='_blank'>cneasysoft</a>
 
@@ -3163,7 +3163,7 @@ $lang->install->login    = 'Login ZenTao';
 $lang->install->register = 'Register in ZenTao';
 
 $lang->install->joinZentao = <<<EOT
-<p>You have installed ZenTao %s.<strong class='text-danger'> Please delete install.php asap</strong>.</p><p>Note: In order to get the latest news of ZenTao, please register in ZenTao(<a href='http://www.zentao.pm' class='alert-link' target='_blank'>www.zentao.pm</a>).</p>
+<p>You have installed ZenTao %s.<strong class='text-danger'> Please delete install.php asap</strong>.</p><p>Note: In order to get the latest news of ZenTao, please register in ZenTao(<a href='https://www.zentao.pm' class='alert-link' target='_blank'>www.zentao.pm</a>).</p>
 EOT;
 
 $lang->install->product = array('chanzhi', 'ranzhi');
@@ -3318,7 +3318,7 @@ $lang->message->typeList['webhook'] = 'Webhook';
 $lang->misc = new stdclass();
 $lang->misc->common = 'Misc';
 $lang->misc->ping   = 'Ping';
-$lang->misc->api    = 'http://api.zentao.net';
+$lang->misc->api    = 'https://api.zentao.net';
 
 $lang->misc->zentao = new stdclass();
 $lang->misc->zentao->version           = 'Version %s';
@@ -3380,6 +3380,7 @@ $lang->misc->feature = new stdclass();
 $lang->misc->feature->lastest  = 'Latest Version';
 $lang->misc->feature->detailed = 'Details';
 
+$lang->misc->releaseDate['10.4.stable'] = '2018-09-26';
 $lang->misc->releaseDate['10.3.stable'] = '2018-08-10';
 $lang->misc->releaseDate['10.2.stable'] = '2018-08-02';
 $lang->misc->releaseDate['10.0.stable'] = '2018-06-26';
@@ -3396,6 +3397,10 @@ $lang->misc->releaseDate['7.4.beta']    = '2015-11-13';
 $lang->misc->releaseDate['7.2.stable']  = '2015-05-22';
 $lang->misc->releaseDate['7.1.stable']  = '2015-03-07';
 $lang->misc->releaseDate['6.3.stable']  = '2014-11-07';
+
+$lang->misc->feature->all['10.4.stable'][] = array('title'=>'Optimizing and adjusting new interface', 'desc' => '<p>Details page restore our previous layout.</p><p>Refactoring forms to add user pages</p><p>When use cases are executed, do not update the use case state if the user manually chooses to pass through and write the results.</p>');
+$lang->misc->feature->all['10.4.stable'][] = array('title'=>'After the user machine hibernate login fails, the session is refreshed again.', 'desc' => '');
+$lang->misc->feature->all['10.4.stable'][] = array('title'=>'Upgrading existing interface mechanisms', 'desc' => '');
 
 $lang->misc->feature->all['10.3.stable'][] = array('title'=>'Fix Bug.', 'desc' => '');
 $lang->misc->feature->all['10.2.stable'][] = array('title'=>'Xuan.im is integrated!', 'desc' => '');
@@ -3491,7 +3496,7 @@ $lang->my->home->projects      = $lang->projectCommon;
 $lang->my->home->products      = $lang->productCommon;
 $lang->my->home->createProject = "Create {$lang->projectCommon}";
 $lang->my->home->createProduct = "Create {$lang->productCommon}";
-$lang->my->home->help          = "<a href='http://www.zentao.net/help-read-79236.html' target='_blank'>Help</a>";
+$lang->my->home->help          = "<a href='https://www.zentao.net/help-read-79236.html' target='_blank'>Help</a>";
 $lang->my->home->noProductsTip = "No {$lang->productCommon} found here.";
 
 $lang->my->form = new stdclass();
@@ -3882,7 +3887,7 @@ $lang->project->timeSummary     = '<div class="table-col"><div class="clearfix s
 $lang->project->groupSummaryAB  = "<div>Tasks <strong>%s ：</strong><span class='text-muted'>Wait</span> %s &nbsp; <span class='text-muted'>Doing</span> %s</div><div>Est. <strong>%s ：</strong><span class='text-muted'>Cost</span> %s &nbsp; <span class='text-muted'>Left</span> %s</div>";
 $lang->project->wbs             = "Decompose Tasks";
 $lang->project->batchWBS        = "Batch Decompose";
-$lang->project->howToUpdateBurn = "<a href='http://api.zentao.net/goto.php?item=burndown&lang=zh-cn' target='_blank' title='How to Update the Burndown Chart?' class='btn btn-link'>Help <i class='icon icon-help'></i></a>";
+$lang->project->howToUpdateBurn = "<a href='https://api.zentao.net/goto.php?item=burndown&lang=zh-cn' target='_blank' title='How to Update the Burndown Chart?' class='btn btn-link'>Help <i class='icon icon-help'></i></a>";
 $lang->project->whyNoStories    = "No Story can be linked. Please check whether there is Story in {$lang->projectCommon} linked {$lang->productCommon} and make sure it has been reviewed.";
 $lang->project->productStories  = "{$lang->projectCommon} linked  story is the subeset of {$lang->productCommon}, which can only be linked after review. Please <a href='%s'> Link Story</a>。";
 $lang->project->haveDraft       = "There are %s draft stories can't be linked.";
@@ -4147,7 +4152,7 @@ $lang->report->mailTitle->task     = " Task (%s),";
 $lang->report->mailTitle->todo     = " Todo (%s),";
 $lang->report->mailTitle->testTask = " Test Task (%s),";
 
-$lang->report->proVersion   = '<a href="http://api.zentao.net/goto.php?item=proversion&from=reportpage" target="_blank">Try ZenTao Pro for more!</a>';
+$lang->report->proVersion   = '<a href="https://api.zentao.net/goto.php?item=proversion&from=reportpage" target="_blank">Try ZenTao Pro for more!</a>';
 $lang->report->proVersionEn = '<a href="http://api.zentao.pm/goto.php?item=proversion&from=reportpage" target="_blank">Try ZenTao Pro for more!</a>';
 /* score */
 $lang->score->common       = 'My Score';
@@ -5128,7 +5133,7 @@ $lang->testreport->caseSummary    = ' <strong>%s</strong> cases in Total : <stro
 $lang->testreport->buildSummary   = 'Tested <strong>%s</strong> build.';
 $lang->testreport->confirmDelete  = 'Do you want tot delete this report?';
 $lang->testreport->moreNotice     = 'More features can be extended with reference to the ZenTao extension mechanism, or you can contact us for customization.';
-$lang->testreport->exportNotice   = "Export By <a href='http://www.zentao.net' target='_blank' style='color:grey'>ZenTaoPMS</a>";
+$lang->testreport->exportNotice   = "Export By <a href='https://www.zentao.net' target='_blank' style='color:grey'>ZenTaoPMS</a>";
 $lang->testreport->noReport       = "No report has been generated. Please check it later.";
 $lang->testreport->foundBugTip    = "Bugs created in this build and created in the test period.";
 $lang->testreport->legacyBugTip   = "Active Bugs, or the resolved beyond the test period.";

@@ -72,7 +72,7 @@ $lang->homepage        = '设为模块首页';
 $lang->tutorial        = '新手教程';
 $lang->changeLog       = '修改日志';
 $lang->manual          = '手册';
-$lang->manualUrl       = 'http://www.zentao.net/book/zentaopmshelp.html?fullScreen=zentao';
+$lang->manualUrl       = 'https://www.zentao.net/book/zentaopmshelp.html?fullScreen=zentao';
 $lang->customMenu      = '自定义导航';
 $lang->customField     = '自定义表单项';
 $lang->lineNumber      = '行号';
@@ -451,9 +451,9 @@ $lang->pager->previousPage = "上一页";
 $lang->pager->nextPage     = "下一页";
 $lang->pager->summery      = "第 <strong>%s-%s</strong> 项，共 <strong>%s</strong> 项";
 
-$lang->proVersion = "<a href='http://api.zentao.net/goto.php?item=proversion&from=footer' target='_blank' id='proLink' class='text-important'>专业版 <i class='text-danger icon-pro-version'></i></a> &nbsp; ";
+$lang->proVersion = "<a href='https://api.zentao.net/goto.php?item=proversion&from=footer' target='_blank' id='proLink' class='text-important'>专业版 <i class='text-danger icon-pro-version'></i></a> &nbsp; ";
 $lang->downNotify = "下载桌面提醒";
-$lang->website    = "http://www.zentao.net";
+$lang->website    = "https://www.zentao.net";
 
 $lang->suhosinInfo     = "警告：数据太多，请在php.ini中修改<font color=red>sohusin.post.max_vars</font>和<font color=red>sohusin.request.max_vars</font>（大于%s的数）。 保存并重新启动apache或php-fpm，否则会造成部分数据无法保存。";
 $lang->maxVarsInfo     = "警告：数据太多，请在php.ini中修改<font color=red>max_input_vars</font>（大于%s的数）。 保存并重新启动apache或php-fpm，否则会造成部分数据无法保存。";
@@ -2779,7 +2779,7 @@ $lang->extension->dirs        = '安装目录';
 $lang->extension->files       = '安装文件';
 $lang->extension->status      = '状态';
 $lang->extension->version     = '版本';
-$lang->extension->latest      = '<small>最新版本<strong><a href="%s" target="_blank" class="extension">%s</a></strong>，兼容禅道<a href="http://api.zentao.net/goto.php?item=latest" target="_blank" class="alert-link"><strong>%s</strong></a></small>';
+$lang->extension->latest      = '<small>最新版本<strong><a href="%s" target="_blank" class="extension">%s</a></strong>，兼容禅道<a href="https://api.zentao.net/goto.php?item=latest" target="_blank" class="alert-link"><strong>%s</strong></a></small>';
 $lang->extension->author      = '作者';
 $lang->extension->license     = '授权';
 $lang->extension->site        = '官网';
@@ -3012,7 +3012,7 @@ $lang->install->pre     = '返回';
 $lang->install->reload  = '刷新';
 $lang->install->error   = '错误 ';
 
-$lang->install->officeDomain     = 'http://www.zentao.net';
+$lang->install->officeDomain     = 'https://www.zentao.net';
 
 $lang->install->start            = '开始安装';
 $lang->install->keepInstalling   = '继续安装当前版本';
@@ -3026,8 +3026,8 @@ $lang->install->desc             = <<<EOT
 EOT;
 $lang->install->links = <<<EOT
 禅道项目管理软件由<strong><a href='http://www.cnezsoft.com' target='_blank' class='text-danger'>青岛易软天创网络科技有限公司</a>开发</strong>。
-官方网站：<a href='http://www.zentao.net' target='_blank'>http://www.zentao.net</a>
-技术支持：<a href='http://www.zentao.net/ask/' target='_blank'>http://www.zentao.net/ask/</a>
+官方网站：<a href='https://www.zentao.net' target='_blank'>https://www.zentao.net</a>
+技术支持：<a href='https://www.zentao.net/ask/' target='_blank'>https://www.zentao.net/ask/</a>
 新浪微博：<a href='http://weibo.com/easysoft' target='_blank'>http://weibo.com/easysoft</a>
 
 
@@ -3163,7 +3163,7 @@ $lang->install->login    = '登录禅道管理系统';
 $lang->install->register = '禅道社区注册';
 
 $lang->install->joinZentao = <<<EOT
-<p>您已经成功安装禅道管理系统%s，<strong class='text-danger'>请及时删除install.php</strong>。</p><p>友情提示：为了您及时获得禅道的最新动态，请在禅道社区(<a href='http://www.zentao.net' class='alert-link' target='_blank'>www.zentao.net</a>)进行登记。</p>
+<p>您已经成功安装禅道管理系统%s，<strong class='text-danger'>请及时删除install.php</strong>。</p><p>友情提示：为了您及时获得禅道的最新动态，请在禅道社区(<a href='https://www.zentao.net' class='alert-link' target='_blank'>www.zentao.net</a>)进行登记。</p>
 EOT;
 
 $lang->install->product = array('chanzhi', 'ranzhi', 'xuanxuan');
@@ -3342,7 +3342,7 @@ $lang->message->typeList['webhook'] = 'Webhook';
 $lang->misc = new stdclass();
 $lang->misc->common = '杂项';
 $lang->misc->ping   = '防超时';
-$lang->misc->api    = 'http://api.zentao.net';
+$lang->misc->api    = 'https://api.zentao.net';
 
 $lang->misc->zentao = new stdclass();
 $lang->misc->zentao->version           = '版本%s';
@@ -3404,6 +3404,7 @@ $lang->misc->feature = new stdclass();
 $lang->misc->feature->lastest  = '最新版本';
 $lang->misc->feature->detailed = '详情';
 
+$lang->misc->releaseDate['10.4.stable'] = '2018-09-26';
 $lang->misc->releaseDate['10.3.stable'] = '2018-08-10';
 $lang->misc->releaseDate['10.2.stable'] = '2018-08-02';
 $lang->misc->releaseDate['10.0.stable'] = '2018-06-26';
@@ -3420,6 +3421,10 @@ $lang->misc->releaseDate['7.4.beta']    = '2015-11-13';
 $lang->misc->releaseDate['7.2.stable']  = '2015-05-22';
 $lang->misc->releaseDate['7.1.stable']  = '2015-03-07';
 $lang->misc->releaseDate['6.3.stable']  = '2014-11-07';
+
+$lang->misc->feature->all['10.4.stable'][] = array('title'=>'优化调整新界面', 'desc' => '<p>详情页面还原我们之前的排版布局</p><p>重构添加用户页面的表单</p><p>用例执行时，如果用户手工选择了通过，写结果的时候不要更新用例状态</p>');
+$lang->misc->feature->all['10.4.stable'][] = array('title'=>'用户机器休眠登录失效后，重新刷新session', 'desc' => '');
+$lang->misc->feature->all['10.4.stable'][] = array('title'=>'提升现有的接口机制', 'desc' => '');
 
 $lang->misc->feature->all['10.3.stable'][] = array('title'=>'修复Bug', 'desc' => '');
 $lang->misc->feature->all['10.2.stable'][] = array('title'=>'集成喧喧IM', 'desc' => '');
@@ -3515,7 +3520,7 @@ $lang->my->home->projects      = $lang->projectCommon;
 $lang->my->home->products      = $lang->productCommon;
 $lang->my->home->createProject = "创建一个{$lang->projectCommon}";
 $lang->my->home->createProduct = "创建一个{$lang->productCommon}";
-$lang->my->home->help          = "<a href='http://www.zentao.net/help-read-79236.html' target='_blank'>帮助文档</a>";
+$lang->my->home->help          = "<a href='https://www.zentao.net/help-read-79236.html' target='_blank'>帮助文档</a>";
 $lang->my->home->noProductsTip = "这里还没有{$lang->productCommon}。";
 
 $lang->my->form = new stdclass();
@@ -3906,7 +3911,7 @@ $lang->project->timeSummary     = '<div class="table-col"><div class="clearfix s
 $lang->project->groupSummaryAB  = "<div>总任务 <strong>%s : </strong><span class='text-muted'>未开始</span> %s &nbsp; <span class='text-muted'>进行中</span> %s</div><div>总预计 <strong>%s : </strong><span class='text-muted'>已消耗</span> %s &nbsp; <span class='text-muted'>剩余</span> %s</div>";
 $lang->project->wbs             = "分解任务";
 $lang->project->batchWBS        = "批量分解";
-$lang->project->howToUpdateBurn = "<a href='http://api.zentao.net/goto.php?item=burndown&lang=zh-cn' target='_blank' title='如何更新燃尽图？' class='btn btn-link'>帮助 <i class='icon icon-help'></i></a>";
+$lang->project->howToUpdateBurn = "<a href='https://api.zentao.net/goto.php?item=burndown&lang=zh-cn' target='_blank' title='如何更新燃尽图？' class='btn btn-link'>帮助 <i class='icon icon-help'></i></a>";
 $lang->project->whyNoStories    = "看起来没有需求可以关联。请检查下{$lang->projectCommon}关联的{$lang->productCommon}中有没有需求，而且要确保它们已经审核通过。";
 $lang->project->productStories  = "{$lang->projectCommon}关联的需求是{$lang->productCommon}需求的子集，并且只有评审通过的需求才能关联。请<a href='%s'>关联需求</a>。";
 $lang->project->haveDraft       = "有%s条草稿状态的需求无法关联到该{$lang->projectCommon}";
@@ -4171,7 +4176,7 @@ $lang->report->mailTitle->task     = " 任务(%s),";
 $lang->report->mailTitle->todo     = " 待办(%s),";
 $lang->report->mailTitle->testTask = " 测试版本(%s),";
 
-$lang->report->proVersion = '<a href="http://api.zentao.net/goto.php?item=proversion&from=reportpage" target="_blank">更多精彩，尽在专业版！</a>';
+$lang->report->proVersion = '<a href="https://api.zentao.net/goto.php?item=proversion&from=reportpage" target="_blank">更多精彩，尽在专业版！</a>';
 $lang->report->proVersionEn = '<a href="http://api.zentao.pm/goto.php?item=proversion&from=reportpage" target="_blank">Try ZenTao Pro for more!</a>';
 /* score */
 $lang->score->common       = '我的积分';
@@ -5152,7 +5157,7 @@ $lang->testreport->caseSummary    = '共有<strong>%s</strong>个用例，共执
 $lang->testreport->buildSummary   = '共测试了<strong>%s</strong>个版本。';
 $lang->testreport->confirmDelete  = '是否删除该报告？';
 $lang->testreport->moreNotice     = '更多功能可以参考禅道扩展机制进行扩展，也可以联系我们进行定制。';
-$lang->testreport->exportNotice   = "由<a href='http://www.zentao.net' target='_blank' style='color:grey'>禅道项目管理软件</a>导出";
+$lang->testreport->exportNotice   = "由<a href='https://www.zentao.net' target='_blank' style='color:grey'>禅道项目管理软件</a>导出";
 $lang->testreport->noReport       = "报表还没有生成，请稍候查看。";
 $lang->testreport->foundBugTip    = "影响版本在测试轮次内，并且创建时间在测试时间范围内产生的Bug数。";
 $lang->testreport->legacyBugTip   = "Bug状态是激活，或Bug的解决时间在测试结束时间之后。";
