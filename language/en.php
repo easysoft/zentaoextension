@@ -214,7 +214,7 @@ $lang->project->menu->kanban   = array('link' => 'Kanban|project|kanban|projectI
 $lang->project->menu->burn     = array('link' => 'Burn|project|burn|projectID=%s');
 $lang->project->menu->list     = array('link' => 'More|project|grouptask|projectID=%s', 'alias' => 'grouptask,importtask,importbug,tree', 'class' => 'dropdown dropdown-hover');
 $lang->project->menu->story    = array('link' => 'Story|project|story|projectID=%s', 'subModule' => 'story', 'alias' => 'linkstory,storykanban');
-$lang->project->menu->qa       = array('link' => 'Bug|project|bug|projectID=%s', 'subModule' => 'bug,build,testtask', 'alias' => 'build,testtask', 'class' => 'dropdown dropdown-hover');
+$lang->project->menu->qa       = array('link' => 'Test|project|bug|projectID=%s', 'subModule' => 'bug,build,testtask', 'alias' => 'build,testtask', 'class' => 'dropdown dropdown-hover');
 $lang->project->menu->doc      = array('link' => 'Doc|doc|objectLibs|type=project&objectID=%s&from=project', 'subModule' => 'doc');
 $lang->project->menu->action   = array('link' => 'Dynamic|project|dynamic|projectID=%s', 'subModule' => 'dynamic', 'class' => 'dropdown dropdown-hover');
 $lang->project->menu->product  = $lang->productCommon . '|project|manageproducts|projectID=%s';
@@ -348,7 +348,7 @@ $lang->admin->menu->safe      = array('link' => 'Security|admin|safe', 'alias' =
 $lang->admin->menu->cron      = array('link' => 'Cron|cron|index', 'subModule' => 'cron');
 $lang->admin->menu->trashes   = array('link' => 'Recycle|action|trash', 'subModule' => 'action');
 $lang->admin->menu->dev       = array('link' => 'Develop|dev|api', 'alias' => 'db', 'subModule' => 'dev,editor');
-$lang->admin->menu->entry     = 'Entry|entry|browse';
+$lang->admin->menu->entry     = array('link' => 'Entry|entry|browse', 'subModule' => 'entry');
 $lang->admin->menu->sso       = 'Zdoo|admin|sso';
 
 $lang->convert   = new stdclass();
@@ -621,8 +621,7 @@ if(isset($config->global->flow) and $config->global->flow == 'onlyTask')
 
         unset($lang->project->menu->story);
     unset($lang->project->menu->build);
-    unset($lang->project->menu->bug);
-    unset($lang->project->menu->testtask);
+    unset($lang->project->menu->qa);
     unset($lang->project->menu->product);
     unset($lang->project->menu->doc);
 
@@ -1533,20 +1532,24 @@ $lang->block->typeList->testtask['blocked'] = 'Blocked';
 $lang->block->typeList->testtask['done']    = 'Done';
 $lang->block->typeList->testtask['all']     = 'All';
 
-$lang->block->modules['product']->moreLinkList = new stdclass();
+$lang->block->modules['product']->moreLinkList        = new stdclass();
 $lang->block->modules['product']->moreLinkList->list  = 'product|all|product=&line=0&status=%s';
 $lang->block->modules['product']->moreLinkList->story = 'my|story|type=%s';
-$lang->block->modules['project']->moreLinkList = new stdclass();
+
+$lang->block->modules['project']->moreLinkList        = new stdclass();
 $lang->block->modules['project']->moreLinkList->list  = 'project|all|status=%s&project=';
 $lang->block->modules['project']->moreLinkList->task  = 'my|task|type=%s';
-$lang->block->modules['qa']->moreLinkList = new stdclass();
+
+$lang->block->modules['qa']->moreLinkList           = new stdclass();
 $lang->block->modules['qa']->moreLinkList->bug      = 'my|bug|type=%s';
 $lang->block->modules['qa']->moreLinkList->case     = 'my|testcase|type=%s';
 $lang->block->modules['qa']->moreLinkList->testtask = 'testtask|browse|type=%s';
-$lang->block->modules['todo']->moreLinkList = new stdclass();
+
+$lang->block->modules['todo']->moreLinkList       = new stdclass();
 $lang->block->modules['todo']->moreLinkList->list = 'my|todo|type=all';
-$lang->block->modules['common'] = new stdclass();
-$lang->block->modules['common']->moreLinkList = new stdclass();
+
+$lang->block->modules['common']                        = new stdclass();
+$lang->block->modules['common']->moreLinkList          = new stdclass();
 $lang->block->modules['common']->moreLinkList->dynamic = 'company|dynamic|';
 
 $lang->block->welcomeList['06:00'] = 'Good morning, %s';
@@ -2473,6 +2476,10 @@ $lang->dev->groupList['qa']      = 'QA';
 $lang->dev->groupList['doc']     = 'Doc';
 $lang->dev->groupList['company'] = 'Company';
 $lang->dev->groupList['admin']   = 'Admin';
+$lang->dev->groupList['repo']    = 'Code';
+$lang->dev->groupList['api']     = 'API';
+$lang->dev->groupList['system']  = 'System';
+$lang->dev->groupList['message'] = 'Message';
 $lang->dev->groupList['other']   = 'Others';
 /* doc */
 $lang->doc->common         = 'Doc';

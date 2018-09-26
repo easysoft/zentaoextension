@@ -214,7 +214,7 @@ $lang->project->menu->kanban  = array('link' => '看板|project|kanban|projectID
 $lang->project->menu->burn    = array('link' => '燃尽图|project|burn|projectID=%s');
 $lang->project->menu->list    = array('link' => '更多|project|grouptask|projectID=%s', 'alias' => 'grouptask,importtask,importbug,tree', 'class' => 'dropdown dropdown-hover');
 $lang->project->menu->story   = array('link' => '需求|project|story|projectID=%s', 'subModule' => 'story', 'alias' => 'linkstory,storykanban');
-$lang->project->menu->qa      = array('link' => 'Bug|project|bug|projectID=%s', 'subModule' => 'bug,build,testtask', 'alias' => 'build,testtask', 'class' => 'dropdown dropdown-hover');
+$lang->project->menu->qa      = array('link' => '测试|project|bug|projectID=%s', 'subModule' => 'bug,build,testtask', 'alias' => 'build,testtask', 'class' => 'dropdown dropdown-hover');
 $lang->project->menu->doc     = array('link' => '文档|doc|objectLibs|type=project&objectID=%s&from=project', 'subModule' => 'doc');
 $lang->project->menu->action  = array('link' => '动态|project|dynamic|projectID=%s', 'subModule' => 'dynamic', 'class' => 'dropdown dropdown-hover');
 $lang->project->menu->product = $lang->productCommon . '|project|manageproducts|projectID=%s';
@@ -348,7 +348,7 @@ $lang->admin->menu->safe      = array('link' => '安全|admin|safe', 'alias' => 
 $lang->admin->menu->cron      = array('link' => '计划任务|cron|index', 'subModule' => 'cron');
 $lang->admin->menu->trashes   = array('link' => '回收站|action|trash', 'subModule' => 'action');
 $lang->admin->menu->dev       = array('link' => '二次开发|dev|api', 'alias' => 'db', 'subModule' => 'dev,editor');
-$lang->admin->menu->entry     = '应用|entry|browse';
+$lang->admin->menu->entry     = array('link' => '应用|entry|browse', 'subModule' => 'entry');
 $lang->admin->menu->sso       = '然之集成|admin|sso';
 
 $lang->convert   = new stdclass();
@@ -621,8 +621,7 @@ if(isset($config->global->flow) and $config->global->flow == 'onlyTask')
 
         unset($lang->project->menu->story);
     unset($lang->project->menu->build);
-    unset($lang->project->menu->bug);
-    unset($lang->project->menu->testtask);
+    unset($lang->project->menu->qa);
     unset($lang->project->menu->product);
     unset($lang->project->menu->doc);
 
@@ -1533,20 +1532,24 @@ $lang->block->typeList->testtask['blocked'] = '阻塞版本';
 $lang->block->typeList->testtask['done']    = '已测版本';
 $lang->block->typeList->testtask['all']     = '全部';
 
-$lang->block->modules['product']->moreLinkList = new stdclass();
+$lang->block->modules['product']->moreLinkList        = new stdclass();
 $lang->block->modules['product']->moreLinkList->list  = 'product|all|product=&line=0&status=%s';
 $lang->block->modules['product']->moreLinkList->story = 'my|story|type=%s';
-$lang->block->modules['project']->moreLinkList = new stdclass();
+
+$lang->block->modules['project']->moreLinkList       = new stdclass();
 $lang->block->modules['project']->moreLinkList->list = 'project|all|status=%s&project=';
 $lang->block->modules['project']->moreLinkList->task = 'my|task|type=%s';
-$lang->block->modules['qa']->moreLinkList = new stdclass();
+
+$lang->block->modules['qa']->moreLinkList           = new stdclass();
 $lang->block->modules['qa']->moreLinkList->bug      = 'my|bug|type=%s';
 $lang->block->modules['qa']->moreLinkList->case     = 'my|testcase|type=%s';
 $lang->block->modules['qa']->moreLinkList->testtask = 'testtask|browse|type=%s';
-$lang->block->modules['todo']->moreLinkList = new stdclass();
+
+$lang->block->modules['todo']->moreLinkList       = new stdclass();
 $lang->block->modules['todo']->moreLinkList->list = 'my|todo|type=all';
-$lang->block->modules['common'] = new stdclass();
-$lang->block->modules['common']->moreLinkList = new stdclass();
+
+$lang->block->modules['common']                        = new stdclass();
+$lang->block->modules['common']->moreLinkList          = new stdclass();
 $lang->block->modules['common']->moreLinkList->dynamic = 'company|dynamic|';
 
 $lang->block->welcomeList['06:00'] = '%s，早上好！';
@@ -2473,6 +2476,10 @@ $lang->dev->groupList['qa']      = '测试';
 $lang->dev->groupList['doc']     = '文档';
 $lang->dev->groupList['company'] = '组织';
 $lang->dev->groupList['admin']   = '后台';
+$lang->dev->groupList['repo']    = '代码';
+$lang->dev->groupList['api']     = 'API';
+$lang->dev->groupList['system']  = '系统';
+$lang->dev->groupList['message'] = '消息';
 $lang->dev->groupList['other']   = '其他模块';
 /* doc */
 $lang->doc->common         = '文档';
