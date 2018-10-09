@@ -151,8 +151,8 @@ $lang->themes['green']      = '叶兰绿';
 $lang->themes['red']        = '赤诚红';
 $lang->themes['purple']     = '玉烟紫';
 $lang->themes['pink']       = '芙蕖粉';
-$lang->themes['blackberry'] = '黑莓';
-$lang->themes['classic']    = '经典';
+$lang->themes['blackberry'] = '露莓黑';
+$lang->themes['classic']    = '经典蓝';
 
 $lang->index = new stdclass();
 $lang->index->menu = new stdclass();
@@ -2899,6 +2899,7 @@ $lang->file->downloads = '下载次数';
 $lang->file->extra     = '备注';
 
 $lang->file->dragFile            = '请拖拽文件到此处';
+$lang->file->childTaskTag        = "任务名称前有'>'标记的为子任务";
 $lang->file->errorNotExists      = "<span class='text-red'>文件夹 '%s' 不存在</span>";
 $lang->file->errorCanNotWrite    = "<span class='text-red'>文件夹 '%s' 不可写,请改变文件夹的权限。在linux中输入指令: <span class='code'>sudo chmod -R 777 %s</span></span>";
 $lang->file->confirmDelete       = " 您确定删除该附件吗？";
@@ -5822,9 +5823,10 @@ $lang->webhook->date        = '发送时间';
 $lang->webhook->data        = '数据';
 $lang->webhook->result      = '结果';
 
+$lang->webhook->typeList['']          = '';
 $lang->webhook->typeList['bearychat'] = '倍洽';
 $lang->webhook->typeList['dingding']  = '钉钉';
-$lang->webhook->typeList['default']   = '默认';
+$lang->webhook->typeList['default']   = '其他';
 
 $lang->webhook->sendTypeList['sync']  = '同步';
 $lang->webhook->sendTypeList['async'] = '异步';

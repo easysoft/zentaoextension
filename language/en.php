@@ -2898,17 +2898,18 @@ $lang->file->addedDate = 'Added On';
 $lang->file->downloads = 'Downloads';
 $lang->file->extra     = 'Extra';
 
-$lang->file->dragFile         = 'Please drag here.';
-$lang->file->errorNotExists   = "<span class='text-red'>'%s' is not found.</span>";
-$lang->file->errorCanNotWrite = "<span class='text-red'>'%s' is not writable. Please change its permission. Enter <span class='code'>sudo chmod -R 777 '%s'</span></span> in Linux.";
-$lang->file->confirmDelete    = " Do you want to delete it?";
-$lang->file->errorFileSize    = " File size exceeds the limit. It cannot be uploaded!";
-$lang->file->errorFileUpload  = " Uploading failed. File size might exceeds the limit.";
-$lang->file->errorFileFormate = " Uploading failed, file format is limited.";
-$lang->file->errorFileMove    = " Uploading failed, there was an error when moving file.";
-$lang->file->dangerFile       = " File has been rejected to upload for security issues.";
-$lang->file->errorSuffix      = 'Format is incorrect. .zip files ONLY!';
-$lang->file->errorExtract     = 'Extracting file failed. File might be damaged or invalid files in the zip package.';
+$lang->file->dragFile            = 'Please drag here.';
+$lang->file->childTaskTag        = 'It\'s child task where \'>\' before the name.';
+$lang->file->errorNotExists      = "<span class='text-red'>'%s' is not found.</span>";
+$lang->file->errorCanNotWrite    = "<span class='text-red'>'%s' is not writable. Please change its permission. Enter <span class='code'>sudo chmod -R 777 '%s'</span></span> in Linux.";
+$lang->file->confirmDelete       = " Do you want to delete it?";
+$lang->file->errorFileSize       = " File size exceeds the limit. It cannot be uploaded!";
+$lang->file->errorFileUpload     = " Uploading failed. File size might exceeds the limit.";
+$lang->file->errorFileFormate    = " Uploading failed, file format is limited.";
+$lang->file->errorFileMove       = " Uploading failed, there was an error when moving file.";
+$lang->file->dangerFile          = " File has been rejected to upload for security issues.";
+$lang->file->errorSuffix         = 'Format is incorrect. .zip files ONLY!';
+$lang->file->errorExtract        = 'Extracting file failed. File might be damaged or invalid files in the zip package.';
 $lang->file->uploadImagesExplain = 'Note: upload .jpg, .jpeg, .gif, and .png images. The image name will be taken as the title of the story and the image as its content.';
 /* git */
 $lang->git = new stdclass();
@@ -5798,9 +5799,10 @@ $lang->webhook->date        = 'Date';
 $lang->webhook->data        = 'Data';
 $lang->webhook->result      = 'Result';
 
+$lang->webhook->typeList['']          = '';
 $lang->webhook->typeList['bearychat'] = 'Bearychat';
 $lang->webhook->typeList['dingding']  = 'Dingding';
-$lang->webhook->typeList['default']   = 'Default';
+$lang->webhook->typeList['default']   = 'Others';
 
 $lang->webhook->sendTypeList['sync']  = 'Synchronization';
 $lang->webhook->sendTypeList['async'] = 'Asynchronous';
