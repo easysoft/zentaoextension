@@ -240,6 +240,7 @@ $lang->task  = new stdclass();
 $lang->build = new stdclass();
 $lang->task->menu  = $lang->project->menu;
 $lang->build->menu = $lang->project->menu;
+$lang->build->menu->qa = array('link' => '版本|project|build|projectID=%s', 'subModule' => 'bug,build,testtask', 'alias' => 'build,testtask', 'class' => 'dropdown dropdown-hover');
 
 $lang->qa = new stdclass();
 $lang->qa->menu = new stdclass();
@@ -2518,6 +2519,7 @@ $lang->doc->users          = '用户';
 $lang->doc->item           = '项';
 $lang->doc->num            = '文档数量';
 $lang->doc->searchResult   = '搜索结果';
+$lang->doc->gt             = '>';
 
 $lang->doc->moduleDoc      = '按模块浏览';
 $lang->doc->searchDoc      = '搜索';
@@ -2742,10 +2744,11 @@ $lang->entry->confirmDelete = '您确认要删除该应用吗？';
 $lang->entry->help          = '使用说明';
 
 $lang->entry->note = new stdClass();
-$lang->entry->note->name  = '授权应用名称';
-$lang->entry->note->code  = '授权应用代号，必须为字母或数字的组合';
-$lang->entry->note->ip    = "允许访问API的应用ip，多个ip用逗号隔开。支持IP段，如192.168.1.*";
-$lang->entry->note->allIP = '无限制';
+$lang->entry->note->name    = '授权应用名称';
+$lang->entry->note->code    = '授权应用代号，必须为字母或数字的组合';
+$lang->entry->note->ip      = "允许访问API的应用ip，多个ip用逗号隔开。支持IP段，如192.168.1.*";
+$lang->entry->note->allIP   = '无限制';
+$lang->entry->note->account = '授权应用账号';
 
 $lang->entry->errmsg['PARAM_CODE_MISSING']    = '缺少code参数';
 $lang->entry->errmsg['PARAM_TOKEN_MISSING']   = '缺少token参数';
@@ -3351,6 +3354,7 @@ $lang->misc = new stdclass();
 $lang->misc->common = '杂项';
 $lang->misc->ping   = '防超时';
 $lang->misc->api    = 'https://api.zentao.net';
+$lang->misc->enApi  = 'http://api.zentao.pm';
 
 $lang->misc->zentao = new stdclass();
 $lang->misc->zentao->version           = '版本%s';
@@ -3396,6 +3400,7 @@ $lang->misc->checkTable  = "检查修复数据表";
 $lang->misc->needRepair  = "修复表";
 $lang->misc->repairTable = "数据库表可能因为断电原因损坏，需要检查修复！！";
 $lang->misc->repairFail  = "修复失败，请到该数据库的数据目录下，尝试执行<code>myisamchk -r -f %s.MYI</code>进行修复。";
+$lang->misc->connectFail = "连接数据库失败，错误：%s，<br/> 请检查mysql错误日志，排查错误。";
 $lang->misc->tableName   = "表名";
 $lang->misc->tableStatus = "状态";
 $lang->misc->novice      = "您可能初次使用禅道，是否进入新手模式？";
@@ -3570,7 +3575,7 @@ $lang->product->doc      = '文档列表';
 $lang->product->project  = $lang->projectCommon . '列表';
 $lang->product->build    = '版本列表';
 
-$lang->product->currentProject   = '当前项目';
+$lang->product->currentProject   = '当前' . $lang->projectCommon;
 $lang->product->activeStories    = '激活需求';
 $lang->product->changedStories   = '已变更需求';
 $lang->product->draftStories     = '草稿需求';
@@ -4722,6 +4727,7 @@ $lang->task->finishedBy       = '由谁完成';
 $lang->task->finishedByAB     = '完成者';
 $lang->task->finishedDate     = '完成时间';
 $lang->task->finishedDateAB   = '完成时间';
+$lang->task->finishedList     = '完成者列表';
 $lang->task->canceledBy       = '由谁取消';
 $lang->task->canceledDate     = '取消时间';
 $lang->task->closedBy         = '由谁关闭';

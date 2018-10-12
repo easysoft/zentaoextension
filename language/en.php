@@ -240,6 +240,7 @@ $lang->task  = new stdclass();
 $lang->build = new stdclass();
 $lang->task->menu  = $lang->project->menu;
 $lang->build->menu = $lang->project->menu;
+$lang->build->menu->qa = array('link' => 'Build|project|build|projectID=%s', 'subModule' => 'bug,build,testtask', 'alias' => 'build,testtask', 'class' => 'dropdown dropdown-hover');
 
 $lang->qa = new stdclass();
 $lang->qa->menu = new stdclass();
@@ -2518,6 +2519,7 @@ $lang->doc->users          = 'Users';
 $lang->doc->item           = ' Items';
 $lang->doc->num            = 'Docs';
 $lang->doc->searchResult   = 'Search Result';
+$lang->doc->gt             = '>';
 
 $lang->doc->moduleDoc      = 'By Module';
 $lang->doc->searchDoc      = 'Search';
@@ -2742,10 +2744,11 @@ $lang->entry->confirmDelete = 'Are you sure delete this entry?';
 $lang->entry->help          = 'Help';
 
 $lang->entry->note = new stdClass();
-$lang->entry->note->name  = 'Name';
-$lang->entry->note->code  = 'Code, should be english and number.';
-$lang->entry->note->ip    = "Use comma between two IPs. IP segment is supported, e.g. 192.168.1.*";
-$lang->entry->note->allIP = 'All';
+$lang->entry->note->name    = 'Name';
+$lang->entry->note->code    = 'Code, should be english and number.';
+$lang->entry->note->ip      = "Use comma between two IPs. IP segment is supported, e.g. 192.168.1.*";
+$lang->entry->note->allIP   = 'All';
+$lang->entry->note->account = 'Account for entry.';
 
 $lang->entry->errmsg['PARAM_CODE_MISSING']    = 'Param code is missing.';
 $lang->entry->errmsg['PARAM_TOKEN_MISSING']   = 'Param token is missing.';
@@ -3327,6 +3330,7 @@ $lang->misc = new stdclass();
 $lang->misc->common = 'Misc';
 $lang->misc->ping   = 'Ping';
 $lang->misc->api    = 'https://api.zentao.net';
+$lang->misc->enApi  = 'http://api.zentao.pm';
 
 $lang->misc->zentao = new stdclass();
 $lang->misc->zentao->version           = 'Version %s';
@@ -3372,6 +3376,7 @@ $lang->misc->checkTable  = "Check Data Table";
 $lang->misc->needRepair  = "Repair Table";
 $lang->misc->repairTable = "Database table is damaged due to power outage. Please chech and repair!";
 $lang->misc->repairFail  = "Failed to repair. Please go to the database data directory, try to perform <code>myisamchk -r -f %s.MYI</code> repair.";
+$lang->misc->connectFail = "Failed to connect to database. Error: %s，<br/> Please check the MySQL error log and troubleshoot.";
 $lang->misc->tableName   = "Table Name";
 $lang->misc->tableStatus = "Status";
 $lang->misc->novice      = "First time to ZenTao? Do you want to start rookie mode?";
@@ -3546,7 +3551,7 @@ $lang->product->doc      = 'Doc';
 $lang->product->project  = $lang->projectCommon . 'List';
 $lang->product->build    = 'Build';
 
-$lang->product->currentProject   = 'Current Project';
+$lang->product->currentProject   = "Current {$lang->projectCommon}";
 $lang->product->activeStories    = 'Activated Story';
 $lang->product->changedStories   = 'Changed Story';
 $lang->product->draftStories     = 'Draft Story';
@@ -4698,6 +4703,7 @@ $lang->task->finishedBy        = 'Finished';
 $lang->task->finishedByAB      = 'Finished';
 $lang->task->finishedDate      = 'Finished on';
 $lang->task->finishedDateAB    = 'Finished on';
+$lang->task->finishedList      = 'Finished list';
 $lang->task->canceledBy        = 'Cancelled by';
 $lang->task->canceledDate      = 'Cancelled on';
 $lang->task->closedBy          = 'Closed by';
