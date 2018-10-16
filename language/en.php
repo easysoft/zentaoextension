@@ -2637,6 +2637,10 @@ $lang->doclib->product = $lang->productCommon . ' Library';
 
 $lang->doclib->main['product'] =  'Main Library';
 $lang->doclib->main['project'] =  'Main Library';
+
+$lang->doclib->tabList['product'] = $lang->productCommon;
+$lang->doclib->tabList['project'] = $lang->projectCommon;
+$lang->doclib->tabList['custom']  = 'Custom';
 /* editor */
 $lang->editor->common    = 'Editor';
 $lang->editor->api       = 'API';

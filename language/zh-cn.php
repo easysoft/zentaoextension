@@ -2637,6 +2637,10 @@ $lang->doclib->product = $lang->productCommon . '库';
 
 $lang->doclib->main['product'] = $lang->productCommon . '主库';
 $lang->doclib->main['project'] = $lang->projectCommon . '主库';
+
+$lang->doclib->tabList['product'] = $lang->productCommon;
+$lang->doclib->tabList['project'] = $lang->projectCommon;
+$lang->doclib->tabList['custom']  = '自定义';
 /* editor */
 $lang->editor->common    = '编辑器';
 $lang->editor->api       = 'API';
