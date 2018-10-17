@@ -2571,6 +2571,10 @@ $lang->doc->libTypeList['product'] = $lang->productCommon . '文档库';
 $lang->doc->libTypeList['project'] = $lang->projectCommon . '文档库';
 $lang->doc->libTypeList['custom']  = '自定义文档库';
 
+$lang->doc->libIconList['product'] = 'icon-cube';
+$lang->doc->libIconList['project'] = 'icon-stack';
+$lang->doc->libIconList['custom']  = 'icon-folder-o';
+
 $lang->doc->systemLibs['product'] = $lang->productCommon;
 $lang->doc->systemLibs['project'] = $lang->projectCommon;
 
@@ -2606,6 +2610,10 @@ $lang->doc->fastMenuIconList['collectedbyme'] = 'icon-folder-star';
 
 $lang->doc->customObjectLibs['files']       = '显示附件库';
 $lang->doc->customObjectLibs['customFiles'] = '显示自定义文档库';
+
+$lang->doc->customShowLibs = '文档库显示设置';
+$lang->doc->customShowLibsList['zero']     = '显示零文档的库';
+$lang->doc->customShowLibsList['unclosed'] = '只显示未关闭的项目';
 
 $lang->doc->confirmDelete      = "您确定删除该文档吗？";
 $lang->doc->confirmDeleteLib   = "您确定删除该文档库吗？";
