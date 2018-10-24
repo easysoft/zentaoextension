@@ -2519,7 +2519,6 @@ $lang->doc->users          = '用户';
 $lang->doc->item           = '项';
 $lang->doc->num            = '文档数量';
 $lang->doc->searchResult   = '搜索结果';
-$lang->doc->gt             = '>';
 
 $lang->doc->moduleDoc      = '按模块浏览';
 $lang->doc->searchDoc      = '搜索';
@@ -2612,8 +2611,8 @@ $lang->doc->customObjectLibs['files']       = '显示附件库';
 $lang->doc->customObjectLibs['customFiles'] = '显示自定义文档库';
 
 $lang->doc->customShowLibs = '文档库显示设置';
-$lang->doc->customShowLibsList['zero']     = '显示零文档的库';
-$lang->doc->customShowLibsList['unclosed'] = '只显示未关闭的项目';
+$lang->doc->customShowLibsList['zero']     = '显示空文档的库';
+$lang->doc->customShowLibsList['unclosed'] = '显示未关闭的项目';
 
 $lang->doc->confirmDelete      = "您确定删除该文档吗？";
 $lang->doc->confirmDeleteLib   = "您确定删除该文档库吗？";
@@ -5060,6 +5059,7 @@ $lang->testcase->dittoNotice        = '该用例与上一用例不属于同一�
 $lang->testcase->reviewList[0] = '否';
 $lang->testcase->reviewList[1] = '是';
 
+$lang->testcase->priList[0] = '';
 $lang->testcase->priList[3] = 3;
 $lang->testcase->priList[1] = 1;
 $lang->testcase->priList[2] = 2;
