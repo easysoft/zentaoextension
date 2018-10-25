@@ -2830,8 +2830,8 @@ $lang->extension->bySearch      = 'Search';
 $lang->extension->byCategory    = 'Category';
 
 $lang->extension->installFailed            = '%s failed. Error:';
-$lang->extension->uninstallFailed          = 'Uninstall failed. Error:';
-$lang->extension->confirmUninstall         = 'Uninstal the extension will delete or change related database. Do you want to uninstall?';
+$lang->extension->uninstallFailed          = 'Uninstallation failed. Error:';
+$lang->extension->confirmUninstall         = 'Uninstallation will delete or change related database. Do you want to uninstall?';
 $lang->extension->installFinished          = 'Congrats! The extension has been %sed!';
 $lang->extension->refreshPage              = 'Refresh';
 $lang->extension->uninstallFinished        = 'Extension has been uninstalled.';
@@ -2842,7 +2842,7 @@ $lang->extension->unremovedFiles           = 'File or direcroty cannot be delete
 $lang->extension->executeCommands          = '<h3>Execute command lines below to fix the problem:</h3>';
 $lang->extension->successDownloadedPackage = 'Extension downloaded!';
 $lang->extension->successCopiedFiles       = 'File copied!';
-$lang->extension->successInstallDB         = 'Database installed!';
+$lang->extension->successInstallDB         = 'Database is installed!';
 $lang->extension->viewInstalled            = 'Installed';
 $lang->extension->viewAvailable            = 'Available';
 $lang->extension->viewDeactivated          = 'Deactivated';
@@ -2852,7 +2852,7 @@ $lang->extension->noticeOkFile             = '<h5>For security reasons, your Adm
     <p>Note</p>
     <ol>
     <li>The file you will create is empty.</li>
-    <li>If there is one such file exists, delete it first, and then create yours.</li>
+    <li>If there is such file exists, delete it first, and then create ones.</li>
     </ol>'; 
 
 $lang->extension->upgradeExt     = 'Upgrade';
@@ -2869,7 +2869,7 @@ $lang->extension->errorDownloadPathNotWritable = 'Extensiond ownload path <stron
 $lang->extension->errorPackageFileExists       = '<strong>%s</strong> has existed in the download path.<h5> Please %s it again, <a href="%s" class="alert-link">CLICK HERE</a></h5>';
 $lang->extension->errorDownloadFailed          = 'Download failed. Please try it again. If still not OK, try to download it manually and upload it to install.';
 $lang->extension->errorMd5Checking             = 'Incomplete File. Please download it again. If still not OK, try to download it manually and upload it to install.';
-$lang->extension->errorCheckIncompatible       = 'Incompatible with this version of ZenTao. It may not be used %s later.<h5>You can choose to <a href="%s" class="btn btn-sm">force%s</a> or <a href="#" onclick=parent.location.href="%s" class="btn btn-sm">cancel</a></h5>';
+$lang->extension->errorCheckIncompatible       = 'Incompatible with your ZenTao. It may not be used %s later.<h5>You can choose to <a href="%s" class="btn btn-sm">force%s</a> or <a href="#" onclick=parent.location.href="%s" class="btn btn-sm">cancel</a></h5>';
 $lang->extension->errorFileConflicted          = '<br />%s <h5> is conflicted with others. Choose <a href="%s" class="btn btn-sm">Override</a> or <a href="#" onclick=parent.location.href="%s" class="btn btn-sm">Cancel</a></h5>';
 $lang->extension->errorPackageNotFound         = '<strong>%s </strong> is not found. Downloading might be failed. Please download it again.';
 $lang->extension->errorTargetPathNotWritable   = '<strong>%s </strong> is not writable.';
@@ -2877,7 +2877,7 @@ $lang->extension->errorTargetPathNotExists     = '<strong>%s </strong> is not fo
 $lang->extension->errorInstallDB               = 'Database report execution failed. Error: %s';
 $lang->extension->errorConflicts               = 'Conflicted with “%s”!';
 $lang->extension->errorDepends                 = 'Dependent extension has not been installed or the version is incorrect:<br /><br /> %s';
-$lang->extension->errorIncompatible            = 'Incompatible with this version of ZenTao.';
+$lang->extension->errorIncompatible            = 'Incompatible with your ZenTao.';
 $lang->extension->errorUninstallDepends        = '“%s” is dependent on this extension. Please do not install it.';
 /* file */
 $lang->file = new stdclass();
@@ -3406,6 +3406,7 @@ $lang->misc->feature = new stdclass();
 $lang->misc->feature->lastest  = 'Latest Version';
 $lang->misc->feature->detailed = 'Details';
 
+$lang->misc->releaseDate['10.5.stable'] = '2018-10-25';
 $lang->misc->releaseDate['10.4.stable'] = '2018-09-28';
 $lang->misc->releaseDate['10.3.stable'] = '2018-08-10';
 $lang->misc->releaseDate['10.2.stable'] = '2018-08-02';
@@ -3423,6 +3424,9 @@ $lang->misc->releaseDate['7.4.beta']    = '2015-11-13';
 $lang->misc->releaseDate['7.2.stable']  = '2015-05-22';
 $lang->misc->releaseDate['7.1.stable']  = '2015-03-07';
 $lang->misc->releaseDate['6.3.stable']  = '2014-11-07';
+
+$lang->misc->feature->all['10.5.stable'][] = array('title'=>'Adjust document display', 'desc' => "<p>Adjust the layout method on the left side of the document library.</p><p>Adding filter conditions to the bottom of the document library's navigation bottom.</p>");
+$lang->misc->feature->all['10.5.stable'][] = array('title'=>'Adjust the sub task logic and optimize the display of father child task.', 'desc' => '');
 
 $lang->misc->feature->all['10.4.stable'][] = array('title'=>'Optimizing and adjusting new interface', 'desc' => '<p>Details page restore our previous layout.</p><p>Refactoring forms to add user pages</p><p>When use cases are executed, do not update the use case state if the user manually chooses to pass through and write the results.</p>');
 $lang->misc->feature->all['10.4.stable'][] = array('title'=>'After the user machine hibernate login fails, the session is refreshed again.', 'desc' => '');
