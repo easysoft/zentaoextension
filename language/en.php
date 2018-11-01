@@ -45,13 +45,13 @@ $lang->public       = 'Public';
 $lang->trunk        = 'Trunk';
 $lang->sort         = 'Sort';
 $lang->required     = 'Required';
-$lang->noData       = 'No record';
+$lang->noData       = 'No data.';
 
 $lang->actions         = 'Actions';
 $lang->restore         = 'Restore';
 $lang->comment         = 'Note';
 $lang->history         = 'History';
-$lang->attatch         = 'Attachment';
+$lang->attatch         = 'File';
 $lang->reverse         = 'Reverse';
 $lang->switchDisplay   = 'Toggle';
 $lang->expand          = 'Expand All';
@@ -320,7 +320,7 @@ $lang->report->menu->test    = array('link' => 'Test|report|bugcreate', 'alias' 
 $lang->report->menu->staff   = array('link' => 'Company|report|workload');
 
 $lang->report->notice = new stdclass();
-$lang->report->notice->help = 'Note: Report is generated from search results. Please search in the list page before you generate a report.';
+$lang->report->notice->help = 'Note: Report is generated from search results. Please search in the list before you generate a report.';
 
 $lang->company = new stdclass();
 $lang->company->menu = new stdclass();
@@ -440,7 +440,7 @@ $lang->error->editedByOther   = 'This record might have been changed. Please ref
 $lang->error->tutorialData    = 'No data can be imported in tutorial mode. Please exit tutorial first!';
 
 $lang->pager = new stdclass();
-$lang->pager->noRecord     = "No Records";
+$lang->pager->noRecord     = "No records.";
 $lang->pager->digest       = " <strong>%s</strong> in total. %s <strong>%s/%s</strong> &nbsp; ";
 $lang->pager->recPerPage   = " <strong>%s</strong> per page";
 $lang->pager->first        = "<i class='icon-step-backward' title='Home'></i>";
@@ -460,15 +460,15 @@ $lang->suhosinInfo     = "Warning! Data is reaching the limit. Please change <fo
 $lang->maxVarsInfo     = "Warning! Data is reaching the limit. Please change <font color=red>max_input_vars</font> (set larger %s value) in php.ini, then save and restart Apache or php-fpm, or some data will not be saved.";
 $lang->pasteTextInfo   = "Paste text here. Each line will be the title of each record. ";
 $lang->noticeImport    = "Imported data contains data that has already existed in system. Please confirm you actions on the date.";
-$lang->importConfirm   = "Import Confirm";
+$lang->importConfirm   = "Confirm";
 $lang->importAndCover  = "Override";
-$lang->importAndInsert = "New Insertion";
+$lang->importAndInsert = "Insert";
 
 
 $lang->noResultsMatch     = "No results match!";
 $lang->searchMore         = "More results：";
 $lang->chooseUsersToMail  = "Choose users that will be notified.";
-$lang->browserNotice      = 'Your current browser might not show the best effect. Please use Chrome, Firefox, IE9+, Opera or Safari.';
+$lang->browserNotice      = 'Your current browser might not display the best effect. Use Chrome, Firefox, IE9+, Opera or Safari.';
 $lang->noticePasteImg     = "Paste images here";
 
 if(!defined('DT_DATETIME1')) define('DT_DATETIME1',  'Y-m-d H:i:s');
@@ -687,7 +687,7 @@ if(isset($config->global->flow) and $config->global->flow == 'onlyTest')
     $lang->bug->subMenu->more->longlifebugs  = 'Pending|bug|browse|productID=%s&branch=%s&browseType=longlifebugs&param=%s';
     $lang->bug->subMenu->more->postponedbugs = 'PostPoned|bug|browse|productID=%s&branch=%s&browseType=postponedbugs&param=%s';
     $lang->bug->subMenu->more->overduebugs   = 'Overdue|bug|browse|productID=%s&branch=%s&browseType=overduebugs&param=%s';
-    $lang->bug->subMenu->more->needconfirm   = 'NeedConfirm|bug|browse|productID=%s&branch=%s&browseType=needconfirm&param=%s';
+    $lang->bug->subMenu->more->needconfirm   = 'ToConfirm|bug|browse|productID=%s&branch=%s&browseType=needconfirm&param=%s';
 
     $lang->bug->menuOrder[5]  = 'product';
     $lang->bug->menuOrder[10] = 'all';
@@ -4515,6 +4515,7 @@ $lang->story->lblChange            = 'Change';
 $lang->story->lblReview            = 'Review';
 $lang->story->lblActivate          = 'Activate';
 $lang->story->lblClose             = 'Close';
+$lang->story->lblTBC               = 'Task/Bug/Case';
 
 $lang->story->checkAffection       = 'Impact';
 $lang->story->affectedProjects     = '' . $lang->projectCommon;
@@ -4675,6 +4676,7 @@ $lang->task->confirmStoryChange  = "Confirm Story Change";
 $lang->task->progress            = 'Progress';
 $lang->task->progressTips        = 'Cost/(Cost+Left)';
 $lang->task->copy                = 'Duplicate Task';
+$lang->task->waitTask            = 'Wait Task';
 
 $lang->task->common            = 'Task';
 $lang->task->id                = 'ID';
@@ -5190,13 +5192,13 @@ $lang->testsuite->browse           = "Suite List";
 $lang->testsuite->linkCase         = "Link Cases";
 $lang->testsuite->linkVersion      = "Version";
 $lang->testsuite->unlinkCase       = "Unlink";
-$lang->testsuite->batchUnlinkCases = "Batch unlink cases";
-$lang->testsuite->deleted          = 'deleted';
+$lang->testsuite->batchUnlinkCases = "Batch Unlink Case";
+$lang->testsuite->deleted          = 'Deleted';
 $lang->testsuite->exportTemplet    = 'Export template';
-$lang->testsuite->batchCreateCase  = 'Batch create cases';
+$lang->testsuite->batchCreateCase  = 'Batch Create Case';
 $lang->testsuite->import           = 'Import';
-$lang->testsuite->showImport       = 'Show import data';
-$lang->testsuite->successSaved     = 'Success Saved';
+$lang->testsuite->showImport       = 'Show Imported Data';
+$lang->testsuite->successSaved     = 'Saved';
 
 $lang->testsuite->common         = 'Test Suite';
 $lang->testsuite->product        = $lang->productCommon;
@@ -5207,7 +5209,7 @@ $lang->testsuite->addedBy        = 'Creator';
 $lang->testsuite->addedDate      = 'Date';
 
 $lang->testsuite->legendDesc      = 'Description';
-$lang->testsuite->legendBasicInfo = 'Base Info';
+$lang->testsuite->legendBasicInfo = 'Basic Info';
 
 $lang->testsuite->unlinkedCases = 'Unlinked Cases';
 
@@ -5229,7 +5231,7 @@ $lang->caselib->all    = 'All';
 
 $lang->testsuite->createLib  = 'Create Library';
 $lang->testsuite->editLib    = 'Edit';
-$lang->testsuite->library    = 'Browse cases in Library';
+$lang->testsuite->library    = 'View cases in Library';
 $lang->testsuite->createCase = 'Create Case';
 $lang->testsuite->libView    = 'Overview';
 /* testtask */

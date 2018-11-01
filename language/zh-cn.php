@@ -4539,6 +4539,7 @@ $lang->story->lblChange            = '变更需求';
 $lang->story->lblReview            = '评审需求';
 $lang->story->lblActivate          = '激活需求';
 $lang->story->lblClose             = '关闭需求';
+$lang->story->lblTBC               = '任务Bug用例';
 
 $lang->story->checkAffection       = '影响范围';
 $lang->story->affectedProjects     = '影响的' . $lang->projectCommon;
@@ -4699,6 +4700,7 @@ $lang->task->confirmStoryChange  = "确认需求变动";
 $lang->task->progress            = '进度';
 $lang->task->progressTips        = '已消耗/(已消耗+剩余)';
 $lang->task->copy                = '复制任务';
+$lang->task->waitTask            = '未开始的任务';
 
 $lang->task->common           = '任务';
 $lang->task->id               = '编号';
