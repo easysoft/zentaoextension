@@ -72,7 +72,7 @@ $lang->homepage        = 'Set as Home';
 $lang->tutorial        = 'Tutorial';
 $lang->changeLog       = 'Change Log';
 $lang->manual          = 'Manual';
-$lang->manualUrl       = 'https://www.zentao.net/book/zentaopmshelp.html?fullScreen=zentao';
+$lang->manualUrl       = 'https://www.zentao.pm/book/zentaomanual/zentao-installation-11.html';
 $lang->customMenu      = 'Custom Menu';
 $lang->customField     = 'Custom Field';
 $lang->lineNumber      = 'Line No.';
@@ -452,9 +452,9 @@ $lang->pager->previousPage = "Prev";
 $lang->pager->nextPage     = "Next";
 $lang->pager->summery      = "<strong>%s-%s</strong> of <strong>%s</strong>.";
 
-$lang->proVersion     = "<a href='https://api.zentao.net/goto.php?item=proversion&from=footer' target='_blank' id='proLink' class='text-important'>ZenTao Pro <i class='text-danger icon-pro-version'></i></a> &nbsp; ";
+$lang->proVersion     = "<a href='https://www.zentao.pm/book/zentaopromanual/free-open-source-project-management-software-zentaopro-127.html' target='_blank' id='proLink' class='text-important'>ZenTao Pro <i class='text-danger icon-pro-version'></i></a> &nbsp; ";
 $lang->downNotify     = "Download Desktop Notification";
-$lang->website        = "https://www.zentao.net";
+$lang->website        = "https://www.zentao.pm";
 
 $lang->suhosinInfo     = "Warning! Data is reaching the limit. Please change <font color=red>sohusin.post.max_vars</font> and <font color=red>sohusin.request.max_vars</font> (set larger %s value) in php.ini, then save and restart Apache or php-fpm, or some data will not be saved.";
 $lang->maxVarsInfo     = "Warning! Data is reaching the limit. Please change <font color=red>max_input_vars</font> (set larger %s value) in php.ini, then save and restart Apache or php-fpm, or some data will not be saved.";
@@ -1074,7 +1074,7 @@ $lang->admin->info = new stdclass();
 $lang->admin->info->version = 'Current Version is %s. ';
 $lang->admin->info->links   = 'You can visit links below';
 $lang->admin->info->account = 'Your ZenTao account is %s.';
-$lang->admin->info->log     = 'Logs that is beyond valid days will be deleted and it has to run cron.';
+$lang->admin->info->log     = 'Log that is beyond valid days will be deleted and it has to run cron.';
 
 $lang->admin->notice = new stdclass();
 $lang->admin->notice->register = "Note: You haven't registered in ZenTao(www.zentao.pm). %s then get the Latest ZenTao Upgrades and News.";
@@ -1082,7 +1082,7 @@ $lang->admin->notice->ignore   = "Ignore";
 $lang->admin->notice->int      = "『%s』should be a positive integer.";
 
 $lang->admin->register = new stdclass();
-$lang->admin->register->common     = 'Binding New Account';
+$lang->admin->register->common     = 'Bind Account';
 $lang->admin->register->caption    = 'Register in Zentao Community';
 $lang->admin->register->click      = 'Please Register here';
 $lang->admin->register->lblAccount = 'at least 3 characters pls; contains letters and numbers.';
@@ -1093,15 +1093,15 @@ $lang->admin->register->success    = "You have registered with us!";
 
 $lang->admin->bind = new stdclass();
 $lang->admin->bind->caption = 'Link Account';
-$lang->admin->bind->success = "Account has been linked!";
+$lang->admin->bind->success = "Account is linked!";
 
 $lang->admin->safe = new stdclass();
 $lang->admin->safe->common     = 'Security Policy';
-$lang->admin->safe->set        = 'PasswordStrength';
+$lang->admin->safe->set        = 'Password Strength';
 $lang->admin->safe->password   = 'Password Strength';
-$lang->admin->safe->weak       = 'Weak Passwords';
+$lang->admin->safe->weak       = 'Weak Password';
 $lang->admin->safe->reason     = 'Type';
-$lang->admin->safe->checkWeak  = 'WeakPasswords';
+$lang->admin->safe->checkWeak  = 'Weak Password';
 $lang->admin->safe->changeWeak = 'Your password is weak. Change it.';
 $lang->admin->safe->modifyPasswordFirstLogin = 'Change password after first login';
 
@@ -1121,7 +1121,7 @@ $lang->admin->safe->reasonList['birthday'] = 'Same as your DOB';
 $lang->admin->safe->modifyPasswordList[1] = 'Yes';
 $lang->admin->safe->modifyPasswordList[0] = 'No';
 
-$lang->admin->safe->noticeMode   = 'Password will be checked when login, add/edit user.';
+$lang->admin->safe->noticeMode   = 'Password will be checked when login, add and edit user.';
 $lang->admin->safe->noticeStrong = '';
 /* api */
 $lang->api = new stdclass();
@@ -2361,7 +2361,7 @@ $lang->dept->parent      = "Parent";
 $lang->dept->manager     = "Manager";
 $lang->dept->name        = "Dept Name";
 $lang->dept->browse      = "Manage";
-$lang->dept->manage      = "Maintain Dept";
+$lang->dept->manage      = "Manage Dept";
 $lang->dept->updateOrder = "Sort";
 $lang->dept->add         = "Add Dept";
 $lang->dept->dragAndSort = "Drag and Sort";
@@ -3740,8 +3740,8 @@ $lang->project->to            = 'To';
 $lang->project->days          = 'Man-Day';
 $lang->project->day           = 'day';
 $lang->project->workHour      = 'Hours';
-$lang->project->totalHours    = 'Working Hours';
-$lang->project->totalDays     = 'Working Days';
+$lang->project->totalHours    = 'Work Hours';
+$lang->project->totalDays     = 'Work Days';
 $lang->project->status        = 'Status';
 $lang->project->desc          = 'Description';
 $lang->project->owner         = 'Owner';
@@ -3768,7 +3768,7 @@ $lang->project->all           = 'All';
 $lang->project->undone        = 'Unfinished';
 $lang->project->unclosed      = 'Unclosed';
 $lang->project->typeDesc      = 'No story, bug, build, test task or burndown is allowed in OPS';
-$lang->project->mine          = 'My Responsibility: ';
+$lang->project->mine          = 'Mine: ';
 $lang->project->other         = 'Other:';
 $lang->project->deleted       = 'Deleted';
 $lang->project->delayed       = 'Delayed';
@@ -3802,7 +3802,7 @@ $lang->team->account    = 'Account';
 $lang->team->role       = 'Role';
 $lang->team->join       = 'Joined';
 $lang->team->hours      = 'Hour/Day';
-$lang->team->days       = 'Workdays';
+$lang->team->days       = 'WorkDdays';
 $lang->team->totalHours = 'Total';
 
 $lang->team->limited            = 'Limited User';
@@ -3823,13 +3823,13 @@ $lang->project->aclList['custom']  = 'Whitelist (Team members and the whitelist 
 
 $lang->project->index             = "Home";
 $lang->project->task              = 'Tasks';
-$lang->project->groupTask         = 'View by Group';
-$lang->project->story             = 'Stories';
-$lang->project->bug               = 'Bugs';
+$lang->project->groupTask         = 'Group View';
+$lang->project->story             = 'Story';
+$lang->project->bug               = 'Bug';
 $lang->project->dynamic           = 'Dynamic';
 $lang->project->latestDynamic     = 'Latest Dynamic';
-$lang->project->build             = 'Builds';
-$lang->project->testtask          = 'Test Tasks';
+$lang->project->build             = 'Build';
+$lang->project->testtask          = 'Test Task';
 $lang->project->burn              = 'Burndown';
 $lang->project->computeBurn       = 'Update';
 $lang->project->burnData          = 'Burndown Data';
@@ -3851,7 +3851,7 @@ $lang->project->delete            = "Delete";
 $lang->project->browse            = "Browse";
 $lang->project->edit              = "Edit";
 $lang->project->batchEdit         = "Batch Edit";
-$lang->project->manageMembers     = 'Manange Teams';
+$lang->project->manageMembers     = 'Manage Team';
 $lang->project->unlinkMember      = 'Unlink Member';
 $lang->project->unlinkStory       = 'Unlink Story';
 $lang->project->batchUnlinkStory  = 'Batch Unlink Story';
@@ -3870,7 +3870,7 @@ $lang->project->iterationInfo     = '%s Iterations';
 $lang->project->viewAll           = 'View All';
 
 $lang->project->allTasks     = 'All';
-$lang->project->assignedToMe = 'My';
+$lang->project->assignedToMe = 'Mine';
 $lang->project->myInvolved   = 'Involved';
 
 $lang->project->statusSelects['']             = 'More';
@@ -4427,7 +4427,7 @@ $lang->story->newStory       = 'Continue adding';
 $lang->story->colorTag       = 'Color Tag';
 $lang->story->files          = 'Files';
 $lang->story->copy           = "Copy Story";
-$lang->story->total          = "Total Stories";
+$lang->story->total          = "Total";
 $lang->story->allStories     = 'All';
 $lang->story->unclosed       = 'Unclosed';
 $lang->story->deleted        = 'Deleted';
@@ -4500,7 +4500,7 @@ $lang->story->legendBasicInfo      = 'Basic Info';
 $lang->story->legendLifeTime       = 'Story Life ';
 $lang->story->legendRelated        = 'Related Info';
 $lang->story->legendMailto         = 'Mail to';
-$lang->story->legendAttatch        = 'Files';
+$lang->story->legendAttatch        = 'File';
 $lang->story->legendProjectAndTask = $lang->projectCommon . ' Task';
 $lang->story->legendBugs           = 'Linked Bug';
 $lang->story->legendFromBug        = 'From Bug';
@@ -4530,10 +4530,10 @@ $lang->story->errorEmptyChildStory  = '『Subdivide Story』canot be blank.';
 $lang->story->mustChooseResult      = 'Select Result';
 $lang->story->mustChoosePreVersion  = 'Select the Version to revert to.';
 $lang->story->noStory               = 'No stories. ';
-$lang->story->ignoreChangeStage     = 'The status of story %s is draft, that fail to change stage.';
+$lang->story->ignoreChangeStage     = 'Story %s is a draft. Change its status.';
 
 $lang->story->form = new stdclass();
-$lang->story->form->area      = 'Story Scope';
+$lang->story->form->area      = 'Scope';
 $lang->story->form->desc      = 'What Story is it? What is the acceptance criteria?';
 $lang->story->form->resource  = 'Who will allocate resources? How long does it take?';
 $lang->story->form->file      = 'If there are Story linked files, please click Here to upload it.';
@@ -4556,9 +4556,9 @@ $lang->story->action->unlinkchildstory    = array('main' => '$date, unlinked by 
 
 $lang->story->report = new stdclass();
 $lang->story->report->common = 'Report';
-$lang->story->report->select = 'Group Stories by';
+$lang->story->report->select = 'Group by';
 $lang->story->report->create = 'Generate';
-$lang->story->report->value  = 'Story Count';
+$lang->story->report->value  = 'Count';
 
 $lang->story->report->charts['storysPerProduct']        = 'by ' . $lang->productCommon;
 $lang->story->report->charts['storysPerModule']         = 'by Module';
@@ -4638,7 +4638,7 @@ $lang->story->chosen = new stdClass();
 $lang->story->chosen->reviewedBy = 'Choose Reviewer';
 
 $lang->story->notice = new stdClass();
-$lang->story->notice->closed = 'Stories you selected have already been closed!';
+$lang->story->notice->closed = 'Stories you select are closed!';
 /* svn */
 $lang->svn = new stdclass();
 $lang->svn->common  = 'Subversion';
