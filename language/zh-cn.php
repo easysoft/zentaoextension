@@ -1157,6 +1157,10 @@ $lang->backup->time  = '备份时间';
 $lang->backup->files = '备份文件';
 $lang->backup->size  = '大小';
 
+$lang->backup->setting = '设置';
+$lang->backup->settingList['nofile'] = '不备份附件和代码';
+$lang->backup->settingList['nozip']  = '只拷贝文件';
+
 $lang->backup->waitting       = '<span id="backupType"></span>正在进行中，请稍候...';
 $lang->backup->confirmDelete  = '是否删除备份？';
 $lang->backup->confirmRestore = '是否还原该备份？';
@@ -5265,7 +5269,7 @@ $lang->testtask->create           = "提交测试";
 $lang->testtask->reportChart      = '报表统计';
 $lang->testtask->delete           = "删除版本";
 $lang->testtask->view             = "概况";
-$lang->testtask->edit             = "编辑版本";
+$lang->testtask->edit             = "编辑测试单";
 $lang->testtask->browse           = "版本列表";
 $lang->testtask->linkCase         = "关联用例";
 $lang->testtask->selectVersion    = "选择版本";
