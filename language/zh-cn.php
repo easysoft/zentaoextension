@@ -1144,28 +1144,34 @@ $lang->api->post      = 'POST方式调试请参照页面表单';
 $lang->api->error = new stdclass();
 $lang->api->error->onlySelect = 'SQL查询接口只允许SELECT查询';
 /* backup */
-$lang->backup->common   = '备份';
-$lang->backup->index    = '备份首页';
-$lang->backup->history  = '备份历史';
-$lang->backup->delete   = '删除备份';
-$lang->backup->backup   = '备份';
-$lang->backup->restore  = '还原';
-$lang->backup->change   = '修改保留时间';
-$lang->backup->changeAB = '修改';
+$lang->backup->common      = '备份';
+$lang->backup->index       = '备份首页';
+$lang->backup->history     = '备份历史';
+$lang->backup->delete      = '删除备份';
+$lang->backup->backup      = '备份';
+$lang->backup->restore     = '还原';
+$lang->backup->change      = '修改保留时间';
+$lang->backup->changeAB    = '修改';
+$lang->backup->rmPHPHeader = '去除安全语句';
 
 $lang->backup->time  = '备份时间';
 $lang->backup->files = '备份文件';
 $lang->backup->size  = '大小';
 
-$lang->backup->setting = '设置';
+$lang->backup->setting    = '设置';
+$lang->backup->settingDir = '备份目录';
 $lang->backup->settingList['nofile'] = '不备份附件和代码';
 $lang->backup->settingList['nozip']  = '只拷贝文件';
+$lang->backup->settingList['nosafe'] = '不需要防下载设置';
 
-$lang->backup->waitting       = '<span id="backupType"></span>正在进行中，请稍候...';
-$lang->backup->confirmDelete  = '是否删除备份？';
-$lang->backup->confirmRestore = '是否还原该备份？';
-$lang->backup->holdDays       = '备份保留最近 %s 天';
-$lang->backup->restoreTip     = '还原功能只还原附件和数据库，如果需要还原代码，可以手动还原。';
+$lang->backup->waitting        = '<span id="backupType"></span>正在进行中，请稍候...';
+$lang->backup->progressSQL     = '<p>SQL备份中，已备份%s</p>';
+$lang->backup->progressAttatch = '<p>SQL备份完成</p><p>附件备份中，已备份%s</p>';
+$lang->backup->progressCode    = '<p>SQL备份完成</p><p>附件备份完成</p><p>代码备份中，已备份%s</p>';
+$lang->backup->confirmDelete   = '是否删除备份？';
+$lang->backup->confirmRestore  = '是否还原该备份？';
+$lang->backup->holdDays        = '备份保留最近 %s 天';
+$lang->backup->restoreTip      = '还原功能只还原附件和数据库，如果需要还原代码，可以手动还原。';
 
 $lang->backup->success = new stdclass();
 $lang->backup->success->backup  = '备份成功！';
@@ -1745,15 +1751,15 @@ $lang->bug->tplStep   = "<p>[步骤]</p><br/>";
 $lang->bug->tplResult = "<p>[结果]</p><br/>";
 $lang->bug->tplExpect = "<p>[期望]</p><br/>";
 
-$lang->bug->severityList[3] = '3';
 $lang->bug->severityList[1] = '1';
 $lang->bug->severityList[2] = '2';
+$lang->bug->severityList[3] = '3';
 $lang->bug->severityList[4] = '4';
 
 $lang->bug->priList[0] = '';
-$lang->bug->priList[3] = '3';
 $lang->bug->priList[1] = '1';
 $lang->bug->priList[2] = '2';
+$lang->bug->priList[3] = '3';
 $lang->bug->priList[4] = '4';
 
 $lang->bug->osList['']        = '';
@@ -3625,6 +3631,8 @@ $lang->product->whitelist     = '分组白名单';
 $lang->product->branch        = '所属%s';
 $lang->product->qa            = '测试';
 $lang->product->release       = '发布';
+$lang->product->allRelease    = '所有发布';
+$lang->product->maintain      = '维护中';
 $lang->product->latestDynamic = '最新动态';
 $lang->product->plan          = '计划';
 $lang->product->iteration     = '版本迭代';
@@ -3931,6 +3939,7 @@ $lang->project->allProject      = "所有{$lang->projectCommon}";
 $lang->project->aboveAllProduct = "以上所有{$lang->productCommon}";
 $lang->project->aboveAllProject = "以上所有{$lang->projectCommon}";
 
+$lang->project->linkStoryByPlanTips = '此操作会将所选计划下面的需求全部关联到此项目中';
 $lang->project->selectProject   = "请选择{$lang->projectCommon}";
 $lang->project->beginAndEnd     = '起止时间';
 $lang->project->begin           = '开始日期';
@@ -4519,9 +4528,9 @@ $lang->story->sourceList['bug']        = 'Bug';
 $lang->story->sourceList['other']      = '其他';
 
 $lang->story->priList[]  = '';
-$lang->story->priList[3] = '3';
 $lang->story->priList[1] = '1';
 $lang->story->priList[2] = '2';
+$lang->story->priList[3] = '3';
 $lang->story->priList[4] = '4';
 
 $lang->story->legendBasicInfo      = '基本信息';
@@ -4806,9 +4815,9 @@ $lang->task->typeList['affair']  = '事务';
 $lang->task->typeList['misc']    = '其他';
 
 $lang->task->priList[0] = '';
-$lang->task->priList[3] = '3';
 $lang->task->priList[1] = '1';
 $lang->task->priList[2] = '2';
+$lang->task->priList[3] = '3';
 $lang->task->priList[4] = '4';
 
 $lang->task->reasonList['']       = '';
