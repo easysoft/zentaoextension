@@ -114,7 +114,7 @@ $lang->menu->report  = '统计|report|index';
 $lang->menu->company = '组织|company|index';
 $lang->menu->admin   = '后台|admin|index';
 
-$lang->dividerMenu = ',qa,';
+$lang->dividerMenu = ',qa,report,';
 
 $lang->searchObjects['bug']         = 'Bug';
 $lang->searchObjects['story']       = '需求';

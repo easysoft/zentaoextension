@@ -114,7 +114,7 @@ $lang->menu->report  = 'Report|report|index';
 $lang->menu->company = 'Company|company|index';
 $lang->menu->admin   = 'Admin|admin|index';
 
-$lang->dividerMenu = ',qa,';
+$lang->dividerMenu = ',qa,report,';
 
 $lang->searchObjects['bug']         = 'Bug';
 $lang->searchObjects['story']       = 'Story';
@@ -2953,10 +2953,10 @@ $lang->group->manageMember       = 'Member';
 $lang->group->confirmDelete      = 'Do you want to delete this User Group?';
 $lang->group->successSaved       = 'Saved.';
 $lang->group->errorNotSaved      = 'Failed. Please select actions and groups.';
-$lang->group->viewList           = 'Views can be accessed.';
-$lang->group->productList        = 'Products can be accessed.';
-$lang->group->projectList        = 'Projects can be accessed.';
-$lang->group->noticeVisit        = 'Empty means you have no access.';
+$lang->group->viewList           = 'View';
+$lang->group->productList        = 'Product';
+$lang->group->projectList        = 'Project';
+$lang->group->noticeVisit        = 'Empty means no access.';
 
 $lang->group->id       = 'ID';
 $lang->group->name     = 'Name';
@@ -3804,14 +3804,14 @@ $lang->project->endList[186] = '6 Months';
 $lang->project->endList[365] = '1 Year';
 
 $lang->team = new stdclass();
-$lang->team->account    = 'Account';
+$lang->team->account    = 'Username';
 $lang->team->role       = 'Role';
 $lang->team->join       = 'Joined';
 $lang->team->hours      = 'Hour/Day';
 $lang->team->days       = 'WorkDdays';
 $lang->team->totalHours = 'Total';
 
-$lang->team->limited            = 'Limited User';
+$lang->team->limited            = 'limited user';
 $lang->team->limitedList['no']  = 'No';
 $lang->team->limitedList['yes'] = 'Yes';
 
@@ -3861,9 +3861,9 @@ $lang->project->manageMembers     = 'Manage Team';
 $lang->project->unlinkMember      = 'Unlink Member';
 $lang->project->unlinkStory       = 'Unlink Story';
 $lang->project->batchUnlinkStory  = 'Batch Unlink Story';
-$lang->project->importTask        = 'Import Tasks';
+$lang->project->importTask        = 'Import Task';
 $lang->project->importPlanStories = 'Link Story From Plan';
-$lang->project->importBug         = 'Import Bugs';
+$lang->project->importBug         = 'Import Bug';
 $lang->project->updateOrder       = 'Sort';
 $lang->project->tree              = 'Tree';
 $lang->project->treeTask          = 'Show Task';
@@ -3897,7 +3897,7 @@ $lang->project->groups['closedBy']   = 'By ClosedBy';
 $lang->project->groups['type']       = 'By Type';
 
 $lang->project->groupFilter['story']['all']         = $lang->project->all;
-$lang->project->groupFilter['story']['linked']      = 'Tasks Linked to Story';
+$lang->project->groupFilter['story']['linked']      = 'Task Linked to Story';
 $lang->project->groupFilter['pri']['all']           = $lang->project->all;
 $lang->project->groupFilter['pri']['noset']         = 'Not set';
 $lang->project->groupFilter['assignedTo']['undone'] = 'Unfinished';
@@ -3909,12 +3909,12 @@ $lang->project->allProject      = "All {$lang->projectCommon}";
 $lang->project->aboveAllProduct = "All the above {$lang->productCommon}";
 $lang->project->aboveAllProject = "All the above {$lang->projectCommon}";
 
-$lang->project->linkStoryByPlanTips = 'It will link stories to this project who are under the plan';
+$lang->project->linkStoryByPlanTips = 'It will link all stories in this plan to the project.';
 $lang->project->selectProject       = "Select {$lang->projectCommon}";
 $lang->project->beginAndEnd         = 'Duration';
 $lang->project->begin               = 'Begin';
 $lang->project->end                 = 'End';
-$lang->project->lblStats            = 'Man-Hour Summary(h) : ';
+$lang->project->lblStats            = 'Total Man-Hour(h) : ';
 $lang->project->stats               = '<strong>%s</strong> Available, <strong>%s</strong> Total Estimates, <strong>%s</strong> Cost, <strong>%s</strong> Left.';
 $lang->project->taskSummary         = "Tasks on this page : <strong>%s</strong> Total, <strong>%s</strong> Wait, <strong>%s</strong> Doing;  &nbsp;&nbsp;&nbsp;  Hours : <strong>%s</strong> Est., <strong>%s</strong> Cost, <strong>%s</strong> Left.";
 $lang->project->checkedSummary      = " <strong>%total%</strong> Checked, <strong>%wait%</strong> Wait, <strong>%doing%</strong> Doing;    Hours: <strong>%estimate%</strong>  Est., <strong>%consumed%</strong> Cost, <strong>%left%</strong> Left.";
@@ -3923,15 +3923,15 @@ $lang->project->memberHours         = '<div class="table-col"><div class="clearf
 $lang->project->countSummary        = '<div class="table-col"><div class="clearfix segments"><div class="segment"><div class="segment-title">Tasks</div><div class="segment-value">%s</div></div><div class="segment"><div class="segment-title">Doing</div><div class="segment-value"><span class="label label-dot label-primary"></span> %s</div></div><div class="segment"><div class="segment-title">Wait</div><div class="segment-value"><span class="label label-dot label-primary muted"></span> %s</div></div></div></div>';
 $lang->project->timeSummary         = '<div class="table-col"><div class="clearfix segments"><div class="segment"><div class="segment-title">Est.</div><div class="segment-value">%s</div></div><div class="segment"><div class="segment-title">Cost</div><div class="segment-value text-red">%s</div></div><div class="segment"><div class="segment-title">Left</div><div class="segment-value">%s</div></div></div></div>';
 $lang->project->groupSummaryAB      = "<div>Tasks <strong>%s ：</strong><span class='text-muted'>Wait</span> %s &nbsp; <span class='text-muted'>Doing</span> %s</div><div>Est. <strong>%s ：</strong><span class='text-muted'>Cost</span> %s &nbsp; <span class='text-muted'>Left</span> %s</div>";
-$lang->project->wbs                 = "Decompose Tasks";
+$lang->project->wbs                 = "Decompose Task";
 $lang->project->batchWBS            = "Batch Decompose";
 $lang->project->howToUpdateBurn     = "<a href='https://api.zentao.net/goto.php?item=burndown&lang=zh-cn' target='_blank' title='How to Update the Burndown Chart?' class='btn btn-link'>Help <i class='icon icon-help'></i></a>";
 $lang->project->whyNoStories        = "No Story can be linked. Please check whether there is Story in {$lang->projectCommon} linked {$lang->productCommon} and make sure it has been reviewed.";
 $lang->project->productStories      = "{$lang->projectCommon} linked  story is the subeset of {$lang->productCommon}, which can only be linked after review. Please <a href='%s'> Link Story</a>。";
 $lang->project->haveDraft           = "There are %s draft stories can't be linked.";
 $lang->project->doneProjects        = 'Done';
-$lang->project->selectDept          = 'Select Department';
-$lang->project->selectDeptTitle     = 'Select Department';
+$lang->project->selectDept          = 'Department';
+$lang->project->selectDeptTitle     = 'Department';
 $lang->project->copyTeam            = 'Copy Team';
 $lang->project->copyFromTeam        = "Copy from {$lang->projectCommon} Team: <strong>%s</strong>";
 $lang->project->noMatched           = "No $lang->projectCommon including '%s'can be found.";
@@ -3974,7 +3974,7 @@ $lang->project->charts->burn->graph->animation    = 0;
 $lang->project->charts->burn->graph->rotateNames  = 1;
 $lang->project->charts->burn->graph->showValues   = 0;
 $lang->project->charts->burn->graph->reference    = 'Reference';
-$lang->project->charts->burn->graph->actuality    = 'Actuality';
+$lang->project->charts->burn->graph->actuality    = 'Actual';
 
 $lang->project->placeholder = new stdclass();
 $lang->project->placeholder->code      = 'Abbreviation of project name';
@@ -4020,7 +4020,7 @@ $lang->project->featureBar['task']['unclosed']     = $lang->project->unclosed;
 $lang->project->featureBar['task']['assignedtome'] = $lang->project->assignedToMe;
 $lang->project->featureBar['task']['myinvolved']   = $lang->project->myInvolved;
 $lang->project->featureBar['task']['delayed']      = 'Delayed';
-$lang->project->featureBar['task']['needconfirm']  = 'StoryChanged';
+$lang->project->featureBar['task']['needconfirm']  = 'StoryChange';
 $lang->project->featureBar['task']['status']       = $lang->project->statusSelects[''];
 
 $lang->project->treeLevel = array();
