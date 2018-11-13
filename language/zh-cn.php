@@ -9,6 +9,7 @@ $lang->downArrow = '↓';
 $lang->null      = '空';
 $lang->ellipsis  = '…';
 $lang->percent   = '%';
+$lang->dash      = '-';
 
 $lang->zentaoPMS      = '禅道';
 $lang->welcome        = "%s项目管理系统";
@@ -176,6 +177,8 @@ $lang->my->menu->changePassword = '密码|my|changepassword';
 $lang->my->menu->manageContacts = '联系人|my|managecontacts';
 $lang->my->menu->score          = '积分|my|score';
 
+$lang->my->dividerMenu = ',task,myProject,profile,';
+
 $lang->todo       = new stdclass();
 $lang->todo->menu = $lang->my->menu;
 
@@ -188,13 +191,15 @@ $lang->product->menu = new stdclass();
 $lang->product->menu->story   = array('link' => '需求|product|browse|productID=%s', 'alias' => 'batchedit', 'subModule' => 'story');
 $lang->product->menu->plan    = array('link' => '计划|productplan|browse|productID=%s', 'subModule' => 'productplan');
 $lang->product->menu->release = array('link' => '发布|release|browse|productID=%s',     'subModule' => 'release');
-$lang->product->menu->project = "{$lang->projectCommon}|product|project|status=all&productID=%s";
-$lang->product->menu->doc     = array('link' => '文档|doc|objectLibs|type=product&objectID=%s&from=product', 'subModule' => 'doc');
-$lang->product->menu->dynamic = '动态|product|dynamic|productID=%s';
 $lang->product->menu->roadmap = '路线图|product|roadmap|productID=%s';
+$lang->product->menu->project = "{$lang->projectCommon}|product|project|status=all&productID=%s";
+$lang->product->menu->dynamic = '动态|product|dynamic|productID=%s';
+$lang->product->menu->doc     = array('link' => '文档|doc|objectLibs|type=product&objectID=%s&from=product', 'subModule' => 'doc');
 $lang->product->menu->branch  = '@branch@|branch|manage|productID=%s';
 $lang->product->menu->module  = '模块|tree|browse|productID=%s&view=story';
 $lang->product->menu->view    = array('link' => '概况|product|view|productID=%s', 'alias' => 'edit');
+
+$lang->product->dividerMenu = ',plan,project,doc,';
 
 $lang->story       = new stdclass();
 $lang->productplan = new stdclass();
@@ -341,16 +346,36 @@ $lang->user->menu  = $lang->company->menu;
 $lang->admin = new stdclass();
 $lang->admin->menu = new stdclass();
 $lang->admin->menu->index     = array('link' => '首页|admin|index', 'alias' => 'register,certifytemail,certifyztmobile,ztcompany');
-$lang->admin->menu->extension = array('link' => '插件|extension|browse', 'subModule' => 'extension');
+$lang->admin->menu->message   = array('link' => '通知|message|index', 'subModule' => 'message,mail,webhook');
 $lang->admin->menu->custom    = array('link' => '自定义|custom|set', 'subModule' => 'custom');
-$lang->admin->menu->message   = array('link' => '消息|message|index', 'subModule' => 'message,mail,webhook');
-$lang->admin->menu->backup    = array('link' => '备份|backup|index', 'subModule' => 'backup');
+$lang->admin->menu->sso       = array('link' => '集成|admin|sso');
+$lang->admin->menu->extension = array('link' => '插件|extension|browse', 'subModule' => 'extension');
+$lang->admin->menu->dev       = array('link' => '二次开发|dev|api', 'alias' => 'db', 'subModule' => 'dev,editor,entry');
+$lang->admin->menu->data      = array('link' => '数据|backup|index', 'subModule' => 'backup,action');
 $lang->admin->menu->safe      = array('link' => '安全|admin|safe', 'alias' => 'checkweak');
-$lang->admin->menu->cron      = array('link' => '计划任务|cron|index', 'subModule' => 'cron');
-$lang->admin->menu->trashes   = array('link' => '回收站|action|trash', 'subModule' => 'action');
-$lang->admin->menu->dev       = array('link' => '二次开发|dev|api', 'alias' => 'db', 'subModule' => 'dev,editor');
-$lang->admin->menu->entry     = array('link' => '应用|entry|browse', 'subModule' => 'entry');
-$lang->admin->menu->sso       = '然之集成|admin|sso';
+$lang->admin->menu->system    = array('link' => '系统|cron|index', 'subModule' => 'cron');
+
+$lang->admin->subMenu = new stdclass();
+$lang->admin->subMenu->message = new stdclass();
+$lang->admin->subMenu->message->mail    = array('link' => '邮件|mail|index', 'subModule' => 'mail');
+$lang->admin->subMenu->message->webhook = array('link' => 'Webhook|webhook|browse', 'subModule' => 'webhook');
+$lang->admin->subMenu->message->setting = array('link' => '设置|message|setting', 'subModule' => 'message');
+
+$lang->admin->subMenu->sso = new stdclass();
+$lang->admin->subMenu->sso->ranzhi = '然之协同|admin|sso';
+
+$lang->admin->subMenu->dev = new stdclass();
+$lang->admin->subMenu->dev->api    = array('link' => 'API|dev|api');
+$lang->admin->subMenu->dev->db     = array('link' => '数据库|dev|db');
+$lang->admin->subMenu->dev->editor = array('link' => '编辑器|editor|index', 'subModule' => 'editor');
+$lang->admin->subMenu->dev->entry  = array('link' => '应用|entry|browse', 'subModule' => 'entry');
+
+$lang->admin->subMenu->data = new stdclass();
+$lang->admin->subMenu->data->backup = array('link' => '备份|backup|index', 'subModule' => 'backup');
+$lang->admin->subMenu->data->trash  = '回收站|action|trash';
+
+$lang->admin->subMenu->system = new stdclass();
+$lang->admin->subMenu->system->cron = array('link' => '定时|cron|index', 'subModule' => 'cron');
 
 $lang->convert   = new stdclass();
 $lang->upgrade   = new stdclass();
@@ -1103,7 +1128,7 @@ $lang->admin->safe->weak       = '常用弱口令';
 $lang->admin->safe->reason     = '类型';
 $lang->admin->safe->checkWeak  = '弱口令扫描';
 $lang->admin->safe->changeWeak = '修改弱口令密码';
-$lang->admin->safe->modifyPasswordFirstLogin = '首次登陆修改密码';
+$lang->admin->safe->modifyPasswordFirstLogin = '首次登录修改密码';
 
 $lang->admin->safe->modeList[0] = '不检查';
 $lang->admin->safe->modeList[1] = '中';
@@ -2479,6 +2504,7 @@ $lang->dev->tableList['webhook']        = 'WebHook';
 $lang->dev->tableList['log']            = '接口日志';
 $lang->dev->tableList['message']        = '消息';
 $lang->dev->tableList['notify']         = '通知';
+$lang->dev->tableList['userview']       = '可访问权限';
 
 $lang->dev->groupList['my']      = '我的地盘';
 $lang->dev->groupList['product'] = $lang->productCommon;
@@ -3814,12 +3840,12 @@ $lang->project->readjustTask  = '顺延任务的起止时间';
 $lang->project->effort        = '日志';
 $lang->project->relatedMember = '相关成员';
 
-$lang->project->start    = '开始';
-$lang->project->activate = '激活';
-$lang->project->putoff   = '延期';
-$lang->project->suspend  = '挂起';
-$lang->project->close    = '关闭';
-$lang->project->export   = '导出';
+$lang->project->start    = "开始$lang->projectCommon";
+$lang->project->activate = "激活$lang->projectCommon";
+$lang->project->putoff   = "延期$lang->projectCommon";
+$lang->project->suspend  = "挂起$lang->projectCommon";
+$lang->project->close    = "关闭$lang->projectCommon";
+$lang->project->export   = "导出$lang->projectCommon";
 
 $lang->project->typeList['sprint']    = "短期$lang->projectCommon";
 $lang->project->typeList['waterfall'] = "长期$lang->projectCommon";
@@ -3867,7 +3893,7 @@ $lang->project->latestDynamic     = '最新动态';
 $lang->project->build             = '所有版本';
 $lang->project->testtask          = '测试任务';
 $lang->project->burn              = '燃尽图';
-$lang->project->computeBurn       = '更新';
+$lang->project->computeBurn       = '更新燃尽图';
 $lang->project->burnData          = '燃尽图数据';
 $lang->project->fixFirst          = '修改首天工时';
 $lang->project->team              = '团队成员';
@@ -3894,7 +3920,7 @@ $lang->project->batchUnlinkStory  = '批量移除需求';
 $lang->project->importTask        = '转入任务';
 $lang->project->importPlanStories = '按计划关联需求';
 $lang->project->importBug         = '导入Bug';
-$lang->project->updateOrder       = '排序';
+$lang->project->updateOrder       = "{$lang->projectCommon}排序";
 $lang->project->tree              = '树状图';
 $lang->project->treeTask          = '只看任务';
 $lang->project->treeStory         = '只看需求';
@@ -5432,7 +5458,7 @@ $lang->todo->close        = "关闭";
 $lang->todo->batchClose   = "批量关闭";
 $lang->todo->batchEdit    = "批量编辑";
 $lang->todo->view         = "待办详情";
-$lang->todo->finish       = "完成";
+$lang->todo->finish       = "完成待办";
 $lang->todo->batchFinish  = "批量完成";
 $lang->todo->export       = "导出";
 $lang->todo->delete       = "删除";
