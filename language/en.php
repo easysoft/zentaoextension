@@ -214,10 +214,10 @@ $lang->release->menu     = $lang->product->menu;
 $lang->project = new stdclass();
 $lang->project->menu = new stdclass();
 
-$lang->project->menu->task     = array('link' => 'Task|project|task|projectID=%s', 'subModule' => 'task,tree');
+$lang->project->menu->task     = array('link' => 'Task|project|task|projectID=%s', 'subModule' => 'task,tree', 'alias' => 'importtask,importbug');
 $lang->project->menu->kanban   = array('link' => 'Kanban|project|kanban|projectID=%s');
 $lang->project->menu->burn     = array('link' => 'Burn|project|burn|projectID=%s');
-$lang->project->menu->list     = array('link' => 'More|project|grouptask|projectID=%s', 'alias' => 'grouptask,importtask,importbug,tree', 'class' => 'dropdown dropdown-hover');
+$lang->project->menu->list     = array('link' => 'More|project|grouptask|projectID=%s', 'alias' => 'grouptask,tree', 'class' => 'dropdown dropdown-hover');
 $lang->project->menu->story    = array('link' => 'Story|project|story|projectID=%s', 'subModule' => 'story', 'alias' => 'linkstory,storykanban');
 $lang->project->menu->qa       = array('link' => 'Test|project|bug|projectID=%s', 'subModule' => 'bug,build,testtask', 'alias' => 'build,testtask', 'class' => 'dropdown dropdown-hover');
 $lang->project->menu->doc      = array('link' => 'Doc|doc|objectLibs|type=project&objectID=%s&from=project', 'subModule' => 'doc');
@@ -239,7 +239,7 @@ $lang->project->subMenu->qa->testtask = array('link' => 'Test Task|project|testt
 $lang->project->subMenu->action = new stdclass();
 $lang->project->subMenu->action->dynamic  = 'Dynamic|project|dynamic|projectID=%s';
 
-$lang->project->dividerMenu = ',story,doc,';
+$lang->project->dividerMenu = ',story,action,product,';
 
 $lang->task  = new stdclass();
 $lang->build = new stdclass();
@@ -1645,7 +1645,7 @@ $lang->bug->openedBy         = 'Creator';
 $lang->bug->openedDate       = 'Created';
 $lang->bug->openedDateAB     = 'Created';
 $lang->bug->openedBuild      = 'Open Build';
-$lang->bug->assignedTo       = 'To';
+$lang->bug->assignedTo       = 'AssignToMe';
 $lang->bug->assignBug        = 'Assign To';
 $lang->bug->assignedToAB     = 'To';
 $lang->bug->assignedDate     = 'Assigned';
@@ -4431,8 +4431,8 @@ $lang->story->estimate       = 'Est.(h)';
 $lang->story->estimateAB     = 'Est.(h)';
 $lang->story->hour           = 'Hour';
 $lang->story->status         = 'Status';
-$lang->story->stage          = 'Phase';
-$lang->story->stageAB        = 'Phase';
+$lang->story->stage          = 'Stage';
+$lang->story->stageAB        = 'Stage';
 $lang->story->mailto         = 'Mail to';
 $lang->story->openedBy       = 'Creator';
 $lang->story->openedDate     = 'Created';
@@ -4561,7 +4561,7 @@ $lang->story->successSaved          = "Story is saved!";
 $lang->story->confirmDelete         = "Do you want to delete this Story?";
 $lang->story->errorEmptyChildStory  = '『Subdivide Story』canot be blank.';
 $lang->story->mustChooseResult      = 'Select Result';
-$lang->story->mustChoosePreVersion  = 'Select the Version to revert to.';
+$lang->story->mustChoosePreVersion  = 'Select a version to revert to.';
 $lang->story->noStory               = 'No stories. ';
 $lang->story->ignoreChangeStage     = 'Story %s is a draft. Change its status.';
 
@@ -4630,7 +4630,7 @@ $lang->story->report->storysPerModule->item       = 'Module';
 $lang->story->report->storysPerSource->item       = 'Source';
 $lang->story->report->storysPerPlan->item         = 'Plan';
 $lang->story->report->storysPerStatus->item       = 'Status';
-$lang->story->report->storysPerStage->item        = 'Phase';
+$lang->story->report->storysPerStage->item        = 'Stage';
 $lang->story->report->storysPerPri->item          = 'Priority';
 $lang->story->report->storysPerOpenedBy->item     = 'Account';
 $lang->story->report->storysPerAssignedTo->item   = 'User';
@@ -4656,11 +4656,11 @@ $lang->story->report->storysPerModule->graph->xAxisName       = 'Module';
 $lang->story->report->storysPerSource->graph->xAxisName       = 'Source';
 $lang->story->report->storysPerPlan->graph->xAxisName         = 'Plan';
 $lang->story->report->storysPerStatus->graph->xAxisName       = 'Status';
-$lang->story->report->storysPerStage->graph->xAxisName        = 'Phase';
+$lang->story->report->storysPerStage->graph->xAxisName        = 'Stage';
 $lang->story->report->storysPerPri->graph->xAxisName          = 'Priority';
 $lang->story->report->storysPerOpenedBy->graph->xAxisName     = 'Created By';
 $lang->story->report->storysPerAssignedTo->graph->xAxisName   = 'Assigned To';
-$lang->story->report->storysPerClosedReason->graph->xAxisName = 'Closed Reason';
+$lang->story->report->storysPerClosedReason->graph->xAxisName = 'Close Reason';
 $lang->story->report->storysPerEstimate->graph->xAxisName     = 'Hour ';
 $lang->story->report->storysPerChange->graph->xAxisName       = 'Change';
 
@@ -5629,6 +5629,7 @@ $lang->upgrade->tohome  = 'Visit ZenTao';
 $lang->upgrade->license = 'Zentao is under Z PUBLIC LICENSE(ZPL) 1.2.';
 $lang->upgrade->warnning= 'Warning!';
 $lang->upgrade->checkExtension  = 'Check Extension';
+$lang->upgrade->consistency     = 'Check Consistency';
 $lang->upgrade->warnningContent = <<<EOT
 <p>Please backup your database before upgrading ZenTao!</p>
 <pre>
@@ -5656,6 +5657,7 @@ $lang->upgrade->confirm       = 'Confirm SQL';
 $lang->upgrade->sureExecute   = 'Execute';
 $lang->upgrade->forbiddenExt  = 'Extension is not compatible with the version. It has been deactivated:';
 $lang->upgrade->updateFile    = 'File information has to be updated.';
+$lang->upgrade->noticeSQL     = 'Check that your database is inconsistent with the standard and try to fix failure. Please perform the following SQL and refresh.';
 
 include dirname(__FILE__) . '/version.php';
 /* user */

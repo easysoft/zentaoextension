@@ -214,10 +214,10 @@ $lang->release->menu     = $lang->product->menu;
 $lang->project = new stdclass();
 $lang->project->menu = new stdclass();
 
-$lang->project->menu->task    = array('link' => '任务|project|task|projectID=%s', 'subModule' => 'task,tree');
+$lang->project->menu->task    = array('link' => '任务|project|task|projectID=%s', 'subModule' => 'task,tree', 'alias' => 'importtask,importbug');
 $lang->project->menu->kanban  = array('link' => '看板|project|kanban|projectID=%s');
 $lang->project->menu->burn    = array('link' => '燃尽图|project|burn|projectID=%s');
-$lang->project->menu->list    = array('link' => '更多|project|grouptask|projectID=%s', 'alias' => 'grouptask,importtask,importbug,tree', 'class' => 'dropdown dropdown-hover');
+$lang->project->menu->list    = array('link' => '更多|project|grouptask|projectID=%s', 'alias' => 'grouptask,tree', 'class' => 'dropdown dropdown-hover');
 $lang->project->menu->story   = array('link' => '需求|project|story|projectID=%s', 'subModule' => 'story', 'alias' => 'linkstory,storykanban');
 $lang->project->menu->qa      = array('link' => '测试|project|bug|projectID=%s', 'subModule' => 'bug,build,testtask', 'alias' => 'build,testtask', 'class' => 'dropdown dropdown-hover');
 $lang->project->menu->doc     = array('link' => '文档|doc|objectLibs|type=project&objectID=%s&from=project', 'subModule' => 'doc');
@@ -236,10 +236,7 @@ $lang->project->subMenu->qa->bug      = 'Bug|project|bug|projectID=%s';
 $lang->project->subMenu->qa->build    = array('link' => '版本|project|build|projectID=%s', 'subModule' => 'build');
 $lang->project->subMenu->qa->testtask = array('link' => '测试单|project|testtask|projectID=%s', 'subModule' => 'testreport,testtask');
 
-$lang->project->subMenu->action = new stdclass();
-$lang->project->subMenu->action->dynamic  = '动态|project|dynamic|projectID=%s';
-
-$lang->project->dividerMenu = ',story,doc,';
+$lang->project->dividerMenu = ',story,action,product,';
 
 $lang->task  = new stdclass();
 $lang->build = new stdclass();
@@ -5659,6 +5656,7 @@ $lang->upgrade->tohome  = '访问禅道';
 $lang->upgrade->license = '禅道项目管理软件已更换授权协议至 Z PUBLIC LICENSE(ZPL) 1.2';
 $lang->upgrade->warnning= '警告';
 $lang->upgrade->checkExtension  = '检查插件';
+$lang->upgrade->consistency     = '一致性检查';
 $lang->upgrade->warnningContent = <<<EOT
 <p>升级有危险，请先备份数据库，以防万一。</p>
 <pre>
@@ -5686,6 +5684,7 @@ $lang->upgrade->confirm       = '确认要执行的SQL语句';
 $lang->upgrade->sureExecute   = '确认执行';
 $lang->upgrade->forbiddenExt  = '以下插件与新版本不兼容，已经自动禁用：';
 $lang->upgrade->updateFile    = '需要更新附件信息。';
+$lang->upgrade->noticeSQL     = '检查到你的数据库跟标准不一致，尝试修复失败。请执行以下SQL语句，再刷新页面检查。';
 
 include dirname(__FILE__) . '/version.php';
 /* user */
