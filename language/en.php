@@ -21,6 +21,7 @@ $lang->profile        = 'Profile';
 $lang->changePassword = 'Password';
 $lang->runInfo        = "<div class='row'><div class='u-1 a-center' id='debugbar'>Time %s MS, Memory %s KB, Query %s.  </div></div>";
 $lang->agreement      = "I have read and agreed to the terms and conditions of <a href='http://zpl.pub/page/zplv12.html' target='_blank'> Z PUBLIC LICENSE 1.2 </a>. <span class='text-danger'>Without authorization, I should not remove, hide or cover any logos/links of ZenTao.</span>";
+$lang->designedByAIUX = "<a href='http://aiuxstudio.com/' class='link-aiux' target='_blank'>Designed by <strong>AIUX</strong></a>";
 
 $lang->reset        = 'Reset';
 $lang->cancel       = 'Cancel';
@@ -34,7 +35,7 @@ $lang->export       = 'Export';
 $lang->setFileName  = 'File Name';
 $lang->submitting   = 'Saving...';
 $lang->save         = 'Save';
-$lang->saveSuccess  = 'Saved.';
+$lang->saveSuccess  = 'Saved';
 $lang->confirm      = 'Confirm';
 $lang->preview      = 'View';
 $lang->goback       = 'Back';
@@ -48,7 +49,7 @@ $lang->sort         = 'Sort';
 $lang->required     = 'Required';
 $lang->noData       = 'No data.';
 
-$lang->actions         = 'Actions';
+$lang->actions         = 'Action';
 $lang->restore         = 'Restore';
 $lang->comment         = 'Note';
 $lang->history         = 'History';
@@ -239,13 +240,13 @@ $lang->project->subMenu->qa->testtask = array('link' => 'Test Task|project|testt
 $lang->project->subMenu->action = new stdclass();
 $lang->project->subMenu->action->dynamic  = 'Dynamic|project|dynamic|projectID=%s';
 
-$lang->project->dividerMenu = ',story,action,product,';
+$lang->project->dividerMenu = ',story,team,product,';
 
 $lang->task  = new stdclass();
 $lang->build = new stdclass();
 $lang->task->menu  = $lang->project->menu;
 $lang->build->menu = $lang->project->menu;
-$lang->build->menu->qa = array('link' => 'Build|project|build|projectID=%s', 'subModule' => 'bug,build,testtask', 'alias' => 'build,testtask', 'class' => 'dropdown dropdown-hover');
+$lang->build->menu->qa = array('link' => 'Test|project|build|projectID=%s', 'subModule' => 'bug,build,testtask', 'alias' => 'build,testtask', 'class' => 'dropdown dropdown-hover');
 
 $lang->qa = new stdclass();
 $lang->qa->menu = new stdclass();
@@ -456,7 +457,7 @@ $lang->error->date            = "『%s』should be valid date.";
 $lang->error->datetime        = "『%s』should be valid date.";
 $lang->error->code            = "『%s』should be letters or numbers.";
 $lang->error->account         = "『%s』should be valid account.";
-$lang->error->passwordsame    = "Two passwords should be consistent.";
+$lang->error->passwordsame    = "Passwords should be consistent.";
 $lang->error->passwordrule    = "Password should follow rules. It must be at least 6 characters.";
 $lang->error->accessDenied    = 'Access is denied.';
 $lang->error->pasteImg        = 'Image is not allowed to be pasted in your browser!';
@@ -492,7 +493,7 @@ $lang->importAndInsert = "Insert";
 
 $lang->noResultsMatch     = "No results match!";
 $lang->searchMore         = "More results：";
-$lang->chooseUsersToMail  = "Choose users that will be notified.";
+$lang->chooseUsersToMail  = "Choose users to be notified.";
 $lang->browserNotice      = 'Your current browser might not display the best effect. Use Chrome, Firefox, IE9+, Opera or Safari.';
 $lang->noticePasteImg     = "Paste images here";
 
@@ -2399,7 +2400,7 @@ $lang->dept->confirmDelete = " Do you want to delete this Dept?";
 $lang->dept->successSave   = " Saved!";
 
 $lang->dept->error = new stdclass();
-$lang->dept->error->hasSons  = 'This Dept has child Dept. You cannot delete it!';
+$lang->dept->error->hasSons  = 'This Dept has child departments. You cannot delete it!';
 $lang->dept->error->hasUsers = 'This Dept has users. You cannot delete it!';
 /* dev */
 $lang->dev->common     = 'Develop';
@@ -3770,8 +3771,8 @@ $lang->project->end           = 'End';
 $lang->project->dateRange     = 'Duration';
 $lang->project->to            = 'To';
 $lang->project->days          = 'Man Day';
-$lang->project->day           = 'day';
-$lang->project->workHour      = 'Hours';
+$lang->project->day           = ' days';
+$lang->project->workHour      = ' hours';
 $lang->project->totalHours    = 'Work Hours';
 $lang->project->totalDays     = 'Work Days';
 $lang->project->status        = 'Status';
@@ -3808,7 +3809,7 @@ $lang->project->product       = $lang->project->products;
 $lang->project->readjustTime  = 'Adjust project begin and end time';
 $lang->project->readjustTask  = 'Adjust task start date and deadline';
 $lang->project->effort        = 'Effort';
-$lang->project->relatedMember = 'Team Members';
+$lang->project->relatedMember = 'Team Member';
 
 $lang->project->start    = 'Start';
 $lang->project->activate = 'Activate';
@@ -3834,8 +3835,8 @@ $lang->team->account    = 'Username';
 $lang->team->role       = 'Role';
 $lang->team->join       = 'Joined';
 $lang->team->hours      = 'Hour/Day';
-$lang->team->days       = 'WorkDdays';
-$lang->team->totalHours = 'Total';
+$lang->team->days       = 'Work Days';
+$lang->team->totalHours = 'Total Hours';
 
 $lang->team->limited            = 'limited user';
 $lang->team->limitedList['no']  = 'No';
@@ -3982,7 +3983,7 @@ $lang->project->afterInfo             = "{$lang->projectCommon} is created. Next
 $lang->project->setTeam               = 'Set Team';
 $lang->project->linkStory             = 'Link Story';
 $lang->project->createTask            = 'Create Task';
-$lang->project->goback                = "Back";
+$lang->project->goback                = "Go Back";
 $lang->project->noweekend             = 'Without Weekend';
 $lang->project->withweekend           = 'With Weekend';
 $lang->project->interval              = 'Intervals';
@@ -4013,8 +4014,8 @@ $lang->project->orderList['order_asc']  = "Order Asc";
 $lang->project->orderList['order_desc'] = "Order Desc";
 $lang->project->orderList['pri_asc']    = "Priority Asc";
 $lang->project->orderList['pri_desc']   = "Priority Desc";
-$lang->project->orderList['stage_asc']  = "Phase Asc";
-$lang->project->orderList['stage_desc'] = "Phase Desc";
+$lang->project->orderList['stage_asc']  = "Stage Asc";
+$lang->project->orderList['stage_desc'] = "Stage Desc";
 
 $lang->project->kanban        = "Kanban";
 $lang->project->kanbanSetting = "Kanban Setting";
@@ -4027,7 +4028,7 @@ $lang->project->kanbanShowOption = 'Unfold';
 $lang->project->kanbanColsColor  = 'Custom column color';
 
 $lang->kanbanSetting = new stdclass();
-$lang->kanbanSetting->noticeReset     = 'Do you want to restore the default setting of Kanban?';
+$lang->kanbanSetting->noticeReset     = 'Do you want to restore the default settings of Kanban?';
 $lang->kanbanSetting->optionList['0'] = 'Hide';
 $lang->kanbanSetting->optionList['1'] = 'Show';
 
@@ -4403,8 +4404,8 @@ $lang->story->caseCountAB = 'C';
 $lang->story->linkStory   = 'Link';
 $lang->story->unlinkStory = 'UnLinked';
 $lang->story->export      = "Export Data";
-$lang->story->zeroCase    = "Stories w/o cases";
-$lang->story->zeroTask    = "Display stories w/o tasks";
+$lang->story->zeroCase    = "Story w/o case";
+$lang->story->zeroTask    = "Story w/o task";
 $lang->story->reportChart = "Report";
 $lang->story->copyTitle   = "Copy Title";
 $lang->story->batchChangePlan   = "Batch Change Plans";
@@ -4458,7 +4459,7 @@ $lang->story->preVersion     = 'Previous Version';
 $lang->story->keywords       = 'Tags';
 $lang->story->newStory       = 'Continue adding';
 $lang->story->colorTag       = 'Color Tag';
-$lang->story->files          = 'Files';
+$lang->story->files          = 'File';
 $lang->story->copy           = "Copy Story";
 $lang->story->total          = "Total";
 $lang->story->allStories     = 'All';
@@ -4604,7 +4605,7 @@ $lang->story->report->charts['storysPerEstimate']       = 'by Hour';
 $lang->story->report->charts['storysPerOpenedBy']       = 'by CreatedBy';
 $lang->story->report->charts['storysPerAssignedTo']     = 'by Assignee';
 $lang->story->report->charts['storysPerClosedReason']   = 'by Closed Reason';
-$lang->story->report->charts['storysPerChange']         = 'by Change times';
+$lang->story->report->charts['storysPerChange']         = 'by Change Times';
 
 $lang->story->report->options = new stdclass();
 $lang->story->report->options->graph   = new stdclass();
@@ -4679,7 +4680,7 @@ $lang->svn->cat     = 'View Code';
 $lang->svn->diff    = 'Diff Code';
 $lang->svn->apiSync = 'API: Sync svn log';
 /* task */
-$lang->task->index               = "Index";
+$lang->task->index               = "Home";
 $lang->task->create              = "Create Task";
 $lang->task->batchCreate         = "Batch Create";
 $lang->task->batchCreateChildren = "Batch Create Child";
@@ -4705,7 +4706,7 @@ $lang->task->export              = "Export Data";
 $lang->task->reportChart         = "Report Chart";
 $lang->task->fromBug             = 'From Bug';
 $lang->task->case                = 'Linked Case';
-$lang->task->confirmStoryChange  = "Confirm Story Change";
+$lang->task->confirmStoryChange  = "Confirm Change";
 $lang->task->progress            = 'Progress';
 $lang->task->progressTips        = 'Cost/(Cost+Left)';
 $lang->task->copy                = 'Duplicate Task';
@@ -5559,7 +5560,7 @@ $lang->tree->child      = 'Child';
 $lang->tree->lineChild  = 'Child';
 $lang->tree->owner      = 'Owner';
 $lang->tree->order      = 'Order';
-$lang->tree->short      = 'Sort';
+$lang->tree->short      = 'Alias';
 $lang->tree->all        = 'All Modules';
 $lang->tree->projectDoc = "{$lang->projectCommon} Doc";
 $lang->tree->product    = $lang->productCommon;
