@@ -496,6 +496,8 @@ $lang->searchMore         = "More results：";
 $lang->chooseUsersToMail  = "Choose users to be notified.";
 $lang->browserNotice      = 'Your current browser might not display the best effect. Use Chrome, Firefox, IE9+, Opera or Safari.';
 $lang->noticePasteImg     = "Paste images here";
+$lang->pasteImgFail       = "Paste image fail, try again later.";
+$lang->pasteImgUploading  = "Please wait image uploading...";
 
 if(!defined('DT_DATETIME1')) define('DT_DATETIME1',  'Y-m-d H:i:s');
 if(!defined('DT_DATETIME2')) define('DT_DATETIME2',  'y-m-d H:i');
@@ -1553,7 +1555,7 @@ $lang->block->typeList->product['all']      = 'All';
 $lang->block->typeList->product['involved'] = 'Involved';
 
 $lang->block->typeList->project['undone']   = 'Unfinished';
-$lang->block->typeList->project['isdoing']  = 'Doing';
+$lang->block->typeList->project['doing']    = 'Doing';
 $lang->block->typeList->project['all']      = 'All';
 $lang->block->typeList->project['involved'] = 'Involved';
 

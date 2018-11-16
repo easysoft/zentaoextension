@@ -493,6 +493,8 @@ $lang->searchMore        = "搜索此关键字的更多结果：";
 $lang->chooseUsersToMail = "选择要发信通知的用户...";
 $lang->browserNotice     = '你目前使用的浏览器可能无法得到最佳浏览效果，建议使用Chrome、火狐、IE9+、Opera、Safari浏览器。';
 $lang->noticePasteImg    = "可以在编辑器直接贴图。";
+$lang->pasteImgFail      = "贴图失败，请稍后重试。";
+$lang->pasteImgUploading = "正在上传图片，请稍后...";
 
 if(!defined('DT_DATETIME1'))  define('DT_DATETIME1',  'Y-m-d H:i:s');
 if(!defined('DT_DATETIME2'))  define('DT_DATETIME2',  'y-m-d H:i');
@@ -1556,7 +1558,7 @@ $lang->block->typeList->product['all']      = '全部';
 $lang->block->typeList->product['involved'] = '我参与的';
 
 $lang->block->typeList->project['undone']   = '未完成';
-$lang->block->typeList->project['isdoing']  = '进行中';
+$lang->block->typeList->project['doing']    = '进行中';
 $lang->block->typeList->project['all']      = '全部';
 $lang->block->typeList->project['involved'] = '我参与的';
 
@@ -3676,7 +3678,7 @@ $lang->product->closedStory  = '已关闭';
 $lang->product->unclosed     = '未关闭';
 $lang->product->unplan       = '未计划';
 
-$lang->product->allStory             = '全部需求';
+$lang->product->allStory             = '所有';
 $lang->product->allProduct           = '全部' . $lang->productCommon;
 $lang->product->allProductsOfProject = '全部关联' . $lang->productCommon;
 
