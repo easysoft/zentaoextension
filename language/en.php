@@ -192,10 +192,10 @@ $lang->product->menu = new stdclass();
 $lang->product->menu->story    = array('link' => 'Story|product|browse|productID=%s', 'alias' => 'batchedit', 'subModule' => 'story');
 $lang->product->menu->plan     = array('link' => 'Plan|productplan|browse|productID=%s', 'subModule' => 'productplan');
 $lang->product->menu->release  = array('link' => 'Release|release|browse|productID=%s',     'subModule' => 'release');
-$lang->product->menu->project  = "{$lang->projectCommon}|product|project|status=all&productID=%s";
-$lang->product->menu->doc      = array('link' => 'Doc|doc|objectLibs|type=product&objectID=%s&from=product', 'subModule' => 'doc');
-$lang->product->menu->dynamic  = 'Dynamic|product|dynamic|productID=%s';
 $lang->product->menu->roadmap  = 'Roadmap|product|roadmap|productID=%s';
+$lang->product->menu->project  = "{$lang->projectCommon}|product|project|status=all&productID=%s";
+$lang->product->menu->dynamic  = 'Dynamic|product|dynamic|productID=%s';
+$lang->product->menu->doc      = array('link' => 'Doc|doc|objectLibs|type=product&objectID=%s&from=product', 'subModule' => 'doc');
 $lang->product->menu->branch   = '@branch@|branch|manage|productID=%s';
 $lang->product->menu->module   = 'Module|tree|browse|productID=%s&view=story';
 $lang->product->menu->view     = array('link' => 'Overview|product|view|productID=%s', 'alias' => 'edit');
@@ -236,9 +236,6 @@ $lang->project->subMenu->qa = new stdclass();
 $lang->project->subMenu->qa->bug      = 'Bug|project|bug|projectID=%s';
 $lang->project->subMenu->qa->build    = array('link' => 'Build|project|build|projectID=%s', 'subModule' => 'build');
 $lang->project->subMenu->qa->testtask = array('link' => 'Test Task|project|testtask|projectID=%s', 'subModule' => 'testreport,testtask');
-
-$lang->project->subMenu->action = new stdclass();
-$lang->project->subMenu->action->dynamic  = 'Dynamic|project|dynamic|projectID=%s';
 
 $lang->project->dividerMenu = ',story,team,product,';
 
@@ -1172,14 +1169,15 @@ $lang->api->post      = 'Refer to page list if POST Debug';
 $lang->api->error = new stdclass();
 $lang->api->error->onlySelect = 'SQL interface only allow SELECT query.';
 /* backup */
-$lang->backup->common   = 'Backup';
-$lang->backup->index    = 'Home';
-$lang->backup->history  = 'History';
-$lang->backup->delete   = 'Delete';
-$lang->backup->backup   = 'Backup';
-$lang->backup->restore  = 'Restore';
-$lang->backup->change   = 'Modify expiration';
-$lang->backup->changeAB = 'Modify';
+$lang->backup->common      = 'Backup';
+$lang->backup->index       = 'Home';
+$lang->backup->history     = 'History';
+$lang->backup->delete      = 'Delete';
+$lang->backup->backup      = 'Backup';
+$lang->backup->restore     = 'Restore';
+$lang->backup->change      = 'Modify expiration';
+$lang->backup->changeAB    = 'Modify';
+$lang->backup->rmPHPHeader = 'Remove PHP header';
 
 $lang->backup->time  = 'Date';
 $lang->backup->files = 'Files';
@@ -1192,8 +1190,11 @@ $lang->backup->settingList['nozip']  = 'Only copy file, Uncompressed';
 $lang->backup->settingList['nosafe'] = 'No need to prevent downloading PHP file header.';
 
 $lang->backup->waitting       = '<span id="backupType"></span> In Progress. Please wait...';
-$lang->backup->confirmDelete  = 'Do you want to delete the backup？';
-$lang->backup->confirmRestore = 'Do you want to restore the backup？';
+$lang->backup->progressSQL    = '<p>SQL backup, %s has been backed up.</p>';
+$lang->backup->progressAttach = '<p>SQL backup completed.</p><p>Attachment backup, %s has been backed up.</p>';
+$lang->backup->progressCode   = '<p>SQL backup completed.</p><p>Attachment backup completed.</p><p>Code backup, %s has been backed up.</p>';
+$lang->backup->confirmDelete  = 'Do you want to delete the backup?';
+$lang->backup->confirmRestore = 'Do you want to restore the backup?';
 $lang->backup->holdDays       = 'Reserve last %s days of backups';
 $lang->backup->restoreTip     = 'Only files and databases can be restored when you click Restore. Code can be restored manually.';
 
@@ -2511,13 +2512,15 @@ $lang->dev->groupList['product'] = $lang->productCommon;
 $lang->dev->groupList['project'] = $lang->projectCommon;
 $lang->dev->groupList['qa']      = 'QA';
 $lang->dev->groupList['doc']     = 'Doc';
+$lang->dev->groupList['report']  = 'Report';
 $lang->dev->groupList['company'] = 'Company';
-$lang->dev->groupList['admin']   = 'Admin';
 $lang->dev->groupList['repo']    = 'Code';
 $lang->dev->groupList['api']     = 'API';
-$lang->dev->groupList['system']  = 'System';
 $lang->dev->groupList['message'] = 'Message';
-$lang->dev->groupList['other']   = 'Others';
+
+$lang->dev->endGroupList['admin']  = 'Admin';
+$lang->dev->endGroupList['system'] = 'System';
+$lang->dev->endGroupList['other']  = 'Others';
 /* doc */
 $lang->doc->common         = 'Doc';
 $lang->doc->id             = 'ID';
@@ -2555,6 +2558,8 @@ $lang->doc->users          = 'Users';
 $lang->doc->item           = ' Items';
 $lang->doc->num            = 'Docs';
 $lang->doc->searchResult   = 'Search Result';
+$lang->doc->fullscreen     = 'Fullscreen';
+$lang->doc->retrack        = 'Retrack';
 
 $lang->doc->moduleDoc      = 'By Module';
 $lang->doc->searchDoc      = 'Search';
@@ -3009,6 +3014,7 @@ $lang->group->copyOptions['copyPriv'] = 'Copy Privilege';
 $lang->group->copyOptions['copyUser'] = 'Copy User';
 
 $lang->group->versions['']          = 'History';
+$lang->group->versions['10_6']      = 'ZenTao10.6';
 $lang->group->versions['10_1']      = 'ZenTao10.1';
 $lang->group->versions['10_0_alpha']= 'ZenTao10.0.alpha';
 $lang->group->versions['9_8']       = 'ZenTao9.8';
@@ -3442,6 +3448,7 @@ $lang->misc->feature = new stdclass();
 $lang->misc->feature->lastest  = 'Latest Version';
 $lang->misc->feature->detailed = 'Details';
 
+$lang->misc->releaseDate['10.6.stable'] = '2018-11-20';
 $lang->misc->releaseDate['10.5.stable'] = '2018-10-25';
 $lang->misc->releaseDate['10.4.stable'] = '2018-09-28';
 $lang->misc->releaseDate['10.3.stable'] = '2018-08-10';
@@ -3460,6 +3467,9 @@ $lang->misc->releaseDate['7.4.beta']    = '2015-11-13';
 $lang->misc->releaseDate['7.2.stable']  = '2015-05-22';
 $lang->misc->releaseDate['7.1.stable']  = '2015-03-07';
 $lang->misc->releaseDate['6.3.stable']  = '2014-11-07';
+
+$lang->misc->feature->all['10.6.stable'][] = array('title'=>'Adjust backup mechanism', 'desc' => '<p>Increase backup settings and make backups more flexible</p><p>Show backup progress</p><p>Can change the backup directory</p>');
+$lang->misc->feature->all['10.6.stable'][] = array('title'=>'Optimize and adjust menus', 'desc' => '<p>Adjust admin menus</p><p>Adjust the secondary menu of my and project</p>');
 
 $lang->misc->feature->all['10.5.stable'][] = array('title'=>'Adjust document display', 'desc' => "<p>Adjust the layout method on the left side of the document library.</p><p>Adding filter conditions to the bottom of the document library's navigation bottom.</p>");
 $lang->misc->feature->all['10.5.stable'][] = array('title'=>'Adjust the sub task logic and optimize the display of father child task.', 'desc' => '');
@@ -3900,6 +3910,8 @@ $lang->project->updateOrder       = 'Sort';
 $lang->project->tree              = 'Tree';
 $lang->project->treeTask          = 'Show Task';
 $lang->project->treeStory         = 'Show Story';
+$lang->project->treeOnlyTask      = 'Tree View Show Task';
+$lang->project->treeOnlyStory     = 'Tree View Show Story';
 $lang->project->storyKanban       = 'Story Kanban';
 $lang->project->storySort         = 'Sort Story';
 $lang->project->importPlanStory   = '' . $lang->projectCommon . ' is created!\nDo you want to iport stories linked to the plan?';
@@ -5561,6 +5573,7 @@ $lang->tree->branch     = 'Platform/Branch';
 $lang->tree->path       = 'Path';
 $lang->tree->type       = 'Type';
 $lang->tree->parent     = 'Parent';
+$lang->tree->parentCate = 'Parent';
 $lang->tree->child      = 'Child';
 $lang->tree->lineChild  = 'Child';
 $lang->tree->owner      = 'Owner';

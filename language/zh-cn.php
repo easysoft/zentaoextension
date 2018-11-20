@@ -1177,7 +1177,7 @@ $lang->backup->backup      = '备份';
 $lang->backup->restore     = '还原';
 $lang->backup->change      = '修改保留时间';
 $lang->backup->changeAB    = '修改';
-$lang->backup->rmPHPHeader = '去除安全语句';
+$lang->backup->rmPHPHeader = '去除安全设置';
 
 $lang->backup->time  = '备份时间';
 $lang->backup->files = '备份文件';
@@ -2512,13 +2512,15 @@ $lang->dev->groupList['product'] = $lang->productCommon;
 $lang->dev->groupList['project'] = $lang->projectCommon;
 $lang->dev->groupList['qa']      = '测试';
 $lang->dev->groupList['doc']     = '文档';
+$lang->dev->groupList['report']  = '统计';
 $lang->dev->groupList['company'] = '组织';
-$lang->dev->groupList['admin']   = '后台';
 $lang->dev->groupList['repo']    = '代码';
 $lang->dev->groupList['api']     = 'API';
-$lang->dev->groupList['system']  = '系统';
 $lang->dev->groupList['message'] = '消息';
-$lang->dev->groupList['other']   = '其他模块';
+
+$lang->dev->endGroupList['admin']  = '后台';
+$lang->dev->endGroupList['system'] = '系统';
+$lang->dev->endGroupList['other']  = '其他';
 /* doc */
 $lang->doc->common         = '文档';
 $lang->doc->id             = '文档编号';
@@ -2556,6 +2558,8 @@ $lang->doc->users          = '用户';
 $lang->doc->item           = '项';
 $lang->doc->num            = '文档数量';
 $lang->doc->searchResult   = '搜索结果';
+$lang->doc->fullscreen     = '全屏';
+$lang->doc->retrack        = '收起';
 
 $lang->doc->moduleDoc      = '按模块浏览';
 $lang->doc->searchDoc      = '搜索';
@@ -3010,6 +3014,7 @@ $lang->group->copyOptions['copyPriv'] = '复制权限';
 $lang->group->copyOptions['copyUser'] = '复制用户';
 
 $lang->group->versions['']          = '修改历史';
+$lang->group->versions['10_6']      = '禅道10.6';
 $lang->group->versions['10_1']      = '禅道10.1';
 $lang->group->versions['10_0_alpha']= '禅道10.0.alpha';
 $lang->group->versions['9_8']       = '禅道9.8';
@@ -3467,6 +3472,7 @@ $lang->misc->feature = new stdclass();
 $lang->misc->feature->lastest  = '最新版本';
 $lang->misc->feature->detailed = '详情';
 
+$lang->misc->releaseDate['10.6.stable'] = '2018-11-20';
 $lang->misc->releaseDate['10.5.stable'] = '2018-10-25';
 $lang->misc->releaseDate['10.4.stable'] = '2018-09-28';
 $lang->misc->releaseDate['10.3.stable'] = '2018-08-10';
@@ -3485,6 +3491,9 @@ $lang->misc->releaseDate['7.4.beta']    = '2015-11-13';
 $lang->misc->releaseDate['7.2.stable']  = '2015-05-22';
 $lang->misc->releaseDate['7.1.stable']  = '2015-03-07';
 $lang->misc->releaseDate['6.3.stable']  = '2014-11-07';
+
+$lang->misc->feature->all['10.6.stable'][] = array('title'=>'调整备份机制', 'desc' => '<p>增加备份设置，备份更加灵活</p><p>显示备份进度</p><p>可以更改备份目录</p>');
+$lang->misc->feature->all['10.6.stable'][] = array('title'=>'优化和调整菜单', 'desc' => '<p>调整后台菜单</p><p>调整我的地盘和项目的二级菜单</p>');
 
 $lang->misc->feature->all['10.5.stable'][] = array('title'=>'调整文档显示', 'desc' => '<p>调整文档库左侧的布局方式</p><p>文档库左侧导航底部增加筛选条件</p>');
 $lang->misc->feature->all['10.5.stable'][] = array('title'=>'调整子任务逻辑，优化父子任务显示。', 'desc' => '');
@@ -3841,12 +3850,12 @@ $lang->project->readjustTask  = '顺延任务的起止时间';
 $lang->project->effort        = '日志';
 $lang->project->relatedMember = '相关成员';
 
-$lang->project->start    = "开始$lang->projectCommon";
-$lang->project->activate = "激活$lang->projectCommon";
-$lang->project->putoff   = "延期$lang->projectCommon";
-$lang->project->suspend  = "挂起$lang->projectCommon";
-$lang->project->close    = "关闭$lang->projectCommon";
-$lang->project->export   = "导出$lang->projectCommon";
+$lang->project->start    = "开始";
+$lang->project->activate = "激活";
+$lang->project->putoff   = "延期";
+$lang->project->suspend  = "挂起";
+$lang->project->close    = "关闭";
+$lang->project->export   = "导出";
 
 $lang->project->typeList['sprint']    = "短期$lang->projectCommon";
 $lang->project->typeList['waterfall'] = "长期$lang->projectCommon";
@@ -3925,6 +3934,8 @@ $lang->project->updateOrder       = "{$lang->projectCommon}排序";
 $lang->project->tree              = '树状图';
 $lang->project->treeTask          = '只看任务';
 $lang->project->treeStory         = '只看需求';
+$lang->project->treeOnlyTask      = '树状图只看任务';
+$lang->project->treeOnlyStory     = '树状图只看需求';
 $lang->project->storyKanban       = '需求看板';
 $lang->project->storySort         = '需求排序';
 $lang->project->importPlanStory   = '创建' . $lang->projectCommon . '成功！\n是否导入计划关联的相关需求？';
@@ -5586,6 +5597,7 @@ $lang->tree->branch     = '平台/分支';
 $lang->tree->path       = '路径';
 $lang->tree->type       = '类型';
 $lang->tree->parent     = '上级模块';
+$lang->tree->parentCate = '上级分类';
 $lang->tree->child      = '子模块';
 $lang->tree->lineChild  = '子产品线';
 $lang->tree->owner      = '负责人';
