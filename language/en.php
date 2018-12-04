@@ -477,6 +477,7 @@ $lang->pager->summery      = "<strong>%s-%s</strong> of <strong>%s</strong>.";
 
 $lang->proVersion     = "<a href='https://www.zentao.pm/book/zentaopromanual/free-open-source-project-management-software-zentaopro-127.html' target='_blank' id='proLink' class='text-important'>ZenTao Pro <i class='text-danger icon-pro-version'></i></a> &nbsp; ";
 $lang->downNotify     = "Download Desktop Notification";
+$lang->downloadClient = "Download Desktop Client";
 $lang->website        = "https://www.zentao.pm";
 
 $lang->suhosinInfo     = "Warning! Data is reaching the limit. Please change <font color=red>sohusin.post.max_vars</font> and <font color=red>sohusin.request.max_vars</font> (set larger %s value) in php.ini, then save and restart Apache or php-fpm, or some data will not be saved.";
@@ -3377,15 +3378,24 @@ $lang->message->common  = 'Message';
 $lang->message->index   = 'Index';
 $lang->message->setting = 'Setting';
 
-$lang->message->typeList['mail']    = 'Mail';
-$lang->message->typeList['message'] = 'Browser notifications';
-$lang->message->typeList['webhook'] = 'Webhook';
+$lang->message->typeList['mail']     = 'Mail';
+$lang->message->typeList['message']  = 'Browser notifications';
+$lang->message->typeList['webhook']  = 'Webhook';
 /* misc */
 $lang->misc = new stdclass();
 $lang->misc->common = 'Misc';
 $lang->misc->ping   = 'Ping';
 $lang->misc->api    = 'https://api.zentao.net';
 $lang->misc->enApi  = 'http://api.zentao.pm';
+
+$lang->misc->client = new stdclass();
+$lang->misc->client->download = 'Download';
+
+$lang->misc->client->osList['windows64'] = 'Windows 64';
+$lang->misc->client->osList['windows32'] = 'Windows 32';
+$lang->misc->client->osList['linux64']   = 'Linux 64';
+$lang->misc->client->osList['linux32']   = 'Linux 32';
+$lang->misc->client->osList['mac']       = 'Mac';
 
 $lang->misc->zentao = new stdclass();
 $lang->misc->zentao->version           = 'Version %s';

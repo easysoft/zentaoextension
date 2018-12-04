@@ -475,9 +475,10 @@ $lang->pager->previousPage = "上一页";
 $lang->pager->nextPage     = "下一页";
 $lang->pager->summery      = "第 <strong>%s-%s</strong> 项，共 <strong>%s</strong> 项";
 
-$lang->proVersion = "<a href='https://api.zentao.net/goto.php?item=proversion&from=footer' target='_blank' id='proLink' class='text-important'>专业版 <i class='text-danger icon-pro-version'></i></a> &nbsp; ";
-$lang->downNotify = "下载桌面提醒";
-$lang->website    = "https://www.zentao.net";
+$lang->proVersion     = "<a href='https://api.zentao.net/goto.php?item=proversion&from=footer' target='_blank' id='proLink' class='text-important'>专业版 <i class='text-danger icon-pro-version'></i></a> &nbsp; ";
+$lang->downNotify     = "下载桌面提醒";
+$lang->downloadClient = "下载客户端";
+$lang->website        = "https://www.zentao.net";
 
 $lang->suhosinInfo     = "警告：数据太多，请在php.ini中修改<font color=red>sohusin.post.max_vars</font>和<font color=red>sohusin.request.max_vars</font>（大于%s的数）。 保存并重新启动apache或php-fpm，否则会造成部分数据无法保存。";
 $lang->maxVarsInfo     = "警告：数据太多，请在php.ini中修改<font color=red>max_input_vars</font>（大于%s的数）。 保存并重新启动apache或php-fpm，否则会造成部分数据无法保存。";
@@ -3401,15 +3402,24 @@ $lang->message->common  = '消息';
 $lang->message->index   = '首页';
 $lang->message->setting = '设置';
 
-$lang->message->typeList['mail']    = '邮件';
-$lang->message->typeList['message'] = '浏览器通知';
-$lang->message->typeList['webhook'] = 'Webhook';
+$lang->message->typeList['mail']     = '邮件';
+$lang->message->typeList['message']  = '浏览器通知';
+$lang->message->typeList['webhook']  = 'Webhook';
 /* misc */
 $lang->misc = new stdclass();
 $lang->misc->common = '杂项';
 $lang->misc->ping   = '防超时';
 $lang->misc->api    = 'https://api.zentao.net';
 $lang->misc->enApi  = 'http://api.zentao.pm';
+
+$lang->misc->client = new stdclass();
+$lang->misc->client->download = '下载';
+
+$lang->misc->client->osList['windows64'] = 'Windows 64位';
+$lang->misc->client->osList['windows32'] = 'Windows 32位';
+$lang->misc->client->osList['linux64']   = 'Linux 64位';
+$lang->misc->client->osList['linux32']   = 'Linux 32位';
+$lang->misc->client->osList['mac']       = 'Mac版';
 
 $lang->misc->zentao = new stdclass();
 $lang->misc->zentao->version           = '版本%s';
