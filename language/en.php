@@ -64,10 +64,10 @@ $lang->addFiles        = 'Add';
 $lang->files           = 'File ';
 $lang->pasteText       = 'Paste';
 $lang->uploadImages    = 'Upload';
-$lang->timeout         = 'Timeout. Pease check your network settings, or try it again!';
+$lang->timeout         = 'Timeout. Pease check your connection, or try it again!';
 $lang->repairTable     = 'Database table might be damaged. Please use phpmyadmin or myisamchk to fix it.';
-$lang->duplicate       = '%s has the same title as that of an existing file.';
-$lang->ipLimited       = "<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8' /></head><body>Sorry, current IP Login has been restricted. PLease contact Admin to unrestrict it.</body></html>";
+$lang->duplicate       = '%s has the same title as that of a file existed.';
+$lang->ipLimited       = "<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8' /></head><body>Sorry, current IP Login has been restricted. PLease contact Admin to grant it.</body></html>";
 $lang->unfold          = '+';
 $lang->fold            = '-';
 $lang->homepage        = 'Set as Home';
@@ -128,7 +128,7 @@ $lang->searchObjects['user']        = 'User';
 $lang->searchObjects['build']       = 'Build';
 $lang->searchObjects['release']     = 'Release';
 $lang->searchObjects['productplan'] = $lang->productCommon . 'Plan';
-$lang->searchObjects['testtask']    = 'Test Task';
+$lang->searchObjects['testtask']    = 'Test';
 $lang->searchObjects['doc']         = 'Doc';
 $lang->searchObjects['testsuite']   = 'Case Library';
 $lang->searchObjects['testreport']  = 'Test Report';
@@ -323,7 +323,7 @@ $lang->report->menu->test    = array('link' => 'Test|report|bugcreate', 'alias' 
 $lang->report->menu->staff   = array('link' => 'Company|report|workload');
 
 $lang->report->notice = new stdclass();
-$lang->report->notice->help = 'Note: Report is generated from search results. Please search in the list before you generate a report.';
+$lang->report->notice->help = 'Note: Report is generated on search results. Please search in the list before you generate a report.';
 
 $lang->company = new stdclass();
 $lang->company->menu = new stdclass();
@@ -483,7 +483,7 @@ $lang->website        = "https://www.zentao.pm";
 $lang->suhosinInfo     = "Warning! Data is reaching the limit. Please change <font color=red>sohusin.post.max_vars</font> and <font color=red>sohusin.request.max_vars</font> (set larger %s value) in php.ini, then save and restart Apache or php-fpm, or some data will not be saved.";
 $lang->maxVarsInfo     = "Warning! Data is reaching the limit. Please change <font color=red>max_input_vars</font> (set larger %s value) in php.ini, then save and restart Apache or php-fpm, or some data will not be saved.";
 $lang->pasteTextInfo   = "Paste text here. Each line will be the title of each record. ";
-$lang->noticeImport    = "Imported data contains data that has already existed in system. Please confirm you actions on the date.";
+$lang->noticeImport    = "Imported data contains something that has already existed in system. Please confirm your actions.";
 $lang->importConfirm   = "Confirm";
 $lang->importAndCover  = "Override";
 $lang->importAndInsert = "Insert";
@@ -495,7 +495,7 @@ $lang->chooseUsersToMail  = "Choose users to be notified.";
 $lang->browserNotice      = 'Your current browser might not display the best effect. Use Chrome, Firefox, IE9+, Opera or Safari.';
 $lang->noticePasteImg     = "Paste images here";
 $lang->pasteImgFail       = "Paste image fail, try again later.";
-$lang->pasteImgUploading  = "Please wait image uploading...";
+$lang->pasteImgUploading  = "Please wait. Uploading...";
 
 if(!defined('DT_DATETIME1')) define('DT_DATETIME1',  'Y-m-d H:i:s');
 if(!defined('DT_DATETIME2')) define('DT_DATETIME2',  'y-m-d H:i');
@@ -686,8 +686,8 @@ if(isset($config->global->flow) and $config->global->flow == 'onlyTest')
         $lang->menu->bug       = 'Bug|bug|index';
     $lang->menu->testcase  = 'Test Case|testcase|index';
     $lang->menu->testsuite = 'Test Suite|testsuite|index';
-    $lang->menu->testtask  = 'Test Task|testtask|index';
-    $lang->menu->caselib   = 'Case Library|testsuite|library';
+    $lang->menu->testtask  = 'Test|testtask|index';
+    $lang->menu->caselib   = 'Case Lib|testsuite|library';
 
     $lang->menuOrder[6]  = 'bug';
     $lang->menuOrder[7]  = 'testcase';
@@ -699,9 +699,9 @@ if(isset($config->global->flow) and $config->global->flow == 'onlyTest')
         $lang->bug->menu = new stdclass();
     $lang->bug->menu->all           = 'All|bug|browse|productID=%s&branch=%s&browseType=all&param=%s';
     $lang->bug->menu->unclosed      = 'Open|bug|browse|productID=%s&branch=%s&browseType=unclosed&param=%s';
-    $lang->bug->menu->openedbyme    = 'CreatedByMe|bug|browse|productID=%s&branch=%s&browseType=openedbyme&param=%s';
-    $lang->bug->menu->assigntome    = 'AssignedToMe|bug|browse|productID=%s&branch=%s&browseType=assigntome&param=%s';
-    $lang->bug->menu->resolvedbyme  = 'ResolvedByMe|bug|browse|productID=%s&branch=%s&browseType=resolvedbyme&param=%s';
+    $lang->bug->menu->openedbyme    = 'CreateByMe|bug|browse|productID=%s&branch=%s&browseType=openedbyme&param=%s';
+    $lang->bug->menu->assigntome    = 'AssignToMe|bug|browse|productID=%s&branch=%s&browseType=assigntome&param=%s';
+    $lang->bug->menu->resolvedbyme  = 'ResolveByMe|bug|browse|productID=%s&branch=%s&browseType=resolvedbyme&param=%s';
     $lang->bug->menu->toclosed      = 'ToBeClosed|bug|browse|productID=%s&branch=%s&browseType=toclosed&param=%s';
     $lang->bug->menu->unresolved    = 'Unresolved|bug|browse|productID=%s&branch=%s&browseType=unresolved&param=%s';
     $lang->bug->menu->more          = array('link' => 'More|bug|browse|productID=%s&branch=%s&browseType=unconfirmed&param=%s', 'class' => 'dropdown dropdown-hover');
@@ -5184,8 +5184,8 @@ $lang->testcase->featureBar['browse']['suite']       = 'Suite';
 $lang->testcase->featureBar['browse']['zerocase']    = '';
 $lang->testcase->featureBar['groupcase']             = $lang->testcase->featureBar['browse'];
 /* testreport */
-$lang->testreport->common   = 'Test Report';
-$lang->testreport->browse   = 'Test Report';
+$lang->testreport->common   = 'QA Report';
+$lang->testreport->browse   = 'QA Report';
 $lang->testreport->create   = 'Create Report';
 $lang->testreport->edit     = 'Edit Report';
 $lang->testreport->delete   = 'Delete';
@@ -5249,8 +5249,8 @@ $lang->testreport->noReport       = "No report has been generated. Please check 
 $lang->testreport->foundBugTip    = "Bugs created in this build and created in the test period.";
 $lang->testreport->legacyBugTip   = "Active Bugs, or the resolved beyond the test period.";
 $lang->testreport->fromCaseBugTip = "Bugs created after failed cases in the test period.";
-$lang->testreport->errorTrunk     = "The trunk cannot create a test report for. Please modify the linked build!";
-$lang->testreport->moreProduct    = "You can only create test reports for the same product.";
+$lang->testreport->errorTrunk     = "The trunk cannot create a QA report for. Please modify the linked build!";
+$lang->testreport->moreProduct    = "You can only create QA reports for the same product.";
 
 $lang->testreport->bugSummary = <<<EOD
 <strong>%s</strong> Bug(s) generated in total <a data-toggle='tooltip' class='text-warning' title='{$lang->testreport->foundBugTip}'><i class='icon-help'></i></a>,
@@ -5317,14 +5317,14 @@ $lang->testtask->reportChart      = 'Report';
 $lang->testtask->delete           = "Delete";
 $lang->testtask->view             = "Overview";
 $lang->testtask->edit             = "Edit";
-$lang->testtask->browse           = "Test Task";
+$lang->testtask->browse           = "Test";
 $lang->testtask->linkCase         = "Link Case";
 $lang->testtask->selectVersion    = "Select Version";
 $lang->testtask->unlinkCase       = "Unlink";
 $lang->testtask->batchUnlinkCases = "Batch unlink cases";
-$lang->testtask->batchAssign      = "Batch Assign";
+$lang->testtask->batchAssign      = "Batch assign";
 $lang->testtask->runCase          = "Run";
-$lang->testtask->batchRun         = "Batch Run";
+$lang->testtask->batchRun         = "Batch run";
 $lang->testtask->results          = "Result";
 $lang->testtask->createBug        = "Bug(+)";
 $lang->testtask->assign           = 'Assign';
@@ -5347,7 +5347,7 @@ $lang->testtask->collapseAll      = 'Collapse';
 $lang->testtask->expandAll        = 'Expand';
 
 $lang->testtask->id             = 'ID';
-$lang->testtask->common         = 'TestTask';
+$lang->testtask->common         = 'Test';
 $lang->testtask->product        = $lang->productCommon;
 $lang->testtask->project        = $lang->projectCommon;
 $lang->testtask->build          = 'Build';
@@ -5369,7 +5369,7 @@ $lang->testtask->files          = 'Upload';
 $lang->testtask->case           = 'Case';
 $lang->testtask->version        = 'Version';
 $lang->testtask->caseResult     = 'Test Result';
-$lang->testtask->stepResults    = 'Step Results';
+$lang->testtask->stepResults    = 'Step Result';
 $lang->testtask->lastRunner     = 'Last Run By';
 $lang->testtask->lastRunDate    = 'Last Run';
 $lang->testtask->date           = 'Date';
@@ -5377,7 +5377,7 @@ $lang->testtask->date           = 'Date';
 $lang->testtask->beginAndEnd    = 'Date';
 $lang->testtask->to             = 'To';
 
-$lang->testtask->legendDesc      = 'Desc';
+$lang->testtask->legendDesc      = 'Description';
 $lang->testtask->legendReport    = 'Report';
 $lang->testtask->legendBasicInfo = 'Basic Info';
 
@@ -5395,9 +5395,9 @@ $lang->testtask->priList[4] = '4';
 $lang->testtask->unlinkedCases = 'Unlinked Cases';
 $lang->testtask->linkByBuild   = 'Copy from build';
 $lang->testtask->linkByStory   = 'Link by Story';
-$lang->testtask->linkByBug     = 'Linked by Bug';
+$lang->testtask->linkByBug     = 'Link by Bug';
 $lang->testtask->linkBySuite   = 'Link by Suite';
-$lang->testtask->passAll       = 'All Pass';
+$lang->testtask->passAll       = 'Pass all';
 $lang->testtask->pass          = 'Pass';
 $lang->testtask->fail          = 'Failed';
 $lang->testtask->showResult    = 'Executed <span class="text-info">%s</span> times';
@@ -5405,11 +5405,11 @@ $lang->testtask->showFail      = 'Failed <span class="text-danger">%s</span> tim
 
 $lang->testtask->confirmDelete     = 'Do you want to delete this test build?';
 $lang->testtask->confirmUnlinkCase = 'Do you want to unlink this Case?';
-$lang->testtask->noticeNoOther     = 'There are no other test task for this product';
-$lang->testtask->noTesttask        = 'No test tasks. ';
-$lang->testtask->checkLinked       = "Please check if the testtask product is linked to a project.";
+$lang->testtask->noticeNoOther     = 'There are no other test for this product';
+$lang->testtask->noTesttask        = 'No tests. ';
+$lang->testtask->checkLinked       = "Please check if the product that the test is related to has been linked to a project.";
 
-$lang->testtask->assignedToMe  = 'My';
+$lang->testtask->assignedToMe  = 'AssignToMe';
 $lang->testtask->allCases      = 'All Cases';
 
 $lang->testtask->lblCases      = 'Cases';
@@ -5425,14 +5425,14 @@ $lang->testtask->mail = new stdclass();
 $lang->testtask->mail->create = new stdclass();
 $lang->testtask->mail->edit   = new stdclass();
 $lang->testtask->mail->close  = new stdclass();
-$lang->testtask->mail->create->title = "%s created test task #%s:%s";
-$lang->testtask->mail->edit->title   = "%s finished test task #%s:%s";
-$lang->testtask->mail->close->title  = "%s closed test task #%s:%s";
+$lang->testtask->mail->create->title = "%s created test #%s:%s";
+$lang->testtask->mail->edit->title   = "%s finished test #%s:%s";
+$lang->testtask->mail->close->title  = "%s closed test #%s:%s";
 
 $lang->testtask->action = new stdclass();
-$lang->testtask->action->testtaskopened  = '$date,  <strong>$actor</strong> opened test task <strong>$extra</strong>.' . "\n";
-$lang->testtask->action->testtaskstarted = '$date,  <strong>$actor</strong> started test task <strong>$extra</strong>.' . "\n";
-$lang->testtask->action->testtaskclosed  = '$date,  <strong>$actor</strong> finished test task<strong>$extra</strong>.' . "\n";
+$lang->testtask->action->testtaskopened  = '$date,  <strong>$actor</strong> opened test <strong>$extra</strong>.' . "\n";
+$lang->testtask->action->testtaskstarted = '$date,  <strong>$actor</strong> started test <strong>$extra</strong>.' . "\n";
+$lang->testtask->action->testtaskclosed  = '$date,  <strong>$actor</strong> finished test<strong>$extra</strong>.' . "\n";
 
 $lang->testtask->unexecuted = 'Not performed';
 
@@ -5447,8 +5447,8 @@ $lang->testtask->report->charts['testTaskPerModule']    = 'Module Report';
 $lang->testtask->report->charts['testTaskPerRunner']    = 'Run By Report';
 $lang->testtask->report->charts['bugSeverityGroups']    = 'Bug Severity Distribution';
 $lang->testtask->report->charts['bugStatusGroups']      = 'Bug Status Distribution';
-$lang->testtask->report->charts['bugOpenedByGroups']    = 'Bug Creator Distribution';
-$lang->testtask->report->charts['bugResolvedByGroups']  = 'Bug Solver Distribution';
+$lang->testtask->report->charts['bugOpenedByGroups']    = 'Bug CreateBy Distribution';
+$lang->testtask->report->charts['bugResolvedByGroups']  = 'Bug ResolveBy Distribution';
 $lang->testtask->report->charts['bugResolutionGroups']  = 'Bug Resolution Distribution';
 $lang->testtask->report->charts['bugModuleGroups']      = 'Bug Module Distribution';
 
