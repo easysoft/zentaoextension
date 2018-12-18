@@ -4777,7 +4777,7 @@ $lang->task->hour              = 'Hour';
 $lang->task->consumedThisTime  = 'Hour';
 $lang->task->leftThisTime      = 'Left';
 $lang->task->datePlan          = 'Plan';
-$lang->task->estStarted        = 'Estimate Start';
+$lang->task->estStarted        = 'Plan Start';
 $lang->task->realStarted       = 'Actual Start';
 $lang->task->date              = 'Date';
 $lang->task->deadline          = 'Deadline';
@@ -4890,15 +4890,15 @@ $lang->task->noTask                = 'No tasks. ';
 $lang->task->createDenied          = 'Create task is denied in this project';
 
 $lang->task->error = new stdclass();
-$lang->task->error->consumedNumber   = '"Consumed" must be numbers.';
+$lang->task->error->consumedNumber   = '"Cost" must be numbers.';
 $lang->task->error->estimateNumber   = '"Hour" must be numbers.';
-$lang->task->error->consumedSmall    = '"Consumed" must larger than before.';
+$lang->task->error->consumedSmall    = '"Cost" must bigger numbers than before.';
 $lang->task->error->consumedThisTime = 'Please enter "Hour"';
 $lang->task->error->left             = 'Please enter "Left Hour"';
 $lang->task->error->work             = '"Remark" must be less than %d characteres.';
 $lang->task->error->skipClose        = 'Task: %s is not “Done” or “Cancelled”. Do you want to close it?';
 $lang->task->error->consumed         = 'Task: %s Hour must be more than 0. Ignore changes to this Task.';
-$lang->task->error->assignedTo       = 'Multiple task in the current state cannot be assigned to member who outside the task team.';
+$lang->task->error->assignedTo       = 'Multiple task in the current status cannot be assigned to a member who is not in the task team.';
 
 $lang->task->report = new stdclass();
 $lang->task->report->common = 'Report';
@@ -5701,6 +5701,7 @@ $lang->upgrade->sureExecute   = 'Execute';
 $lang->upgrade->forbiddenExt  = 'Extension is not compatible with the version. It has been deactivated:';
 $lang->upgrade->updateFile    = 'File information has to be updated.';
 $lang->upgrade->noticeSQL     = 'Check that your database is inconsistent with the standard and try to fix failure. Please perform the following SQL and refresh.';
+$lang->upgrade->afterDeleted  = 'File is not deleted. Please refresh after you delete it.';
 
 include dirname(__FILE__) . '/version.php';
 /* user */
