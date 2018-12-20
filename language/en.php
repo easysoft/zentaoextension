@@ -250,38 +250,38 @@ $lang->qa->menu = new stdclass();
 
 $lang->qa->menu->bug       = array('link' => 'Bug|bug|browse|productID=%s');
 $lang->qa->menu->testcase  = array('link' => 'Case|testcase|browse|productID=%s');
-$lang->qa->menu->testtask  = array('link' => 'Test Task|testtask|browse|productID=%s');
+$lang->qa->menu->testtask  = array('link' => 'Test|testtask|browse|productID=%s');
 $lang->qa->menu->testsuite = array('link' => 'Suite|testsuite|browse|productID=%s');
 $lang->qa->menu->report    = array('link' => 'Report|testreport|browse|productID=%s');
-$lang->qa->menu->caselib   = array('link' => 'Library|testsuite|library');
+$lang->qa->menu->caselib   = array('link' => 'Case Library|testsuite|library');
 
 $lang->bug = new stdclass();
 $lang->bug->menu = new stdclass();
 
 $lang->bug->menu->bug       = array('link' => 'Bug|bug|browse|productID=%s', 'alias' => 'view,create,batchcreate,edit,resolve,close,activate,report,batchedit,batchactivate,confirmbug,assignto', 'subModule' => 'tree');
 $lang->bug->menu->testcase  = array('link' => 'Case|testcase|browse|productID=%s');
-$lang->bug->menu->testtask  = array('link' => 'Test Task|testtask|browse|productID=%s');
+$lang->bug->menu->testtask  = array('link' => 'Test|testtask|browse|productID=%s');
 $lang->bug->menu->testsuite = array('link' => 'Suite|testsuite|browse|productID=%s');
 $lang->bug->menu->report    = array('link' => 'Report|testreport|browse|productID=%s');
-$lang->bug->menu->caselib   = array('link' => 'Library|testsuite|library');
+$lang->bug->menu->caselib   = array('link' => 'Case Library|testsuite|library');
 
 $lang->testcase = new stdclass();
 $lang->testcase->menu = new stdclass();
 $lang->testcase->menu->bug       = array('link' => 'Bug|bug|browse|productID=%s');
 $lang->testcase->menu->testcase  = array('link' => 'Case|testcase|browse|productID=%s', 'alias' => 'view,create,batchcreate,edit,batchedit,showimport,groupcase,importfromlib', 'subModule' => 'tree');
-$lang->testcase->menu->testtask  = array('link' => 'Test Task|testtask|browse|productID=%s');
+$lang->testcase->menu->testtask  = array('link' => 'Test|testtask|browse|productID=%s');
 $lang->testcase->menu->testsuite = array('link' => 'Suite|testsuite|browse|productID=%s');
 $lang->testcase->menu->report    = array('link' => 'Report|testreport|browse|productID=%s');
-$lang->testcase->menu->caselib   = array('link' => 'Library|testsuite|library');
+$lang->testcase->menu->caselib   = array('link' => 'Case Library|testsuite|library');
 
 $lang->testtask = new stdclass();
 $lang->testtask->menu = new stdclass();
 $lang->testtask->menu->bug       = array('link' => 'Bug|bug|browse|productID=%s');
 $lang->testtask->menu->testcase  = array('link' => 'Case|testcase|browse|productID=%s');
-$lang->testtask->menu->testtask  = array('link' => 'Test Task|testtask|browse|productID=%s', 'alias' => 'view,create,edit,linkcase,cases,start,close,batchrun,groupcase,report');
+$lang->testtask->menu->testtask  = array('link' => 'Test|testtask|browse|productID=%s', 'alias' => 'view,create,edit,linkcase,cases,start,close,batchrun,groupcase,report');
 $lang->testtask->menu->testsuite = array('link' => 'Suite|testsuite|browse|productID=%s');
 $lang->testtask->menu->report    = array('link' => 'Report|testreport|browse|productID=%s');
-$lang->testtask->menu->caselib   = array('link' => 'Library|testsuite|library');
+$lang->testtask->menu->caselib   = array('link' => 'Case Library|testsuite|library');
 
 $lang->testsuite = new stdclass();
 $lang->testsuite->menu = new stdclass();
@@ -290,13 +290,13 @@ $lang->testsuite->menu->testcase  = array('link' => 'Case|testcase|browse|produc
 $lang->testsuite->menu->testtask  = array('link' => 'Test Task|testtask|browse|productID=%s');
 $lang->testsuite->menu->testsuite = array('link' => 'Suite|testsuite|browse|productID=%s', 'alias' => 'view,create,edit,linkcase');
 $lang->testsuite->menu->report    = array('link' => 'Report|testreport|browse|productID=%s');
-$lang->testsuite->menu->caselib   = array('link' => 'Library|testsuite|library');
+$lang->testsuite->menu->caselib   = array('link' => 'Case Library|testsuite|library');
 
 $lang->testreport = new stdclass();
 $lang->testreport->menu = new stdclass();
 $lang->testreport->menu->bug       = array('link' => 'Bug|bug|browse|productID=%s');
 $lang->testreport->menu->testcase  = array('link' => 'Case|testcase|browse|productID=%s');
-$lang->testreport->menu->testtask  = array('link' => 'Test Task|testtask|browse|productID=%s');
+$lang->testreport->menu->testtask  = array('link' => 'Test|testtask|browse|productID=%s');
 $lang->testreport->menu->testsuite = array('link' => 'Suite|testsuite|browse|productID=%s');
 $lang->testreport->menu->report    = array('link' => 'Report|testreport|browse|productID=%s', 'alias' => 'view,create,edit');
 $lang->testreport->menu->caselib   = array('link' => 'Library|testsuite|library');
@@ -305,10 +305,10 @@ $lang->caselib = new stdclass();
 $lang->caselib->menu = new stdclass();
 $lang->caselib->menu->bug       = array('link' => 'Bug|bug|browse|');
 $lang->caselib->menu->testcase  = array('link' => 'Case|testcase|browse|');
-$lang->caselib->menu->testtask  = array('link' => 'Test Task|testtask|browse|');
+$lang->caselib->menu->testtask  = array('link' => 'Test|testtask|browse|');
 $lang->caselib->menu->testsuite = array('link' => 'Suite|testsuite|browse|');
 $lang->caselib->menu->report    = array('link' => 'Report|testreport|browse|');
-$lang->caselib->menu->caselib   = array('link' => 'Library|testsuite|library', 'alias' => 'createlib,createcase,libview,edit,batchcreatecase,showimport', 'subModule' => 'tree,testcase');
+$lang->caselib->menu->caselib   = array('link' => 'Case Library|testsuite|library', 'alias' => 'createlib,createcase,libview,edit,batchcreatecase,showimport', 'subModule' => 'tree,testcase');
 
 $lang->doc = new stdclass();
 $lang->doc->menu = new stdclass();
@@ -373,7 +373,7 @@ $lang->admin->subMenu->data->backup = array('link' => 'Backup|backup|index', 'su
 $lang->admin->subMenu->data->trash  = 'Recycle|action|trash';
 
 $lang->admin->subMenu->system = new stdclass();
-$lang->admin->subMenu->system->cron = array('link' => 'Timed task|cron|index', 'subModule' => 'cron');
+$lang->admin->subMenu->system->cron = array('link' => 'Cron|cron|index', 'subModule' => 'cron');
 
 $lang->convert   = new stdclass();
 $lang->upgrade   = new stdclass();
@@ -2797,6 +2797,7 @@ $lang->entry->url         = 'Request URL';
 
 $lang->entry->confirmDelete = 'Are you sure delete this entry?';
 $lang->entry->help          = 'Help';
+$lang->entry->notify        = 'Notify';
 
 $lang->entry->note = new stdClass();
 $lang->entry->note->name    = 'Name';
@@ -3397,13 +3398,11 @@ $lang->misc->client->downloaded  = 'Downloaded successful!';
 $lang->misc->client->setting     = 'Setting config info.';
 $lang->misc->client->setted      = 'Set config info successful!';
 
-$lang->misc->client->osList['windows64'] = 'Windows 64';
-$lang->misc->client->osList['windows32'] = 'Windows 32';
-$lang->misc->client->osList['linux64']   = 'Linux 64';
-$lang->misc->client->osList['linux32']   = 'Linux 32';
-$lang->misc->client->osList['mac']       = 'Mac';
-
-$lang->misc->client->versionList['2.1.1'] = '2.1.1';
+$lang->misc->client->osList['win64']   = 'Windows 64';
+$lang->misc->client->osList['win32']   = 'Windows 32';
+$lang->misc->client->osList['linux64'] = 'Linux 64';
+$lang->misc->client->osList['linux32'] = 'Linux 32';
+$lang->misc->client->osList['mac']     = 'Mac';
 
 $lang->misc->client->errorInfo = new stdclass();
 $lang->misc->client->errorInfo->downloadError  = 'Failed to download package!';
@@ -4833,7 +4832,7 @@ $lang->task->noAssigned        = 'Unassigned';
 $lang->task->noFinished        = 'Unfinished';
 $lang->task->noClosed          = 'Unclosed';
 $lang->task->yesterdayFinished = 'Finished Yesterday';
-$lang->task->allTasks          = 'All Tasks';
+$lang->task->allTasks          = 'Task';
 
 $lang->task->statusList['']        = '';
 $lang->task->statusList['wait']    = 'Wait';
@@ -5628,8 +5627,8 @@ $lang->tutorial->requiredTip      = '【%s】is required.';
 $lang->tutorial->congratulateTask = 'Congratulations! You have finished【<span class="task-name-current"></span>】!';
 $lang->tutorial->serverErrorTip   = 'Error!';
 $lang->tutorial->ajaxSetError     = 'Finished task must be defined. If you want to reset the Task, please set its value as null.';
-$lang->tutorial->novice           = "For a quick start, let's go through a smart (2 min) Tutorial?";
-$lang->tutorial->dataNotSave      = "Data generated in the Tutorial will not be saved!";
+$lang->tutorial->novice           = "For a quick start, let's go through a two-minute Tutorial.";
+$lang->tutorial->dataNotSave      = "Data generated in this Tutorial will not be saved!";
 
 $lang->tutorial->tasks = array();
 
