@@ -478,6 +478,8 @@ $lang->pager->summery      = "第 <strong>%s-%s</strong> 项，共 <strong>%s</s
 $lang->proVersion     = "<a href='https://api.zentao.net/goto.php?item=proversion&from=footer' target='_blank' id='proLink' class='text-important'>专业版 <i class='text-danger icon-pro-version'></i></a> &nbsp; ";
 $lang->downNotify     = "下载桌面提醒";
 $lang->downloadClient = "下载客户端";
+$lang->clientHelp     = "客户端使用说明";
+$lang->clientHelpLink = "http://www.zentao.net/book/zentaopmshelp/302.html#2";
 $lang->website        = "https://www.zentao.net";
 
 $lang->suhosinInfo     = "警告：数据太多，请在php.ini中修改<font color=red>sohusin.post.max_vars</font>和<font color=red>sohusin.request.max_vars</font>（大于%s的数）。 保存并重新启动apache或php-fpm，否则会造成部分数据无法保存。";
@@ -3496,6 +3498,7 @@ $lang->misc->feature = new stdclass();
 $lang->misc->feature->lastest  = '最新版本';
 $lang->misc->feature->detailed = '详情';
 
+$lang->misc->releaseDate['11.0.stable'] = '2018-12-21';
 $lang->misc->releaseDate['10.6.stable'] = '2018-11-20';
 $lang->misc->releaseDate['10.5.stable'] = '2018-10-25';
 $lang->misc->releaseDate['10.4.stable'] = '2018-09-28';
@@ -3515,6 +3518,8 @@ $lang->misc->releaseDate['7.4.beta']    = '2015-11-13';
 $lang->misc->releaseDate['7.2.stable']  = '2015-05-22';
 $lang->misc->releaseDate['7.1.stable']  = '2015-03-07';
 $lang->misc->releaseDate['6.3.stable']  = '2014-11-07';
+
+$lang->misc->feature->all['11.0.stable'][] = array('title'=>'禅道集成喧喧');
 
 $lang->misc->feature->all['10.6.stable'][] = array('title'=>'调整备份机制', 'desc' => '<p>增加备份设置，备份更加灵活</p><p>显示备份进度</p><p>可以更改备份目录</p>');
 $lang->misc->feature->all['10.6.stable'][] = array('title'=>'优化和调整菜单', 'desc' => '<p>调整后台菜单</p><p>调整我的地盘和项目的二级菜单</p>');
