@@ -684,6 +684,8 @@ if(isset($config->global->flow) and $config->global->flow == 'onlyTest')
 
         unset($lang->project->menu);
     unset($lang->project->menuOrder);
+    $lang->project->menu = new stdclass();
+    $lang->project->menu->list = array('alias' => '');
 
         $lang->menu->bug       = 'Bug|bug|index';
     $lang->menu->testcase  = '用例|testcase|index';
