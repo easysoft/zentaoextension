@@ -70,7 +70,7 @@ $lang->duplicate       = '%s has the same title as that of a file existed.';
 $lang->ipLimited       = "<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8' /></head><body>Sorry, current IP Login has been restricted. PLease contact Admin to grant it.</body></html>";
 $lang->unfold          = '+';
 $lang->fold            = '-';
-$lang->homepage        = 'Set as Home';
+$lang->homepage        = 'Set Home';
 $lang->tutorial        = 'Tutorial';
 $lang->changeLog       = 'Change Log';
 $lang->manual          = 'Manual';
@@ -78,7 +78,7 @@ $lang->manualUrl       = 'https://www.zentao.pm/book/zentaomanual/zentao-install
 $lang->customMenu      = 'Custom Menu';
 $lang->customField     = 'Custom Field';
 $lang->lineNumber      = 'Line No.';
-$lang->tutorialConfirm = 'You are using tutorial. Do you want to exit right now？';
+$lang->tutorialConfirm = 'You are using tutorial. Do you want to quit right now？';
 $lang->youCould        = 'You could ';
 
 $lang->preShortcutKey  = '[Shortcut:←]';
@@ -312,7 +312,7 @@ $lang->caselib->menu->caselib   = array('link' => 'Case Library|testsuite|librar
 
 $lang->doc = new stdclass();
 $lang->doc->menu = new stdclass();
-//$lang->doc->menu->createLib = array('link' => '<i class="icon icon-folder-plus"></i>&nbsp;Add Doc Lib|doc|createLib', 'float' => 'right');
+//$lang->doc->menu->createLib = array('link' => '<i class="icon icon-folder-plus"></i>&nbsp;Add Library|doc|createLib', 'float' => 'right');
 
 $lang->report = new stdclass();
 $lang->report->menu = new stdclass();
@@ -439,28 +439,28 @@ $lang->menugroup->message     = 'admin';
 
 $lang->error = new stdclass();
 $lang->error->companyNotFound = "The domain %s cannot be found!";
-$lang->error->length          = array("『%s』Length Error. It should be『%s』", "『%s』length should be <=『%s』and >『%s』.");
-$lang->error->reg             = "『%s』Format Error. It should be『%s』.";
-$lang->error->unique          = "『%s』『%s』existed. Please go to Admin->Recycle to restore it, if you are sure it is deleted.";
+$lang->error->length          = array("『%s』length error. It should be『%s』", "『%s』length should be <=『%s』and >『%s』.");
+$lang->error->reg             = "『%s』format error. It should be『%s』.";
+$lang->error->unique          = "『%s』『%s』exists. Please go to Admin->Recycle to restore it, if you are sure it is deleted.";
 $lang->error->gt              = "『%s』should be >『%s』.";
 $lang->error->ge              = "『%s』should be >=『%s』.";
 $lang->error->notempty        = "『%s』should not be blank.";
 $lang->error->empty           = "『%s』should be null.";
 $lang->error->equal           = "『%s』has to be『%s』.";
 $lang->error->int             = array("『%s』should be numbers", "『%s』should be 『%s-%s』.");
-$lang->error->float           = "『%s』should be numbers, decimals included.";
+$lang->error->float           = "『%s』should have numbers, decimals.";
 $lang->error->email           = "『%s』should be valid Email.";
 $lang->error->date            = "『%s』should be valid date.";
 $lang->error->datetime        = "『%s』should be valid date.";
 $lang->error->code            = "『%s』should be letters or numbers.";
 $lang->error->account         = "『%s』should be valid account.";
 $lang->error->passwordsame    = "Passwords should be consistent.";
-$lang->error->passwordrule    = "Password should follow rules. It must be at least 6 characters.";
+$lang->error->passwordrule    = "Password should abide by rules. It should be at least 6 characters.";
 $lang->error->accessDenied    = 'Access is denied.';
-$lang->error->pasteImg        = 'Image is not allowed to be pasted in your browser!';
-$lang->error->noData          = 'No Data';
+$lang->error->pasteImg        = 'Image is not allowed to paste in your browser!';
+$lang->error->noData          = 'No data.';
 $lang->error->editedByOther   = 'This record might have been changed. Please refresh and try to edit again!';
-$lang->error->tutorialData    = 'No data can be imported in tutorial mode. Please exit tutorial first!';
+$lang->error->tutorialData    = 'No data can be imported in tutorial mode. Please quit tutorial first!';
 
 $lang->pager = new stdclass();
 $lang->pager->noRecord     = "No records.";
@@ -478,8 +478,8 @@ $lang->pager->summery      = "<strong>%s-%s</strong> of <strong>%s</strong>.";
 $lang->proVersion     = "<a href='https://www.zentao.pm/book/zentaopromanual/free-open-source-project-management-software-zentaopro-127.html' target='_blank' id='proLink' class='text-important'>ZenTao Pro <i class='text-danger icon-pro-version'></i></a> &nbsp; ";
 $lang->downNotify     = "Download Desktop Notification";
 $lang->downloadClient = "Download Desktop Client";
-$lang->clientHelp     = "Client help manual";
-$lang->clientHelpLink = "http://www.zentao.net/book/zentaopmshelp/302.html#2";
+$lang->clientHelp     = "Client Help";
+$lang->clientHelpLink = "https://www.zentao.pm/book/zentaomanual/scrum-tool-open-source-client-214.html";
 $lang->website        = "https://www.zentao.pm";
 
 $lang->suhosinInfo     = "Warning! Data is reaching the limit. Please change <font color=red>sohusin.post.max_vars</font> and <font color=red>sohusin.request.max_vars</font> (set larger %s value) in php.ini, then save and restart Apache or php-fpm, or some data will not be saved.";
@@ -491,13 +491,13 @@ $lang->importAndCover  = "Override";
 $lang->importAndInsert = "Insert";
 
 
-$lang->noResultsMatch     = "No results match!";
+$lang->noResultsMatch     = "No results match found!";
 $lang->searchMore         = "More results：";
-$lang->chooseUsersToMail  = "Choose users to be notified.";
-$lang->browserNotice      = 'Your current browser might not display the best effect. Use Chrome, Firefox, IE9+, Opera or Safari.';
+$lang->chooseUsersToMail  = "Choose users to be notified";
+$lang->browserNotice      = 'Your browser might not display the best effect. Use Chrome, Firefox, IE9+, Opera or Safari.';
 $lang->noticePasteImg     = "Paste images here";
-$lang->pasteImgFail       = "Paste image fail, try again later.";
-$lang->pasteImgUploading  = "Please wait. Uploading...";
+$lang->pasteImgFail       = "Pasting image failed. Try again later.";
+$lang->pasteImgUploading  = "Uploading...";
 
 if(!defined('DT_DATETIME1')) define('DT_DATETIME1',  'Y-m-d H:i:s');
 if(!defined('DT_DATETIME2')) define('DT_DATETIME2',  'y-m-d H:i');
@@ -715,7 +715,7 @@ if(isset($config->global->flow) and $config->global->flow == 'onlyTest')
     $lang->bug->subMenu->more->unconfirmed   = 'Unconfirmed|bug|browse|productID=%s&branch=%s&browseType=unconfirmed&param=%s';
     $lang->bug->subMenu->more->assigntonull  = 'Unassigned|bug|browse|productID=%s&branch=%s&browseType=assigntonull&param=%s';
     $lang->bug->subMenu->more->longlifebugs  = 'Pending|bug|browse|productID=%s&branch=%s&browseType=longlifebugs&param=%s';
-    $lang->bug->subMenu->more->postponedbugs = 'PostPoned|bug|browse|productID=%s&branch=%s&browseType=postponedbugs&param=%s';
+    $lang->bug->subMenu->more->postponedbugs = 'Postponed|bug|browse|productID=%s&branch=%s&browseType=postponedbugs&param=%s';
     $lang->bug->subMenu->more->overduebugs   = 'Overdue|bug|browse|productID=%s&branch=%s&browseType=overduebugs&param=%s';
     $lang->bug->subMenu->more->needconfirm   = 'ToConfirm|bug|browse|productID=%s&branch=%s&browseType=needconfirm&param=%s';
 
@@ -2793,32 +2793,32 @@ $lang->entry->key         = 'Key';
 $lang->entry->ip          = 'IP';
 $lang->entry->desc        = 'Desc';
 $lang->entry->createdBy   = 'Created By';
-$lang->entry->createdDate = 'Created Date';
+$lang->entry->createdDate = 'Created';
 $lang->entry->editedby    = 'Edited By';
-$lang->entry->editedDate  = 'Edited Date';
+$lang->entry->editedDate  = 'Edited';
 $lang->entry->date        = 'Request Time';
 $lang->entry->url         = 'Request URL';
 
-$lang->entry->confirmDelete = 'Are you sure delete this entry?';
+$lang->entry->confirmDelete = 'Do you want to delete this entry?';
 $lang->entry->help          = 'Help';
 $lang->entry->notify        = 'Notify';
 
 $lang->entry->note = new stdClass();
 $lang->entry->note->name    = 'Name';
-$lang->entry->note->code    = 'Code, should be english and number.';
-$lang->entry->note->ip      = "Use comma between two IPs. IP segment is supported, e.g. 192.168.1.*";
+$lang->entry->note->code    = 'Alias should be letters and numbers.';
+$lang->entry->note->ip      = "Use comma to seperate IPs. IP segment is supported, e.g. 192.168.1.*";
 $lang->entry->note->allIP   = 'All';
 $lang->entry->note->account = 'Account for entry.';
 
 $lang->entry->errmsg['PARAM_CODE_MISSING']    = 'Param code is missing.';
 $lang->entry->errmsg['PARAM_TOKEN_MISSING']   = 'Param token is missing.';
 $lang->entry->errmsg['SESSION_CODE_MISSING']  = 'Session code is missing.';
-$lang->entry->errmsg['EMPTY_KEY']             = 'Key of entry is missing.';
+$lang->entry->errmsg['EMPTY_KEY']             = 'Entry key is missing.';
 $lang->entry->errmsg['INVALID_TOKEN']         = 'Invalid token.';
 $lang->entry->errmsg['SESSION_VERIFY_FAILED'] = 'Session verification failed.';
 $lang->entry->errmsg['IP_DENIED']             = 'IP is denied.';
-$lang->entry->errmsg['ACCOUNT_UNBOUND']       = 'Account unbound.';
-$lang->entry->errmsg['EMPTY_ENTRY']           = 'Key of entry is missing.';
+$lang->entry->errmsg['ACCOUNT_UNBOUND']       = 'Account is not bound.';
+$lang->entry->errmsg['EMPTY_ENTRY']           = 'Entry key is missing.';
 /* extension */
 $lang->extension->common        = 'Extension';
 $lang->extension->browse        = 'Browse';
@@ -3398,9 +3398,9 @@ $lang->misc->client->version     = 'Client Version';
 $lang->misc->client->os          = 'Select OS';
 $lang->misc->client->download    = 'Download';
 $lang->misc->client->downloading = 'Downloading:';
-$lang->misc->client->downloaded  = 'Downloaded successful!';
-$lang->misc->client->setting     = 'Setting config info.';
-$lang->misc->client->setted      = 'Set config info successful!';
+$lang->misc->client->downloaded  = 'Downloaded!';
+$lang->misc->client->setting     = 'Configure';
+$lang->misc->client->setted      = 'Configuration is done!';
 
 $lang->misc->client->osList['win64']   = 'Windows 64';
 $lang->misc->client->osList['win32']   = 'Windows 32';
@@ -3410,10 +3410,10 @@ $lang->misc->client->osList['mac']     = 'Mac';
 
 $lang->misc->client->errorInfo = new stdclass();
 $lang->misc->client->errorInfo->downloadError  = 'Failed to download package!';
-$lang->misc->client->errorInfo->configError    = 'Failed to set config info!';
+$lang->misc->client->errorInfo->configError    = 'Failed to configure!';
 $lang->misc->client->errorInfo->manualOpt      = 'Please get client package from %s .';
-$lang->misc->client->errorInfo->dirNotExist    = 'The dir <span class="code text-red">%s</span> is not exist, please make it.';
-$lang->misc->client->errorInfo->dirNotWritable = 'The dir <span class="code text-red">%s</span> is not writable. <br /> Please exec:<span class="code text-red">sudo chmod 777 %s</span> under linux os.';
+$lang->misc->client->errorInfo->dirNotExist    = 'The dir <span class="code text-red">%s</span> does not exist. Create it.';
+$lang->misc->client->errorInfo->dirNotWritable = 'The dir <span class="code text-red">%s</span> is not writable. <br /> Please exec:<span class="code text-red">sudo chmod 777 %s</span> in Linux.';
 
 $lang->misc->zentao = new stdclass();
 $lang->misc->zentao->version           = 'Version %s';
@@ -3453,23 +3453,23 @@ $lang->misc->zentao->cowin['cowinmore']    = "More";
 $lang->misc->zentao->service['servicemore']= 'More';
 
 $lang->misc->mobile      = "Mobile Access";
-$lang->misc->noGDLib     = "Please use the browser on your phone to visit <strong>%s</strong>";
-$lang->misc->copyright   = "&copy; 2009 - 2018 <a href='http://easysoft.ltd' target='_blank'>Nature Easy Soft Network Technology Co,LTD</a> Email <a href='mailto:Max@easysoft.ltd'>Max@easysoft.ltd</a>";
+$lang->misc->noGDLib     = "Please visit <strong>%s</strong> in the browser of your phone.";
+$lang->misc->copyright   = "&copy; 2009 - 2019 <a href='http://easysoft.ltd' target='_blank'>Nature Easy Soft</a> Email <a href='mailto:Renee@easysoft.ltd'>Renee@easysoft.ltd</a>";
 $lang->misc->checkTable  = "Check Data Table";
 $lang->misc->needRepair  = "Repair Table";
-$lang->misc->repairTable = "Database table is damaged due to power outage. Please chech and repair!";
-$lang->misc->repairFail  = "Failed to repair. Please go to the database data directory, try to perform <code>myisamchk -r -f %s.MYI</code> repair.";
+$lang->misc->repairTable = "Database table is damaged due to power outage. Please check and repair!";
+$lang->misc->repairFail  = "Failed to repair. Please go to the database data directory, and try to execute <code>myisamchk -r -f %s.MYI</code> repair.";
 $lang->misc->connectFail = "Failed to connect to database. Error: %s，<br/> Please check the MySQL error log and troubleshoot.";
 $lang->misc->tableName   = "Table Name";
 $lang->misc->tableStatus = "Status";
-$lang->misc->novice      = "First time to ZenTao? Do you want to start rookie mode?";
+$lang->misc->novice      = "New to ZenTao? Do you want to start ZenTao Tutorial?";
 
-$lang->misc->noticeRepair = "<h5>If you are not Administrator, please contact Administrator to repair table.</h5>
-    <h5>If you are, please login into your Zentao host and create a file named <span>%s</span>.</h5>
+$lang->misc->noticeRepair = "<h5>If you are not Administrator, please contact your ZenTao Administrator to repair tables.</h5>
+    <h5>If you are, please login your Zentao host and create a file named <span>%s</span>.</h5>
     <p>Note:</p>
     <ol>
     <li>Keep the file empty.</li>
-    <li>If the file exists, remove it and create one again.</li>
+    <li>If the file exists, remove it and create a new one.</li>
     </ol>";
 
 $lang->misc->feature = new stdclass();
@@ -3500,34 +3500,34 @@ $lang->misc->releaseDate['6.3.stable']  = '2014-11-07';
 
 $lang->misc->feature->all['11.1.stable'][] = array('title'=>'Fix Bug.');
 
-$lang->misc->feature->all['11.0.stable'][] = array('title'=>'Zentao integrate Xuanxuan');
+$lang->misc->feature->all['11.0.stable'][] = array('title'=>'ZenTao integrate Xuanxuan');
 
-$lang->misc->feature->all['10.6.stable'][] = array('title'=>'Adjust backup mechanism', 'desc' => '<p>Increase backup settings and make backups more flexible</p><p>Show backup progress</p><p>Can change the backup directory</p>');
-$lang->misc->feature->all['10.6.stable'][] = array('title'=>'Optimize and adjust menus', 'desc' => '<p>Adjust admin menus</p><p>Adjust the secondary menu of my and project</p>');
+$lang->misc->feature->all['10.6.stable'][] = array('title'=>'Adjust backup mechanism', 'desc' => '<p>Increase backup settings and make backup more flexible</p><p>Show backup progress</p><p>Change the backup directory</p>');
+$lang->misc->feature->all['10.6.stable'][] = array('title'=>'Optimize and adjust menu', 'desc' => '<p>Adjust admin menu</p><p>Adjust the secondary menu of My and Project</p>');
 
-$lang->misc->feature->all['10.5.stable'][] = array('title'=>'Adjust document display', 'desc' => "<p>Adjust the layout method on the left side of the document library.</p><p>Adding filter conditions to the bottom of the document library's navigation bottom.</p>");
-$lang->misc->feature->all['10.5.stable'][] = array('title'=>'Adjust the sub task logic and optimize the display of father child task.', 'desc' => '');
+$lang->misc->feature->all['10.5.stable'][] = array('title'=>'Adjust document layout', 'desc' => "<p>Adjust the layout method on the left side of the document library.</p><p>Add filter conditions at the bottom of the document library menu.</p>");
+$lang->misc->feature->all['10.5.stable'][] = array('title'=>'Adjust the child task logic and optimize the display of parent-child task.', 'desc' => '');
 
-$lang->misc->feature->all['10.4.stable'][] = array('title'=>'Optimizing and adjusting new interface', 'desc' => '<p>Details page restore our previous layout.</p><p>Refactoring forms to add user pages</p><p>When use cases are executed, do not update the use case state if the user manually chooses to pass through and write the results.</p>');
-$lang->misc->feature->all['10.4.stable'][] = array('title'=>'After the user machine hibernate login fails, the session is refreshed again.', 'desc' => '');
-$lang->misc->feature->all['10.4.stable'][] = array('title'=>'Upgrading existing interface mechanisms', 'desc' => '');
+$lang->misc->feature->all['10.4.stable'][] = array('title'=>'Optimize and adjust new interface', 'desc' => '<p>Detail page restore to the previous layout.</p><p>Refactore forms to add user pages</p><p>When use cases are executed, do not update the use case stause if the user manually chooses to pass and write the results.</p>');
+$lang->misc->feature->all['10.4.stable'][] = array('title'=>'After the user machine hibernate and the login fails, the session will be refreshed again.', 'desc' => '');
+$lang->misc->feature->all['10.4.stable'][] = array('title'=>'Upgrade existing interface mechanisms', 'desc' => '');
 
 $lang->misc->feature->all['10.3.stable'][] = array('title'=>'Fix Bug.', 'desc' => '');
 $lang->misc->feature->all['10.2.stable'][] = array('title'=>'Xuan.im is integrated!', 'desc' => '');
 
 $lang->misc->feature->all['10.0.stable'][] = array('title'=>'New UI/UX and new experience', 'desc' => '<ol><li>My Dashboard</li><li>Dynamic</li><li>Product Home</li><li>Product overview</li><li>Roadmap</li><li>Project Home</li><li>Project overview</li><li>QA Home</li><li>Document Home</li><li>Added work report on My Dashboard</li><li>Add/Edit/Finish todos on My Dashboard</li><li>Add prodcut report on Product Home</li><li>Add prodcut overview on Product Home</li><li>Add project report on Project Home</li><li>Add project overview on Project Home</li><li>Add QA report on QA Home</li><li>All Product/product Home/All Project/Project Home/QA Home is moved from the right of the secondary Narbar to the left.</li><li>Kanban/Burndown/Tree/ByGroup of Project/Task has been moved from the third Navbar to the secondary one; Tree/ByGroup/Task Liat has been integrated to a drop-down.</li><li>Bug/Build of Project on the secondary Navbar has been integrated to a drop-down.</li><li>Display build and list by group, which is more reasonable.</li><li>Added tree to display docuemnt on the left of the page.</li><li>Added quick entry to document, including Last Update, My Doc and My Favorite</li><li>Added My Favorite to Doc module.</li></ol>');
 
-$lang->misc->feature->all['9.8.stable'][] = array('title'=>'Message centralized management', 'desc' => '<p>Centring Mail，SMS，webhook into Message</p>');
-$lang->misc->feature->all['9.8.stable'][] = array('title'=>'Add Periodic Todo function', 'desc' => '');
-$lang->misc->feature->all['9.8.stable'][] = array('title'=>"Add Block of 'Assigned to Me'", 'desc' => '');
-$lang->misc->feature->all['9.8.stable'][] = array('title'=>'Support Generating TestStatements of TestBuilds', 'desc' => '');
+$lang->misc->feature->all['9.8.stable'][] = array('title'=>'Message centralized management', 'desc' => '<p>Gather Mail，SMS，webhook into Message</p>');
+$lang->misc->feature->all['9.8.stable'][] = array('title'=>'Add recuured Todo', 'desc' => '');
+$lang->misc->feature->all['9.8.stable'][] = array('title'=>"Add Block of 'AssignToMe'", 'desc' => '');
+$lang->misc->feature->all['9.8.stable'][] = array('title'=>'Support generating reports of TestBuilds', 'desc' => '');
 
-$lang->misc->feature->all['9.7.stable'][] = array('title'=>'optimize International package，Added Demo data。', 'desc' => '');
+$lang->misc->feature->all['9.7.stable'][] = array('title'=>'Optimize International package. Added Demo data.', 'desc' => '');
 
-$lang->misc->feature->all['9.6.stable'][] = array('title'=>'added Webhook Interface feature', 'desc' => 'support communication with BearyChat,dingding');
-$lang->misc->feature->all['9.6.stable'][] = array('title'=>'added Score feature', 'desc' => 'More skilled Use, More score');
-$lang->misc->feature->all['9.6.stable'][] = array('title'=>'added Multiplayer task and subTask to project tasks', 'desc' => '');
-$lang->misc->feature->all['9.6.stable'][] = array('title'=>'added Product line management to Product View', 'desc' => '');
+$lang->misc->feature->all['9.6.stable'][] = array('title'=>'Added Webhook Interface feature', 'desc' => 'Support communication with BearyChat, Dingding');
+$lang->misc->feature->all['9.6.stable'][] = array('title'=>'Added Point', 'desc' => 'More skilled application, more score');
+$lang->misc->feature->all['9.6.stable'][] = array('title'=>'Added multiple user task and child tasks to Project', 'desc' => '');
+$lang->misc->feature->all['9.6.stable'][] = array('title'=>'Added Product line management to Product View', 'desc' => '');
 
 $lang->misc->feature->all['9.5.1'][] = array('title'=>'added Restricted Operatio', 'desc' => '');
 
@@ -3547,7 +3547,7 @@ $lang->misc->feature->all['8.2.stable'][] = array('title'=>'Batch Add/Edit Custo
 $lang->misc->feature->all['8.2.stable'][] = array('title'=>'Custom Story/Task/Bug/Case', 'desc' => '<p>You can custom fileds when add a Story/Task/Bug/Case.</p>');
 $lang->misc->feature->all['8.2.stable'][] = array('title'=>'Custom Export', 'desc' => '<p>You can custom fileds when export a Story/Task/Bug/Case pages. You can also save it as template for next export.</p>');
 $lang->misc->feature->all['8.2.stable'][] = array('title'=>'Story/Task/Bug/Case Search ', 'desc' => '<p>On Story/Task/Bug/Case List page, you can do a combined search on Modules and Tabs.</p>');
-$lang->misc->feature->all['8.2.stable'][] = array('title'=>"Rookie's Tutorial", 'desc' => '<p>Tutorial for Rookies is added for first-time users to know how to use ZenTao.</p>');
+$lang->misc->feature->all['8.2.stable'][] = array('title'=>"Rookie's Tutorial", 'desc' => '<p>Tutorial for rookies is added for first-time users to know how to use ZenTao.</p>');
 
 $lang->misc->feature->all['7.4.beta'][] = array('title'=>'Product branch feature is added.', 'desc' => '<p>Product branch/platform is added, and its related Story/Plan/Bug/Case/Module has Branch added too.</p>');
 $lang->misc->feature->all['7.4.beta'][] = array('title'=>'Release Module is improved.', 'desc' => '<p>Stop action has been added. If Stop to manage it, the Release will not show when Report Bug.</p><p>Bugs that have been omitted in the Release will be related manually.</p>');
@@ -4219,8 +4219,8 @@ $lang->report->deviationChart   = $lang->projectCommon . ' Deviation Chart';
 
 $lang->reportList->project->lists[10] = $lang->projectCommon . ' Deviation|report|projectdeviation';
 $lang->reportList->product->lists[10] = $lang->productCommon . ' Summary|report|productsummary';
-$lang->reportList->test->lists[10]    = 'Bugs Reported|report|bugcreate';
-$lang->reportList->test->lists[13]    = 'Bugs Assigned|report|bugassign';
+$lang->reportList->test->lists[10]    = 'Bug Reported|report|bugcreate';
+$lang->reportList->test->lists[13]    = 'Bug Assigned|report|bugassign';
 $lang->reportList->staff->lists[10]   = 'Team Workload|report|workload';
 
 $lang->report->id            = 'ID';
@@ -4257,7 +4257,7 @@ $lang->report->idAB  = 'ID';
 $lang->report->bugTitle     = 'Bug Name';
 $lang->report->taskName     = 'Task Name';
 $lang->report->todoName     = 'Todo Name';
-$lang->report->testTaskName = 'TestTask Name';
+$lang->report->testTaskName = 'Test Name';
 $lang->report->deadline     = 'Deadline';
 
 $lang->report->mailTitle           = new stdclass();
@@ -4265,7 +4265,7 @@ $lang->report->mailTitle->begin    = 'Notice: You have';
 $lang->report->mailTitle->bug      = " Bug (%s),";
 $lang->report->mailTitle->task     = " Task (%s),";
 $lang->report->mailTitle->todo     = " Todo (%s),";
-$lang->report->mailTitle->testTask = " Test Task (%s),";
+$lang->report->mailTitle->testTask = " Test (%s),";
 
 $lang->report->proVersion   = '<a href="https://api.zentao.net/goto.php?item=proversion&from=reportpage" target="_blank">Try ZenTao Pro for more!</a>';
 $lang->report->proVersionEn = '<a href="http://api.zentao.pm/goto.php?item=proversion&from=reportpage" target="_blank">Try ZenTao Pro for more!</a>';
