@@ -314,6 +314,9 @@ $lang->doc = new stdclass();
 $lang->doc->menu = new stdclass();
 //$lang->doc->menu->createLib = array('link' => '<i class="icon icon-folder-plus"></i>&nbsp;添加文件夹|doc|createLib', 'float' => 'right');
 
+$lang->svn = new stdclass();
+$lang->git = new stdclass();
+
 $lang->report = new stdclass();
 $lang->report->menu = new stdclass();
 
@@ -2975,7 +2978,6 @@ $lang->file->errorSuffix         = '压缩包格式错误，只能上传zip压�
 $lang->file->errorExtract        = '解压缩失败！可能文件已经损坏，或压缩包里含有非法上传文件。';
 $lang->file->uploadImagesExplain = '注：请上传"jpg, jpeg, gif, png"格式的图片，程序会以文件名作为标题，以图片作为内容。';
 /* git */
-$lang->git = new stdclass();
 $lang->git->common  = 'Git';
 $lang->git->cat     = '查看源代码';
 $lang->git->diff    = '比较源代码';
@@ -4748,7 +4750,6 @@ $lang->story->chosen->reviewedBy = '选择评审人...';
 $lang->story->notice = new stdClass();
 $lang->story->notice->closed = '您选择的需求已经被关闭了！';
 /* svn */
-$lang->svn = new stdclass();
 $lang->svn->common  = 'Subversion';
 $lang->svn->cat     = '查看源代码';
 $lang->svn->diff    = '比较源代码';
