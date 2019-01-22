@@ -217,7 +217,7 @@ $lang->project->menu = new stdclass();
 
 $lang->project->menu->task     = array('link' => 'Task|project|task|projectID=%s', 'subModule' => 'task,tree', 'alias' => 'importtask,importbug');
 $lang->project->menu->kanban   = array('link' => 'Kanban|project|kanban|projectID=%s');
-$lang->project->menu->burn     = array('link' => 'Burn|project|burn|projectID=%s');
+$lang->project->menu->burn     = array('link' => 'Burndown|project|burn|projectID=%s');
 $lang->project->menu->list     = array('link' => 'More|project|grouptask|projectID=%s', 'alias' => 'grouptask,tree', 'class' => 'dropdown dropdown-hover');
 $lang->project->menu->story    = array('link' => 'Story|project|story|projectID=%s', 'subModule' => 'story', 'alias' => 'linkstory,storykanban');
 $lang->project->menu->qa       = array('link' => 'Test|project|bug|projectID=%s', 'subModule' => 'bug,build,testtask', 'alias' => 'build,testtask', 'class' => 'dropdown dropdown-hover');
@@ -813,7 +813,6 @@ if(isset($config->global->flow) and $config->global->flow == 'onlyTest')
     unset($lang->searchObjects['release']);
     unset($lang->searchObjects['project']);
     unset($lang->searchObjects['productplan']);
-}
 /* action */
 $lang->action->common     = 'Log';
 $lang->action->product    = $lang->productCommon;
@@ -2424,6 +2423,12 @@ $lang->dev->params     = 'Parameters';
 $lang->dev->type       = 'Type';
 $lang->dev->desc       = 'Description';
 $lang->dev->noParams   = 'No Parameters';
+$lang->dev->post       = 'POST Parameters';
+
+$lang->dev->paramRange  = 'Range of values: %s';
+$lang->dev->paramDate   = 'Date format: YY-mm-dd. such as 2019-01-01';
+$lang->dev->paramColor  = 'Color format: #RGB. such as #3da7f5';
+$lang->dev->paramMailto = "Use account. Separate multiple accounts by ','.";
 
 $lang->dev->fields = array();
 $lang->dev->fields['id']     = 'ID';
@@ -3819,7 +3824,7 @@ $lang->project->begin         = 'Begin';
 $lang->project->end           = 'End';
 $lang->project->dateRange     = 'Duration';
 $lang->project->to            = 'To';
-$lang->project->days          = 'Man Day';
+$lang->project->days          = 'Man-Day';
 $lang->project->day           = ' days';
 $lang->project->workHour      = ' hours';
 $lang->project->totalHours    = 'Work Hours';
@@ -3904,14 +3909,14 @@ $lang->project->aclList['private'] = 'Private (For team members only.)';
 $lang->project->aclList['custom']  = 'Whitelist (Team members and the whitelist members have access to it.)';
 
 $lang->project->index             = "Home";
-$lang->project->task              = 'Tasks';
+$lang->project->task              = 'Task';
 $lang->project->groupTask         = 'Group View';
 $lang->project->story             = 'Story';
 $lang->project->bug               = 'Bug';
 $lang->project->dynamic           = 'Dynamic';
 $lang->project->latestDynamic     = 'Latest Dynamic';
 $lang->project->build             = 'Build';
-$lang->project->testtask          = 'Test Task';
+$lang->project->testtask          = 'Test';
 $lang->project->burn              = 'Burndown';
 $lang->project->computeBurn       = 'Update';
 $lang->project->burnData          = 'Burndown Data';
@@ -3992,7 +3997,7 @@ $lang->project->selectProject       = "Select {$lang->projectCommon}";
 $lang->project->beginAndEnd         = 'Duration';
 $lang->project->begin               = 'Begin';
 $lang->project->end                 = 'End';
-$lang->project->lblStats            = 'Total Man-Hour(h) : ';
+$lang->project->lblStats            = 'Total Effort(h) : ';
 $lang->project->stats               = '<strong>%s</strong> Available, <strong>%s</strong> Total Estimates, <strong>%s</strong> Cost, <strong>%s</strong> Left.';
 $lang->project->taskSummary         = "Tasks on this page : <strong>%s</strong> Total, <strong>%s</strong> Wait, <strong>%s</strong> Doing;  &nbsp;&nbsp;&nbsp;  Hours : <strong>%s</strong> Est., <strong>%s</strong> Cost, <strong>%s</strong> Left.";
 $lang->project->checkedSummary      = " <strong>%total%</strong> Checked, <strong>%wait%</strong> Wait, <strong>%doing%</strong> Doing;    Hours: <strong>%estimate%</strong>  Est., <strong>%consumed%</strong> Cost, <strong>%left%</strong> Left.";
