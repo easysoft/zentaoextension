@@ -813,6 +813,7 @@ if(isset($config->global->flow) and $config->global->flow == 'onlyTest')
     unset($lang->searchObjects['release']);
     unset($lang->searchObjects['project']);
     unset($lang->searchObjects['productplan']);
+}
 /* action */
 $lang->action->common     = 'Log';
 $lang->action->product    = $lang->productCommon;
@@ -5072,6 +5073,7 @@ $lang->testcase->edit                    = "Edit";
 $lang->testcase->batchEdit               = "Batch Edit ";
 $lang->testcase->batchChangeModule       = "Batch Change Module";
 $lang->testcase->batchChangeBranch       = "Batch Change Branch";
+$lang->testcase->groupByStories          = 'Group by Story';
 $lang->testcase->delete                  = "Delete";
 $lang->testcase->batchDelete             = "Batch Delete ";
 $lang->testcase->batchConfirmStoryChange = "Batch Confirm";
@@ -5157,10 +5159,6 @@ $lang->testcase->stageList['bvt']        = 'BVT Test';
 $lang->testcase->reviewResultList['']        = '';
 $lang->testcase->reviewResultList['pass']    = 'Pass';
 $lang->testcase->reviewResultList['clarify'] = 'Clarify';
-
-$lang->testcase->groups['']           = 'Group ';
-$lang->testcase->groups['story']      = 'Group by Story';
-$lang->testcase->groups['assignedTo'] = 'Group by Assignee';
 
 $lang->testcase->statusList['']            = '';
 $lang->testcase->statusList['wait']        = 'Wait';
@@ -5856,7 +5854,6 @@ $lang->user->error->accountDupl   = "ID %s，account has been used.";
 $lang->user->error->realname      = "ID %s，must be real name";
 $lang->user->error->password      = "ID %s，password must be 6 characters at least.";
 $lang->user->error->mail          = "ID %s，please enter valid Email address";
-$lang->user->error->role          = "ID %s，role cannot be null.";
 $lang->user->error->reserved      = "ID %s，account is reserved.";
 
 $lang->user->error->verifyPassword   = "Verification failed. Please enter your Login Password.";

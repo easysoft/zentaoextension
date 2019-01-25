@@ -5098,6 +5098,7 @@ $lang->testcase->edit                    = "编辑";
 $lang->testcase->batchEdit               = "批量编辑 ";
 $lang->testcase->batchChangeModule       = "批量修改模块";
 $lang->testcase->batchChangeBranch       = "批量修改分支";
+$lang->testcase->groupByStories          = '需求分组';
 $lang->testcase->delete                  = "删除";
 $lang->testcase->batchDelete             = "批量删除 ";
 $lang->testcase->batchConfirmStoryChange = "批量确认变更";
@@ -5184,9 +5185,6 @@ $lang->testcase->reviewResultList['']        = '';
 $lang->testcase->reviewResultList['pass']    = '确认通过';
 $lang->testcase->reviewResultList['clarify'] = '继续完善';
 
-$lang->testcase->groups['']           = '分组查看';
-$lang->testcase->groups['story']      = '需求分组';
-$lang->testcase->groups['assignedTo'] = '指派分组';
 
 $lang->testcase->statusList['']            = '';
 $lang->testcase->statusList['wait']        = '待评审';
@@ -5730,7 +5728,7 @@ $lang->upgrade->setStatusFile      = '<h4>升级之前请先完成下面的操�
                                       <li>%s</li>
                                       <li>或者删掉"<strong style="color:#ed980f">%s</strong>" 这个文件 ，重新创建一个<strong style="color:#ed980f">ok.txt</strong>文件，不需要内容。</li>
                                       </ul>
-                                      <p><strong style="color:red">我已经仔细阅读上面提示且完成上述工作，<a href="upgrade.php">继续更新</a></strong></p>';
+                                      <p><strong style="color:red">我已经仔细阅读上面提示且完成上述工作，<a href="#" onclick="location.reload()">继续更新</a></strong></p>';
 $lang->upgrade->selectVersion = '选择版本';
 $lang->upgrade->continue      = '继续';
 $lang->upgrade->noteVersion   = "务必选择正确的版本，否则会造成数据丢失。";
@@ -5882,7 +5880,6 @@ $lang->user->error->accountDupl   = "【ID %s】的用户名已经存在";
 $lang->user->error->realname      = "【ID %s】的真实姓名必须填写";
 $lang->user->error->password      = "【ID %s】的密码必须为六位以上";
 $lang->user->error->mail          = "【ID %s】的邮箱地址不正确";
-$lang->user->error->role          = "【ID %s】的职位不能为空";
 $lang->user->error->reserved      = "【ID %s】的用户名已被系统预留";
 
 $lang->user->error->verifyPassword   = "验证失败，请检查您的系统登录密码是否正确";
