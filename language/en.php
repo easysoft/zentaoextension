@@ -243,7 +243,7 @@ $lang->task  = new stdclass();
 $lang->build = new stdclass();
 $lang->task->menu  = $lang->project->menu;
 $lang->build->menu = $lang->project->menu;
-$lang->build->menu->qa = array('link' => 'Test|project|build|projectID=%s', 'subModule' => 'bug,build,testtask', 'alias' => 'build,testtask', 'class' => 'dropdown dropdown-hover');
+$lang->build->menu->qa = array('link' => 'Build|project|build|projectID=%s', 'subModule' => 'bug,build,testtask', 'alias' => 'build,testtask', 'class' => 'dropdown dropdown-hover');
 
 $lang->qa = new stdclass();
 $lang->qa->menu = new stdclass();
@@ -313,6 +313,9 @@ $lang->caselib->menu->caselib   = array('link' => 'Case Library|testsuite|librar
 $lang->doc = new stdclass();
 $lang->doc->menu = new stdclass();
 //$lang->doc->menu->createLib = array('link' => '<i class="icon icon-folder-plus"></i>&nbsp;Add Library|doc|createLib', 'float' => 'right');
+
+$lang->svn = new stdclass();
+$lang->git = new stdclass();
 
 $lang->report = new stdclass();
 $lang->report->menu = new stdclass();
@@ -2981,7 +2984,6 @@ $lang->file->errorSuffix         = 'Format is incorrect. .zip files ONLY!';
 $lang->file->errorExtract        = 'Extracting file failed. File might be damaged or invalid files in the zip package.';
 $lang->file->uploadImagesExplain = 'Note: upload .jpg, .jpeg, .gif, and .png images. The image name will be taken as the title of the story and the image as its content.';
 /* git */
-$lang->git = new stdclass();
 $lang->git->common  = 'Git';
 $lang->git->cat     = 'View Code';
 $lang->git->diff    = 'Diff Code';
@@ -3399,28 +3401,6 @@ $lang->misc->ping   = 'Ping';
 $lang->misc->api    = 'https://api.zentao.net';
 $lang->misc->enApi  = 'http://api.zentao.pm';
 
-$lang->misc->client = new stdclass();
-$lang->misc->client->version     = 'Client Version';
-$lang->misc->client->os          = 'Select OS';
-$lang->misc->client->download    = 'Download';
-$lang->misc->client->downloading = 'Downloading:';
-$lang->misc->client->downloaded  = 'Downloaded!';
-$lang->misc->client->setting     = 'Setting';
-$lang->misc->client->setted      = 'Setting is done!';
-
-$lang->misc->client->osList['win64']   = 'Windows 64';
-$lang->misc->client->osList['win32']   = 'Windows 32';
-$lang->misc->client->osList['linux64'] = 'Linux 64';
-$lang->misc->client->osList['linux32'] = 'Linux 32';
-$lang->misc->client->osList['mac']     = 'Mac';
-
-$lang->misc->client->errorInfo = new stdclass();
-$lang->misc->client->errorInfo->downloadError  = 'Failed to download package!';
-$lang->misc->client->errorInfo->configError    = 'Failed to set up!';
-$lang->misc->client->errorInfo->manualOpt      = 'Please get client package from %s .';
-$lang->misc->client->errorInfo->dirNotExist    = 'The dir <span class="code text-red">%s</span> does not exist. Create it.';
-$lang->misc->client->errorInfo->dirNotWritable = 'The dir <span class="code text-red">%s</span> is not writable. <br /> Please exec:<span class="code text-red">sudo chmod 777 %s</span> in Linux.';
-
 $lang->misc->zentao = new stdclass();
 $lang->misc->zentao->version           = 'Version %s';
 $lang->misc->zentao->labels['about']   = 'About';
@@ -3482,6 +3462,7 @@ $lang->misc->feature = new stdclass();
 $lang->misc->feature->lastest  = 'Latest Version';
 $lang->misc->feature->detailed = 'Details';
 
+$lang->misc->releaseDate['11.2.stable'] = '2019-01-30';
 $lang->misc->releaseDate['11.1.stable'] = '2019-01-04';
 $lang->misc->releaseDate['11.0.stable'] = '2018-12-21';
 $lang->misc->releaseDate['10.6.stable'] = '2018-11-20';
@@ -3503,6 +3484,8 @@ $lang->misc->releaseDate['7.4.beta']    = '2015-11-13';
 $lang->misc->releaseDate['7.2.stable']  = '2015-05-22';
 $lang->misc->releaseDate['7.1.stable']  = '2015-03-07';
 $lang->misc->releaseDate['6.3.stable']  = '2014-11-07';
+
+$lang->misc->feature->all['11.2.stable'][] = array('title'=>'Optimize details and fix bug.', 'desc' => '<p>Add upgrade logs and database checkup after upgrading</p><p>Fixed ZenTao client and other bugs, and optimized details.</p>');
 
 $lang->misc->feature->all['11.1.stable'][] = array('title'=>'Fix Bug.');
 
@@ -4730,7 +4713,6 @@ $lang->story->chosen->reviewedBy = 'Choose Reviewer';
 $lang->story->notice = new stdClass();
 $lang->story->notice->closed = 'Story that you select are closed!';
 /* svn */
-$lang->svn = new stdclass();
 $lang->svn->common  = 'Subversion';
 $lang->svn->cat     = 'View Code';
 $lang->svn->diff    = 'Diff Code';
