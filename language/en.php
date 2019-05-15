@@ -3213,7 +3213,7 @@ $lang->group->viewList           = 'Access View';
 $lang->group->productList        = 'Access Product';
 $lang->group->projectList        = 'Access Project';
 $lang->group->dynamic            = 'Dynamics';
-$lang->group->noticeVisit        = 'Leave it empty, then the user group have no access';
+$lang->group->noticeVisit        = 'Blank means no access limit';
 
 $lang->group->id       = 'ID';
 $lang->group->name     = 'Name';
@@ -3774,23 +3774,23 @@ $lang->misc->feature->all['6.3.stable'][] = array('title'=>'Continue improving d
 $lang->my->common = 'Dashboard';
 
 $lang->my->index          = 'Home';
-$lang->my->todo           = 'My Todo';
+$lang->my->todo           = 'My Todos';
 $lang->my->calendar       = 'Calendar';
-$lang->my->task           = 'My Task';
-$lang->my->bug            = 'My Bug';
-$lang->my->testTask       = 'My Build';
-$lang->my->testCase       = 'My Case';
-$lang->my->story          = 'My Story';
-$lang->my->myProject      = "My {$lang->projectCommon}";
+$lang->my->task           = 'My Tasks';
+$lang->my->bug            = 'My Bugs';
+$lang->my->testTask       = 'My Builds';
+$lang->my->testCase       = 'My Cases';
+$lang->my->story          = 'My Stories';
+$lang->my->myProject      = "My {$lang->projectCommon}s";
 $lang->my->profile        = 'My Profile';
-$lang->my->dynamic        = 'My Dynamic';
+$lang->my->dynamic        = 'My Dynamics';
 $lang->my->editProfile    = 'Edit Profile';
 $lang->my->changePassword = 'Edit Password';
 $lang->my->unbind         = 'Unbind Zdoo';
 $lang->my->manageContacts = 'Manage Contact';
 $lang->my->deleteContacts = 'Delete Contact';
 $lang->my->shareContacts  = 'Share the list';
-$lang->my->limited        = 'Limited actions (only edit content related to themselves)';
+$lang->my->limited        = 'Limited Actions (Users can only edit the content that is involved themselves.)';
 $lang->my->score          = 'My Point';
 $lang->my->scoreRule      = 'Point Rule';
 $lang->my->noTodo         = 'No todos. ';
@@ -4369,12 +4369,12 @@ $lang->release->last          = 'Last Release';
 $lang->release->unlinkStory   = 'Unlink Story';
 $lang->release->unlinkBug     = 'Unlink Bug';
 $lang->release->stories       = 'Finished Story';
-$lang->release->bugs          = 'Resolved Bug';
-$lang->release->leftBugs      = 'Remained Bug';
-$lang->release->generatedBugs = 'Remained Bug';
+$lang->release->bugs          = 'Solved Bug';
+$lang->release->leftBugs      = 'Unsolved Bug';
+$lang->release->generatedBugs = 'Unsolved Bug';
 $lang->release->finishStories = 'Finished %s Story';
 $lang->release->resolvedBugs  = 'Solved %s Bug';
-$lang->release->createdBugs   = 'Generated %s Bug';
+$lang->release->createdBugs   = 'Unsolved %s Bug';
 $lang->release->export        = 'Export as HTML';
 $lang->release->yesterday     = 'Released Yesterday';
 
@@ -4388,10 +4388,10 @@ $lang->release->exportTypeList['leftbug'] = 'Unsolved Bug';
 
 $lang->release->statusList['']          = '';
 $lang->release->statusList['normal']    = 'Normal';
-$lang->release->statusList['terminate'] = 'Terminate';
+$lang->release->statusList['terminate'] = 'Terminated';
 
-$lang->release->changeStatusList['normal']    = 'Activate';
-$lang->release->changeStatusList['terminate'] = 'Terminate';
+$lang->release->changeStatusList['normal']    = 'Active';
+$lang->release->changeStatusList['terminate'] = 'Terminated';
 
 $lang->release->action = new stdclass();
 $lang->release->action->changestatus = array('main' => '$date,  $extra by  <strong>$actor</strong>', 'extra' => 'changeStatusList');
@@ -5276,7 +5276,7 @@ $lang->testcase->fromCaselib      = 'From CaseLib';
 $lang->case = $lang->testcase;  // For dao checking using. Because 'case' is a php keywords, so the module name is testcase, table name is still case.
 
 $lang->testcase->stepID      = 'ID';
-$lang->testcase->stepDesc    = 'Steps';
+$lang->testcase->stepDesc    = 'Step';
 $lang->testcase->stepExpect  = 'Expectation';
 $lang->testcase->stepVersion = 'Version';
 
@@ -5345,9 +5345,9 @@ $lang->testcase->legendLinkBugs     = 'Bug';
 $lang->testcase->legendOpenAndEdit  = 'Create/Edit';
 $lang->testcase->legendComment      = 'Comment';
 
-$lang->testcase->summary            = "Case on this page : <strong>%s</strong> Total, <strong>%s</strong> Run.";
-$lang->testcase->confirmDelete      = 'Do you want to delete this Test Case?';
-$lang->testcase->confirmBatchDelete = 'Do you want to batch delete Test Cases?';
+$lang->testcase->summary            = "Case on this page : Total <strong>%s</strong>, Run <strong>%s</strong>.";
+$lang->testcase->confirmDelete      = 'Do you want to delete this case?';
+$lang->testcase->confirmBatchDelete = 'Do you want to batch delete cases?';
 $lang->testcase->ditto              = 'Ditto';
 $lang->testcase->dittoNotice        = 'This Case is not linked to the Product as the last one is!';
 
