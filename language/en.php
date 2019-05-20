@@ -6,7 +6,7 @@ $lang->comma     = ',';
 $lang->dot       = '.';
 $lang->at        = ' on ';
 $lang->downArrow = '↓';
-$lang->null      = 'null';
+$lang->null      = 'NULL';
 $lang->ellipsis  = '…';
 $lang->percent   = '%';
 $lang->dash      = '-';
@@ -3865,9 +3865,9 @@ $lang->product->closedStories    = 'Closed Story';
 $lang->product->unResolvedBugs   = 'Active Bug';
 $lang->product->assignToNullBugs = 'Unassigned Bug';
 
-$lang->product->confirmDelete  = " Do you want to delete {$lang->productCommon}?";
+$lang->product->confirmDelete  = " Do you want to delete the {$lang->productCommon}?";
 $lang->product->errorNoProduct = "No {$lang->productCommon} is created yet!";
-$lang->product->accessDenied   = "You have no access to {$lang->productCommon}.";
+$lang->product->accessDenied   = "You have no access to the {$lang->productCommon}.";
 
 $lang->product->id            = 'ID';
 $lang->product->name          = 'Name';
@@ -4585,11 +4585,11 @@ $lang->search->buildForm     = 'Search Form';
 $lang->search->buildQuery    = 'Execute Query';
 $lang->search->savedQuery     = 'Saved Query';
 $lang->search->deleteQuery   = 'Delete Query';
-$lang->search->setQueryTitle = 'Enter the query title. Save it After searching.';
+$lang->search->setQueryTitle = 'Enter a title. Search then the query is saved.';
 $lang->search->select        = 'Story/Task Filter';
 $lang->search->me            = 'Me';
 $lang->search->noQuery       = 'No query saved yet!';
-$lang->search->onMenuBar     = 'Show in the  Menu';
+$lang->search->onMenuBar     = 'Show in the Menu';
 $lang->search->custom        = 'Custom';
 
 $lang->search->account  = 'Account';
@@ -4605,10 +4605,10 @@ $lang->search->operators['>']          = '>';
 $lang->search->operators['>=']         = '>=';
 $lang->search->operators['<']          = '<';
 $lang->search->operators['<=']         = '<=';
-$lang->search->operators['include']    = 'including';
+$lang->search->operators['include']    = 'incl.';
 $lang->search->operators['between']    = 'between';
-$lang->search->operators['notinclude'] = 'excluding';
-$lang->search->operators['belong']     = 'belong to';
+$lang->search->operators['notinclude'] = 'excl.';
+$lang->search->operators['belong']     = '∈';
 
 $lang->search->andor['and']         = 'And';
 $lang->search->andor['or']          = 'Or';
