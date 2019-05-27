@@ -177,7 +177,7 @@ $lang->my->menu->dynamic        = '动态|my|dynamic|';
 $lang->my->menu->profile        = array('link' => '档案|my|profile', 'alias' => 'editprofile');
 $lang->my->menu->changePassword = '密码|my|changepassword';
 $lang->my->menu->manageContacts = '联系人|my|managecontacts';
-$lang->my->menu->score          = '积分|my|score';
+$lang->my->menu->score          = array('link' => '积分|my|score', 'subModule' => 'score');
 
 $lang->my->dividerMenu = ',task,myProject,profile,';
 
@@ -327,7 +327,7 @@ $lang->report->menu->test    = array('link' => '测试|report|bugcreate', 'alias
 $lang->report->menu->staff   = array('link' => '组织|report|workload');
 
 $lang->report->notice = new stdclass();
-$lang->report->notice->help = '注：统计报表的数据，来源于列表页面的检索结果，生成统计报表前请先在列表页面进行检索。';
+$lang->report->notice->help = '注：统计报表的数据来源于列表页面的检索结果，生成统计报表前请先在列表页面进行检索。';
 
 $lang->company = new stdclass();
 $lang->company->menu = new stdclass();
@@ -2050,13 +2050,13 @@ $lang->bug->report->charts['closedBugsPerDay']      = '每天关闭的Bug数';
 $lang->bug->report->charts['openedBugsPerUser']     = '每人提交的Bug数';
 $lang->bug->report->charts['resolvedBugsPerUser']   = '每人解决的Bug数';
 $lang->bug->report->charts['closedBugsPerUser']     = '每人关闭的Bug数';
-$lang->bug->report->charts['bugsPerSeverity']       = 'Bug严重程度统计';
-$lang->bug->report->charts['bugsPerResolution']     = 'Bug解决方案统计';
-$lang->bug->report->charts['bugsPerStatus']         = 'Bug状态统计';
-$lang->bug->report->charts['bugsPerActivatedCount'] = 'Bug激活次数统计';
-$lang->bug->report->charts['bugsPerPri']            = 'Bug优先级统计';
-$lang->bug->report->charts['bugsPerType']           = 'Bug类型统计';
-$lang->bug->report->charts['bugsPerAssignedTo']     = '指派给统计';
+$lang->bug->report->charts['bugsPerSeverity']       = '按Bug严重程度统计';
+$lang->bug->report->charts['bugsPerResolution']     = '按Bug解决方案统计';
+$lang->bug->report->charts['bugsPerStatus']         = '按Bug状态统计';
+$lang->bug->report->charts['bugsPerActivatedCount'] = '按Bug激活次数统计';
+$lang->bug->report->charts['bugsPerPri']            = '按Bug优先级统计';
+$lang->bug->report->charts['bugsPerType']           = '按Bug类型统计';
+$lang->bug->report->charts['bugsPerAssignedTo']     = '按指派给统计';
 //$lang->bug->report->charts['bugLiveDays']        = 'Bug处理时间统计';
 //$lang->bug->report->charts['bugHistories']       = 'Bug处理步骤统计';
 
@@ -3838,8 +3838,8 @@ $lang->my->home->latest        = '最新动态';
 $lang->my->home->action        = "%s, %s <em>%s</em> %s <a href='%s'>%s</a>。";
 $lang->my->home->projects      = $lang->projectCommon;
 $lang->my->home->products      = $lang->productCommon;
-$lang->my->home->createProject = "创建一个{$lang->projectCommon}";
-$lang->my->home->createProduct = "创建一个{$lang->productCommon}";
+$lang->my->home->createProject = "添加{$lang->projectCommon}";
+$lang->my->home->createProduct = "添加{$lang->productCommon}";
 $lang->my->home->help          = "<a href='https://www.zentao.net/help-read-79236.html' target='_blank'>帮助文档</a>";
 $lang->my->home->noProductsTip = "这里还没有{$lang->productCommon}。";
 
@@ -4891,16 +4891,16 @@ $lang->story->report->value  = '需求数';
 
 $lang->story->report->charts['storysPerProduct']        = $lang->productCommon . '需求数量';
 $lang->story->report->charts['storysPerModule']         = '模块需求数量';
-$lang->story->report->charts['storysPerSource']         = '需求来源统计';
-$lang->story->report->charts['storysPerPlan']           = '计划进行统计';
-$lang->story->report->charts['storysPerStatus']         = '状态进行统计';
-$lang->story->report->charts['storysPerStage']          = '所处阶段进行统计';
-$lang->story->report->charts['storysPerPri']            = '优先级进行统计';
-$lang->story->report->charts['storysPerEstimate']       = '预计工时进行统计';
-$lang->story->report->charts['storysPerOpenedBy']       = '由谁创建来进行统计';
-$lang->story->report->charts['storysPerAssignedTo']     = '当前指派来进行统计';
-$lang->story->report->charts['storysPerClosedReason']   = '关闭原因来进行统计';
-$lang->story->report->charts['storysPerChange']         = '变更次数来进行统计';
+$lang->story->report->charts['storysPerSource']         = '按需求来源统计';
+$lang->story->report->charts['storysPerPlan']           = '按计划进行统计';
+$lang->story->report->charts['storysPerStatus']         = '按状态进行统计';
+$lang->story->report->charts['storysPerStage']          = '按所处阶段进行统计';
+$lang->story->report->charts['storysPerPri']            = '按优先级进行统计';
+$lang->story->report->charts['storysPerEstimate']       = '按预计工时进行统计';
+$lang->story->report->charts['storysPerOpenedBy']       = '按由谁创建来进行统计';
+$lang->story->report->charts['storysPerAssignedTo']     = '按当前指派来进行统计';
+$lang->story->report->charts['storysPerClosedReason']   = '按关闭原因来进行统计';
+$lang->story->report->charts['storysPerChange']         = '按变更次数来进行统计';
 
 $lang->story->report->options = new stdclass();
 $lang->story->report->options->graph   = new stdclass();
@@ -5161,19 +5161,19 @@ $lang->task->report->select = '请选择报表类型';
 $lang->task->report->create = '生成报表';
 $lang->task->report->value  = '任务数';
 
-$lang->task->report->charts['tasksPerProject']      = $lang->projectCommon . '任务数统计';
-$lang->task->report->charts['tasksPerModule']       = '模块任务数统计';
-$lang->task->report->charts['tasksPerAssignedTo']   = '指派给统计';
-$lang->task->report->charts['tasksPerType']         = '任务类型统计';
-$lang->task->report->charts['tasksPerPri']          = '优先级统计';
-$lang->task->report->charts['tasksPerStatus']       = '任务状态统计';
-$lang->task->report->charts['tasksPerDeadline']     = '截止日期统计';
-$lang->task->report->charts['tasksPerEstimate']     = '预计时间统计';
-$lang->task->report->charts['tasksPerLeft']         = '剩余时间统计';
-$lang->task->report->charts['tasksPerConsumed']     = '消耗时间统计';
-$lang->task->report->charts['tasksPerFinishedBy']   = '由谁完成统计';
-$lang->task->report->charts['tasksPerClosedReason'] = '关闭原因统计';
-$lang->task->report->charts['finishedTasksPerDay']  = '每天完成统计';
+$lang->task->report->charts['tasksPerProject']      = '按' . $lang->projectCommon . '任务数统计';
+$lang->task->report->charts['tasksPerModule']       = '按模块任务数统计';
+$lang->task->report->charts['tasksPerAssignedTo']   = '按指派给统计';
+$lang->task->report->charts['tasksPerType']         = '按任务类型统计';
+$lang->task->report->charts['tasksPerPri']          = '按优先级统计';
+$lang->task->report->charts['tasksPerStatus']       = '按任务状态统计';
+$lang->task->report->charts['tasksPerDeadline']     = '按截止日期统计';
+$lang->task->report->charts['tasksPerEstimate']     = '按预计时间统计';
+$lang->task->report->charts['tasksPerLeft']         = '按剩余时间统计';
+$lang->task->report->charts['tasksPerConsumed']     = '按消耗时间统计';
+$lang->task->report->charts['tasksPerFinishedBy']   = '按由谁完成统计';
+$lang->task->report->charts['tasksPerClosedReason'] = '按关闭原因统计';
+$lang->task->report->charts['finishedTasksPerDay']  = '按每天完成统计';
 
 $lang->task->report->options         = new stdclass();
 $lang->task->report->options->graph  = new stdclass();
@@ -5699,10 +5699,10 @@ $lang->testtask->report->common = '报表';
 $lang->testtask->report->select = '请选择报表类型';
 $lang->testtask->report->create = '生成报表';
     
-$lang->testtask->report->charts['testTaskPerRunResult'] = '用例结果统计';
-$lang->testtask->report->charts['testTaskPerType']      = '用例类型统计';
-$lang->testtask->report->charts['testTaskPerModule']    = '用例模块统计';
-$lang->testtask->report->charts['testTaskPerRunner']    = '用例执行人统计';
+$lang->testtask->report->charts['testTaskPerRunResult'] = '按用例结果统计';
+$lang->testtask->report->charts['testTaskPerType']      = '按用例类型统计';
+$lang->testtask->report->charts['testTaskPerModule']    = '按用例模块统计';
+$lang->testtask->report->charts['testTaskPerRunner']    = '按用例执行人统计';
 $lang->testtask->report->charts['bugSeverityGroups']    = 'Bug严重级别分布';
 $lang->testtask->report->charts['bugStatusGroups']      = 'Bug状态分布';
 $lang->testtask->report->charts['bugOpenedByGroups']    = 'Bug创建者分布';
