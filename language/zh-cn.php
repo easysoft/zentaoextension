@@ -1432,7 +1432,7 @@ $lang->block->editBlock          = '编辑区块';
 $lang->block->ordersSaved        = '排序已保存';
 $lang->block->confirmRemoveBlock = '确定移除区块吗？';
 $lang->block->noticeNewBlock     = '10.0版本以后各个视图主页提供了全新的视图，您要启用新的视图布局吗？';
-$lang->block->confirmReset       = '是否恢复默认布局';
+$lang->block->confirmReset       = '是否恢复默认布局？';
 $lang->block->closeForever       = '永久关闭';
 $lang->block->confirmClose       = '确定永久关闭该区块吗？关闭后所有人都将无法使用该区块，可以在后台自定义中打开。';
 $lang->block->remove             = '移除';
@@ -4928,8 +4928,8 @@ $lang->story->report->storysPerPlan->item         = '计划';
 $lang->story->report->storysPerStatus->item       = '状态';
 $lang->story->report->storysPerStage->item        = '阶段';
 $lang->story->report->storysPerPri->item          = '优先级';
-$lang->story->report->storysPerOpenedBy->item     = '用户';
-$lang->story->report->storysPerAssignedTo->item   = '用户';
+$lang->story->report->storysPerOpenedBy->item     = '由谁创建';
+$lang->story->report->storysPerAssignedTo->item   = '指派给';
 $lang->story->report->storysPerClosedReason->item = '原因';
 $lang->story->report->storysPerEstimate->item     = '预计工时';
 $lang->story->report->storysPerChange->item       = '变更次数';
@@ -5778,11 +5778,11 @@ $lang->todo->statusList['closed'] = '已关闭';
 //$lang->todo->statusList['cancel']   = '已取消';
 //$lang->todo->statusList['postpone'] = '已延期';
 
+$lang->todo->priList[0] = '';
 $lang->todo->priList[3] = '一般';
 $lang->todo->priList[1] = '最高';
 $lang->todo->priList[2] = '较高';
 $lang->todo->priList[4] = '最低';
-$lang->todo->priList[0] = '';
 
 $lang->todo->typeList['custom']   = '自定义';
 $lang->todo->typeList['cycle']    = '周期';
@@ -5999,8 +5999,12 @@ $lang->user->last             = '最后登录';
 $lang->user->ranzhi           = '然之帐号';
 $lang->user->ditto            = '同上';
 $lang->user->originalPassword = '原密码';
+$lang->user->newPassword      = '新密码';
 $lang->user->verifyPassword   = '您的系统登录密码';
 $lang->user->resetPassword    = '忘记密码';
+
+$lang->user->legendBasic        = '基本资料';
+$lang->user->legendContribution = '个人贡献';
 
 $lang->user->index         = "用户视图首页";
 $lang->user->view          = "用户详情";
@@ -6082,6 +6086,12 @@ $lang->user->passwordStrengthList[2] = "<span style='color:green'>强</span>";
 
 $lang->user->statusList['active'] = '正常';
 $lang->user->statusList['delete'] = '删除';
+
+$lang->user->personalData['createdTodo']  = '创建的待办数';
+$lang->user->personalData['createdStory'] = '创建的需求数';
+$lang->user->personalData['finishedTask'] = '完成的任务数';
+$lang->user->personalData['resolvedBug']  = '解决的Bug数';
+$lang->user->personalData['createdCase']  = '创建的用例数';
 
 $lang->user->keepLogin['on']      = '保持登录';
 $lang->user->loginWithDemoUser    = '使用demo帐号登录：';
