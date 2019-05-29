@@ -79,7 +79,6 @@ $lang->customMenu      = '自定义导航';
 $lang->customField     = '自定义表单项';
 $lang->lineNumber      = '行号';
 $lang->tutorialConfirm = '检测到你尚未退出新手教程模式，是否现在退出？';
-$lang->youCould        = '您现在可以 ';
 
 $lang->preShortcutKey  = '[快捷键:←]';
 $lang->nextShortcutKey = '[快捷键:→]';
@@ -2012,11 +2011,11 @@ $lang->bug->typeList['security']     = '安全相关';
 $lang->bug->typeList['performance']  = '性能问题';
 $lang->bug->typeList['standard']     = '标准规范';
 $lang->bug->typeList['automation']   = '测试脚本';
-$lang->bug->typeList['others']       = '其他';
 $lang->bug->typeList['designchange'] = '设计变更';
 $lang->bug->typeList['newfeature']   = '新增需求';
 $lang->bug->typeList['designdefect'] = '设计缺陷';
 $lang->bug->typeList['trackthings']  = '事务跟踪';
+$lang->bug->typeList['others']       = '其他';
 
 $lang->bug->statusList['']         = '';
 $lang->bug->statusList['active']   = '激活';
@@ -3943,7 +3942,7 @@ $lang->product->typeList['platform'] = '多平台';
 
 $lang->product->typeTips = array();
 $lang->product->typeTips['branch']   = '(适用于客户定制场景)';
-$lang->product->typeTips['platform'] = '(适用于跨平台应用开发，比如ios、安卓、pc端等)';
+$lang->product->typeTips['platform'] = '(适用于跨平台应用开发，比如IOS、安卓、PC端等)';
 
 $lang->product->branchName['normal']   = '';
 $lang->product->branchName['branch']   = '分支';
@@ -5001,6 +5000,7 @@ $lang->task->reportChart         = "报表统计";
 $lang->task->fromBug             = '来源Bug';
 $lang->task->case                = '相关用例';
 $lang->task->confirmStoryChange  = "确认需求变动";
+$lang->task->storyChange         = "需求变更";
 $lang->task->progress            = '进度';
 $lang->task->progressTips        = '已消耗/(已消耗+剩余)';
 $lang->task->copy                = '复制任务';
