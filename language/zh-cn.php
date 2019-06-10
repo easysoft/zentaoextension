@@ -2561,6 +2561,7 @@ $lang->datatable->branch   = '分支';
 $lang->datatable->platform = '平台';
 
 $lang->datatable->showModule             = '列表页是否显示模块名';
+$lang->datatable->showModuleAB           = '列表页是否显示模块名';
 $lang->datatable->showModuleList[]       = '不显示';
 $lang->datatable->showModuleList['base'] = '只显示一级模块';
 $lang->datatable->showModuleList['end']  = '只显示最后一级模块';
@@ -4101,6 +4102,7 @@ $lang->project->readjustTime  = "调整{$lang->projectCommon}起止时间";
 $lang->project->readjustTask  = '顺延任务的起止时间';
 $lang->project->effort        = '日志';
 $lang->project->relatedMember = '相关成员';
+$lang->project->watermark     = '由禅道导出';
 
 $lang->project->start    = "开始";
 $lang->project->activate = "激活";
