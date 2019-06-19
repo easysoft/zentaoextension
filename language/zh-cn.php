@@ -2661,6 +2661,7 @@ $lang->dev->tableList['backup']         = '备份';
 $lang->dev->tableList['common']         = '公有模块';
 $lang->dev->tableList['convert']        = '导入';
 $lang->dev->tableList['dev']            = '二次开发';
+$lang->dev->tableList['editor']         = '编辑器';
 $lang->dev->tableList['git']            = 'GIT';
 $lang->dev->tableList['index']          = '首页';
 $lang->dev->tableList['install']        = '安装';
@@ -2683,6 +2684,7 @@ $lang->dev->tableList['block']          = '区块';
 $lang->dev->tableList['branch']         = '平台/分支';
 $lang->dev->tableList['doccontent']     = '文档内容';
 $lang->dev->tableList['storystage']     = '需求阶段';
+$lang->dev->tableList['translate']      = '翻译';
 $lang->dev->tableList['tutorial']       = '新手教程';
 $lang->dev->tableList['suitecase']      = '套件用例';
 $lang->dev->tableList['score']          = '积分';
@@ -5831,6 +5833,20 @@ $lang->todo->periods['cycle']      = '周期';
 $lang->todo->action = new stdclass();
 $lang->todo->action->finished = array('main' => '$date, 由 <strong>$actor</strong> $extra。$appendLink', 'extra' => 'reasonList');
 $lang->todo->action->marked   = array('main' => '$date, 由 <strong>$actor</strong> 标记为<strong>$extra</strong>。', 'extra' => 'statusList');
+/* translate */
+$lang->translate->common  = '翻译';
+$lang->translate->index   = '首页';
+$lang->translate->addLang = '新增语言';
+$lang->translate->chooseModule = '选择翻译模块';
+
+$lang->translate->name        = '语言名称';
+$lang->translate->code        = '代号';
+$lang->translate->reference   = '参考语言';
+$lang->translate->refreshPage = '刷新';
+
+$lang->translate->notice = new stdclass();
+$lang->translate->notice->failDirPriv  = "目录没有写入权限，请修改权限。<br /><code>%s</code>";
+$lang->translate->notice->failCopyFile = "复制文件%s到%s失败，请检查权限！";
 /* tree */
 $lang->tree = new stdclass();
 $lang->tree->common             = '模块维护';
