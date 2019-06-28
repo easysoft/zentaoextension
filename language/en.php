@@ -4085,6 +4085,7 @@ $lang->project->readjustTask  = 'Adjust Task Begin and End';
 $lang->project->effort        = 'Effort';
 $lang->project->relatedMember = 'Team';
 $lang->project->watermark     = 'Exported by ZenTao';
+$lang->project->viewByUser    = 'By User';
 
 $lang->project->start    = 'Start';
 $lang->project->activate = 'Activate';
@@ -5021,6 +5022,7 @@ $lang->task->estimateAB        = 'Est.';
 $lang->task->left              = 'Hours Left';
 $lang->task->leftAB            = 'Left';
 $lang->task->consumed          = 'Hours Cost';
+$lang->task->currentConsumed   = 'Current Cost';
 $lang->task->myConsumed        = 'My Cost';
 $lang->task->consumedAB        = 'Cost';
 $lang->task->hour              = 'Hours';
@@ -5151,6 +5153,7 @@ $lang->task->error->work             = '"Comment" must be <  %d characters.';
 $lang->task->error->skipClose        = 'Task: %s is not "Finished” or “Cancelled”. Do you want to close it?';
 $lang->task->error->consumed         = 'Task: %s hour must be < 0. Ignore changes to this task.';
 $lang->task->error->assignedTo       = 'Multi-user task in the current status cannot be assigned to a member who is not in the task team.';
+$lang->task->error->consumedEmpty    = '"Current Cost" should not be empty.';
 
 $lang->task->report = new stdclass();
 $lang->task->report->common = 'Report';
@@ -5880,6 +5883,7 @@ $lang->translate->langs['en']     = 'English';
 $lang->translate->langs['zh_cn']  = '中文简体';
 $lang->translate->langs['zh_tw']  = '中文繁体';
 
+$lang->translate->notice = new stdclass();
 $lang->translate->notice->noVersion = 'Select zentao version please';
 $lang->translate->notice->delete    = 'Are you sure delete this translation?';
 /* tree */

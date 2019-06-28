@@ -2710,7 +2710,6 @@ $lang->dev->groupList['repo']    = '代码';
 $lang->dev->groupList['api']     = 'API';
 $lang->dev->groupList['message'] = '消息';
 
-
 $lang->dev->endGroupList['admin']  = '后台';
 $lang->dev->endGroupList['system'] = '系统';
 $lang->dev->endGroupList['other']  = '其他';
@@ -4114,6 +4113,7 @@ $lang->project->readjustTask  = '顺延任务的起止时间';
 $lang->project->effort        = '日志';
 $lang->project->relatedMember = '相关成员';
 $lang->project->watermark     = '由禅道导出';
+$lang->project->viewByUser    = '按用户查看';
 
 $lang->project->start    = "开始";
 $lang->project->activate = "激活";
@@ -5049,7 +5049,8 @@ $lang->task->estimate         = '最初预计';
 $lang->task->estimateAB       = '预计';
 $lang->task->left             = '预计剩余';
 $lang->task->leftAB           = '剩余';
-$lang->task->consumed         = '总消耗';
+$lang->task->consumed         = '总计消耗';
+$lang->task->currentConsumed  = '本次消耗';
 $lang->task->myConsumed       = '我的总消耗';
 $lang->task->consumedAB       = '消耗';
 $lang->task->hour             = '小时';
@@ -5090,7 +5091,7 @@ $lang->task->editEstimate     = '编辑工时';
 $lang->task->deleteEstimate   = '删除工时';
 $lang->task->colorTag         = '颜色标签';
 $lang->task->files            = '附件';
-$lang->task->hasConsumed      = '已消耗';
+$lang->task->hasConsumed      = '之前消耗';
 $lang->task->multiple         = '多人任务';
 $lang->task->multipleAB       = '多人';
 $lang->task->team             = '团队';
@@ -5180,6 +5181,7 @@ $lang->task->error->work             = '"备注"必须小于%d个字符';
 $lang->task->error->skipClose        = '任务：%s 不是“已完成”或“已取消”状态，确定要关闭吗？';
 $lang->task->error->consumed         = '任务：%s工时不能小于0，忽略该任务工时的改动';
 $lang->task->error->assignedTo       = '当前状态的多人任务不能指派给任务团队外的成员。';
+$lang->task->error->consumedEmpty    = '"本次消耗"不能为空';
 
 $lang->task->report         = new stdclass();
 $lang->task->report->common = '报表';
@@ -5893,6 +5895,7 @@ $lang->translate->notice = new stdclass();
 $lang->translate->notice->failDirPriv  = "目录没有写入权限，请修改权限。<br /><code>%s</code>";
 $lang->translate->notice->failCopyFile = "复制文件%s到%s失败，请检查权限！";
 $lang->translate->notice->failUnique   = "已经有代号 %s 的记录";
+$lang->translate->notice->failMaxInput = "请修改php.ini的max_input_vars参数，修改为 %s，以保证表单提交。";
 /* tree */
 $lang->tree = new stdclass();
 $lang->tree->common             = '模块维护';
