@@ -350,7 +350,7 @@ $lang->admin->menu->message   = array('link' => '通知|message|index', 'subModu
 $lang->admin->menu->custom    = array('link' => '自定义|custom|set', 'subModule' => 'custom');
 $lang->admin->menu->sso       = array('link' => '集成|admin|sso');
 $lang->admin->menu->extension = array('link' => '插件|extension|browse', 'subModule' => 'extension');
-$lang->admin->menu->dev       = array('link' => '二次开发|dev|api', 'alias' => 'db', 'subModule' => 'dev,editor,entry');
+$lang->admin->menu->dev       = array('link' => '二次开发|dev|api', 'alias' => 'db', 'subModule' => 'dev,entry');
 $lang->admin->menu->translate = array('link' => '翻译|translate|index', 'subModule' => 'translate');
 $lang->admin->menu->data      = array('link' => '数据|backup|index', 'subModule' => 'backup,action');
 $lang->admin->menu->safe      = array('link' => '安全|admin|safe', 'alias' => 'checkweak');
@@ -368,7 +368,6 @@ $lang->admin->subMenu->sso->ranzhi = '然之协同|admin|sso';
 $lang->admin->subMenu->dev = new stdclass();
 $lang->admin->subMenu->dev->api    = array('link' => 'API|dev|api');
 $lang->admin->subMenu->dev->db     = array('link' => '数据库|dev|db');
-$lang->admin->subMenu->dev->editor = array('link' => '编辑器|editor|index', 'subModule' => 'editor');
 $lang->admin->subMenu->dev->entry  = array('link' => '应用|entry|browse', 'subModule' => 'entry');
 
 $lang->admin->subMenu->data = new stdclass();
@@ -385,7 +384,6 @@ $lang->action    = new stdclass();
 $lang->backup    = new stdclass();
 $lang->extension = new stdclass();
 $lang->custom    = new stdclass();
-$lang->editor    = new stdclass();
 $lang->mail      = new stdclass();
 $lang->cron      = new stdclass();
 $lang->dev       = new stdclass();
@@ -402,7 +400,6 @@ $lang->backup->menu    = $lang->admin->menu;
 $lang->cron->menu      = $lang->admin->menu;
 $lang->extension->menu = $lang->admin->menu;
 $lang->custom->menu    = $lang->admin->menu;
-$lang->editor->menu    = $lang->admin->menu;
 $lang->mail->menu      = $lang->admin->menu;
 $lang->dev->menu       = $lang->admin->menu;
 $lang->entry->menu     = $lang->admin->menu;
@@ -439,7 +436,6 @@ $lang->menugroup->backup      = 'admin';
 $lang->menugroup->cron        = 'admin';
 $lang->menugroup->extension   = 'admin';
 $lang->menugroup->custom      = 'admin';
-$lang->menugroup->editor      = 'admin';
 $lang->menugroup->mail        = 'admin';
 $lang->menugroup->dev         = 'admin';
 $lang->menugroup->entry       = 'admin';
@@ -2918,81 +2914,6 @@ $lang->doclib->tabList['project'] = $lang->projectCommon;
 $lang->doclib->tabList['custom']  = '自定义';
 
 $lang->doclib->nameList['custom'] = '自定义文档库名称';
-/* editor */
-$lang->editor->common    = '编辑器';
-$lang->editor->api       = 'API';
-$lang->editor->index     = '首页';
-$lang->editor->newMethod = '新增方法';
-$lang->editor->extend    = '扩展';
-$lang->editor->api       = 'API';
-$lang->editor->newLang   = '新增语言';
-$lang->editor->newConfig = '新增配置';
-$lang->editor->newHook   = '新增钩子';
-$lang->editor->newExtend = '新增扩展';
-$lang->editor->newPage   = '新增页面';
-$lang->editor->override  = '覆盖';
-$lang->editor->edit      = '编辑扩展';
-$lang->editor->save      = '保存页面';
-$lang->editor->delete    = '删除页面';
-
-$lang->editor->moduleList   = '模块列表';
-$lang->editor->filePath     = "扩展：";
-$lang->editor->sourceFile   = '源文件：';
-$lang->editor->fileName     = "文件名：";
-$lang->editor->isOverride   = "覆盖重复文件";
-$lang->editor->exampleHook  = "(例如：***.html.hook.php)";
-$lang->editor->exampleJs    = "(例如：***.js)";
-$lang->editor->exampleCss   = "(例如：***.css)";
-$lang->editor->examplePHP   = "(例如：***.php)";
-$lang->editor->pageName     = "页面名称：";
-
-$lang->editor->deleteConfirm = '是否要删除？';
-$lang->editor->extendConfirm = '是否要重用原来代码？';
-$lang->editor->repeatFile    = '文件名重复';
-$lang->editor->repeatPage    = '已经有此页面。是否覆盖？';
-$lang->editor->noticeOkFile  = '为了安全起见，系统需要确认您的管理员身份。\n 请登录禅道所在的服务器，创建%s文件。\n 注意：\n 1. 文件内容为空。\n 2. 如果之前文件存在，删除之后重新创建。';
-$lang->editor->editFileError = '只能修改禅道文件！';
-
-$lang->editor->notWritable   = "无法写入，可能没有权限。请尝试执行 chmod 777 -R ";
-$lang->editor->notDelete     = '无法删除，请检查权限！';
-$lang->editor->emptyFileName = '请写入一个文件名！';
-
-$lang->editor->translate['config.php']  = 'config';
-$lang->editor->translate['control.php'] = 'control';
-$lang->editor->translate['model.php']   = 'model';
-
-$lang->editor->modules['action']      = '系统日志';
-$lang->editor->modules['admin']       = '后台管理';
-$lang->editor->modules['api']         = 'API接口';
-$lang->editor->modules['bug']         = 'Bug管理';
-$lang->editor->modules['build']       = 'Build';
-$lang->editor->modules['common']      = '公有模块';
-$lang->editor->modules['company']     = '组织视图';
-$lang->editor->modules['convert']     = '从其他系统导入';
-$lang->editor->modules['dept']        = '部门结构';
-$lang->editor->modules['doc']         = '文档视图';
-$lang->editor->modules['extension']   = '插件管理';
-$lang->editor->modules['file']        = '附件';
-$lang->editor->modules['group']       = '权限分组';
-$lang->editor->modules['index']       = '首页';
-$lang->editor->modules['install']     = '安装';
-$lang->editor->modules['misc']        = '杂项';
-$lang->editor->modules['my']          = '我的地盘';
-$lang->editor->modules['product']     = $lang->productCommon . '视图';
-$lang->editor->modules['productplan'] = '计划';
-$lang->editor->modules['project']     = $lang->projectCommon . '视图';
-$lang->editor->modules['qa']          = '测试视图';
-$lang->editor->modules['release']     = '发布';
-$lang->editor->modules['report']      = '报表';
-$lang->editor->modules['search']      = '搜索';
-$lang->editor->modules['story']       = '需求';
-$lang->editor->modules['task']        = '任务';
-$lang->editor->modules['testcase']    = '用例管理';
-$lang->editor->modules['testtask']    = '测试任务';
-$lang->editor->modules['todo']        = '待办';
-$lang->editor->modules['tree']        = '模块维护';
-$lang->editor->modules['upgrade']     = '升级';
-$lang->editor->modules['user']        = '用户';
 /* entry */
 $lang->entry->common  = '应用';
 $lang->entry->list    = '应用列表';
@@ -5172,7 +5093,7 @@ $lang->task->noTask                = '暂时没有任务。';
 $lang->task->createDenied          = '你不能在该项目添加任务';
 
 $lang->task->error                   = new stdclass();
-$lang->task->error->consumedNumber   = '"已经消耗"必须为数字';
+$lang->task->error->consumedNumber   = '"本次消耗"必须为数字';
 $lang->task->error->estimateNumber   = '"预计剩余"必须为数字';
 $lang->task->error->consumedSmall    = '"已经消耗"必须大于之前消耗';
 $lang->task->error->consumedThisTime = '请填写"工时"';
@@ -5868,7 +5789,7 @@ $lang->translate->reviewTurnonList['0'] = '关闭';
 $lang->translate->resultList['pass']   = '通过';
 $lang->translate->resultList['reject'] = '拒绝';
 
-$lang->translate->group              = '分组';
+$lang->translate->group              = '视图';
 $lang->translate->allTotal           = '总条目';
 $lang->translate->translatedTotal    = '已翻译条目数';
 $lang->translate->changedTotal       = '已修改条目数';
@@ -5896,6 +5817,7 @@ $lang->translate->notice->failDirPriv  = "目录没有写入权限，请修改�
 $lang->translate->notice->failCopyFile = "复制文件%s到%s失败，请检查权限！";
 $lang->translate->notice->failUnique   = "已经有代号 %s 的记录";
 $lang->translate->notice->failMaxInput = "请修改php.ini的max_input_vars参数，修改为 %s，以保证表单提交。";
+$lang->translate->notice->failRuleCode = "『语言代号』应当为字母、数字或下划线的组合。";
 /* tree */
 $lang->tree = new stdclass();
 $lang->tree->common             = '模块维护';
