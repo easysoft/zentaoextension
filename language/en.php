@@ -1817,6 +1817,7 @@ $lang->bug->activatedCount   = 'Activation Times';
 $lang->bug->activatedCountAB = 'Activation';
 $lang->bug->activatedDate    = 'ActivatedDate';
 $lang->bug->confirmed        = 'Confirmed';
+$lang->bug->confirmedAB      = 'C';
 $lang->bug->toTask           = 'Convert to Task';
 $lang->bug->toStory          = 'Convert to Story';
 $lang->bug->mailto           = 'Mailto';
@@ -2021,8 +2022,8 @@ $lang->bug->statusList['active']   = 'Active';
 $lang->bug->statusList['resolved'] = 'Solved';
 $lang->bug->statusList['closed']   = 'Closed';
 
-$lang->bug->confirmedList[1] = 'Confirmed';
-$lang->bug->confirmedList[0] = 'Unconfirmed';
+$lang->bug->confirmedList[1] = 'Yes';
+$lang->bug->confirmedList[0] = 'No';
 
 $lang->bug->resolutionList['']           = '';
 $lang->bug->resolutionList['bydesign']   = 'As Design';
@@ -3569,9 +3570,12 @@ $lang->misc->zentao->support['manual']     = "User Manual";
 
 $lang->misc->zentao->cowin['reportbug']    = "Report Bug ";
 $lang->misc->zentao->cowin['feedback']     = "Feedback";
-
 $lang->misc->zentao->cowin['cowinmore']    = "More";
 
+$lang->misc->zentao->service['zentaotrain']= 'Zentao Train';
+$lang->misc->zentao->service['idc']        = 'Zentao Cloud';
+$lang->misc->zentao->service['custom']     = 'Zentao Custom';
+$lang->misc->zentao->service['servicemore']= 'More';
 
 
 
@@ -4545,10 +4549,10 @@ $lang->search->operators['>']          = '>';
 $lang->search->operators['>=']         = '>=';
 $lang->search->operators['<']          = '<';
 $lang->search->operators['<=']         = '<=';
-$lang->search->operators['include']    = 'INCLUDE';
-$lang->search->operators['between']    = 'BETWEEN';
-$lang->search->operators['notinclude'] = 'EXCLUDE';
-$lang->search->operators['belong']     = 'BELONG';
+$lang->search->operators['include']    = 'Include';
+$lang->search->operators['between']    = 'Between';
+$lang->search->operators['notinclude'] = 'Exclude';
+$lang->search->operators['belong']     = 'Belong';
 
 $lang->search->andor['and']         = 'And';
 $lang->search->andor['or']          = 'Or';
@@ -5952,7 +5956,7 @@ $lang->user->company     = 'Company';
 $lang->user->dept        = 'Department';
 $lang->user->account     = 'Account';
 $lang->user->password    = 'Password';
-$lang->user->password2   = 'Repeat Password';
+$lang->user->password2   = 'Repeat new Password';
 $lang->user->role        = 'Role';
 $lang->user->group       = 'Privilege Group';
 $lang->user->realname    = 'Name';
@@ -5981,7 +5985,7 @@ $lang->user->ip          = 'Last IP';
 $lang->user->last        = 'Last Login';
 $lang->user->ranzhi      = 'Zdoo Account';
 $lang->user->ditto       = 'Ditto';
-$lang->user->originalPassword = 'Password';
+$lang->user->originalPassword = 'Old Password';
 $lang->user->newPassword      = 'New Password';
 $lang->user->verifyPassword   = 'Password';
 $lang->user->resetPassword    = 'Forgot Password?';
@@ -6111,13 +6115,13 @@ $lang->user->error->verifyPassword   = "Verification failed. Please enter your L
 $lang->user->error->originalPassword = "Old password is incorrect.";
 
 $lang->user->contactFieldList['skype']    = $lang->user->skype;
+$lang->user->contactFieldList['slack']    = $lang->user->slack;
+$lang->user->contactFieldList['whatsapp'] = $lang->user->whatsapp;
+$lang->user->contactFieldList['mobile']   = $lang->user->mobile;
+$lang->user->contactFieldList['phone']    = $lang->user->phone;
 $lang->user->contactFieldList['qq']       = $lang->user->qq;
 $lang->user->contactFieldList['dingding'] = $lang->user->dingding;
 $lang->user->contactFieldList['weixin']   = $lang->user->weixin;
-$lang->user->contactFieldList['mobile']   = $lang->user->mobile;
-$lang->user->contactFieldList['slack']    = $lang->user->slack;
-$lang->user->contactFieldList['whatsapp'] = $lang->user->whatsapp;
-$lang->user->contactFieldList['phone']    = $lang->user->phone;
 
 $lang->user->contacts = new stdclass();
 $lang->user->contacts->common   = 'Contacts';
