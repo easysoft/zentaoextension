@@ -1018,7 +1018,7 @@ $lang->action->label->batchcreate         = "批量创建任务";
 $lang->action->label->createchildren      = "创建子任务";
 $lang->action->label->managed             = "维护";
 
-$lang->action->dynamicAction = new stdclass;
+$lang->action->dynamicAction = new stdclass();
 $lang->action->dynamicAction->todo['opened']               = '创建待办';
 $lang->action->dynamicAction->todo['edited']               = '编辑待办';
 $lang->action->dynamicAction->todo['erased']               = '删除待办';
