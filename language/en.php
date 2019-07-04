@@ -350,7 +350,7 @@ $lang->admin->menu->message   = array('link' => 'Notification|message|index', 's
 $lang->admin->menu->custom    = array('link' => 'Custom|custom|set', 'subModule' => 'custom');
 $lang->admin->menu->sso       = array('link' => 'Integration|admin|sso');
 
-$lang->admin->menu->dev       = array('link' => 'Devel|dev|api', 'alias' => 'db', 'subModule' => 'dev,entry');
+$lang->admin->menu->dev       = array('link' => 'CSD|dev|api', 'alias' => 'db', 'subModule' => 'dev,editor,entry');
 $lang->admin->menu->translate = array('link' => 'Translate|translate|index', 'subModule' => 'translate');
 $lang->admin->menu->data      = array('link' => 'Data|backup|index', 'subModule' => 'backup,action');
 $lang->admin->menu->safe      = array('link' => 'Security|admin|safe', 'alias' => 'checkweak');
@@ -368,6 +368,7 @@ $lang->admin->subMenu->sso->ranzhi = 'Zdoo|admin|sso';
 $lang->admin->subMenu->dev = new stdclass();
 $lang->admin->subMenu->dev->api    = array('link' => 'API|dev|api');
 $lang->admin->subMenu->dev->db     = array('link' => 'Database|dev|db');
+$lang->admin->subMenu->dev->editor = array('link' => 'Editor|editor|index', 'subModule' => 'editor');
 $lang->admin->subMenu->dev->entry  = array('link' => 'Application|entry|browse', 'subModule' => 'entry');
 
 $lang->admin->subMenu->data = new stdclass();
@@ -392,6 +393,7 @@ $lang->webhook   = new stdclass();
 $lang->message   = new stdclass();
 $lang->search    = new stdclass();
 $lang->translate = new stdclass();
+$lang->editor    = new stdclass();
 
 $lang->convert->menu   = $lang->admin->menu;
 $lang->upgrade->menu   = $lang->admin->menu;
@@ -406,6 +408,7 @@ $lang->entry->menu     = $lang->admin->menu;
 $lang->webhook->menu   = $lang->admin->menu;
 $lang->message->menu   = $lang->admin->menu;
 $lang->translate->menu = $lang->admin->menu;
+$lang->editor->menu    = $lang->admin->menu;
 
 $lang->menugroup = new stdclass();
 $lang->menugroup->release     = 'product';
@@ -442,6 +445,7 @@ $lang->menugroup->entry       = 'admin';
 $lang->menugroup->webhook     = 'admin';
 $lang->menugroup->message     = 'admin';
 $lang->menugroup->translate   = 'admin';
+$lang->menugroup->editor      = 'admin';
 
 $lang->error = new stdclass();
 $lang->error->companyNotFound = "The domain %s cannot be found!";
@@ -483,7 +487,7 @@ $lang->pager->summery      = "<strong>%s-%s</strong> of <strong>%s</strong>.";
 
 $lang->proVersion     = "<a href='https://www.zentao.pm/book/zentaopromanual/free-open-source-project-management-software-zentaopro-127.html' target='_blank' id='proLink' class='text-important'>ZenTao Pro <i class='text-danger icon-pro-version'></i></a> &nbsp; ";
 $lang->downNotify     = "Download Desktop Notification";
-$lang->downloadClient = "Download Desktop Client";
+$lang->downloadClient = "Download ZenTao Desktop";
 $lang->clientHelp     = "Client Help";
 $lang->clientHelpLink = "https://www.zentao.pm/book/zentaomanual/";
 $lang->website        = "https://www.zentao.pm";
@@ -2914,6 +2918,81 @@ $lang->doclib->tabList['project'] = $lang->projectCommon;
 $lang->doclib->tabList['custom']  = 'Custom';
 
 $lang->doclib->nameList['custom'] = 'Custom Name';
+/* editor */
+$lang->editor->common    = 'Editor';
+$lang->editor->api       = 'API';
+$lang->editor->index     = 'Home';
+$lang->editor->newMethod = 'New Method';
+$lang->editor->extend    = 'Extension';
+$lang->editor->api       = 'API';
+$lang->editor->newLang   = 'New Language';
+$lang->editor->newConfig = 'New Config';
+$lang->editor->newHook   = 'New Hook';
+$lang->editor->newExtend = 'New Extension';
+$lang->editor->newPage   = 'New Page';
+$lang->editor->override  = 'Overwrite';
+$lang->editor->edit      = 'Edit Extension';
+$lang->editor->save      = 'Save Page';
+$lang->editor->delete    = 'Delete Page';
+
+$lang->editor->moduleList   = 'Module';
+$lang->editor->filePath     = "Extension:";
+$lang->editor->sourceFile   = 'Source File:';
+$lang->editor->fileName     = "File Name:";
+$lang->editor->isOverride   = "Override Duplicated File";
+$lang->editor->exampleHook  = "(e.g. ***.html.hook.php)";
+$lang->editor->exampleJs    = "(e.g. ***.js)";
+$lang->editor->exampleCss   = "(e.g. ***.css)";
+$lang->editor->examplePHP   = "(e.g. ***.php)";
+$lang->editor->pageName     = "Page Name:";
+
+$lang->editor->deleteConfirm = 'Do you want to delete it?';
+$lang->editor->extendConfirm = 'Do you want to use original code?';
+$lang->editor->repeatFile    = 'File Name Duplicated';
+$lang->editor->repeatPage    = 'This page exists. Do you want to overwrite it?';
+$lang->editor->noticeOkFile  = 'For security reasons, your Admin account has to be confirmed. \n Please login ZenTao server and create %sFile.\n Note:\n 1. File is blank.\n 2. If the file existed, delete it and then create a new one.';
+$lang->editor->editFileError = 'You can only modify ZenTao files!';
+
+$lang->editor->notWritable   = "Not wirtable. Permission is required. Please try chmod 777 -R ";
+$lang->editor->notDelete     = 'Cannot be deleted. Please check your permissions!';
+$lang->editor->emptyFileName = 'Please enter a File Name!';
+
+$lang->editor->translate['config.php']  = 'config';
+$lang->editor->translate['control.php'] = 'control';
+$lang->editor->translate['model.php']   = 'model';
+
+$lang->editor->modules['action']      = 'System Log';
+$lang->editor->modules['admin']       = 'Admin';
+$lang->editor->modules['api']         = 'API';
+$lang->editor->modules['bug']         = 'Bug';
+$lang->editor->modules['build']       = 'Build';
+$lang->editor->modules['common']      = 'Common Module';
+$lang->editor->modules['company']     = 'Company';
+$lang->editor->modules['convert']     = 'Convert';
+$lang->editor->modules['dept']        = 'Department';
+$lang->editor->modules['doc']         = 'Doc';
+$lang->editor->modules['extension']   = 'Extension';
+$lang->editor->modules['file']        = 'File';
+$lang->editor->modules['group']       = 'Group';
+$lang->editor->modules['index']       = 'Homepage';
+$lang->editor->modules['install']     = 'Install';
+$lang->editor->modules['misc']        = 'Misc';
+$lang->editor->modules['my']          = 'Dashboard';
+$lang->editor->modules['product']     = $lang->productCommon;
+$lang->editor->modules['productplan'] = 'Plan';
+$lang->editor->modules['project']     = $lang->projectCommon;
+$lang->editor->modules['qa']          = 'QA';
+$lang->editor->modules['release']     = 'Release';
+$lang->editor->modules['report']      = 'Report';
+$lang->editor->modules['search']      = 'Search';
+$lang->editor->modules['story']       = 'Story';
+$lang->editor->modules['task']        = 'Task';
+$lang->editor->modules['testcase']    = 'Case';
+$lang->editor->modules['testtask']    = 'Request';
+$lang->editor->modules['todo']        = 'Todo';
+$lang->editor->modules['tree']        = 'Module Maintenance';
+$lang->editor->modules['upgrade']     = 'Upgrade';
+$lang->editor->modules['user']        = 'User';
 /* entry */
 $lang->entry->common  = 'Application';
 $lang->entry->list    = 'Applications';
@@ -5061,7 +5140,7 @@ $lang->task->afterSubmit           = "Next ";
 $lang->task->successSaved          = "Created!";
 $lang->task->delayWarning          = " <strong class='text-danger'> Delay %s days </strong>";
 $lang->task->remindBug             = "This task is converted from a bug. Do you want to update the Bug:%s?";
-$lang->task->confirmChangeProject  = "If you change {$lang->projectCommon}, the linked Module, Story and AssignedTo will be changed. Do you want to do it?";
+$lang->task->confirmChangeProject  = "If you change {$lang->projectCommon}, Module, Story and AssignedTo will also be changed. Do you want to change it?";
 $lang->task->confirmFinish         = '"Left Hour" is 0. Do you want to change the status to "Finished"?';
 $lang->task->confirmRecord         = '"Left Hour" is 0. Do you want to set the task as "Finished"?';
 $lang->task->confirmTransfer       = '"Left Hour" is 0，Do you want to transfer task?';
@@ -5261,7 +5340,7 @@ $lang->testcase->importFile              = "Import CSV";
 $lang->testcase->importFromLib           = "Import From Library";
 $lang->testcase->showImport              = "Show Import";
 $lang->testcase->exportTemplet           = "Export Template";
-$lang->testcase->export                  = "Export";
+$lang->testcase->export                  = "Export Data";
 $lang->testcase->reportChart             = 'Report Chart';
 $lang->testcase->confirmChange           = 'Confirm Case Change';
 $lang->testcase->confirmStoryChange      = 'Confirm Story Change';
@@ -5274,7 +5353,7 @@ $lang->testcase->viewAll                 = 'All Cases';
 
 $lang->testcase->new = 'New';
 
-$lang->testcase->num = 'Case:';
+$lang->testcase->num = 'Case Rows:';
 
 $lang->testcase->deleteStep   = 'Delete';
 $lang->testcase->insertBefore = 'Inserted Before';
@@ -5439,7 +5518,9 @@ $lang->testreport->foundBugTip    = "Bugs generated in this build and generated 
 $lang->testreport->legacyBugTip   = "Active bugs, or solved bugs that are not in the test period.";
 $lang->testreport->fromCaseBugTip = "Bugs generated due to the failed case run in the test period.";
 $lang->testreport->errorTrunk     = "You cannot create a Testing report for the trunk. Please modify the linked build!";
-$lang->testreport->moreProduct    = "Testing reports can only be generated for the same product.";
+$lang->testreport->noTestTask     = "该{$lang->productCommon}下还没有测试单，不能创建报告。请切换到有测试单的{$lang->productCommon}，再创建。";
+$lang->testreport->noObjectID     = "没有选定测试单或{$lang->projectCommon}，无法创建测试报告！";
+$lang->testreport->moreProduct    = "Testing reports can only be generated for the same {$lang->productCommon}.";
 
 $lang->testreport->bugSummary = <<<EOD
 Total <strong>%s</strong> Bugs reported <a data-toggle='tooltip' class='text-warning' title='{$lang->testreport->foundBugTip}'><i class='icon-help'></i></a>,
@@ -5828,7 +5909,7 @@ $lang->tree->sort               = "Order";
 $lang->tree->addChild           = "Add Child Module";
 $lang->tree->confirmDelete      = 'Do you want to delete this module and its child modules?';
 $lang->tree->confirmDeleteLine  = 'Do you want to delete this product line?';
-$lang->tree->confirmRoot        = "Any changes to the {$lang->productCommon} will change the stories, bugs, cases of {$lang->productCommon} it belongs to, as well as the relation of {$lang->projectCommon} and {$lang->productCommon}, which is dangerous. Do you want to change it?";
+$lang->tree->confirmRoot        = "Any changes to the {$lang->productCommon} will change the stories, bugs, cases of {$lang->productCommon} it belongs to, as well as the linkage of {$lang->projectCommon} and {$lang->productCommon}, which is dangerous. Do you want to change it?";
 $lang->tree->successSave        = 'Saved.';
 $lang->tree->successFixed       = 'Fixed.';
 $lang->tree->repeatName         = 'The name "%s" exists!';
