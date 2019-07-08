@@ -460,6 +460,7 @@ $lang->error->equal           = "『%s』必须为『%s』。";
 $lang->error->int             = array("『%s』应当是数字。", "『%s』应当介于『%s-%s』之间。");
 $lang->error->float           = "『%s』应当是数字，可以是小数。";
 $lang->error->email           = "『%s』应当为合法的EMAIL。";
+$lang->error->URL             = "『%s』应当为合法的URL。";
 $lang->error->date            = "『%s』应当为合法的日期。";
 $lang->error->datetime        = "『%s』应当为合法的日期。";
 $lang->error->code            = "『%s』应当为字母或数字的组合。";
@@ -2499,6 +2500,7 @@ $lang->custom->notice->invalidNumberKey            = '键值应为不大于255�
 $lang->custom->notice->invalidStringKey            = '键值应当为小写英文字母、数字或下划线的组合';
 $lang->custom->notice->cannotSetTimezone           = 'date_default_timezone_set方法不存在或禁用，不能设置时区。';
 $lang->custom->notice->noClosedBlock               = '没有永久关闭的区块';
+$lang->custom->notice->required                    = '页面提交时，选中的字段必填';
 
 $lang->custom->notice->indexPage['product']        = "从8.2版本起增加了产品主页视图，是否默认进入产品主页？";
 $lang->custom->notice->indexPage['project']        = "从8.2版本起增加了项目主页视图，是否默认进入项目主页？";
@@ -2537,6 +2539,7 @@ $lang->custom->workingList['onlyTask']  = '任务管理工具';
 
 $lang->custom->menuTip  = '点击显示或隐藏导航条目，拖拽来更改显示顺序。';
 $lang->custom->saveFail = '保存失败！';
+$lang->custom->page     = '页面';
 
 $lang->custom->scoreStatus[0] = '关闭';
 $lang->custom->scoreStatus[1] = '开启';
@@ -4231,12 +4234,12 @@ $lang->project->groups['finishedBy'] = '完成者分组';
 $lang->project->groups['closedBy']   = '关闭者分组';
 $lang->project->groups['type']       = '类型分组';
 
-$lang->project->groupFilter['story']['all']         = $lang->project->all;
+$lang->project->groupFilter['story']['all']         = '所有';
 $lang->project->groupFilter['story']['linked']      = '已关联需求的任务';
-$lang->project->groupFilter['pri']['all']           = $lang->project->all;
+$lang->project->groupFilter['pri']['all']           = '所有';
 $lang->project->groupFilter['pri']['noset']         = '未设置';
 $lang->project->groupFilter['assignedTo']['undone'] = '未完成';
-$lang->project->groupFilter['assignedTo']['all']    = $lang->project->all;
+$lang->project->groupFilter['assignedTo']['all']    = '所有';
 
 $lang->project->byQuery = '搜索';
 
@@ -5326,8 +5329,8 @@ $lang->testcase->fromModule       = '来源模块';
 $lang->testcase->fromCase         = '来源用例';
 $lang->testcase->sync             = '同步';
 $lang->testcase->ignore           = '忽略';
-$lang->testcase->fromTesttask     = '测试单用例';
-$lang->testcase->fromCaselib      = '用例库用例';
+$lang->testcase->fromTesttask     = '来自测试单用例';
+$lang->testcase->fromCaselib      = '来自用例库用例';
 $lang->case = $lang->testcase;  // 用于DAO检查时使用。因为case是系统关键字，所以无法定义该模块为case，只能使用testcase，但表还是使用的case。
 
 $lang->testcase->stepID      = '编号';
@@ -6146,7 +6149,7 @@ $lang->user->closedBy    = '由%s关闭';
 $lang->user->reviewedBy  = '由%s评审';
 $lang->user->canceledBy  = '由%s取消';
 
-$lang->user->testTask2Him = '%s负责版本';
+$lang->user->testTask2Him = '%s负责的版本';
 $lang->user->case2Him     = '给%s的用例';
 $lang->user->caseByHim    = '%s建的用例';
 

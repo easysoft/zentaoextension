@@ -62,8 +62,8 @@ $lang->saveSuccess     = 'Saved';
 $lang->fail            = 'Fail';
 $lang->addFiles        = 'Added Files';
 $lang->files           = 'Files ';
-$lang->pasteText       = 'Paste Multi-Items';
-$lang->uploadImages    = 'Upload Multi-Images';
+$lang->pasteText       = 'Multi-lines Paste';
+$lang->uploadImages    = 'Multi-images Upload';
 $lang->timeout         = 'Timeout. Check your newtwork connections, or try it again!';
 $lang->repairTable     = 'Database table might be damaged. Run phpmyadmin or myisamchk to fix it.';
 $lang->duplicate       = '%s has the same title as a file existed.';
@@ -325,7 +325,7 @@ $lang->report->menu->test    = array('link' => 'Request|report|bugcreate', 'alia
 $lang->report->menu->staff   = array('link' => 'Company|report|workload');
 
 $lang->report->notice = new stdclass();
-$lang->report->notice->help = 'Note: The data of a report is based on the data in the List. Click the tab, e.g. All, then click Report to generate a report.';
+$lang->report->notice->help = 'Note: The report is generated on the results of browsing the list. Click the tab, e.g. AssignedToMe, then click Report to generate a report based on AssignedToMe list.';
 
 $lang->company = new stdclass();
 $lang->company->menu = new stdclass();
@@ -460,6 +460,7 @@ $lang->error->equal           = "『%s』has to be『%s』.";
 $lang->error->int             = array("『%s』should be numbers", "『%s』should be 『%s-%s』.");
 $lang->error->float           = "『%s』should have numbers, or decimals.";
 $lang->error->email           = "『%s』should be valid Email.";
+$lang->error->URL             = "『%s』should be url.";
 $lang->error->date            = "『%s』should be valid date.";
 $lang->error->datetime        = "『%s』should be valid date.";
 $lang->error->code            = "『%s』should be letters or numbers.";
@@ -1298,15 +1299,15 @@ $lang->admin->bind->success = "Account is linked!";
 
 $lang->admin->safe = new stdclass();
 $lang->admin->safe->common     = 'Security Policy';
-$lang->admin->safe->set        = 'Strong Password';
-$lang->admin->safe->password   = 'Strong Password';
-$lang->admin->safe->weak       = 'Weak Password';
+$lang->admin->safe->set        = 'Password Settings';
+$lang->admin->safe->password   = 'Password Strength';
+$lang->admin->safe->weak       = 'Common Weak Password';
 $lang->admin->safe->reason     = 'Type';
-$lang->admin->safe->checkWeak  = 'Weak Password';
-$lang->admin->safe->changeWeak = 'Require to change weak password';
-$lang->admin->safe->modifyPasswordFirstLogin = 'Require to change password after first login';
+$lang->admin->safe->checkWeak  = 'Weak Password Scan';
+$lang->admin->safe->changeWeak = 'Force to change weak password';
+$lang->admin->safe->modifyPasswordFirstLogin = 'Force to change password after first login';
 
-$lang->admin->safe->modeList[0] = 'N/A';
+$lang->admin->safe->modeList[0] = 'I don\'t care.';
 $lang->admin->safe->modeList[1] = 'Medium';
 $lang->admin->safe->modeList[2] = 'Strong';
 
@@ -1314,10 +1315,10 @@ $lang->admin->safe->modeRuleList[1] = ' >= 6 upper and lower case, and numbers';
 $lang->admin->safe->modeRuleList[2] = ' >= 10 upper and lower case, numbers and special characters.';
 
 $lang->admin->safe->reasonList['weak']     = 'Common Weak Password';
-$lang->admin->safe->reasonList['account']  = 'Same as your account';
-$lang->admin->safe->reasonList['mobile']   = 'Same as your cellphone number';
-$lang->admin->safe->reasonList['phone']    = 'Same as your phone number';
-$lang->admin->safe->reasonList['birthday'] = 'Same as your DOB';
+$lang->admin->safe->reasonList['account']  = 'Same as account';
+$lang->admin->safe->reasonList['mobile']   = 'Same as mobilephone number';
+$lang->admin->safe->reasonList['phone']    = 'Same as phone number';
+$lang->admin->safe->reasonList['birthday'] = 'Same as DOB';
 
 $lang->admin->safe->modifyPasswordList[1] = 'Yes';
 $lang->admin->safe->modifyPasswordList[0] = 'No';
@@ -1349,7 +1350,7 @@ $lang->backup->common      = 'Backup';
 $lang->backup->index       = 'Home';
 $lang->backup->history     = 'History';
 $lang->backup->delete      = 'Delete';
-$lang->backup->backup      = 'Back Up';
+$lang->backup->backup      = 'BackUp';
 $lang->backup->restore     = 'Restore';
 $lang->backup->change      = 'Edit Expiration';
 $lang->backup->changeAB    = 'Edit';
@@ -1846,7 +1847,7 @@ $lang->bug->plan             = 'Plan';
 $lang->bug->closedBy         = 'ClosedBy';
 $lang->bug->closedDate       = 'ClosedDate';
 $lang->bug->duplicateBug     = 'Duplicated Bug ID';
-$lang->bug->lastEditedBy     = 'ModifiedBy';
+$lang->bug->lastEditedBy     = 'EditedBy';
 $lang->bug->linkBug          = 'Linked Bugs';
 $lang->bug->linkBugs         = 'Link Bug';
 $lang->bug->unlinkBug        = 'Unlink';
@@ -1921,7 +1922,7 @@ $lang->bug->delayWarning = " <strong class='text-danger'> Delay %s days </strong
 
 $lang->bug->lblAssignedTo = 'AssignTo';
 $lang->bug->lblMailto     = 'Mailto';
-$lang->bug->lblLastEdited = 'ModifiedBy';
+$lang->bug->lblLastEdited = 'EditedBy';
 $lang->bug->lblResolved   = 'ResolvedBy';
 $lang->bug->allUsers      = 'Load All Users';
 $lang->bug->allBuilds     = 'All Builds';
@@ -2054,7 +2055,7 @@ $lang->bug->report->charts['openedBugsPerUser']     = 'Reported Bugs Per User';
 $lang->bug->report->charts['resolvedBugsPerUser']   = 'Resolved Bugs Per User';
 $lang->bug->report->charts['closedBugsPerUser']     = 'Closed Bugs Per User';
 $lang->bug->report->charts['bugsPerSeverity']       = 'Bug Severity Report';
-$lang->bug->report->charts['bugsPerResolution']     = 'Bug Solution Report';
+$lang->bug->report->charts['bugsPerResolution']     = 'Bug Resolution Report';
 $lang->bug->report->charts['bugsPerStatus']         = 'Bug Status Report';
 $lang->bug->report->charts['bugsPerActivatedCount'] = 'Bug Activation Times Report';
 $lang->bug->report->charts['bugsPerPri']            = 'Bug Priority Report';
@@ -2500,6 +2501,7 @@ $lang->custom->notice->invalidNumberKey     = 'The key should be =< 255.';
 $lang->custom->notice->invalidStringKey     = 'The key should be a combination of lowercase letters, numbers or underlines.';
 $lang->custom->notice->cannotSetTimezone    = 'date_default_timezone_set does not exist or is disabled. Timezone cannot be set.';
 $lang->custom->notice->noClosedBlock        = 'You have no blocks that are closed permanently.';
+$lang->custom->notice->required             = 'The selected field is required.';
 
 $lang->custom->notice->indexPage['product'] = "ZenTao 8.2+ has Product Home. Do you want to go to Product Home?";
 $lang->custom->notice->indexPage['project'] = "ZenTao 8.2+ has Project Home. Do you want to go to Project Home?";
@@ -2529,15 +2531,16 @@ $lang->custom->productProject->relation['0_0'] = 'Product - Project';
 $lang->custom->productProject->relation['0_1'] = 'Product - Sprint';
 $lang->custom->productProject->relation['1_1'] = 'Project - Sprint';
 
-$lang->custom->productProject->notice = 'Select according to your team';
+$lang->custom->productProject->notice = 'Select the work mode that fits your team.';
 
 $lang->custom->workingList['full']      = 'Application Lifecycle Management';
 $lang->custom->workingList['onlyTest']  = 'Test Management';
 $lang->custom->workingList['onlyStory'] = 'Story Management';
 $lang->custom->workingList['onlyTask']  = 'Task Management';
 
-$lang->custom->menuTip  = 'Click to show/hide the navigation bar. Drag to swtich display order.';
+$lang->custom->menuTip  = 'Click to show/hide the menu. Drag to switch display order.';
 $lang->custom->saveFail = 'Failed to save!';
+$lang->custom->page     = ' Page';
 
 $lang->custom->scoreStatus[0] = 'Off';
 $lang->custom->scoreStatus[1] = 'On';
@@ -2720,7 +2723,7 @@ $lang->doc->product        = $lang->productCommon;
 $lang->doc->project        = $lang->projectCommon;
 $lang->doc->lib            = 'Library';
 $lang->doc->module         = 'Category';
-$lang->doc->title          = 'Documents';
+$lang->doc->title          = 'Name';
 $lang->doc->digest         = 'Summary';
 $lang->doc->comment        = 'Comment';
 $lang->doc->type           = 'Type';
@@ -2730,8 +2733,8 @@ $lang->doc->url            = 'URL';
 $lang->doc->files          = 'Files';
 $lang->doc->addedBy        = 'Author';
 $lang->doc->addedDate      = 'Added';
-$lang->doc->editedBy       = 'EditBy';
-$lang->doc->editedDate     = 'EditedDate';
+$lang->doc->editedBy       = 'UpdatedBy';
+$lang->doc->editedDate     = 'UpdatedDate';
 $lang->doc->version        = 'Version';
 $lang->doc->basicInfo      = 'Basic Info';
 $lang->doc->deleted        = 'Deleted';
@@ -2760,9 +2763,9 @@ $lang->doc->fast           = 'Qucik Entry';
 $lang->doc->allDoc         = 'All Documents';
 $lang->doc->openedByMe     = 'My';
 $lang->doc->orderByOpen    = 'Recent Added';
-$lang->doc->orderByEdit    = 'Recent Edited';
+$lang->doc->orderByEdit    = 'Recent Updated';
 $lang->doc->orderByVisit   = 'Last Visited';
-$lang->doc->todayEdited    = 'Update Today';
+$lang->doc->todayEdited    = 'Updated Today';
 $lang->doc->pastEdited     = 'Total Updated';
 $lang->doc->myDoc          = 'My Documents';
 $lang->doc->myCollection   = 'My Favorites';
@@ -4209,12 +4212,12 @@ $lang->project->groups['finishedBy'] = 'Group by FinishedBy';
 $lang->project->groups['closedBy']   = 'Group by ClosedBy';
 $lang->project->groups['type']       = 'Group by Type';
 
-$lang->project->groupFilter['story']['all']         = $lang->project->all;
-$lang->project->groupFilter['story']['linked']      = 'LinkedtoStory Task';
-$lang->project->groupFilter['pri']['all']           = $lang->project->all;
+$lang->project->groupFilter['story']['all']         = 'All';
+$lang->project->groupFilter['story']['linked']      = 'Tasks of linked story';
+$lang->project->groupFilter['pri']['all']           = 'All';
 $lang->project->groupFilter['pri']['noset']         = 'Not Set';
 $lang->project->groupFilter['assignedTo']['undone'] = 'Unfinished';
-$lang->project->groupFilter['assignedTo']['all']    = $lang->project->all;
+$lang->project->groupFilter['assignedTo']['all']    = 'All';
 
 $lang->project->byQuery = 'Search';
 
@@ -4237,7 +4240,7 @@ $lang->project->countSummary        = '<div class="table-col"><div class="clearf
 $lang->project->timeSummary         = '<div class="table-col"><div class="clearfix segments"><div class="segment"><div class="segment-title">Estimates</div><div class="segment-value">%s</div></div><div class="segment"><div class="segment-title">Cost</div><div class="segment-value text-red">%s</div></div><div class="segment"><div class="segment-title">Left</div><div class="segment-value">%s</div></div></div></div>';
 $lang->project->groupSummaryAB      = "<div>Tasks <strong>%s ：</strong><span class='text-muted'>Waiting</span> %s &nbsp; <span class='text-muted'>Doing</span> %s</div><div>Estimates <strong>%s ：</strong><span class='text-muted'>Cost</span> %s &nbsp; <span class='text-muted'>Left</span> %s</div>";
 $lang->project->wbs                 = "Create Task";
-$lang->project->batchWBS            = "Batch Create";
+$lang->project->batchWBS            = "Batch Create Tasks";
 $lang->project->howToUpdateBurn     = "<a href='https://api.zentao.pm/goto.php?item=burndown' target='_blank' title='How to update the Burndown Chart?' class='btn btn-link'>Help <i class='icon icon-help'></i></a>";
 $lang->project->whyNoStories        = "No story can be linked. Please check whether there is any story in {$lang->projectCommon} which is linked to {$lang->productCommon} and make sure it has been reviewed.";
 $lang->project->productStories      = "Stories linked to {$lang->projectCommon} are the subeset of stories linked to {$lang->productCommon}. Stories can only be linked after they pass the review. <a href='%s'> Link Stories</a> now.";
@@ -4273,7 +4276,7 @@ $lang->project->goback                = "Go Back";
 $lang->project->noweekend             = 'Exclude Weekend';
 $lang->project->withweekend           = 'Include Weekend';
 $lang->project->interval              = 'Intervals';
-$lang->project->fixFirstWithLeft      = 'Update hours left';
+$lang->project->fixFirstWithLeft      = 'Update hours left too';
 
 $lang->project->action = new stdclass();
 $lang->project->action->opened  = '$date, created by <strong>$actor</strong> .' . "\n";
@@ -4296,7 +4299,7 @@ $lang->project->charts->burn->graph->actuality    = 'Actual';
 
 $lang->project->placeholder = new stdclass();
 $lang->project->placeholder->code      = "Abbreviation of {$lang->projectCommon} name";
-$lang->project->placeholder->totalLeft = "Estimates at the beginning of the {$lang->projectCommon}.";
+$lang->project->placeholder->totalLeft = "Hours estimated on the first day of the {$lang->projectCommon}.";
 
 $lang->project->selectGroup = new stdclass();
 $lang->project->selectGroup->done = '(Done)';
@@ -4344,8 +4347,8 @@ $lang->project->featureBar['task']['status']       = $lang->project->statusSelec
 $lang->project->treeLevel = array();
 $lang->project->treeLevel['all']   = 'Expand All';
 $lang->project->treeLevel['root']  = 'Collapse All';
-$lang->project->treeLevel['task']  = 'Show All';
-$lang->project->treeLevel['story'] = 'Show Story';
+$lang->project->treeLevel['task']  = 'Stories&Tasks';
+$lang->project->treeLevel['story'] = 'Only Stories';
 
 global $config;
 if($config->global->flow == 'onlyTask')
@@ -4393,10 +4396,10 @@ $lang->release->unlinkStory   = 'Unlink Story';
 $lang->release->unlinkBug     = 'Unlink Bug';
 $lang->release->stories       = 'Finished Story';
 $lang->release->bugs          = 'Resolved Bug';
-$lang->release->leftBugs      = 'Unresolved Bug';
-$lang->release->generatedBugs = 'Unresolved Bug';
-$lang->release->finishStories = 'Finished %s Story';
-$lang->release->resolvedBugs  = 'Resolved %s Bug';
+$lang->release->leftBugs      = 'Active Bug';
+$lang->release->generatedBugs = 'Active Bug';
+$lang->release->finishStories = 'Finished %s Stories';
+$lang->release->resolvedBugs  = 'Resolved %s Bugs';
 $lang->release->createdBugs   = 'Unresolved %s Bug';
 $lang->release->export        = 'Export as HTML';
 $lang->release->yesterday     = 'Released Yesterday';
@@ -4407,7 +4410,7 @@ $lang->release->scmPath  = 'SCM Path : ';
 $lang->release->exportTypeList['all']     = 'All';
 $lang->release->exportTypeList['story']   = 'Story';
 $lang->release->exportTypeList['bug']     = 'Bug';
-$lang->release->exportTypeList['leftbug'] = 'Unresolved Bug';
+$lang->release->exportTypeList['leftbug'] = 'Active Bug';
 
 $lang->release->statusList['']          = '';
 $lang->release->statusList['normal']    = 'Normal';
@@ -4479,7 +4482,7 @@ $lang->report->to            = 'to';
 $lang->report->taskTotal     = "Total Tasks";
 $lang->report->manhourTotal  = "Total Hours";
 $lang->report->validRate     = "Valid Rate";
-$lang->report->validRateTips = "Solution is Resolved/Postponed or status is Resolved/Closed.";
+$lang->report->validRateTips = "Resolution is Resolved/Postponed or status is Resolved/Closed.";
 $lang->report->unplanned     = 'Unplanned';
 $lang->report->workday       = 'Hours/Day';
 $lang->report->diffDays      = 'days';
@@ -4612,7 +4615,7 @@ $lang->search->setQueryTitle = 'Enter a title. Search then the query is saved.';
 $lang->search->select        = 'Story/Task Filter';
 $lang->search->me            = 'Me';
 $lang->search->noQuery       = 'No query is saved yet!';
-$lang->search->onMenuBar     = 'Show in the Menu';
+$lang->search->onMenuBar     = 'Show in Menu';
 $lang->search->custom        = 'Custom';
 
 $lang->search->account  = 'Account';
@@ -4641,7 +4644,7 @@ $lang->search->null = 'Null';
 $lang->sso = new stdclass();
 $lang->sso->settings = 'Settings';
 $lang->sso->turnon   = 'Zdoo';
-$lang->sso->redirect = 'Back to Zdoo';
+$lang->sso->redirect = 'Auto Jump to Zdoo';
 $lang->sso->code     = 'Code';
 $lang->sso->key      = 'Secret Key';
 $lang->sso->addr     = 'Address';
@@ -4699,7 +4702,7 @@ $lang->story->linkStory    = 'Link Story';
 $lang->story->unlinkStory  = 'UnLinked';
 $lang->story->export       = "Export";
 $lang->story->zeroCase     = "Stories without cases";
-$lang->story->zeroTask     = "Stories without tasks";
+$lang->story->zeroTask     = "Only list stories without tasks";
 $lang->story->reportChart  = "Report";
 $lang->story->copyTitle    = "Copy Title";
 $lang->story->batchChangePlan   = "Batch Change Plans";
@@ -4735,8 +4738,8 @@ $lang->story->openedBy       = 'CreatedBy';
 $lang->story->openedDate     = 'CreatedDate';
 $lang->story->assignedTo     = 'AssignTo';
 $lang->story->assignedDate   = 'AssignedDate';
-$lang->story->lastEditedBy   = 'ModifiedBy';
-$lang->story->lastEditedDate = 'ModifiedDate';
+$lang->story->lastEditedBy   = 'EditedBy';
+$lang->story->lastEditedDate = 'EditedDate';
 $lang->story->closedBy       = 'ClosedBy';
 $lang->story->closedDate     = 'ClosedDate';
 $lang->story->closedReason   = 'Reason';
@@ -4837,7 +4840,7 @@ $lang->story->legendBugs           = 'Linked Bugs';
 $lang->story->legendFromBug        = 'From Bug';
 $lang->story->legendCases          = 'Linked Cases';
 $lang->story->legendLinkStories    = 'Linked Stories';
-$lang->story->legendChildStories   = 'Children Stories';
+$lang->story->legendChildStories   = 'Child Stories';
 $lang->story->legendSpec           = 'Description';
 $lang->story->legendVerify         = 'Acceptance';
 $lang->story->legendMisc           = 'Misc.';
@@ -5029,7 +5032,7 @@ $lang->task->estimate          = 'Estimates';
 $lang->task->estimateAB        = 'Est.';
 $lang->task->left              = 'Hours Left';
 $lang->task->leftAB            = 'Left';
-$lang->task->consumed          = 'Hours Cost';
+$lang->task->consumed          = 'Total Cost';
 $lang->task->currentConsumed   = 'Current Cost';
 $lang->task->myConsumed        = 'My Cost';
 $lang->task->consumedAB        = 'Cost';
@@ -5063,9 +5066,9 @@ $lang->task->canceledDate      = 'CancelledDate';
 $lang->task->closedBy          = 'ClosedBy';
 $lang->task->closedDate        = 'ClosedDate';
 $lang->task->closedReason      = 'CloseReason';
-$lang->task->lastEditedBy      = 'ModifiedBy';
-$lang->task->lastEditedDate    = 'ModifiedDate';
-$lang->task->lastEdited        = 'Last Edited';
+$lang->task->lastEditedBy      = 'EditedBy';
+$lang->task->lastEditedDate    = 'EditedDate';
+$lang->task->lastEdited        = 'EditedBy';
 $lang->task->recordEstimate    = 'Effort';
 $lang->task->editEstimate      = 'Edit Estimates';
 $lang->task->deleteEstimate    = 'Delete Estimates';
@@ -5368,7 +5371,7 @@ $lang->testcase->bySearch     = 'Search';
 $lang->testcase->unexecuted   = 'Pending';
 
 $lang->testcase->lblStory       = 'Linked Story';
-$lang->testcase->lblLastEdited  = 'Last Edited';
+$lang->testcase->lblLastEdited  = 'EditedBy';
 $lang->testcase->lblTypeValue   = 'Type Value';
 $lang->testcase->lblStageValue  = 'Phase Value';
 $lang->testcase->lblStatusValue = 'Status Value';
@@ -5488,7 +5491,7 @@ $lang->testreport->all         = 'All Reports';
 $lang->testreport->deleted     = 'Deleted';
 $lang->testreport->selectTask  = 'Create report by request';
 
-$lang->testreport->legendBasic       = 'Basic Info.';
+$lang->testreport->legendBasic       = 'Basic Info';
 $lang->testreport->legendStoryAndBug = 'Test Scope';
 $lang->testreport->legendBuild       = 'Test Rounds';
 $lang->testreport->legendCase        = 'Linked Cases';
@@ -5514,9 +5517,9 @@ $lang->testreport->confirmDelete  = 'Do you want to delete this report?';
 $lang->testreport->moreNotice     = 'More features can be extended with reference to the ZenTao extension manual, or you can contact us at renee@easysoft.ltd for customization.';
 $lang->testreport->exportNotice   = "Exported By <a href='https://www.zentao.net' target='_blank' style='color:grey'>ZenTao</a>";
 $lang->testreport->noReport       = "No report has been generated. Please check it later.";
-$lang->testreport->foundBugTip    = "Bugs generated in this build and generated in the test period.";
+$lang->testreport->foundBugTip    = "Bugs found in this build period and the affected build is in this test period.";
 $lang->testreport->legacyBugTip   = "Active bugs, or resolved bugs that are not in the test period.";
-$lang->testreport->fromCaseBugTip = "Bugs generated due to the failed case run in the test period.";
+$lang->testreport->fromCaseBugTip = "Bugs found from the running of cases in the test period.";
 $lang->testreport->errorTrunk     = "You cannot create a Testing report for the trunk. Please modify the linked build!";
 $lang->testreport->noTestTask     = "No test requests for this {$lang->productCommon}, so no reports can be generated. Please go to {$lang->productCommon} which has test requests and then generate the report.";
 $lang->testreport->noObjectID     = "No test request or {$lang->projectCommon} is selected, so no report can be generated.";
@@ -5525,8 +5528,8 @@ $lang->testreport->moreProduct    = "Testing reports can only be generated for t
 $lang->testreport->bugSummary = <<<EOD
 Total <strong>%s</strong> Bugs reported <a data-toggle='tooltip' class='text-warning' title='{$lang->testreport->foundBugTip}'><i class='icon-help'></i></a>,
 <strong>%s</strong> Bugs remained unresolved <a data-toggle='tooltip' class='text-warning' title='{$lang->testreport->legacyBugTip}'><i class='icon-help'></i></a>,
-<strong>%s</strong> Bugs generated due to the failure of case run <a data-toggle='tooltip' class='text-warning' title='{$lang->testreport->fromCaseBugTip}'><i class='icon-help'></i></a>.
-Bug Effective Rate <a data-toggle='tooltip' class='text-warning' title='Resolution is resolved or delayed / status is resolved or closed'><i class='icon-help'></i></a>: <strong>%s</strong>，Bugs reported from case rate<a data-toggle='tooltip' class='text-warning' title='Bugs created from cases / bugs'><i class='icon-help'></i></a>: <strong>%s</strong>
+<strong>%s</strong> Bugs found from the running of cases<a data-toggle='tooltip' class='text-warning' title='{$lang->testreport->fromCaseBugTip}'><i class='icon-help'></i></a>.
+Bug Effective Rate <a data-toggle='tooltip' class='text-warning' title='Resolution is resolved or delayed / status is resolved or closed'><i class='icon-help'></i></a>: <strong>%s</strong>，Bugs-reported-from-cases rate<a data-toggle='tooltip' class='text-warning' title='Bugs created from cases / bugs'><i class='icon-help'></i></a>: <strong>%s</strong>
 EOD;
 /* testsuite */
 $lang->testsuite->index            = "Home";
@@ -5903,7 +5906,7 @@ $lang->tree->manageBugChild     = 'Manage Child Bugs';
 $lang->tree->manageCaseChild    = 'Manage Child Cases';
 $lang->tree->manageCaselibChild = 'Manage Child Libraries';
 $lang->tree->manageTaskChild    = "Manage Child {$lang->projectCommon} Modules";
-$lang->tree->syncFromProduct    = 'Copy Other Product Modules';
+$lang->tree->syncFromProduct    = 'Copy from Other Products';
 $lang->tree->dragAndSort        = "Drag to order";
 $lang->tree->sort               = "Order";
 $lang->tree->addChild           = "Add Child Module";
@@ -6116,17 +6119,17 @@ $lang->user->todo        = 'Todo';
 $lang->user->story       = 'Stories';
 $lang->user->dynamic     = 'Dynamics';
 
-$lang->user->openedBy    = 'CreatedBy %s';
-$lang->user->assignedTo  = 'AssignedTo %s';
-$lang->user->finishedBy  = 'FinishedBy %s';
-$lang->user->resolvedBy  = 'ResolvedBy %s';
-$lang->user->closedBy    = 'ClosedBy %s';
-$lang->user->reviewedBy  = 'ReviewedBy %s';
-$lang->user->canceledBy  = 'CancelledBy %s';
+$lang->user->openedBy    = 'CreatedBy%s';
+$lang->user->assignedTo  = 'AssignedTo%s';
+$lang->user->finishedBy  = 'FinishedBy%s';
+$lang->user->resolvedBy  = 'ResolvedBy%s';
+$lang->user->closedBy    = 'ClosedBy%s';
+$lang->user->reviewedBy  = 'ReviewedBy%s';
+$lang->user->canceledBy  = 'CancelledBy%s';
 
-$lang->user->testTask2Him = 'BuildBy %s';
-$lang->user->case2Him     = 'CaseAssignedTo %s';
-$lang->user->caseByHim    = 'CaseCreatedBy %s';
+$lang->user->testTask2Him = 'AssignTo%s';
+$lang->user->case2Him     = 'CaseAssignedTo%s';
+$lang->user->caseByHim    = 'CaseCreatedBy%s';
 
 $lang->user->errorDeny    = "Sorry, your access to <b>%s</b> of <b>%s</b> is denied. Please contact your Admin to get privileges. Click Back to return.";
 $lang->user->loginFailed  = "Login failed. Please check your account and password.";
@@ -6286,7 +6289,7 @@ $lang->webhook->trimWords = '';
 $lang->webhook->note = new stdClass();
 $lang->webhook->note->async   = 'If the sending type is asynchronous, you have to go to Admin-System to turn on the cron.';
 $lang->webhook->note->product = "All actions will trigger the hook if {$lang->productCommon} is empty, or only actions of {$lang->productCommon} will trigger it.";
-$lang->webhook->note->project = "All actions will trigger the hook if {$lang->projectCommon} is empty, or only actions of {$lang->projectCommon} will trigger it.";
+$lang->webhook->note->project = "All actions will trigger the hook if {$lang->projectCommon} is empty, or only actions of selected {$lang->projectCommon} will trigger it.";
 
 $lang->webhook->note->typeList['bearychat'] = 'Add a ZenTao bot in bearychat and get the webhook url.';
 $lang->webhook->note->typeList['dingding']  = 'Add a customized bot in dingding and get the webhook url.';
