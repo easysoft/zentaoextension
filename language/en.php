@@ -325,7 +325,7 @@ $lang->report->menu->test    = array('link' => 'Request|report|bugcreate', 'alia
 $lang->report->menu->staff   = array('link' => 'Company|report|workload');
 
 $lang->report->notice = new stdclass();
-$lang->report->notice->help = 'Note: The report is generated on the results of browsing the list. Click the tab, e.g. AssignedToMe, then click Report to generate a report based on AssignedToMe list.';
+$lang->report->notice->help = 'Note: The report is generated on the results of browsing the list. Click, e.g. AssignedToMe, then click Create Report to generate a report based on AssignedToMe list.';
 
 $lang->company = new stdclass();
 $lang->company->menu = new stdclass();
@@ -485,6 +485,19 @@ $lang->pager->locate       = "Go!";
 $lang->pager->previousPage = "Prev";
 $lang->pager->nextPage     = "Next";
 $lang->pager->summery      = "<strong>%s-%s</strong> of <strong>%s</strong>.";
+$lang->pager->pageOfText   = "Page {0}";
+$lang->pager->firstPage    = "First";
+$lang->pager->lastPage     = "Last";
+$lang->pager->goto         = "Goto";
+$lang->pager->pageOf       = "Page <strong>{page}</strong>";
+$lang->pager->totalPage    = "<strong>{totalPage}</strong> pages";
+$lang->pager->totalCount   = "Total: <strong>{recTotal}</strong> items";
+$lang->pager->pageSize     = "<strong>{recPerPage}</strong> per page";
+$lang->pager->itemsRange   = "From <strong>{start}</strong> to <strong>{end}</strong>";
+$lang->pager->pageOfTotal  = "Page <strong>{page}</strong> of <strong>{totalPage}</strong>";
+
+$lang->colorPicker = new stdclass();
+$lang->colorPicker->errorTip = 'Not a valid color value';
 
 $lang->proVersion     = "<a href='https://www.zentao.pm/book/zentaopromanual/free-open-source-project-management-software-zentaopro-127.html' target='_blank' id='proLink' class='text-important'>ZenTao Pro <i class='text-danger icon-pro-version'></i></a> &nbsp; ";
 $lang->downNotify     = "Download Desktop Notification";
@@ -500,7 +513,6 @@ $lang->noticeImport    = "Imported data contains data that has already existed i
 $lang->importConfirm   = "Import";
 $lang->importAndCover  = "Override";
 $lang->importAndInsert = "Insert";
-
 
 $lang->noResultsMatch     = "No results match found!";
 $lang->searchMore         = "More results：";
@@ -1395,7 +1407,7 @@ $lang->block->name   = 'Name';
 $lang->block->style  = 'Style';
 $lang->block->grid   = 'Grid';
 $lang->block->color  = 'Color';
-$lang->block->reset  = 'Reset';
+$lang->block->reset  = 'Reset Layout';
 
 $lang->block->account = 'Account';
 $lang->block->module  = 'Module';
@@ -1440,6 +1452,7 @@ $lang->block->closeForever       = 'Permanent Close';
 $lang->block->confirmClose       = 'Do you want to permanently close this block? Once done, it is not available to anyone. It can be activiated at Admin->Custom.';
 $lang->block->remove             = 'Remove';
 $lang->block->refresh            = 'Refresh';
+$lang->block->nbsp               = ' ';
 $lang->block->hidden             = 'Hide';
 $lang->block->dynamicInfo        = "<span class='timeline-tag'>%s</span> <span class='timeline-text'>%s <em>%s</em> %s <a href='%s' title='%s'>%s</a></span>";
 
@@ -1903,7 +1916,7 @@ $lang->bug->resolvedByMe       = 'ResolvedByMe';
 $lang->bug->closedByMe         = 'ClosedByMe';
 $lang->bug->assignToNull       = 'Unassigned';
 $lang->bug->unResolved         = 'Active';
-$lang->bug->toClosed           = 'ToClose';
+$lang->bug->toClosed           = 'ToBeClosed';
 $lang->bug->unclosed           = 'Unclosed';
 $lang->bug->unconfirmed        = 'Unconfirmed';
 $lang->bug->longLifeBugs       = 'Stalled';
@@ -2166,9 +2179,9 @@ $lang->bug->featureBar['browse']['unclosed']     = $lang->bug->unclosed;
 $lang->bug->featureBar['browse']['openedbyme']   = $lang->bug->openedByMe;
 $lang->bug->featureBar['browse']['assigntome']   = $lang->bug->assignToMe;
 $lang->bug->featureBar['browse']['resolvedbyme'] = $lang->bug->resolvedByMe;
+
+
 $lang->bug->featureBar['browse']['more']         = $lang->more;
-
-
 
 $lang->bug->moreSelects['toclosed']      = $lang->bug->toClosed;
 $lang->bug->moreSelects['unresolved']    = $lang->bug->unResolved;
@@ -2679,6 +2692,7 @@ $lang->dev->tableList['backup']           = 'Backup';
 $lang->dev->tableList['common']           = 'Common';
 $lang->dev->tableList['convert']          = 'Convert';
 $lang->dev->tableList['dev']              = 'Develop';
+$lang->dev->tableList['editor']           = 'Editor';
 $lang->dev->tableList['git']              = 'GIT';
 $lang->dev->tableList['index']            = 'Home';
 $lang->dev->tableList['install']          = 'Install';
@@ -2701,6 +2715,7 @@ $lang->dev->tableList['block']            = 'Block';
 $lang->dev->tableList['branch']           = 'Branch';
 $lang->dev->tableList['doccontent']       = 'Doc Content';
 $lang->dev->tableList['storystage']       = 'Story Phase';
+$lang->dev->tableList['translate']        = 'Translate';
 $lang->dev->tableList['tutorial']         = 'Tutorial';
 $lang->dev->tableList['suitecase']        = 'Suite Case';
 $lang->dev->tableList['score']            = 'Score';
@@ -2970,9 +2985,10 @@ $lang->editor->repeatPage    = 'This page exists. Do you want to overwrite it?';
 $lang->editor->noticeOkFile  = 'For security reasons, your Admin account has to be confirmed. \n Please login ZenTao server and create %sFile.\n Note:\n 1. File is blank.\n 2. If the file existed, delete it and then create a new one.';
 $lang->editor->editFileError = 'You can only modify ZenTao files!';
 
-$lang->editor->notWritable   = "Not wirtable. Permission is required. Please try chmod 777 -R ";
-$lang->editor->notDelete     = 'Cannot be deleted. Please check your permissions!';
-$lang->editor->emptyFileName = 'Please enter a File Name!';
+$lang->editor->notWritable    = "Not wirtable. Permission is required. Please try chmod 777 -R ";
+$lang->editor->notDelete      = 'Cannot be deleted. Please check your permissions!';
+$lang->editor->emptyFileName  = 'Please enter a File Name!';
+$lang->editor->onlyLocalVisit = 'This feature only works when the IP is 127.0.0.1.';
 
 $lang->editor->translate['config.php']  = 'config';
 $lang->editor->translate['control.php'] = 'control';
@@ -3028,6 +3044,7 @@ $lang->entry->id          = 'ID';
 $lang->entry->name        = 'Name';
 $lang->entry->account     = 'Account';
 $lang->entry->code        = 'Code';
+$lang->entry->freePasswd  = 'Free Password Login';
 $lang->entry->key         = 'Key';
 $lang->entry->ip          = 'IP';
 $lang->entry->desc        = 'Description';
@@ -3052,6 +3069,9 @@ $lang->entry->note->ip      = "Use comma to seperate IPs. IP segment is supporte
 $lang->entry->note->allIP   = 'All IPs';
 $lang->entry->note->account = 'Application Account';
 
+$lang->entry->freePasswdList[1] = 'On';
+$lang->entry->freePasswdList[0] = 'Off';
+
 $lang->entry->errmsg['PARAM_CODE_MISSING']    = 'Parameter code is missing.';
 $lang->entry->errmsg['PARAM_TOKEN_MISSING']   = 'Parameter token is missing.';
 $lang->entry->errmsg['SESSION_CODE_MISSING']  = 'Session code is missing.';
@@ -3060,6 +3080,7 @@ $lang->entry->errmsg['INVALID_TOKEN']         = 'Invalid token.';
 $lang->entry->errmsg['SESSION_VERIFY_FAILED'] = 'Session verification failed.';
 $lang->entry->errmsg['IP_DENIED']             = 'IP is denied.';
 $lang->entry->errmsg['ACCOUNT_UNBOUND']       = 'Account is not bound.';
+$lang->entry->errmsg['INVALID_ACCOUNT']       = 'Invalid account.';
 $lang->entry->errmsg['EMPTY_ENTRY']           = 'Application does not exist.';
 $lang->entry->errmsg['CALLED_TIME']           = 'Token has expired';
 /* extension */
@@ -3186,7 +3207,7 @@ $lang->file->label         = 'Label:';
 $lang->file->maxUploadSize = "<span class='text-red'>%s</span>";
 $lang->file->applyTemplate = "Apply Template";
 $lang->file->tplTitle      = "Template Name";
-$lang->file->tplTitleAB    = "Template";
+$lang->file->tplTitleAB    = "Templates";
 $lang->file->setPublic     = "Set Public Template";
 $lang->file->exportFields  = "Fields";
 $lang->file->exportRange   = "Data";
@@ -3227,7 +3248,7 @@ $lang->file->fileNotFound        = 'The file was not found. The physical file mi
 $lang->git->common  = 'Git';
 $lang->git->cat     = 'View Source Code';
 $lang->git->diff    = 'Compare Source Code';
-$lang->git->apiSync = 'API: Synchronize Git Log';
+$lang->git->apiSync = 'API: Synchronize Git Logs';
 /* group */
 $lang->group->common             = 'Privilege';
 $lang->group->browse             = 'Privilege Group';
@@ -3675,15 +3696,11 @@ $lang->misc->zentao->support['manual']     = "User Manual";
 
 $lang->misc->zentao->cowin['reportbug']    = "Report Bug ";
 $lang->misc->zentao->cowin['feedback']     = "Feedback";
-$lang->misc->zentao->cowin['cowinmore']    = "More";
+$lang->misc->zentao->cowin['recommend']    = "More";
 
 $lang->misc->zentao->service['zentaotrain']= 'Zentao Train';
 $lang->misc->zentao->service['idc']        = 'Zentao Cloud';
 $lang->misc->zentao->service['custom']     = 'Zentao Custom';
-$lang->misc->zentao->service['servicemore']= 'More';
-
-
-
 $lang->misc->zentao->service['servicemore']= 'More';
 
 $lang->misc->mobile      = "Mobile Access";
@@ -3710,6 +3727,9 @@ $lang->misc->feature = new stdclass();
 $lang->misc->feature->lastest  = 'Latest Version';
 $lang->misc->feature->detailed = 'Detail';
 
+$lang->misc->releaseDate['11.6.stable'] = '2019-07-12';
+$lang->misc->releaseDate['11.5.2']      = '2019-06-26';
+$lang->misc->releaseDate['11.5.1']      = '2019-06-24';
 $lang->misc->releaseDate['11.5.stable'] = '2019-05-08';
 $lang->misc->releaseDate['11.4.1']      = '2019-04-08';
 $lang->misc->releaseDate['11.4.stable'] = '2019-03-25';
@@ -3736,6 +3756,13 @@ $lang->misc->releaseDate['7.4.beta']    = '2015-11-13';
 $lang->misc->releaseDate['7.2.stable']  = '2015-05-22';
 $lang->misc->releaseDate['7.1.stable']  = '2015-03-07';
 $lang->misc->releaseDate['6.3.stable']  = '2014-11-07';
+
+$lang->misc->feature->all['11.6.stable'][] = array('title'=>'Improving the International Edition Interface', 'desc' => '');
+$lang->misc->feature->all['11.6.stable'][] = array('title'=>'Add translate function', 'desc' => '');
+
+$lang->misc->feature->all['11.5.2'][]      = array('title'=>'Increase the security of ZenTao and increase the login password for weak password check', 'desc' => '');
+
+$lang->misc->feature->all['11.5.1'][]      = array('title'=>'Add a third-party authentication and fix bugs.', 'desc' => '');
 
 $lang->misc->feature->all['11.5.stable'][] = array('title'=>'Optimize details and fix bug.', 'desc' => '');
 $lang->misc->feature->all['11.5.stable'][] = array('title'=>'Added filters to Dynamics', 'desc' => '');
@@ -3995,9 +4022,8 @@ $lang->product->noMatched      = '"%s" cannot be found.' . $lang->productCommon;
 $lang->product->featureBar['browse']['allstory']     = $lang->product->allStory;
 $lang->product->featureBar['browse']['unclosed']     = $lang->product->unclosed;
 $lang->product->featureBar['browse']['assignedtome'] = $lang->product->assignedToMe;
-$lang->product->featureBar['browse']['reviewedbyme'] = $lang->product->reviewedByMe;
 $lang->product->featureBar['browse']['openedbyme']   = $lang->product->openedByMe;
-
+$lang->product->featureBar['browse']['reviewedbyme'] = $lang->product->reviewedByMe;
 $lang->product->featureBar['browse']['draftstory']   = $lang->product->draftStory;
 $lang->product->featureBar['browse']['more']         = $lang->more;
 
@@ -4191,6 +4217,7 @@ $lang->project->team              = 'Members';
 $lang->project->doc               = 'Document';
 $lang->project->doclib            = 'Docoment Library';
 $lang->project->manageProducts    = 'Linked ' . $lang->productCommon . 's';
+$lang->project->linkStory         = 'Link Stories';
 $lang->project->linkStoryByPlan   = 'Link Stories By Plan';
 $lang->project->linkPlan          = 'Linked Plans';
 $lang->project->unlinkStoryTasks  = 'Unlink';
@@ -5030,7 +5057,7 @@ $lang->story->notice->closed = 'Story that you select is closed!';
 $lang->svn->common  = 'Subversion';
 $lang->svn->cat     = 'View Source Code';
 $lang->svn->diff    = 'Compare Source Code';
-$lang->svn->apiSync = 'API: Syncrhonize SVN logs';
+$lang->svn->apiSync = 'API: Syncrhonize SVN Logs';
 /* task */
 $lang->task->index               = "Home";
 $lang->task->create              = "Create Task";
@@ -5645,8 +5672,8 @@ $lang->testsuite->authorList['public']  = 'Public';
 $lang->caselib->common = 'Case Library';
 $lang->caselib->all    = 'All Case Libraries';
 
-$lang->testsuite->createLib  = 'Create Library';
-$lang->testsuite->editLib    = 'Edit Library';
+$lang->testsuite->createLib  = 'Create Case Library';
+$lang->testsuite->editLib    = 'Edit Case Library';
 $lang->testsuite->library    = 'View Cases in Library';
 $lang->testsuite->createCase = 'Create Case';
 $lang->testsuite->libView    = 'Library Detail';
@@ -5816,7 +5843,7 @@ $lang->todo->batchCreate  = "Batch Add ";
 $lang->todo->edit         = "Edit Todo";
 $lang->todo->close        = "Close Todo";
 $lang->todo->batchClose   = "Batch Close";
-$lang->todo->batchEdit    = "Batch Edit Todo";
+$lang->todo->batchEdit    = "Batch Edit Todos";
 $lang->todo->view         = "Todo Detail";
 $lang->todo->finish       = "Finish Todo";
 $lang->todo->batchFinish  = "Batch Finish";
@@ -5982,7 +6009,7 @@ $lang->tree->manageBugChild     = 'Manage Child Bugs';
 $lang->tree->manageCaseChild    = 'Manage Child Cases';
 $lang->tree->manageCaselibChild = 'Manage Child Libraries';
 $lang->tree->manageTaskChild    = "Manage Child {$lang->projectCommon} Modules";
-$lang->tree->syncFromProduct    = "Copy from Other {$lang->projectCommon}s";
+$lang->tree->syncFromProduct    = "Copy from Other {$lang->productCommon}s";
 $lang->tree->dragAndSort        = "Drag to order";
 $lang->tree->sort               = "Order";
 $lang->tree->addChild           = "Add Child Module";
@@ -6274,14 +6301,14 @@ $lang->user->error->reserved      = "ID %s，account is reserved.";
 $lang->user->error->verifyPassword   = "Verification failed. Please enter your Login Password.";
 $lang->user->error->originalPassword = "Old password is incorrect.";
 
-$lang->user->contactFieldList['skype']    = $lang->user->skype;
-$lang->user->contactFieldList['slack']    = $lang->user->slack;
-$lang->user->contactFieldList['whatsapp'] = $lang->user->whatsapp;
-$lang->user->contactFieldList['mobile']   = $lang->user->mobile;
 $lang->user->contactFieldList['phone']    = $lang->user->phone;
+$lang->user->contactFieldList['mobile']   = $lang->user->mobile;
 $lang->user->contactFieldList['qq']       = $lang->user->qq;
 $lang->user->contactFieldList['dingding'] = $lang->user->dingding;
 $lang->user->contactFieldList['weixin']   = $lang->user->weixin;
+$lang->user->contactFieldList['skype']    = $lang->user->skype;
+$lang->user->contactFieldList['slack']    = $lang->user->slack;
+$lang->user->contactFieldList['whatsapp'] = $lang->user->whatsapp;
 
 $lang->user->contacts = new stdclass();
 $lang->user->contacts->common   = 'Contacts';

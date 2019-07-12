@@ -325,7 +325,7 @@ $lang->report->menu->test    = array('link' => '测试|report|bugcreate', 'alias
 $lang->report->menu->staff   = array('link' => '组织|report|workload');
 
 $lang->report->notice = new stdclass();
-$lang->report->notice->help = '注：统计报表的数据来源于列表页面的检索结果，生成统计报表前请先在列表页面进行检索。';
+$lang->report->notice->help = '注：统计报表的数据来源于列表页面的检索结果，生成统计报表前请先在列表页面进行检索。比如列表页面我们检索的是%tab%，那么报表就是基于之前检索的%tab%的结果集进行统计。';
 
 $lang->company = new stdclass();
 $lang->company->menu = new stdclass();
@@ -485,6 +485,19 @@ $lang->pager->locate       = "GO!";
 $lang->pager->previousPage = "上一页";
 $lang->pager->nextPage     = "下一页";
 $lang->pager->summery      = "第 <strong>%s-%s</strong> 项，共 <strong>%s</strong> 项";
+$lang->pager->pageOfText   = '第 {0} 页';
+$lang->pager->firstPage    = '第一页';
+$lang->pager->lastPage     = '最后一页';
+$lang->pager->goto         = '跳转';
+$lang->pager->pageOf       = '第 <strong>{page}</strong> 页';
+$lang->pager->totalPage    = '共 <strong>{totalPage}</strong> 页';
+$lang->pager->totalCount   = '共 <strong>{recTotal}</strong> 项';
+$lang->pager->pageSize     = '每页 <strong>{recPerPage}</strong> 项';
+$lang->pager->itemsRange   = '第 <strong>{start}</strong> ~ <strong>{end}</strong> 项';
+$lang->pager->pageOfTotal  = '第 <strong>{page}</strong>/<strong>{totalPage}</strong> 页';
+
+$lang->colorPicker = new stdclass();
+$lang->colorPicker->errorTip = '不是有效的颜色值';
 
 $lang->proVersion     = "<a href='https://api.zentao.net/goto.php?item=proversion&from=footer' target='_blank' id='proLink' class='text-important'>专业版 <i class='text-danger icon-pro-version'></i></a> &nbsp; ";
 $lang->downNotify     = "下载桌面提醒";
@@ -500,7 +513,6 @@ $lang->noticeImport    = "导入数据中，含有已经存在系统的数据，
 $lang->importConfirm   = "导入确认";
 $lang->importAndCover  = "覆盖";
 $lang->importAndInsert = "全新插入";
-
 
 $lang->noResultsMatch    = "没有匹配结果";
 $lang->searchMore        = "搜索此关键字的更多结果：";
@@ -1441,6 +1453,7 @@ $lang->block->closeForever       = '永久关闭';
 $lang->block->confirmClose       = '确定永久关闭该区块吗？关闭后所有人都将无法使用该区块，可以在后台自定义中打开。';
 $lang->block->remove             = '移除';
 $lang->block->refresh            = '刷新';
+$lang->block->nbsp               = '';  
 $lang->block->hidden             = '隐藏';
 $lang->block->dynamicInfo        = "<span class='timeline-tag'>%s</span> <span class='timeline-text'>%s <em>%s</em> %s <a href='%s' title='%s'>%s</a></span>";
 
@@ -2436,6 +2449,7 @@ $lang->custom->required   = '必填项';
 $lang->custom->score      = '积分';
 $lang->custom->timezone   = '时区';
 $lang->custom->scoreReset = '重置积分';
+$lang->custom->scoreTitle = '积分功能';
 
 $lang->custom->object['story']    = '需求';
 $lang->custom->object['task']     = '任务';
@@ -3031,6 +3045,7 @@ $lang->entry->id          = 'ID';
 $lang->entry->name        = '名称';
 $lang->entry->account     = '账号';
 $lang->entry->code        = '代号';
+$lang->entry->freePasswd  = '免密登录';
 $lang->entry->key         = '密钥';
 $lang->entry->ip          = 'IP';
 $lang->entry->desc        = '描述';
@@ -3055,6 +3070,9 @@ $lang->entry->note->ip      = "允许访问API的应用ip，多个ip用逗号隔
 $lang->entry->note->allIP   = '无限制';
 $lang->entry->note->account = '授权应用账号';
 
+$lang->entry->freePasswdList[1] = '开启';
+$lang->entry->freePasswdList[0] = '关闭';
+
 $lang->entry->errmsg['PARAM_CODE_MISSING']    = '缺少code参数';
 $lang->entry->errmsg['PARAM_TOKEN_MISSING']   = '缺少token参数';
 $lang->entry->errmsg['SESSION_CODE_MISSING']  = '缺少session code';
@@ -3063,6 +3081,7 @@ $lang->entry->errmsg['INVALID_TOKEN']         = '无效的token参数';
 $lang->entry->errmsg['SESSION_VERIFY_FAILED'] = 'session验证失败';
 $lang->entry->errmsg['IP_DENIED']             = '该IP被限制访问';
 $lang->entry->errmsg['ACCOUNT_UNBOUND']       = '未绑定用户';
+$lang->entry->errmsg['INVALID_ACCOUNT']       = '用户不存在';
 $lang->entry->errmsg['EMPTY_ENTRY']           = '应用不存在';
 $lang->entry->errmsg['CALLED_TIME']           = 'Token已失效';
 /* extension */
@@ -3704,7 +3723,6 @@ $lang->misc->zentao->cowin['reportbug']    = "汇报Bug";
 $lang->misc->zentao->cowin['feedback']     = "反馈需求";
 $lang->misc->zentao->cowin['recommend']    = "推荐给朋友";
 
-
 $lang->misc->zentao->service['zentaotrain']= '禅道使用培训';
 $lang->misc->zentao->service['idc']        = '禅道在线托管';
 $lang->misc->zentao->service['custom']     = '禅道定制开发';
@@ -3734,6 +3752,9 @@ $lang->misc->feature = new stdclass();
 $lang->misc->feature->lastest  = '最新版本';
 $lang->misc->feature->detailed = '详情';
 
+$lang->misc->releaseDate['11.6.stable'] = '2019-07-12';
+$lang->misc->releaseDate['11.5.2']      = '2019-06-26';
+$lang->misc->releaseDate['11.5.1']      = '2019-06-24';
 $lang->misc->releaseDate['11.5.stable'] = '2019-05-08';
 $lang->misc->releaseDate['11.4.1']      = '2019-04-08';
 $lang->misc->releaseDate['11.4.stable'] = '2019-03-25';
@@ -3760,6 +3781,13 @@ $lang->misc->releaseDate['7.4.beta']    = '2015-11-13';
 $lang->misc->releaseDate['7.2.stable']  = '2015-05-22';
 $lang->misc->releaseDate['7.1.stable']  = '2015-03-07';
 $lang->misc->releaseDate['6.3.stable']  = '2014-11-07';
+
+$lang->misc->feature->all['11.6.stable'][] = array('title'=>'改善国际版界面', 'desc' => '');
+$lang->misc->feature->all['11.6.stable'][] = array('title'=>'添加翻译功能', 'desc' => '');
+
+$lang->misc->feature->all['11.5.2'][]      = array('title'=>'增加禅道安全性，增加登录禅道弱口令检查', 'desc' => '');
+
+$lang->misc->feature->all['11.5.1'][]      = array('title'=>'新增第三方应用免密登录禅道，修复Bug', 'desc' => '');
 
 $lang->misc->feature->all['11.5.stable'][] = array('title'=>'完善细节，修复Bug', 'desc' => '');
 $lang->misc->feature->all['11.5.stable'][] = array('title'=>'新增动态过滤机制', 'desc' => '');
@@ -5669,8 +5697,8 @@ $lang->testsuite->authorList['public']  = '公开';
 $lang->caselib->common = '公共用例库';
 $lang->caselib->all    = '所有用例库';
 
-$lang->testsuite->createLib  = '创建库';
-$lang->testsuite->editLib    = '编辑库';
+$lang->testsuite->createLib  = '创建用例库';
+$lang->testsuite->editLib    = '编辑用例库';
 $lang->testsuite->library    = '浏览库用例';
 $lang->testsuite->createCase = '创建用例';
 $lang->testsuite->libView    = '查看库概况';
