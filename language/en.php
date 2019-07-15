@@ -18,7 +18,7 @@ $lang->login          = 'Login';
 $lang->help           = 'Help';
 $lang->aboutZenTao    = 'About';
 $lang->profile        = 'Profile';
-$lang->changePassword = 'Change Password';
+$lang->changePassword = 'Password';
 $lang->runInfo        = "<div class='row'><div class='u-1 a-center' id='debugbar'>Time %s MS, Memory %s KB, Query %s.  </div></div>";
 $lang->agreement      = "I have read and agreed to the terms and conditions of <a href='http://zpl.pub/page/zplv12.html' target='_blank'> Z PUBLIC LICENSE 1.2 </a>. <span class='text-danger'>Without authorization, I should not remove, hide or cover any logos/links of ZenTao.</span>";
 $lang->designedByAIUX = "<a href='http://aiuxstudio.com/' class='link-aiux' target='_blank'>Designed by <strong>AIUX</strong></a>";
@@ -1405,7 +1405,7 @@ $lang->block = new stdclass();
 $lang->block->common = 'Block';
 $lang->block->name   = 'Name';
 $lang->block->style  = 'Style';
-$lang->block->grid   = 'Grid';
+$lang->block->grid   = 'Position';
 $lang->block->color  = 'Color';
 $lang->block->reset  = 'Reset Layout';
 
@@ -2435,16 +2435,16 @@ $lang->custom->set        = 'Customize';
 $lang->custom->restore    = 'Reset';
 $lang->custom->key        = 'Key';
 $lang->custom->value      = 'Value';
-$lang->custom->flow       = 'Workflow';
+$lang->custom->flow       = 'Concept';
 $lang->custom->working    = 'Mode';
-$lang->custom->select     = 'Select Workflow';
+$lang->custom->select     = 'Select Concept';
 $lang->custom->branch     = 'Multi-Branch';
 $lang->custom->owner      = 'Owner';
 $lang->custom->module     = 'Module';
 $lang->custom->section    = 'Section';
 $lang->custom->lang       = 'Language';
 $lang->custom->setPublic  = 'Set Public';
-$lang->custom->required   = 'Required Fields';
+$lang->custom->required   = 'Required Field';
 $lang->custom->score      = 'Point';
 $lang->custom->timezone   = 'Timezone';
 $lang->custom->scoreReset = 'Reset Points';
@@ -2524,7 +2524,7 @@ $lang->custom->notice->forceReview          = '%s review is required for committ
 $lang->custom->notice->forceNotReview       = "%s review is not required for committers selected.";
 $lang->custom->notice->longlife             = 'Define stalled bugs.';
 $lang->custom->notice->invalidNumberKey     = 'The key should be =< 255.';
-$lang->custom->notice->invalidStringKey     = 'The key should be a combination of lowercase letters, numbers or underlines.';
+$lang->custom->notice->invalidStringKey     = 'The key should be lowercase letters, numbers or underlines.';
 $lang->custom->notice->cannotSetTimezone    = 'date_default_timezone_set does not exist or is disabled. Timezone cannot be set.';
 $lang->custom->notice->noClosedBlock        = 'You have no blocks that are closed permanently.';
 $lang->custom->notice->required             = 'The selected field is required.';
@@ -2557,7 +2557,7 @@ $lang->custom->productProject->relation['0_0'] = 'Product - Project';
 $lang->custom->productProject->relation['0_1'] = 'Product - Sprint';
 $lang->custom->productProject->relation['1_1'] = 'Project - Sprint';
 
-$lang->custom->productProject->notice = 'Select the work mode that fits your team.';
+$lang->custom->productProject->notice = 'Select a concept that fits your team.';
 
 $lang->custom->workingList['full']      = 'Application Lifecycle Management';
 $lang->custom->workingList['onlyTest']  = 'Test Management';
@@ -3778,7 +3778,7 @@ $lang->misc->feature->all['11.2.stable'][] = array('title'=>'Optimize details an
 
 $lang->misc->feature->all['11.1.stable'][] = array('title'=>'Fix Bug.', 'desc' => '');
 
-$lang->misc->feature->all['11.0.stable'][] = array('title'=>'ZenTao integrate Xuanxuan', 'desc' => '');
+$lang->misc->feature->all['11.0.stable'][] = array('title'=>'ZenTao integrated desktop.', 'desc' => '');
 
 $lang->misc->feature->all['10.6.stable'][] = array('title'=>'Adjust backup mechanism', 'desc' => '<p>Increase backup settings and make backup more flexible</p><p>Show backup progress</p><p>Change the backup directory</p>');
 $lang->misc->feature->all['10.6.stable'][] = array('title'=>'Optimize and adjust menu', 'desc' => '<p>Adjust admin menu</p><p>Adjust the secondary menu of My and Project</p>');
@@ -3791,7 +3791,7 @@ $lang->misc->feature->all['10.4.stable'][] = array('title'=>'After the user mach
 $lang->misc->feature->all['10.4.stable'][] = array('title'=>'Upgrade existing interface mechanisms', 'desc' => '');
 
 $lang->misc->feature->all['10.3.stable'][] = array('title'=>'Fix Bug.', 'desc' => '');
-$lang->misc->feature->all['10.2.stable'][] = array('title'=>'Xuan.im is integrated!', 'desc' => '');
+$lang->misc->feature->all['10.2.stable'][] = array('title'=>'ZenTao desktop is integrated!', 'desc' => '');
 
 $lang->misc->feature->all['10.0.stable'][] = array('title'=>'New UI/UX and new experience', 'desc' => '<ol><li>My Dashboard</li><li>Dynamics</li><li>Product Home</li><li>Product Overview</li><li>Roadmap</li><li>Project Home</li><li>Project overview</li><li>QA Home</li><li>Document Home</li><li>Added work report on My Dashboard</li><li>Add/Edit/Finish todos on My Dashboard</li><li>Add prodcut report on Product Home</li><li>Add prodcut overview on Product Home</li><li>Add project report on Project Home</li><li>Add project overview on Project Home</li><li>Add Testing report on QA Home</li><li>All Product/product Home/All Project/Project Home/QA Home is moved from the right of the secondary Navbar to the left.</li><li>Kanban/Burndown/Tree/ByGroup of Project/Task has been moved from the third Navbar to the secondary one; Tree/ByGroup/Task List has been integrated to a drop-down.</li><li>Bug/Build of Project on the secondary Navbar has been integrated to a drop-down.</li><li>Display build and list by group, which is more reasonable.</li><li>Added tree to display document on the left of the page.</li><li>Added quick entry to document, including Last Update, My Doc and My Favorite</li><li>Added My Favorite to Doc module.</li></ol>');
 
@@ -3807,12 +3807,12 @@ $lang->misc->feature->all['9.6.stable'][] = array('title'=>'Added Point', 'desc'
 $lang->misc->feature->all['9.6.stable'][] = array('title'=>'Added multiple user task and child tasks to Project', 'desc' => '');
 $lang->misc->feature->all['9.6.stable'][] = array('title'=>'Added Product line management to Product', 'desc' => '');
 
-$lang->misc->feature->all['9.5.1'][] = array('title'=>'added Restricted Operation', 'desc' => '');
+$lang->misc->feature->all['9.5.1'][] = array('title'=>'Added restricted actions.', 'desc' => '');
 
-$lang->misc->feature->all['9.3.beta'][] = array('title'=>'upgraded framework，Enhanced security', 'desc' => '');
+$lang->misc->feature->all['9.3.beta'][] = array('title'=>'Upgraded ZenTao framework，enhanced security', 'desc' => '');
 
-$lang->misc->feature->all['9.1.stable'][] = array('title'=>'optimize Test View', 'desc' => '<p>added TestSuite, CaseLibrary and QA Report</p>');
-$lang->misc->feature->all['9.1.stable'][] = array('title'=>'support Group steps of TestCase', 'desc' => '');
+$lang->misc->feature->all['9.1.stable'][] = array('title'=>'optimize Test View', 'desc' => '<p>Added TestSuite, CaseLibrary and QA Report</p>');
+$lang->misc->feature->all['9.1.stable'][] = array('title'=>'Support Group steps of TestCase', 'desc' => '');
 
 $lang->misc->feature->all['9.0.beta'][] = array('title'=>'ZenTao CloudMail has been added.', 'desc' => '<p>ZenTao CloudMail is a free Email service launched jointly with SendCloud. Once binded with ZenTao and passed verification, users can use this service.</p>');
 $lang->misc->feature->all['9.0.beta'][] = array('title'=>'Optimized Rich Text Editor and Markdown Editor.', 'desc' => '');
@@ -4285,7 +4285,7 @@ $lang->project->groups['closedBy']   = 'Group by ClosedBy';
 $lang->project->groups['type']       = 'Group by Type';
 
 $lang->project->groupFilter['story']['all']         = 'All';
-$lang->project->groupFilter['story']['linked']      = 'Tasks of linked story';
+$lang->project->groupFilter['story']['linked']      = 'Tasks linked to stories';
 $lang->project->groupFilter['pri']['all']           = 'All';
 $lang->project->groupFilter['pri']['noset']         = 'Not Set';
 $lang->project->groupFilter['assignedTo']['undone'] = 'Unfinished';
@@ -5610,7 +5610,7 @@ $lang->testreport->moreNotice     = 'More features can be extended with referenc
 $lang->testreport->exportNotice   = "Exported By <a href='https://www.zentao.net' target='_blank' style='color:grey'>ZenTao</a>";
 $lang->testreport->noReport       = "No report has been generated. Please check it later.";
 $lang->testreport->foundBugTip    = "Bugs found in this build period and the affected build is in this test period.";
-$lang->testreport->legacyBugTip   = "Active bugs, or resolved bugs that are not in the test period.";
+$lang->testreport->legacyBugTip   = "Active bugs, or bugs that are not resolved in the test period.";
 $lang->testreport->fromCaseBugTip = "Bugs found from the running of cases in the test period.";
 $lang->testreport->errorTrunk     = "You cannot create a Testing report for the trunk. Please modify the linked build!";
 $lang->testreport->noTestTask     = "No test requests for this {$lang->productCommon}, so no reports can be generated. Please go to {$lang->productCommon} which has test requests and then generate the report.";
