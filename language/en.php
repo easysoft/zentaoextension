@@ -21,7 +21,7 @@ $lang->profile        = 'Profile';
 $lang->changePassword = 'Password';
 $lang->runInfo        = "<div class='row'><div class='u-1 a-center' id='debugbar'>Time %s MS, Memory %s KB, Query %s.  </div></div>";
 $lang->agreement      = "I have read and agreed to the terms and conditions of <a href='http://zpl.pub/page/zplv12.html' target='_blank'> Z PUBLIC LICENSE 1.2 </a>. <span class='text-danger'>Without authorization, I should not remove, hide or cover any logos/links of ZenTao.</span>";
-$lang->designedByAIUX = "<a href='http://aiuxstudio.com/' class='link-aiux' target='_blank'>Designed by <strong>AIUX</strong></a>";
+$lang->designedByAIUX = "<a href='https://api.zentao.pm/goto.php?item=aiux' class='link-aiux' target='_blank'>Designed by <strong>AIUX</strong></a>";
 
 $lang->reset        = 'Reset';
 $lang->cancel       = 'Cancel';
@@ -1336,7 +1336,7 @@ $lang->admin->safe->reasonList['birthday'] = 'Same as DOB';
 $lang->admin->safe->modifyPasswordList[1] = 'Yes';
 $lang->admin->safe->modifyPasswordList[0] = 'No';
 
-$lang->admin->safe->noticeMode   = 'Password will be checked when a user logs in, or a user is added and edited.';
+$lang->admin->safe->noticeMode   = 'Password will be checked when a user logs in, or a user is added or edited.';
 $lang->admin->safe->noticeStrong = '';
 /* api */
 $lang->api = new stdclass();
@@ -2982,13 +2982,13 @@ $lang->editor->deleteConfirm = 'Do you want to delete it?';
 $lang->editor->extendConfirm = 'Do you want to use original code?';
 $lang->editor->repeatFile    = 'File Name Duplicated';
 $lang->editor->repeatPage    = 'This page exists. Do you want to overwrite it?';
-$lang->editor->noticeOkFile  = 'For security reasons, your Admin account has to be confirmed. \n Please login ZenTao server and create %sFile.\n Note:\n 1. File is blank.\n 2. If the file existed, delete it and then create a new one.';
+$lang->editor->noticeOkFile  = 'For security reasons, your Admin account has to be confirmed. \n Please login ZenTao server and create %s File.\n Note:\n 1. File is blank.\n 2. If the file existed, delete it and then create a new one.';
 $lang->editor->editFileError = 'You can only modify ZenTao files!';
 
 $lang->editor->notWritable    = "Not wirtable. Permission is required. Please try chmod 777 -R ";
 $lang->editor->notDelete      = 'Cannot be deleted. Please check your permissions!';
 $lang->editor->emptyFileName  = 'Please enter a File Name!';
-$lang->editor->onlyLocalVisit = 'This feature only works when the IP is 127.0.0.1.';
+$lang->editor->onlyLocalVisit = "This feature only works when the IP is 127.0.0.1. <a href='https://api.zentao.pm/goto.php?item=howtodevelop&from=en' target='_blank'>Document</a>";
 
 $lang->editor->translate['config.php']  = 'config';
 $lang->editor->translate['control.php'] = 'control';
@@ -4843,7 +4843,7 @@ $lang->story->total          = "Total Stories";
 $lang->story->allStories     = 'All Stories';
 $lang->story->unclosed       = 'Unclosed';
 $lang->story->deleted        = 'Deleted';
-$lang->story->released       = 'Released Linked Stories';
+$lang->story->released       = 'Released Stories';
 
 $lang->story->ditto       = 'Ditto';
 $lang->story->dittoNotice = 'This story is not linked to the same product as the last one is!';
@@ -5163,7 +5163,7 @@ $lang->task->deleteEstimate    = 'Delete Estimates';
 $lang->task->colorTag          = 'Color';
 $lang->task->files             = 'Files';
 $lang->task->hasConsumed       = 'Already Cost';
-$lang->task->multiple          = 'Multiple User Task';
+$lang->task->multiple          = 'Multiple Users';
 $lang->task->multipleAB        = 'M';
 $lang->task->team              = 'Team';
 $lang->task->transfer          = 'Transfer';
@@ -5881,7 +5881,7 @@ $lang->todo->cycleMonth  = 'Month';
 $lang->todo->deadline    = 'Expiration';
 
 $lang->todo->every      = 'Every';
-$lang->todo->beforeDays = "<span class='input-group-addon'>Auto create a todo</span>%s<span class='input-group-addon'>days before</span>";
+$lang->todo->beforeDays = "<span class='input-group-addon'>Auto create the todo</span>%s<span class='input-group-addon'>days before</span>";
 $lang->todo->dayNames   = array(1 => 'Monday', 2 => 'Tuesday', 3 => 'Wednesday', 4 => 'Thursday', 5 => 'Friday', 6 => 'Saturday', 0 => 'Sunday');
 
 $lang->todo->confirmBug   = 'This Todo is linked to Bug #%s. Do you want to edit it?';
@@ -6214,7 +6214,7 @@ $lang->user->profile     = 'Profile';
 $lang->user->project     = $lang->projectCommon . 's';
 $lang->user->task        = 'Tasks';
 $lang->user->bug         = 'Bugs';
-$lang->user->test        = 'QA';
+$lang->user->test        = 'Test';
 $lang->user->testTask    = 'Requests';
 $lang->user->testCase    = 'Cases';
 $lang->user->schedule    = 'Schedule';
@@ -6230,9 +6230,9 @@ $lang->user->closedBy    = 'ClosedBy%s';
 $lang->user->reviewedBy  = 'ReviewedBy%s';
 $lang->user->canceledBy  = 'CancelledBy%s';
 
-$lang->user->testTask2Him = 'AssignedTo%s';
-$lang->user->case2Him     = 'CaseAssignedTo%s';
-$lang->user->caseByHim    = 'CaseCreatedBy%s';
+$lang->user->testTask2Him = 'RequestsAssignedTo%s';
+$lang->user->case2Him     = 'CasesAssignedTo%s';
+$lang->user->caseByHim    = 'CasesCreatedBy%s';
 
 $lang->user->errorDeny    = "Sorry, your access to <b>%s</b> of <b>%s</b> is denied. Please contact your Admin to get privileges. Click Back to return.";
 $lang->user->loginFailed  = "Login failed. Please check your account and password.";

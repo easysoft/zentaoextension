@@ -21,7 +21,7 @@ $lang->profile        = '个人档案';
 $lang->changePassword = '更改密码';
 $lang->runInfo        = "<div class='row'><div class='u-1 a-center' id='debugbar'>时间: %s 毫秒, 内存: %s KB, 查询: %s.  </div></div>";
 $lang->agreement      = "已阅读并同意<a href='http://zpl.pub/page/zplv12.html' target='_blank'>《Z PUBLIC LICENSE授权协议1.2》</a>。<span class='text-danger'>未经许可，不得去除、隐藏或遮掩禅道软件的任何标志及链接。</span>";
-$lang->designedByAIUX = "<a href='http://aiuxstudio.com/' class='link-aiux' target='_blank'>Designed by <strong>艾体验</strong></a>";
+$lang->designedByAIUX = "<a href='https://api.zentao.net/goto.php?item=aiux' class='link-aiux' target='_blank'>Designed by <strong>艾体验</strong></a>";
 
 $lang->reset        = '重填';
 $lang->cancel       = '取消';
@@ -2989,7 +2989,7 @@ $lang->editor->editFileError = '只能修改禅道文件！';
 $lang->editor->notWritable    = "无法写入，可能没有权限。请尝试执行 chmod 777 -R ";
 $lang->editor->notDelete      = '无法删除，请检查权限！';
 $lang->editor->emptyFileName  = '请写入一个文件名！';
-$lang->editor->onlyLocalVisit = '该功能只能在IP：127.0.0.1下访问。';
+$lang->editor->onlyLocalVisit = "该功能只能在IP：127.0.0.1下访问。<a href='https://api.zentao.net/goto.php?item=howtodevelop' target='_blank'>说明文档</a>";
 
 $lang->editor->translate['config.php']  = 'config';
 $lang->editor->translate['control.php'] = 'control';
@@ -4868,7 +4868,7 @@ $lang->story->total          = '总需求';
 $lang->story->allStories     = '所有需求';
 $lang->story->unclosed       = '未关闭';
 $lang->story->deleted        = '已删除';
-$lang->story->released       = '已发布关联需求数';
+$lang->story->released       = '已发布需求数';
 
 $lang->story->ditto       = '同上';
 $lang->story->dittoNotice = '该需求与上一需求不属于同一产品！';
@@ -5974,7 +5974,7 @@ $lang->translate->status      = '状态';
 $lang->translate->refreshPage = '刷新';
 $lang->translate->reason      = '拒绝原因';
 
-$lang->translate->reviewTurnon = '评审流程';
+$lang->translate->reviewTurnon = '审校流程';
 $lang->translate->reviewTurnonList['1'] = '开启';
 $lang->translate->reviewTurnonList['0'] = '关闭';
 
@@ -6000,7 +6000,7 @@ $lang->translate->allItems        = '所有的语言条目数：%s条';
 
 $lang->translate->statusList['waiting']    = '未翻译';
 $lang->translate->statusList['translated'] = '已翻译';
-$lang->translate->statusList['reviewed']   = '已评审';
+$lang->translate->statusList['reviewed']   = '已审校';
 $lang->translate->statusList['rejected']   = '已拒绝';
 $lang->translate->statusList['changed']    = '已改变';
 
