@@ -4416,6 +4416,13 @@ $lang->project->featureBar['task']['delayed']      = 'Delayed';
 $lang->project->featureBar['task']['needconfirm']  = 'Changed';
 $lang->project->featureBar['task']['status']       = $lang->project->statusSelects[''];
 
+$lang->project->featureBar['all']['all']       = $lang->project->all;
+$lang->project->featureBar['all']['undone']    = $lang->project->undone;
+$lang->project->featureBar['all']['wait']      = $lang->project->statusList['wait'];
+$lang->project->featureBar['all']['doing']     = $lang->project->statusList['doing'];
+$lang->project->featureBar['all']['suspended'] = $lang->project->statusList['suspended'];
+$lang->project->featureBar['all']['closed']    = $lang->project->statusList['closed'];
+
 $lang->project->treeLevel = array();
 $lang->project->treeLevel['all']   = 'Expand All';
 $lang->project->treeLevel['root']  = 'Collapse All';
@@ -5830,6 +5837,12 @@ $lang->testtask->report->options->graph  = new stdclass();
 $lang->testtask->report->options->type   = 'pie';
 $lang->testtask->report->options->width  = 500;
 $lang->testtask->report->options->height = 140;
+
+$lang->testtask->featureBar['browse']['totalStatus'] = $lang->testtask->totalStatus;
+$lang->testtask->featureBar['browse']['wait']        = $lang->testtask->wait;
+$lang->testtask->featureBar['browse']['doing']       = $lang->testtask->testing;
+$lang->testtask->featureBar['browse']['blocked']     = $lang->testtask->blocked;
+$lang->testtask->featureBar['browse']['done']        = $lang->testtask->done;
 /* todo */
 $lang->todo->common       = 'Todo';
 $lang->todo->index        = "Home";
