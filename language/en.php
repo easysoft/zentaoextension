@@ -529,7 +529,7 @@ if(!defined('DT_MONTHTIME2'))define('DT_MONTHTIME2', 'n/d H:i');
 if(!defined('DT_DATE1'))     define('DT_DATE1',     'Y-m-d');
 if(!defined('DT_DATE2'))     define('DT_DATE2',     'Ymd');
 if(!defined('DT_DATE3'))     define('DT_DATE3',     'Y/m/d');
-if(!defined('DT_DATE4'))     define('DT_DATE4',     'n/j');
+if(!defined('DT_DATE4'))     define('DT_DATE4',     'M d');
 if(!defined('DT_TIME1'))     define('DT_TIME1',     'H:i:s');
 if(!defined('DT_TIME2'))     define('DT_TIME2',     'H:i');
 
@@ -3193,7 +3193,7 @@ $lang->extension->errorInstallDB               = 'Database report execution fail
 $lang->extension->errorConflicts               = 'Conflicted with “%s”!';
 $lang->extension->errorDepends                 = 'Dependent extension has not been installed or the version is incorrect:<br /><br /> %s';
 $lang->extension->errorIncompatible            = 'Incompatible with your ZenTao.';
-$lang->extension->errorUninstallDepends        = '“%s” is dependent on ts extension. Please do not install it.';
+$lang->extension->errorUninstallDepends        = '“%s” is dependent on this extension. Please do not uninstall it.';
 /* file */
 $lang->file = new stdclass();
 $lang->file->common        = 'File';
