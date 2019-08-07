@@ -4224,7 +4224,7 @@ $lang->project->statusList['closed']    = 'Closed';
 
 $lang->project->aclList['open']    = "Default (Users who can visit {$lang->projectCommon} can access it.)";
 $lang->project->aclList['private'] = 'Private (For team members only.)';
-$lang->project->aclList['custom']  = 'Whitelist (Team members and the whitelist users can access it.)';
+$lang->project->aclList['custom']  = 'Custom (Team members and the whitelist users can access it.)';
 
 $lang->project->index             = "{$lang->projectCommon} Home";
 $lang->project->task              = 'Task List';
@@ -5438,10 +5438,10 @@ $lang->testcase->stepNumberAB     = 'S';
 $lang->testcase->createBug        = 'Report Bug';
 $lang->testcase->fromModule       = 'Source Module';
 $lang->testcase->fromCase         = 'Source Case';
-$lang->testcase->sync             = 'Sync. Case';
+$lang->testcase->sync             = 'Synchronize Case';
 $lang->testcase->ignore           = 'Ignore';
 $lang->testcase->fromTesttask     = 'From Test Request';
-$lang->testcase->fromCaselib      = 'From CaseLib';
+$lang->testcase->fromCaselib      = 'From Case Library';
 $lang->testcase->deleted          = 'Deleted';
 $lang->case = $lang->testcase;  // For dao checking using. Because 'case' is a php keywords, so the module name is testcase, table name is still case.
 
@@ -5488,7 +5488,7 @@ $lang->testcase->copy                    = 'Copy Case';
 $lang->testcase->group                   = 'Group';
 $lang->testcase->groupName               = 'Group Name';
 $lang->testcase->step                    = 'Steps';
-$lang->testcase->stepChild               = 'Child Step';
+$lang->testcase->stepChild               = 'Child Steps';
 $lang->testcase->viewAll                 = 'All Cases';
 
 $lang->testcase->new = 'New';
@@ -5513,7 +5513,7 @@ $lang->testcase->lblTypeValue   = 'Type Value';
 $lang->testcase->lblStageValue  = 'Phase Value';
 $lang->testcase->lblStatusValue = 'Status Value';
 
-$lang->testcase->legendBasicInfo    = 'Basic Info';
+$lang->testcase->legendBasicInfo    = 'Basic Information';
 $lang->testcase->legendAttatch      = 'Files';
 $lang->testcase->legendLinkBugs     = 'Bugs';
 $lang->testcase->legendOpenAndEdit  = 'Create/Edit';
@@ -5537,8 +5537,8 @@ $lang->testcase->priList[4] = 4;
 $lang->testcase->typeList['']            = '';
 $lang->testcase->typeList['feature']     = 'Feature';
 $lang->testcase->typeList['performance'] = 'Performance';
-$lang->testcase->typeList['config']      = 'Config';
-$lang->testcase->typeList['install']     = 'Install';
+$lang->testcase->typeList['config']      = 'Configuration';
+$lang->testcase->typeList['install']     = 'Installation';
 $lang->testcase->typeList['security']    = 'Security';
 $lang->testcase->typeList['interface']   = 'Interface';
 $lang->testcase->typeList['other']       = 'Others';
