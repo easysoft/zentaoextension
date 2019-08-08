@@ -3521,14 +3521,15 @@ $lang->install->joinZentao = <<<EOT
 <p>您已经成功安装禅道管理系统%s，<strong class='text-danger'>请及时删除install.php</strong>。</p><p>友情提示：为了您及时获得禅道的最新动态，请在禅道社区(<a href='https://www.zentao.net' class='alert-link' target='_blank'>www.zentao.net</a>)进行登记。</p>
 EOT;
 
-$lang->install->product = array('chanzhi', 'ranzhi', 'xuanxuan');
+$lang->install->product = array('chanzhi', 'ranzhi', 'xuanxuan', 'ydisk', 'meshiot');
 
-$lang->install->promotion     = "为您推荐易软天创旗下其他产品：";
-$lang->install->chanzhi       = new stdclass();
-$lang->install->chanzhi->name = '蝉知企业门户系统';
-$lang->install->chanzhi->logo = 'images/main/chanzhi.png';
-$lang->install->chanzhi->url  = 'http://www.chanzhi.org';
-$lang->install->chanzhi->desc = <<<EOD
+$lang->install->promotion      = "为您推荐易软天创旗下其他产品：";
+$lang->install->chanzhi        = new stdclass();
+$lang->install->chanzhi->name  = '蝉知企业门户系统';
+$lang->install->chanzhi->width = 'col-md-4';
+$lang->install->chanzhi->logo  = 'images/main/chanzhi.png';
+$lang->install->chanzhi->url   = 'http://www.chanzhi.org';
+$lang->install->chanzhi->desc  = <<<EOD
 <ul>
   <li>专业的企业营销门户系统</li>
   <li>功能丰富，操作简洁方便</li>
@@ -3538,10 +3539,11 @@ $lang->install->chanzhi->desc = <<<EOD
 EOD;
 
 $lang->install->ranzhi = new stdclass();
-$lang->install->ranzhi->name = '然之协同管理系统';
-$lang->install->ranzhi->logo = 'images/main/ranzhi.png';
-$lang->install->ranzhi->url  = 'http://www.ranzhi.org';
-$lang->install->ranzhi->desc = <<<EOD
+$lang->install->ranzhi->name  = '然之协同管理系统';
+$lang->install->ranzhi->width = 'col-md-4';
+$lang->install->ranzhi->logo  = 'images/main/ranzhi.png';
+$lang->install->ranzhi->url   = 'http://www.ranzhi.org';
+$lang->install->ranzhi->desc  = <<<EOD
 <ul>
   <li>客户管理，订单跟踪</li>
   <li>项目任务，公告文档</li>
@@ -3551,8 +3553,10 @@ $lang->install->ranzhi->desc = <<<EOD
 EOD;
 
 $lang->install->zdoo = new stdclass();
-$lang->install->zdoo->name = '可深度定制的云端一体化协作平台';
-$lang->install->zdoo->desc = <<<EOD
+$lang->install->zdoo->name  = '可深度定制的云端一体化协作平台';
+$lang->install->zdoo->width = 'col-md-4';
+$lang->install->zdoo->url   = 'http://www.zdoo.com';
+$lang->install->zdoo->desc  = <<<EOD
 <ul>
   <li>安全、稳定、高效</li>
   <li>以容器为交付单位</li>
@@ -3562,15 +3566,44 @@ $lang->install->zdoo->desc = <<<EOD
 EOD;
 
 $lang->install->xuanxuan = new stdclass();
-$lang->install->xuanxuan->name = '喧喧即时聊天软件';
-$lang->install->xuanxuan->logo = 'images/main/xuanxuan.png';
-$lang->install->xuanxuan->url  = 'http://www.xuan.im';
-$lang->install->xuanxuan->desc = <<<EOD
+$lang->install->xuanxuan->name  = '喧喧即时聊天软件';
+$lang->install->xuanxuan->width = 'col-md-4';
+$lang->install->xuanxuan->logo  = 'images/main/xuanxuan.png';
+$lang->install->xuanxuan->url   = 'http://www.xuan.im';
+$lang->install->xuanxuan->desc  = <<<EOD
 <ul>
   <li>轻：轻量级架构，容易部署</li>
   <li>跨：真正完整跨平台解决方案</li>
   <li>美：基于Html5开发，界面美观</li>
   <li>开：开放架构，方便二开集成</li>
+</ul>
+EOD;
+
+$lang->install->ydisk = new stdclass();
+$lang->install->ydisk->name  = '悦库网盘';
+$lang->install->ydisk->width = 'col-md-6';
+$lang->install->ydisk->logo  = 'images/main/ydisk.png';
+$lang->install->ydisk->url   = 'http://www.ydisk.cn';
+$lang->install->ydisk->desc  = <<<EOD
+<ul>
+  <li>轻松实现不同部门、不同员工的文件共享。</li>
+  <li>支持Word ，Excel，pdf等文档的在线预览。</li>
+  <li>支持多人同时在线编辑，编辑内容即刻生成。</li>
+  <li>灵活设置员工操作权限，简化操作细节。</li>
+</ul>
+EOD;
+
+$lang->install->meshiot = new stdclass();
+$lang->install->meshiot->name  = '易天物联';
+$lang->install->meshiot->width = 'col-md-6';
+$lang->install->meshiot->logo  = 'images/main/meshiot.png';
+$lang->install->meshiot->url   = 'https://www.meshiot.com';
+$lang->install->meshiot->desc  = <<<EOD
+<ul>
+  <li>积木式设计思想</li>
+  <li>多种网络接入</li>
+  <li>工业化设计</li>
+  <li>多种工业通信协议</li>
 </ul>
 EOD;
 /* mail */
@@ -4509,6 +4542,7 @@ $lang->release->confirmUnlinkStory = "您确认移除该需求吗？";
 $lang->release->confirmUnlinkBug   = "您确认移除该Bug吗？";
 $lang->release->existBuild         = '『版本』已经有『%s』这条记录了。您可以更改『发布名称』或者选择一个『版本』。';
 $lang->release->noRelease          = '暂时没有发布。';
+$lang->release->errorDate          = '发布日期不能大于今天。';
 
 $lang->release->basicInfo = '基本信息';
 
@@ -6332,6 +6366,7 @@ $lang->user->loginFailed  = "登录失败，请检查您的用户名或密码是
 $lang->user->lockWarning  = "您还有%s次尝试机会。";
 $lang->user->loginLocked  = "密码尝试次数太多，请联系管理员解锁，或%s分钟后重试。";
 $lang->user->weakPassword = "您的密码强度小于系统设定。";
+$lang->user->errorWeak    = "密码不能使用【%s】这些常用弱口令。";
 
 $lang->user->roleList['']       = '';
 $lang->user->roleList['dev']    = '研发';
@@ -6390,6 +6425,8 @@ $lang->user->error->realname      = "【ID %s】的真实姓名必须填写";
 $lang->user->error->password      = "【ID %s】的密码必须为六位以上";
 $lang->user->error->mail          = "【ID %s】的邮箱地址不正确";
 $lang->user->error->reserved      = "【ID %s】的用户名已被系统预留";
+$lang->user->error->weakPassword  = "【ID %s】的密码强度小于系统设定。";
+$lang->user->error->commonWeak    = "【ID %s】的密码不能使用【%s】这些常用若口令。";
 
 $lang->user->error->verifyPassword   = "验证失败，请检查您的系统登录密码是否正确";
 $lang->user->error->originalPassword = "原密码不正确";
