@@ -3548,8 +3548,8 @@ $lang->install->ranzhi->desc  = <<<EOD
 <ul>
   <li>CRM: Customer Management and Order Tracking</li>
   <li>OA: Approve, Announce, Trip, Leave and so on. </li>
-  <li>Projec t，Task and Document management </li>
-  <li>Money: Income, Expense, Transfer, Invest and Debt</li>
+  <li>Project，Task and Document management </li>
+  <li>Cash: Income, Expense, Transfer, Invest and Debt</li>
 </ul>
 EOD;
 
@@ -3588,8 +3588,8 @@ $lang->install->ydisk->url   = 'http://www.ydisk.cn';
 $lang->install->ydisk->desc  = <<<EOD
 <ul>
   <li>Self-Hosted: deploy on your own machine</li>
-  <li>Storage: depend on your hard drive size</li>
-  <li>Transmission: as fast as your bandwidth allows</li>
+  <li>Unlimited Storage: depend on your hard drive size</li>
+  <li>Fast Transmission: as fast as your bandwidth allows</li>
   <li>Secure: 12 permissions for any strict settings</li>
 </ul>
 EOD;
@@ -3604,7 +3604,7 @@ $lang->install->meshiot->desc  = <<<EOD
   <li>Performance: one gateway can monitor 65,536 equipments</li>
   <li>Accessibility: unique radio communication protocol covers 2,500m radius</li>
   <li>Dimming System: 200+ sensors and monitors</li>
-  <li>Battery Available: no requirements to any equipment on your site</li>
+  <li>Battery Available: no changes required to any equipment on your site</li>
 </ul>
 EOD;
 /* mail */
@@ -4587,7 +4587,7 @@ $lang->release->exportTypeList['bug']     = 'Bug';
 $lang->release->exportTypeList['leftbug'] = 'Active Bug';
 
 $lang->release->statusList['']          = '';
-$lang->release->statusList['normal']    = 'Normal';
+$lang->release->statusList['normal']    = 'Active';
 $lang->release->statusList['terminate'] = 'Terminated';
 
 $lang->release->changeStatusList['normal']    = 'Active';
