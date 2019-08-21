@@ -3115,9 +3115,9 @@ $lang->extension->eraseAction      = '清除插件';
 $lang->extension->upgrade          = '升级插件';
 $lang->extension->agreeLicense     = '我同意该授权';
 
-$lang->extension->structure    = '目录结构';
-$lang->extension->extstructure = '目录结构';
-$lang->extension->installed    = '已安装';
+$lang->extension->structure       = '目录结构';
+$lang->extension->structureAction = '目录结构';
+$lang->extension->installed       = '已安装';
 $lang->extension->deactivated  = '被禁用';
 $lang->extension->available    = '已下载';
 
@@ -4152,6 +4152,7 @@ $lang->productplan->confirmDelete      = "您确认删除该计划吗？";
 $lang->productplan->confirmUnlinkStory = "您确认移除该需求吗？";
 $lang->productplan->confirmUnlinkBug   = "您确认移除该Bug吗？";
 $lang->productplan->noPlan             = '暂时没有计划。';
+$lang->productplan->cannotDeleteParent = '不能删除父计划';
 
 $lang->productplan->id       = '编号';
 $lang->productplan->product  = $lang->productCommon;
@@ -5351,6 +5352,7 @@ $lang->task->commentActions        = '%s. %s, 由 <strong>%s</strong> 添加备�
 $lang->task->deniedNotice          = '当前任务只有%s才可以%s。';
 $lang->task->noTask                = '暂时没有任务。';
 $lang->task->createDenied          = '你不能在该项目添加任务';
+$lang->task->cannotDeleteParent    = '不能删除父任务。';
 
 $lang->task->error                   = new stdclass();
 $lang->task->error->consumedNumber   = '"本次消耗"必须为数字';
@@ -6311,7 +6313,7 @@ $lang->user->originalPassword = '原密码';
 $lang->user->newPassword      = '新密码';
 $lang->user->verifyPassword   = '您的密码';
 $lang->user->resetPassword    = '忘记密码';
-$lang->user->score            = '分数';
+$lang->user->score            = '积分';
 
 $lang->user->legendBasic        = '基本资料';
 $lang->user->legendContribution = '个人贡献';
@@ -6429,14 +6431,14 @@ $lang->user->placeholder->passwordStrength[1] = '6位以上，包含大小写字
 $lang->user->placeholder->passwordStrength[2] = '10位以上，包含大小写字母，数字，特殊字符。';
 
 $lang->user->error = new stdclass();
-$lang->user->error->account       = "【ID %s】的用户名应该为：三位以上的英文、数字或下划线的组合";
-$lang->user->error->accountDupl   = "【ID %s】的用户名已经存在";
-$lang->user->error->realname      = "【ID %s】的真实姓名必须填写";
-$lang->user->error->password      = "【ID %s】的密码必须为六位以上";
-$lang->user->error->mail          = "【ID %s】的邮箱地址不正确";
-$lang->user->error->reserved      = "【ID %s】的用户名已被系统预留";
-$lang->user->error->weakPassword  = "【ID %s】的密码强度小于系统设定。";
-$lang->user->error->commonWeak    = "【ID %s】的密码不能使用【%s】这些常用若口令。";
+$lang->user->error->account        = "【ID %s】的用户名应该为：三位以上的英文、数字或下划线的组合";
+$lang->user->error->accountDupl    = "【ID %s】的用户名已经存在";
+$lang->user->error->realname       = "【ID %s】的真实姓名必须填写";
+$lang->user->error->password       = "【ID %s】的密码必须为六位以上";
+$lang->user->error->mail           = "【ID %s】的邮箱地址不正确";
+$lang->user->error->reserved       = "【ID %s】的用户名已被系统预留";
+$lang->user->error->weakPassword   = "【ID %s】的密码强度小于系统设定。";
+$lang->user->error->dangerPassword = "【ID %s】的密码不能使用【%s】这些常用若口令。";
 
 $lang->user->error->verifyPassword   = "验证失败，请检查您的系统登录密码是否正确";
 $lang->user->error->originalPassword = "原密码不正确";
