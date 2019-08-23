@@ -42,7 +42,7 @@ $lang->preview      = 'View';
 $lang->goback       = 'Back';
 $lang->goPC         = 'PC';
 $lang->more         = 'More';
-$lang->day          = 'Day';
+$lang->day          = ' Day';
 $lang->customConfig = 'Custom Config';
 $lang->public       = 'Public';
 $lang->trunk        = 'Trunk';
@@ -3524,11 +3524,10 @@ EOT;
 
 $lang->install->product = array('chanzhi', 'ranzhi', 'ydisk', 'meshiot');
 
-$lang->install->promotion     = "Products also from Nature Easy Soft:";
+$lang->install->promotion      = "Products also from Nature Easy Soft:";
 $lang->install->chanzhi        = new stdclass();
-$lang->install->chanzhi->name  = 'ZSITE Content Management System';
-$lang->install->chanzhi->width = 'col-md-6';
-$lang->install->chanzhi->logo  = 'images/main/chanzhi_en.png';
+$lang->install->chanzhi->name  = 'ZSITE';
+$lang->install->chanzhi->logo  = 'images/main/chanzhi.ico';
 $lang->install->chanzhi->url   = 'http://www.zsite.net';
 $lang->install->chanzhi->desc  = <<<EOD
 <ul>
@@ -3540,9 +3539,8 @@ $lang->install->chanzhi->desc  = <<<EOD
 EOD;
 
 $lang->install->ranzhi = new stdclass();
-$lang->install->ranzhi->name  = 'ZDOO Collaborative System';
-$lang->install->ranzhi->width = 'col-md-6';
-$lang->install->ranzhi->logo  = 'images/main/zdoo_org.png';
+$lang->install->ranzhi->name  = 'ZDOO';
+$lang->install->ranzhi->logo  = 'images/main/ranzhi.ico';
 $lang->install->ranzhi->url   = 'http://www.zdoo.org';
 $lang->install->ranzhi->desc  = <<<EOD
 <ul>
@@ -3566,24 +3564,9 @@ EOD;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 $lang->install->ydisk = new stdclass();
-$lang->install->ydisk->name  = 'Y Disk-Free NetDisk for Enterprises';
-$lang->install->ydisk->width = 'col-md-6';
-$lang->install->ydisk->logo  = 'images/main/ydisk.png';
+$lang->install->ydisk->name  = 'Y Disk-Free NetDisk';
+$lang->install->ydisk->logo  = 'images/main/ydisk.ico';
 $lang->install->ydisk->url   = 'http://www.ydisk.cn';
 $lang->install->ydisk->desc  = <<<EOD
 <ul>
@@ -3596,8 +3579,7 @@ EOD;
 
 $lang->install->meshiot = new stdclass();
 $lang->install->meshiot->name  = 'MeshIoT';
-$lang->install->meshiot->width = 'col-md-6';
-$lang->install->meshiot->logo  = 'images/main/meshiot.png';
+$lang->install->meshiot->logo  = 'images/main/meshiot.ico';
 $lang->install->meshiot->url   = 'https://www.meshiot.com';
 $lang->install->meshiot->desc  = <<<EOD
 <ul>
@@ -3805,6 +3787,7 @@ $lang->misc->feature = new stdclass();
 $lang->misc->feature->lastest  = 'Latest Version';
 $lang->misc->feature->detailed = 'Detail';
 
+$lang->misc->releaseDate['11.6.1']      = '2019-08-23';
 $lang->misc->releaseDate['11.6.stable'] = '2019-07-12';
 $lang->misc->releaseDate['11.5.2']      = '2019-06-26';
 $lang->misc->releaseDate['11.5.1']      = '2019-06-24';
@@ -3834,6 +3817,8 @@ $lang->misc->releaseDate['7.4.beta']    = '2015-11-13';
 $lang->misc->releaseDate['7.2.stable']  = '2015-05-22';
 $lang->misc->releaseDate['7.1.stable']  = '2015-03-07';
 $lang->misc->releaseDate['6.3.stable']  = '2014-11-07';
+
+$lang->misc->feature->all['11.6.1'][]      = array('title'=>'Optimize details and fix bug.', 'desc' => '');
 
 $lang->misc->feature->all['11.6.stable'][] = array('title'=>'Improving the International Edition Interface', 'desc' => '');
 $lang->misc->feature->all['11.6.stable'][] = array('title'=>'Add translate function', 'desc' => '');
@@ -4151,6 +4136,7 @@ $lang->productplan->confirmDelete      = "Do you want to delete this plan?";
 $lang->productplan->confirmUnlinkStory = "Do you want to unlink this story?";
 $lang->productplan->confirmUnlinkBug   = "Do you want to unlink this bug?";
 $lang->productplan->noPlan             = 'No plans yet. ';
+$lang->productplan->cannotDeleteParent = 'Cannot delete parent plan';
 
 $lang->productplan->id       = 'ID';
 $lang->productplan->product  = $lang->productCommon;
@@ -5350,6 +5336,7 @@ $lang->task->commentActions        = '%s. %s, commented by <strong>%s</strong>.'
 $lang->task->deniedNotice          = 'Only the %s can %s the task.';
 $lang->task->noTask                = 'No tasks yet. ';
 $lang->task->createDenied          = 'Create Task is denied in this project';
+$lang->task->cannotDeleteParent    = 'Cannot delete parent task';
 
 $lang->task->error = new stdclass();
 $lang->task->error->consumedNumber   = '"Current Cost" must be numbers.';
@@ -6233,7 +6220,7 @@ $lang->tutorial->tasks['createBug']['desc'] = "<p>Report a Bug: </p><ul><li data
 $lang->upgrade->common  = 'Update';
 $lang->upgrade->result  = 'Result';
 $lang->upgrade->fail    = 'Failed';
-$lang->upgrade->success = 'Updated';
+$lang->upgrade->success = "<p><i class='icon icon-check-circle'></i></p><p>Congratulations!</p><p>Your ZenTao is updated.</p>";
 $lang->upgrade->tohome  = 'Visit ZenTao';
 $lang->upgrade->license = 'ZenTao is under Z PUBLIC LICENSE(ZPL) 1.2.';
 $lang->upgrade->warnning= 'Warning!';

@@ -3385,10 +3385,10 @@ $lang->install->links = <<<EOT
 新浪微博：<a href='http://weibo.com/easysoft' target='_blank'>http://weibo.com/easysoft</a>
 
 
+
+
 您现在正在安装的版本是 <strong class='text-danger'>%s</strong>。
 EOT;
-
-
 
 $lang->install->newReleased= "<strong class='text-danger'>提示</strong>：官网网站已有最新版本<strong class='text-danger'>%s</strong>, 发布日期于 %s。";
 $lang->install->or         = '或者';
@@ -3527,9 +3527,8 @@ $lang->install->product = array('chanzhi', 'ranzhi', 'xuanxuan', 'ydisk', 'meshi
 
 $lang->install->promotion      = "为您推荐易软天创旗下其他产品：";
 $lang->install->chanzhi        = new stdclass();
-$lang->install->chanzhi->name  = '蝉知企业门户系统';
-$lang->install->chanzhi->width = 'col-md-4';
-$lang->install->chanzhi->logo  = 'images/main/chanzhi.png';
+$lang->install->chanzhi->name  = '蝉知门户';
+$lang->install->chanzhi->logo  = 'images/main/chanzhi.ico';
 $lang->install->chanzhi->url   = 'http://www.chanzhi.org';
 $lang->install->chanzhi->desc  = <<<EOD
 <ul>
@@ -3541,9 +3540,8 @@ $lang->install->chanzhi->desc  = <<<EOD
 EOD;
 
 $lang->install->ranzhi = new stdclass();
-$lang->install->ranzhi->name  = '然之协同管理系统';
-$lang->install->ranzhi->width = 'col-md-4';
-$lang->install->ranzhi->logo  = 'images/main/ranzhi.png';
+$lang->install->ranzhi->name  = '然之协同';
+$lang->install->ranzhi->logo  = 'images/main/ranzhi.ico';
 $lang->install->ranzhi->url   = 'http://www.ranzhi.org';
 $lang->install->ranzhi->desc  = <<<EOD
 <ul>
@@ -3554,23 +3552,9 @@ $lang->install->ranzhi->desc  = <<<EOD
 </ul>
 EOD;
 
-$lang->install->zdoo = new stdclass();
-$lang->install->zdoo->name  = '可深度定制的云端一体化协作平台';
-$lang->install->zdoo->width = 'col-md-4';
-$lang->install->zdoo->url   = 'http://www.zdoo.com';
-$lang->install->zdoo->desc  = <<<EOD
-<ul>
-  <li>安全、稳定、高效</li>
-  <li>以容器为交付单位</li>
-  <li>租户隔离，可深度定制</li>
-  <li>提供一体化管理平台</li>
-</ul>
-EOD;
-
 $lang->install->xuanxuan = new stdclass();
-$lang->install->xuanxuan->name  = '喧喧即时聊天软件';
-$lang->install->xuanxuan->width = 'col-md-4';
-$lang->install->xuanxuan->logo  = 'images/main/xuanxuan.png';
+$lang->install->xuanxuan->name  = '喧喧聊天';
+$lang->install->xuanxuan->logo  = 'images/main/xuanxuan.ico';
 $lang->install->xuanxuan->url   = 'http://www.xuan.im';
 $lang->install->xuanxuan->desc  = <<<EOD
 <ul>
@@ -3582,9 +3566,8 @@ $lang->install->xuanxuan->desc  = <<<EOD
 EOD;
 
 $lang->install->ydisk = new stdclass();
-$lang->install->ydisk->name  = '悦库免费企业网盘';
-$lang->install->ydisk->width = 'col-md-6';
-$lang->install->ydisk->logo  = 'images/main/ydisk.png';
+$lang->install->ydisk->name  = '悦库网盘';
+$lang->install->ydisk->logo  = 'images/main/ydisk.ico';
 $lang->install->ydisk->url   = 'http://www.ydisk.cn';
 $lang->install->ydisk->desc  = <<<EOD
 <ul>
@@ -3597,8 +3580,7 @@ EOD;
 
 $lang->install->meshiot = new stdclass();
 $lang->install->meshiot->name  = '易天物联';
-$lang->install->meshiot->width = 'col-md-6';
-$lang->install->meshiot->logo  = 'images/main/meshiot.png';
+$lang->install->meshiot->logo  = 'images/main/meshiot.ico';
 $lang->install->meshiot->url   = 'https://www.meshiot.com';
 $lang->install->meshiot->desc  = <<<EOD
 <ul>
@@ -3776,9 +3758,9 @@ $lang->misc->zentao->service['custom']     = '禅道定制开发';
 $lang->misc->zentao->service['servicemore']= '更多服务...';
 
 global $config;
-$lang->misc->zentao->others['chanzhi']  = "<img src='{$config->webRoot}theme/default/images/main/chanzhi.ico' /> 蝉知";
+$lang->misc->zentao->others['chanzhi']  = "<img src='{$config->webRoot}theme/default/images/main/chanzhi.ico' /> 蝉知门户";
 $lang->misc->zentao->others['ranzhi']   = "<img src='{$config->webRoot}theme/default/images/main/ranzhi.ico' /> 然之协同";
-$lang->misc->zentao->others['xuanxuan'] = "<img src='{$config->webRoot}theme/default/images/main/xuanxuan.ico' /> 喧喧";
+$lang->misc->zentao->others['xuanxuan'] = "<img src='{$config->webRoot}theme/default/images/main/xuanxuan.ico' /> 喧喧聊天";
 $lang->misc->zentao->others['ydisk']    = "<img src='{$config->webRoot}theme/default/images/main/ydisk.ico' /> 悦库网盘";
 $lang->misc->zentao->others['meshiot' ] = "<img src='{$config->webRoot}theme/default/images/main/meshiot.ico' /> 易天物联";
 
@@ -3806,6 +3788,7 @@ $lang->misc->feature = new stdclass();
 $lang->misc->feature->lastest  = '最新版本';
 $lang->misc->feature->detailed = '详情';
 
+$lang->misc->releaseDate['11.6.1']      = '2019-08-23';
 $lang->misc->releaseDate['11.6.stable'] = '2019-07-12';
 $lang->misc->releaseDate['11.5.2']      = '2019-06-26';
 $lang->misc->releaseDate['11.5.1']      = '2019-06-24';
@@ -3835,6 +3818,8 @@ $lang->misc->releaseDate['7.4.beta']    = '2015-11-13';
 $lang->misc->releaseDate['7.2.stable']  = '2015-05-22';
 $lang->misc->releaseDate['7.1.stable']  = '2015-03-07';
 $lang->misc->releaseDate['6.3.stable']  = '2014-11-07';
+
+$lang->misc->feature->all['11.6.1'][]      = array('title'=>'完善细节，修复Bug', 'desc' => '');
 
 $lang->misc->feature->all['11.6.stable'][] = array('title'=>'改善国际版界面', 'desc' => '');
 $lang->misc->feature->all['11.6.stable'][] = array('title'=>'添加翻译功能', 'desc' => '');
@@ -6236,7 +6221,7 @@ $lang->tutorial->tasks['createBug']['desc'] = "<p>在系统中提交一个Bug：
 $lang->upgrade->common  = '升级';
 $lang->upgrade->result  = '升级结果';
 $lang->upgrade->fail    = '升级失败';
-$lang->upgrade->success = '升级成功';
+$lang->upgrade->success = "<p><i class='icon icon-check-circle'></i></p><p>恭喜您！</p><p>您的禅道已经成功升级。</p>";
 $lang->upgrade->tohome  = '访问禅道';
 $lang->upgrade->license = '禅道项目管理软件已更换授权协议至 Z PUBLIC LICENSE(ZPL) 1.2';
 $lang->upgrade->warnning= '警告';
