@@ -361,7 +361,8 @@ $lang->admin->subMenu = new stdclass();
 $lang->admin->subMenu->message = new stdclass();
 $lang->admin->subMenu->message->mail    = array('link' => '邮件|mail|index', 'subModule' => 'mail');
 $lang->admin->subMenu->message->webhook = array('link' => 'Webhook|webhook|browse', 'subModule' => 'webhook');
-$lang->admin->subMenu->message->setting = array('link' => '设置|message|setting', 'subModule' => 'message');
+$lang->admin->subMenu->message->browser = array('link' => '浏览器|message|browser');
+$lang->admin->subMenu->message->setting = array('link' => '设置|message|setting');
 
 $lang->admin->subMenu->sso = new stdclass();
 $lang->admin->subMenu->sso->ranzhi = '然之协同|admin|sso';
@@ -3710,10 +3711,20 @@ $lang->mail->placeholder->password = '有些邮箱需要填写单独申请的授
 $lang->message->common  = '消息';
 $lang->message->index   = '首页';
 $lang->message->setting = '设置';
+$lang->message->browser = '浏览器通知';
 
 $lang->message->typeList['mail']     = '邮件';
 $lang->message->typeList['message']  = '浏览器通知';
 $lang->message->typeList['webhook']  = 'Webhook';
+
+$lang->message->browserSetting = new stdclass();
+$lang->message->browserSetting->turnon   = '是否打开';
+$lang->message->browserSetting->pollTime = '轮询时间';
+
+$lang->message->browserSetting->pollTimePlaceholder = '通知查询的时间间隔，以秒为单位。';
+
+$lang->message->browserSetting->turnonList[1] = '打开';
+$lang->message->browserSetting->turnonList[0] = '关闭';
 /* misc */
 $lang->misc = new stdclass();
 $lang->misc->common = '杂项';
@@ -6495,7 +6506,6 @@ $lang->webhook->data        = '数据';
 $lang->webhook->result      = '结果';
 
 $lang->webhook->typeList['']          = '';
-$lang->webhook->typeList['bearychat'] = '倍洽';
 $lang->webhook->typeList['dingding']  = '钉钉';
 $lang->webhook->typeList['default']   = '其他';
 
