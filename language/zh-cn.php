@@ -3303,6 +3303,7 @@ $lang->group->copyOptions['copyPriv'] = '复制权限';
 $lang->group->copyOptions['copyUser'] = '复制用户';
 
 $lang->group->versions['']          = '修改历史';
+$lang->group->versions['11_6_2']    = '禅道11.6.2';
 $lang->group->versions['10_6']      = '禅道10.6';
 $lang->group->versions['10_1']      = '禅道10.1';
 $lang->group->versions['10_0_alpha']= '禅道10.0.alpha';
@@ -3445,6 +3446,7 @@ $lang->install->defaultLang    = '默认语言';
 $lang->install->dbHost         = '数据库服务器';
 $lang->install->dbHostNote     = '如果127.0.0.1无法访问，尝试使用localhost';
 $lang->install->dbPort         = '服务器端口';
+$lang->install->dbEncoding     = '数据库编码';
 $lang->install->dbUser         = '数据库用户名';
 $lang->install->dbPassword     = '数据库密码';
 $lang->install->dbName         = 'PMS使用的库';
@@ -3721,7 +3723,7 @@ $lang->message->browserSetting = new stdclass();
 $lang->message->browserSetting->turnon   = '是否打开';
 $lang->message->browserSetting->pollTime = '轮询时间';
 
-$lang->message->browserSetting->pollTimePlaceholder = '通知查询的时间间隔，以秒为单位。';
+$lang->message->browserSetting->pollTimePlaceholder = '通知的时间间隔，以秒为单位。';
 
 $lang->message->browserSetting->turnonList[1] = '打开';
 $lang->message->browserSetting->turnonList[0] = '关闭';
