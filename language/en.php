@@ -3543,7 +3543,7 @@ EOD;
 
 $lang->install->ranzhi = new stdclass();
 $lang->install->ranzhi->name  = 'ZDOO';
-$lang->install->ranzhi->logo  = 'images/main/ranzhi.ico';
+$lang->install->ranzhi->logo  = 'images/main/zdoo.ico';
 $lang->install->ranzhi->url   = 'http://www.zdoo.org';
 $lang->install->ranzhi->desc  = <<<EOD
 <ul>
@@ -3715,11 +3715,11 @@ $lang->message->setting = 'Settings';
 $lang->message->browser = 'Browser Notification';
 
 $lang->message->typeList['mail']     = 'Email';
-$lang->message->typeList['message']  = 'Browser notifications';
+$lang->message->typeList['message']  = 'Browser Notifications';
 $lang->message->typeList['webhook']  = 'Webhook';
 
 $lang->message->browserSetting = new stdclass();
-$lang->message->browserSetting->turnon   = 'Turnon';
+$lang->message->browserSetting->turnon   = 'Notification';
 $lang->message->browserSetting->pollTime = 'Polling Time';
 
 $lang->message->browserSetting->pollTimePlaceholder = 'Notify the time intervals for the search by seconds.';
@@ -3800,6 +3800,7 @@ $lang->misc->feature = new stdclass();
 $lang->misc->feature->lastest  = 'Latest Version';
 $lang->misc->feature->detailed = 'Detail';
 
+$lang->misc->releaseDate['11.6.2']      = '2019-09-06';
 $lang->misc->releaseDate['11.6.1']      = '2019-08-23';
 $lang->misc->releaseDate['11.6.stable'] = '2019-07-12';
 $lang->misc->releaseDate['11.5.2']      = '2019-06-26';
@@ -3830,6 +3831,8 @@ $lang->misc->releaseDate['7.4.beta']    = '2015-11-13';
 $lang->misc->releaseDate['7.2.stable']  = '2015-05-22';
 $lang->misc->releaseDate['7.1.stable']  = '2015-03-07';
 $lang->misc->releaseDate['6.3.stable']  = '2014-11-07';
+
+$lang->misc->feature->all['11.6.2'][]      = array('title'=>'Optimize details and fix bug.', 'desc' => '');
 
 $lang->misc->feature->all['11.6.1'][]      = array('title'=>'Optimize details and fix bug.', 'desc' => '');
 
@@ -6132,7 +6135,7 @@ $lang->tree->manage             = 'Manage Module';
 $lang->tree->fix                = 'Fix Module';
 $lang->tree->manageProduct      = "Manage {$lang->productCommon} Modules";
 $lang->tree->manageProject      = "Manage {$lang->projectCommon} Modules";
-$lang->tree->manageLine         = "Manage {$lang->projectCommon} Line";
+$lang->tree->manageLine         = "Manage {$lang->productCommon} Line";
 $lang->tree->manageBug          = 'Manage Bug';
 $lang->tree->manageCase         = 'Manage Case';
 $lang->tree->manageCaseLib      = 'Manage Library';
@@ -6140,7 +6143,7 @@ $lang->tree->manageCustomDoc    = 'Manage Document Library';
 $lang->tree->updateOrder        = 'Rank Module';
 $lang->tree->manageChild        = 'Manage Child Modules';
 $lang->tree->manageStoryChild   = 'Manage Child Modules';
-$lang->tree->manageLineChild    = "Manage {$lang->projectCommon} Line";
+$lang->tree->manageLineChild    = "Manage {$lang->productCommon} Line";
 $lang->tree->manageBugChild     = 'Manage Child Bugs';
 $lang->tree->manageCaseChild    = 'Manage Child Cases';
 $lang->tree->manageCaselibChild = 'Manage Child Libraries';
@@ -6150,7 +6153,7 @@ $lang->tree->dragAndSort        = "Drag to order";
 $lang->tree->sort               = "Order";
 $lang->tree->addChild           = "Add Child Module";
 $lang->tree->confirmDelete      = 'Do you want to delete this module and its child modules?';
-$lang->tree->confirmDeleteLine  = "Do you want to delete this {$lang->projectCommon} line?";
+$lang->tree->confirmDeleteLine  = "Do you want to delete this {$lang->productCommon} line?";
 $lang->tree->confirmRoot        = "Any changes to the {$lang->productCommon} will change the stories, bugs, cases of {$lang->productCommon} it belongs to, as well as the linkage of {$lang->projectCommon} and {$lang->productCommon}, which is dangerous. Do you want to change it?";
 $lang->tree->successSave        = 'Saved.';
 $lang->tree->successFixed       = 'Fixed.';
@@ -6158,7 +6161,7 @@ $lang->tree->repeatName         = 'The name "%s" exists!';
 
 $lang->tree->module     = 'Module';
 $lang->tree->name       = 'Name';
-$lang->tree->line       = "{$lang->projectCommon} Line";
+$lang->tree->line       = "{$lang->productCommon} Line";
 $lang->tree->cate       = 'Category';
 $lang->tree->root       = 'Root';
 $lang->tree->branch     = 'Platform/Branch';
@@ -6167,7 +6170,7 @@ $lang->tree->type       = 'Type';
 $lang->tree->parent     = 'Parent Module';
 $lang->tree->parentCate = 'Parent Category';
 $lang->tree->child      = 'Children';
-$lang->tree->lineChild  = "Child {$lang->projectCommon} Line";
+$lang->tree->lineChild  = "Child {$lang->productCommon} Line";
 $lang->tree->owner      = 'Owner';
 $lang->tree->order      = 'Order';
 $lang->tree->short      = 'Abbr.';
