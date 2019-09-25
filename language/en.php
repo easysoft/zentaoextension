@@ -3094,6 +3094,7 @@ $lang->entry->errmsg['ACCOUNT_UNBOUND']       = 'Account is not bound.';
 $lang->entry->errmsg['INVALID_ACCOUNT']       = 'Invalid account.';
 $lang->entry->errmsg['EMPTY_ENTRY']           = 'Application does not exist.';
 $lang->entry->errmsg['CALLED_TIME']           = 'Token has expired';
+$lang->entry->errmsg['ERROR_TIMESTAMP']       = 'Timestamp Error';
 /* extension */
 $lang->extension->common           = 'Extension';
 $lang->extension->browse           = 'Extensions';
