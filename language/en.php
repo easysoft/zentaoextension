@@ -131,7 +131,7 @@ $lang->searchObjects['release']     = 'Release';
 $lang->searchObjects['productplan'] = $lang->productCommon . 'Plan';
 $lang->searchObjects['testtask']    = 'Request';
 $lang->searchObjects['doc']         = 'Document';
-$lang->searchObjects['testsuite']   = 'Case Library';
+$lang->searchObjects['caselib']     = 'Case Library';
 $lang->searchObjects['testreport']  = 'Test Report';
 $lang->searchTips                   = 'ID (ctrl+g)';
 
@@ -253,7 +253,7 @@ $lang->qa->menu->testcase  = array('link' => 'Case|testcase|browse|productID=%s'
 $lang->qa->menu->testtask  = array('link' => 'Request|testtask|browse|productID=%s');
 $lang->qa->menu->testsuite = array('link' => 'Suite|testsuite|browse|productID=%s');
 $lang->qa->menu->report    = array('link' => 'Report|testreport|browse|productID=%s');
-$lang->qa->menu->caselib   = array('link' => 'Case Library|testsuite|library');
+$lang->qa->menu->caselib   = array('link' => 'Case Library|caselib|browse');
 
 $lang->bug = new stdclass();
 $lang->bug->menu = new stdclass();
@@ -263,7 +263,7 @@ $lang->bug->menu->testcase  = array('link' => 'Case|testcase|browse|productID=%s
 $lang->bug->menu->testtask  = array('link' => 'Request|testtask|browse|productID=%s');
 $lang->bug->menu->testsuite = array('link' => 'Suite|testsuite|browse|productID=%s');
 $lang->bug->menu->report    = array('link' => 'Report|testreport|browse|productID=%s');
-$lang->bug->menu->caselib   = array('link' => 'Case Library|testsuite|library');
+$lang->bug->menu->caselib   = array('link' => 'Case Library|caselib|browse');
 
 $lang->testcase = new stdclass();
 $lang->testcase->menu = new stdclass();
@@ -272,7 +272,7 @@ $lang->testcase->menu->testcase  = array('link' => 'Case|testcase|browse|product
 $lang->testcase->menu->testtask  = array('link' => 'Request|testtask|browse|productID=%s');
 $lang->testcase->menu->testsuite = array('link' => 'Suite|testsuite|browse|productID=%s');
 $lang->testcase->menu->report    = array('link' => 'Report|testreport|browse|productID=%s');
-$lang->testcase->menu->caselib   = array('link' => 'Case Library|testsuite|library');
+$lang->testcase->menu->caselib   = array('link' => 'Case Library|caselib|browse');
 
 $lang->testtask = new stdclass();
 $lang->testtask->menu = new stdclass();
@@ -281,7 +281,7 @@ $lang->testtask->menu->testcase  = array('link' => 'Case|testcase|browse|product
 $lang->testtask->menu->testtask  = array('link' => 'Request|testtask|browse|productID=%s', 'alias' => 'view,create,edit,linkcase,cases,start,close,batchrun,groupcase,report');
 $lang->testtask->menu->testsuite = array('link' => 'Suite|testsuite|browse|productID=%s');
 $lang->testtask->menu->report    = array('link' => 'Report|testreport|browse|productID=%s');
-$lang->testtask->menu->caselib   = array('link' => 'Case Library|testsuite|library');
+$lang->testtask->menu->caselib   = array('link' => 'Case Library|caselib|browse');
 
 $lang->testsuite = new stdclass();
 $lang->testsuite->menu = new stdclass();
@@ -290,7 +290,7 @@ $lang->testsuite->menu->testcase  = array('link' => 'Case|testcase|browse|produc
 $lang->testsuite->menu->testtask  = array('link' => 'Request|testtask|browse|productID=%s');
 $lang->testsuite->menu->testsuite = array('link' => 'Suite|testsuite|browse|productID=%s', 'alias' => 'view,create,edit,linkcase');
 $lang->testsuite->menu->report    = array('link' => 'Report|testreport|browse|productID=%s');
-$lang->testsuite->menu->caselib   = array('link' => 'Case Library|testsuite|library');
+$lang->testsuite->menu->caselib   = array('link' => 'Case Library|caselib|browse');
 
 $lang->testreport = new stdclass();
 $lang->testreport->menu = new stdclass();
@@ -299,7 +299,7 @@ $lang->testreport->menu->testcase  = array('link' => 'Case|testcase|browse|produ
 $lang->testreport->menu->testtask  = array('link' => 'Request|testtask|browse|productID=%s');
 $lang->testreport->menu->testsuite = array('link' => 'Suite|testsuite|browse|productID=%s');
 $lang->testreport->menu->report    = array('link' => 'Report|testreport|browse|productID=%s', 'alias' => 'view,create,edit');
-$lang->testreport->menu->caselib   = array('link' => 'Case Library|testsuite|library');
+$lang->testreport->menu->caselib   = array('link' => 'Case Library|caselib|browse');
 
 $lang->caselib = new stdclass();
 $lang->caselib->menu = new stdclass();
@@ -308,7 +308,7 @@ $lang->caselib->menu->testcase  = array('link' => 'Case|testcase|browse|');
 $lang->caselib->menu->testtask  = array('link' => 'Request|testtask|browse|');
 $lang->caselib->menu->testsuite = array('link' => 'Suite|testsuite|browse|');
 $lang->caselib->menu->report    = array('link' => 'Report|testreport|browse|');
-$lang->caselib->menu->caselib   = array('link' => 'Case Library|testsuite|library', 'alias' => 'createlib,createcase,libview,edit,batchcreatecase,showimport', 'subModule' => 'tree,testcase');
+$lang->caselib->menu->caselib   = array('link' => 'Case Library|caselib|browse', 'alias' => 'create,createcase,view,edit,batchcreatecase,showimport', 'subModule' => 'tree,testcase');
 
 $lang->doc = new stdclass();
 $lang->doc->menu = new stdclass();
@@ -656,6 +656,7 @@ if(isset($config->global->flow) and $config->global->flow == 'onlyStory')
     unset($lang->searchObjects['build']);
     unset($lang->searchObjects['testtask']);
     unset($lang->searchObjects['testsuite']);
+    unset($lang->searchObjects['caselib']);
     unset($lang->searchObjects['testreport']);
 }
 
@@ -688,6 +689,7 @@ if(isset($config->global->flow) and $config->global->flow == 'onlyTask')
     unset($lang->searchObjects['release']);
     unset($lang->searchObjects['productplan']);
     unset($lang->searchObjects['testsuite']);
+    unset($lang->searchObjects['caselib']);
     unset($lang->searchObjects['testreport']);
 }
 
@@ -716,7 +718,7 @@ if(isset($config->global->flow) and $config->global->flow == 'onlyTest')
     $lang->menu->testcase  = 'Case|testcase|index';
     $lang->menu->testsuite = 'Suite|testsuite|index';
     $lang->menu->testtask  = 'Request|testtask|index';
-    $lang->menu->caselib   = 'Case Library|testsuite|library';
+    $lang->menu->caselib   = 'Case Library|caselib|browse';
 
     $lang->menuOrder[6]  = 'bug';
     $lang->menuOrder[7]  = 'testcase';
@@ -798,9 +800,9 @@ if(isset($config->global->flow) and $config->global->flow == 'onlyTest')
     $lang->testreport->menuOrder = $lang->testtask->menuOrder;
 
         $lang->caselib->menu = new stdclass();
-    $lang->caselib->menu->all  = 'All|testsuite|library|libID=%s&browseType=all';
-    $lang->caselib->menu->wait = 'Waiting|testsuite|library|libID=%s&browseType=wait';
-    $lang->caselib->menu->view = 'View|testsuite|libview|libID=%s';
+    $lang->caselib->menu->all  = 'All|caselib|browse|libID=%s&browseType=all';
+    $lang->caselib->menu->wait = 'Waiting|caselib|browse|libID=%s&browseType=wait';
+    $lang->caselib->menu->view = 'View|caselib|view|libID=%s';
 
     $lang->caselib->menuOrder[5]  = 'lib';
     $lang->caselib->menuOrder[10] = 'all';
@@ -830,6 +832,7 @@ if(isset($config->global->flow) and $config->global->flow == 'onlyTest')
     $lang->menugroup->testcase   = 'testcase';
     $lang->menugroup->testtask   = 'testtask';
     $lang->menugroup->testsuite  = 'testsuite';
+    $lang->menugroup->caselib    = 'caselib';
     $lang->menugroup->testreport = 'testtask';
     $lang->menugroup->build      = 'product';
 
@@ -966,6 +969,7 @@ $lang->action->desc->linkchildtask      = '$date, <strong>$actor</strong> linked
 $lang->action->desc->unlinkchildrentask = '$date, <strong>$actor</strong> unlinked a child task <strong>$extra</strong>。' . "\n";
 $lang->action->desc->linkparenttask     = '$date, <strong>$actor</strong> linked to a parent task <strong>$extra</strong>。' . "\n";
 $lang->action->desc->unlinkparenttask   = '$date, <strong>$actor</strong> unlinked a parent task <strong>$extra</strong>。' . "\n";
+$lang->action->desc->deletechildrentask = '$date, <strong>$actor</strong> deleted a child task <strong>$extra</strong>。' . "\n";
 
 $lang->action->desc->linkrelatedcase   = '$date, <strong>$actor</strong> linked a case <strong>$extra</strong>.' . "\n";
 $lang->action->desc->unlinkrelatedcase = '$date, <strong>$actor</strong> unlinked a case <strong>$extra</strong>.' . "\n";
@@ -1036,6 +1040,7 @@ $lang->action->label->unlinkparenttask    = "unlink from parent task";
 $lang->action->label->batchcreate         = "batch created tasks";
 $lang->action->label->createchildren      = "create child tasks";
 $lang->action->label->managed             = "managed";
+$lang->action->label->deletechildrentask  = "delete children task";
 
 $lang->action->dynamicAction = new stdclass;
 $lang->action->dynamicAction->todo['opened']               = 'Create Todo';
@@ -1107,6 +1112,7 @@ $lang->action->dynamicAction->task['canceled']             = 'Cancel Task';
 $lang->action->dynamicAction->task['activated']            = 'Activate Task';
 $lang->action->dynamicAction->task['createchildren']       = 'Create Child Task';
 $lang->action->dynamicAction->task['unlinkparenttask']     = 'Unlink Parent Task';
+$lang->action->dynamicAction->task['deletechildrentask']   = 'Delete children task';
 $lang->action->dynamicAction->task['linkparenttask']       = 'Link Parent Task';
 $lang->action->dynamicAction->task['linkchildtask']        = 'Link Child Task';
 $lang->action->dynamicAction->task['undeleted']            = 'Restore Task';
@@ -2251,6 +2257,33 @@ $lang->build->placeholder->filePath = ' Download path for this Build.';
 $lang->build->action = new stdclass();
 $lang->build->action->buildopened = '$date, created by <strong>$actor</strong>, Build <strong>$extra</strong>.' . "\n";
 $lang->backhome = 'back';
+/* caselib */
+$lang->caselib->common = 'Case Library';
+$lang->caselib->all    = 'All Case Libraries';
+
+$lang->caselib->index            = "Library Home";
+$lang->caselib->create           = "Create Case Library";
+$lang->caselib->edit             = 'Edit Case Library';
+$lang->caselib->browse           = 'View Cases in Library';
+$lang->caselib->view             = 'Library Detail';
+$lang->caselib->createCase       = 'Create Case';
+$lang->caselib->delete           = "Delete Suite";
+$lang->caselib->linkVersion      = "Version";
+$lang->caselib->deleted          = 'Deleted';
+$lang->caselib->exportTemplet    = 'Export Template';
+$lang->caselib->batchCreateCase  = 'Batch Create';
+$lang->caselib->import           = 'Import';
+$lang->caselib->importAction     = 'Import Case';
+$lang->caselib->showImport       = 'Imported Data';
+
+$lang->caselib->id   = 'ID';
+$lang->caselib->name = 'Name';
+$lang->caselib->desc = 'Description';
+
+$lang->caselib->legendDesc = 'Description';
+
+$lang->caselib->libraryDelete = 'Do you want to delete this library？';
+$lang->caselib->noModule      = '<div>You have no modules.</div><div>Manage it now.</div>';
 /* company */
 $lang->company->common   = 'Company';
 $lang->company->index    = "Company Home";
@@ -5760,11 +5793,6 @@ $lang->testsuite->unlinkCase       = "Unlink";
 $lang->testsuite->unlinkCaseAction = "Unlink Case";
 $lang->testsuite->batchUnlinkCases = "Batch Unlink Cases";
 $lang->testsuite->deleted          = 'Deleted';
-$lang->testsuite->exportTemplet    = 'Export Template';
-$lang->testsuite->batchCreateCase  = 'Batch Create';
-$lang->testsuite->import           = 'Import';
-$lang->testsuite->importAction     = 'Import Case';
-$lang->testsuite->showImport       = 'Imported Data';
 $lang->testsuite->successSaved     = 'Saved';
 
 $lang->testsuite->id             = 'ID';
@@ -5785,7 +5813,6 @@ $lang->testsuite->legendBasicInfo = 'Basic Info';
 $lang->testsuite->unlinkedCases = 'Unlinked Cases';
 
 $lang->testsuite->confirmDelete     = 'Do you want to delete this test suite?';
-$lang->testsuite->libraryDelete     = 'Do you want to delete this library？';
 $lang->testsuite->confirmUnlinkCase = 'Do you want to unlink this Case?';
 $lang->testsuite->noticeNone        = 'You have not created any suite yet.';
 $lang->testsuite->noModule          = '<div>You have no modules.</div><div>Manage it now.</div>';
@@ -5796,15 +5823,6 @@ $lang->testsuite->lblUnlinkCase = 'Unlink Case';
 
 $lang->testsuite->authorList['private'] = 'Private';
 $lang->testsuite->authorList['public']  = 'Public';
-
-$lang->caselib->common = 'Case Library';
-$lang->caselib->all    = 'All Case Libraries';
-
-$lang->testsuite->createLib  = 'Create Case Library';
-$lang->testsuite->editLib    = 'Edit Case Library';
-$lang->testsuite->library    = 'View Cases in Library';
-$lang->testsuite->createCase = 'Create Case';
-$lang->testsuite->libView    = 'Library Detail';
 /* testtask */
 $lang->testtask->index            = "Request Home";
 $lang->testtask->create           = "Submit Request";

@@ -131,7 +131,7 @@ $lang->searchObjects['release']     = '发布';
 $lang->searchObjects['productplan'] = $lang->productCommon . '计划';
 $lang->searchObjects['testtask']    = '测试单';
 $lang->searchObjects['doc']         = '文档';
-$lang->searchObjects['testsuite']   = '用例库';
+$lang->searchObjects['caselib']     = '用例库';
 $lang->searchObjects['testreport']  = '测试报告';
 $lang->searchTips                   = '编号(ctrl+g)';
 
@@ -253,7 +253,7 @@ $lang->qa->menu->testcase  = array('link' => '用例|testcase|browse|productID=%
 $lang->qa->menu->testtask  = array('link' => '测试单|testtask|browse|productID=%s');
 $lang->qa->menu->testsuite = array('link' => '套件|testsuite|browse|productID=%s');
 $lang->qa->menu->report    = array('link' => '报告|testreport|browse|productID=%s');
-$lang->qa->menu->caselib   = array('link' => '用例库|testsuite|library');
+$lang->qa->menu->caselib   = array('link' => '用例库|caselib|browse');
 
 $lang->bug = new stdclass();
 $lang->bug->menu = new stdclass();
@@ -263,7 +263,7 @@ $lang->bug->menu->testcase  = array('link' => '用例|testcase|browse|productID=
 $lang->bug->menu->testtask  = array('link' => '测试单|testtask|browse|productID=%s');
 $lang->bug->menu->testsuite = array('link' => '套件|testsuite|browse|productID=%s');
 $lang->bug->menu->report    = array('link' => '报告|testreport|browse|productID=%s');
-$lang->bug->menu->caselib   = array('link' => '用例库|testsuite|library');
+$lang->bug->menu->caselib   = array('link' => '用例库|caselib|browse');
 
 $lang->testcase = new stdclass();
 $lang->testcase->menu = new stdclass();
@@ -272,7 +272,7 @@ $lang->testcase->menu->testcase  = array('link' => '用例|testcase|browse|produ
 $lang->testcase->menu->testtask  = array('link' => '测试单|testtask|browse|productID=%s');
 $lang->testcase->menu->testsuite = array('link' => '套件|testsuite|browse|productID=%s');
 $lang->testcase->menu->report    = array('link' => '报告|testreport|browse|productID=%s');
-$lang->testcase->menu->caselib   = array('link' => '用例库|testsuite|library');
+$lang->testcase->menu->caselib   = array('link' => '用例库|caselib|browse');
 
 $lang->testtask = new stdclass();
 $lang->testtask->menu = new stdclass();
@@ -281,7 +281,7 @@ $lang->testtask->menu->testcase  = array('link' => '用例|testcase|browse|produ
 $lang->testtask->menu->testtask  = array('link' => '测试单|testtask|browse|productID=%s', 'alias' => 'view,create,edit,linkcase,cases,start,close,batchrun,groupcase,report');
 $lang->testtask->menu->testsuite = array('link' => '套件|testsuite|browse|productID=%s');
 $lang->testtask->menu->report    = array('link' => '报告|testreport|browse|productID=%s');
-$lang->testtask->menu->caselib   = array('link' => '用例库|testsuite|library');
+$lang->testtask->menu->caselib   = array('link' => '用例库|caselib|browse');
 
 $lang->testsuite = new stdclass();
 $lang->testsuite->menu = new stdclass();
@@ -290,7 +290,7 @@ $lang->testsuite->menu->testcase  = array('link' => '用例|testcase|browse|prod
 $lang->testsuite->menu->testtask  = array('link' => '测试单|testtask|browse|productID=%s');
 $lang->testsuite->menu->testsuite = array('link' => '套件|testsuite|browse|productID=%s', 'alias' => 'view,create,edit,linkcase');
 $lang->testsuite->menu->report    = array('link' => '报告|testreport|browse|productID=%s');
-$lang->testsuite->menu->caselib   = array('link' => '用例库|testsuite|library');
+$lang->testsuite->menu->caselib   = array('link' => '用例库|caselib|browse');
 
 $lang->testreport = new stdclass();
 $lang->testreport->menu = new stdclass();
@@ -299,7 +299,7 @@ $lang->testreport->menu->testcase  = array('link' => '用例|testcase|browse|pro
 $lang->testreport->menu->testtask  = array('link' => '测试单|testtask|browse|productID=%s');
 $lang->testreport->menu->testsuite = array('link' => '套件|testsuite|browse|productID=%s');
 $lang->testreport->menu->report    = array('link' => '报告|testreport|browse|productID=%s', 'alias' => 'view,create,edit');
-$lang->testreport->menu->caselib   = array('link' => '用例库|testsuite|library');
+$lang->testreport->menu->caselib   = array('link' => '用例库|caselib|browse');
 
 $lang->caselib = new stdclass();
 $lang->caselib->menu = new stdclass();
@@ -308,7 +308,7 @@ $lang->caselib->menu->testcase  = array('link' => '用例|testcase|browse|');
 $lang->caselib->menu->testtask  = array('link' => '测试单|testtask|browse|');
 $lang->caselib->menu->testsuite = array('link' => '套件|testsuite|browse|');
 $lang->caselib->menu->report    = array('link' => '报告|testreport|browse|');
-$lang->caselib->menu->caselib   = array('link' => '用例库|testsuite|library', 'alias' => 'createlib,createcase,libview,edit,batchcreatecase,showimport', 'subModule' => 'tree,testcase');
+$lang->caselib->menu->caselib   = array('link' => '用例库|caselib|browse', 'alias' => 'create,createcase,view,edit,batchcreatecase,showimport', 'subModule' => 'tree,testcase');
 
 $lang->doc = new stdclass();
 $lang->doc->menu = new stdclass();
@@ -656,6 +656,7 @@ if(isset($config->global->flow) and $config->global->flow == 'onlyStory')
     unset($lang->searchObjects['build']);
     unset($lang->searchObjects['testtask']);
     unset($lang->searchObjects['testsuite']);
+    unset($lang->searchObjects['caselib']);
     unset($lang->searchObjects['testreport']);
 }
 
@@ -688,6 +689,7 @@ if(isset($config->global->flow) and $config->global->flow == 'onlyTask')
     unset($lang->searchObjects['release']);
     unset($lang->searchObjects['productplan']);
     unset($lang->searchObjects['testsuite']);
+    unset($lang->searchObjects['caselib']);
     unset($lang->searchObjects['testreport']);
 }
 
@@ -716,7 +718,7 @@ if(isset($config->global->flow) and $config->global->flow == 'onlyTest')
     $lang->menu->testcase  = '用例|testcase|index';
     $lang->menu->testsuite = '套件|testsuite|index';
     $lang->menu->testtask  = '测试单|testtask|index';
-    $lang->menu->caselib   = '用例库|testsuite|library';
+    $lang->menu->caselib   = '用例库|caselib|browse';
 
     $lang->menuOrder[6]  = 'bug';
     $lang->menuOrder[7]  = 'testcase';
@@ -798,9 +800,9 @@ if(isset($config->global->flow) and $config->global->flow == 'onlyTest')
     $lang->testreport->menuOrder = $lang->testtask->menuOrder;
 
         $lang->caselib->menu = new stdclass();
-    $lang->caselib->menu->all  = '所有|testsuite|library|libID=%s&browseType=all';
-    $lang->caselib->menu->wait = '待评审|testsuite|library|libID=%s&browseType=wait';
-    $lang->caselib->menu->view = '概况|testsuite|libview|libID=%s';
+    $lang->caselib->menu->all  = '所有|caselib|browse|libID=%s&browseType=all';
+    $lang->caselib->menu->wait = '待评审|caselib|browse|libID=%s&browseType=wait';
+    $lang->caselib->menu->view = '概况|caselib|view|libID=%s';
 
     $lang->caselib->menuOrder[5]  = 'lib';
     $lang->caselib->menuOrder[10] = 'all';
@@ -831,6 +833,7 @@ if(isset($config->global->flow) and $config->global->flow == 'onlyTest')
     $lang->menugroup->case       = 'testcase';
     $lang->menugroup->testtask   = 'testtask';
     $lang->menugroup->testsuite  = 'testsuite';
+    $lang->menugroup->caselib    = 'caselib';
     $lang->menugroup->testreport = 'testtask';
     $lang->menugroup->build      = 'product';
 
@@ -967,6 +970,7 @@ $lang->action->desc->linkchildtask      = '$date, 由 <strong>$actor</strong> �
 $lang->action->desc->unlinkchildrentask = '$date, 由 <strong>$actor</strong> 移除子任务 <strong>$extra</strong>。' . "\n";
 $lang->action->desc->linkparenttask     = '$date, 由 <strong>$actor</strong> 关联到父任务 <strong>$extra</strong>。' . "\n";
 $lang->action->desc->unlinkparenttask   = '$date, 由 <strong>$actor</strong> 从父任务<strong>$extra</strong>取消关联。' . "\n";
+$lang->action->desc->deletechildrentask = '$date, 由 <strong>$actor</strong> 删除子任务<strong>$extra</strong>。' . "\n";
 
 $lang->action->desc->linkrelatedcase   = '$date, 由 <strong>$actor</strong> 关联相关用例 <strong>$extra</strong>。' . "\n";
 $lang->action->desc->unlinkrelatedcase = '$date, 由 <strong>$actor</strong> 移除相关用例 <strong>$extra</strong>。' . "\n";
@@ -1037,6 +1041,7 @@ $lang->action->label->unlinkparenttask    = "从父任务取消关联";
 $lang->action->label->batchcreate         = "批量创建任务";
 $lang->action->label->createchildren      = "创建子任务";
 $lang->action->label->managed             = "维护";
+$lang->action->label->deletechildrentask  = "删除子任务";
 
 $lang->action->dynamicAction = new stdclass();
 $lang->action->dynamicAction->todo['opened']               = '创建待办';
@@ -1108,6 +1113,7 @@ $lang->action->dynamicAction->task['canceled']             = '取消任务';
 $lang->action->dynamicAction->task['activated']            = '激活任务';
 $lang->action->dynamicAction->task['createchildren']       = '创建子任务';
 $lang->action->dynamicAction->task['unlinkparenttask']     = '从父任务取消关联';
+$lang->action->dynamicAction->task['deletechildrentask']   = '删除子任务';
 $lang->action->dynamicAction->task['linkparenttask']       = '关联到父任务';
 $lang->action->dynamicAction->task['linkchildtask']        = '关联子任务';
 $lang->action->dynamicAction->task['undeleted']            = '还原任务';
@@ -2252,6 +2258,33 @@ $lang->build->placeholder->filePath = ' 该版本软件包下载存储地址';
 $lang->build->action = new stdclass();
 $lang->build->action->buildopened = '$date, 由 <strong>$actor</strong> 创建版本 <strong>$extra</strong>。' . "\n";
 $lang->backhome = '返回';
+/* caselib */
+$lang->caselib->common = '用例库';
+$lang->caselib->all    = '所有用例库';
+
+$lang->caselib->index            = "用例库首页";
+$lang->caselib->create           = "创建用例库";
+$lang->caselib->edit             = '编辑用例库';
+$lang->caselib->browse           = '浏览库用例';
+$lang->caselib->view             = '查看库概况';
+$lang->caselib->createCase       = '创建用例';
+$lang->caselib->delete           = "删除";
+$lang->caselib->linkVersion      = "版本";
+$lang->caselib->deleted          = '已删除';
+$lang->caselib->exportTemplet    = '导出模板';
+$lang->caselib->batchCreateCase  = '批量创建用例';
+$lang->caselib->import           = '导入';
+$lang->caselib->importAction     = '导入用例';
+$lang->caselib->showImport       = '显示导入数据';
+
+$lang->caselib->id   = '编号';
+$lang->caselib->name = '名称';
+$lang->caselib->desc = '描述';
+
+$lang->caselib->legendDesc = '描述';
+
+$lang->caselib->libraryDelete = '您确认要删除该用例库吗？';
+$lang->caselib->noModule      = '<div>您现在还没有模块信息</div><div>请维护用例库模块</div>';
 /* company */
 $lang->company->common   = '组织视图';
 $lang->company->index    = "组织视图首页";
@@ -5761,11 +5794,6 @@ $lang->testsuite->unlinkCase       = "移除";
 $lang->testsuite->unlinkCaseAction = "移除用例";
 $lang->testsuite->batchUnlinkCases = "批量移除用例";
 $lang->testsuite->deleted          = '已删除';
-$lang->testsuite->exportTemplet    = '导出模板';
-$lang->testsuite->batchCreateCase  = '批量创建用例';
-$lang->testsuite->import           = '导入';
-$lang->testsuite->importAction     = '导入用例';
-$lang->testsuite->showImport       = '显示导入数据';
 $lang->testsuite->successSaved     = '保存成功';
 
 $lang->testsuite->id             = '编号';
@@ -5786,7 +5814,6 @@ $lang->testsuite->legendBasicInfo = '基本信息';
 $lang->testsuite->unlinkedCases = '未关联';
 
 $lang->testsuite->confirmDelete     = '您确认要删除该套件吗？';
-$lang->testsuite->libraryDelete     = '您确认要删除该用例库吗？';
 $lang->testsuite->confirmUnlinkCase = '您确认要移除该用例吗？';
 $lang->testsuite->noticeNone        = '您还没有创建套件';
 $lang->testsuite->noModule          = '<div>您现在还没有模块信息</div><div>请维护用例库模块</div>';
@@ -5797,15 +5824,6 @@ $lang->testsuite->lblUnlinkCase = '移除用例';
 
 $lang->testsuite->authorList['private'] = '私有';
 $lang->testsuite->authorList['public']  = '公开';
-
-$lang->caselib->common = '公共用例库';
-$lang->caselib->all    = '所有用例库';
-
-$lang->testsuite->createLib  = '创建用例库';
-$lang->testsuite->editLib    = '编辑用例库';
-$lang->testsuite->library    = '浏览库用例';
-$lang->testsuite->createCase = '创建用例';
-$lang->testsuite->libView    = '查看库概况';
 /* testtask */
 $lang->testtask->index            = "版本首页";
 $lang->testtask->create           = "提交测试";
@@ -6158,6 +6176,7 @@ $lang->tree->addChild           = "增加子模块";
 $lang->tree->confirmDelete      = '该模块及其子模块都会被删除，您确定删除吗？';
 $lang->tree->confirmDeleteLine  = "您确定删除该{$lang->productCommon}线吗？";
 $lang->tree->confirmRoot        = "模块的所属{$lang->productCommon}修改，会关联修改该模块下的需求、Bug、用例的所属{$lang->productCommon}，以及{$lang->projectCommon}和{$lang->productCommon}的关联关系。该操作比较危险，请谨慎操作。是否确认修改？";
+$lang->tree->confirmRoot4Doc    = "模块的所属文档库修改，会关联修改该模块下的文档的关联关系。该操作比较危险，请谨慎操作。是否确认修改？";
 $lang->tree->successSave        = '成功保存';
 $lang->tree->successFixed       = '成功修正数据！';
 $lang->tree->repeatName         = '模块名“%s”已经存在！';
@@ -6379,6 +6398,7 @@ $lang->user->case2Him     = '给%s的用例';
 $lang->user->caseByHim    = '%s建的用例';
 
 $lang->user->errorDeny    = "抱歉，您无权访问『<b>%s</b>』模块的『<b>%s</b>』功能。请联系管理员获取权限。点击后退返回上页。";
+$lang->user->errorView    = "抱歉，您无权访问『<b>%s</b>』视图。请联系管理员获取权限。点击后退返回上页。";
 $lang->user->loginFailed  = "登录失败，请检查您的用户名或密码是否填写正确。";
 $lang->user->lockWarning  = "您还有%s次尝试机会。";
 $lang->user->loginLocked  = "密码尝试次数太多，请联系管理员解锁，或%s分钟后重试。";
