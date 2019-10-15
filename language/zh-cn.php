@@ -3608,10 +3608,10 @@ $lang->install->ydisk->logo  = 'images/main/ydisk.ico';
 $lang->install->ydisk->url   = 'http://www.ydisk.cn';
 $lang->install->ydisk->desc  = <<<EOD
 <ul>
-  <li>绝对私有，只部署在自己的机器上。</li>
-  <li>海量存储，只取决于您的硬盘大小。</li>
-  <li>极限传输，只取决于您的网络带宽。</li>
-  <li>极度安全，十二种权限组合。</li>
+  <li>绝对私有：只部署在自己的机器上</li>
+  <li>海量存储：只取决于您的硬盘大小</li>
+  <li>极限传输：只取决于您的网络带宽</li>
+  <li>极度安全：十二种权限组合</li>
 </ul>
 EOD;
 
@@ -3621,10 +3621,10 @@ $lang->install->meshiot->logo  = 'images/main/meshiot.ico';
 $lang->install->meshiot->url   = 'https://www.meshiot.com';
 $lang->install->meshiot->desc  = <<<EOD
 <ul>
-  <li>超性能网关，一个就可管65536个设备。</li>
-  <li>独创无线电通讯协议，2500米穿墙无障碍。</li>
-  <li>200余款传感器控制器，独创调光系统。</li>
-  <li>可配电池，对既有场地设备无任何要求。</li>
+  <li>超性能网关，一个可管6万个设备</li>
+  <li>自研通讯协议，2.5公里穿墙无障碍</li>
+  <li>上百款传感器控制器，独创调光系统</li>
+  <li>可配电池，对既有场地无任何要求</li>
 </ul>
 EOD;
 /* mail */
@@ -3684,6 +3684,7 @@ $lang->mail->sendTime    = '发送时间';
 $lang->mail->status      = '状态';
 $lang->mail->failReason  = '失败原因';
 
+$lang->mail->statusList['wait']   = '待发信';
 $lang->mail->statusList['sended'] = '成功';
 $lang->mail->statusList['fail']   = '失败';
 
@@ -3797,6 +3798,7 @@ $lang->misc->zentao->support['qqgroup']    = "官方QQ群";
 
 $lang->misc->zentao->cowin['reportbug']    = "汇报Bug";
 $lang->misc->zentao->cowin['feedback']     = "反馈需求";
+$lang->misc->zentao->cowin['translate']    = "参与翻译";
 $lang->misc->zentao->cowin['recommend']    = "推荐给朋友";
 
 $lang->misc->zentao->service['zentaotrain']= '禅道使用培训';
