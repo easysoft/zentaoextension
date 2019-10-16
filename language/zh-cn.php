@@ -2857,6 +2857,8 @@ $lang->doc->editType         = '编辑分类';
 $lang->doc->deleteType       = '删除分类';
 $lang->doc->addType          = '增加分类';
 $lang->doc->childType        = '子分类';
+$lang->doc->editType         = '维护分类';
+$lang->doc->deleteType       = '删除分类';
 $lang->doc->collect          = '收藏';
 $lang->doc->cancelCollection = '取消收藏';
 $lang->doc->deleteFile       = '删除附件';
@@ -3684,7 +3686,7 @@ $lang->mail->sendTime    = '发送时间';
 $lang->mail->status      = '状态';
 $lang->mail->failReason  = '失败原因';
 
-$lang->mail->statusList['wait']   = '待发信';
+$lang->mail->statusList['wait']   = '待发送';
 $lang->mail->statusList['sended'] = '成功';
 $lang->mail->statusList['fail']   = '失败';
 
@@ -6179,7 +6181,7 @@ $lang->tree->addChild           = "增加子模块";
 $lang->tree->confirmDelete      = '该模块及其子模块都会被删除，您确定删除吗？';
 $lang->tree->confirmDeleteLine  = "您确定删除该{$lang->productCommon}线吗？";
 $lang->tree->confirmRoot        = "模块的所属{$lang->productCommon}修改，会关联修改该模块下的需求、Bug、用例的所属{$lang->productCommon}，以及{$lang->projectCommon}和{$lang->productCommon}的关联关系。该操作比较危险，请谨慎操作。是否确认修改？";
-$lang->tree->confirmRoot4Doc    = "模块的所属文档库修改，会关联修改该模块下的文档的关联关系。该操作比较危险，请谨慎操作。是否确认修改？";
+$lang->tree->confirmRoot4Doc    = "修改所属文档库，会关联修改该分类下文档的关联关系。该操作比较危险，请谨慎操作。是否确认修改？";
 $lang->tree->successSave        = '成功保存';
 $lang->tree->successFixed       = '成功修正数据！';
 $lang->tree->repeatName         = '模块名“%s”已经存在！';
