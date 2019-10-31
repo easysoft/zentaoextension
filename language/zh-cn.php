@@ -1798,11 +1798,11 @@ $lang->block->gridOptions[8] = '左侧';
 $lang->block->gridOptions[4] = '右侧';
 
 $lang->block->flowchart   = array();
-$lang->block->flowchart[] = array('管理员', '维护公司', '添加用户', '维护权限');
-$lang->block->flowchart[] = array($lang->productCommon . '经理', '创建' . $lang->productCommon, '维护模块', '维护计划', '维护需求', '创建发布');
-$lang->block->flowchart[] = array($lang->projectCommon . '经理', '创建' . $lang->projectCommon, '维护团队', '关联' . $lang->productCommon, '关联需求', '分解任务');
-$lang->block->flowchart[] = array('研发人员', '领取任务和Bug', '更新状态', '完成任务和Bug');
-$lang->block->flowchart[] = array('测试人员', '撰写用例', '执行用例', '提交Bug', '验证Bug', '关闭Bug');
+$lang->block->flowchart['admin']   = array('管理员', '维护公司', '添加用户', '维护权限');
+$lang->block->flowchart['product'] = array($lang->productCommon . '经理', '创建' . $lang->productCommon, '维护模块', '维护计划', '维护需求', '创建发布');
+$lang->block->flowchart['project'] = array($lang->projectCommon . '经理', '创建' . $lang->projectCommon, '维护团队', '关联' . $lang->productCommon, '关联需求', '分解任务');
+$lang->block->flowchart['dev']     = array('研发人员', '领取任务和Bug', '更新状态', '完成任务和Bug');
+$lang->block->flowchart['tester']  = array('测试人员', '撰写用例', '执行用例', '提交Bug', '验证Bug', '关闭Bug');
 /* branch */
 $lang->branch->common = '分支';
 $lang->branch->manage = '分支管理';
@@ -6528,6 +6528,7 @@ $lang->webhook->url         = 'Hook地址';
 $lang->webhook->domain      = '禅道域名';
 $lang->webhook->contentType = '内容类型';
 $lang->webhook->sendType    = '发送方式';
+$lang->webhook->secret      = '密钥';
 $lang->webhook->product     = "关联{$lang->productCommon}";
 $lang->webhook->project     = "关联{$lang->projectCommon}";
 $lang->webhook->params      = '参数';
