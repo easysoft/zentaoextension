@@ -351,8 +351,8 @@ $lang->admin->menu->message   = array('link' => 'Notification|message|index', 's
 $lang->admin->menu->custom    = array('link' => 'Custom|custom|set', 'subModule' => 'custom');
 $lang->admin->menu->sso       = array('link' => 'Integration|admin|sso');
 
-$lang->admin->menu->dev       = array('link' => 'Develop|dev|api', 'alias' => 'db', 'subModule' => 'dev,editor,entry');
-$lang->admin->menu->translate = array('link' => 'Translate|translate|index', 'subModule' => 'translate');
+$lang->admin->menu->dev       = array('link' => 'Develop|dev|api', 'alias' => 'db', 'subModule' => 'dev,entry');
+$lang->admin->menu->translate = array('link' => 'Translate|dev|translate');
 $lang->admin->menu->data      = array('link' => 'Data|backup|index', 'subModule' => 'backup,action');
 $lang->admin->menu->safe      = array('link' => 'Security|admin|safe', 'alias' => 'checkweak');
 $lang->admin->menu->system    = array('link' => 'System|cron|index', 'subModule' => 'cron');
@@ -370,7 +370,7 @@ $lang->admin->subMenu->sso->ranzhi = 'Zdoo|admin|sso';
 $lang->admin->subMenu->dev = new stdclass();
 $lang->admin->subMenu->dev->api    = array('link' => 'API|dev|api');
 $lang->admin->subMenu->dev->db     = array('link' => 'Database|dev|db');
-$lang->admin->subMenu->dev->editor = array('link' => 'Editor|editor|index', 'subModule' => 'editor');
+$lang->admin->subMenu->dev->editor = array('link' => 'Editor|dev|editor');
 $lang->admin->subMenu->dev->entry  = array('link' => 'Application|entry|browse', 'subModule' => 'entry');
 
 $lang->admin->subMenu->data = new stdclass();
@@ -394,8 +394,6 @@ $lang->entry     = new stdclass();
 $lang->webhook   = new stdclass();
 $lang->message   = new stdclass();
 $lang->search    = new stdclass();
-$lang->translate = new stdclass();
-$lang->editor    = new stdclass();
 
 $lang->convert->menu   = $lang->admin->menu;
 $lang->upgrade->menu   = $lang->admin->menu;
@@ -409,8 +407,6 @@ $lang->dev->menu       = $lang->admin->menu;
 $lang->entry->menu     = $lang->admin->menu;
 $lang->webhook->menu   = $lang->admin->menu;
 $lang->message->menu   = $lang->admin->menu;
-$lang->translate->menu = $lang->admin->menu;
-$lang->editor->menu    = $lang->admin->menu;
 
 $lang->menugroup = new stdclass();
 $lang->menugroup->release     = 'product';
@@ -445,8 +441,6 @@ $lang->menugroup->dev         = 'admin';
 $lang->menugroup->entry       = 'admin';
 $lang->menugroup->webhook     = 'admin';
 $lang->menugroup->message     = 'admin';
-$lang->menugroup->translate   = 'admin';
-$lang->menugroup->editor      = 'admin';
 
 $lang->error = new stdclass();
 $lang->error->companyNotFound = "The domain %s cannot be found!";
@@ -2046,17 +2040,13 @@ $lang->bug->browserList['other']    = 'Others';
 
 $lang->bug->typeList['']             = '';
 $lang->bug->typeList['codeerror']    = 'CodeError';
-$lang->bug->typeList['interface']    = 'Interface';
 $lang->bug->typeList['config']       = 'Configuration';
 $lang->bug->typeList['install']      = 'Installation';
 $lang->bug->typeList['security']     = 'Security';
 $lang->bug->typeList['performance']  = 'Performance';
 $lang->bug->typeList['standard']     = 'CodingConventions';
 $lang->bug->typeList['automation']   = 'TestScript';
-$lang->bug->typeList['designchange'] = 'DesignChange';
-$lang->bug->typeList['newfeature']   = 'NewFeature';
 $lang->bug->typeList['designdefect'] = 'DesignDefect';
-$lang->bug->typeList['trackthings']  = 'Tracking';
 $lang->bug->typeList['others']       = 'Others';
 
 $lang->bug->statusList['']         = '';
@@ -2637,7 +2627,7 @@ $lang->datatable->branch   = 'Branch';
 $lang->datatable->platform = 'Platform';
 
 $lang->datatable->showModule             = 'Show module names on the list page';
-$lang->datatable->showModuleAB           = 'Show Module Names';
+$lang->datatable->showModuleAB           = 'Show modules in the list';
 $lang->datatable->showModuleList[]       = 'N/A';
 $lang->datatable->showModuleList['base'] = 'Base Node';
 $lang->datatable->showModuleList['end']  = 'End Node';
@@ -2668,6 +2658,7 @@ $lang->dev->common     = 'Develop';
 $lang->dev->api        = 'API';
 $lang->dev->db         = 'Database';
 $lang->dev->editor     = 'Editor';
+$lang->dev->translate  = 'Translate';
 $lang->dev->dbList     = 'Database';
 $lang->dev->moduleList = 'Modules';
 $lang->dev->params     = 'Parameters';
@@ -2676,10 +2667,12 @@ $lang->dev->desc       = 'Description';
 $lang->dev->noParams   = 'No Parameters';
 $lang->dev->post       = 'POST Parameter';
 
-$lang->dev->paramRange  = 'Parameter Range: %s';
-$lang->dev->paramDate   = 'Date format: YY-mm-dd, e.g 2019-01-01';
-$lang->dev->paramColor  = 'Color format: #RGB, e.g. #3da7f5';
-$lang->dev->paramMailto = "User account. Separate accounts by ','.";
+$lang->dev->paramRange    = 'Parameter Range: %s';
+$lang->dev->paramDate     = 'Date format: YY-mm-dd, e.g 2019-01-01';
+$lang->dev->paramColor    = 'Color format: #RGB, e.g. #3da7f5';
+$lang->dev->paramMailto   = "User account. Separate accounts by ','.";
+$lang->dev->noteEditor    = "The editor is disabled for security reasons. To use this feature, please go to the official website to download and install the plugin of the editor.";
+$lang->dev->noteTranslate = "The translation is disabled for security reasons. To use this feature, please go to the official website to download and install the plugin of translation.";
 
 $lang->dev->fields = array();
 $lang->dev->fields['id']     = 'ID';
@@ -2736,7 +2729,6 @@ $lang->dev->tableList['backup']           = 'Backup';
 $lang->dev->tableList['common']           = 'Common';
 $lang->dev->tableList['convert']          = 'Convert';
 $lang->dev->tableList['dev']              = 'Develop';
-$lang->dev->tableList['editor']           = 'Editor';
 $lang->dev->tableList['git']              = 'GIT';
 $lang->dev->tableList['index']            = 'Home';
 $lang->dev->tableList['install']          = 'Install';
@@ -2759,7 +2751,6 @@ $lang->dev->tableList['block']            = 'Block';
 $lang->dev->tableList['branch']           = 'Branch';
 $lang->dev->tableList['doccontent']       = 'Doc Content';
 $lang->dev->tableList['storystage']       = 'Story Phase';
-$lang->dev->tableList['translate']        = 'Translate';
 $lang->dev->tableList['tutorial']         = 'Tutorial';
 $lang->dev->tableList['suitecase']        = 'Suite Case';
 $lang->dev->tableList['score']            = 'Score';
@@ -2771,7 +2762,6 @@ $lang->dev->tableList['notify']           = 'Notification';
 $lang->dev->tableList['userview']         = 'User Privilege';
 $lang->dev->tableList['im_chatuser']      = 'Client Users';
 $lang->dev->tableList['im_message']       = 'Client Messages';
-$lang->dev->tableList['translation']      = 'Translation';
 $lang->dev->tableList['im_messagestatus'] = 'Client Messages Status';
 
 $lang->dev->groupList['my']      = 'Dashboard';
@@ -2996,82 +2986,6 @@ $lang->doclib->tabList['project'] = $lang->projectCommon;
 $lang->doclib->tabList['custom']  = 'Custom';
 
 $lang->doclib->nameList['custom'] = 'Custom Name';
-/* editor */
-$lang->editor->common    = 'Editor';
-$lang->editor->api       = 'API';
-$lang->editor->index     = 'Home';
-$lang->editor->newMethod = 'New Method';
-$lang->editor->extend    = 'Extension';
-$lang->editor->api       = 'API';
-$lang->editor->newLang   = 'New Language';
-$lang->editor->newConfig = 'New Config';
-$lang->editor->newHook   = 'New Hook';
-$lang->editor->newExtend = 'New Extension';
-$lang->editor->newPage   = 'New Page';
-$lang->editor->override  = 'Overwrite';
-$lang->editor->edit      = 'Edit Extension';
-$lang->editor->save      = 'Save Page';
-$lang->editor->delete    = 'Delete Page';
-
-$lang->editor->moduleList   = 'Module';
-$lang->editor->filePath     = "Extension:";
-$lang->editor->sourceFile   = 'Source File:';
-$lang->editor->fileName     = "File Name:";
-$lang->editor->isOverride   = "Override Duplicated File";
-$lang->editor->exampleHook  = "(e.g. ***.html.hook.php)";
-$lang->editor->exampleJs    = "(e.g. ***.js)";
-$lang->editor->exampleCss   = "(e.g. ***.css)";
-$lang->editor->examplePHP   = "(e.g. ***.php)";
-$lang->editor->pageName     = "Page Name:";
-
-$lang->editor->deleteConfirm = 'Do you want to delete it?';
-$lang->editor->extendConfirm = 'Do you want to use original code?';
-$lang->editor->repeatFile    = 'File Name Duplicated';
-$lang->editor->repeatPage    = 'This page exists. Do you want to overwrite it?';
-$lang->editor->noticeOkFile  = 'For security reasons, your Admin account has to be confirmed. \n Please login ZenTao server and create %s File.\n Note:\n 1. File is blank.\n 2. If the file existed, delete it and then create a new one.';
-$lang->editor->editFileError = 'You can only modify ZenTao files!';
-
-$lang->editor->notWritable    = "Not wirtable. Permission is required. Please try chmod 777 -R ";
-$lang->editor->notDelete      = 'Cannot be deleted. Please check your permissions!';
-$lang->editor->emptyFileName  = 'Please enter a File Name!';
-$lang->editor->onlyLocalVisit = "This feature only works when the IP is 127.0.0.1 for security. <a href='https://api.zentao.pm/goto.php?item=howtodevelop&from=en' target='_blank'>Help</a>";
-
-$lang->editor->translate['config.php']  = 'config';
-$lang->editor->translate['control.php'] = 'control';
-$lang->editor->translate['model.php']   = 'model';
-
-$lang->editor->modules['action']      = 'System Log';
-$lang->editor->modules['admin']       = 'Admin';
-$lang->editor->modules['api']         = 'API';
-$lang->editor->modules['bug']         = 'Bug';
-$lang->editor->modules['build']       = 'Build';
-$lang->editor->modules['common']      = 'Common Module';
-$lang->editor->modules['company']     = 'Company';
-$lang->editor->modules['convert']     = 'Convert';
-$lang->editor->modules['dept']        = 'Department';
-$lang->editor->modules['doc']         = 'Doc';
-$lang->editor->modules['extension']   = 'Extension';
-$lang->editor->modules['file']        = 'File';
-$lang->editor->modules['group']       = 'Group';
-$lang->editor->modules['index']       = 'Homepage';
-$lang->editor->modules['install']     = 'Install';
-$lang->editor->modules['misc']        = 'Misc';
-$lang->editor->modules['my']          = 'Dashboard';
-$lang->editor->modules['product']     = $lang->productCommon;
-$lang->editor->modules['productplan'] = 'Plan';
-$lang->editor->modules['project']     = $lang->projectCommon;
-$lang->editor->modules['qa']          = 'QA';
-$lang->editor->modules['release']     = 'Release';
-$lang->editor->modules['report']      = 'Report';
-$lang->editor->modules['search']      = 'Search';
-$lang->editor->modules['story']       = 'Story';
-$lang->editor->modules['task']        = 'Task';
-$lang->editor->modules['testcase']    = 'Case';
-$lang->editor->modules['testtask']    = 'Request';
-$lang->editor->modules['todo']        = 'Todo';
-$lang->editor->modules['tree']        = 'Module Maintenance';
-$lang->editor->modules['upgrade']     = 'Upgrade';
-$lang->editor->modules['user']        = 'User';
 /* entry */
 $lang->entry->common  = 'Application';
 $lang->entry->list    = 'Applications';
@@ -4026,7 +3940,7 @@ $lang->product->deleted      = 'Deleted';
 $lang->product->close        = "Close";
 $lang->product->closeAction  = "Close {$lang->productCommon}";
 $lang->product->select       = "Select {$lang->productCommon}";
-$lang->product->mine         = 'My:';
+$lang->product->mine         = 'Mine:';
 $lang->product->other        = 'Others:';
 $lang->product->closed       = 'Closed';
 $lang->product->updateOrder  = 'Order';
@@ -4284,7 +4198,7 @@ $lang->project->all           = "All {$lang->projectCommon}s";
 $lang->project->undone        = 'Unfinished ';
 $lang->project->unclosed      = 'Unclosed';
 $lang->project->typeDesc      = 'No story, bug, build, test, or burndown chart is allowed in OPS';
-$lang->project->mine          = 'My: ';
+$lang->project->mine          = 'Mine: ';
 $lang->project->other         = 'Others:';
 $lang->project->deleted       = 'Deleted';
 $lang->project->delayed       = 'Delayed';
@@ -4295,6 +4209,7 @@ $lang->project->effort        = 'Effort';
 $lang->project->relatedMember = 'Team';
 $lang->project->watermark     = 'Exported by ZenTao';
 $lang->project->viewByUser    = 'By User';
+$lang->project->showAllModule = "Show {$lang->productCommon} modules";
 
 $lang->project->start    = 'Start';
 $lang->project->activate = 'Activate';
@@ -4818,8 +4733,8 @@ $lang->score->methods['search']['saveQueryAdvanced'] = 'Advanced Search';
 
 $lang->score->extended['user']['changePassword'] = 'Get ##strength,1## point, if the password strength is medium. Get ##strength,2## points, if it is strong.';
 $lang->score->extended['project']['close']       = 'After the project is close, project manager gets ##manager,close## point and team members get ##member,close## points. If it is done on time or earlier, the project manager gets ##manager,onTime## point and team members get ##member,onTime## points.';
-$lang->score->extended['bug']['resolve']         = 'After a bug is resolved, get extra points according to its severity. S1, + ##severity,3##; S2 + ##severity,2##, S3 + ##severity,1##.';
-$lang->score->extended['bug']['confirmBug']      = 'After a bug is confirmed, get extra points according to its severity. S1, + ##severity,3##; S2 + ##severity,2##, S3 + ##severity,1##.';
+$lang->score->extended['bug']['resolve']         = 'After a bug is resolved, get extra points according to its severity. S1, + ##severity,1##; S2 + ##severity,2##, S3 + ##severity,3##.';
+$lang->score->extended['bug']['confirmBug']      = 'After a bug is confirmed, get extra points according to its severity. S1, + ##severity,1##; S2 + ##severity,2##, S3 + ##severity,3##.';
 $lang->score->extended['task']['finish']         = 'After a task is done, get extra points by round(man-hour / 10  Estimates / Cost) + Priority point (p1 ##pri,1##, p2 ##pri,2##).';
 $lang->score->extended['story']['close']         = 'After a story is closed, its creator will get extra ##createID## points.';
 /* search */
@@ -6098,63 +6013,6 @@ $lang->todo->periods['cycle']      = 'Recurrence';
 $lang->todo->action = new stdclass();
 $lang->todo->action->finished = array('main' => '$date, is $extra by <strong>$actor</strong>.', 'extra' => 'reasonList');
 $lang->todo->action->marked   = array('main' => '$date, is marked by <strong>$actor</strong> as <strong>$extra</strong>.', 'extra' => 'statusList');
-/* translate */
-$lang->translate->common       = 'Translate';
-$lang->translate->index        = 'Home';
-$lang->translate->addLang      = 'Add Language';
-$lang->translate->module       = 'Translate Module';
-$lang->translate->review       = 'Review';
-$lang->translate->reviewAction = 'Review Translation';
-$lang->translate->result       = 'Save Review Result';
-$lang->translate->batchPass    = 'Batch Pass';
-$lang->translate->export       = 'Export Lang File';
-$lang->translate->setting      = 'Settings';
-$lang->translate->chooseModule = 'Choose Module';
-
-$lang->translate->name        = 'Language';
-$lang->translate->code        = 'Code';
-$lang->translate->key         = 'Key';
-$lang->translate->reference   = 'Reference Language';
-$lang->translate->status      = 'Status';
-$lang->translate->refreshPage = 'Refresh';
-$lang->translate->reason      = 'Reason';
-
-$lang->translate->reviewTurnon = 'Review';
-$lang->translate->reviewTurnonList['1'] = 'On';
-$lang->translate->reviewTurnonList['0'] = 'Off';
-
-$lang->translate->resultList['pass']   = 'Pass';
-$lang->translate->resultList['reject'] = 'Reject';
-
-$lang->translate->group              = 'View';
-$lang->translate->allTotal           = 'Total';
-$lang->translate->translatedTotal    = 'Translated';
-$lang->translate->changedTotal       = 'Modified';
-$lang->translate->reviewedTotal      = 'Reviewed';
-$lang->translate->translatedProgress = 'Translation %';
-$lang->translate->reviewedProgress   = 'Review %';
-
-$lang->translate->builtIn  = 'Built-in Language';
-$lang->translate->finished = 'Finished Translation';
-$lang->translate->progress = '%s Done';
-$lang->translate->count    = '（%s languages）';
-
-$lang->translate->finishedLang    = 'Translated';
-$lang->translate->translatingLang = 'Translating';
-$lang->translate->allItems        = 'All Items：%s';
-
-$lang->translate->statusList['waiting']    = 'Waiting';
-$lang->translate->statusList['translated'] = 'Done';
-$lang->translate->statusList['reviewed']   = 'Reviewed';
-$lang->translate->statusList['rejected']   = 'Rejected';
-$lang->translate->statusList['changed']    = 'Modified';
-
-$lang->translate->notice = new stdclass();
-$lang->translate->notice->failDirPriv  = "You don't have the privilege to write this directory. Please edit your privilege. <br /><code>%s</code>";
-$lang->translate->notice->failCopyFile = "Failed to copy %s to %s. Please edit your privilege.";
-$lang->translate->notice->failUnique   = "Item with Code %s exists.";
-$lang->translate->notice->failMaxInput = "Edit the value of max_input_vars to % in php.ini to make sure your form is submitted.";
-$lang->translate->notice->failRuleCode = "『Code』 shoud be letters, numbers and underlines.";
 /* tree */
 $lang->tree = new stdclass();
 $lang->tree->common             = 'Module';
@@ -6519,6 +6377,7 @@ $lang->webhook->list     = 'Hook List';
 $lang->webhook->api      = 'API';
 $lang->webhook->entry    = 'Entry';
 $lang->webhook->log      = 'Log';
+$lang->webhook->bind     = 'Bind User';
 $lang->webhook->assigned = 'AssignedTo';
 $lang->webhook->setting  = 'Settings';
 
@@ -6549,11 +6408,22 @@ $lang->webhook->data        = 'Data';
 $lang->webhook->result      = 'Result';
 
 $lang->webhook->typeList['']          = '';
-$lang->webhook->typeList['dingding']  = 'Dingding';
+$lang->webhook->typeList['dingding']  = 'Dingding Robot';
+$lang->webhook->typeList['dingapi']   = 'Dingding Notifier';
+$lang->webhook->typeList['weixin']    = 'Enterprise WeChat';
 $lang->webhook->typeList['default']   = 'Others';
 
 $lang->webhook->sendTypeList['sync']  = 'Synchronous';
 $lang->webhook->sendTypeList['async'] = 'Asynchronous';
+
+$lang->webhook->dingAgentId    = 'AgentID';
+$lang->webhook->dingAppKey     = 'AppKey';
+$lang->webhook->dingAppSecret  = 'AppSecret';
+$lang->webhook->dingUserid     = 'UserID';
+$lang->webhook->dingBindStatus = 'Bind Status';
+
+$lang->webhook->dingBindStatusList['0'] = 'No';
+$lang->webhook->dingBindStatusList['1'] = 'Yes';
 
 $lang->webhook->paramsList['objectType'] = 'Object Type';
 $lang->webhook->paramsList['objectID']   = 'Object ID';
@@ -6570,7 +6440,8 @@ $lang->webhook->confirmDelete = 'Do you want to delete this hook?';
 $lang->webhook->trimWords = '';
 
 $lang->webhook->note = new stdClass();
-$lang->webhook->note->async   = 'If the sending type is asynchronous, you have to go to Admin-System to turn on the cron.';
+$lang->webhook->note->async   = 'If it is asynchronous, you have to go to Admin-System to turn on the cron.';
+$lang->webhook->note->bind    = 'Bind User is only required for Dingding Notifier.';
 $lang->webhook->note->product = "All actions will trigger the hook if {$lang->productCommon} is empty, or only actions of selected {$lang->productCommon} will trigger it.";
 $lang->webhook->note->project = "All actions will trigger the hook if {$lang->projectCommon} is empty, or only actions of selected {$lang->projectCommon} will trigger it.";
 
