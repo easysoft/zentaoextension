@@ -2469,7 +2469,6 @@ $lang->custom->restore    = '恢复默认';
 $lang->custom->key        = '键';
 $lang->custom->value      = '值';
 $lang->custom->flow       = '流程';
-$lang->custom->concept    = '使用偏好设置';
 $lang->custom->working    = '工作方式';
 $lang->custom->select     = '请选择流程：';
 $lang->custom->branch     = '多分支';
@@ -2542,7 +2541,7 @@ $lang->custom->user->fields['statusList']   = '状态';
 $lang->custom->user->fields['contactField'] = '可用联系方式';
 $lang->custom->user->fields['deleted']      = '列出已删除用户';
 
-$lang->custom->system = array('concept', 'flow', 'working', 'required', 'score');
+$lang->custom->system = array('flow', 'working', 'required', 'score');
 
 $lang->custom->block->fields['closed'] = '关闭的区块';
 
@@ -2563,6 +2562,7 @@ $lang->custom->notice->cannotSetTimezone           = 'date_default_timezone_set�
 $lang->custom->notice->noClosedBlock               = '没有永久关闭的区块';
 $lang->custom->notice->required                    = '页面提交时，选中的字段必填';
 $lang->custom->notice->conceptResult               = '我们已经根据您的选择为您设置了<b> %s-%s </b>模式，使用<b>%s</b> + <b> %s</b>。';
+$lang->custom->notice->conceptPath                 = '您可以在：后台 -> 自定义 -> 流程页面修改。';
 
 $lang->custom->notice->indexPage['product']        = "从8.2版本起增加了产品主页视图，是否默认进入产品主页？";
 $lang->custom->notice->indexPage['project']        = "从8.2版本起增加了项目主页视图，是否默认进入项目主页？";
@@ -3251,6 +3251,8 @@ $lang->group->productList        = '可访问' . $lang->productCommon;
 $lang->group->projectList        = '可访问' . $lang->projectCommon;
 $lang->group->dynamic            = '可查看动态';
 $lang->group->noticeVisit        = '空代表没有访问限制';
+$lang->group->noneProduct        = "暂时没有{$lang->productCommon}";
+$lang->group->noneProject        = "暂时没有{$lang->projectCommon}";
 
 $lang->group->id       = '编号';
 $lang->group->name     = '分组名称';
@@ -3428,7 +3430,7 @@ $lang->install->requestTypes['PATH_INFO'] = '静态友好方式';
 
 $lang->install->workingList['full']      = '完整研发管理工具';
 $lang->install->workingList['onlyTest']  = '测试管理工具';
-$lang->install->workingList['onlyStory'] = "{$lang->storyCommon}管理工具";
+$lang->install->workingList['onlyStory'] = "需求管理工具";
 $lang->install->workingList['onlyTask']  = '任务管理工具';
 
 $lang->install->errorConnectDB      = '数据库连接失败 ';
@@ -3824,7 +3826,7 @@ $lang->misc->feature->all['11.5.stable'][] = array('title'=>'集成新版本客�
 
 $lang->misc->feature->all['11.4.1'][]      = array('title'=>'完善细节，修复Bug', 'desc' => '');
 
-$lang->misc->feature->all['11.4.stable'][] = array('title'=>'完善细节，修复Bug', 'desc' => '<p>增强测试任务管理</p><p>优化计划、发布、版本关联{$lang->storyCommon}和bug的交互</p><p>文档库可以自定义是否显示子分类里的文档</p><p>修复bug，完善细节</p>');
+$lang->misc->feature->all["11.4.stable"][] = array("title"=>"完善细节，修复Bug", "desc" => "<p>增强测试任务管理</p><p>优化计划、发布、版本关联{$lang->storyCommon}和bug的交互</p><p>文档库可以自定义是否显示子分类里的文档</p><p>修复bug，完善细节</p>");
 
 $lang->misc->feature->all['11.3.stable'][] = array('title'=>'完善细节，修复Bug', 'desc' => '<p>计划添加子计划功能</p><p>优化chosen交互</p><p>添加时区设置</p><p>优化文档库和文档</p>');
 
@@ -3876,14 +3878,14 @@ $lang->misc->feature->all['8.3.stable'][] = array('title'=>'调整文档功能',
 $lang->misc->feature->all['8.2.stable'][] = array('title'=>'首页自定义', 'desc' => '<p>我的地盘由我做主。现在开始，你可以向首页添加多种多样的内容区块，而且还可以决定如何排列和显示他们。</p><p>我的地盘、产品、项目、测试模块下均支持首页自定义功能。</p>');
 $lang->misc->feature->all['8.2.stable'][] = array('title'=>'导航定制', 'desc' => '<p>导航上显示的项目现在完全由你来决定，不仅仅可以决定在导航上展示哪些内容，还可以决定展示的顺序。</p><p>将鼠标悬浮在导航上稍后会在右侧显示定制按钮，点击打开定制对话框，通过点击切换是否显示，拖放操作来更改显示顺序。</p>');
 $lang->misc->feature->all['8.2.stable'][] = array('title'=>'批量添加、编辑自定义', 'desc' => '<p>可以在批量添加和批量编辑页面自定义操作的字段。</p>');
-$lang->misc->feature->all['8.2.stable'][] = array('title'=>'添加{$lang->storyCommon}、任务、Bug、用例自定义', 'desc' => '<p>可以在添加{$lang->storyCommon}、任务、Bug、用例页面，自定义部分字段是否显示。</p>');
-$lang->misc->feature->all['8.2.stable'][] = array('title'=>'导出自定义', 'desc' => '<p>在导出{$lang->storyCommon}、任务、Bug、用例的时候，用户可以自定义导出的字段，也可以保存模板方便每次导出。</p>');
-$lang->misc->feature->all['8.2.stable'][] = array('title'=>'{$lang->storyCommon}、任务、Bug、用例组合检索功能', 'desc' => '<p>在{$lang->storyCommon}、任务、Bug、用例列表页面，可以实现模块和标签的组合检索。</p>');
+$lang->misc->feature->all['8.2.stable'][] = array('title'=>"添加{$lang->storyCommon}、任务、Bug、用例自定义", 'desc' => "<p>可以在添加{$lang->storyCommon}、任务、Bug、用例页面，自定义部分字段是否显示。</p>");
+$lang->misc->feature->all['8.2.stable'][] = array('title'=>'导出自定义', 'desc' => "<p>在导出{$lang->storyCommon}、任务、Bug、用例的时候，用户可以自定义导出的字段，也可以保存模板方便每次导出。</p>");
+$lang->misc->feature->all['8.2.stable'][] = array('title'=>"{$lang->storyCommon}、任务、Bug、用例组合检索功能", 'desc' => "<p>在{$lang->storyCommon}、任务、Bug、用例列表页面，可以实现模块和标签的组合检索。</p>");
 $lang->misc->feature->all['8.2.stable'][] = array('title'=>'增加新手教程', 'desc' => '<p>增加新手教程，方便新用户了解禅道使用。</p>');
 
-$lang->misc->feature->all['7.4.beta'][] = array('title'=>'产品实现分支功能', 'desc' => '<p>产品增加分支/平台类型，相应的{$lang->storyCommon}、计划、Bug、用例、模块等都增加分支。</p>');
+$lang->misc->feature->all['7.4.beta'][] = array('title'=>'产品实现分支功能', 'desc' => "<p>产品增加分支/平台类型，相应的{$lang->storyCommon}、计划、Bug、用例、模块等都增加分支。</p>");
 $lang->misc->feature->all['7.4.beta'][] = array('title'=>'调整发布模块', 'desc' => '<p>发布增加停止维护操作，当发布停止维护时，创建Bug将不显示这个发布。</p><p>发布中遗留的bug改为手工关联。</p>');
-$lang->misc->feature->all['7.4.beta'][] = array('title'=>'调整{$lang->storyCommon}和Bug的创建页面', 'desc' => '');
+$lang->misc->feature->all['7.4.beta'][] = array('title'=>"调整{$lang->storyCommon}和Bug的创建页面", 'desc' => '');
 
 $lang->misc->feature->all['7.2.stable'][] = array('title'=>'增强安全', 'desc' => '<p>加强对管理员弱口令的检查。</p><p>写插件，上传插件的时候需要创建ok文件。</p><p>敏感操作增加管理员口令的检查</p><p>对输入内容做striptags, specialchars处理。</p>');
 $lang->misc->feature->all['7.2.stable'][] = array('title'=>'完善细节', 'desc' => '');
@@ -6136,8 +6138,8 @@ $lang->tutorial->tasks['manageTeam']         = array('title' => '管理团队');
 $lang->tutorial->tasks['manageTeam']['nav']  = array('module' => 'project', 'method' => 'managemembers', 'menu' => 'team', 'target' => '.manage-team-btn', 'form' => '#teamForm', 'requiredFields' => 'account1', 'submit' => '#submit', 'targetPageName' => '团队管理');
 $lang->tutorial->tasks['manageTeam']['desc'] = "<p>管理{$lang->projectCommon}团队成员：</p><ul><li data-target='nav'>打开 <span class='task-nav'> {$lang->projectCommon} <i class='icon icon-angle-right'></i> 团队 <i class='icon icon-angle-right'></i> 团队管理</span> 页面；</li><li data-target='form'>选择要加入团队的成员；</li><li data-target='submit'>保存团队成员信息。</li></ul>";
 
-$lang->tutorial->tasks['linkStory']         = array('title' => '关联{$lang->storyCommon}');
-$lang->tutorial->tasks['linkStory']['nav']  = array('module' => 'project', 'method' => 'linkStory', 'menu' => 'story', 'target' => '.link-story-btn', 'form' => '#linkStoryForm', 'formType' => 'table', 'submit' => '#submit', 'targetPageName' => '关联{$lang->storyCommon}');
+$lang->tutorial->tasks['linkStory']         = array('title' => "关联{$lang->storyCommon}");
+$lang->tutorial->tasks['linkStory']['nav']  = array('module' => 'project', 'method' => 'linkStory', 'menu' => 'story', 'target' => '.link-story-btn', 'form' => '#linkStoryForm', 'formType' => 'table', 'submit' => '#submit', 'targetPageName' => "关联{$lang->storyCommon}");
 $lang->tutorial->tasks['linkStory']['desc'] = "<p>将{$lang->storyCommon}关联到{$lang->projectCommon}：</p><ul><li data-target='nav'>打开 <span class='task-nav'> {$lang->projectCommon} <i class='icon icon-angle-right'></i> {$lang->storyCommon} <i class='icon icon-angle-right'></i> 关联{$lang->storyCommon}</span> 页面；</li><li data-target='form'>在{$lang->storyCommon}列表中勾选要关联的{$lang->storyCommon}；</li><li data-target='submit'>保存关联的{$lang->storyCommon}信息。</li></ul>";
 
 $lang->tutorial->tasks['createTask']         = array('title' => '分解任务');
@@ -6467,6 +6469,7 @@ $lang->webhook->note->async   = '异步需要打开计划任务';
 $lang->webhook->note->bind    = '只有钉钉工作通知类型才需要绑定用户。';
 $lang->webhook->note->product = "此项为空时所有{$lang->productCommon}的动作都会触发钩子，否则只有关联{$lang->productCommon}的动作才会触发。";
 $lang->webhook->note->project = "此项为空时所有{$lang->projectCommon}的动作都会触发钩子，否则只有关联{$lang->projectCommon}的动作才会触发。";
+$lang->webhook->note->dingKey = "";
 
 $lang->webhook->note->typeList['bearychat'] = '请在倍洽中添加一个禅道机器人，并将其webhook填写到此处。';
 $lang->webhook->note->typeList['dingding']  = '请在钉钉中添加一个自定义机器人，并将其webhook填写到此处。';

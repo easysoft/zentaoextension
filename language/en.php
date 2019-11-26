@@ -2550,16 +2550,18 @@ $lang->custom->allLang     = 'All Languages';
 $lang->custom->confirmRestore = 'Do you want to reset?';
 
 $lang->custom->notice = new stdclass();
-$lang->custom->notice->userFieldNotice      = 'Control whether the above fields are displayed on the user-related page. Leave it blank to display all.';
-$lang->custom->notice->canNotAdd            = 'It will be calculated, so customization is not enabled.';
-$lang->custom->notice->forceReview          = '%s review is required for committers selected.';
-$lang->custom->notice->forceNotReview       = "%s review is not required for committers selected.";
-$lang->custom->notice->longlife             = 'Define stalled bugs.';
-$lang->custom->notice->invalidNumberKey     = 'The key should be =< 255.';
-$lang->custom->notice->invalidStringKey     = 'The key should be lowercase letters, numbers or underlines.';
-$lang->custom->notice->cannotSetTimezone    = 'date_default_timezone_set does not exist or is disabled. Timezone cannot be set.';
-$lang->custom->notice->noClosedBlock        = 'You have no blocks that are closed permanently.';
-$lang->custom->notice->required             = 'The selected field is required.';
+$lang->custom->notice->userFieldNotice   = 'Control whether the above fields are displayed on the user-related page. Leave it blank to display all.';
+$lang->custom->notice->canNotAdd         = 'It will be calculated, so customization is not enabled.';
+$lang->custom->notice->forceReview       = '%s review is required for committers selected.';
+$lang->custom->notice->forceNotReview    = "%s review is not required for committers selected.";
+$lang->custom->notice->longlife          = 'Define stalled bugs.';
+$lang->custom->notice->invalidNumberKey  = 'The key should be =< 255.';
+$lang->custom->notice->invalidStringKey  = 'The key should be lowercase letters, numbers or underlines.';
+$lang->custom->notice->cannotSetTimezone = 'date_default_timezone_set does not exist or is disabled. Timezone cannot be set.';
+$lang->custom->notice->noClosedBlock     = 'You have no blocks that are closed permanently.';
+$lang->custom->notice->required          = 'The selected field is required.';
+$lang->custom->notice->conceptResult     = 'According to your preference, <b> %s-%s </b> is set for you. Use <b>%s</b> + <b> %s</b>。';
+$lang->custom->notice->conceptPath       = 'Go to Admin -> Custom -> Concept to set it.';
 
 $lang->custom->notice->indexPage['product'] = "ZenTao 8.2+ has Product Home. Do you want to go to Product Home?";
 $lang->custom->notice->indexPage['project'] = "ZenTao 8.2+ has Project Home. Do you want to go to Project Home?";
@@ -2586,8 +2588,10 @@ $lang->custom->weekendList[1] = '1-Day Off';
 
 $lang->custom->productProject = new stdclass();
 $lang->custom->productProject->relation['0_0'] = 'Product - Project';
-$lang->custom->productProject->relation['0_1'] = 'Product - Sprint';
-$lang->custom->productProject->relation['1_1'] = 'Project - Sprint';
+$lang->custom->productProject->relation['0_1'] = 'Product - Iteration';
+$lang->custom->productProject->relation['1_1'] = 'Project - Iteration';
+$lang->custom->productProject->relation['0_2'] = 'Product - Sprint';
+$lang->custom->productProject->relation['1_2'] = 'Project - Sprint';
 
 $lang->custom->productProject->notice = 'Select a concept that fits your team.';
 
@@ -2606,6 +2610,20 @@ $lang->custom->scoreStatus[0] = 'Off';
 $lang->custom->moduleName['product']     = $lang->productCommon;
 $lang->custom->moduleName['productplan'] = 'Plan';
 $lang->custom->moduleName['project']     = $lang->projectCommon;
+
+$lang->custom->conceptQuestions['overview']   = "1. Which combination of management fits your company?";
+$lang->custom->conceptQuestions['story']      = "2. Do you use the concept of requirement or user story in your company?";
+$lang->custom->conceptQuestions['storypoint'] = "2. Do you use hours or story points to make estimations in your company?";
+
+$lang->custom->conceptOptions = new stdclass;
+
+$lang->custom->conceptOptions->story = array();
+$lang->custom->conceptOptions->story['0'] = 'Requiremenet';
+$lang->custom->conceptOptions->story['1'] = 'Story';
+
+$lang->custom->conceptOptions->hourPoint = array();
+$lang->custom->conceptOptions->hourPoint['0'] = 'Hour';
+$lang->custom->conceptOptions->hourPoint['1'] = 'Story Point';
 /* datatable */
 $lang->datatable = new stdclass();
 $lang->datatable->common = 'Data Table';
@@ -3232,6 +3250,8 @@ $lang->group->productList        = 'Access Product';
 $lang->group->projectList        = 'Access Project';
 $lang->group->dynamic            = 'Access Dynamics';
 $lang->group->noticeVisit        = 'Blank means no access limit.';
+$lang->group->noneProduct        = "No {$lang->productCommon}";
+$lang->group->noneProject        = "No {$lang->projectCommon}";
 
 $lang->group->id       = 'ID';
 $lang->group->name     = 'Group';
@@ -4051,8 +4071,8 @@ $lang->product->aclList['open']    = "Default (Users with privileges to {$lang->
 $lang->product->aclList['private'] = "Private {$lang->productCommon} ({$lang->projectCommon} team members only)";
 $lang->product->aclList['custom']  = 'Custom (Team members and Whitelist members can access it.)';
 
-$lang->product->storySummary   = "Total <strong>%s</strong> stories on this page. Estimates: <strong>%s</strong> (h), and Case Coverage: <strong>%s</strong>.";
-$lang->product->checkedSummary = "<strong>%total%</strong> stories selected, Esitmates: <strong>%estimate%</strong>, and Case Coverage: <strong>%rate%</strong>.";
+$lang->product->storySummary   = "Total <strong>%s</strong> stories on this page. Estimates: <strong>%s</strong> ({$lang->hourCommon}), and Case Coverage: <strong>%s</strong>.";
+$lang->product->checkedSummary = "<strong>%total%</strong> stories selected, Esitmates: <strong>%estimate%</strong> ({$lang->hourCommon}), and Case Coverage: <strong>%rate%</strong>.";
 $lang->product->noModule       = '<div>You have no modules. </div><div>Manage Now</div>';
 $lang->product->noProduct      = "No {$lang->productCommon} yet. ";
 $lang->product->noMatched      = '"%s" cannot be found.' . $lang->productCommon;
@@ -4873,9 +4893,9 @@ $lang->story->spec           = 'Description';
 $lang->story->assign         = 'Assign';
 $lang->story->verify         = 'Acceptance';
 $lang->story->pri            = 'Priority';
-$lang->story->estimate       = 'Estimates';
-$lang->story->estimateAB     = 'Est.(h)';
-$lang->story->hour           = 'Hours';
+$lang->story->estimate       = "Estimates {$lang->hourCommon}";
+$lang->story->estimateAB     = 'Est.' . $lang->hourCommon == 'hour' ? '(h)' : '(sp)';
+$lang->story->hour           = $lang->hourCommon;
 $lang->story->status         = 'Status';
 $lang->story->subStatus      = 'Sub Status';
 $lang->story->stage          = 'Phase';
