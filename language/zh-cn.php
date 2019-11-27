@@ -2645,11 +2645,14 @@ $lang->datatable->resetGlobal       = '全局恢复默认';
 $lang->datatable->branch   = '分支';
 $lang->datatable->platform = '平台';
 
+$lang->datatable->moduleSetting          = '模块设置';
 $lang->datatable->showModule             = '列表页是否显示模块名';
-$lang->datatable->showModuleAB           = '列表页是否显示模块名';
+$lang->datatable->showAllModule          = '是否显示完整产品模块';
 $lang->datatable->showModuleList[]       = '不显示';
 $lang->datatable->showModuleList['base'] = '只显示一级模块';
 $lang->datatable->showModuleList['end']  = '只显示最后一级模块';
+$lang->datatable->showAllModuleList[0]   = '不显示';
+$lang->datatable->showAllModuleList[1]   = '显示';
 /* dept */
 $lang->dept->common      = '部门结构';
 $lang->dept->manageChild = "下级部门";
@@ -2690,8 +2693,8 @@ $lang->dev->paramRange    = '取值范围：%s';
 $lang->dev->paramDate     = '日期格式：YY-mm-dd，如：2019-01-01';
 $lang->dev->paramColor    = '颜色格式：#RGB，如：#3da7f5';
 $lang->dev->paramMailto   = "填写帐号，多个账号用','分隔。";
-$lang->dev->noteEditor    = "编辑器功能因为安全原因被禁用。使用该功能，请到官网下载安装 扩展编辑器 插件。";
-$lang->dev->noteTranslate = "翻译功能因为安全原因被禁用。使用该功能，请到官网下载安装 翻译 插件。";
+$lang->dev->noteEditor    = "编辑器功能因为安全原因被禁用。使用该功能，请到官网下载安装 <a href='https://www.zentao.net/extension-viewExt-150.html' target='_blank'>扩展编辑器</a> 插件。";
+$lang->dev->noteTranslate = "翻译功能因为安全原因被禁用。使用该功能，请到官网下载安装 <a href='https://www.zentao.net/extension-viewExt-151.html' target='_blank'>翻译</a> 插件。";
 
 $lang->dev->fields = array();
 $lang->dev->fields['id']     = '序号';
@@ -4230,10 +4233,6 @@ $lang->project->effort        = '日志';
 $lang->project->relatedMember = '相关成员';
 $lang->project->watermark     = '由禅道导出';
 $lang->project->viewByUser    = '按用户查看';
-$lang->project->showAllModule = "是否显示完整{$lang->productCommon}模块";
-
-$lang->project->showAllModuleList[0] = '不显示';
-$lang->project->showAllModuleList[1] = '显示';
 
 $lang->project->start    = "开始";
 $lang->project->activate = "激活";
@@ -6469,7 +6468,7 @@ $lang->webhook->note->async   = '异步需要打开计划任务';
 $lang->webhook->note->bind    = '只有钉钉工作通知类型才需要绑定用户。';
 $lang->webhook->note->product = "此项为空时所有{$lang->productCommon}的动作都会触发钩子，否则只有关联{$lang->productCommon}的动作才会触发。";
 $lang->webhook->note->project = "此项为空时所有{$lang->projectCommon}的动作都会触发钩子，否则只有关联{$lang->projectCommon}的动作才会触发。";
-$lang->webhook->note->dingKey = "";
+$lang->webhook->note->dingKey = " <a href='http://www.zentao.net/book/zentaopmshelp/358.html' target='_blank'><i class='icon-help'></i></a>";
 
 $lang->webhook->note->typeList['bearychat'] = '请在倍洽中添加一个禅道机器人，并将其webhook填写到此处。';
 $lang->webhook->note->typeList['dingding']  = '请在钉钉中添加一个自定义机器人，并将其webhook填写到此处。';

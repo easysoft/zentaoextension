@@ -2560,7 +2560,7 @@ $lang->custom->notice->invalidStringKey  = 'The key should be lowercase letters,
 $lang->custom->notice->cannotSetTimezone = 'date_default_timezone_set does not exist or is disabled. Timezone cannot be set.';
 $lang->custom->notice->noClosedBlock     = 'You have no blocks that are closed permanently.';
 $lang->custom->notice->required          = 'The selected field is required.';
-$lang->custom->notice->conceptResult     = 'According to your preference, <b> %s-%s </b> is set for you. Use <b>%s</b> + <b> %s</b>。';
+$lang->custom->notice->conceptResult     = 'According to your preference, <b> %s-%s </b> is set for you. Use <b>%s</b> + <b> %s</b>.';
 $lang->custom->notice->conceptPath       = 'Go to Admin -> Custom -> Concept to set it.';
 
 $lang->custom->notice->indexPage['product'] = "ZenTao 8.2+ has Product Home. Do you want to go to Product Home?";
@@ -2644,8 +2644,9 @@ $lang->datatable->resetGlobal        = 'Global Reset';
 $lang->datatable->branch   = 'Branch';
 $lang->datatable->platform = 'Platform';
 
-$lang->datatable->showModule             = 'Show module names on the list page';
-$lang->datatable->showModuleAB           = 'Show modules in the list';
+$lang->datatable->moduleSetting          = 'Set Module';
+$lang->datatable->showModule             = 'Show modules in the list';
+$lang->datatable->showAllModule          = 'Show product modules';
 $lang->datatable->showModuleList[]       = 'N/A';
 $lang->datatable->showModuleList['base'] = 'Base Node';
 $lang->datatable->showModuleList['end']  = 'End Node';
@@ -2689,8 +2690,8 @@ $lang->dev->paramRange    = 'Parameter Range: %s';
 $lang->dev->paramDate     = 'Date format: YY-mm-dd, e.g 2019-01-01';
 $lang->dev->paramColor    = 'Color format: #RGB, e.g. #3da7f5';
 $lang->dev->paramMailto   = "User account. Separate accounts by ','.";
-$lang->dev->noteEditor    = "The editor is disabled for security reasons. To use this feature, please go to the official website to download and install the plugin of the editor.";
-$lang->dev->noteTranslate = "The translation is disabled for security reasons. To use this feature, please go to the official website to download and install the plugin of translation.";
+$lang->dev->noteEditor    = "The editor is disabled for security reasons. To use this feature, please go to the official website to download and install the plugin of the <a href='https://www.zentao.net/extension-viewExt-150.html' target='_blank'>editor</a>.";
+$lang->dev->noteTranslate = "The translation is disabled for security reasons. To use this feature, please go to the official website to download and install the plugin of <a href='https://www.zentao.net/extension-viewExt-151.html' target='_blank'>translation</a>.";
 
 $lang->dev->fields = array();
 $lang->dev->fields['id']     = 'ID';
@@ -4229,7 +4230,6 @@ $lang->project->effort        = 'Effort';
 $lang->project->relatedMember = 'Team';
 $lang->project->watermark     = 'Exported by ZenTao';
 $lang->project->viewByUser    = 'By User';
-$lang->project->showAllModule = "Show {$lang->productCommon} modules";
 
 $lang->project->start    = 'Start';
 $lang->project->activate = 'Activate';
@@ -4894,7 +4894,7 @@ $lang->story->assign         = 'Assign';
 $lang->story->verify         = 'Acceptance';
 $lang->story->pri            = 'Priority';
 $lang->story->estimate       = "Estimates {$lang->hourCommon}";
-$lang->story->estimateAB     = 'Est.' . $lang->hourCommon == 'hour' ? '(h)' : '(sp)';
+$lang->story->estimateAB     = 'Est.' . $lang->hourCommon == 'hour' ? '(h)' : '(SP)';
 $lang->story->hour           = $lang->hourCommon;
 $lang->story->status         = 'Status';
 $lang->story->subStatus      = 'Sub Status';
@@ -6464,6 +6464,7 @@ $lang->webhook->note->async   = 'If it is asynchronous, you have to go to Admin-
 $lang->webhook->note->bind    = 'Bind User is only required for Dingding Notifier.';
 $lang->webhook->note->product = "All actions will trigger the hook if {$lang->productCommon} is empty, or only actions of selected {$lang->productCommon} will trigger it.";
 $lang->webhook->note->project = "All actions will trigger the hook if {$lang->projectCommon} is empty, or only actions of selected {$lang->projectCommon} will trigger it.";
+$lang->webhook->note->dingKey = " <a href='http://www.zentao.net/book/zentaopmshelp/358.html' target='_blank'><i class='icon-help'></i></a>";
 
 $lang->webhook->note->typeList['bearychat'] = 'Add a ZenTao bot in bearychat and get the webhook url.';
 $lang->webhook->note->typeList['dingding']  = 'Add a customized bot in dingding and get the webhook url.';
