@@ -1976,6 +1976,7 @@ $lang->bug->confirmChangeProduct  = "Any change to {$lang->productCommon} will c
 $lang->bug->confirmDelete         = 'Do you want to delete this bug?';
 $lang->bug->remindTask            = 'This bug has been converted to a task. Do you want to update the status of Task(ID %s)?';
 $lang->bug->skipClose             = 'Bug %s is active. You cannot close it.';
+$lang->bug->projectAccessDenied   = "You access to the {$this->projectCommon} to which this bug belongs is denied!";
 
 $lang->bug->tplStep   = "<p>[Steps]</p><br/>";
 $lang->bug->tplResult = "<p>[Results]</p><br/>";
@@ -3354,7 +3355,7 @@ $lang->install->links = <<<EOT
 ZenTao ALM is developed by <strong><a href='http://en.easysoft.ltd' target='_blank' class='text-danger'>Nature Easy Soft Co., LTD</a></strong>.
 Official Website: <a href='https://www.zentao.pm' target='_blank'>https://www.zentao.pm</a>
 Technical Support: <a href='https://www.zentao.pm/forum/' target='_blank'>https://www.zentao.pm/forum/</a>
-LinkedIn Group: <a href='https://www.linkedin.com/groups/10330509/' target='_blank'>ZenTao Project Management Software</a>
+LinkedIn: <a href='https://www.linkedin.com/company/1156596/' target='_blank'>Nature Easy Soft</a>
 Facebook: <a href='https://www.facebook.com/natureeasysoft' target='_blank'>Nature Easy Soft</a>
 Twitter: <a href='https://twitter.com/ZentaoA' target='_blank'>ZenTao ALM</a>
 
