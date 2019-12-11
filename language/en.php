@@ -308,7 +308,7 @@ $lang->caselib->menu->testcase  = array('link' => 'Case|testcase|browse|');
 $lang->caselib->menu->testtask  = array('link' => 'Request|testtask|browse|');
 $lang->caselib->menu->testsuite = array('link' => 'Suite|testsuite|browse|');
 $lang->caselib->menu->report    = array('link' => 'Report|testreport|browse|');
-$lang->caselib->menu->caselib   = array('link' => 'Case Library|caselib|browse', 'alias' => 'create,createcase,view,edit,batchcreatecase,showimport', 'subModule' => 'tree,testcase');
+$lang->caselib->menu->caselib   = array('link' => 'Case Library|caselib|browse|libID=%s', 'alias' => 'create,createcase,view,edit,batchcreatecase,showimport', 'subModule' => 'tree,testcase');
 
 $lang->doc = new stdclass();
 $lang->doc->menu = new stdclass();
@@ -1976,7 +1976,7 @@ $lang->bug->confirmChangeProduct  = "Any change to {$lang->productCommon} will c
 $lang->bug->confirmDelete         = 'Do you want to delete this bug?';
 $lang->bug->remindTask            = 'This bug has been converted to a task. Do you want to update the status of Task(ID %s)?';
 $lang->bug->skipClose             = 'Bug %s is active. You cannot close it.';
-$lang->bug->projectAccessDenied   = "You access to the {$this->projectCommon} to which this bug belongs is denied!";
+$lang->bug->projectAccessDenied   = "You access to the {$lang->projectCommon} to which this bug belongs is denied!";
 
 $lang->bug->tplStep   = "<p>[Steps]</p><br/>";
 $lang->bug->tplResult = "<p>[Results]</p><br/>";
