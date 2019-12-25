@@ -112,6 +112,7 @@ $lang->menu->my      = '<span>Dashboard</span>|my|index';
 $lang->menu->product = $lang->productCommon . '|product|index|locate=no';
 $lang->menu->project = $lang->projectCommon . '|project|index|locate=no';
 $lang->menu->qa      = 'QA|qa|index';
+$lang->menu->repo    = 'Code|repo|log';
 $lang->menu->doc     = 'Doc|doc|index';
 $lang->menu->report  = 'Report|report|index';
 $lang->menu->company = 'Company|company|index';
@@ -310,6 +311,12 @@ $lang->caselib->menu->testsuite = array('link' => 'Suite|testsuite|browse|');
 $lang->caselib->menu->report    = array('link' => 'Report|testreport|browse|');
 $lang->caselib->menu->caselib   = array('link' => 'Case Library|caselib|browse|libID=%s', 'alias' => 'create,createcase,view,edit,batchcreatecase,showimport', 'subModule' => 'tree,testcase');
 
+$lang->repo = new stdclass();
+$lang->repo->menu = new stdclass();
+$lang->repo->menu->browse   = array('link' =>'Browse|repo|log|repoID=%s&entry=', 'alias' => 'diff,view,revision,showsynccomment');
+$lang->repo->menu->settings = 'Settings|repo|settings|repoID=%s';
+$lang->repo->menu->delete   = array('link' => 'Delete|repo|delete|repoID=%s', 'target' => 'hiddenwin');
+
 $lang->doc = new stdclass();
 $lang->doc->menu = new stdclass();
 //$lang->doc->menu->createLib = array('link' => '<i class="icon icon-folder-plus"></i>&nbsp;Add Library|doc|createLib', 'float' => 'right');
@@ -320,6 +327,7 @@ $lang->git = new stdclass();
 $lang->report = new stdclass();
 $lang->report->menu = new stdclass();
 
+$lang->report->menu->annual  = array('link' => 'Annual Summary|report|annualData', 'target' => '_blank');
 $lang->report->menu->product = array('link' => $lang->productCommon . '|report|productsummary');
 $lang->report->menu->prj     = array('link' => $lang->projectCommon . '|report|projectdeviation');
 $lang->report->menu->test    = array('link' => 'Request|report|bugcreate', 'alias' => 'bugassign');
@@ -823,6 +831,7 @@ if(isset($config->global->flow) and $config->global->flow == 'onlyTest')
 
         $lang->menugroup->bug        = 'bug';
     $lang->menugroup->testcase   = 'testcase';
+    $lang->menugroup->case       = 'testcase';
     $lang->menugroup->testtask   = 'testtask';
     $lang->menugroup->testsuite  = 'testsuite';
     $lang->menugroup->caselib    = 'caselib';
@@ -2201,17 +2210,17 @@ $lang->bug->moreSelects['needconfirm']   = $lang->bug->needConfirm;
 $lang->build->common           = "Build";
 $lang->build->create           = "Create Build";
 $lang->build->edit             = "Edit Build";
-$lang->build->linkStory        = "Link Story";
+$lang->build->linkStory        = "Link {$lang->storyCommon}";
 $lang->build->linkBug          = "Link Bug";
 $lang->build->delete           = "Delete Build";
 $lang->build->deleted          = "Deleted";
 $lang->build->view             = "Build Detail";
 $lang->build->batchUnlink      = 'Batch Unlink';
-$lang->build->batchUnlinkStory = 'Batch Unlink Stories';
+$lang->build->batchUnlinkStory = "Batch Unlink {$lang->storyCommon}";
 $lang->build->batchUnlinkBug   = 'Batch Unlink Bugs';
 
 $lang->build->confirmDelete      = "Do you want to delete this build?";
-$lang->build->confirmUnlinkStory = "Do you want to unlink this Story?";
+$lang->build->confirmUnlinkStory = "Do you want to unlink this {$lang->storyCommon}?";
 $lang->build->confirmUnlinkBug   = "Do you want to unlink this Bug?";
 
 $lang->build->basicInfo = 'Basic Info';
@@ -2229,15 +2238,18 @@ $lang->build->desc          = 'Description';
 $lang->build->files         = 'Files';
 $lang->build->last          = 'Last Build';
 $lang->build->packageType   = 'Package Type';
-$lang->build->unlinkStory   = 'Unlink Story';
+$lang->build->unlinkStory   = "Unlink {$lang->storyCommon}";
 $lang->build->unlinkBug     = 'Unlink Bug';
-$lang->build->stories       = 'Finished Stories';
+$lang->build->stories       = "Finished {$lang->storyCommon}";
 $lang->build->bugs          = 'Resolved Bugs';
 $lang->build->generatedBugs = 'Reported Bugs';
 $lang->build->noProduct     = " <span style='color:red'>This {$lang->projectCommon} is not linked to {$lang->productCommon}, so the Build cannot be created. Please first <a href='%s'> link {$lang->productCommon}</a></span>";
 $lang->build->noBuild       = 'No builds yet.';
 
-$lang->build->finishStories = '  Finished Story %s';
+$lang->build->notice = new stdclass();
+$lang->build->notice->changeProduct = "The {$lang->storyCommon} or Bug has been associated, and its product cannot be modified";
+
+$lang->build->finishStories = "  Finished {$lang->storyCommon} %s";
 $lang->build->resolvedBugs  = '  Resolved Bug %s';
 $lang->build->createdBugs   = '  Reported Bug %s';
 
@@ -2783,6 +2795,10 @@ $lang->dev->tableList['userview']         = 'User Privilege';
 $lang->dev->tableList['im_chatuser']      = 'Client Users';
 $lang->dev->tableList['im_message']       = 'Client Messages';
 $lang->dev->tableList['im_messagestatus'] = 'Client Messages Status';
+$lang->dev->tableList['repo']             = 'Code';
+$lang->dev->tableList['repohistory']      = 'Repo History';
+$lang->dev->tableList['repofiles']        = 'Repo Files';
+$lang->dev->tableList['repobranch']       = 'Repo Branch';
 
 $lang->dev->groupList['my']      = 'Dashboard';
 $lang->dev->groupList['product'] = $lang->productCommon;
@@ -4739,6 +4755,7 @@ $lang->report->value      = 'Value';
 $lang->report->percent    = '%';
 $lang->report->undefined  = 'Undefined';
 $lang->report->query      = 'Query';
+$lang->report->annual     = 'Annual Summary';
 
 $lang->report->colors[]   = 'AFD8F8';
 $lang->report->colors[]   = 'F6BD0F';
@@ -4821,6 +4838,53 @@ $lang->report->mailTitle->testTask = " Request (%s),";
 
 $lang->report->proVersion   = '<a href="https://api.zentao.net/goto.php?item=proversion&from=reportpage" target="_blank">Try ZenTao Pro for more!</a>';
 $lang->report->proVersionEn = '<a href="http://api.zentao.pm/goto.php?item=proversion&from=reportpage" target="_blank">Try ZenTao Pro for more!</a>';
+
+$lang->report->annualData = new stdclass();
+$lang->report->annualData->title            = "%s年工作内容统计一览表 —— %s";
+$lang->report->annualData->baseInfo         = "基本数据信息";
+$lang->report->annualData->logins           = "累计登录次数";
+$lang->report->annualData->actions          = "累计动态数";
+$lang->report->annualData->efforts          = "累计日志数";
+$lang->report->annualData->consumed         = "累计工时数";
+$lang->report->annualData->foundBugs        = "累计发现Bug数";
+$lang->report->annualData->createdCases     = "累计创建用例数";
+$lang->report->annualData->involvedProducts = "累计参与{$lang->productCommon}数";
+$lang->report->annualData->createdPlans     = "累计创建计划数";
+$lang->report->annualData->createdStories   = "累计创建{$lang->storyCommon}数";
+
+$lang->report->annualData->productOverview = "{$lang->productCommon}创建的{$lang->storyCommon}数及占比";
+$lang->report->annualData->qaOverview      = "{$lang->productCommon}创建的Bug数及占比";
+$lang->report->annualData->projectOverview = "参与{$lang->projectCommon}概览";
+$lang->report->annualData->doneProject     = "已完成的{$lang->projectCommon}";
+$lang->report->annualData->doingProject    = "正在进行的{$lang->projectCommon}";
+$lang->report->annualData->suspendProject  = "已挂起的{$lang->projectCommon}";
+
+$lang->report->annualData->projectName   = "{$lang->projectCommon}名称";
+$lang->report->annualData->finishedStory = "完成{$lang->storyCommon}数";
+$lang->report->annualData->finishedTask  = '完成任务数';
+$lang->report->annualData->foundBug      = '发现Bug数';
+$lang->report->annualData->resolvedBug   = '解决Bug数';
+$lang->report->annualData->productName   = "{$lang->productCommon}名称";
+$lang->report->annualData->planCount     = '计划数';
+$lang->report->annualData->storyCount    = "{$lang->storyCommon}数";
+
+$lang->report->annualData->qaData           = "累计发现的Bug数和创建的用例数";
+$lang->report->annualData->totalCreatedBug  = '累计发现的Bug数';
+$lang->report->annualData->totalCreatedCase = '累计创建的用例数';
+
+$lang->report->annualData->devData           = "完成的任务数和解决的Bug数";
+$lang->report->annualData->totalFinishedTask = '完成的任务数';
+$lang->report->annualData->totalResolvedBug  = '解决的Bug数';
+
+$lang->report->annualData->poData          = "所创建的{$lang->storyCommon}数对应的优先级及状态";
+$lang->report->annualData->totalStoryPri   = "创建{$lang->storyCommon}优先级分布";
+$lang->report->annualData->totalStoryStage = "创建{$lang->storyCommon}阶段分布";
+
+$lang->report->annualData->qaStatistics  = "月发现的Bug数和创建的用例数";
+$lang->report->annualData->poStatistics  = "月创建{$lang->storyCommon}数";
+$lang->report->annualData->devStatistics = "月完成任务累计工时";
+
+$lang->report->annualData->unit = "个";
 /* score */
 $lang->score->common       = 'My Points';
 $lang->score->record       = 'Points';
