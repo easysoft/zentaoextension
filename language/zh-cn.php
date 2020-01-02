@@ -1387,7 +1387,6 @@ $lang->backup->size  = '大小';
 $lang->backup->setting    = '设置';
 $lang->backup->settingDir = '备份目录';
 $lang->backup->settingList['nofile'] = '不备份附件和代码';
-$lang->backup->settingList['nozip']  = '只拷贝文件，不压缩';
 $lang->backup->settingList['nosafe'] = '不需要防下载PHP文件头';
 
 $lang->backup->waitting        = '<span id="backupType"></span>正在进行中，请稍候...';
@@ -2884,8 +2883,6 @@ $lang->doc->editType         = '编辑分类';
 $lang->doc->deleteType       = '删除分类';
 $lang->doc->addType          = '增加分类';
 $lang->doc->childType        = '子分类';
-$lang->doc->editType         = '维护分类';
-$lang->doc->deleteType       = '删除分类';
 $lang->doc->collect          = '收藏';
 $lang->doc->cancelCollection = '取消收藏';
 $lang->doc->deleteFile       = '删除附件';
@@ -3778,6 +3775,8 @@ $lang->misc->connectFail = "连接数据库失败，错误：%s，<br/> 请检�
 $lang->misc->tableName   = "表名";
 $lang->misc->tableStatus = "状态";
 $lang->misc->novice      = "您可能初次使用禅道，是否进入新手模式？";
+$lang->misc->showAnnual  = '新增年度报表功能';
+$lang->misc->annualDesc  = '12.0版本后，新增年度报表功能，可以到『统计->年度报表』页面查看。 是否现在<a href="%s" target="_blank" id="showAnnual" class="btn btn-mini btn-primary">查看</a>';
 
 $lang->misc->noticeRepair = "<h5>普通用户请联系管理员进行修复</h5>
     <h5>管理员请登录禅道所在的服务器，创建<span>%s</span>文件。</h5>
@@ -3791,6 +3790,7 @@ $lang->misc->feature = new stdclass();
 $lang->misc->feature->lastest  = '最新版本';
 $lang->misc->feature->detailed = '详情';
 
+$lang->misc->releaseDate['12.0']        = '2020-01-03';
 $lang->misc->releaseDate['11.7']        = '2019-11-28';
 $lang->misc->releaseDate['11.6.5']      = '2019-11-08';
 $lang->misc->releaseDate['11.6.4']      = '2019-10-17';
@@ -3826,6 +3826,10 @@ $lang->misc->releaseDate['7.4.beta']    = '2015-11-13';
 $lang->misc->releaseDate['7.2.stable']  = '2015-05-22';
 $lang->misc->releaseDate['7.1.stable']  = '2015-03-07';
 $lang->misc->releaseDate['6.3.stable']  = '2014-11-07';
+
+$lang->misc->feature->all['12.0'][]   = array('title'=>'将代码功能版本浏览功能转移到开源版', 'desc' => '');
+$lang->misc->feature->all['12.0'][]   = array('title'=>'增加年度总结', 'desc' => '根据角色显示年度总结。');
+$lang->misc->feature->all['12.0'][]   = array('title'=>'完善细节，修复Bug', 'desc' => '');
 
 $lang->misc->feature->all['11.7'][]   = array('title'=>'完善细节，修复Bug', 'desc' => '<p>增加用户是否使用敏捷概念的选择</p><p>webhook类型中增加企业微信</p><p>实现到钉钉个人消息的通知</p>');
 $lang->misc->feature->all['11.6.5'][] = array('title'=>'修复Bug', 'desc' => '');

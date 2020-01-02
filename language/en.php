@@ -111,7 +111,7 @@ $lang->menu = new stdclass();
 $lang->menu->my      = '<span>Dashboard</span>|my|index';
 $lang->menu->product = $lang->productCommon . '|product|index|locate=no';
 $lang->menu->project = $lang->projectCommon . '|project|index|locate=no';
-$lang->menu->qa      = 'QA|qa|index';
+$lang->menu->qa      = 'Test|qa|index';
 $lang->menu->repo    = 'Code|repo|log';
 $lang->menu->doc     = 'Doc|doc|index';
 $lang->menu->report  = 'Report|report|index';
@@ -1387,7 +1387,6 @@ $lang->backup->size  = 'Size';
 $lang->backup->setting    = 'Settings';
 $lang->backup->settingDir = 'Backup Directory';
 $lang->backup->settingList['nofile'] = 'Do not back up files or codes.';
-$lang->backup->settingList['nozip']  = 'Only copy files and do not no zip it.';
 $lang->backup->settingList['nosafe'] = 'Do not prevent downloading PHP file header.';
 
 $lang->backup->waitting       = '<span id="backupType"></span> is ongoing. Please wait...';
@@ -2882,8 +2881,6 @@ $lang->doc->editType         = 'Edit';
 $lang->doc->deleteType       = 'Delete';
 $lang->doc->addType          = 'Add';
 $lang->doc->childType        = 'Categories';
-$lang->doc->editType         = 'Manage Category';
-$lang->doc->deleteType       = 'Delete Category';
 $lang->doc->collect          = 'Add Favorite';
 $lang->doc->cancelCollection = 'Remove Favorite';
 $lang->doc->deleteFile       = 'Delete File';
@@ -3776,6 +3773,8 @@ $lang->misc->connectFail = "Failed to connect to the database. Error: %s，<br/>
 $lang->misc->tableName   = "Table Name";
 $lang->misc->tableStatus = "Status";
 $lang->misc->novice      = "New to ZenTao? Do you want to start ZenTao Tutorial?";
+$lang->misc->showAnnual  = 'Add annual summary';
+$lang->misc->annualDesc  = 'After version 12.0, the new annual report function can be viewed on the 『Report->Annual Summary』 page. <a href="%s" target="_blank" id="showAnnual" class="btn btn-mini btn-primary">See now</a>.';
 
 $lang->misc->noticeRepair = "<h5>If you are not Administrator, contact your ZenTao Administrator to repair tables.</h5>
     <h5>If you are the Administrator, login your ZenTao host and create a file named <span>%s</span>.</h5>
@@ -3789,6 +3788,7 @@ $lang->misc->feature = new stdclass();
 $lang->misc->feature->lastest  = 'Latest Version';
 $lang->misc->feature->detailed = 'Detail';
 
+$lang->misc->releaseDate['12.0']        = '2020-01-03';
 $lang->misc->releaseDate['11.7']        = '2019-11-28';
 $lang->misc->releaseDate['11.6.5']      = '2019-11-08';
 $lang->misc->releaseDate['11.6.4']      = '2019-10-17';
@@ -3824,6 +3824,10 @@ $lang->misc->releaseDate['7.4.beta']    = '2015-11-13';
 $lang->misc->releaseDate['7.2.stable']  = '2015-05-22';
 $lang->misc->releaseDate['7.1.stable']  = '2015-03-07';
 $lang->misc->releaseDate['6.3.stable']  = '2014-11-07';
+
+$lang->misc->feature->all['12.0'][]   = array('title'=>'Move repo function to zentao', 'desc' => '');
+$lang->misc->feature->all['12.0'][]   = array('title'=>'Add annual summary', 'desc' => 'Show annual summary by role.');
+$lang->misc->feature->all['12.0'][]   = array('title'=>'Optimize details and fix bug.', 'desc' => '');
 
 $lang->misc->feature->all['11.7'][]   = array('title'=>'Optimize details and fix bug.', 'desc' => '<p>Added choices for users to choose agile or not.</p><p>Added WeChat Enterprise to the types of webhook</p><p>Added the notifier of Dingding personal messages</p>');
 $lang->misc->feature->all['11.6.5'][] = array('title'=>'Fix bug.', 'desc' => '');
