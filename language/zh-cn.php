@@ -2278,9 +2278,13 @@ $lang->caselib->import           = '导入';
 $lang->caselib->importAction     = '导入用例';
 $lang->caselib->showImport       = '显示导入数据';
 
-$lang->caselib->id   = '编号';
-$lang->caselib->name = '名称';
-$lang->caselib->desc = '描述';
+$lang->caselib->id             = '编号';
+$lang->caselib->name           = '名称';
+$lang->caselib->desc           = '描述';
+$lang->caselib->addedBy        = '由谁创建';
+$lang->caselib->addedDate      = '创建时间';
+$lang->caselib->lastEditedBy   = '最后编辑人';
+$lang->caselib->lastEditedDate = '最后编辑时间';
 
 $lang->caselib->legendDesc = '描述';
 
@@ -4323,7 +4327,7 @@ $lang->project->linkedProducts    = '已关联';
 $lang->project->unlinkedProducts  = '未关联';
 $lang->project->view              = "{$lang->projectCommon}概况";
 $lang->project->startAction       = "开始{$lang->projectCommon}";
-$lang->project->activateAction    = "计划{$lang->projectCommon}";
+$lang->project->activateAction    = "激活{$lang->projectCommon}";
 $lang->project->delayAction       = "延期{$lang->projectCommon}";
 $lang->project->suspendAction     = "挂起{$lang->projectCommon}";
 $lang->project->closeAction       = "关闭{$lang->projectCommon}";
