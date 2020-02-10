@@ -92,6 +92,7 @@ $lang->loading       = '稍候...';
 $lang->notFound      = '抱歉，您访问的对象并不存在！';
 $lang->notPage       =  '抱歉，您访问的功能正在开发中！';
 $lang->showAll       = '[[全部显示]]';
+$lang->selectedItems = '已选择 <strong>{0}</strong> 项';
 
 $lang->future      = '未来';
 $lang->year        = '年';
@@ -112,7 +113,7 @@ $lang->menu->my      = '<span> 我的地盘</span>|my|index';
 $lang->menu->product = $lang->productCommon . '|product|index|locate=no';
 $lang->menu->project = $lang->projectCommon . '|project|index|locate=no';
 $lang->menu->qa      = '测试|qa|index';
-$lang->menu->repo    = '代码|repo|log';
+$lang->menu->devops  = '集成|repo|browse';
 $lang->menu->doc     = '文档|doc|index';
 $lang->menu->report  = '统计|report|index';
 $lang->menu->company = '组织|company|index';
@@ -313,9 +314,15 @@ $lang->caselib->menu->caselib   = array('link' => '用例库|caselib|browse|libI
 
 $lang->repo = new stdclass();
 $lang->repo->menu = new stdclass();
-$lang->repo->menu->browse   = array('link' =>'浏览|repo|log|repoID=%s&entry=', 'alias' => 'diff,view,revision,showsynccomment');
-$lang->repo->menu->settings = '设置|repo|settings|repoID=%s';
-$lang->repo->menu->delete   = array('link' => '删除|repo|delete|repoID=%s', 'target' => 'hiddenwin');
+$lang->repo->menu->browse   = array('link' =>'浏览|repo|browse|repoID=%s', 'alias' => 'diff,view,revision,log,blame,showsynccomment');
+$lang->repo->menu->maintain = array('link' =>'版本库|repo|maintain', 'alias' => 'create,edit');
+$lang->repo->menu->job      = array('link' =>'构建|ci|browsejob', 'alias' => 'createjob,editjob,browsebuild,viewbuildlogs');
+$lang->repo->menu->jenkins  = array('link' =>'Jenkins|jenkins|browse', 'alias' => 'create,edit');
+
+$lang->ci            = new stdclass();
+$lang->ci->menu      = $lang->repo->menu;
+$lang->jenkins       = new stdclass();
+$lang->jenkins->menu = $lang->repo->menu;
 
 $lang->doc = new stdclass();
 $lang->doc->menu = new stdclass();
@@ -327,7 +334,6 @@ $lang->git = new stdclass();
 $lang->report = new stdclass();
 $lang->report->menu = new stdclass();
 
-$lang->report->menu->annual  = array('link' => '年度总结|report|annualData', 'target' => '_blank');
 $lang->report->menu->product = array('link' => $lang->productCommon . '|report|productsummary');
 $lang->report->menu->prj     = array('link' => $lang->projectCommon . '|report|projectdeviation');
 $lang->report->menu->test    = array('link' => '测试|report|bugcreate', 'alias' => 'bugassign');
@@ -357,7 +363,7 @@ $lang->admin->menu = new stdclass();
 $lang->admin->menu->index     = array('link' => '首页|admin|index', 'alias' => 'register,certifytemail,certifyztmobile,ztcompany');
 $lang->admin->menu->message   = array('link' => '通知|message|index', 'subModule' => 'message,mail,webhook');
 $lang->admin->menu->custom    = array('link' => '自定义|custom|set', 'subModule' => 'custom');
-$lang->admin->menu->sso       = array('link' => '集成|admin|sso');
+$lang->admin->menu->sso       = array('link' => '集成|admin|sso', 'subModule' => '');
 $lang->admin->menu->extension = array('link' => '插件|extension|browse', 'subModule' => 'extension');
 $lang->admin->menu->dev       = array('link' => '二次开发|dev|api', 'alias' => 'db', 'subModule' => 'dev,entry');
 $lang->admin->menu->translate = array('link' => '翻译|dev|translate');
@@ -450,6 +456,10 @@ $lang->menugroup->entry       = 'admin';
 $lang->menugroup->webhook     = 'admin';
 $lang->menugroup->message     = 'admin';
 
+$lang->menugroup->repo        = 'devops';
+$lang->menugroup->ci          = 'devops';
+$lang->menugroup->jenkins     = 'devops';
+
 $lang->error = new stdclass();
 $lang->error->companyNotFound = "您访问的域名 %s 没有对应的公司。";
 $lang->error->length          = array("『%s』长度错误，应当为『%s』", "『%s』长度应当不超过『%s』，且大于『%s』。");
@@ -475,6 +485,8 @@ $lang->error->pasteImg        = '您的浏览器不支持粘贴图片！';
 $lang->error->noData          = '没有数据';
 $lang->error->editedByOther   = '该记录可能已经被改动。请刷新页面重新编辑！';
 $lang->error->tutorialData    = '新手模式下不会插入数据，请退出新手模式操作';
+
+$lang->error->noCurlExt       = '服务器未安装Curl模块。';
 
 $lang->pager = new stdclass();
 $lang->pager->noRecord     = "暂时没有记录";
@@ -2290,6 +2302,63 @@ $lang->caselib->legendDesc = '描述';
 
 $lang->caselib->libraryDelete = '您确认要删除该用例库吗？';
 $lang->caselib->noModule      = '<div>您现在还没有模块信息</div><div>请维护用例库模块</div>';
+/* ci */
+$lang->ci->common         = '持续集成';
+$lang->ci->at             = '于';
+
+$lang->ci->jenkins        = 'Jenkins';
+$lang->ci->repo           = '版本库';
+$lang->ci->job            = '构建';
+$lang->ci->browse         = '浏览';
+$lang->ci->create         = '新建';
+$lang->ci->edit           = '编辑';
+
+$lang->job = new stdclass();
+$lang->job->browseBuild   = '构建历史';
+$lang->job->viewLogs      = '构建日志';
+
+$lang->job->create        = '新建构建任务';
+$lang->job->edit          = '编辑构建任务';
+$lang->job->exeNow        = '立即执行';
+$lang->job->delete        = '删除构建任务';
+$lang->job->confirmDelete = '确认删除该构建任务吗？';
+
+$lang->job->repo   = '构建状态';
+$lang->job->buildStatus   = '构建状态';
+$lang->job->buildStatus   = '构建状态';
+$lang->job->buildStatus   = '构建状态';
+$lang->job->buildTime     = '构建时间';
+
+$lang->job->id             = 'ID';
+$lang->job->name           = '名称';
+$lang->job->repo           = '代码库';
+$lang->job->svnFolder      = 'SVN Tag 父URL';
+$lang->job->jenkins        = 'Jenkins服务';
+$lang->job->buildType      = '构建类型';
+$lang->job->jenkinsJob     = 'Jenkins任务名';
+$lang->job->triggerType    = '触发方式';
+$lang->job->scheduleType   = '时间计划';
+$lang->job->cronExpression = 'Cron表达式';
+$lang->job->custom         = '自定义';
+
+$lang->job->at               = '在';
+$lang->job->time             = '时间';
+$lang->job->exe              = '执行';
+$lang->job->scheduleInterval = '每隔';
+$lang->job->day              = '天';
+$lang->job->lastExe          = '最后执行';
+$lang->job->scheduleTime     = '时间';
+
+$lang->job->example    = '举例';
+$lang->job->tagEx      = 'build_#15，其中15为Jenkins任务编号';
+$lang->job->commitEx   = 'start build #15，其中15为Jenkins任务编号';
+$lang->job->cronSample = '如 0 0 2 * * 2-6/1 表示每个工作日凌晨2点';
+
+$lang->job->buildStatusList  = array('success' => '成功', 'fail' => '失败', 'created' => '新建', 'building' => '构建中', 'create_fail' => '创建失败', 'timeout' => '执行超时');
+$lang->job->dayTypeList      = array('workDay' => '工作日', 'everyDay' => '每天');
+$lang->job->buildTypeList    = array('build' => '仅构建', 'buildAndDeploy' => '构建部署', 'buildAndTest' => '构建测试');
+$lang->job->triggerTypeList  = array('tag' => '打标签', 'commit' => '代码提交注释', 'schedule' => '定时计划');
+$lang->job->scheduleTypeList = array('cron' => 'Crontab', 'custom' => '自定义');
 /* company */
 $lang->company->common   = '组织视图';
 $lang->company->index    = "组织视图首页";
@@ -3582,6 +3651,24 @@ $lang->install->meshiot->desc  = <<<EOD
   <li>可配电池，对既有场地无任何要求</li>
 </ul>
 EOD;
+/* jenkins */
+$lang->jenkins->common                  = 'Jenkins';
+$lang->jenkins->browse                  = '浏览';
+$lang->jenkins->create                  = '创建';
+$lang->jenkins->edit                    = '编辑';
+$lang->jenkins->delete                  = '删除';
+$lang->jenkins->confirmDelete           = '确认删除该Jenkins吗？';
+
+$lang->jenkins->id                      = 'ID';
+$lang->jenkins->name                    = '名称';
+$lang->jenkins->serviceUrl              = '服务地址';
+$lang->jenkins->token                   = 'Token';
+$lang->jenkins->account                 = '用户名';
+$lang->jenkins->password                = '密码';
+
+$lang->jenkins->desc                    = '描述';
+$lang->jenkins->tokenFirst              = 'Token不为空时，优先使用Token。';
+$lang->jenkins->tips                    = '使用密码时，请在Jenkins全局安全设置中禁用"防止跨站点请求伪造"选项。';
 /* mail */
 $lang->mail->common        = '发信配置';
 $lang->mail->index         = '首页';
@@ -4608,10 +4695,12 @@ $lang->release->action = new stdclass();
 $lang->release->action->changestatus = array('main' => '$date, 由 <strong>$actor</strong> $extra。', 'extra' => 'changeStatusList');
 /* repo */
 $lang->repo->common          = '代码';
-$lang->repo->create          = '创建版本库';
-$lang->repo->settings        = '版本库设置';
 $lang->repo->browse          = '浏览';
+$lang->repo->viewRevision    = '查看修订';
+$lang->repo->create          = '创建';
+$lang->repo->edit            = '编辑';
 $lang->repo->delete          = '删除版本库';
+$lang->repo->confirmDelete   = '确认删除该版本库吗？';
 $lang->repo->showSyncComment = '显示同步进度';
 $lang->repo->ajaxSyncComment = '接口：AJAX同步注释';
 $lang->repo->download        = '下载';
@@ -4648,6 +4737,7 @@ $lang->repo->name      = '名称';
 $lang->repo->path      = '地址';
 $lang->repo->prefix    = '地址扩展';
 $lang->repo->config    = '配置目录';
+$lang->repo->desc      = '描述';
 $lang->repo->account   = '用户名';
 $lang->repo->password  = '密码';
 $lang->repo->encoding  = '编码';
@@ -4712,8 +4802,8 @@ $lang->repo->logStyles['D'] = '删除';
 $lang->repo->encodingList['utf_8'] = 'UTF-8';
 $lang->repo->encodingList['gbk']   = 'GBK';
 
-$lang->repo->scmList['Subversion'] = 'Subversion';
 $lang->repo->scmList['Git']        = 'Git';
+$lang->repo->scmList['Subversion'] = 'Subversion';
 
 $lang->repo->notice                 = new stdclass();
 $lang->repo->notice->syncing        = '正在同步中, 请稍等...';
@@ -4745,11 +4835,17 @@ $lang->repo->error->output        = "执行命令：%s\n错误结果(%s)： %s\n
 $lang->repo->error->clientVersion = "客户端版本过低，请升级或更换SVN客户端";
 $lang->repo->error->encoding      = "编码可能错误，请更换编码重试。";
 
-$lang->repo->example           = new stdclass();
-$lang->repo->example->client   = "例如：/usr/bin/svn, C:\subversion\svn.exe, /usr/bin/git";
-$lang->repo->example->path     = "例如：SVN: http://example.googlecode.com/svn/,  GIT: /homt/test";
-$lang->repo->example->config   = "https需要填写配置目录的位置，通过config-dir选项生成配置目录";
-$lang->repo->example->encoding = "填写版本库中文件的编码";
+$lang->repo->synTips              = '请参照<a target="_blank" href="https://www.zentao.net/book/zentaopmshelp/207.html">这里</a>，设置版本库定时同步。';
+$lang->repo->encodingsTips        = "提交日志的编码，可以用逗号连接起来的多个，比如utf-8。";
+$lang->repo->example              = new stdclass();
+$lang->repo->example->client      = new stdclass();
+$lang->repo->example->client->git = "例如：/usr/bin/git";
+$lang->repo->example->client->svn = "例如：/usr/bin/svn";
+$lang->repo->example->path        = new stdclass();
+$lang->repo->example->path->git   = "例如：/homt/user/myproject";
+$lang->repo->example->path->svn   = "例如：http://example.googlecode.com/svn/trunk/myproject";
+$lang->repo->example->config      = "https需要填写配置目录的位置，通过config-dir选项生成配置目录";
+$lang->repo->example->encoding    = "填写版本库中文件的编码";
 
 $lang->repo->typeList['standard']    = '规范';
 $lang->repo->typeList['performance'] = '性能';

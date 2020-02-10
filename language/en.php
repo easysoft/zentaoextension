@@ -112,7 +112,7 @@ $lang->menu->my      = '<span>Dashboard</span>|my|index';
 $lang->menu->product = $lang->productCommon . '|product|index|locate=no';
 $lang->menu->project = $lang->projectCommon . '|project|index|locate=no';
 $lang->menu->qa      = 'Test|qa|index';
-$lang->menu->repo    = 'Code|repo|log';
+$lang->menu->repo    = 'CI|repo|browse';
 $lang->menu->doc     = 'Doc|doc|index';
 $lang->menu->report  = 'Report|report|index';
 $lang->menu->company = 'Company|company|index';
@@ -313,9 +313,14 @@ $lang->caselib->menu->caselib   = array('link' => 'Case Library|caselib|browse|l
 
 $lang->repo = new stdclass();
 $lang->repo->menu = new stdclass();
-$lang->repo->menu->browse   = array('link' =>'Browse|repo|log|repoID=%s&entry=', 'alias' => 'diff,view,revision,showsynccomment');
-$lang->repo->menu->settings = 'Settings|repo|settings|repoID=%s';
-$lang->repo->menu->delete   = array('link' => 'Delete|repo|delete|repoID=%s', 'target' => 'hiddenwin');
+$lang->repo->menu->browse   = array('link' =>'Browse|repo|browse|repoID=%s', 'alias' => 'diff,view,revision,log,blame,showsynccomment');
+$lang->repo->menu->maintain = array('link' =>'Repo|repo|maintain', 'alias' => 'create,edit');
+$lang->repo->menu->job      = array('link' =>'Build|ci|browsejob', 'alias' => 'createjob,editjob,browsebuild,viewbuildlogs');
+$lang->repo->menu->jenkins  = array('link' =>'Jenkins|jenkins|browse', 'alias' => 'create,edit');
+
+$lang->ci            = new stdclass();
+$lang->ci->menu      = $lang->repo->menu;
+$lang->jenkins->menu = $lang->repo->menu;
 
 $lang->doc = new stdclass();
 $lang->doc->menu = new stdclass();
@@ -450,6 +455,10 @@ $lang->menugroup->entry       = 'admin';
 $lang->menugroup->webhook     = 'admin';
 $lang->menugroup->message     = 'admin';
 
+$lang->menugroup->repo        = 'devops';
+$lang->menugroup->ci          = 'devops';
+$lang->menugroup->jenkins     = 'devops';
+
 $lang->error = new stdclass();
 $lang->error->companyNotFound = "The domain %s cannot be found!";
 $lang->error->length          = array("『%s』length error. It should be『%s』", "『%s』length should be <=『%s』and >『%s』.");
@@ -475,6 +484,7 @@ $lang->error->pasteImg        = 'Images are not allowed to be pasted in your bro
 $lang->error->noData          = 'No data.';
 $lang->error->editedByOther   = 'This record might have been changed. Please refresh and try to edit again!';
 $lang->error->tutorialData    = 'No data can be imported in tutorial mode. Please quit tutorial first!';
+$lang->error->noCurlExt       = 'No Curl module installed';
 
 $lang->pager = new stdclass();
 $lang->pager->noRecord     = "No records.";
@@ -2290,6 +2300,54 @@ $lang->caselib->legendDesc = 'Description';
 
 $lang->caselib->libraryDelete = 'Do you want to delete this library？';
 $lang->caselib->noModule      = '<div>You have no modules.</div><div>Manage it now.</div>';
+/* ci */
+$lang->ci->common         = 'CI';
+$lang->ci->at             = ' at ';
+
+$lang->ci->jenkins        = 'Jenkins';
+$lang->ci->repo           = 'Repo';
+$lang->ci->job            = 'Job';
+$lang->ci->browse         = 'View';
+$lang->ci->create         = 'Create';
+$lang->ci->edit           = 'Edit';
+
+$lang->job->browseBuild   = 'Build Histories';
+$lang->job->viewLogs      = 'Build Logs';
+
+$lang->job->exeNow        = 'Execute now';
+$lang->job->delete        = 'Delete';
+$lang->job->confirmDelete = 'Do you want to delete this Build?';
+
+$lang->job->buildStatus   = 'Build Status';
+$lang->job->buildTime     = 'Build Time';
+
+$lang->job->id             = 'ID';
+$lang->job->name           = 'Name';
+$lang->job->repo           = 'Repo';
+$lang->job->svnFolder      = 'SVN tag parent URL';
+$lang->job->jenkins        = 'Jenkins Server';
+$lang->job->jenkinsJob     = 'Jenkins Task';
+$lang->job->triggerType    = 'Trigger';
+$lang->job->scheduleType   = 'Schedule';
+$lang->job->cronExpression = 'Cron Expression';
+$lang->job->custom         = 'Custom';
+
+$lang->job->at               = 'executed on';
+$lang->job->exe              = '';
+$lang->job->scheduleInterval = 'Every';
+$lang->job->day              = 'days';
+$lang->job->lastExe          = 'Last Executed';
+$lang->job->scheduleTime     = 'Time';
+
+$lang->job->example    = 'e.g.';
+$lang->job->tagEx      = 'build_#15, to build Jenkins job that id is 15.';
+$lang->job->commitEx   = 'start build #15, to build Jenkins job that id is 15.';
+$lang->job->cronSample = 'e.g. 0 0 2 * * 2-6/1 means 2:00 a.m. every weekday.';
+
+$lang->job->buildStatusList  = array('success' => 'Success', 'fail' => 'Fail', 'created' => 'Created', 'building' => 'Building', 'create_fail' => 'Fail to create', 'timeout' => 'Exec Timeout');
+$lang->job->dayTypeList      = array('workDay' => 'Weekdays', 'everyDay' => 'Every Day');
+$lang->job->triggerTypeList  = array('tag' => 'Tag', 'commit' => 'Code Commit', 'schedule' => 'Schedule');
+$lang->job->scheduleTypeList = array('cron' => 'Crontab', 'custom' => 'Custom');
 /* company */
 $lang->company->common   = 'Company';
 $lang->company->index    = "Company Home";
@@ -3580,7 +3638,24 @@ $lang->install->meshiot->desc  = <<<EOD
   <li>Battery Available: no changes required to any equipment on your site</li>
 </ul>
 EOD;
-/* mail */
+/* jenkins */
+$lang->jenkins->common                  = 'Jenkins';
+$lang->jenkins->browse                  = 'View';
+$lang->jenkins->create                  = 'Create';
+$lang->jenkins->edit                    = 'Edit';
+$lang->jenkins->delete                  = 'Delete';
+$lang->jenkins->confirmDelete           = 'Do you want to delete this Jenkins server?';
+
+$lang->jenkins->id                      = 'ID';
+$lang->jenkins->name                    = 'Name';
+$lang->jenkins->serviceUrl              = 'Service URL';
+$lang->jenkins->token                   = 'Token';
+$lang->jenkins->account                 = 'UserName';
+$lang->jenkins->password                = 'Password';
+
+$lang->jenkins->desc                    = 'Description';
+$lang->jenkins->tokenFirst              = 'Use token if not empty.';
+$lang->jenkins->tips                    = 'Cancel "Prevent Cross Site Request Forgery exploits" when using password.';/* mail */
 $lang->mail->common        = 'Email Settings';
 $lang->mail->index         = 'Email Home';
 $lang->mail->detect        = 'Detect';
@@ -4606,10 +4681,12 @@ $lang->release->action = new stdclass();
 $lang->release->action->changestatus = array('main' => '$date,  $extra by  <strong>$actor</strong>', 'extra' => 'changeStatusList');
 /* repo */
 $lang->repo->common          = 'Repo';
-$lang->repo->create          = 'Create Repo';
-$lang->repo->settings        = 'Settings';
-$lang->repo->browse          = 'View Repo';
+$lang->repo->browse          = 'View';
+$lang->repo->viewRevision    = 'View Revision';
+$lang->repo->create          = 'Create';
+$lang->repo->edit            = 'Edit';
 $lang->repo->delete          = 'Delete Repo';
+$lang->repo->confirmDelete   = 'Do you want to delete this repo?';
 $lang->repo->showSyncComment = 'Display Synchronization';
 $lang->repo->ajaxSyncComment = 'Interface: Ajax Sync Note';
 $lang->repo->download        = 'Download File';
@@ -4710,8 +4787,8 @@ $lang->repo->logStyles['D'] = 'Delete';
 $lang->repo->encodingList['utf_8'] = 'UTF-8';
 $lang->repo->encodingList['gbk']   = 'GBK';
 
-$lang->repo->scmList['Subversion'] = 'Subversion';
 $lang->repo->scmList['Git']        = 'Git';
+$lang->repo->scmList['Subversion'] = 'Subversion';
 
 $lang->repo->notice                 = new stdclass();
 $lang->repo->notice->syncing        = 'Synchronizing. Please wait ...';
@@ -4743,9 +4820,14 @@ $lang->repo->error->output        = "The command is: %s\nThe error is(%s): %s\n"
 $lang->repo->error->clientVersion = "Client version is too low, please upgrade or change SVN client";
 $lang->repo->error->encoding      = "The encoding maybe wrong. Please change the encoding and try again.";
 
-$lang->repo->example           = new stdclass();
-$lang->repo->example->client   = "For example, /usr/bin/svn, C:\subversion\svn.exe, /usr/bin/git";
-$lang->repo->example->path     = "For example, SVN: http://example.googlecode.com/svn/, GIT: /home/test";
+$lang->repo->synTips              = '<strong>You may find the reference about how to set Git sync from <a target="_blank" href="https://www.zentao.net/book/zentaopmshelp/207.html">here</a>.</strong>';
+$lang->repo->encodingsTips        = "The encodings of commit comments, can be comma separated values，e.g. utf-8";
+$lang->repo->example              = new stdclass();
+$lang->repo->example->client->git = "e.g. /usr/bin/git";
+$lang->repo->example->client->svn = "e.g. /usr/bin/svn";
+$lang->repo->example->path->git   = "e.g. /homt/user/myproject";
+$lang->repo->example->path->svn   = "e.g. http://example.googlecode.com/svn/trunk/myproject";
+
 $lang->repo->example->config   = "Config directory is required in https. Use '--config-dir' to generate config dir.";
 $lang->repo->example->encoding = "input encoding of files";
 
