@@ -485,7 +485,6 @@ $lang->error->pasteImg        = '您的浏览器不支持粘贴图片！';
 $lang->error->noData          = '没有数据';
 $lang->error->editedByOther   = '该记录可能已经被改动。请刷新页面重新编辑！';
 $lang->error->tutorialData    = '新手模式下不会插入数据，请退出新手模式操作';
-
 $lang->error->noCurlExt       = '服务器未安装Curl模块。';
 
 $lang->pager = new stdclass();
@@ -1976,7 +1975,7 @@ $lang->bug->lblLastEdited = '最后修改';
 $lang->bug->lblResolved   = '由谁解决';
 $lang->bug->allUsers      = '加载所有用户';
 $lang->bug->allBuilds     = '所有';
-$lang->bug->createBuild   = '新建';
+$lang->bug->createBuild   = '创建';
 
 $lang->bug->legendBasicInfo             = '基本信息';
 $lang->bug->legendAttatch               = '附件';
@@ -2309,30 +2308,28 @@ $lang->ci->at             = '于';
 $lang->ci->jenkins        = 'Jenkins';
 $lang->ci->repo           = '版本库';
 $lang->ci->job            = '构建';
+$lang->ci->task           = '任务';
+$lang->ci->history        = '历史';
 $lang->ci->browse         = '浏览';
-$lang->ci->create         = '新建';
+$lang->ci->create         = '创建';
 $lang->ci->edit           = '编辑';
 
 $lang->job = new stdclass();
 $lang->job->browseBuild   = '构建历史';
 $lang->job->viewLogs      = '构建日志';
 
-$lang->job->create        = '新建构建任务';
+$lang->job->create        = '创建构建任务';
 $lang->job->edit          = '编辑构建任务';
 $lang->job->exeNow        = '立即执行';
 $lang->job->delete        = '删除构建任务';
 $lang->job->confirmDelete = '确认删除该构建任务吗？';
-
-$lang->job->repo   = '构建状态';
-$lang->job->buildStatus   = '构建状态';
-$lang->job->buildStatus   = '构建状态';
 $lang->job->buildStatus   = '构建状态';
 $lang->job->buildTime     = '构建时间';
 
 $lang->job->id             = 'ID';
 $lang->job->name           = '名称';
 $lang->job->repo           = '代码库';
-$lang->job->svnFolder      = 'SVN Tag 父URL';
+$lang->job->svnFolder      = 'SVN Tag监控路径';
 $lang->job->jenkins        = 'Jenkins服务';
 $lang->job->buildType      = '构建类型';
 $lang->job->jenkinsJob     = 'Jenkins任务名';
