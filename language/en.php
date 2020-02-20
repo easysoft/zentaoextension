@@ -2302,55 +2302,11 @@ $lang->caselib->legendDesc = 'Description';
 $lang->caselib->libraryDelete = 'Do you want to delete this library？';
 $lang->caselib->noModule      = '<div>You have no modules.</div><div>Manage it now.</div>';
 /* ci */
-$lang->ci->common         = 'CI';
-$lang->ci->at             = ' at ';
-
-$lang->ci->jenkins        = 'Jenkins';
-$lang->ci->repo           = 'Repo';
-$lang->ci->job            = 'Job';
-$lang->ci->task           = 'Job';
-$lang->ci->history        = 'Build';
-$lang->ci->browse         = 'View';
-$lang->ci->create         = 'Create';
-$lang->ci->edit           = 'Edit';
-
-$lang->job->browseBuild   = 'Build Histories';
-$lang->job->viewLogs      = 'Build Logs';
-
-$lang->job->exeNow        = 'Execute now';
-$lang->job->delete        = 'Delete';
-$lang->job->confirmDelete = 'Do you want to delete this Build?';
-
-$lang->job->buildStatus   = 'Build Status';
-$lang->job->buildTime     = 'Build Time';
-
-$lang->job->id             = 'ID';
-$lang->job->name           = 'Name';
-$lang->job->repo           = 'Repo';
-$lang->job->svnFolder      = 'SVN Tag Watch Path';
-$lang->job->jenkins        = 'Jenkins Server';
-$lang->job->jenkinsJob     = 'Jenkins Task';
-$lang->job->triggerType    = 'Trigger';
-$lang->job->scheduleType   = 'Schedule';
-$lang->job->cronExpression = 'Cron Expression';
-$lang->job->custom         = 'Custom';
-
-$lang->job->at               = 'executed on';
-$lang->job->exe              = '';
-$lang->job->scheduleInterval = 'Every';
-$lang->job->day              = 'days';
-$lang->job->lastExe          = 'Last Executed';
-$lang->job->scheduleTime     = 'Time';
-
-$lang->job->example    = 'e.g.';
-$lang->job->tagEx      = 'build_#15, to build Jenkins job that id is 15.';
-$lang->job->commitEx   = 'start build #15, to build Jenkins job that id is 15.';
-$lang->job->cronSample = 'e.g. 0 0 2 * * 2-6/1 means 2:00 a.m. every weekday.';
-
-$lang->job->buildStatusList  = array('success' => 'Success', 'fail' => 'Fail', 'created' => 'Created', 'building' => 'Building', 'create_fail' => 'Fail to create', 'timeout' => 'Exec Timeout');
-$lang->job->dayTypeList      = array('workDay' => 'Weekdays', 'everyDay' => 'Every Day');
-$lang->job->triggerTypeList  = array('tag' => 'Tag', 'commit' => 'Code Commit', 'schedule' => 'Schedule');
-$lang->job->scheduleTypeList = array('cron' => 'Crontab', 'custom' => 'Custom');
+$lang->ci->common  = 'CI';
+$lang->ci->at      = ' at ';
+$lang->ci->job     = 'Job';
+$lang->ci->task    = 'Job';
+$lang->ci->history = 'Build';
 /* company */
 $lang->company->common   = 'Company';
 $lang->company->index    = "Company Home";
@@ -2376,6 +2332,21 @@ $lang->company->user    = 'User';
 
 $lang->company->guestOptions[0] = 'Deny';
 $lang->company->guestOptions[1] = 'Allow';
+/* compile */
+$lang->compile->browse = 'Build Histories';
+$lang->compile->logs   = 'Build Logs';
+
+$lang->compile->id     = 'ID';
+$lang->compile->name   = 'Name';
+$lang->compile->status = 'Build Status';
+$lang->compile->time   = 'Build Time';
+
+$lang->compile->statusList['success']     = 'Success';
+$lang->compile->statusList['fail']        = 'Fail';
+$lang->compile->statusList['created']     = 'Created';
+$lang->compile->statusList['building']    = 'Building';
+$lang->compile->statusList['create_fail'] = 'Fail to create';
+$lang->compile->statusList['timeout']     = 'Exec Timeout';
 /* convert */
 $lang->convert->common  = 'Imported';
 $lang->convert->index   = 'Home';
@@ -3641,6 +3612,52 @@ $lang->install->meshiot->desc  = <<<EOD
   <li>Battery Available: no changes required to any equipment on your site</li>
 </ul>
 EOD;
+/* integration */
+$lang->integration->browse        = 'Browse Integration';
+$lang->integration->create        = 'Create Integration';
+$lang->integration->edit          = 'Edit Integration';
+$lang->integration->execNow       = 'Execute now';
+$lang->integration->delete        = 'Delete Integration';
+$lang->integration->confirmDelete = 'Do you want to delete this Build?';
+
+$lang->integration->id             = 'ID';
+$lang->integration->name           = 'Name';
+$lang->integration->repo           = 'Repo';
+$lang->integration->svnFolder      = 'SVN Tag Watch Path';
+$lang->integration->jenkins        = 'Jenkins Server';
+$lang->integration->buildType      = 'Build Type';
+$lang->integration->jenkinsJob     = 'Jenkins Task';
+$lang->integration->triggerType    = 'Trigger';
+$lang->integration->scheduleType   = 'Schedule';
+$lang->integration->cronExpression = 'Cron Expression';
+$lang->integration->custom         = 'Custom';
+
+$lang->integration->at               = 'executed on';
+$lang->integration->time             = 'Time';
+$lang->integration->exec             = 'Execute';
+$lang->integration->scheduleInterval = 'Every';
+$lang->integration->day              = 'days';
+$lang->integration->lastExec         = 'Last Executed';
+$lang->integration->scheduleTime     = 'Time';
+
+$lang->integration->example    = 'e.g.';
+$lang->integration->tagEx      = 'build_#15, to build Jenkins job that id is 15.';
+$lang->integration->commitEx   = 'start build #15, to build Jenkins job that id is 15.';
+$lang->integration->cronSample = 'e.g. 0 0 2 * * 2-6/1 means 2:00 a.m. every weekday.';
+
+$lang->integration->dayTypeList['workDay']  = 'Weekdays';
+$lang->integration->dayTypeList['everyDay'] = 'Every Day';
+
+$lang->integration->buildTypeList['build']          = 'Only Build';
+$lang->integration->buildTypeList['buildAndDeploy'] = 'Build And Deploy';
+$lang->integration->buildTypeList['buildAndTest']   = 'Build And Test';
+
+$lang->integration->triggerTypeList['tag']      = 'Tag';
+$lang->integration->triggerTypeList['commit']   = 'Code Commit';
+$lang->integration->triggerTypeList['schedule'] = 'Schedule';
+
+$lang->integration->scheduleTypeList['cron']   = 'Crontab';
+$lang->integration->scheduleTypeList['custom'] = 'Custom';
 /* jenkins */
 $lang->jenkins->common                  = 'Jenkins';
 $lang->jenkins->browse                  = 'View';

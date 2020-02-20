@@ -315,14 +315,18 @@ $lang->caselib->menu->caselib   = array('link' => '用例库|caselib|browse|libI
 $lang->ci = new stdclass();
 $lang->ci->menu           = new stdclass();
 $lang->ci->menu->browse   = array('link' =>'浏览|repo|browse|repoID=%s', 'alias' => 'diff,view,revision,log,blame,showsynccomment');
-$lang->ci->menu->job      = array('link' =>'构建|ci|browsejob', 'alias' => 'createjob,editjob,browsebuild,viewbuildlogs');
+$lang->ci->menu->job      = array('link' =>'构建|integration|browse', 'subModule' => 'compile,integration');
 $lang->ci->menu->maintain = array('link' =>'版本库|repo|maintain', 'alias' => 'create,edit');
 $lang->ci->menu->jenkins  = array('link' =>'Jenkins|jenkins|browse', 'alias' => 'create,edit');
 
-$lang->repo          = new stdclass();
-$lang->jenkins       = new stdclass();
-$lang->repo->menu    = $lang->ci->menu;
-$lang->jenkins->menu = $lang->ci->menu;
+$lang->repo              = new stdclass();
+$lang->jenkins           = new stdclass();
+$lang->compile           = new stdclass();
+$lang->integration       = new stdclass();
+$lang->repo->menu        = $lang->ci->menu;
+$lang->jenkins->menu     = $lang->ci->menu;
+$lang->compile->menu     = $lang->ci->menu;
+$lang->integration->menu = $lang->ci->menu;
 
 $lang->doc = new stdclass();
 $lang->doc->menu = new stdclass();
@@ -459,6 +463,8 @@ $lang->menugroup->message     = 'admin';
 
 $lang->menugroup->repo        = 'ci';
 $lang->menugroup->jenkins     = 'ci';
+$lang->menugroup->compile     = 'ci';
+$lang->menugroup->integration = 'ci';
 
 $lang->error = new stdclass();
 $lang->error->companyNotFound = "您访问的域名 %s 没有对应的公司。";
@@ -2302,60 +2308,11 @@ $lang->caselib->legendDesc = '描述';
 $lang->caselib->libraryDelete = '您确认要删除该用例库吗？';
 $lang->caselib->noModule      = '<div>您现在还没有模块信息</div><div>请维护用例库模块</div>';
 /* ci */
-$lang->ci->common         = '持续集成';
-$lang->ci->at             = '于';
-
-$lang->ci->jenkins        = 'Jenkins';
-$lang->ci->repo           = '版本库';
-$lang->ci->job            = '构建';
-$lang->ci->task           = '任务';
-$lang->ci->history        = '历史';
-$lang->ci->browse         = '浏览';
-$lang->ci->create         = '创建';
-$lang->ci->edit           = '编辑';
-
-$lang->job = new stdclass();
-$lang->job->browseBuild   = '构建历史';
-$lang->job->viewLogs      = '构建日志';
-
-$lang->job->create        = '创建构建任务';
-$lang->job->edit          = '编辑构建任务';
-$lang->job->exeNow        = '立即执行';
-$lang->job->delete        = '删除构建任务';
-$lang->job->confirmDelete = '确认删除该构建任务吗？';
-$lang->job->buildStatus   = '构建状态';
-$lang->job->buildTime     = '构建时间';
-
-$lang->job->id             = 'ID';
-$lang->job->name           = '名称';
-$lang->job->repo           = '代码库';
-$lang->job->svnFolder      = 'SVN Tag监控路径';
-$lang->job->jenkins        = 'Jenkins服务';
-$lang->job->buildType      = '构建类型';
-$lang->job->jenkinsJob     = 'Jenkins任务名';
-$lang->job->triggerType    = '触发方式';
-$lang->job->scheduleType   = '时间计划';
-$lang->job->cronExpression = 'Cron表达式';
-$lang->job->custom         = '自定义';
-
-$lang->job->at               = '在';
-$lang->job->time             = '时间';
-$lang->job->exe              = '执行';
-$lang->job->scheduleInterval = '每隔';
-$lang->job->day              = '天';
-$lang->job->lastExe          = '最后执行';
-$lang->job->scheduleTime     = '时间';
-
-$lang->job->example    = '举例';
-$lang->job->tagEx      = 'build_#15，其中15为Jenkins任务编号';
-$lang->job->commitEx   = 'start build #15，其中15为Jenkins任务编号';
-$lang->job->cronSample = '如 0 0 2 * * 2-6/1 表示每个工作日凌晨2点';
-
-$lang->job->buildStatusList  = array('success' => '成功', 'fail' => '失败', 'created' => '新建', 'building' => '构建中', 'create_fail' => '创建失败', 'timeout' => '执行超时');
-$lang->job->dayTypeList      = array('workDay' => '工作日', 'everyDay' => '每天');
-$lang->job->buildTypeList    = array('build' => '仅构建', 'buildAndDeploy' => '构建部署', 'buildAndTest' => '构建测试');
-$lang->job->triggerTypeList  = array('tag' => '打标签', 'commit' => '代码提交注释', 'schedule' => '定时计划');
-$lang->job->scheduleTypeList = array('cron' => 'Crontab', 'custom' => '自定义');
+$lang->ci->common  = '持续集成';
+$lang->ci->at      = '于';
+$lang->ci->job     = '构建';
+$lang->ci->task    = '任务';
+$lang->ci->history = '历史';
 /* company */
 $lang->company->common   = '组织视图';
 $lang->company->index    = "组织视图首页";
@@ -2381,6 +2338,21 @@ $lang->company->user    = '用户';
 
 $lang->company->guestOptions[0] = '不允许';
 $lang->company->guestOptions[1] = '允许';
+/* compile */
+$lang->compile->browse = '构建历史';
+$lang->compile->logs   = '构建日志';
+
+$lang->compile->id     = 'ID';
+$lang->compile->name   = '名称';
+$lang->compile->status = '构建状态';
+$lang->compile->time   = '构建时间';
+
+$lang->compile->statusList['success']     = '成功';
+$lang->compile->statusList['fail']        = '失败';
+$lang->compile->statusList['created']     = '新建';
+$lang->compile->statusList['building']    = '构建中';
+$lang->compile->statusList['create_fail'] = '创建失败';
+$lang->compile->statusList['timeout']     = '执行超时';
 /* convert */
 $lang->convert->common  = '从其他系统导入';
 $lang->convert->index   = '首页';
@@ -3648,6 +3620,53 @@ $lang->install->meshiot->desc  = <<<EOD
   <li>可配电池，对既有场地无任何要求</li>
 </ul>
 EOD;
+/* integration */
+$lang->integration->browse        = '浏览构建任务';
+$lang->integration->create        = '创建构建任务';
+$lang->integration->edit          = '编辑构建任务';
+$lang->integration->execNow       = '立即执行';
+$lang->integration->delete        = '删除构建任务';
+$lang->integration->confirmDelete = '确认删除该构建任务吗？';
+
+$lang->integration->id             = 'ID';
+$lang->integration->name           = '名称';
+$lang->integration->repo           = '代码库';
+$lang->integration->svnFolder      = 'SVN Tag监控路径';
+$lang->integration->jenkins        = 'Jenkins服务';
+$lang->integration->buildType      = '构建类型';
+$lang->integration->jenkinsJob     = 'Jenkins任务名';
+$lang->integration->triggerType    = '触发方式';
+$lang->integration->scheduleType   = '时间计划';
+$lang->integration->cronExpression = 'Cron表达式';
+$lang->integration->custom         = '自定义';
+
+$lang->integration->at               = '在';
+$lang->integration->time             = '时间';
+$lang->integration->exec             = '执行';
+$lang->integration->scheduleInterval = '每隔';
+$lang->integration->day              = '天';
+$lang->integration->lastExec         = '最后执行';
+$lang->integration->scheduleTime     = '时间';
+
+$lang->integration->example    = '举例';
+$lang->integration->tagEx      = 'build_#15，其中15为Jenkins任务编号';
+$lang->integration->commitEx   = 'start build #15，其中15为Jenkins任务编号';
+$lang->integration->cronSample = '如 0 0 2 * * 2-6/1 表示每个工作日凌晨2点';
+$lang->integration->sendExec   = '发送执行请求成功！';
+
+$lang->integration->dayTypeList['workDay']  = '工作日';
+$lang->integration->dayTypeList['everyDay'] = '每天';
+
+$lang->integration->buildTypeList['build']          = '仅构建';
+$lang->integration->buildTypeList['buildAndDeploy'] = '构建部署';
+$lang->integration->buildTypeList['buildAndTest']   = '构建测试';
+
+$lang->integration->triggerTypeList['tag']      = '打标签';
+$lang->integration->triggerTypeList['commit']   = '代码提交注释';
+$lang->integration->triggerTypeList['schedule'] = '定时计划';
+
+$lang->integration->scheduleTypeList['cron']   = 'Crontab';
+$lang->integration->scheduleTypeList['custom'] = '自定义';
 /* jenkins */
 $lang->jenkins->common                  = 'Jenkins';
 $lang->jenkins->browse                  = '浏览';
