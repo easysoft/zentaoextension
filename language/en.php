@@ -314,15 +314,20 @@ $lang->caselib->menu->caselib   = array('link' => 'Case Library|caselib|browse|l
 
 $lang->ci = new stdclass();
 $lang->ci->menu = new stdclass();
-$lang->ci->menu->browse   = array('link' =>'Code|repo|browse|repoID=%s', 'alias' => 'diff,view,revision,log,blame,showsynccomment');
-$lang->ci->menu->job      = array('link' =>'Build|ci|browsejob', 'alias' => 'createjob,editjob,browsebuild,viewbuildlogs');
-$lang->ci->menu->maintain = array('link' =>'Repo|repo|maintain', 'alias' => 'create,edit');
-$lang->ci->menu->jenkins  = array('link' =>'Jenkins|jenkins|browse', 'alias' => 'create,edit');
+$lang->ci->menu->code     = array('link' => 'Code|repo|browse|repoID=%s', 'alias' => 'diff,view,revision,log,blame,showsynccomment');
+$lang->ci->menu->build    = array('link' => 'Compile|job|browse', 'subModule' => 'compile,job');
+$lang->ci->menu->jenkins  = array('link' => 'Jenkins|jenkins|browse', 'alias' => 'create,edit');
+$lang->ci->menu->maintain = array('link' => 'Repo|repo|maintain', 'alias' => 'create,edit');
+$lang->ci->menu->rules    = array('link' => 'Rule|repo|setrules');
 
 $lang->repo          = new stdclass();
 $lang->jenkins       = new stdclass();
+$lang->compile       = new stdclass();
+$lang->job           = new stdclass();
 $lang->repo->menu    = $lang->ci->menu;
 $lang->jenkins->menu = $lang->ci->menu;
+$lang->compile->menu = $lang->ci->menu;
+$lang->job->menu     = $lang->ci->menu;
 
 $lang->doc = new stdclass();
 $lang->doc->menu = new stdclass();
@@ -457,8 +462,10 @@ $lang->menugroup->entry       = 'admin';
 $lang->menugroup->webhook     = 'admin';
 $lang->menugroup->message     = 'admin';
 
-$lang->menugroup->repo        = 'ci';
-$lang->menugroup->jenkins     = 'ci';
+$lang->menugroup->repo    = 'ci';
+$lang->menugroup->jenkins = 'ci';
+$lang->menugroup->compile = 'ci';
+$lang->menugroup->job     = 'ci';
 
 $lang->error = new stdclass();
 $lang->error->companyNotFound = "The domain %s cannot be found!";
@@ -544,6 +551,7 @@ if(!defined('DT_DATE1'))     define('DT_DATE1',     'Y-m-d');
 if(!defined('DT_DATE2'))     define('DT_DATE2',     'Ymd');
 if(!defined('DT_DATE3'))     define('DT_DATE3',     'Y/m/d');
 if(!defined('DT_DATE4'))     define('DT_DATE4',     'M d');
+if(!defined('DT_DATE5'))     define('DT_DATE5',     'j/n');
 if(!defined('DT_TIME1'))     define('DT_TIME1',     'H:i:s');
 if(!defined('DT_TIME2'))     define('DT_TIME2',     'H:i');
 
@@ -978,11 +986,17 @@ $lang->action->desc->linked2bug     = '$date, linked to <strong>$extra</strong> 
 
 $lang->action->desc->createchildren     = '$date, <strong>$actor</strong> created a child task <strong>$extra</strong>。' . "\n";
 $lang->action->desc->linkchildtask      = '$date, <strong>$actor</strong> linked a child task <strong>$extra</strong>。' . "\n";
-$lang->action->desc->linkchildtask      = '$date, <strong>$actor</strong> linked a child task <strong>$extra</strong>。' . "\n";
 $lang->action->desc->unlinkchildrentask = '$date, <strong>$actor</strong> unlinked a child task <strong>$extra</strong>。' . "\n";
 $lang->action->desc->linkparenttask     = '$date, <strong>$actor</strong> linked to a parent task <strong>$extra</strong>。' . "\n";
 $lang->action->desc->unlinkparenttask   = '$date, <strong>$actor</strong> unlinked a parent task <strong>$extra</strong>。' . "\n";
 $lang->action->desc->deletechildrentask = '$date, <strong>$actor</strong> deleted a child task <strong>$extra</strong>。' . "\n";
+
+$lang->action->desc->createchildrenstory = '$date, <strong>$actor</strong> created a child story <strong>$extra</strong>。' . "\n";
+$lang->action->desc->linkchildstory      = '$date, <strong>$actor</strong> linked a child story <strong>$extra</strong>。' . "\n";
+$lang->action->desc->unlinkchildrenstory = '$date, <strong>$actor</strong> unlinked a child story <strong>$extra</strong>。' . "\n";
+$lang->action->desc->linkparentstory     = '$date, <strong>$actor</strong> linked to a parent story <strong>$extra</strong>。' . "\n";
+$lang->action->desc->unlinkparentstory   = '$date, <strong>$actor</strong> unlinked a parent story <strong>$extra</strong>。' . "\n";
+$lang->action->desc->deletechildrenstory = '$date, <strong>$actor</strong> deleted a child story <strong>$extra</strong>。' . "\n";
 
 $lang->action->desc->linkrelatedcase   = '$date, <strong>$actor</strong> linked a case <strong>$extra</strong>.' . "\n";
 $lang->action->desc->unlinkrelatedcase = '$date, <strong>$actor</strong> unlinked a case <strong>$extra</strong>.' . "\n";
@@ -1054,6 +1068,12 @@ $lang->action->label->batchcreate         = "batch created tasks";
 $lang->action->label->createchildren      = "create child tasks";
 $lang->action->label->managed             = "managed";
 $lang->action->label->deletechildrentask  = "delete children task";
+$lang->action->label->createchildrenstory = "create child stories";
+$lang->action->label->linkchildstory      = "linked a child story";
+$lang->action->label->unlinkchildrenstory = "unlinked a child story";
+$lang->action->label->linkparentstory     = "linked a parent story";
+$lang->action->label->unlinkparentstory   = "unlink from parent story";
+$lang->action->label->deletechildrenstory = "delete children story";
 
 $lang->action->dynamicAction = new stdclass;
 $lang->action->dynamicAction->todo['opened']               = 'Create Todo';
@@ -1128,6 +1148,11 @@ $lang->action->dynamicAction->task['unlinkparenttask']     = 'Unlink Parent Task
 $lang->action->dynamicAction->task['deletechildrentask']   = 'Delete children task';
 $lang->action->dynamicAction->task['linkparenttask']       = 'Link Parent Task';
 $lang->action->dynamicAction->task['linkchildtask']        = 'Link Child Task';
+$lang->action->dynamicAction->task['createchildrenstory']  = 'Create Child Story';
+$lang->action->dynamicAction->task['unlinkparentstory']    = 'Unlink Parent Story';
+$lang->action->dynamicAction->task['deletechildrenstory']  = 'Delete children story';
+$lang->action->dynamicAction->task['linkparentstory']      = 'Link Parent Story';
+$lang->action->dynamicAction->task['linkchildstory']       = 'Link Child Story';
 $lang->action->dynamicAction->task['undeleted']            = 'Restore Task';
 $lang->action->dynamicAction->task['hidden']               = 'Hide Task';
 $lang->action->dynamicAction->task['svncommited']          = 'SVN Commit';
@@ -1300,7 +1325,7 @@ $lang->admin->certifyMobile = 'Verify your cellphone';
 $lang->admin->certifyEmail  = 'Verify your Email';
 $lang->admin->ztCompany     = 'Verify your company';
 $lang->admin->captcha       = 'Verification Code';
-$lang->admin->getCaptcha    = 'Get Verification Code';
+$lang->admin->getCaptcha    = 'Send Verification Code';
 
 $lang->admin->api     = 'API';
 $lang->admin->log     = 'Log';
@@ -1320,13 +1345,13 @@ $lang->admin->notice->int      = "『%s』should be a positive integer.";
 
 $lang->admin->register = new stdclass();
 $lang->admin->register->common     = 'Bind Account';
-$lang->admin->register->caption    = 'Register in ZenTao Community';
-$lang->admin->register->click      = 'Register here';
+$lang->admin->register->caption    = 'ZenTao Community Signup';
+$lang->admin->register->click      = 'Sign Up';
 $lang->admin->register->lblAccount = '>= 3 letters and numbers';
 $lang->admin->register->lblPasswd  = '>= 6 letters and numbers';
-$lang->admin->register->submit     = 'Register';
+$lang->admin->register->submit     = 'Submit';
 $lang->admin->register->bind       = "Bind Exsiting Account";
-$lang->admin->register->success    = "You have registered!";
+$lang->admin->register->success    = "You have signed up!";
 
 $lang->admin->bind = new stdclass();
 $lang->admin->bind->caption = 'Link Account';
@@ -2303,10 +2328,10 @@ $lang->caselib->libraryDelete = 'Do you want to delete this library？';
 $lang->caselib->noModule      = '<div>You have no modules.</div><div>Manage it now.</div>';
 /* ci */
 $lang->ci->common  = 'CI';
-$lang->ci->at      = ' at ';
+
 $lang->ci->job     = 'Job';
-$lang->ci->task    = 'Job';
-$lang->ci->history = 'Build';
+$lang->ci->task    = 'Task';
+$lang->ci->history = 'History';
 /* company */
 $lang->company->common   = 'Company';
 $lang->company->index    = "Company Home";
@@ -2333,20 +2358,21 @@ $lang->company->user    = 'User';
 $lang->company->guestOptions[0] = 'Deny';
 $lang->company->guestOptions[1] = 'Allow';
 /* compile */
-$lang->compile->browse = 'Build Histories';
-$lang->compile->logs   = 'Build Logs';
+$lang->compile->common = 'Compile';
+$lang->compile->browse = 'History';
+$lang->compile->logs   = 'Log';
 
 $lang->compile->id     = 'ID';
 $lang->compile->name   = 'Name';
-$lang->compile->status = 'Build Status';
-$lang->compile->time   = 'Build Time';
+$lang->compile->status = 'Status';
+$lang->compile->time   = 'Time';
 
-$lang->compile->statusList['success']     = 'Success';
-$lang->compile->statusList['fail']        = 'Fail';
+$lang->compile->statusList['success']     = 'Done';
+$lang->compile->statusList['failure']     = 'Failed';
 $lang->compile->statusList['created']     = 'Created';
-$lang->compile->statusList['building']    = 'Building';
-$lang->compile->statusList['create_fail'] = 'Fail to create';
-$lang->compile->statusList['timeout']     = 'Exec Timeout';
+$lang->compile->statusList['building']    = 'Creating';
+$lang->compile->statusList['create_fail'] = 'Failed to create';
+$lang->compile->statusList['timeout']     = 'Timeout';
 /* convert */
 $lang->convert->common  = 'Imported';
 $lang->convert->index   = 'Home';
@@ -2493,11 +2519,11 @@ $lang->cron->toggleList['stop']  = 'Deactivate';
 $lang->cron->confirmDelete = 'Do you want to delete the cron?';
 $lang->cron->confirmTurnon = 'Do you want to turn off the cron?';
 $lang->cron->introduction  = <<<EOD
-<p>Cron is to perform scheduled actions, such as update burndown chart, backup, etc.</p>
+<p>Cron is set to do scheduled actions, such as update burndown chart, backup, etc.</p>
 <p>Features of Cron need to be improved, so it is turned off by default.</p>
 EOD;
 $lang->cron->confirmOpen = <<<EOD
-<p>Do you want to turn it on?<a href="%s" target='hiddenwin'><strong>Turn On Scheduled Task<strong></a></p>
+<p>Do you want to turn it on?<a href="%s" target='hiddenwin'><strong>Turn On Cron<strong></a></p>
 EOD;
 
 $lang->cron->notice = new stdclass();
@@ -2506,7 +2532,7 @@ $lang->cron->notice->h    = 'Range:0-23';
 $lang->cron->notice->dom  = 'Range:1-31';
 $lang->cron->notice->mon  = 'Range:1-12';
 $lang->cron->notice->dow  = 'Range:0-6';
-$lang->cron->notice->help = 'Note：If the server is restarted, or the Cron is not working, it means the Cron has stopped. You can restart it by clicking 【Restart】 or refresh this page. If the last execution time is changed, it means the Cron is running.';
+$lang->cron->notice->help = 'Note：If the server is restarted or the Cron is not working, it means the Cron has stopped. You can restart it by clicking 【Restart】 or refresh this page. If the last execution time changes, it means the Cron is running.';
 $lang->cron->notice->errorRule = '"%s" is not valid';
 /* custom */
 $lang->custom->common     = 'Custom';
@@ -3392,13 +3418,13 @@ $lang->install->officeDomain     = 'https://www.zentao.pm';
 
 $lang->install->start            = 'Start';
 $lang->install->keepInstalling   = 'Continue installing this version';
-$lang->install->seeLatestRelease = 'View latest version';
+$lang->install->seeLatestRelease = 'View the latest version';
 $lang->install->welcome          = 'Thanks for choosing ZenTao!';
 $lang->install->license          = 'ZenTao is under Z PUBLIC LICENSE(ZPL) 1.2';
 $lang->install->desc             = <<<EOT
-ZenTao ALM is an open source software released under <a href='http://zpl.pub/page/zplv12.html' target='_blank'>Z Public License</a>. It integrates with Product Management, Project Management, QA Management, Document Management, Todo Management, Company Management etc. ZenTao is a perfect choice for managing software development projects.
+ZenTao ALM is an open source software released under <a href='http://zpl.pub/page/zplv12.html' target='_blank'>Z Public License</a>. It integrates with Product Management, Project Management, Test Management, Document Management, CI Management, etc. ZenTao is a perfect choice for managing software development projects.
 
-ZenTao ALM is built on PHP + MySQL + zentaoPHP which is an independent framework developed by Nature Easy Soft. Third-party developers/organizations can develop extensions or customize ZenTao accordingly.
+ZenTao ALM is built on PHP + MySQL + zentaoPHP which is an independent framework developed by EasyCorp. Third-party developers/organizations can develop extensions or customize ZenTao accordingly.
 EOT;
 $lang->install->links = <<<EOT
 ZenTao ALM is developed by <strong><a href='http://en.easysoft.ltd' target='_blank' class='text-danger'>EasyCorp</a></strong>.
@@ -3417,11 +3443,11 @@ $lang->install->checking   = 'System Checkup';
 $lang->install->ok         = 'Passed(√)';
 $lang->install->fail       = 'Failed(×)';
 $lang->install->loaded     = 'Loaded';
-$lang->install->unloaded   = 'Not Loaded';
+$lang->install->unloaded   = 'Not loaded';
 $lang->install->exists     = 'Found ';
 $lang->install->notExists  = 'Not found ';
 $lang->install->writable   = 'Writable ';
-$lang->install->notWritable= 'Not Writable ';
+$lang->install->notWritable= 'Not writable ';
 $lang->install->phpINI     = 'PHP ini File';
 $lang->install->checkItem  = 'Item';
 $lang->install->current    = 'Current Setting';
@@ -3485,14 +3511,14 @@ $lang->install->workingList['onlyTask']  = 'Only Task Management';
 $lang->install->errorConnectDB      = 'Connection to the database Failed. ';
 $lang->install->errorDBName         = 'Database name should exclude “.” ';
 $lang->install->errorCreateDB       = 'Failed to create the database.';
-$lang->install->errorTableExists    = 'The data table has existed. If ZenTao has been installed before, please return to last step and clear data. Then continue the installation.';
+$lang->install->errorTableExists    = 'The data table has existed. If ZenTao has been installed before, please return to the previous step and clear data, then continue the installation.';
 $lang->install->errorCreateTable    = 'Failed to create the table.';
-$lang->install->errorImportDemoData = 'Failed to import demo data.';
+$lang->install->errorImportDemoData = 'Failed to import the demo data.';
 
-$lang->install->setConfig  = 'Create configuration file';
+$lang->install->setConfig  = 'Create config file';
 $lang->install->key        = 'Item';
 $lang->install->value      = 'Value';
-$lang->install->saveConfig = 'Save config';
+$lang->install->saveConfig = 'Save config file';
 $lang->install->save2File  = '<div class="alert alert-warning">Copy the content in the text box above and save it to "<strong> %s </strong>". You can change this configuration file later.</div>';
 $lang->install->saved2File = 'The configuration file has been saved to " <strong>%s</strong> ". You can change this file later.';
 $lang->install->errorNotSaveConfig = 'The configuration file is not saved.';
@@ -3532,29 +3558,32 @@ $lang->install->cronList['moduleName=report&methodName=remind']       = 'Daily T
 $lang->install->cronList['moduleName=svn&methodName=run']             = 'Synchronize SVN';
 $lang->install->cronList['moduleName=git&methodName=run']             = 'Synchronize GIT';
 $lang->install->cronList['moduleName=backup&methodName=backup']       = 'Backup Data';
-$lang->install->cronList['moduleName=mail&methodName=asyncSend']      = 'Asynchronize sending Message';
-$lang->install->cronList['moduleName=webhook&methodName=asyncSend']   = 'Asynchronize sending Webhook';
-$lang->install->cronList['moduleName=admin&methodName=deleteLog']     = 'Delete overdue logs';
+$lang->install->cronList['moduleName=mail&methodName=asyncSend']      = 'Asynchronize sending message';
+$lang->install->cronList['moduleName=webhook&methodName=asyncSend']   = 'Asynchronize sending webhook';
+$lang->install->cronList['moduleName=admin&methodName=deleteLog']     = 'Delete expired logs';
 $lang->install->cronList['moduleName=todo&methodName=createCycle']    = 'Create recurring todos';
+$lang->install->cronList['moduleName=ci&methodName=initQueue']        = 'Create recurring Jenkins';
+$lang->install->cronList['moduleName=ci&methodName=checkBuildStatus'] = 'Synchronize Jenkins Status';
+$lang->install->cronList['moduleName=ci&methodName=exec']             = 'Execute Jenkins';
 
 $lang->install->success  = "Installed!";
-$lang->install->login    = 'Login ZenTao';
-$lang->install->register = 'Register in ZenTao Community';
+$lang->install->login    = 'ZenTao Login';
+$lang->install->register = 'ZenTao Community Signup';
 
 $lang->install->joinZentao = <<<EOT
-<p>You have installed ZenTao %s.<strong class='text-danger'> Please delete install.php asap</strong>.</p><p>Note: In order to get the latest news of ZenTao, please register on ZenTao(<a href='https://www.zentao.pm' class='alert-link' target='_blank'>www.zentao.pm</a>).</p>
+<p>You have installed ZenTao %s.<strong class='text-danger'> Please delete install.php</strong>.</p><p>Note: In order to get the latest news of ZenTao, please sign up on ZenTao Community(<a href='https://www.zentao.pm' class='alert-link' target='_blank'>www.zentao.pm</a>).</p>
 EOT;
 
 $lang->install->product = array('chanzhi', 'ranzhi', 'ydisk', 'meshiot');
 
-$lang->install->promotion      = "Products also from Nature Easy Soft:";
+$lang->install->promotion      = "Products also from EasyCorp:";
 $lang->install->chanzhi        = new stdclass();
 $lang->install->chanzhi->name  = 'ZSITE';
 $lang->install->chanzhi->logo  = 'images/main/chanzhi.ico';
 $lang->install->chanzhi->url   = 'http://www.zsite.net';
 $lang->install->chanzhi->desc  = <<<EOD
 <ul>
-  <li>Article, Blog, Manual, Member, Shop, Forum, Feedback……</li>
+  <li>Article, Blog, Manual, Member, Shop, Forum, Feedback</li>
   <li>Customize page at will by Theme, Effect, Widget, CSS, JS and layout</li>
   <li>Support both desktop and mobile in one system</li>
   <li>Highly optimized for search engines</li>
@@ -3568,8 +3597,8 @@ $lang->install->ranzhi->url   = 'http://www.zdoo.org';
 $lang->install->ranzhi->desc  = <<<EOD
 <ul>
   <li>CRM: Customer Management and Order Tracking</li>
-  <li>OA: Approve, Announce, Trip, Leave and so on. </li>
-  <li>Project，Task and Document management </li>
+  <li>OA: Approve, Announce, Trip, Leave and more </li>
+  <li>Project, Task and Document management </li>
   <li>Cash: Income, Expense, Transfer, Invest and Debt</li>
 </ul>
 EOD;
@@ -3588,7 +3617,7 @@ EOD;
 
 
 $lang->install->ydisk = new stdclass();
-$lang->install->ydisk->name  = 'Y Disk-Free NetDisk';
+$lang->install->ydisk->name  = 'YDisk';
 $lang->install->ydisk->logo  = 'images/main/ydisk.ico';
 $lang->install->ydisk->url   = 'http://www.ydisk.cn';
 $lang->install->ydisk->desc  = <<<EOD
@@ -3612,56 +3641,64 @@ $lang->install->meshiot->desc  = <<<EOD
   <li>Battery Available: no changes required to any equipment on your site</li>
 </ul>
 EOD;
-/* integration */
-$lang->integration->browse        = 'Browse Integration';
-$lang->integration->create        = 'Create Integration';
-$lang->integration->edit          = 'Edit Integration';
-$lang->integration->execNow       = 'Execute now';
-$lang->integration->delete        = 'Delete Integration';
-$lang->integration->confirmDelete = 'Do you want to delete this Build?';
-
-$lang->integration->id          = 'ID';
-$lang->integration->name        = 'Name';
-$lang->integration->repo        = 'Repo';
-$lang->integration->svnFolder   = 'SVN Tag Watch Path';
-$lang->integration->jenkins     = 'Jenkins Server';
-$lang->integration->buildType   = 'Build Type';
-$lang->integration->jenkinsJob  = 'Jenkins Task';
-$lang->integration->triggerType = 'Trigger';
-$lang->integration->scheduleDay = 'Custom Days';
-$lang->integration->lastExec    = 'Last Executed';
-
-$lang->integration->example    = 'e.g.';
-$lang->integration->tagEx      = 'build_#15, to build Jenkins job that id is 15.';
-$lang->integration->commitEx   = 'start build #15, to build Jenkins job that id is 15.';
-$lang->integration->cronSample = 'e.g. 0 0 2 * * 2-6/1 means 2:00 a.m. every weekday.';
-$lang->integration->sendExec   = 'Send execute request success.';
-
-$lang->integration->buildTypeList['build']          = 'Only Build';
-$lang->integration->buildTypeList['buildAndDeploy'] = 'Build And Deploy';
-$lang->integration->buildTypeList['buildAndTest']   = 'Build And Test';
-
-$lang->integration->triggerTypeList['tag']      = 'Tag';
-$lang->integration->triggerTypeList['commit']   = 'Code Commit';
-$lang->integration->triggerTypeList['schedule'] = 'Schedule';
 /* jenkins */
-$lang->jenkins->common                  = 'Jenkins';
-$lang->jenkins->browse                  = 'View';
-$lang->jenkins->create                  = 'Create';
-$lang->jenkins->edit                    = 'Edit';
-$lang->jenkins->delete                  = 'Delete';
-$lang->jenkins->confirmDelete           = 'Do you want to delete this Jenkins server?';
+$lang->jenkins->common        = 'Jenkins';
+$lang->jenkins->browse        = 'Jenkins';
+$lang->jenkins->create        = 'Create Jenkins';
+$lang->jenkins->edit          = 'Edit Jenkins';
+$lang->jenkins->delete        = 'Delete';
+$lang->jenkins->confirmDelete = 'Do you want to delete this Jenkins server?';
 
-$lang->jenkins->id                      = 'ID';
-$lang->jenkins->name                    = 'Name';
-$lang->jenkins->serviceUrl              = 'Service URL';
-$lang->jenkins->token                   = 'Token';
-$lang->jenkins->account                 = 'UserName';
-$lang->jenkins->password                = 'Password';
+$lang->jenkins->id       = 'ID';
+$lang->jenkins->name     = 'Name';
+$lang->jenkins->url      = 'URL';
+$lang->jenkins->token    = 'Token';
+$lang->jenkins->account  = 'Username';
+$lang->jenkins->password = 'Password';
 
-$lang->jenkins->desc                    = 'Description';
-$lang->jenkins->tokenFirst              = 'Use token if not empty.';
-$lang->jenkins->tips                    = 'Cancel "Prevent Cross Site Request Forgery exploits" when using password.';/* mail */
+$lang->jenkins->lblCreate  = 'Create Jenkins Server';
+$lang->jenkins->desc       = 'Description';
+$lang->jenkins->tokenFirst = 'Use token if not empty.';
+$lang->jenkins->tips       = 'Cancel "Prevent Cross Site Request Forgery exploits" when using password.';
+/* job */
+$lang->job->common        = 'Job';
+$lang->job->browse        = 'Browse Job';
+$lang->job->create        = 'Create Job';
+$lang->job->edit          = 'Edit Job';
+$lang->job->exec          = 'Execute Job';
+$lang->job->delete        = 'Delete Job';
+$lang->job->confirmDelete = 'Do you want to delete this job?';
+$lang->job->dirChange     = 'Directory Changed';
+$lang->job->buildTag      = 'Build Tag';
+
+$lang->job->id          = 'ID';
+$lang->job->name        = 'Name';
+$lang->job->repo        = 'Repo';
+$lang->job->svnDir      = 'SVN Tag Watch Path';
+$lang->job->jenkins     = 'Jenkins';
+$lang->job->jkHost      = 'Jenkins Server';
+$lang->job->buildType   = 'Build Type';
+$lang->job->jkJob       = 'Jenkins Task';
+$lang->job->triggerType = 'Trigger';
+$lang->job->atDay       = 'Custom Days';
+$lang->job->atTime      = 'At Time';
+$lang->job->lastStatus  = 'Last Status';
+$lang->job->lastExec    = 'Last Executed';
+$lang->job->comment     = 'Match Keywords';
+
+$lang->job->example    = 'e.g.';
+$lang->job->commitEx   = "Used to match the keywords used to create a compile. Multiple keywords are separated by ','";
+$lang->job->cronSample = 'e.g. 0 0 2 * * 2-6/1 means 2:00 a.m. every weekday.';
+$lang->job->sendExec   = 'Send execute request success.';
+
+$lang->job->buildTypeList['build']          = 'Only Build';
+$lang->job->buildTypeList['buildAndDeploy'] = 'Build And Deploy';
+$lang->job->buildTypeList['buildAndTest']   = 'Build And Test';
+
+$lang->job->triggerTypeList['tag']      = 'Tag';
+$lang->job->triggerTypeList['commit']   = 'Code Commit';
+$lang->job->triggerTypeList['schedule'] = 'Schedule';
+/* mail */
 $lang->mail->common        = 'Email Settings';
 $lang->mail->index         = 'Email Home';
 $lang->mail->detect        = 'Detect';
@@ -3860,6 +3897,7 @@ $lang->misc->tableStatus = "Status";
 $lang->misc->novice      = "New to ZenTao? Do you want to start ZenTao Tutorial?";
 $lang->misc->showAnnual  = 'Add annual summary';
 $lang->misc->annualDesc  = 'After version 12.0, the new annual report function can be viewed on the 『Report->Annual Summary』 page. <a href="%s" target="_blank" id="showAnnual" class="btn btn-mini btn-primary">See now</a>.';
+$lang->misc->remind      = 'New feature reminders';
 
 $lang->misc->noticeRepair = "<h5>If you are not Administrator, contact your ZenTao Administrator to repair tables.</h5>
     <h5>If you are the Administrator, login your ZenTao host and create a file named <span>%s</span>.</h5>
@@ -3873,6 +3911,9 @@ $lang->misc->feature = new stdclass();
 $lang->misc->feature->lastest  = 'Latest Version';
 $lang->misc->feature->detailed = 'Detail';
 
+$lang->misc->releaseDate['12.2']        = '2020-03-25';
+$lang->misc->releaseDate['12.1']        = '2020-03-10';
+$lang->misc->releaseDate['12.0.1']      = '2020-02-12';
 $lang->misc->releaseDate['12.0']        = '2020-01-03';
 $lang->misc->releaseDate['11.7']        = '2019-11-28';
 $lang->misc->releaseDate['11.6.5']      = '2019-11-08';
@@ -3909,6 +3950,10 @@ $lang->misc->releaseDate['7.4.beta']    = '2015-11-13';
 $lang->misc->releaseDate['7.2.stable']  = '2015-05-22';
 $lang->misc->releaseDate['7.1.stable']  = '2015-03-07';
 $lang->misc->releaseDate['6.3.stable']  = '2014-11-07';
+
+$lang->misc->feature->all['12.2'][]   = array('title'=>'Add parent-child story, compatible xuanxuan.', 'desc' => '');
+$lang->misc->feature->all['12.1'][]   = array('title'=>'Add Integration.', 'desc' => '<p>Add integration, and build in Jenkins</p>');
+$lang->misc->feature->all['12.0.1'][] = array('title'=>'Fix Bug.', 'desc' => '');
 
 $lang->misc->feature->all['12.0'][]   = array('title'=>'Move repo function to zentao', 'desc' => '');
 $lang->misc->feature->all['12.0'][]   = array('title'=>'Add annual summary', 'desc' => 'Show annual summary by role.');
@@ -4013,16 +4058,17 @@ $lang->my->bug            = 'My Bugs';
 $lang->my->testTask       = 'My Builds';
 $lang->my->testCase       = 'My Cases';
 $lang->my->story          = 'My Stories';
+$lang->my->requirement    = 'My Requirements';
 $lang->my->myProject      = "My {$lang->projectCommon}s";
 $lang->my->profile        = 'My Profile';
 $lang->my->dynamic        = 'My Dynamics';
-$lang->my->editProfile    = 'Edit Profile';
+$lang->my->editProfile    = 'Edit';
 $lang->my->changePassword = 'Edit Password';
 $lang->my->unbind         = 'Unbind from Zdoo';
 $lang->my->manageContacts = 'Manage Contact';
 $lang->my->deleteContacts = 'Delete Contact';
 $lang->my->shareContacts  = 'Public';
-$lang->my->limited        = 'Limited Actions (Users can only edit the content that is involved themselves.)';
+$lang->my->limited        = 'Limited Actions (Users can only edit what involves them.)';
 $lang->my->score          = 'My Points';
 $lang->my->scoreRule      = 'Point Rules';
 $lang->my->noTodo         = 'No todos yet. ';
@@ -4691,12 +4737,13 @@ $lang->repo->browse          = 'View';
 $lang->repo->viewRevision    = 'View Revision';
 $lang->repo->create          = 'Create';
 $lang->repo->createAction    = 'Create Repo';
+$lang->repo->maintain        = 'Repo List';
 $lang->repo->edit            = 'Edit';
 $lang->repo->editAction      = 'Edit Repo';
 $lang->repo->delete          = 'Delete Repo';
-$lang->repo->showSyncComment = 'Display Synchronization';
-$lang->repo->ajaxSyncComment = 'Interface: Ajax Sync Note';
-$lang->repo->setMatchComment = 'Set match comment';
+$lang->repo->showSyncCommit  = 'Display Sync';
+$lang->repo->ajaxSyncCommit  = 'Interface: Ajax Sync Note';
+$lang->repo->setRules        = 'Set Rules';
 $lang->repo->download        = 'Download File';
 $lang->repo->downloadDiff    = 'Download Diff';
 $lang->repo->diffAction      = 'Revision Diff';
@@ -4731,7 +4778,7 @@ $lang->repo->name      = 'Name';
 $lang->repo->path      = 'Path';
 $lang->repo->prefix    = 'Prefix';
 $lang->repo->config    = 'Config';
-$lang->repo->desc      = 'Describe';
+$lang->repo->desc      = 'Description';
 $lang->repo->account   = 'Username';
 $lang->repo->password  = 'Password';
 $lang->repo->encoding  = 'Encoding';
@@ -4777,13 +4824,20 @@ $lang->repo->openedDate = 'CreatedDate';
 $lang->repo->latestRevision = 'Latest Revision';
 $lang->repo->actionInfo     = "Add by %s in %s";
 $lang->repo->changes        = "Change Log";
-$lang->repo->reviewLocation = "File: %s@%s, line:%s - %s";
+$lang->repo->reviewLocation = "File: %s@%s, Line: %s - %s";
 $lang->repo->commentEdit    = '<i class="icon-pencil"></i>';
 $lang->repo->commentDelete  = '<i class="icon-remove"></i>';
 $lang->repo->allChanges     = "Other Changes";
 $lang->repo->commitTitle    = "The %sth Commit";
 $lang->repo->mark           = "Mark Tag";
 $lang->repo->split          = "Split Mark";
+
+$lang->repo->objectRule   = 'Object Rule';
+$lang->repo->objectIdRule = 'Object ID Rule';
+$lang->repo->actionRule   = 'Action Rule';
+$lang->repo->manHourRule  = 'Man-hour Rule';
+$lang->repo->ruleUnit     = "Unit";
+$lang->repo->ruleSplit    = "Multiple keywords are divided by ';'. For example: task multiple keywords: Task;task";
 
 $lang->repo->viewDiffList['inline'] = 'Inline';
 $lang->repo->viewDiffList['appose'] = 'Parallel';
@@ -4799,24 +4853,25 @@ $lang->repo->encodingList['utf_8'] = 'UTF-8';
 $lang->repo->encodingList['gbk']   = 'GBK';
 
 $lang->repo->scmList['Git']        = 'Git';
-$lang->repo->scmList['Subversion'] = 'Subversion';
+$lang->repo->scmList['Subversion'] = 'SVN';
 
 $lang->repo->notice                 = new stdclass();
 $lang->repo->notice->syncing        = 'Synchronizing. Please wait ...';
 $lang->repo->notice->syncComplete   = 'Synchronized. Now redirecting ...';
 $lang->repo->notice->syncedCount    = 'The number of records synchronized is ';
-$lang->repo->notice->delete         = 'Are you sure delete this repo?';
+$lang->repo->notice->delete         = 'Do you want to delete this repo?';
 $lang->repo->notice->successDelete  = 'Repository is removed.';
 $lang->repo->notice->commentContent = 'Comment';
-$lang->repo->notice->deleteBug      = 'Are you sure to delete this bug?';
-$lang->repo->notice->deleteComment  = 'Are you sure to delete this comment?';
+$lang->repo->notice->deleteBug      = 'Do you want to delete this bug?';
+$lang->repo->notice->deleteComment  = 'Do you want to delete this comment?';
 $lang->repo->notice->lastSyncTime   = 'Last Sync:';
 
-$lang->repo->matchComment = new stdclass();
-$lang->repo->matchComment->exampleLabel = "Comment Example";
-$lang->repo->matchComment->example['task']['start']  = "%start% %task% %id%1%split%2 %cost%%consumedmark%1 %left%%leftmark%3";
-$lang->repo->matchComment->example['task']['finish'] = "%finish% %task% %id%1%split%2 %cost%%consumedmark%10";
-$lang->repo->matchComment->example['bug']['resolve'] = "%resolve% %bug% %id%1%split%2 %resolvedBuild% %buildmark%10";
+$lang->repo->rules = new stdclass();
+$lang->repo->rules->exampleLabel = "Comment Example";
+$lang->repo->rules->example['task']['start']  = "%start% %task% %id%1%split%2 %cost%%consumedmark%1%cunit% %left%%leftmark%3%lunit%";
+$lang->repo->rules->example['task']['finish'] = "%finish% %task% %id%1%split%2 %cost%%consumedmark%10%cunit%";
+$lang->repo->rules->example['task']['effort'] = "%effort% %task% %id%1%split%2 %cost%%consumedmark%1%cunit% %left%%leftmark%3%lunit%";
+$lang->repo->rules->example['bug']['resolve'] = "%resolve% %bug% %id%1%split%2";
 
 $lang->repo->error                = new stdclass();
 $lang->repo->error->useless       = 'Your server disabled exec and shell_exec, so it cannot be applied.';
@@ -4837,7 +4892,7 @@ $lang->repo->error->output        = "The command is: %s\nThe error is(%s): %s\n"
 $lang->repo->error->clientVersion = "Client version is too low, please upgrade or change SVN client";
 $lang->repo->error->encoding      = "The encoding maybe wrong. Please change the encoding and try again.";
 
-$lang->repo->synTips       = '<strong>You may find the reference about how to set Git sync from <a target="_blank" href="https://www.zentao.pm/book/zentaomanual/free-open-source-project-management-software-git-105.html">here</a>.</strong>';
+$lang->repo->syncTips      = '<strong>You may find the reference about how to set Git sync from <a target="_blank" href="https://www.zentao.pm/book/zentaomanual/free-open-source-project-management-software-git-105.html">here</a>.</strong>';
 $lang->repo->encodingsTips = "The encodings of commit comments, can be comma separated values，e.g. utf-8";
 
 $lang->repo->example              = new stdclass();
@@ -4845,7 +4900,7 @@ $lang->repo->example->client      = new stdclass();
 $lang->repo->example->path        = new stdclass();
 $lang->repo->example->client->git = "e.g. /usr/bin/git";
 $lang->repo->example->client->svn = "e.g. /usr/bin/svn";
-$lang->repo->example->path->git   = "e.g. /homt/user/myproject";
+$lang->repo->example->path->git   = "e.g. /home/user/myproject";
 $lang->repo->example->path->svn   = "e.g. http://example.googlecode.com/svn/trunk/myproject";
 $lang->repo->example->config      = "Config directory is required in https. Use '--config-dir' to generate config dir.";
 $lang->repo->example->encoding    = "input encoding of files";
@@ -5168,6 +5223,7 @@ $lang->story->edit            = "Edit Story";
 $lang->story->batchEdit       = "Batch Edit";
 $lang->story->subdivide       = 'Decompose';
 $lang->story->subdivideAction = 'Decompose Story';
+$lang->story->splitRequirent  = 'Decompose';
 $lang->story->close           = 'Close';
 $lang->story->closeAction     = 'Close Story';
 $lang->story->batchClose      = 'Batch Close';
@@ -5204,6 +5260,7 @@ $lang->story->viewAll           = "See All";
 
 $lang->story->common         = 'Story';
 $lang->story->id             = 'ID';
+$lang->story->parent         = 'Parent';
 $lang->story->product        = $lang->productCommon;
 $lang->story->branch         = "Branch/Platform";
 $lang->story->module         = 'Module';
@@ -5244,6 +5301,8 @@ $lang->story->version        = 'Version';
 $lang->story->plan           = 'Linked Plans';
 $lang->story->planAB         = 'Plan';
 $lang->story->comment        = 'Comment';
+$lang->story->children       = "Child {$lang->storyCommon}";
+$lang->story->childrenAB     = "C";
 $lang->story->linkStories    = 'Linked Stories';
 $lang->story->childStories   = 'Decomposed Stories';
 $lang->story->duplicateStory = 'Duplicated Story ID';
@@ -5356,10 +5415,12 @@ $lang->story->needNotReview         = 'No Review Required';
 $lang->story->successSaved          = "Story is saved!";
 $lang->story->confirmDelete         = "Do you want to delete this story?";
 $lang->story->errorEmptyChildStory  = '『Decomposed Stories』canot be blank.';
+$lang->story->errorNotSubdivide     = "If the status is not active, or the stage is not wait, or a sub story, it cannot be subdivided.";
 $lang->story->mustChooseResult      = 'Select Result';
 $lang->story->mustChoosePreVersion  = 'Select a version to revert to.';
 $lang->story->noStory               = 'No stories yet. ';
 $lang->story->ignoreChangeStage     = 'Story %s is a draft. Please review it..';
+$lang->story->cannotDeleteParent    = "Can not delete parent {$lang->storyCommon}";
 
 $lang->story->form = new stdclass();
 $lang->story->form->area      = 'Scope';
@@ -6351,6 +6412,7 @@ $lang->todo->lblBeforeDays  = "Create a todo %s day(s) earlier";
 $lang->todo->lblClickCreate = "Click to Add Todo";
 $lang->todo->noTodo         = 'No todos of this type.';
 $lang->todo->noAssignedTo   = "The AssignedTo should not be empty.";
+$lang->todo->unfinishedTodo = 'The todos of ID %s are not finished, and can not close.';
 
 $lang->todo->periods['all']        = 'All Todos';
 $lang->todo->periods['thisYear']   = 'ThisYear';
@@ -6755,11 +6817,12 @@ $lang->webhook->date        = 'Sent';
 $lang->webhook->data        = 'Data';
 $lang->webhook->result      = 'Result';
 
-$lang->webhook->typeList['']          = '';
-$lang->webhook->typeList['dingding']  = 'Dingding Robot';
-$lang->webhook->typeList['dingapi']   = 'Dingding Notifier';
-$lang->webhook->typeList['weixin']    = 'Enterprise WeChat';
-$lang->webhook->typeList['default']   = 'Others';
+$lang->webhook->typeList['']            = '';
+$lang->webhook->typeList['dinggroup']   = 'Dingding Robot';
+$lang->webhook->typeList['dinguser']    = 'Dingding Notifier';
+$lang->webhook->typeList['wechatgroup'] = 'Enterprise WeChat Robot';
+$lang->webhook->typeList['wechatuser']  = 'Enterprise WeChat Notifier';
+$lang->webhook->typeList['default']     = 'Others';
 
 $lang->webhook->sendTypeList['sync']  = 'Synchronous';
 $lang->webhook->sendTypeList['async'] = 'Asynchronous';
@@ -6767,8 +6830,16 @@ $lang->webhook->sendTypeList['async'] = 'Asynchronous';
 $lang->webhook->dingAgentId    = 'AgentID';
 $lang->webhook->dingAppKey     = 'AppKey';
 $lang->webhook->dingAppSecret  = 'AppSecret';
-$lang->webhook->dingUserid     = 'UserID';
+$lang->webhook->dingUserid     = 'Ding UserID';
 $lang->webhook->dingBindStatus = 'Bind Status';
+
+$lang->webhook->wechatCorpId     = 'Corp ID';
+$lang->webhook->wechatCorpSecret = 'Corp Secret';
+$lang->webhook->wechatAgentId    = 'Agent ID';
+$lang->webhook->wechatUserid     = 'Wechat Userid';
+$lang->webhook->wechatBindStatus = 'Bind Status';
+
+$lang->webhook->zentaoUser  = 'Zentao User';
 
 $lang->webhook->dingBindStatusList['0'] = 'No';
 $lang->webhook->dingBindStatusList['1'] = 'Yes';
@@ -6792,7 +6863,9 @@ $lang->webhook->note->async   = 'If it is asynchronous, you have to go to Admin-
 $lang->webhook->note->bind    = 'Bind User is only required for Dingding Notifier.';
 $lang->webhook->note->product = "All actions will trigger the hook if {$lang->productCommon} is empty, or only actions of selected {$lang->productCommon} will trigger it.";
 $lang->webhook->note->project = "All actions will trigger the hook if {$lang->projectCommon} is empty, or only actions of selected {$lang->projectCommon} will trigger it.";
-$lang->webhook->note->dingKey = " <a href='http://www.zentao.net/book/zentaopmshelp/358.html' target='_blank'><i class='icon-help'></i></a>";
+
+$lang->webhook->note->dingHelp   = " <a href='http://www.zentao.net/book/zentaopmshelp/358.html' target='_blank'><i class='icon-help'></i></a>";
+$lang->webhook->note->wechatHelp = " <a href='http://www.zentao.net/book/zentaopmshelp/367.html' target='_blank'><i class='icon-help'></i></a>";
 
 $lang->webhook->note->typeList['bearychat'] = 'Add a ZenTao bot in bearychat and get the webhook url.';
 $lang->webhook->note->typeList['dingding']  = 'Add a customized bot in dingding and get the webhook url.';

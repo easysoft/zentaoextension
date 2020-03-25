@@ -313,21 +313,21 @@ $lang->caselib->menu->report    = array('link' => '报告|testreport|browse|');
 $lang->caselib->menu->caselib   = array('link' => '用例库|caselib|browse|libID=%s', 'alias' => 'create,createcase,view,edit,batchcreatecase,showimport', 'subModule' => 'tree,testcase');
 
 $lang->ci = new stdclass();
-$lang->ci->menu           = new stdclass();
-$lang->ci->menu->browse   = array('link' =>'代码|repo|browse|repoID=%s', 'alias' => 'diff,view,revision,log,blame,showsynccomment');
-$lang->ci->menu->job      = array('link' =>'构建|integration|browse', 'subModule' => 'compile,integration');
-$lang->ci->menu->maintain = array('link' =>'版本库|repo|maintain', 'alias' => 'create,edit');
-$lang->ci->menu->jenkins  = array('link' =>'Jenkins|jenkins|browse', 'alias' => 'create,edit');
-$lang->ci->menu->match    = array('link' =>'匹配设置|repo|setmatchcomment');
+$lang->ci->menu = new stdclass();
+$lang->ci->menu->code     = array('link' => '代码|repo|browse|repoID=%s', 'alias' => 'diff,view,revision,log,blame,showsynccomment');
+$lang->ci->menu->build    = array('link' => '构建|job|browse', 'subModule' => 'compile,job');
+$lang->ci->menu->jenkins  = array('link' => 'Jenkins|jenkins|browse', 'alias' => 'create,edit');
+$lang->ci->menu->maintain = array('link' => '版本库|repo|maintain', 'alias' => 'create,edit');
+$lang->ci->menu->rules    = array('link' => '指令|repo|setrules');
 
-$lang->repo              = new stdclass();
-$lang->jenkins           = new stdclass();
-$lang->compile           = new stdclass();
-$lang->integration       = new stdclass();
-$lang->repo->menu        = $lang->ci->menu;
-$lang->jenkins->menu     = $lang->ci->menu;
-$lang->compile->menu     = $lang->ci->menu;
-$lang->integration->menu = $lang->ci->menu;
+$lang->repo          = new stdclass();
+$lang->jenkins       = new stdclass();
+$lang->compile       = new stdclass();
+$lang->job           = new stdclass();
+$lang->repo->menu    = $lang->ci->menu;
+$lang->jenkins->menu = $lang->ci->menu;
+$lang->compile->menu = $lang->ci->menu;
+$lang->job->menu     = $lang->ci->menu;
 
 $lang->doc = new stdclass();
 $lang->doc->menu = new stdclass();
@@ -462,10 +462,10 @@ $lang->menugroup->entry       = 'admin';
 $lang->menugroup->webhook     = 'admin';
 $lang->menugroup->message     = 'admin';
 
-$lang->menugroup->repo        = 'ci';
-$lang->menugroup->jenkins     = 'ci';
-$lang->menugroup->compile     = 'ci';
-$lang->menugroup->integration = 'ci';
+$lang->menugroup->repo    = 'ci';
+$lang->menugroup->jenkins = 'ci';
+$lang->menugroup->compile = 'ci';
+$lang->menugroup->job     = 'ci';
 
 $lang->error = new stdclass();
 $lang->error->companyNotFound = "您访问的域名 %s 没有对应的公司。";
@@ -551,6 +551,7 @@ if(!defined('DT_DATE1'))      define('DT_DATE1',     'Y-m-d');
 if(!defined('DT_DATE2'))      define('DT_DATE2',     'Ymd');
 if(!defined('DT_DATE3'))      define('DT_DATE3',     'Y年m月d日');
 if(!defined('DT_DATE4'))      define('DT_DATE4',     'n月j日');
+if(!defined('DT_DATE5'))      define('DT_DATE5',     'j/n');
 if(!defined('DT_TIME1'))      define('DT_TIME1',     'H:i:s');
 if(!defined('DT_TIME2'))      define('DT_TIME2',     'H:i');
 
@@ -985,11 +986,17 @@ $lang->action->desc->linked2bug     = '$date 由 <strong>$actor</strong> 关联�
 
 $lang->action->desc->createchildren     = '$date, 由 <strong>$actor</strong> 创建子任务 <strong>$extra</strong>。' . "\n";
 $lang->action->desc->linkchildtask      = '$date, 由 <strong>$actor</strong> 关联子任务 <strong>$extra</strong>。' . "\n";
-$lang->action->desc->linkchildtask      = '$date, 由 <strong>$actor</strong> 关联子任务 <strong>$extra</strong>。' . "\n";
 $lang->action->desc->unlinkchildrentask = '$date, 由 <strong>$actor</strong> 移除子任务 <strong>$extra</strong>。' . "\n";
 $lang->action->desc->linkparenttask     = '$date, 由 <strong>$actor</strong> 关联到父任务 <strong>$extra</strong>。' . "\n";
 $lang->action->desc->unlinkparenttask   = '$date, 由 <strong>$actor</strong> 从父任务<strong>$extra</strong>取消关联。' . "\n";
 $lang->action->desc->deletechildrentask = '$date, 由 <strong>$actor</strong> 删除子任务<strong>$extra</strong>。' . "\n";
+
+$lang->action->desc->createchildrenstory = '$date, 由 <strong>$actor</strong> 创建子需求 <strong>$extra</strong>。' . "\n";
+$lang->action->desc->linkchildstory      = '$date, 由 <strong>$actor</strong> 关联子需求 <strong>$extra</strong>。' . "\n";
+$lang->action->desc->unlinkchildrenstory = '$date, 由 <strong>$actor</strong> 移除子需求 <strong>$extra</strong>。' . "\n";
+$lang->action->desc->linkparentstory     = '$date, 由 <strong>$actor</strong> 关联到父需求 <strong>$extra</strong>。' . "\n";
+$lang->action->desc->unlinkparentstory   = '$date, 由 <strong>$actor</strong> 从父需求<strong>$extra</strong>取消关联。' . "\n";
+$lang->action->desc->deletechildrenstory = '$date, 由 <strong>$actor</strong> 删除子需求<strong>$extra</strong>。' . "\n";
 
 $lang->action->desc->linkrelatedcase   = '$date, 由 <strong>$actor</strong> 关联相关用例 <strong>$extra</strong>。' . "\n";
 $lang->action->desc->unlinkrelatedcase = '$date, 由 <strong>$actor</strong> 移除相关用例 <strong>$extra</strong>。' . "\n";
@@ -1061,6 +1068,12 @@ $lang->action->label->batchcreate         = "批量创建任务";
 $lang->action->label->createchildren      = "创建子任务";
 $lang->action->label->managed             = "维护";
 $lang->action->label->deletechildrentask  = "删除子任务";
+$lang->action->label->createchildrenstory = "创建子需求";
+$lang->action->label->linkchildstory      = "关联子需求";
+$lang->action->label->unlinkchildrenstory = "取消关联子需求";
+$lang->action->label->linkparentstory     = "关联到父需求";
+$lang->action->label->unlinkparentstory   = "从父需求取消关联";
+$lang->action->label->deletechildrenstory = "删除子需求";
 
 $lang->action->dynamicAction = new stdclass();
 $lang->action->dynamicAction->todo['opened']               = '创建待办';
@@ -1135,6 +1148,11 @@ $lang->action->dynamicAction->task['unlinkparenttask']     = '从父任务取消
 $lang->action->dynamicAction->task['deletechildrentask']   = '删除子任务';
 $lang->action->dynamicAction->task['linkparenttask']       = '关联到父任务';
 $lang->action->dynamicAction->task['linkchildtask']        = '关联子任务';
+$lang->action->dynamicAction->task['createchildrenstory']  = '创建子需求';
+$lang->action->dynamicAction->task['unlinkparentstory']    = '从父需求取消关联';
+$lang->action->dynamicAction->task['deletechildrenstory']  = '删除子需求';
+$lang->action->dynamicAction->task['linkparentstory']      = '关联到父需求';
+$lang->action->dynamicAction->task['linkchildstory']       = '关联子需求';
 $lang->action->dynamicAction->task['undeleted']            = '还原任务';
 $lang->action->dynamicAction->task['hidden']               = '隐藏任务';
 $lang->action->dynamicAction->task['svncommited']          = 'SVN提交';
@@ -2309,11 +2327,11 @@ $lang->caselib->legendDesc = '描述';
 $lang->caselib->libraryDelete = '您确认要删除该用例库吗？';
 $lang->caselib->noModule      = '<div>您现在还没有模块信息</div><div>请维护用例库模块</div>';
 /* ci */
-$lang->ci->common  = '持续集成';
-$lang->ci->at      = '于';
+$lang->ci->common = '持续集成';
+
 $lang->ci->job     = '构建';
-$lang->ci->task    = '任务';
-$lang->ci->history = '历史';
+$lang->ci->task    = '构建任务';
+$lang->ci->history = '构建历史';
 /* company */
 $lang->company->common   = '组织视图';
 $lang->company->index    = "组织视图首页";
@@ -2340,16 +2358,17 @@ $lang->company->user    = '用户';
 $lang->company->guestOptions[0] = '不允许';
 $lang->company->guestOptions[1] = '允许';
 /* compile */
+$lang->compile->common = '构建';
 $lang->compile->browse = '构建历史';
 $lang->compile->logs   = '构建日志';
 
 $lang->compile->id     = 'ID';
-$lang->compile->name   = '名称';
+$lang->compile->name   = '构建名称';
 $lang->compile->status = '构建状态';
 $lang->compile->time   = '构建时间';
 
 $lang->compile->statusList['success']     = '成功';
-$lang->compile->statusList['fail']        = '失败';
+$lang->compile->statusList['failure']     = '失败';
 $lang->compile->statusList['created']     = '新建';
 $lang->compile->statusList['building']    = '构建中';
 $lang->compile->statusList['create_fail'] = '创建失败';
@@ -3545,6 +3564,9 @@ $lang->install->cronList['moduleName=mail&methodName=asyncSend']      = '异步�
 $lang->install->cronList['moduleName=webhook&methodName=asyncSend']   = '异步发送Webhook';
 $lang->install->cronList['moduleName=admin&methodName=deleteLog']     = '删除过期日志';
 $lang->install->cronList['moduleName=todo&methodName=createCycle']    = '生成周期性待办';
+$lang->install->cronList['moduleName=ci&methodName=initQueue']        = '创建周期性任务';
+$lang->install->cronList['moduleName=ci&methodName=checkBuildStatus'] = '同步Jenkins任务状态';
+$lang->install->cronList['moduleName=ci&methodName=exec']             = '执行Jenkins任务';
 
 $lang->install->success  = "安装成功";
 $lang->install->login    = '登录禅道管理系统';
@@ -3621,56 +3643,63 @@ $lang->install->meshiot->desc  = <<<EOD
   <li>可配电池，对既有场地无任何要求</li>
 </ul>
 EOD;
-/* integration */
-$lang->integration->browse        = '浏览构建任务';
-$lang->integration->create        = '创建构建任务';
-$lang->integration->edit          = '编辑构建任务';
-$lang->integration->execNow       = '立即执行';
-$lang->integration->delete        = '删除构建任务';
-$lang->integration->confirmDelete = '确认删除该构建任务吗？';
-
-$lang->integration->id          = 'ID';
-$lang->integration->name        = '名称';
-$lang->integration->repo        = '代码库';
-$lang->integration->svnFolder   = 'SVN Tag监控路径';
-$lang->integration->jenkins     = 'Jenkins服务';
-$lang->integration->buildType   = '构建类型';
-$lang->integration->jenkinsJob  = 'Jenkins任务名';
-$lang->integration->triggerType = '触发方式';
-$lang->integration->scheduleDay = '自定义天数';
-$lang->integration->lastExec    = '最后执行';
-
-$lang->integration->example    = '举例';
-$lang->integration->tagEx      = 'build_#15，其中15为Jenkins任务编号';
-$lang->integration->commitEx   = 'start build #15，其中15为Jenkins任务编号';
-$lang->integration->cronSample = '如 0 0 2 * * 2-6/1 表示每个工作日凌晨2点';
-$lang->integration->sendExec   = '发送执行请求成功！';
-
-$lang->integration->buildTypeList['build']          = '仅构建';
-$lang->integration->buildTypeList['buildAndDeploy'] = '构建部署';
-$lang->integration->buildTypeList['buildAndTest']   = '构建测试';
-
-$lang->integration->triggerTypeList['tag']      = '打标签';
-$lang->integration->triggerTypeList['commit']   = '代码提交注释';
-$lang->integration->triggerTypeList['schedule'] = '定时计划';
 /* jenkins */
-$lang->jenkins->common                  = 'Jenkins';
-$lang->jenkins->browse                  = '浏览';
-$lang->jenkins->create                  = '创建';
-$lang->jenkins->edit                    = '编辑';
-$lang->jenkins->delete                  = '删除';
-$lang->jenkins->confirmDelete           = '确认删除该Jenkins吗？';
+$lang->jenkins->common        = 'Jenkins';
+$lang->jenkins->browse        = '浏览Jenkins';
+$lang->jenkins->create        = '添加Jenkins';
+$lang->jenkins->edit          = '编辑Jenkins';
+$lang->jenkins->delete        = '删除';
+$lang->jenkins->confirmDelete = '确认删除该Jenkins吗？';
 
-$lang->jenkins->id                      = 'ID';
-$lang->jenkins->name                    = '名称';
-$lang->jenkins->serviceUrl              = '服务地址';
-$lang->jenkins->token                   = 'Token';
-$lang->jenkins->account                 = '用户名';
-$lang->jenkins->password                = '密码';
+$lang->jenkins->id       = 'ID';
+$lang->jenkins->name     = '名称';
+$lang->jenkins->url      = '服务地址';
+$lang->jenkins->token    = 'Token';
+$lang->jenkins->account  = '用户名';
+$lang->jenkins->password = '密码';
 
-$lang->jenkins->desc                    = '描述';
-$lang->jenkins->tokenFirst              = 'Token不为空时，优先使用Token。';
-$lang->jenkins->tips                    = '使用密码时，请在Jenkins全局安全设置中禁用"防止跨站点请求伪造"选项。';
+$lang->jenkins->lblCreate  = '添加Jenkins服务器';
+$lang->jenkins->desc       = '描述';
+$lang->jenkins->tokenFirst = 'Token不为空时，优先使用Token。';
+$lang->jenkins->tips       = '使用密码时，请在Jenkins全局安全设置中禁用"防止跨站点请求伪造"选项。';
+/* job */
+$lang->job->common        = '构建任务';
+$lang->job->browse        = '浏览构建任务';
+$lang->job->create        = '创建构建任务';
+$lang->job->edit          = '编辑构建任务';
+$lang->job->exec          = '执行构建';
+$lang->job->delete        = '删除构建任务';
+$lang->job->confirmDelete = '确认删除该构建任务';
+$lang->job->dirChange     = '目录改动';
+$lang->job->buildTag      = '打标签';
+
+$lang->job->id          = 'ID';
+$lang->job->name        = '名称';
+$lang->job->repo        = '代码库';
+$lang->job->svnDir      = 'SVN监控路径';
+$lang->job->jenkins     = 'Jenkins';
+$lang->job->jkHost      = 'Jenkins服务器';
+$lang->job->buildType   = '构建类型';
+$lang->job->jkJob       = 'Jenkins任务';
+$lang->job->triggerType = '触发方式';
+$lang->job->atDay       = '自定义日期';
+$lang->job->atTime      = '执行时间';
+$lang->job->lastStatus  = '最后执行状态';
+$lang->job->lastExec    = '最后执行时间';
+$lang->job->comment     = '匹配关键字';
+
+$lang->job->example    = '举例';
+$lang->job->commitEx   = "用于匹配创建构建任务的关键字，多个关键字用','分割";
+$lang->job->cronSample = '如 0 0 2 * * 2-6/1 表示每个工作日凌晨2点';
+$lang->job->sendExec   = '发送执行请求成功！执行结果：%s';
+
+$lang->job->buildTypeList['build']          = '仅构建';
+$lang->job->buildTypeList['buildAndDeploy'] = '构建部署';
+$lang->job->buildTypeList['buildAndTest']   = '构建测试';
+
+$lang->job->triggerTypeList['tag']      = '打标签';
+$lang->job->triggerTypeList['commit']   = '提交注释包含关键字';
+$lang->job->triggerTypeList['schedule'] = '定时计划';
 /* mail */
 $lang->mail->common        = '发信配置';
 $lang->mail->index         = '首页';
@@ -3870,6 +3899,7 @@ $lang->misc->tableStatus = "状态";
 $lang->misc->novice      = "您可能初次使用禅道，是否进入新手模式？";
 $lang->misc->showAnnual  = '新增年度总结功能';
 $lang->misc->annualDesc  = '12.0版本后，新增年度总结功能，可以到『统计->年度总结』页面查看。 是否现在<a href="%s" target="_blank" id="showAnnual" class="btn btn-mini btn-primary">查看</a>';
+$lang->misc->remind      = '新功能提醒';
 
 $lang->misc->noticeRepair = "<h5>普通用户请联系管理员进行修复</h5>
     <h5>管理员请登录禅道所在的服务器，创建<span>%s</span>文件。</h5>
@@ -3883,6 +3913,9 @@ $lang->misc->feature = new stdclass();
 $lang->misc->feature->lastest  = '最新版本';
 $lang->misc->feature->detailed = '详情';
 
+$lang->misc->releaseDate['12.2']        = '2020-03-25';
+$lang->misc->releaseDate['12.1']        = '2020-03-10';
+$lang->misc->releaseDate['12.0.1']      = '2020-02-12';
 $lang->misc->releaseDate['12.0']        = '2020-01-03';
 $lang->misc->releaseDate['11.7']        = '2019-11-28';
 $lang->misc->releaseDate['11.6.5']      = '2019-11-08';
@@ -3919,6 +3952,10 @@ $lang->misc->releaseDate['7.4.beta']    = '2015-11-13';
 $lang->misc->releaseDate['7.2.stable']  = '2015-05-22';
 $lang->misc->releaseDate['7.1.stable']  = '2015-03-07';
 $lang->misc->releaseDate['6.3.stable']  = '2014-11-07';
+
+$lang->misc->feature->all['12.2'][]   = array('title'=>'增加父子需求，兼容最新喧喧。', 'desc' => '');
+$lang->misc->feature->all['12.1'][]   = array('title'=>'增加构建功能', 'desc' => '<p>增加构建功能，集成Jenkins进行构建</p>');
+$lang->misc->feature->all['12.0.1'][] = array('title'=>'修复Bug', 'desc' => '');
 
 $lang->misc->feature->all['12.0'][]   = array('title'=>'将代码功能版本浏览功能转移到开源版', 'desc' => '');
 $lang->misc->feature->all['12.0'][]   = array('title'=>'增加年度总结', 'desc' => '根据角色显示年度总结。');
@@ -4023,6 +4060,7 @@ $lang->my->bug            = '我的Bug';
 $lang->my->testTask       = '我的版本';
 $lang->my->testCase       = '我的用例';
 $lang->my->story          = "我的{$lang->storyCommon}";
+$lang->my->requirement    = "我的用户{$lang->storyCommon}";
 $lang->my->myProject      = "我的{$lang->projectCommon}";
 $lang->my->profile        = '我的档案';
 $lang->my->dynamic        = '我的动态';
@@ -4701,12 +4739,13 @@ $lang->repo->browse          = '浏览';
 $lang->repo->viewRevision    = '查看修订';
 $lang->repo->create          = '创建';
 $lang->repo->createAction    = '创建版本库';
+$lang->repo->maintain        = '版本库列表';
 $lang->repo->edit            = '编辑';
 $lang->repo->editAction      = '编辑版本库';
 $lang->repo->delete          = '删除版本库';
-$lang->repo->showSyncComment = '显示同步进度';
-$lang->repo->ajaxSyncComment = '接口：AJAX同步注释';
-$lang->repo->setMatchComment = '注释指令配置';
+$lang->repo->showSyncCommit  = '显示同步进度';
+$lang->repo->ajaxSyncCommit  = '接口：AJAX同步注释';
+$lang->repo->setRules        = '指令配置';
 $lang->repo->download        = '下载';
 $lang->repo->downloadDiff    = '下载Diff';
 $lang->repo->diffAction      = '版本对比';
@@ -4792,8 +4831,15 @@ $lang->repo->commentEdit    = '<i class="icon-pencil"></i>';
 $lang->repo->commentDelete  = '<i class="icon-remove"></i>';
 $lang->repo->allChanges     = "其他改动";
 $lang->repo->commitTitle    = "第%s次提交";
-$lang->repo->mark           = "匹配标记";
-$lang->repo->split          = "分割匹配";
+$lang->repo->mark           = "开始标记";
+$lang->repo->split          = "多ID间隔";
+
+$lang->repo->objectRule   = '对象匹配规则';
+$lang->repo->objectIdRule = '对象ID匹配规则';
+$lang->repo->actionRule   = '动作匹配规则';
+$lang->repo->manHourRule  = '工时匹配规则';
+$lang->repo->ruleUnit     = "单位";
+$lang->repo->ruleSplit    = "多关键字用';'分割，如：任务多关键字： Task;task";
 
 $lang->repo->viewDiffList['inline'] = '直列';
 $lang->repo->viewDiffList['appose'] = '并排';
@@ -4822,11 +4868,12 @@ $lang->repo->notice->deleteBug      = '确认删除该Bug？';
 $lang->repo->notice->deleteComment  = '确认删除该回复？';
 $lang->repo->notice->lastSyncTime   = '最后更新于：';
 
-$lang->repo->matchComment = new stdclass();
-$lang->repo->matchComment->exampleLabel = "注释示例";
-$lang->repo->matchComment->example['task']['start']  = "%start% %task% %id%1%split%2 %cost%%consumedmark%1 %left%%leftmark%3";
-$lang->repo->matchComment->example['task']['finish'] = "%finish% %task% %id%1%split%2 %cost%%consumedmark%10";
-$lang->repo->matchComment->example['bug']['resolve'] = "%resolve% %bug% %id%1%split%2 %resolvedBuild% %buildmark%10";
+$lang->repo->rules = new stdclass();
+$lang->repo->rules->exampleLabel = "注释示例";
+$lang->repo->rules->example['task']['start']  = "%start% %task% %id%1%split%2 %cost%%consumedmark%1%cunit% %left%%leftmark%3%lunit%";
+$lang->repo->rules->example['task']['finish'] = "%finish% %task% %id%1%split%2 %cost%%consumedmark%10%cunit%";
+$lang->repo->rules->example['task']['effort'] = "%effort% %task% %id%1%split%2 %cost%%consumedmark%1%cunit% %left%%leftmark%3%lunit%";
+$lang->repo->rules->example['bug']['resolve'] = "%resolve% %bug% %id%1%split%2";
 
 $lang->repo->error                = new stdclass();
 $lang->repo->error->useless       = '你的服务器禁用了exec,shell_exec方法，无法使用该功能';
@@ -4847,7 +4894,7 @@ $lang->repo->error->output        = "执行命令：%s\n错误结果(%s)： %s\n
 $lang->repo->error->clientVersion = "客户端版本过低，请升级或更换SVN客户端";
 $lang->repo->error->encoding      = "编码可能错误，请更换编码重试。";
 
-$lang->repo->synTips       = '请参照<a target="_blank" href="https://www.zentao.net/book/zentaopmshelp/207.html">这里</a>，设置版本库定时同步。';
+$lang->repo->syncTips      = '请参照<a target="_blank" href="https://www.zentao.net/book/zentaopmshelp/207.html">这里</a>，设置版本库定时同步。';
 $lang->repo->encodingsTips = "提交日志的编码，可以用逗号连接起来的多个，比如utf-8。";
 
 $lang->repo->example              = new stdclass();
@@ -4855,7 +4902,7 @@ $lang->repo->example->client      = new stdclass();
 $lang->repo->example->path        = new stdclass();
 $lang->repo->example->client->git = "例如：/usr/bin/git";
 $lang->repo->example->client->svn = "例如：/usr/bin/svn";
-$lang->repo->example->path->git   = "例如：/homt/user/myproject";
+$lang->repo->example->path->git   = "例如：/home/user/myproject";
 $lang->repo->example->path->svn   = "例如：http://example.googlecode.com/svn/trunk/myproject";
 $lang->repo->example->config      = "https需要填写配置目录的位置，通过config-dir选项生成配置目录";
 $lang->repo->example->encoding    = "填写版本库中文件的编码";
@@ -5178,6 +5225,7 @@ $lang->story->edit            = "编辑";
 $lang->story->batchEdit       = "批量编辑";
 $lang->story->subdivide       = '细分';
 $lang->story->subdivideAction = "细分{$lang->storyCommon}";
+$lang->story->splitRequirent  = '拆分';
 $lang->story->close           = '关闭';
 $lang->story->closeAction     = "关闭{$lang->storyCommon}";
 $lang->story->batchClose      = '批量关闭';
@@ -5214,6 +5262,7 @@ $lang->story->viewAll           = '查看全部';
 
 $lang->story->common         = $lang->storyCommon;
 $lang->story->id             = '编号';
+$lang->story->parent         = '父需求';
 $lang->story->product        = "所属{$lang->productCommon}";
 $lang->story->branch         = "分支/平台";
 $lang->story->module         = '所属模块';
@@ -5254,6 +5303,8 @@ $lang->story->version        = '版本号';
 $lang->story->plan           = '所属计划';
 $lang->story->planAB         = '计划';
 $lang->story->comment        = '备注';
+$lang->story->children       = "子{$lang->storyCommon}";
+$lang->story->childrenAB     = "子";
 $lang->story->linkStories    = "相关{$lang->storyCommon}";
 $lang->story->childStories   = "细分{$lang->storyCommon}";
 $lang->story->duplicateStory = "重复{$lang->storyCommon}ID";
@@ -5366,10 +5417,12 @@ $lang->story->needNotReview         = '不需要评审';
 $lang->story->successSaved          = "{$lang->storyCommon}成功添加，";
 $lang->story->confirmDelete         = "您确认删除该{$lang->storyCommon}吗?";
 $lang->story->errorEmptyChildStory  = "『细分{$lang->storyCommon}』不能为空。";
+$lang->story->errorNotSubdivide     = "状态不是激活，或者阶段不是未开始的{$lang->storyCommon}，或者是子需求，则不能细分。";
 $lang->story->mustChooseResult      = '必须选择评审结果';
 $lang->story->mustChoosePreVersion  = '必须选择回溯的版本';
 $lang->story->noStory               = "暂时没有{$lang->storyCommon}。";
 $lang->story->ignoreChangeStage     = "{$lang->storyCommon} %s 为草稿状态，没有修改其阶段。";
+$lang->story->cannotDeleteParent    = "不能删除父{$lang->storyCommon}";
 
 $lang->story->form = new stdclass();
 $lang->story->form->area      = "该{$lang->storyCommon}所属范围";
@@ -6361,6 +6414,7 @@ $lang->todo->lblBeforeDays  = "提前%s天生成待办";
 $lang->todo->lblClickCreate = "点击添加待办";
 $lang->todo->noTodo         = '该类型没有待办事务';
 $lang->todo->noAssignedTo   = '被指派人不能为空';
+$lang->todo->unfinishedTodo = '待办ID %s 不是完成状态，不能关闭。';
 
 $lang->todo->periods['all']        = '所有待办';
 $lang->todo->periods['thisYear']   = '本年';
@@ -6765,11 +6819,12 @@ $lang->webhook->date        = '发送时间';
 $lang->webhook->data        = '数据';
 $lang->webhook->result      = '结果';
 
-$lang->webhook->typeList['']          = '';
-$lang->webhook->typeList['dingding']  = '钉钉群通知机器人';
-$lang->webhook->typeList['dingapi']   = '钉钉工作消息通知';
-$lang->webhook->typeList['weixin']    = '企业微信';
-$lang->webhook->typeList['default']   = '其他';
+$lang->webhook->typeList['']            = '';
+$lang->webhook->typeList['dinggroup']   = '钉钉群通知机器人';
+$lang->webhook->typeList['dinguser']    = '钉钉工作消息通知';
+$lang->webhook->typeList['wechatgroup'] = '企业微信群机器人';
+$lang->webhook->typeList['wechatuser']  = '企业微信应用消息';
+$lang->webhook->typeList['default']     = '其他';
 
 $lang->webhook->sendTypeList['sync']  = '同步';
 $lang->webhook->sendTypeList['async'] = '异步';
@@ -6777,8 +6832,16 @@ $lang->webhook->sendTypeList['async'] = '异步';
 $lang->webhook->dingAgentId    = '钉钉AgentId';
 $lang->webhook->dingAppKey     = '钉钉AppKey';
 $lang->webhook->dingAppSecret  = '钉钉AppSecret';
-$lang->webhook->dingUserid     = '钉钉Userid';
+$lang->webhook->dingUserid     = '钉钉用户';
 $lang->webhook->dingBindStatus = '钉钉绑定状态';
+
+$lang->webhook->wechatCorpId     = '企业ID';
+$lang->webhook->wechatCorpSecret = '应用的凭证密钥';
+$lang->webhook->wechatAgentId    = '企业应用的ID';
+$lang->webhook->wechatUserid     = '微信用户';
+$lang->webhook->wechatBindStatus = '微信绑定状态';
+
+$lang->webhook->zentaoUser  = '禅道用户';
 
 $lang->webhook->dingBindStatusList['0'] = '未绑定';
 $lang->webhook->dingBindStatusList['1'] = '已绑定';
@@ -6798,11 +6861,13 @@ $lang->webhook->confirmDelete = '您确认要删除该webhook吗？';
 $lang->webhook->trimWords = '了';
 
 $lang->webhook->note = new stdClass();
-$lang->webhook->note->async   = '异步需要打开计划任务';
-$lang->webhook->note->bind    = '只有钉钉工作通知类型才需要绑定用户。';
+$lang->webhook->note->async   = '异步需要打开计划任务。';
+$lang->webhook->note->bind    = '只有[钉钉/微信]工作通知类型才需要绑定用户。';
 $lang->webhook->note->product = "此项为空时所有{$lang->productCommon}的动作都会触发钩子，否则只有关联{$lang->productCommon}的动作才会触发。";
 $lang->webhook->note->project = "此项为空时所有{$lang->projectCommon}的动作都会触发钩子，否则只有关联{$lang->projectCommon}的动作才会触发。";
-$lang->webhook->note->dingKey = " <a href='http://www.zentao.net/book/zentaopmshelp/358.html' target='_blank'><i class='icon-help'></i></a>";
+
+$lang->webhook->note->dingHelp   = " <a href='http://www.zentao.net/book/zentaopmshelp/358.html' target='_blank'><i class='icon-help'></i></a>";
+$lang->webhook->note->wechatHelp = " <a href='http://www.zentao.net/book/zentaopmshelp/367.html' target='_blank'><i class='icon-help'></i></a>";
 
 $lang->webhook->note->typeList['bearychat'] = '请在倍洽中添加一个禅道机器人，并将其webhook填写到此处。';
 $lang->webhook->note->typeList['dingding']  = '请在钉钉中添加一个自定义机器人，并将其webhook填写到此处。';
