@@ -3681,6 +3681,7 @@ $lang->job->jenkins     = 'Jenkins';
 $lang->job->jkHost      = 'Jenkins服务器';
 $lang->job->buildType   = '构建类型';
 $lang->job->jkJob       = 'Jenkins任务';
+$lang->job->frame       = '工具/框架';
 $lang->job->triggerType = '触发方式';
 $lang->job->atDay       = '自定义日期';
 $lang->job->atTime      = '执行时间';
@@ -3700,6 +3701,16 @@ $lang->job->buildTypeList['buildAndTest']   = '构建测试';
 $lang->job->triggerTypeList['tag']      = '打标签';
 $lang->job->triggerTypeList['commit']   = '提交注释包含关键字';
 $lang->job->triggerTypeList['schedule'] = '定时计划';
+
+$lang->job->frameList['']        = '';
+$lang->job->frameList['junit']   = 'JUNIT';
+$lang->job->frameList['testng']  = 'TESTNG';
+$lang->job->frameList['phpunit'] = 'PHPUNIT';
+$lang->job->frameList['pytest']  = 'PYTEST';
+$lang->job->frameList['jtest']   = 'JTEST';
+$lang->job->frameList['cppunit'] = 'CPPUNIT';
+$lang->job->frameList['gtest']   = 'GTEST';
+$lang->job->frameList['qtest']   = 'QTEST';
 /* mail */
 $lang->mail->common        = '发信配置';
 $lang->mail->index         = '首页';
