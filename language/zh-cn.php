@@ -260,7 +260,7 @@ $lang->qa->menu->caselib   = array('link' => '用例库|caselib|browse');
 $lang->qa->subMenu = new stdclass();
 $lang->qa->subMenu->testcase = new stdclass();
 $lang->qa->subMenu->testcase->feature = array('link' => '功能测试|testcase|browse|productID=%s', 'alias' => 'view,create,batchcreate,edit,batchedit,showimport,groupcase,importfromlib', 'subModule' => 'tree,story');
-$lang->qa->subMenu->testcase->unit    = array('link' => '单元测试|testcase|unit|productID=%s');
+$lang->qa->subMenu->testcase->unit    = array('link' => '单元测试|testtask|browseUnit|productID=%s');
 
 $lang->bug = new stdclass();
 $lang->bug->menu = new stdclass();
@@ -2377,6 +2377,7 @@ $lang->compile->id     = 'ID';
 $lang->compile->name   = '构建名称';
 $lang->compile->status = '构建状态';
 $lang->compile->time   = '构建时间';
+$lang->compile->result = '构建结果';
 
 $lang->compile->statusList['success']     = '成功';
 $lang->compile->statusList['failure']     = '失败';
@@ -5891,6 +5892,7 @@ $lang->testcase->assignedTo       = '指派给';
 $lang->testcase->colorTag         = '颜色标签';
 $lang->testcase->lastRunResult    = '结果';
 $lang->testcase->desc             = '步骤';
+$lang->testcase->xml              = 'XML';
 $lang->testcase->expect           = '预期';
 $lang->testcase->allProduct       = "所有{$lang->productCommon}";
 $lang->testcase->fromBug          = '来源Bug';
@@ -6235,6 +6237,8 @@ $lang->testtask->product        = '所属' . $lang->productCommon;
 $lang->testtask->project        = '所属' . $lang->projectCommon;
 $lang->testtask->build          = '版本';
 $lang->testtask->owner          = '负责人';
+$lang->testtask->executor       = '执行人';
+$lang->testtask->execTime       = '执行时间';
 $lang->testtask->pri            = '优先级';
 $lang->testtask->name           = '名称';
 $lang->testtask->begin          = '开始日期';
@@ -6259,6 +6263,10 @@ $lang->testtask->lastRunDate    = '最后执行时间';
 $lang->testtask->date           = '测试时间';
 $lang->testtask->deleted        = "已删除";
 $lang->testtask->resultFile     = "测试结果";
+$lang->testtask->caseNum        = '用例数';
+$lang->testtask->passNum        = '成功';
+$lang->testtask->failNum        = '失败';
+$lang->testtask->unitSummary    = '有%s个用例，失败%s个，耗时%s。';
 
 $lang->testtask->beginAndEnd    = '起止时间';
 $lang->testtask->to             = '至';
@@ -6352,6 +6360,13 @@ $lang->testtask->featureBar['browse']['wait']        = $lang->testtask->wait;
 $lang->testtask->featureBar['browse']['doing']       = $lang->testtask->testing;
 $lang->testtask->featureBar['browse']['blocked']     = $lang->testtask->blocked;
 $lang->testtask->featureBar['browse']['done']        = $lang->testtask->done;
+
+$lang->testtask->unitTag['all']       = '所有';
+$lang->testtask->unitTag['newest']    = '最近';
+$lang->testtask->unitTag['thisWeek']  = '本周';
+$lang->testtask->unitTag['lastWeek']  = '上周';
+$lang->testtask->unitTag['thisMonth'] = '本月';
+$lang->testtask->unitTag['lastMonth'] = '上月';
 /* todo */
 $lang->todo->common       = '待办';
 $lang->todo->index        = "待办一览";
