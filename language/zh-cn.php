@@ -2338,7 +2338,8 @@ $lang->caselib->legendDesc = '描述';
 $lang->caselib->libraryDelete = '您确认要删除该用例库吗？';
 $lang->caselib->noModule      = '<div>您现在还没有模块信息</div><div>请维护用例库模块</div>';
 /* ci */
-$lang->ci->common = '持续集成';
+$lang->ci->common       = '持续集成';
+$lang->ci->commitResult = '接口：提交测试结果';
 
 $lang->ci->job     = '构建';
 $lang->ci->task    = '构建任务';
