@@ -257,8 +257,14 @@ $lang->qa->menu->testsuite = array('link' => 'Suite|testsuite|browse|productID=%
 $lang->qa->menu->report    = array('link' => 'Report|testreport|browse|productID=%s');
 $lang->qa->menu->caselib   = array('link' => 'Case Library|caselib|browse');
 
+$lang->qa->subMenu = new stdclass();
+$lang->qa->subMenu->testcase = new stdclass();
+$lang->qa->subMenu->testcase->feature = array('link' => 'Functional Test|testcase|browse|productID=%s', 'alias' => 'view,create,batchcreate,edit,batchedit,showimport,groupcase,importfromlib', 'subModule' => 'tree,story');
+$lang->qa->subMenu->testcase->unit    = array('link' => 'Unit Test|testtask|browseUnits|productID=%s');
+
 $lang->bug = new stdclass();
 $lang->bug->menu = new stdclass();
+$lang->bug->subMenu = $lang->qa->subMenu;
 
 $lang->bug->menu->bug       = array('link' => 'Bug|bug|browse|productID=%s', 'alias' => 'view,create,batchcreate,edit,resolve,close,activate,report,batchedit,batchactivate,confirmbug,assignto', 'subModule' => 'tree');
 $lang->bug->menu->testcase  = array('link' => 'Case|testcase|browse|productID=%s');
@@ -269,6 +275,7 @@ $lang->bug->menu->caselib   = array('link' => 'Case Library|caselib|browse');
 
 $lang->testcase = new stdclass();
 $lang->testcase->menu = new stdclass();
+$lang->testcase->subMenu = $lang->qa->subMenu;
 $lang->testcase->menu->bug       = array('link' => 'Bug|bug|browse|productID=%s');
 $lang->testcase->menu->testcase  = array('link' => 'Case|testcase|browse|productID=%s', 'alias' => 'view,create,batchcreate,edit,batchedit,showimport,groupcase,importfromlib', 'subModule' => 'tree');
 $lang->testcase->menu->testtask  = array('link' => 'Request|testtask|browse|productID=%s');
@@ -278,6 +285,7 @@ $lang->testcase->menu->caselib   = array('link' => 'Case Library|caselib|browse'
 
 $lang->testtask = new stdclass();
 $lang->testtask->menu = new stdclass();
+$lang->testtask->subMenu = $lang->qa->subMenu;
 $lang->testtask->menu->bug       = array('link' => 'Bug|bug|browse|productID=%s');
 $lang->testtask->menu->testcase  = array('link' => 'Case|testcase|browse|productID=%s');
 $lang->testtask->menu->testtask  = array('link' => 'Request|testtask|browse|productID=%s', 'alias' => 'view,create,edit,linkcase,cases,start,close,batchrun,groupcase,report');
@@ -287,6 +295,7 @@ $lang->testtask->menu->caselib   = array('link' => 'Case Library|caselib|browse'
 
 $lang->testsuite = new stdclass();
 $lang->testsuite->menu = new stdclass();
+$lang->testsuite->subMenu = $lang->qa->subMenu;
 $lang->testsuite->menu->bug       = array('link' => 'Bug|bug|browse|productID=%s');
 $lang->testsuite->menu->testcase  = array('link' => 'Case|testcase|browse|productID=%s');
 $lang->testsuite->menu->testtask  = array('link' => 'Request|testtask|browse|productID=%s');
@@ -296,6 +305,7 @@ $lang->testsuite->menu->caselib   = array('link' => 'Case Library|caselib|browse
 
 $lang->testreport = new stdclass();
 $lang->testreport->menu = new stdclass();
+$lang->testreport->subMenu = $lang->qa->subMenu;
 $lang->testreport->menu->bug       = array('link' => 'Bug|bug|browse|productID=%s');
 $lang->testreport->menu->testcase  = array('link' => 'Case|testcase|browse|productID=%s');
 $lang->testreport->menu->testtask  = array('link' => 'Request|testtask|browse|productID=%s');
@@ -305,6 +315,7 @@ $lang->testreport->menu->caselib   = array('link' => 'Case Library|caselib|brows
 
 $lang->caselib = new stdclass();
 $lang->caselib->menu = new stdclass();
+$lang->caselib->subMenu = $lang->qa->subMenu;
 $lang->caselib->menu->bug       = array('link' => 'Bug|bug|browse|');
 $lang->caselib->menu->testcase  = array('link' => 'Case|testcase|browse|');
 $lang->caselib->menu->testtask  = array('link' => 'Request|testtask|browse|');
@@ -657,7 +668,7 @@ if(isset($config->global->flow) and $config->global->flow == 'onlyStory')
 
     unset($lang->menuOrder[15]);
     unset($lang->menuOrder[20]);
-    unset($lang->menuOrder[30]);
+    unset($lang->menuOrder[35]);
 
         unset($lang->my->menu->bug);
     unset($lang->my->menu->testtask);
@@ -688,7 +699,7 @@ if(isset($config->global->flow) and $config->global->flow == 'onlyTask')
 
     unset($lang->menuOrder[10]);
     unset($lang->menuOrder[20]);
-    unset($lang->menuOrder[30]);
+    unset($lang->menuOrder[35]);
 
         unset($lang->my->menu->bug);
     unset($lang->my->menu->testtask);
@@ -721,7 +732,7 @@ if(isset($config->global->flow) and $config->global->flow == 'onlyTest')
 
     unset($lang->menuOrder[15]);
     unset($lang->menuOrder[20]);
-    unset($lang->menuOrder[30]);
+    unset($lang->menuOrder[35]);
 
         $lang->menu->product = "{$lang->productCommon}|product|index";
 
@@ -735,17 +746,19 @@ if(isset($config->global->flow) and $config->global->flow == 'onlyTest')
     $lang->project->menu->list = array('alias' => '');
 
         $lang->menu->bug       = 'Bug|bug|index';
-    $lang->menu->testcase  = 'Case|testcase|index';
+    $lang->menu->testcase  = 'Functional Test|testcase|index';
+    $lang->menu->unit      = 'Unit Test|testtask|browseUnits';
     $lang->menu->testsuite = 'Suite|testsuite|index';
     $lang->menu->testtask  = 'Request|testtask|index';
     $lang->menu->caselib   = 'Case Library|caselib|browse';
 
     $lang->menuOrder[6]  = 'bug';
     $lang->menuOrder[7]  = 'testcase';
-    $lang->menuOrder[8]  = 'testsuite';
-    $lang->menuOrder[9]  = 'testtask';
-    $lang->menuOrder[10] = 'caselib';
-    $lang->menuOrder[11] = 'product';
+    $lang->menuOrder[8]  = 'unit';
+    $lang->menuOrder[9]  = 'testsuite';
+    $lang->menuOrder[10] = 'testtask';
+    $lang->menuOrder[11] = 'caselib';
+    $lang->menuOrder[12] = 'product';
 
         $lang->bug->menu = new stdclass();
     $lang->bug->menu->all           = 'All|bug|browse|productID=%s&branch=%s&browseType=all&param=%s';
@@ -2327,7 +2340,8 @@ $lang->caselib->legendDesc = 'Description';
 $lang->caselib->libraryDelete = 'Do you want to delete this library？';
 $lang->caselib->noModule      = '<div>You have no modules.</div><div>Manage it now.</div>';
 /* ci */
-$lang->ci->common  = 'CI';
+$lang->ci->common       = 'CI';
+$lang->ci->commitResult = 'Interface: Commit Test Result.';
 
 $lang->ci->job     = 'Job';
 $lang->ci->task    = 'Task';
@@ -2366,6 +2380,7 @@ $lang->compile->id     = 'ID';
 $lang->compile->name   = 'Name';
 $lang->compile->status = 'Status';
 $lang->compile->time   = 'Time';
+$lang->compile->result = 'Result';
 
 $lang->compile->statusList['success']     = 'Done';
 $lang->compile->statusList['failure']     = 'Failed';
@@ -3349,6 +3364,7 @@ $lang->group->copyOptions['copyPriv'] = 'Copy Privileges';
 $lang->group->copyOptions['copyUser'] = 'Copy Users';
 
 $lang->group->versions['']          = 'History';
+$lang->group->versions['12_3']      = 'ZenTao12.3';
 $lang->group->versions['11_6_2']    = 'ZenTao11.6.2';
 $lang->group->versions['10_6']      = 'ZenTao10.6';
 $lang->group->versions['10_1']      = 'ZenTao10.1';
@@ -3553,18 +3569,18 @@ $lang->install->groupList['LIMITED']['name'] = 'Limited User';
 $lang->install->groupList['LIMITED']['desc'] = 'Users can only edit contents related to themselves.';
 
 $lang->install->cronList[''] = 'Monitor Cron';
-$lang->install->cronList['moduleName=project&methodName=computeburn'] = 'Update Burndown Chart';
-$lang->install->cronList['moduleName=report&methodName=remind']       = 'Daily Task Reminder';
-$lang->install->cronList['moduleName=svn&methodName=run']             = 'Synchronize SVN';
-$lang->install->cronList['moduleName=git&methodName=run']             = 'Synchronize GIT';
-$lang->install->cronList['moduleName=backup&methodName=backup']       = 'Backup Data';
-$lang->install->cronList['moduleName=mail&methodName=asyncSend']      = 'Asynchronize sending message';
-$lang->install->cronList['moduleName=webhook&methodName=asyncSend']   = 'Asynchronize sending webhook';
-$lang->install->cronList['moduleName=admin&methodName=deleteLog']     = 'Delete expired logs';
-$lang->install->cronList['moduleName=todo&methodName=createCycle']    = 'Create recurring todos';
-$lang->install->cronList['moduleName=ci&methodName=initQueue']        = 'Create recurring Jenkins';
-$lang->install->cronList['moduleName=ci&methodName=checkBuildStatus'] = 'Synchronize Jenkins Status';
-$lang->install->cronList['moduleName=ci&methodName=exec']             = 'Execute Jenkins';
+$lang->install->cronList['moduleName=project&methodName=computeburn']   = 'Update Burndown Chart';
+$lang->install->cronList['moduleName=report&methodName=remind']         = 'Daily Task Reminder';
+$lang->install->cronList['moduleName=svn&methodName=run']               = 'Synchronize SVN';
+$lang->install->cronList['moduleName=git&methodName=run']               = 'Synchronize GIT';
+$lang->install->cronList['moduleName=backup&methodName=backup']         = 'Backup Data';
+$lang->install->cronList['moduleName=mail&methodName=asyncSend']        = 'Asynchronize sending message';
+$lang->install->cronList['moduleName=webhook&methodName=asyncSend']     = 'Asynchronize sending webhook';
+$lang->install->cronList['moduleName=admin&methodName=deleteLog']       = 'Delete expired logs';
+$lang->install->cronList['moduleName=todo&methodName=createCycle']      = 'Create recurring todos';
+$lang->install->cronList['moduleName=ci&methodName=initQueue']          = 'Create recurring Jenkins';
+$lang->install->cronList['moduleName=ci&methodName=checkCompileStatus'] = 'Synchronize Jenkins Status';
+$lang->install->cronList['moduleName=ci&methodName=exec']               = 'Execute Jenkins';
 
 $lang->install->success  = "Installed!";
 $lang->install->login    = 'ZenTao Login';
@@ -3666,6 +3682,7 @@ $lang->job->browse        = 'Browse Job';
 $lang->job->create        = 'Create Job';
 $lang->job->edit          = 'Edit Job';
 $lang->job->exec          = 'Execute Job';
+$lang->job->view          = 'Execute Details';
 $lang->job->delete        = 'Delete Job';
 $lang->job->confirmDelete = 'Do you want to delete this job?';
 $lang->job->dirChange     = 'Directory Changed';
@@ -3674,17 +3691,21 @@ $lang->job->buildTag      = 'Build Tag';
 $lang->job->id          = 'ID';
 $lang->job->name        = 'Name';
 $lang->job->repo        = 'Repo';
+$lang->job->product     = $lang->productCommon;
 $lang->job->svnDir      = 'SVN Tag Watch Path';
 $lang->job->jenkins     = 'Jenkins';
 $lang->job->jkHost      = 'Jenkins Server';
 $lang->job->buildType   = 'Build Type';
 $lang->job->jkJob       = 'Jenkins Task';
+$lang->job->frame       = 'Frame';
 $lang->job->triggerType = 'Trigger';
 $lang->job->atDay       = 'Custom Days';
 $lang->job->atTime      = 'At Time';
 $lang->job->lastStatus  = 'Last Status';
 $lang->job->lastExec    = 'Last Executed';
 $lang->job->comment     = 'Match Keywords';
+
+$lang->job->lblBasic = 'Basic Info';
 
 $lang->job->example    = 'e.g.';
 $lang->job->commitEx   = "Used to match the keywords used to create a compile. Multiple keywords are separated by ','";
@@ -3698,6 +3719,16 @@ $lang->job->buildTypeList['buildAndTest']   = 'Build And Test';
 $lang->job->triggerTypeList['tag']      = 'Tag';
 $lang->job->triggerTypeList['commit']   = 'Code Commit';
 $lang->job->triggerTypeList['schedule'] = 'Schedule';
+
+$lang->job->frameList['']        = '';
+$lang->job->frameList['junit']   = 'JUnit';
+$lang->job->frameList['testng']  = 'TestNG';
+$lang->job->frameList['phpunit'] = 'PHPUnit';
+$lang->job->frameList['pytest']  = 'Pytest';
+$lang->job->frameList['jtest']   = 'JTest';
+$lang->job->frameList['cppunit'] = 'CppUnit';
+$lang->job->frameList['gtest']   = 'GTest';
+$lang->job->frameList['qtest']   = 'QTest';
 /* mail */
 $lang->mail->common        = 'Email Settings';
 $lang->mail->index         = 'Email Home';
@@ -5866,6 +5897,7 @@ $lang->testcase->assignedTo       = 'AssingedTo';
 $lang->testcase->colorTag         = 'Color';
 $lang->testcase->lastRunResult    = 'Result';
 $lang->testcase->desc             = 'Steps';
+$lang->testcase->xml              = 'XML';
 $lang->testcase->expect           = 'Expectations';
 $lang->testcase->allProduct       = "All {$lang->productCommon}s";
 $lang->testcase->fromBug          = 'From Bug';
@@ -5983,6 +6015,7 @@ $lang->testcase->typeList['config']      = 'Configuration';
 $lang->testcase->typeList['install']     = 'Installation';
 $lang->testcase->typeList['security']    = 'Security';
 $lang->testcase->typeList['interface']   = 'Interface';
+$lang->testcase->typeList['unit']        = 'Unit';
 $lang->testcase->typeList['other']       = 'Others';
 
 $lang->testcase->stageList['']           = '';
@@ -6163,6 +6196,9 @@ $lang->testtask->create           = "Submit Request";
 $lang->testtask->reportChart      = 'Report';
 $lang->testtask->reportAction     = 'Case Report';
 $lang->testtask->delete           = "Delete Request";
+$lang->testtask->importUnitResult = "Import Unit Result";
+$lang->testtask->browseUnits      = "Unit Test List";
+$lang->testtask->unitCases        = "Unit Test Cases";
 $lang->testtask->view             = "Request Detail";
 $lang->testtask->edit             = "Edit Request";
 $lang->testtask->browse           = "Test Request";
@@ -6205,6 +6241,8 @@ $lang->testtask->product        = $lang->productCommon;
 $lang->testtask->project        = $lang->projectCommon;
 $lang->testtask->build          = 'Build';
 $lang->testtask->owner          = 'Owner';
+$lang->testtask->executor       = 'Executor';
+$lang->testtask->execTime       = 'Exec Time';
 $lang->testtask->pri            = 'Priority';
 $lang->testtask->name           = 'Request Name';
 $lang->testtask->begin          = 'Begin';
@@ -6228,6 +6266,11 @@ $lang->testtask->lastRunner     = 'RunBy';
 $lang->testtask->lastRunDate    = 'Last Run';
 $lang->testtask->date           = 'Tested on';;
 $lang->testtask->deleted        = "Deleted";
+$lang->testtask->resultFile     = "Result File";
+$lang->testtask->caseCount      = 'Case Count';
+$lang->testtask->passCount      = 'Pass';
+$lang->testtask->failCount      = 'Fail';
+$lang->testtask->summary        = '%s cases, %s failures, %s time.';
 
 $lang->testtask->beginAndEnd    = 'Duration';
 $lang->testtask->to             = 'To';
@@ -6263,6 +6306,9 @@ $lang->testtask->confirmUnlinkCase = 'Do you want to unlink this case?';
 $lang->testtask->noticeNoOther     = 'No test builds for this product.';
 $lang->testtask->noTesttask        = 'No requests. ';
 $lang->testtask->checkLinked       = "Please check whether the product that the test request is linked to has been linked to a project.";
+$lang->testtask->noImportData      = 'The imported XML does not parse the data.';
+$lang->testtask->unitXMLFormat     = 'Please select a file in JUnit XML format.';
+$lang->testtask->titleOfAuto       = "%s automated testing";
 
 $lang->testtask->assignedToMe  = 'AssignedToMe';
 $lang->testtask->allCases      = 'All Cases';

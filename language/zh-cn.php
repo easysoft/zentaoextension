@@ -260,7 +260,7 @@ $lang->qa->menu->caselib   = array('link' => '用例库|caselib|browse');
 $lang->qa->subMenu = new stdclass();
 $lang->qa->subMenu->testcase = new stdclass();
 $lang->qa->subMenu->testcase->feature = array('link' => '功能测试|testcase|browse|productID=%s', 'alias' => 'view,create,batchcreate,edit,batchedit,showimport,groupcase,importfromlib', 'subModule' => 'tree,story');
-$lang->qa->subMenu->testcase->unit    = array('link' => '单元测试|testtask|browseUnit|productID=%s');
+$lang->qa->subMenu->testcase->unit    = array('link' => '单元测试|testtask|browseUnits|productID=%s');
 
 $lang->bug = new stdclass();
 $lang->bug->menu = new stdclass();
@@ -668,7 +668,7 @@ if(isset($config->global->flow) and $config->global->flow == 'onlyStory')
 
     unset($lang->menuOrder[15]);
     unset($lang->menuOrder[20]);
-    unset($lang->menuOrder[30]);
+    unset($lang->menuOrder[35]);
 
         unset($lang->my->menu->bug);
     unset($lang->my->menu->testtask);
@@ -699,7 +699,7 @@ if(isset($config->global->flow) and $config->global->flow == 'onlyTask')
 
     unset($lang->menuOrder[10]);
     unset($lang->menuOrder[20]);
-    unset($lang->menuOrder[30]);
+    unset($lang->menuOrder[35]);
 
         unset($lang->my->menu->bug);
     unset($lang->my->menu->testtask);
@@ -732,7 +732,7 @@ if(isset($config->global->flow) and $config->global->flow == 'onlyTest')
 
     unset($lang->menuOrder[15]);
     unset($lang->menuOrder[20]);
-    unset($lang->menuOrder[30]);
+    unset($lang->menuOrder[35]);
 
         $lang->menu->product = "{$lang->productCommon}|product|index";
 
@@ -746,17 +746,19 @@ if(isset($config->global->flow) and $config->global->flow == 'onlyTest')
     $lang->project->menu->list = array('alias' => '');
 
         $lang->menu->bug       = 'Bug|bug|index';
-    $lang->menu->testcase  = '用例|testcase|index';
+    $lang->menu->testcase  = '功能测试|testcase|browse';
+    $lang->menu->unit      = '单元测试|testtask|browseUnits';
     $lang->menu->testsuite = '套件|testsuite|index';
     $lang->menu->testtask  = '测试单|testtask|index';
     $lang->menu->caselib   = '用例库|caselib|browse';
 
     $lang->menuOrder[6]  = 'bug';
     $lang->menuOrder[7]  = 'testcase';
-    $lang->menuOrder[8]  = 'testsuite';
-    $lang->menuOrder[9]  = 'testtask';
-    $lang->menuOrder[10] = 'caselib';
-    $lang->menuOrder[11] = 'product';
+    $lang->menuOrder[8]  = 'unit';
+    $lang->menuOrder[9]  = 'testsuite';
+    $lang->menuOrder[10] = 'testtask';
+    $lang->menuOrder[11] = 'caselib';
+    $lang->menuOrder[12] = 'product';
 
         $lang->bug->menu = new stdclass();
     $lang->bug->menu->all           = '所有|bug|browse|productID=%s&branch=%s&browseType=all&param=%s';
@@ -3364,6 +3366,7 @@ $lang->group->copyOptions['copyPriv'] = '复制权限';
 $lang->group->copyOptions['copyUser'] = '复制用户';
 
 $lang->group->versions['']          = '修改历史';
+$lang->group->versions['12_3']      = '禅道12.3';
 $lang->group->versions['11_6_2']    = '禅道11.6.2';
 $lang->group->versions['10_6']      = '禅道10.6';
 $lang->group->versions['10_1']      = '禅道10.1';
@@ -3568,18 +3571,18 @@ $lang->install->groupList['LIMITED']['name'] = '受限用户';
 $lang->install->groupList['LIMITED']['desc'] = '受限用户分组(只能编辑与自己相关的内容)';
 
 $lang->install->cronList[''] = '监控定时任务';
-$lang->install->cronList['moduleName=project&methodName=computeburn'] = '更新燃尽图';
-$lang->install->cronList['moduleName=report&methodName=remind']       = '每日任务提醒';
-$lang->install->cronList['moduleName=svn&methodName=run']             = '同步SVN';
-$lang->install->cronList['moduleName=git&methodName=run']             = '同步GIT';
-$lang->install->cronList['moduleName=backup&methodName=backup']       = '备份数据和附件';
-$lang->install->cronList['moduleName=mail&methodName=asyncSend']      = '异步发信';
-$lang->install->cronList['moduleName=webhook&methodName=asyncSend']   = '异步发送Webhook';
-$lang->install->cronList['moduleName=admin&methodName=deleteLog']     = '删除过期日志';
-$lang->install->cronList['moduleName=todo&methodName=createCycle']    = '生成周期性待办';
-$lang->install->cronList['moduleName=ci&methodName=initQueue']        = '创建周期性任务';
-$lang->install->cronList['moduleName=ci&methodName=checkBuildStatus'] = '同步Jenkins任务状态';
-$lang->install->cronList['moduleName=ci&methodName=exec']             = '执行Jenkins任务';
+$lang->install->cronList['moduleName=project&methodName=computeburn']   = '更新燃尽图';
+$lang->install->cronList['moduleName=report&methodName=remind']         = '每日任务提醒';
+$lang->install->cronList['moduleName=svn&methodName=run']               = '同步SVN';
+$lang->install->cronList['moduleName=git&methodName=run']               = '同步GIT';
+$lang->install->cronList['moduleName=backup&methodName=backup']         = '备份数据和附件';
+$lang->install->cronList['moduleName=mail&methodName=asyncSend']        = '异步发信';
+$lang->install->cronList['moduleName=webhook&methodName=asyncSend']     = '异步发送Webhook';
+$lang->install->cronList['moduleName=admin&methodName=deleteLog']       = '删除过期日志';
+$lang->install->cronList['moduleName=todo&methodName=createCycle']      = '生成周期性待办';
+$lang->install->cronList['moduleName=ci&methodName=initQueue']          = '创建周期性任务';
+$lang->install->cronList['moduleName=ci&methodName=checkCompileStatus'] = '同步Jenkins任务状态';
+$lang->install->cronList['moduleName=ci&methodName=exec']               = '执行Jenkins任务';
 
 $lang->install->success  = "安装成功";
 $lang->install->login    = '登录禅道管理系统';
@@ -3681,6 +3684,7 @@ $lang->job->browse        = '浏览构建任务';
 $lang->job->create        = '创建构建任务';
 $lang->job->edit          = '编辑构建任务';
 $lang->job->exec          = '执行构建';
+$lang->job->view          = '执行详情';
 $lang->job->delete        = '删除构建任务';
 $lang->job->confirmDelete = '确认删除该构建任务';
 $lang->job->dirChange     = '目录改动';
@@ -3689,7 +3693,7 @@ $lang->job->buildTag      = '打标签';
 $lang->job->id          = 'ID';
 $lang->job->name        = '名称';
 $lang->job->repo        = '代码库';
-$lang->job->product     = '关联产品';
+$lang->job->product     = '关联' . $lang->productCommon;
 $lang->job->svnDir      = 'SVN监控路径';
 $lang->job->jenkins     = 'Jenkins';
 $lang->job->jkHost      = 'Jenkins服务器';
@@ -3702,6 +3706,8 @@ $lang->job->atTime      = '执行时间';
 $lang->job->lastStatus  = '最后执行状态';
 $lang->job->lastExec    = '最后执行时间';
 $lang->job->comment     = '匹配关键字';
+
+$lang->job->lblBasic = '基本信息';
 
 $lang->job->example    = '举例';
 $lang->job->commitEx   = "用于匹配创建构建任务的关键字，多个关键字用','分割";
@@ -3717,14 +3723,14 @@ $lang->job->triggerTypeList['commit']   = '提交注释包含关键字';
 $lang->job->triggerTypeList['schedule'] = '定时计划';
 
 $lang->job->frameList['']        = '';
-$lang->job->frameList['junit']   = 'JUNIT';
-$lang->job->frameList['testng']  = 'TESTNG';
-$lang->job->frameList['phpunit'] = 'PHPUNIT';
-$lang->job->frameList['pytest']  = 'PYTEST';
-$lang->job->frameList['jtest']   = 'JTEST';
-$lang->job->frameList['cppunit'] = 'CPPUNIT';
-$lang->job->frameList['gtest']   = 'GTEST';
-$lang->job->frameList['qtest']   = 'QTEST';
+$lang->job->frameList['junit']   = 'JUnit';
+$lang->job->frameList['testng']  = 'TestNG';
+$lang->job->frameList['phpunit'] = 'PHPUnit';
+$lang->job->frameList['pytest']  = 'Pytest';
+$lang->job->frameList['jtest']   = 'JTest';
+$lang->job->frameList['cppunit'] = 'CppUnit';
+$lang->job->frameList['gtest']   = 'GTest';
+$lang->job->frameList['qtest']   = 'QTest';
 /* mail */
 $lang->mail->common        = '发信配置';
 $lang->mail->index         = '首页';
@@ -4864,7 +4870,7 @@ $lang->repo->objectIdRule = '对象ID匹配规则';
 $lang->repo->actionRule   = '动作匹配规则';
 $lang->repo->manHourRule  = '工时匹配规则';
 $lang->repo->ruleUnit     = "单位";
-$lang->repo->ruleSplit    = "多关键字用';'分割，如：任务多关键字： Task;task";
+$lang->repo->ruleSplit    = "多关键字用';'分割，如：任务多关键字： Task;任务";
 
 $lang->repo->viewDiffList['inline'] = '直列';
 $lang->repo->viewDiffList['appose'] = '并排';
@@ -6006,12 +6012,12 @@ $lang->testcase->priList[4] = 4;
 
 $lang->testcase->typeList['']            = '';
 $lang->testcase->typeList['feature']     = '功能测试';
-$lang->testcase->typeList['unit']        = '单元测试';
 $lang->testcase->typeList['performance'] = '性能测试';
 $lang->testcase->typeList['config']      = '配置相关';
 $lang->testcase->typeList['install']     = '安装部署';
 $lang->testcase->typeList['security']    = '安全相关';
 $lang->testcase->typeList['interface']   = '接口测试';
+$lang->testcase->typeList['unit']        = '单元测试';
 $lang->testcase->typeList['other']       = '其他';
 
 $lang->testcase->stageList['']           = '';
@@ -6061,9 +6067,6 @@ $lang->testcase->featureBar['browse']['group']       = '分组查看';
 $lang->testcase->featureBar['browse']['suite']       = '套件';
 $lang->testcase->featureBar['browse']['zerocase']    = "零用例{$lang->storyCommon}";
 $lang->testcase->featureBar['groupcase']             = $lang->testcase->featureBar['browse'];
-
-$lang->testcase->featureBar['unit']['all']  = $lang->testcase->allCases;
-$lang->testcase->featureBar['unit']['wait'] = '待评审';
 /* testreport */
 $lang->testreport->common       = '测试报告';
 $lang->testreport->browse       = '报告列表';
@@ -6195,7 +6198,9 @@ $lang->testtask->create           = "提交测试";
 $lang->testtask->reportChart      = '报表统计';
 $lang->testtask->reportAction     = '用例报表统计';
 $lang->testtask->delete           = "删除测试单";
-$lang->testtask->importUnit       = "导入测试结果";
+$lang->testtask->importUnitResult = "导入单元测试结果";
+$lang->testtask->browseUnits      = "单元测试列表";
+$lang->testtask->unitCases        = "单元测试用例";
 $lang->testtask->view             = "概况";
 $lang->testtask->edit             = "编辑测试单";
 $lang->testtask->browse           = "测试单列表";
@@ -6263,11 +6268,11 @@ $lang->testtask->lastRunner     = '最后执行人';
 $lang->testtask->lastRunDate    = '最后执行时间';
 $lang->testtask->date           = '测试时间';
 $lang->testtask->deleted        = "已删除";
-$lang->testtask->resultFile     = "测试结果";
-$lang->testtask->caseNum        = '用例数';
-$lang->testtask->passNum        = '成功';
-$lang->testtask->failNum        = '失败';
-$lang->testtask->unitSummary    = '有%s个用例，失败%s个，耗时%s。';
+$lang->testtask->resultFile     = "结果文件";
+$lang->testtask->caseCount      = '用例数';
+$lang->testtask->passCount      = '成功';
+$lang->testtask->failCount      = '失败';
+$lang->testtask->summary        = '有%s个用例，失败%s个，耗时%s。';
 
 $lang->testtask->beginAndEnd    = '起止时间';
 $lang->testtask->to             = '至';
@@ -6305,7 +6310,7 @@ $lang->testtask->noTesttask        = '暂时没有测试单';
 $lang->testtask->checkLinked       = '请检查测试单的产品是否与项目相关联';
 $lang->testtask->noImportData      = '导入的XML没有解析出数据。';
 $lang->testtask->unitXMLFormat     = '请选择Junit XML 格式的文件。';
-$lang->testtask->unitTitleTemplate = "%s 单元测试";
+$lang->testtask->titleOfAuto       = "%s 自动化测试";
 
 $lang->testtask->assignedToMe  = '指派给我';
 $lang->testtask->allCases      = '所有用例';
