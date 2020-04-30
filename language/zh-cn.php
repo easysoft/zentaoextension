@@ -396,7 +396,7 @@ $lang->admin->subMenu->message->browser = array('link' => '浏览器|message|bro
 $lang->admin->subMenu->message->setting = array('link' => '设置|message|setting');
 
 $lang->admin->subMenu->sso = new stdclass();
-$lang->admin->subMenu->sso->ranzhi = '然之协同|admin|sso';
+$lang->admin->subMenu->sso->ranzhi = 'ZDOO|admin|sso';
 
 $lang->admin->subMenu->dev = new stdclass();
 $lang->admin->subMenu->dev->api    = array('link' => 'API|dev|api');
@@ -1330,8 +1330,8 @@ $lang->action->search->label['logout']              = $lang->action->label->logo
 $lang->admin->common        = '后台管理';
 $lang->admin->index         = '后台管理首页';
 $lang->admin->checkDB       = '检查数据库';
-$lang->admin->sso           = '然之集成';
-$lang->admin->ssoAction     = '然之集成';
+$lang->admin->sso           = 'ZDOO集成';
+$lang->admin->ssoAction     = 'ZDOO集成';
 $lang->admin->safeIndex     = '安全';
 $lang->admin->checkWeak     = '弱口令检查';
 $lang->admin->certifyMobile = '认证手机';
@@ -3594,7 +3594,7 @@ $lang->install->joinZentao = <<<EOT
 <p>您已经成功安装禅道管理系统%s，<strong class='text-danger'>请及时删除install.php</strong>。</p><p>友情提示：为了您及时获得禅道的最新动态，请在禅道社区(<a href='https://www.zentao.net' class='alert-link' target='_blank'>www.zentao.net</a>)进行登记。</p>
 EOT;
 
-$lang->install->product = array('chanzhi', 'ranzhi', 'xuanxuan', 'ydisk', 'meshiot');
+$lang->install->product = array('chanzhi', 'zdoo', 'xuanxuan', 'ydisk', 'meshiot');
 
 $lang->install->promotion      = "为您推荐易软天创旗下其他产品：";
 $lang->install->chanzhi        = new stdclass();
@@ -3610,11 +3610,11 @@ $lang->install->chanzhi->desc  = <<<EOD
 </ul>
 EOD;
 
-$lang->install->ranzhi = new stdclass();
-$lang->install->ranzhi->name  = '然之协同';
-$lang->install->ranzhi->logo  = 'images/main/ranzhi.ico';
-$lang->install->ranzhi->url   = 'http://www.ranzhi.org';
-$lang->install->ranzhi->desc  = <<<EOD
+$lang->install->zdoo = new stdclass();
+$lang->install->zdoo->name  = 'ZDOO';
+$lang->install->zdoo->logo  = 'images/main/zdoo.ico';
+$lang->install->zdoo->url   = 'http://www.zdoo.com';
+$lang->install->zdoo->desc  = <<<EOD
 <ul>
   <li>客户管理，订单跟踪</li>
   <li>项目任务，公告文档</li>
@@ -3914,7 +3914,7 @@ $lang->misc->zentao->service['servicemore']= '更多服务...';
 
 global $config;
 $lang->misc->zentao->others['chanzhi']  = "<img src='{$config->webRoot}theme/default/images/main/chanzhi.ico' /> 蝉知门户";
-$lang->misc->zentao->others['ranzhi']   = "<img src='{$config->webRoot}theme/default/images/main/ranzhi.ico' /> 然之协同";
+$lang->misc->zentao->others['zdoo']     = "<img src='{$config->webRoot}theme/default/images/main/zdoo.ico' /> ZDOO";
 $lang->misc->zentao->others['xuanxuan'] = "<img src='{$config->webRoot}theme/default/images/main/xuanxuan.ico' /> 喧喧聊天";
 $lang->misc->zentao->others['ydisk']    = "<img src='{$config->webRoot}theme/default/images/main/ydisk.ico' /> 悦库网盘";
 $lang->misc->zentao->others['meshiot' ] = "<img src='{$config->webRoot}theme/default/images/main/meshiot.ico' /> 易天物联";
@@ -4040,7 +4040,7 @@ $lang->misc->feature->all['10.2.stable'][] = array('title'=>'集成喧喧IM', 'd
 
 $lang->misc->feature->all['10.0.stable'][] = array('title'=>'全新的界面和交互体验', 'desc' => '<ol><li>全新的我的地盘</li><li>全新的动态页面</li><li>全新的产品主页</li><li>全新的产品概况</li><li>全新的路线图</li><li>全新的项目主页</li><li>全新的项目概况</li><li>全新的测试主页</li><li>全新的文档主页</li><li>我的地盘新增工作统计区块</li><li>我的地盘待办区块可以直接添加、编辑、完成待办</li><li>产品主页新增产品统计区块</li><li>产品主页新增产品总览区块</li><li>项目主页新增项目统计区块</li><li>项目主页新增项目总览区块</li><li>测试主页新增测试统计区块</li><li>所有产品、产品主页、所有项目、项目主页、测试主页等按钮从二级导航右侧移动到了左侧</li><li>项目任务列表看板、燃尽图、树状图、分组查看等按钮从三级导航中移动到二级导航中，树状图、分组查看和任务列表集成到一个下拉列表中</li><li>项目下二级导航中Bug、版本、测试单三个跟测试相关的导航集成到一个下拉列表中</li><li>版本、测试单列表按照产品分组展示，布局更加合理</li><li>文档左侧增加树状图显示</li><li>文档增加快速访问功能，包括最近更新、我的文档、我的收藏三个入口</li><li>文档增加收藏功能</li><ol>');
 
-$lang->misc->feature->all['9.8.stable'][] = array('title'=>'实现集中的消息处理机制', 'desc' => '<p>邮件，短信，webhook都放统一的消息发送</p><p>移植然之里面的消息通知功能</p>');
+$lang->misc->feature->all['9.8.stable'][] = array('title'=>'实现集中的消息处理机制', 'desc' => '<p>邮件，短信，webhook都放统一的消息发送</p><p>移植ZDOO里面的消息通知功能</p>');
 $lang->misc->feature->all['9.8.stable'][] = array('title'=>'实现周期性待办功能', 'desc' => '');
 $lang->misc->feature->all['9.8.stable'][] = array('title'=>'增加指派给我的区块', 'desc' => '');
 $lang->misc->feature->all['9.8.stable'][] = array('title'=>'项目可以选择多个测试单生成报告', 'desc' => '');
@@ -4101,7 +4101,7 @@ $lang->my->profile        = '我的档案';
 $lang->my->dynamic        = '我的动态';
 $lang->my->editProfile    = '修改档案';
 $lang->my->changePassword = '修改密码';
-$lang->my->unbind         = '解除然之绑定';
+$lang->my->unbind         = '解除ZDOO绑定';
 $lang->my->manageContacts = '维护联系人';
 $lang->my->deleteContacts = '删除联系人';
 $lang->my->shareContacts  = '共享联系人列表';
@@ -5219,7 +5219,7 @@ $lang->search->null = '空';
 $lang->sso = new stdclass();
 $lang->sso->settings = '配置';
 $lang->sso->turnon   = '是否打开';
-$lang->sso->redirect = '自动跳回然之';
+$lang->sso->redirect = '自动跳回ZDOO';
 $lang->sso->code     = '代号';
 $lang->sso->key      = '密钥';
 $lang->sso->addr     = '接口地址';
@@ -5237,8 +5237,8 @@ $lang->sso->bindTypeList['bind'] = '绑定已有用户';
 $lang->sso->bindTypeList['add']  = '添加新用户';
 
 $lang->sso->help = <<<EOD
-<p>1、接口地址的填写，如果是PATH_INFO ：http://然之网址/sys/sso-check.html，如果是GET：http://然之网址/sys/index.php?m=sso&f=check</p>
-<p>2、代号和密钥必须与然之后台设置的一致。</p>
+<p>1、接口地址的填写，如果是PATH_INFO ：http://ZDOO网址/sys/sso-check.html，如果是GET：http://ZDOO网址/sys/index.php?m=sso&f=check</p>
+<p>2、代号和密钥必须与ZDOO后台设置的一致。</p>
 EOD;
 $lang->sso->bindNotice     = '添加的新用户暂时没有权限，需要联系禅道管理员，给该用户分配权限。';
 $lang->sso->bindNoPassword = '密码不能为空';
@@ -6670,7 +6670,7 @@ $lang->user->join             = '入职日期';
 $lang->user->visits           = '访问次数';
 $lang->user->ip               = '最后IP';
 $lang->user->last             = '最后登录';
-$lang->user->ranzhi           = '然之帐号';
+$lang->user->ranzhi           = 'ZDOO帐号';
 $lang->user->ditto            = '同上';
 $lang->user->originalPassword = '原密码';
 $lang->user->newPassword      = '新密码';
@@ -6689,14 +6689,14 @@ $lang->user->edit          = "编辑用户";
 $lang->user->batchEdit     = "批量编辑";
 $lang->user->unlock        = "解锁用户";
 $lang->user->delete        = "删除用户";
-$lang->user->unbind        = "解除然之绑定";
+$lang->user->unbind        = "解除ZDOO绑定";
 $lang->user->login         = "用户登录";
 $lang->user->mobileLogin   = "手机访问";
 $lang->user->editProfile   = "修改档案";
 $lang->user->deny          = "访问受限";
 $lang->user->confirmDelete = "您确定删除该用户吗？";
 $lang->user->confirmUnlock = "您确定解除该用户的锁定状态吗？";
-$lang->user->confirmUnbind = "您确定解除该用户跟然之的绑定吗？";
+$lang->user->confirmUnbind = "您确定解除该用户跟ZDOO的绑定吗？";
 $lang->user->relogin       = "重新登录";
 $lang->user->asGuest       = "游客访问";
 $lang->user->goback        = "返回前一页";
