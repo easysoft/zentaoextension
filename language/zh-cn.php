@@ -549,7 +549,6 @@ $lang->importAndInsert = "全新插入";
 $lang->noResultsMatch    = "没有匹配结果";
 $lang->searchMore        = "搜索此关键字的更多结果：";
 $lang->chooseUsersToMail = "选择要发信通知的用户...";
-$lang->browserNotice     = '你目前使用的浏览器可能无法得到最佳浏览效果，建议使用Chrome、火狐、IE9+、Opera、Safari浏览器。';
 $lang->noticePasteImg    = "可以在编辑器直接贴图。";
 $lang->pasteImgFail      = "贴图失败，请稍后重试。";
 $lang->pasteImgUploading = "正在上传图片，请稍后...";
@@ -2700,9 +2699,10 @@ $lang->custom->moduleName['product']     = $lang->productCommon;
 $lang->custom->moduleName['productplan'] = '计划';
 $lang->custom->moduleName['project']     = $lang->projectCommon;
 
-$lang->custom->conceptQuestions['overview']   = "1. 下述哪种组合方式更适合您公司的管理现状？";
-$lang->custom->conceptQuestions['story']      = "2. 您公司是在使用需求概念还是用户故事概念？";
-$lang->custom->conceptQuestions['storypoint'] = "3. 您公司是在使用工时还是故事点来做规模估算？";
+$lang->custom->conceptQuestions['overview']         = "1. 下述哪种组合方式更适合您公司的管理现状？";
+$lang->custom->conceptQuestions['story']            = "2. 您公司是在使用需求概念还是用户故事概念？";
+$lang->custom->conceptQuestions['requirementpoint'] = "3. 您公司是在使用工时还是功能点来做规模估算？";
+$lang->custom->conceptQuestions['storypoint']       = "3. 您公司是在使用工时还是故事点来做规模估算？";
 
 $lang->custom->conceptOptions = new stdclass;
 
@@ -2713,6 +2713,7 @@ $lang->custom->conceptOptions->story['1'] = '故事';
 $lang->custom->conceptOptions->hourPoint = array();
 $lang->custom->conceptOptions->hourPoint['0'] = '工时';
 $lang->custom->conceptOptions->hourPoint['1'] = '故事点';
+$lang->custom->conceptOptions->hourPoint['2'] = '功能点';
 /* datatable */
 $lang->datatable = new stdclass();
 $lang->datatable->common = '数据表格';
@@ -4262,8 +4263,8 @@ $lang->product->aclList['open']    = "默认设置(有{$lang->productCommon}视�
 $lang->product->aclList['private'] = "私有{$lang->productCommon}(只有{$lang->productCommon}相关负责人和{$lang->projectCommon}团队成员才能访问)";
 $lang->product->aclList['custom']  = '自定义白名单(团队成员和白名单的成员可以访问)';
 
-$lang->product->storySummary   = "本页共 <strong>%s</strong> 个{$lang->storyCommon}，预计 <strong>%s</strong> 个{$lang->hourCommon}，用例覆盖率 <strong>%s</strong>。";
-$lang->product->checkedSummary = "选中 <strong>%total%</strong> 个{$lang->storyCommon}，预计 <strong>%estimate%</strong> 个{$lang->hourCommon}，用例覆盖率 <strong>%rate%</strong>。";
+$lang->product->storySummary   = "本页共 <strong>%s</strong> 个%s，预计 <strong>%s</strong> 个{$lang->hourCommon}，用例覆盖率 <strong>%s</strong>。";
+$lang->product->checkedSummary = "选中 <strong>%total%</strong> 个%storyCommon%，预计 <strong>%estimate%</strong> 个{$lang->hourCommon}，用例覆盖率 <strong>%rate%</strong>。";
 $lang->product->noModule       = "<div>您现在还没有模块信息</div><div>请维护{$lang->productCommon}模块</div>";
 $lang->product->noProduct      = "暂时没有{$lang->productCommon}。";
 $lang->product->noMatched      = '找不到包含"%s"的' . $lang->productCommon;
