@@ -1430,9 +1430,15 @@ $lang->backup->change      = 'Edit Expiration';
 $lang->backup->changeAB    = 'Edit';
 $lang->backup->rmPHPHeader = 'Remove PHP header';
 
-$lang->backup->time  = 'Date';
-$lang->backup->files = 'Files';
-$lang->backup->size  = 'Size';
+$lang->backup->time     = 'Date';
+$lang->backup->files    = 'Files';
+$lang->backup->allCount = 'All Count';
+$lang->backup->count    = 'Backup Count';
+$lang->backup->size     = 'Size';
+$lang->backup->status   = 'Status';
+
+$lang->backup->statusList['success'] = 'Success';
+$lang->backup->statusList['fail']    = 'Fail';
 
 $lang->backup->setting    = 'Settings';
 $lang->backup->settingDir = 'Backup Directory';
@@ -1446,6 +1452,7 @@ $lang->backup->progressCode   = '<p>SQL backup is completed.</p><p>Attachment ba
 $lang->backup->confirmDelete  = 'Do you want to delete the backup?';
 $lang->backup->confirmRestore = 'Do you want to restore the backup?';
 $lang->backup->holdDays       = 'Hold last %s days of backup';
+$lang->backup->copiedFail     = 'Copy failed files: ';
 $lang->backup->restoreTip     = 'Only files and databases can be restored by clicking Restore. Code can be restored manually.';
 
 $lang->backup->success = new stdclass();
@@ -2701,9 +2708,10 @@ $lang->custom->moduleName['product']     = $lang->productCommon;
 $lang->custom->moduleName['productplan'] = 'Plan';
 $lang->custom->moduleName['project']     = $lang->projectCommon;
 
-$lang->custom->conceptQuestions['overview']   = "1. Which combination of management fits your company?";
-$lang->custom->conceptQuestions['story']      = "2. Do you use the concept of requirement or user story in your company?";
-$lang->custom->conceptQuestions['storypoint'] = "2. Do you use hours or story points to make estimations in your company?";
+$lang->custom->conceptQuestions['overview']         = "1. Which combination of management fits your company?";
+$lang->custom->conceptQuestions['story']            = "2. Do you use the concept of requirement or user story in your company?";
+$lang->custom->conceptQuestions['requirementpoint'] = "3. Do you use hours or function points to make estimations in your company?";
+$lang->custom->conceptQuestions['storypoint']       = "3. Do you use hours or story points to make estimations in your company?";
 
 $lang->custom->conceptOptions = new stdclass;
 
@@ -2714,6 +2722,7 @@ $lang->custom->conceptOptions->story['1'] = 'Story';
 $lang->custom->conceptOptions->hourPoint = array();
 $lang->custom->conceptOptions->hourPoint['0'] = 'Hour';
 $lang->custom->conceptOptions->hourPoint['1'] = 'Story Point';
+$lang->custom->conceptOptions->hourPoint['2'] = 'Function Point';
 /* datatable */
 $lang->datatable = new stdclass();
 $lang->datatable->common = 'Data Table';
@@ -2740,6 +2749,8 @@ $lang->datatable->showAllModule          = 'Show product modules';
 $lang->datatable->showModuleList[]       = 'N/A';
 $lang->datatable->showModuleList['base'] = 'Base Node';
 $lang->datatable->showModuleList['end']  = 'End Node';
+$lang->datatable->showAllModuleList[0]   = 'Hide';
+$lang->datatable->showAllModuleList[1]   = 'Show';
 /* dept */
 $lang->dept->common      = 'Department';
 $lang->dept->manageChild = "Child Department";
@@ -3304,6 +3315,9 @@ $lang->file->extra     = 'Comment';
 $lang->file->dragFile            = 'Drag images here.';
 $lang->file->childTaskTips       = 'It\'s a child task if there is a \'>\' before the name.';
 $lang->file->uploadImagesExplain = 'Note: upload .jpg, .jpeg, .gif, or .png images. The image name will be the name of the story and the image will be the description.';
+$lang->file->saveAndNext         = 'Save and Next';
+$lang->file->importPager         = 'Total: <strong>%s</strong>. Page <strong>%s</strong> of <strong>%s</strong>';
+$lang->file->importSummary       = "Import <strong id='allCount'>%s</strong> items  You can <strong>%s</strong> items/page, so you have to import <strong id='times'>%s</strong> times.";
 
 $lang->file->errorNotExists   = "<span class='text-red'>'%s' is not found.</span>";
 $lang->file->errorCanNotWrite = "<span class='text-red'>'%s' is not writable. Please change its permission. Enter <span class='code'>sudo chmod -R 777 '%s'</span></span> in Linux.";
@@ -3942,6 +3956,7 @@ $lang->misc->feature = new stdclass();
 $lang->misc->feature->lastest  = 'Latest Version';
 $lang->misc->feature->detailed = 'Detail';
 
+$lang->misc->releaseDate['12.3.1']      = '2020-05-15';
 $lang->misc->releaseDate['12.3']        = '2020-04-08';
 $lang->misc->releaseDate['12.2']        = '2020-03-25';
 $lang->misc->releaseDate['12.1']        = '2020-03-10';
@@ -3983,6 +3998,7 @@ $lang->misc->releaseDate['7.2.stable']  = '2015-05-22';
 $lang->misc->releaseDate['7.1.stable']  = '2015-03-07';
 $lang->misc->releaseDate['6.3.stable']  = '2014-11-07';
 
+$lang->misc->feature->all['12.3.1'][] = array('title'=>'Fix bugs of high severity.', 'desc' => '');
 $lang->misc->feature->all['12.3'][]   = array('title'=>'Integrate unit test, open the continuous integration closed-loop.', 'desc' => '');
 $lang->misc->feature->all['12.2'][]   = array('title'=>'Add parent-child story, compatible Xuanxuan IM.', 'desc' => '');
 $lang->misc->feature->all['12.1'][]   = array('title'=>'Add Integration.', 'desc' => '<p>Add integration, and build in Jenkins</p>');
@@ -4870,7 +4886,7 @@ $lang->repo->objectIdRule = 'Object ID Rule';
 $lang->repo->actionRule   = 'Action Rule';
 $lang->repo->manHourRule  = 'Man-hour Rule';
 $lang->repo->ruleUnit     = "Unit";
-$lang->repo->ruleSplit    = "Multiple keywords are divided by ';'. For example: task multiple keywords: Task;task";
+$lang->repo->ruleSplit    = "Multiple keywords are divided by ';', e.g. task multiple keywords: Task;task";
 
 $lang->repo->viewDiffList['inline'] = 'Inline';
 $lang->repo->viewDiffList['appose'] = 'Parallel';
@@ -4923,10 +4939,10 @@ $lang->repo->error->noFile        = '%s does not exist.';
 $lang->repo->error->noPriv        = 'The program does not have the privilege  to switch to %s';
 $lang->repo->error->output        = "The command is: %s\nThe error is(%s): %s\n";
 $lang->repo->error->clientVersion = "Client version is too low, please upgrade or change SVN client";
-$lang->repo->error->encoding      = "The encoding maybe wrong. Please change the encoding and try again.";
+$lang->repo->error->encoding      = "The encoding might be wrong. Please change the encoding and try again.";
 
 $lang->repo->syncTips      = '<strong>You may find the reference about how to set Git sync from <a target="_blank" href="https://www.zentao.pm/book/zentaomanual/free-open-source-project-management-software-git-105.html">here</a>.</strong>';
-$lang->repo->encodingsTips = "The encodings of commit comments, can be comma separated values，e.g. utf-8";
+$lang->repo->encodingsTips = "The encodings of comments can be comma separated values, e.g. utf-8.";
 
 $lang->repo->example              = new stdclass();
 $lang->repo->example->client      = new stdclass();
@@ -5757,6 +5773,7 @@ $lang->task->createDenied          = 'Create Task is denied in this project';
 $lang->task->cannotDeleteParent    = 'Cannot delete parent task';
 
 $lang->task->error = new stdclass();
+$lang->task->error->totalNumber      = '"Total Cost" must be numbers.';
 $lang->task->error->consumedNumber   = '"Current Cost" must be numbers.';
 $lang->task->error->estimateNumber   = '"Estimates" must be numbers.';
 $lang->task->error->recordMinus      = 'Work hours should not be negative number.';
@@ -6142,6 +6159,7 @@ $lang->testreport->errorTrunk     = "You cannot create a Testing report for the 
 $lang->testreport->noTestTask     = "No test requests for this {$lang->productCommon}, so no reports can be generated. Please go to {$lang->productCommon} which has test requests and then generate the report.";
 $lang->testreport->noObjectID     = "No test request or {$lang->projectCommon} is selected, so no report can be generated.";
 $lang->testreport->moreProduct    = "Testing reports can only be generated for the same {$lang->productCommon}.";
+$lang->testreport->hiddenCase     = "Hide %s use cases";
 
 $lang->testreport->bugSummary = <<<EOD
 Total <strong>%s</strong> Bugs reported <a data-toggle='tooltip' class='text-warning' title='{$lang->testreport->foundBugTip}'><i class='icon-help'></i></a>,
