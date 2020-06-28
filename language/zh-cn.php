@@ -6857,19 +6857,21 @@ $lang->user->noticeResetFile = "<h5>普通用户请联系管理员重置密码</
     <li>如果之前文件存在，删除之后重新创建。</li>
     </ol>"; 
 /* webhook */
-$lang->webhook->common   = 'Webhook';
-$lang->webhook->list     = 'Webhook列表';
-$lang->webhook->api      = '接口';
-$lang->webhook->entry    = '应用';
-$lang->webhook->log      = '日志';
-$lang->webhook->bind     = '绑定用户';
-$lang->webhook->assigned = '指派给';
-$lang->webhook->setting  = '设置';
+$lang->webhook->common     = 'Webhook';
+$lang->webhook->list       = 'Webhook列表';
+$lang->webhook->api        = '接口';
+$lang->webhook->entry      = '应用';
+$lang->webhook->log        = '日志';
+$lang->webhook->bind       = '绑定用户';
+$lang->webhook->chooseDept = '选择同步部门';
+$lang->webhook->assigned   = '指派给';
+$lang->webhook->setting    = '设置';
 
-$lang->webhook->browse = '浏览Webhook';
-$lang->webhook->create = '添加Webhook';
-$lang->webhook->edit   = '编辑Webhook';
-$lang->webhook->delete = '删除Webhook';
+$lang->webhook->browse       = '浏览Webhook';
+$lang->webhook->create       = '添加Webhook';
+$lang->webhook->edit         = '编辑Webhook';
+$lang->webhook->delete       = '删除Webhook';
+$lang->webhook->rechooseDept = '重选部门';
 
 $lang->webhook->id          = 'ID';
 $lang->webhook->type        = '类型';
@@ -6948,4 +6950,5 @@ $lang->webhook->note->typeList['weixin']    = '请在企业微信中添加一个
 $lang->webhook->note->typeList['default']   = '从第三方系统获取webhook并填写到此处。';
 
 $lang->webhook->error = new stdclass();
-$lang->webhook->error->curl = '需要加载php-curl扩展。';
+$lang->webhook->error->curl     = '需要加载php-curl扩展。';
+$lang->webhook->error->moreDept = '部门太多，获取用户可能会超时，请先选择同步部门。';
