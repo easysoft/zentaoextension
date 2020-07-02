@@ -1576,7 +1576,7 @@ $lang->block->default['project']['4']['params']['num']     = 15;
 $lang->block->default['project']['4']['params']['orderBy'] = 'id_desc';
 $lang->block->default['project']['4']['params']['type']    = 'assignedTo';
 
-$lang->block->default['qa']['1']['title'] = 'Testing Report';
+$lang->block->default['qa']['1']['title'] = 'Test Report';
 $lang->block->default['qa']['1']['block'] = 'statistic';
 $lang->block->default['qa']['1']['grid']  = 8;
 
@@ -1707,7 +1707,7 @@ $lang->block->availableBlocks->testtask = 'Requests';
 
 $lang->block->moduleList['product'] = $lang->productCommon;
 $lang->block->moduleList['project'] = $lang->projectCommon;
-$lang->block->moduleList['qa']      = 'QA';
+$lang->block->moduleList['qa']      = 'Test';
 $lang->block->moduleList['todo']    = 'Todo';
 
 $lang->block->modules['product'] = new stdclass();
@@ -1856,11 +1856,11 @@ $lang->block->gridOptions[8] = 'Left';
 $lang->block->gridOptions[4] = 'Right';
 
 $lang->block->flowchart   = array();
-$lang->block->flowchart['admin']   = array('Administrator', 'Add Department', 'Add User', 'Maintain Privileges');
-$lang->block->flowchart['product'] = array($lang->productCommon . ' Owner', 'Add ' . $lang->productCommon, 'Maintain Modules', 'Maintain Plans', 'Maintain Stories', 'Create Releases');
-$lang->block->flowchart['project'] = array('Scrum Master', 'Add ' . $lang->projectCommon, 'Maintain Teams', 'Link ' . $lang->productCommon . 's', 'Link Stories', 'Create Tasks');
-$lang->block->flowchart['dev']     = array('Dev Team', 'Claim Tasks/Bugs', 'Update Status', 'Finish Tasks/Bugs');
-$lang->block->flowchart['tester']  = array('QA Team', 'Write Cases', 'Run Cases', 'Report Bugs', 'Verify Bugs', 'Close Bugs');
+$lang->block->flowchart['admin']   = array('Administrator', 'Add Department', 'Add User', 'Maintain Privilege');
+$lang->block->flowchart['product'] = array($lang->productCommon . ' Owner', 'Add ' . $lang->productCommon, 'Maintain Module', 'Maintain Plan', 'Maintain Story', 'Create Release');
+$lang->block->flowchart['project'] = array('Scrum Master', 'Add ' . $lang->projectCommon, 'Maintain Team', 'Link ' . $lang->productCommon, 'Link Story', 'Create Task');
+$lang->block->flowchart['dev']     = array('Dev Team', 'Claim Task/Bug', 'Update Status', 'Finish Task/Bug');
+$lang->block->flowchart['tester']  = array('Test Team', 'Write Case', 'Run Case', 'Report Bug', 'Verify Bug', 'Close Bug');
 /* branch */
 $lang->branch->common = 'Branch';
 $lang->branch->manage = 'Manage Branch';
@@ -2662,7 +2662,7 @@ $lang->custom->notice->conceptPath       = 'Go to Admin -> Custom -> Concept to 
 
 $lang->custom->notice->indexPage['product'] = "ZenTao 8.2+ has Product Home. Do you want to go to Product Home?";
 $lang->custom->notice->indexPage['project'] = "ZenTao 8.2+ has Project Home. Do you want to go to Project Home?";
-$lang->custom->notice->indexPage['qa']      = "ZenTao 8.2+ has QA Homepage. Do you want to go to QA Homepage?";
+$lang->custom->notice->indexPage['qa']      = "ZenTao 8.2+ has Test Homepage. Do you want to go to Test Homepage?";
 
 $lang->custom->notice->invalidStrlen['ten']        = 'The key should be <= 10 characters.';
 $lang->custom->notice->invalidStrlen['twenty']     = 'The key should be <= 20 characters.';
@@ -2855,7 +2855,7 @@ $lang->dev->tableList['install']          = 'Install';
 $lang->dev->tableList['mail']             = 'Email';
 $lang->dev->tableList['misc']             = 'Misc.';
 $lang->dev->tableList['my']               = 'Dashboard';
-$lang->dev->tableList['qa']               = 'QA';
+$lang->dev->tableList['qa']               = 'Test';
 $lang->dev->tableList['report']           = 'Report';
 $lang->dev->tableList['search']           = 'Search';
 $lang->dev->tableList['sso']              = 'SSO';
@@ -2891,7 +2891,7 @@ $lang->dev->tableList['repobranch']       = 'Repo Branch';
 $lang->dev->groupList['my']      = 'Dashboard';
 $lang->dev->groupList['product'] = $lang->productCommon;
 $lang->dev->groupList['project'] = $lang->projectCommon;
-$lang->dev->groupList['qa']      = 'QA';
+$lang->dev->groupList['qa']      = 'Test';
 $lang->dev->groupList['doc']     = 'Doc';
 $lang->dev->groupList['report']  = 'Report';
 $lang->dev->groupList['company'] = 'Company';
@@ -3564,7 +3564,7 @@ $lang->install->groupList['ADMIN']['name']   = 'Admin';
 $lang->install->groupList['ADMIN']['desc']   = 'System Admin';
 $lang->install->groupList['DEV']['name']     = 'Dev';
 $lang->install->groupList['DEV']['desc']     = 'Developer';
-$lang->install->groupList['QA']['name']      = 'QA';
+$lang->install->groupList['QA']['name']      = 'Test';
 $lang->install->groupList['QA']['desc']      = 'Tester';
 $lang->install->groupList['PM']['name']      = 'PM';
 $lang->install->groupList['PM']['desc']      = 'Project Manager';
@@ -3575,7 +3575,7 @@ $lang->install->groupList['TD']['desc']      = 'Development Manager';
 $lang->install->groupList['PD']['name']      = 'PD';
 $lang->install->groupList['PD']['desc']      = 'Product Director';
 $lang->install->groupList['QD']['name']      = 'QD';
-$lang->install->groupList['QD']['desc']      = 'QA Director';
+$lang->install->groupList['QD']['desc']      = 'Test Director';
 $lang->install->groupList['TOP']['name']     = 'Senior';
 $lang->install->groupList['TOP']['desc']     = 'Senior Manager';
 $lang->install->groupList['OTHERS']['name']  = 'Others';
@@ -3957,6 +3957,7 @@ $lang->misc->feature = new stdclass();
 $lang->misc->feature->lastest  = 'Latest Version';
 $lang->misc->feature->detailed = 'Detail';
 
+$lang->misc->releaseDate['12.3.3']      = '2020-07-02';
 $lang->misc->releaseDate['12.3.2']      = '2020-06-01';
 $lang->misc->releaseDate['12.3.1']      = '2020-05-15';
 $lang->misc->releaseDate['12.3']        = '2020-04-08';
@@ -4000,6 +4001,7 @@ $lang->misc->releaseDate['7.2.stable']  = '2015-05-22';
 $lang->misc->releaseDate['7.1.stable']  = '2015-03-07';
 $lang->misc->releaseDate['6.3.stable']  = '2014-11-07';
 
+$lang->misc->feature->all['12.3.3'][] = array('title'=>'Fix Bug', 'desc' => '');
 $lang->misc->feature->all['12.3.2'][] = array('title'=>'Fix workflow', 'desc' => '');
 $lang->misc->feature->all['12.3.1'][] = array('title'=>'Fix bugs of high severity.', 'desc' => '');
 $lang->misc->feature->all['12.3'][]   = array('title'=>'Integrate unit test, open the continuous integration closed-loop.', 'desc' => '');
@@ -4053,7 +4055,7 @@ $lang->misc->feature->all['10.4.stable'][] = array('title'=>'Upgrade existing in
 $lang->misc->feature->all['10.3.stable'][] = array('title'=>'Fix Bug.', 'desc' => '');
 $lang->misc->feature->all['10.2.stable'][] = array('title'=>'ZenTao desktop is integrated!', 'desc' => '');
 
-$lang->misc->feature->all['10.0.stable'][] = array('title'=>'New UI/UX and new experience', 'desc' => '<ol><li>My Dashboard</li><li>Dynamics</li><li>Product Home</li><li>Product Overview</li><li>Roadmap</li><li>Project Home</li><li>Project overview</li><li>QA Home</li><li>Document Home</li><li>Added work report on My Dashboard</li><li>Add/Edit/Finish todos on My Dashboard</li><li>Add prodcut report on Product Home</li><li>Add prodcut overview on Product Home</li><li>Add project report on Project Home</li><li>Add project overview on Project Home</li><li>Add Testing report on QA Home</li><li>All Product/product Home/All Project/Project Home/QA Home is moved from the right of the secondary Navbar to the left.</li><li>Kanban/Burndown/Tree/ByGroup of Project/Task has been moved from the third Navbar to the secondary one; Tree/ByGroup/Task List has been integrated to a drop-down.</li><li>Bug/Build of Project on the secondary Navbar has been integrated to a drop-down.</li><li>Display build and list by group, which is more reasonable.</li><li>Added tree to display document on the left of the page.</li><li>Added quick entry to document, including Last Update, My Doc and My Favorite</li><li>Added My Favorite to Doc module.</li></ol>');
+$lang->misc->feature->all['10.0.stable'][] = array('title'=>'New UI/UX and new experience', 'desc' => '<ol><li>My Dashboard</li><li>Dynamics</li><li>Product Home</li><li>Product Overview</li><li>Roadmap</li><li>Project Home</li><li>Project overview</li><li>Test Home</li><li>Document Home</li><li>Added work report on My Dashboard</li><li>Add/Edit/Finish todos on My Dashboard</li><li>Add prodcut report on Product Home</li><li>Add prodcut overview on Product Home</li><li>Add project report on Project Home</li><li>Add project overview on Project Home</li><li>Add Testing report on Test Home</li><li>All Product/product Home/All Project/Project Home/Test Home is moved from the right of the secondary Navbar to the left.</li><li>Kanban/Burndown/Tree/ByGroup of Project/Task has been moved from the third Navbar to the secondary one; Tree/ByGroup/Task List has been integrated to a drop-down.</li><li>Bug/Build of Project on the secondary Navbar has been integrated to a drop-down.</li><li>Display build and list by group, which is more reasonable.</li><li>Added tree to display document on the left of the page.</li><li>Added quick entry to document, including Last Update, My Doc and My Favorite</li><li>Added My Favorite to Doc module.</li></ol>');
 
 $lang->misc->feature->all['9.8.stable'][] = array('title'=>'Message centralized management', 'desc' => '<p>Gather Mail，SMS，webhook into Message</p>');
 $lang->misc->feature->all['9.8.stable'][] = array('title'=>'Add recurred Todo', 'desc' => '');
@@ -4225,7 +4227,7 @@ $lang->product->RD            = 'Release Manager';
 $lang->product->acl           = 'Access Control';
 $lang->product->whitelist     = 'Whitelist';
 $lang->product->branch        = '%s';
-$lang->product->qa            = 'QA';
+$lang->product->qa            = 'Test';
 $lang->product->release       = 'Release';
 $lang->product->allRelease    = 'All Releases';
 $lang->product->maintain      = 'Maintenance';
@@ -4346,7 +4348,7 @@ $lang->productplan->last       = 'Last Plan';
 $lang->productplan->future     = 'TBD';
 $lang->productplan->stories    = 'Story';
 $lang->productplan->bugs       = 'Bug';
-$lang->productplan->hour       = 'Hours';
+$lang->productplan->hour       = $lang->hourCommon;
 $lang->productplan->project    = $lang->projectCommon;
 $lang->productplan->parent     = "Parent Plan";
 $lang->productplan->parentAB   = "Parent";
@@ -4401,9 +4403,9 @@ $lang->project->desc          = 'Description';
 $lang->project->owner         = 'Owner';
 $lang->project->PO            = "{$lang->projectCommon} Owner";
 $lang->project->PM            = "{$lang->projectCommon} Manager";
-$lang->project->QD            = 'QA Manager';
+$lang->project->QD            = 'Test Manager';
 $lang->project->RD            = 'Release Manager';
-$lang->project->qa            = 'QA';
+$lang->project->qa            = 'Test';
 $lang->project->release       = 'Release';
 $lang->project->acl           = 'Access Control';
 $lang->project->teamname      = 'Team Name';
@@ -4497,7 +4499,7 @@ $lang->project->doclib            = 'Docoment Library';
 $lang->project->manageProducts    = 'Linked ' . $lang->productCommon . 's';
 $lang->project->linkStory         = 'Link Stories';
 $lang->project->linkStoryByPlan   = 'Link Stories By Plan';
-$lang->project->linkPlan          = 'Linked Plans';
+$lang->project->linkPlan          = 'Linked Plan';
 $lang->project->unlinkStoryTasks  = 'Unlink';
 $lang->project->linkedProducts    = "Linked {$lang->productCommon}s";
 $lang->project->unlinkedProducts  = "Unlinked {$lang->productCommon}s";
@@ -4513,7 +4515,7 @@ $lang->project->kanbanAction      = "{$lang->projectCommon} Kanban";
 $lang->project->printKanbanAction = "Print Kanban";
 $lang->project->treeAction        = "{$lang->projectCommon} Tree View";
 $lang->project->exportAction      = "Export {$lang->projectCommon}";
-$lang->project->computeBurnAction = "Compute Burn";
+$lang->project->computeBurnAction = "Update Burndown";
 $lang->project->create            = "Create {$lang->projectCommon}";
 $lang->project->copy              = "Copy {$lang->projectCommon}";
 $lang->project->delete            = "Delete {$lang->projectCommon}";
@@ -5349,7 +5351,7 @@ $lang->story->rejectedReason = 'Reject Reason';
 $lang->story->reviewedBy     = 'ReviewedBy';
 $lang->story->reviewedDate   = 'ReviewedDate';
 $lang->story->version        = 'Version';
-$lang->story->plan           = 'Linked Plans';
+$lang->story->plan           = 'Linked Plan';
 $lang->story->planAB         = 'Plan';
 $lang->story->comment        = 'Comment';
 $lang->story->children       = "Child {$lang->storyCommon}";
@@ -6851,19 +6853,21 @@ $lang->user->noticeResetFile = "<h5>Contact the Administrator to reset your pass
     <li>If the file exists, remove it and create it again.</li>
     </ol>";
 /* webhook */
-$lang->webhook->common   = 'Webhook';
-$lang->webhook->list     = 'Hook List';
-$lang->webhook->api      = 'API';
-$lang->webhook->entry    = 'Entry';
-$lang->webhook->log      = 'Log';
-$lang->webhook->bind     = 'Bind User';
-$lang->webhook->assigned = 'AssignedTo';
-$lang->webhook->setting  = 'Settings';
+$lang->webhook->common     = 'Webhook';
+$lang->webhook->list       = 'Hook List';
+$lang->webhook->api        = 'API';
+$lang->webhook->entry      = 'Entry';
+$lang->webhook->log        = 'Log';
+$lang->webhook->bind       = 'Bind User';
+$lang->webhook->chooseDept = 'Choose department';
+$lang->webhook->assigned   = 'AssignedTo';
+$lang->webhook->setting    = 'Settings';
 
-$lang->webhook->browse = 'Browse';
-$lang->webhook->create = 'Create';
-$lang->webhook->edit   = 'Edit';
-$lang->webhook->delete = 'Delete';
+$lang->webhook->browse       = 'Browse';
+$lang->webhook->create       = 'Create';
+$lang->webhook->edit         = 'Edit';
+$lang->webhook->delete       = 'Delete';
+$lang->webhook->rechooseDept = 'Rechoose department';
 
 $lang->webhook->id          = 'ID';
 $lang->webhook->type        = 'Type';
@@ -6942,4 +6946,5 @@ $lang->webhook->note->typeList['weixin']    = 'Add a customized bot in WeChat an
 $lang->webhook->note->typeList['default']   = 'Get a webhook url from others';
 
 $lang->webhook->error = new stdclass();
-$lang->webhook->error->curl = 'Load php-curl in php.ini.';
+$lang->webhook->error->curl     = 'Load php-curl in php.ini.';
+$lang->webhook->error->moreDept = 'There are too many departments. Getting users may time out. Please choose department first.';

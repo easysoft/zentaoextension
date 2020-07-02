@@ -3957,6 +3957,7 @@ $lang->misc->feature = new stdclass();
 $lang->misc->feature->lastest  = '最新版本';
 $lang->misc->feature->detailed = '详情';
 
+$lang->misc->releaseDate['12.3.3']      = '2020-07-02';
 $lang->misc->releaseDate['12.3.2']      = '2020-06-01';
 $lang->misc->releaseDate['12.3.1']      = '2020-05-15';
 $lang->misc->releaseDate['12.3']        = '2020-04-08';
@@ -4000,6 +4001,7 @@ $lang->misc->releaseDate['7.2.stable']  = '2015-05-22';
 $lang->misc->releaseDate['7.1.stable']  = '2015-03-07';
 $lang->misc->releaseDate['6.3.stable']  = '2014-11-07';
 
+$lang->misc->feature->all['12.3.3'][] = array('title'=>'修复Bug', 'desc' => '');
 $lang->misc->feature->all['12.3.2'][] = array('title'=>'修复工作流。', 'desc' => '');
 $lang->misc->feature->all['12.3.1'][] = array('title'=>'修复重要程度高的Bug。', 'desc' => '');
 $lang->misc->feature->all['12.3'][]   = array('title'=>'集成单元测试，打通持续集成闭环。', 'desc' => '');
@@ -4346,7 +4348,7 @@ $lang->productplan->last       = '上次计划';
 $lang->productplan->future     = '待定';
 $lang->productplan->stories    = "{$lang->storyCommon}数";
 $lang->productplan->bugs       = 'Bug数';
-$lang->productplan->hour       = '工时';
+$lang->productplan->hour       = $lang->hourCommon;
 $lang->productplan->project    = $lang->projectCommon;
 $lang->productplan->parent     = "父计划";
 $lang->productplan->parentAB   = "父";
