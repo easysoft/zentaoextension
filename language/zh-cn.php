@@ -3827,6 +3827,7 @@ $lang->mail->noticeResend   = '已经重新发信！';
 $lang->mail->inputFromEmail = '请输入发信邮箱：';
 $lang->mail->nextStep       = '下一步';
 $lang->mail->successSaved   = '配置信息已经成功保存。';
+$lang->mail->setForUser     = '系统内用户都没有维护可用邮箱，无法测试发信，请先为用户维护邮箱。';
 $lang->mail->testSubject    = '测试邮件';
 $lang->mail->testContent    = '邮箱设置成功';
 $lang->mail->successSended  = '成功发送！';
@@ -5781,7 +5782,6 @@ $lang->task->error->totalNumber      = '"总计消耗"必须为数字';
 $lang->task->error->consumedNumber   = '"本次消耗"必须为数字';
 $lang->task->error->estimateNumber   = '"预计剩余"必须为数字';
 $lang->task->error->recordMinus      = '工时不能为负数';
-$lang->task->error->recordZero       = '工时不能为零';
 $lang->task->error->consumedSmall    = '"总计消耗"必须大于之前消耗';
 $lang->task->error->consumedThisTime = '请填写"工时"';
 $lang->task->error->left             = '请填写"剩余"';
@@ -6870,11 +6870,10 @@ $lang->webhook->chooseDept = '选择同步部门';
 $lang->webhook->assigned   = '指派给';
 $lang->webhook->setting    = '设置';
 
-$lang->webhook->browse       = '浏览Webhook';
-$lang->webhook->create       = '添加Webhook';
-$lang->webhook->edit         = '编辑Webhook';
-$lang->webhook->delete       = '删除Webhook';
-$lang->webhook->rechooseDept = '重选部门';
+$lang->webhook->browse = '浏览Webhook';
+$lang->webhook->create = '添加Webhook';
+$lang->webhook->edit   = '编辑Webhook';
+$lang->webhook->delete = '删除Webhook';
 
 $lang->webhook->id          = 'ID';
 $lang->webhook->type        = '类型';
@@ -6907,11 +6906,12 @@ $lang->webhook->typeList['default']     = '其他';
 $lang->webhook->sendTypeList['sync']  = '同步';
 $lang->webhook->sendTypeList['async'] = '异步';
 
-$lang->webhook->dingAgentId    = '钉钉AgentId';
-$lang->webhook->dingAppKey     = '钉钉AppKey';
-$lang->webhook->dingAppSecret  = '钉钉AppSecret';
-$lang->webhook->dingUserid     = '钉钉用户';
-$lang->webhook->dingBindStatus = '钉钉绑定状态';
+$lang->webhook->dingAgentId     = '钉钉AgentId';
+$lang->webhook->dingAppKey      = '钉钉AppKey';
+$lang->webhook->dingAppSecret   = '钉钉AppSecret';
+$lang->webhook->dingUserid      = '钉钉用户';
+$lang->webhook->dingBindStatus  = '钉钉绑定状态';
+$lang->webhook->chooseDeptAgain = '重选部门';
 
 $lang->webhook->wechatCorpId     = '企业ID';
 $lang->webhook->wechatCorpSecret = '应用的凭证密钥';
@@ -6953,5 +6953,5 @@ $lang->webhook->note->typeList['weixin']    = '请在企业微信中添加一个
 $lang->webhook->note->typeList['default']   = '从第三方系统获取webhook并填写到此处。';
 
 $lang->webhook->error = new stdclass();
-$lang->webhook->error->curl     = '需要加载php-curl扩展。';
-$lang->webhook->error->moreDept = '部门太多，获取用户可能会超时，请先选择同步部门。';
+$lang->webhook->error->curl   = '需要加载php-curl扩展。';
+$lang->webhook->error->noDept = '没有选择部门，请先选择同步部门。';

@@ -3827,6 +3827,7 @@ $lang->mail->noticeResend   = 'The Email has been re-sent!';
 $lang->mail->inputFromEmail = 'Sender Email';
 $lang->mail->nextStep       = 'Next';
 $lang->mail->successSaved   = 'Email settings are saved.';
+$lang->mail->setForUser     = 'Could not test mail configure because the users are without mail in system. Please set mail for user first.';
 $lang->mail->testSubject    = 'Testing Email';
 $lang->mail->testContent    = 'Email settings are done!';
 $lang->mail->successSended  = 'Sent!';
@@ -5781,7 +5782,6 @@ $lang->task->error->totalNumber      = '"Total Cost" must be numbers.';
 $lang->task->error->consumedNumber   = '"Current Cost" must be numbers.';
 $lang->task->error->estimateNumber   = '"Estimates" must be numbers.';
 $lang->task->error->recordMinus      = 'Work hours should not be negative number.';
-$lang->task->error->recordZero       = 'Work hours should not be zero.';
 $lang->task->error->consumedSmall    = '"Total Cost" must be > the last number.';
 $lang->task->error->consumedThisTime = 'Please enter "Hours Cost"';
 $lang->task->error->left             = 'Please enter "Hours Left"';
@@ -6863,11 +6863,10 @@ $lang->webhook->chooseDept = 'Choose department';
 $lang->webhook->assigned   = 'AssignedTo';
 $lang->webhook->setting    = 'Settings';
 
-$lang->webhook->browse       = 'Browse';
-$lang->webhook->create       = 'Create';
-$lang->webhook->edit         = 'Edit';
-$lang->webhook->delete       = 'Delete';
-$lang->webhook->rechooseDept = 'Rechoose department';
+$lang->webhook->browse = 'Browse';
+$lang->webhook->create = 'Create';
+$lang->webhook->edit   = 'Edit';
+$lang->webhook->delete = 'Delete';
 
 $lang->webhook->id          = 'ID';
 $lang->webhook->type        = 'Type';
@@ -6900,11 +6899,12 @@ $lang->webhook->typeList['default']     = 'Others';
 $lang->webhook->sendTypeList['sync']  = 'Synchronous';
 $lang->webhook->sendTypeList['async'] = 'Asynchronous';
 
-$lang->webhook->dingAgentId    = 'AgentID';
-$lang->webhook->dingAppKey     = 'AppKey';
-$lang->webhook->dingAppSecret  = 'AppSecret';
-$lang->webhook->dingUserid     = 'Ding UserID';
-$lang->webhook->dingBindStatus = 'Bind Status';
+$lang->webhook->dingAgentId     = 'AgentID';
+$lang->webhook->dingAppKey      = 'AppKey';
+$lang->webhook->dingAppSecret   = 'AppSecret';
+$lang->webhook->dingUserid      = 'Ding UserID';
+$lang->webhook->dingBindStatus  = 'Bind Status';
+$lang->webhook->chooseDeptAgain = 'Rechoose department';
 
 $lang->webhook->wechatCorpId     = 'Corp ID';
 $lang->webhook->wechatCorpSecret = 'Corp Secret';
@@ -6946,5 +6946,5 @@ $lang->webhook->note->typeList['weixin']    = 'Add a customized bot in WeChat an
 $lang->webhook->note->typeList['default']   = 'Get a webhook url from others';
 
 $lang->webhook->error = new stdclass();
-$lang->webhook->error->curl     = 'Load php-curl in php.ini.';
-$lang->webhook->error->moreDept = 'There are too many departments. Getting users may time out. Please choose department first.';
+$lang->webhook->error->curl   = 'Load php-curl in php.ini.';
+$lang->webhook->error->noDept = 'There is no department selected. Please choose department first.';
