@@ -326,8 +326,8 @@ $lang->caselib->menu->caselib   = array('link' => '用例库|caselib|browse|libI
 
 $lang->caselib->subMenu = new stdclass();
 $lang->caselib->subMenu->testcase = new stdclass();
-$lang->caselib->subMenu->testcase->feature = array('link' => '功能测试|testcase|browse', 'alias' => 'view,create,batchcreate,edit,batchedit,showimport,groupcase,importfromlib', 'subModule' => 'tree,story');
-$lang->caselib->subMenu->testcase->unit    = array('link' => '单元测试|testtask|browseUnits');
+$lang->caselib->subMenu->testcase->feature = array('link' => '功能测试|testcase|browse|', 'alias' => 'view,create,batchcreate,edit,batchedit,showimport,groupcase,importfromlib', 'subModule' => 'tree,story');
+$lang->caselib->subMenu->testcase->unit    = array('link' => '单元测试|testtask|browseUnits|');
 
 $lang->ci = new stdclass();
 $lang->ci->menu = new stdclass();
@@ -1100,7 +1100,6 @@ $lang->action->dynamicAction->todo['erased']               = '删除待办';
 $lang->action->dynamicAction->todo['finished']             = '完成待办';
 $lang->action->dynamicAction->todo['activated']            = '激活待办';
 $lang->action->dynamicAction->todo['closed']               = '关闭待办';
-$lang->action->dynamicAction->todo['deleted']              = '删除待办';
 $lang->action->dynamicAction->todo['assigned']             = '指派待办';
 $lang->action->dynamicAction->todo['undeleted']            = '还原待办';
 $lang->action->dynamicAction->todo['hidden']               = '隐藏待办';
@@ -4639,6 +4638,7 @@ $lang->project->fixFirstWithLeft      = '修改剩余工时';
 $lang->project->action = new stdclass();
 $lang->project->action->opened  = '$date, 由 <strong>$actor</strong> 创建。$extra' . "\n";
 $lang->project->action->managed = '$date, 由 <strong>$actor</strong> 维护。$extra' . "\n";
+$lang->project->action->edited  = '$date, 由 <strong>$actor</strong> 编辑。$extra' . "\n";
 $lang->project->action->extra   = '相关产品为 %s。';
 
 $lang->project->charts = new stdclass();
@@ -6408,6 +6408,7 @@ $lang->todo->createCycle  = "创建周期待办";
 $lang->todo->assignTo     = "指派给";
 $lang->todo->assignedDate = "指派日期";
 $lang->todo->assignAction = "指派待办";
+$lang->todo->start        = "开始待办";
 $lang->todo->activate     = "激活待办";
 $lang->todo->batchCreate  = "批量添加";
 $lang->todo->edit         = "编辑待办";

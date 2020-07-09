@@ -326,8 +326,8 @@ $lang->caselib->menu->caselib   = array('link' => 'Case Library|caselib|browse|l
 
 $lang->caselib->subMenu = new stdclass();
 $lang->caselib->subMenu->testcase = new stdclass();
-$lang->caselib->subMenu->testcase->feature = array('link' => 'Functional Test|testcase|browse', 'alias' => 'view,create,batchcreate,edit,batchedit,showimport,groupcase,importfromlib', 'subModule' => 'tree,story');
-$lang->caselib->subMenu->testcase->unit    = array('link' => 'Unit Test|testtask|browseUnits');
+$lang->caselib->subMenu->testcase->feature = array('link' => 'Functional Test|testcase|browse|', 'alias' => 'view,create,batchcreate,edit,batchedit,showimport,groupcase,importfromlib', 'subModule' => 'tree,story');
+$lang->caselib->subMenu->testcase->unit    = array('link' => 'Unit Test|testtask|browseUnits|');
 
 $lang->ci = new stdclass();
 $lang->ci->menu = new stdclass();
@@ -1100,7 +1100,6 @@ $lang->action->dynamicAction->todo['erased']               = 'Delete Todo';
 $lang->action->dynamicAction->todo['finished']             = 'Finish Todo';
 $lang->action->dynamicAction->todo['activated']            = 'Activate Todo';
 $lang->action->dynamicAction->todo['closed']               = 'Close Todo';
-$lang->action->dynamicAction->todo['deleted']              = 'Delete Todo';
 $lang->action->dynamicAction->todo['assigned']             = 'Assign Todo';
 $lang->action->dynamicAction->todo['undeleted']            = 'Restore Todo';
 $lang->action->dynamicAction->todo['hidden']               = 'Hide Todo';
@@ -4637,8 +4636,9 @@ $lang->project->interval              = 'Intervals ';
 $lang->project->fixFirstWithLeft      = 'Update hours left too';
 
 $lang->project->action = new stdclass();
-$lang->project->action->opened  = '$date, created by <strong>$actor</strong> .' . "\n";
-$lang->project->action->managed = '$date, managed by <strong>$actor</strong> .' . "\n";
+$lang->project->action->opened  = '$date, created by <strong>$actor</strong> . $extra' . "\n";
+$lang->project->action->managed = '$date, managed by <strong>$actor</strong> . $extra' . "\n";
+$lang->project->action->edited  = '$date, edited by <strong>$actor</strong> . $extra' . "\n";
 $lang->project->action->extra   = "The linked {$lang->productCommon}s are %s.";
 
 $lang->project->charts = new stdclass();
@@ -6401,6 +6401,7 @@ $lang->todo->createCycle  = "Add Recurred Todo";
 $lang->todo->assignTo     = "Assigned To";
 $lang->todo->assignedDate = "Assigned Date";
 $lang->todo->assignAction = "Assign Todo";
+$lang->todo->start        = "Start Todo";
 $lang->todo->activate     = "Activate Todo";
 $lang->todo->batchCreate  = "Batch Add ";
 $lang->todo->edit         = "Edit Todo";
