@@ -502,7 +502,7 @@ $lang->error->date            = "『%s』应当为合法的日期。";
 $lang->error->datetime        = "『%s』应当为合法的日期。";
 $lang->error->code            = "『%s』应当为字母或数字的组合。";
 $lang->error->account         = "『%s』只能是字母和数字的组合三位以上。";
-$lang->error->passwordsame    = "两次密码应当相等。";
+$lang->error->passwordsame    = "密码输入不一致。";
 $lang->error->passwordrule    = "密码应该符合规则，长度至少为六位。";
 $lang->error->accessDenied    = '您没有访问权限';
 $lang->error->pasteImg        = '您的浏览器不支持粘贴图片！';
@@ -4428,7 +4428,7 @@ $lang->project->createStory   = "添加{$lang->storyCommon}";
 $lang->project->all           = '所有';
 $lang->project->undone        = '未完成';
 $lang->project->unclosed      = '未关闭';
-$lang->project->typeDesc      = "运维{$lang->projectCommon}没有{$lang->storyCommon}、bug、版本、测试功能，同时禁用燃尽图。";
+$lang->project->typeDesc      = "运维{$lang->projectCommon}没有{$lang->storyCommon}、bug、版本、测试功能。";
 $lang->project->mine          = '我负责：';
 $lang->project->other         = '其他：';
 $lang->project->deleted       = '已删除';
@@ -5380,6 +5380,9 @@ $lang->story->released       = "已发布{$lang->storyCommon}数";
 $lang->story->ditto       = '同上';
 $lang->story->dittoNotice = "该{$lang->storyCommon}与上一{$lang->storyCommon}不属于同一产品！";
 
+$lang->story->needNotReviewList[0] = '需要评审';
+$lang->story->needNotReviewList[1] = '不需要评审';
+
 $lang->story->useList[0] = '不使用';
 $lang->story->useList[1] = '使用';
 
@@ -5631,7 +5634,7 @@ $lang->task->case                = '相关用例';
 $lang->task->confirmStoryChange  = "确认{$lang->storyCommon}变动";
 $lang->task->storyChange         = "{$lang->storyCommon}变更";
 $lang->task->progress            = '进度';
-$lang->task->progressAB          = '%';
+$lang->task->progressAB          = '进度';
 $lang->task->progressTips        = '已消耗/(已消耗+剩余)';
 $lang->task->copy                = '复制任务';
 $lang->task->waitTask            = '未开始的任务';

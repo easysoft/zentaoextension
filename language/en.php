@@ -502,7 +502,7 @@ $lang->error->date            = "『%s』should be valid date.";
 $lang->error->datetime        = "『%s』should be valid date.";
 $lang->error->code            = "『%s』should be letters or numbers.";
 $lang->error->account         = "『%s』should be >= 3 letters or numbers.";
-$lang->error->passwordsame    = "Passwords should be consistent.";
+$lang->error->passwordsame    = "The password input is inconsistent.";
 $lang->error->passwordrule    = "Password should conform to rules. It should be >= 6 characters.";
 $lang->error->accessDenied    = 'Access is denied.';
 $lang->error->pasteImg        = 'Images are not allowed to be pasted in your browser!';
@@ -5379,6 +5379,9 @@ $lang->story->released       = 'Released Stories';
 
 $lang->story->ditto       = 'Ditto';
 $lang->story->dittoNotice = 'This story is not linked to the same product as the last one is!';
+
+$lang->story->needNotReviewList[0] = 'Need Review';
+$lang->story->needNotReviewList[1] = 'Need Not Review';
 
 $lang->story->useList[0] = 'Yes';
 $lang->story->useList[1] = 'No';
