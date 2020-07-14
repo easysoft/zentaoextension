@@ -2883,13 +2883,18 @@ $lang->dev->tableList['log']              = 'Log';
 $lang->dev->tableList['message']          = 'Message';
 $lang->dev->tableList['notify']           = 'Notification';
 $lang->dev->tableList['userview']         = 'User Privilege';
-$lang->dev->tableList['im_chatuser']      = 'Client Users';
-$lang->dev->tableList['im_message']       = 'Client Messages';
-$lang->dev->tableList['im_messagestatus'] = 'Client Messages Status';
 $lang->dev->tableList['repo']             = 'Code';
 $lang->dev->tableList['repohistory']      = 'Repo History';
 $lang->dev->tableList['repofiles']        = 'Repo Files';
 $lang->dev->tableList['repobranch']       = 'Repo Branch';
+$lang->dev->tableList['im_chatuser']         = 'Client Users';
+$lang->dev->tableList['im_message']          = 'Client Message';
+$lang->dev->tableList['im_messagestatus']    = 'Client Message Status';
+$lang->dev->tableList['im_chat']             = 'Client Chat';
+$lang->dev->tableList['im_client']           = 'Client Upgrade';
+$lang->dev->tableList['im_conference']       = 'Client Conference';
+$lang->dev->tableList['im_conferenceaction'] = 'Client Conference Action';
+$lang->dev->tableList['im_queue']            = 'Client Queue';
 
 $lang->dev->groupList['my']      = 'Dashboard';
 $lang->dev->groupList['product'] = $lang->productCommon;
@@ -5798,6 +5803,7 @@ $lang->task->error->consumed         = 'Task: %s hour must be < 0. Ignore change
 $lang->task->error->assignedTo       = 'Multi-user task in the current status cannot be assigned to a member who is not in the task team.';
 $lang->task->error->consumedEmpty    = '"Current Cost" should not be empty.';
 $lang->task->error->deadlineSmall    = '"Deadline" must be greater than "StartDate".';
+$lang->task->error->alreadyStarted   = 'You cannot start this task, because it is started.';
 
 $lang->task->report = new stdclass();
 $lang->task->report->common = 'Report';
@@ -6537,6 +6543,7 @@ $lang->tree->confirmRoot4Doc    = "Any changes to the library will change the do
 $lang->tree->successSave        = 'Saved.';
 $lang->tree->successFixed       = 'Fixed.';
 $lang->tree->repeatName         = 'The name "%s" exists!';
+$lang->tree->shouldNotBlank     = 'Module name should not be blank!';
 
 $lang->tree->module     = 'Module';
 $lang->tree->name       = 'Name';

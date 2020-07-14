@@ -2883,13 +2883,18 @@ $lang->dev->tableList['log']              = '接口日志';
 $lang->dev->tableList['message']          = '消息';
 $lang->dev->tableList['notify']           = '通知';
 $lang->dev->tableList['userview']         = '可访问权限';
-$lang->dev->tableList['im_chatuser']      = '客户端用户';
-$lang->dev->tableList['im_message']       = '客户端消息';
-$lang->dev->tableList['im_messagestatus'] = '客户端状态';
 $lang->dev->tableList['repo']             = '代码';
 $lang->dev->tableList['repohistory']      = '版本历史';
 $lang->dev->tableList['repofiles']        = '代码文件';
 $lang->dev->tableList['repobranch']       = '代码分支';
+$lang->dev->tableList['im_chatuser']         = '客户端用户';
+$lang->dev->tableList['im_message']          = '客户端消息';
+$lang->dev->tableList['im_messagestatus']    = '客户端状态';
+$lang->dev->tableList['im_chat']             = '客户端会话';
+$lang->dev->tableList['im_client']           = '客户端版本更新';
+$lang->dev->tableList['im_conference']       = '音视频会议';
+$lang->dev->tableList['im_conferenceaction'] = '会议action';
+$lang->dev->tableList['im_queue']            = '客户端推送';
 
 $lang->dev->groupList['my']      = '我的地盘';
 $lang->dev->groupList['product'] = $lang->productCommon;
@@ -3334,6 +3339,7 @@ $lang->file->dangerFile       = " 您选择的文件存在安全风险，系统�
 $lang->file->errorSuffix      = '压缩包格式错误，只能上传zip压缩包！';
 $lang->file->errorExtract     = '解压缩失败！可能文件已经损坏，或压缩包里含有非法上传文件。';
 $lang->file->fileNotFound     = '未找到该文件，可能物理文件已被删除！';
+$lang->file->fileContentEmpty = '上传文件内容为空，请检查后重新上传。';
 /* git */
 $lang->git->common  = 'Git';
 $lang->git->cat     = '查看源代码';
@@ -5798,6 +5804,7 @@ $lang->task->error->consumed         = '任务：%s工时不能小于0，忽略�
 $lang->task->error->assignedTo       = '当前状态的多人任务不能指派给任务团队外的成员。';
 $lang->task->error->consumedEmpty    = '"本次消耗"不能为空';
 $lang->task->error->deadlineSmall    = '"截止日期"必须大于"预计开始"';
+$lang->task->error->alreadyStarted   = '此任务已被启动，不能重复启动！';
 
 $lang->task->report         = new stdclass();
 $lang->task->report->common = '报表';
@@ -6544,6 +6551,7 @@ $lang->tree->confirmRoot4Doc    = "修改所属文档库，会同时修改该分
 $lang->tree->successSave        = '成功保存';
 $lang->tree->successFixed       = '成功修正数据！';
 $lang->tree->repeatName         = '模块名“%s”已经存在！';
+$lang->tree->shouldNotBlank     = '模块名不能为空格！';
 
 $lang->tree->module     = '模块';
 $lang->tree->name       = '模块名称';
