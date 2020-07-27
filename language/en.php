@@ -501,7 +501,7 @@ $lang->error->date            = "『%s』should be valid date.";
 $lang->error->datetime        = "『%s』should be valid date.";
 $lang->error->code            = "『%s』should be letters or numbers.";
 $lang->error->account         = "『%s』should be >= 3 letters or numbers.";
-$lang->error->passwordsame    = "The password input is inconsistent.";
+$lang->error->passwordsame    = "The two passwords should be the same.";
 $lang->error->passwordrule    = "Password should conform to rules. It should be >= 6 characters.";
 $lang->error->accessDenied    = 'Access is denied.';
 $lang->error->pasteImg        = 'Images are not allowed to be pasted in your browser!';
@@ -3331,6 +3331,7 @@ $lang->file->dangerFile       = " The file failed to be uploaded for security re
 $lang->file->errorSuffix      = 'Format is incorrect. .zip files ONLY!';
 $lang->file->errorExtract     = 'Extracting files failed. Files might be damaged or there might be invalid files in the zip package.';
 $lang->file->fileNotFound     = 'The file was not found. The physical file might have been deleted!';
+$lang->file->fileContentEmpty = 'The file is empty. Check the file and upload it again.';
 /* git */
 $lang->git->common  = 'Git';
 $lang->git->cat     = 'View Source Code';
@@ -3958,6 +3959,7 @@ $lang->misc->feature = new stdclass();
 $lang->misc->feature->lastest  = 'Latest Version';
 $lang->misc->feature->detailed = 'Detail';
 
+$lang->misc->releaseDate['12.3.4']      = '2020-07-27';
 $lang->misc->releaseDate['12.3.3']      = '2020-07-02';
 $lang->misc->releaseDate['12.3.2']      = '2020-06-01';
 $lang->misc->releaseDate['12.3.1']      = '2020-05-15';
@@ -4002,6 +4004,7 @@ $lang->misc->releaseDate['7.2.stable']  = '2015-05-22';
 $lang->misc->releaseDate['7.1.stable']  = '2015-03-07';
 $lang->misc->releaseDate['6.3.stable']  = '2014-11-07';
 
+$lang->misc->feature->all['12.3.4'][] = array('title'=>'Fix Bug', 'desc' => '');
 $lang->misc->feature->all['12.3.3'][] = array('title'=>'Fix Bug', 'desc' => '');
 $lang->misc->feature->all['12.3.2'][] = array('title'=>'Fix workflow', 'desc' => '');
 $lang->misc->feature->all['12.3.1'][] = array('title'=>'Fix bugs of high severity.', 'desc' => '');
@@ -4425,7 +4428,7 @@ $lang->project->createStory   = "Create Story";
 $lang->project->all           = "All {$lang->projectCommon}s";
 $lang->project->undone        = 'Unfinished ';
 $lang->project->unclosed      = 'Unclosed';
-$lang->project->typeDesc      = 'No story, bug, build, test, or burndown chart is allowed in OPS';
+$lang->project->typeDesc      = "OPS {$lang->projectCommon} has no {$lang->storyCommon}, Bug, Build, or Test features.";
 $lang->project->mine          = 'Mine: ';
 $lang->project->other         = 'Others:';
 $lang->project->deleted       = 'Deleted';
@@ -5313,6 +5316,7 @@ $lang->story->batchChangeStage  = "Batch Change Phases";
 $lang->story->batchAssignTo     = "Batch Assign";
 $lang->story->batchChangeModule = "Batch Change Modules";
 $lang->story->viewAll           = "See All";
+$lang->story->skipStory         = '%s is a parent story. It cannot be closed.';
 
 $lang->story->common         = 'Story';
 $lang->story->id             = 'ID';
@@ -5480,7 +5484,7 @@ $lang->story->mustChoosePreVersion  = 'Select a version to revert to.';
 $lang->story->noStory               = 'No stories yet. ';
 $lang->story->ignoreChangeStage     = 'Story %s is a draft. Please review it..';
 $lang->story->cannotDeleteParent    = "Can not delete parent {$lang->storyCommon}";
-$lang->story->moveChildrenTips      = "Move child {$lang->storyCommon} to selected product when modified product property of parent {$lang->storyCommon}.";
+$lang->story->moveChildrenTips      = "Its Child {$lang->storyCommon} will be moved to the selected product when editing the linked product of Parent {$lang->storyCommon}.";
 
 $lang->story->form = new stdclass();
 $lang->story->form->area      = 'Scope';

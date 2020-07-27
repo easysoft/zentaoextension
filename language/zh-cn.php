@@ -501,7 +501,7 @@ $lang->error->date            = "『%s』应当为合法的日期。";
 $lang->error->datetime        = "『%s』应当为合法的日期。";
 $lang->error->code            = "『%s』应当为字母或数字的组合。";
 $lang->error->account         = "『%s』只能是字母和数字的组合三位以上。";
-$lang->error->passwordsame    = "密码输入不一致。";
+$lang->error->passwordsame    = "两次密码应该相同。";
 $lang->error->passwordrule    = "密码应该符合规则，长度至少为六位。";
 $lang->error->accessDenied    = '您没有访问权限';
 $lang->error->pasteImg        = '您的浏览器不支持粘贴图片！';
@@ -3959,6 +3959,7 @@ $lang->misc->feature = new stdclass();
 $lang->misc->feature->lastest  = '最新版本';
 $lang->misc->feature->detailed = '详情';
 
+$lang->misc->releaseDate['12.3.4']      = '2020-07-27';
 $lang->misc->releaseDate['12.3.3']      = '2020-07-02';
 $lang->misc->releaseDate['12.3.2']      = '2020-06-01';
 $lang->misc->releaseDate['12.3.1']      = '2020-05-15';
@@ -4003,6 +4004,7 @@ $lang->misc->releaseDate['7.2.stable']  = '2015-05-22';
 $lang->misc->releaseDate['7.1.stable']  = '2015-03-07';
 $lang->misc->releaseDate['6.3.stable']  = '2014-11-07';
 
+$lang->misc->feature->all['12.3.4'][] = array('title'=>'修复Bug', 'desc' => '');
 $lang->misc->feature->all['12.3.3'][] = array('title'=>'修复Bug', 'desc' => '');
 $lang->misc->feature->all['12.3.2'][] = array('title'=>'修复工作流。', 'desc' => '');
 $lang->misc->feature->all['12.3.1'][] = array('title'=>'修复重要程度高的Bug。', 'desc' => '');
@@ -5314,7 +5316,8 @@ $lang->story->batchChangeStage  = "批量修改阶段";
 $lang->story->batchAssignTo     = "批量指派";
 $lang->story->batchChangeModule = "批量修改模块";
 $lang->story->viewAll           = '查看全部';
-$lang->story->parentSkip        = '需求：%s 为父需求，将不会被关闭。';
+$lang->story->skipStory         = '需求：%s 为父需求，将不会被关闭。';
+$lang->story->closedStory       = '需求：%s 已关闭，将不会被关闭。';
 
 $lang->story->common         = $lang->storyCommon;
 $lang->story->id             = '编号';
