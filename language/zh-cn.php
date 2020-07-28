@@ -2887,6 +2887,10 @@ $lang->dev->tableList['repo']             = '代码';
 $lang->dev->tableList['repohistory']      = '版本历史';
 $lang->dev->tableList['repofiles']        = '代码文件';
 $lang->dev->tableList['repobranch']       = '代码分支';
+$lang->dev->tableList['ci']               = '持续集成';
+$lang->dev->tableList['compile']          = '构建';
+$lang->dev->tableList['jenkins']          = 'Jenkins';
+$lang->dev->tableList['job']              = '构建任务';
 
 $lang->dev->groupList['my']      = '我的地盘';
 $lang->dev->groupList['product'] = $lang->productCommon;
@@ -2895,7 +2899,7 @@ $lang->dev->groupList['qa']      = '测试';
 $lang->dev->groupList['doc']     = '文档';
 $lang->dev->groupList['report']  = '统计';
 $lang->dev->groupList['company'] = '组织';
-$lang->dev->groupList['repo']    = '代码';
+$lang->dev->groupList['repo']    = '持续集成';
 $lang->dev->groupList['api']     = 'API';
 $lang->dev->groupList['message'] = '消息';
 
@@ -3959,7 +3963,7 @@ $lang->misc->feature = new stdclass();
 $lang->misc->feature->lastest  = '最新版本';
 $lang->misc->feature->detailed = '详情';
 
-$lang->misc->releaseDate['12.3.4']      = '2020-07-27';
+$lang->misc->releaseDate['12.4.stable'] = '2020-07-28';
 $lang->misc->releaseDate['12.3.3']      = '2020-07-02';
 $lang->misc->releaseDate['12.3.2']      = '2020-06-01';
 $lang->misc->releaseDate['12.3.1']      = '2020-05-15';
@@ -4004,7 +4008,8 @@ $lang->misc->releaseDate['7.2.stable']  = '2015-05-22';
 $lang->misc->releaseDate['7.1.stable']  = '2015-03-07';
 $lang->misc->releaseDate['6.3.stable']  = '2014-11-07';
 
-$lang->misc->feature->all['12.3.4'][] = array('title'=>'修复Bug', 'desc' => '');
+$lang->misc->feature->all['12.4.stable'][] = array('title'=>'修复Bug', 'desc' => '');
+
 $lang->misc->feature->all['12.3.3'][] = array('title'=>'修复Bug', 'desc' => '');
 $lang->misc->feature->all['12.3.2'][] = array('title'=>'修复工作流。', 'desc' => '');
 $lang->misc->feature->all['12.3.1'][] = array('title'=>'修复重要程度高的Bug。', 'desc' => '');

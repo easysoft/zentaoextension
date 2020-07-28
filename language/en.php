@@ -2887,6 +2887,10 @@ $lang->dev->tableList['repo']             = 'Code';
 $lang->dev->tableList['repohistory']      = 'Repo History';
 $lang->dev->tableList['repofiles']        = 'Repo Files';
 $lang->dev->tableList['repobranch']       = 'Repo Branch';
+$lang->dev->tableList['ci']               = 'CI';
+$lang->dev->tableList['compile']          = 'Compile';
+$lang->dev->tableList['jenkins']          = 'Jenkins';
+$lang->dev->tableList['job']              = 'Job';
 
 $lang->dev->groupList['my']      = 'Dashboard';
 $lang->dev->groupList['product'] = $lang->productCommon;
@@ -2895,7 +2899,7 @@ $lang->dev->groupList['qa']      = 'Test';
 $lang->dev->groupList['doc']     = 'Doc';
 $lang->dev->groupList['report']  = 'Report';
 $lang->dev->groupList['company'] = 'Company';
-$lang->dev->groupList['repo']    = 'Code';
+$lang->dev->groupList['repo']    = 'CI';
 $lang->dev->groupList['api']     = 'API';
 $lang->dev->groupList['message'] = 'Message';
 
@@ -3959,7 +3963,7 @@ $lang->misc->feature = new stdclass();
 $lang->misc->feature->lastest  = 'Latest Version';
 $lang->misc->feature->detailed = 'Detail';
 
-$lang->misc->releaseDate['12.3.4']      = '2020-07-27';
+$lang->misc->releaseDate['12.4.stable'] = '2020-07-28';
 $lang->misc->releaseDate['12.3.3']      = '2020-07-02';
 $lang->misc->releaseDate['12.3.2']      = '2020-06-01';
 $lang->misc->releaseDate['12.3.1']      = '2020-05-15';
@@ -4004,7 +4008,8 @@ $lang->misc->releaseDate['7.2.stable']  = '2015-05-22';
 $lang->misc->releaseDate['7.1.stable']  = '2015-03-07';
 $lang->misc->releaseDate['6.3.stable']  = '2014-11-07';
 
-$lang->misc->feature->all['12.3.4'][] = array('title'=>'Fix Bug', 'desc' => '');
+$lang->misc->feature->all['12.4.stable'][] = array('title'=>'Fix Bug', 'desc' => '');
+
 $lang->misc->feature->all['12.3.3'][] = array('title'=>'Fix Bug', 'desc' => '');
 $lang->misc->feature->all['12.3.2'][] = array('title'=>'Fix workflow', 'desc' => '');
 $lang->misc->feature->all['12.3.1'][] = array('title'=>'Fix bugs of high severity.', 'desc' => '');
@@ -5317,6 +5322,7 @@ $lang->story->batchAssignTo     = "Batch Assign";
 $lang->story->batchChangeModule = "Batch Change Modules";
 $lang->story->viewAll           = "See All";
 $lang->story->skipStory         = '%s is a parent story. It cannot be closed.';
+$lang->story->closedStory       = 'Story %s is closed and will not be closed.';
 
 $lang->story->common         = 'Story';
 $lang->story->id             = 'ID';
