@@ -5242,6 +5242,9 @@ $lang->search->andor['and']         = '并且';
 $lang->search->andor['or']          = '或者';
 
 $lang->search->null = '空';
+
+$lang->userquery        = new stdclass();
+$lang->userquery->title = '标题';
 /* sso */
 $lang->sso = new stdclass();
 $lang->sso->settings = '配置';

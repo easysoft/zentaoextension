@@ -5242,6 +5242,9 @@ $lang->search->andor['and']         = 'And';
 $lang->search->andor['or']          = 'Or';
 
 $lang->search->null = 'Null';
+
+$lang->userquery        = new stdclass();
+$lang->userquery->title = 'Title';
 /* sso */
 $lang->sso = new stdclass();
 $lang->sso->settings = 'Settings';
