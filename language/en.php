@@ -3964,6 +3964,7 @@ $lang->misc->feature = new stdclass();
 $lang->misc->feature->lastest  = 'Latest Version';
 $lang->misc->feature->detailed = 'Detail';
 
+$lang->misc->releaseDate['12.4.1']      = '2020-08-10';
 $lang->misc->releaseDate['12.4.stable'] = '2020-07-28';
 $lang->misc->releaseDate['12.3.3']      = '2020-07-02';
 $lang->misc->releaseDate['12.3.2']      = '2020-06-01';
@@ -4008,6 +4009,8 @@ $lang->misc->releaseDate['7.4.beta']    = '2015-11-13';
 $lang->misc->releaseDate['7.2.stable']  = '2015-05-22';
 $lang->misc->releaseDate['7.1.stable']  = '2015-03-07';
 $lang->misc->releaseDate['6.3.stable']  = '2014-11-07';
+
+$lang->misc->feature->all['12.4.1'][] = array('title'=>'Fix Bug', 'desc' => '');
 
 $lang->misc->feature->all['12.4.stable'][] = array('title'=>'Fix Bug', 'desc' => '');
 
@@ -5897,6 +5900,9 @@ $lang->task->report->tasksPerClosedReason->graph->xAxisName = 'Close Reason';
 
 $lang->task->report->finishedTasksPerDay->type             = 'bar';
 $lang->task->report->finishedTasksPerDay->graph->xAxisName = 'Date';
+
+$lang->taskestimate = new stdclass();
+$lang->taskestimate->consumed = 'Estimates';
 /* testcase */
 $lang->testcase->id               = 'ID';
 $lang->testcase->product          = $lang->productCommon;
@@ -6244,6 +6250,7 @@ $lang->testtask->reportChart      = 'Report';
 $lang->testtask->reportAction     = 'Case Report';
 $lang->testtask->delete           = "Delete Request";
 $lang->testtask->importUnitResult = "Import Unit Result";
+$lang->testtask->importunitresult = "Import Unit Result"; //Fix bug custom required testtask.
 $lang->testtask->browseUnits      = "Unit Test List";
 $lang->testtask->unitCases        = "Unit Test Cases";
 $lang->testtask->view             = "Request Detail";

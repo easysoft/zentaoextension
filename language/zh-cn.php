@@ -3964,6 +3964,7 @@ $lang->misc->feature = new stdclass();
 $lang->misc->feature->lastest  = '最新版本';
 $lang->misc->feature->detailed = '详情';
 
+$lang->misc->releaseDate['12.4.1']      = '2020-08-10';
 $lang->misc->releaseDate['12.4.stable'] = '2020-07-28';
 $lang->misc->releaseDate['12.3.3']      = '2020-07-02';
 $lang->misc->releaseDate['12.3.2']      = '2020-06-01';
@@ -4008,6 +4009,8 @@ $lang->misc->releaseDate['7.4.beta']    = '2015-11-13';
 $lang->misc->releaseDate['7.2.stable']  = '2015-05-22';
 $lang->misc->releaseDate['7.1.stable']  = '2015-03-07';
 $lang->misc->releaseDate['6.3.stable']  = '2014-11-07';
+
+$lang->misc->feature->all['12.4.1'][] = array('title'=>'修复Bug', 'desc' => '');
 
 $lang->misc->feature->all['12.4.stable'][] = array('title'=>'修复Bug', 'desc' => '');
 
@@ -5897,6 +5900,9 @@ $lang->task->report->tasksPerClosedReason->graph->xAxisName = '关闭原因';
 
 $lang->task->report->finishedTasksPerDay->type             = 'bar';
 $lang->task->report->finishedTasksPerDay->graph->xAxisName = '日期';
+
+$lang->taskestimate           = new stdclass();
+$lang->taskestimate->consumed = '工时';
 /* testcase */
 $lang->testcase->id               = '用例编号';
 $lang->testcase->product          = "所属{$lang->productCommon}";
@@ -6244,6 +6250,7 @@ $lang->testtask->reportChart      = '报表统计';
 $lang->testtask->reportAction     = '用例报表统计';
 $lang->testtask->delete           = "删除测试单";
 $lang->testtask->importUnitResult = "导入单元测试结果";
+$lang->testtask->importunitresult = "导入单元测试"; //Fix bug custom required testtask.
 $lang->testtask->browseUnits      = "单元测试列表";
 $lang->testtask->unitCases        = "单元测试用例";
 $lang->testtask->view             = "概况";
