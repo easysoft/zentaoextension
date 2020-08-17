@@ -2713,8 +2713,8 @@ $lang->custom->moduleName['project']     = $lang->projectCommon;
 
 $lang->custom->conceptQuestions['overview']         = "1. Which combination of management fits your company?";
 $lang->custom->conceptQuestions['story']            = "2. Do you use the concept of requirement or user story in your company?";
-$lang->custom->conceptQuestions['requirementpoint'] = "3. Do you use hours or function points to make estimations in your company?";
-$lang->custom->conceptQuestions['storypoint']       = "3. Do you use hours or story points to make estimations in your company?";
+$lang->custom->conceptQuestions['requirementpoint'] = "2. Do you use hours or function points to make estimations in your company?";
+$lang->custom->conceptQuestions['storypoint']       = "2. Do you use hours or story points to make estimations in your company?";
 
 $lang->custom->conceptOptions = new stdclass;
 
@@ -5814,7 +5814,7 @@ $lang->task->error->work             = '"Comment" must be <  %d characters.';
 $lang->task->error->skipClose        = 'Task: %s is not "Finished” or “Cancelled”. Do you want to close it?';
 $lang->task->error->consumed         = 'Task: %s hour must be < 0. Ignore changes to this task.';
 $lang->task->error->assignedTo       = 'Multi-user task in the current status cannot be assigned to a member who is not in the task team.';
-$lang->task->error->consumedEmpty    = '"Current Cost" should not be empty.';
+$lang->task->error->consumedEmpty    = '"Current Cost" should not be 0.';
 $lang->task->error->deadlineSmall    = '"Deadline" must be greater than "StartDate".';
 $lang->task->error->alreadyStarted   = 'You cannot start this task, because it is started.';
 
