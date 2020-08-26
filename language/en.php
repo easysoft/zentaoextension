@@ -109,18 +109,56 @@ $lang->typeAB       = 'Type';
 $lang->common = new stdclass();
 $lang->common->common = 'Common Module';
 
-$lang->menu = new stdclass();
-$lang->menu->my      = '<span>Dashboard</span>|my|index';
-$lang->menu->product = $lang->productCommon . '|product|index|locate=no';
-$lang->menu->project = $lang->projectCommon . '|project|index|locate=no';
-$lang->menu->qa      = 'Test|qa|index';
-$lang->menu->ci      = 'CI|repo|browse';
-$lang->menu->doc     = 'Doc|doc|index';
-$lang->menu->report  = 'Report|report|index';
-$lang->menu->company = 'Company|company|index';
-$lang->menu->admin   = 'Admin|admin|index';
+$lang->mainNav = new stdclass();
+$lang->mainNav->my          = '<i class="icon icon-menu-my"></i> My|my|index|';
+$lang->mainNav->program     = '<i class="icon icon-menu-project"></i> Program|program|index|';
+//$lang->mainNav->reporting = '<i class="icon icon-menu-report"></i> Report|report|index|';
+//$lang->mainNav->attend    = '<i class="icon icon-file"></i> Attend|attend|personal|';
+$lang->mainNav->system      = '<i class="icon icon-menu-users"></i> System|custom|estimate|';
+$lang->mainNav->admin       = '<i class="icon icon-menu-backend"></i> Admin|admin|index|';
+//$lang->mainNav->recent    = '<i class="icon icon-menu-recent"></i> Recent|recent|index|';
 
-$lang->dividerMenu = ',qa,report,';
+$lang->reporting = new stdclass();
+$lang->dividerMenu = ',admin,';
+
+$lang->menu = new stdclass();
+$lang->menu->program = 'Home|program|index';
+$lang->menu->product = $lang->productCommon . '|product|index|locate=no';
+$lang->menu->project = 'Iteration|project|index|locate=no';
+$lang->menu->doc     = 'Doc|doc|index|';
+$lang->menu->qa      = 'Qa|qa|index';
+$lang->menu->company = new stdclass();
+
+$lang->program = new stdclass();
+
+$lang->system = new stdclass();
+$lang->system->menu = new stdclass();
+$lang->system->menu->estimate    = array('link' => 'Estimate|custom|estimate|');
+$lang->system->menu->stage       = array('link' => 'Stage|stage|browse|', 'subModule' => 'stage');
+$lang->system->menu->subject     = array('link' => 'Subject|subject|browse|');
+$lang->system->menu->holiday     = array('link' => 'Holiday|holiday|browse|');
+$lang->system->menu->custom      = array('link' => 'Custom|custom|plan|');
+$lang->system->dividerMenu = ',auditcl,subject,';
+
+if(isset($_COOKIE['systemModel']) and $_COOKIE['systemModel'] == 'scrum')
+{
+    $lang->system->menu = new stdclass();
+    $lang->system->menu->subject  = array('link' => 'Subject|subject|browse|');
+    $lang->system->menu->holiday     = array('link' => 'Holiday|holiday|browse|');
+	$lang->system->menu->custom   = array('link' => 'Custom|custom|concept|');
+    
+    $lang->system->subMenu->setmodel->cmmi  ='cmmi|custom|setcmmi|';
+    $lang->mainNav->system = '<i class="icon icon-menu-users"></i> System|subject|settips|';
+    unset($lang->system->dividerMenu);
+}
+
+$lang->stage = new stdclass();
+$lang->stage->menu = new stdclass();
+$lang->stage->menu->browse  = array('link' => 'Stage List|stage|browse|', 'alias' => 'create,edit,batchcreate');
+$lang->stage->menu->settype = 'Stage Type|stage|settype|';
+
+$lang->measurement = new stdclass();
+$lang->measurement->menu = new stdclass();
 
 $lang->searchObjects['bug']         = 'Bug';
 $lang->searchObjects['story']       = 'Story';
@@ -170,19 +208,22 @@ $lang->my = new stdclass();
 $lang->my->menu = new stdclass();
 
 $lang->my->menu->index          = 'Home|my|index';
-$lang->my->menu->calendar       = array('link' => 'Schedule|my|calendar|', 'subModule' => 'todo', 'alias' => 'todo');
+//$lang->my->menu->todo         = 'Todo|my|todo|';
+$lang->my->menu->effort         = 'Effort|my|effort|';
+//$lang->my->menu->calendar     = array('link' => 'Calendar|my|calendar|', 'subModule' => 'todo', 'alias' => 'todo');
+$lang->my->menu->program        = array('link' => 'Program|my|program|');
 $lang->my->menu->task           = array('link' => 'Task|my|task|', 'subModule' => 'task');
 $lang->my->menu->bug            = array('link' => 'Bug|my|bug|',   'subModule' => 'bug');
 $lang->my->menu->testtask       = array('link' => 'Request|my|testtask|', 'subModule' => 'testcase,testtask', 'alias' => 'testcase');
 $lang->my->menu->story          = array('link' => 'Story|my|story|',   'subModule' => 'story');
 $lang->my->menu->myProject      = "{$lang->projectCommon}|my|project|";
 $lang->my->menu->dynamic        = 'Dynamics|my|dynamic|';
-$lang->my->menu->profile        = array('link' => 'Profile|my|profile', 'alias' => 'editprofile');
-$lang->my->menu->changePassword = 'Password|my|changepassword';
-$lang->my->menu->manageContacts = 'Contact|my|managecontacts';
-$lang->my->menu->score          = array('link' => 'Points|my|score', 'subModule' => 'score');
+//$lang->my->menu->profile        = array('link' => 'Profile|my|profile', 'alias' => 'editprofile');
+//$lang->my->menu->changePassword = 'Password|my|changepassword';
+//$lang->my->menu->manageContacts = 'Contact|my|managecontacts';
+//$lang->my->menu->score          = array('link' => 'Points|my|score', 'subModule' => 'score');
 
-$lang->my->dividerMenu = ',task,myProject,profile,';
+$lang->my->dividerMenu = ',program,requirement,dynamic,';
 
 $lang->todo       = new stdclass();
 $lang->todo->menu = $lang->my->menu;
@@ -206,10 +247,10 @@ $lang->product->menu->view     = array('link' => 'Overview|product|view|productI
 
 $lang->product->dividerMenu = ',plan,project,doc,';
 
-$lang->story       = new stdclass();
 $lang->productplan = new stdclass();
 $lang->release     = new stdclass();
 $lang->branch      = new stdclass();
+$lang->story       = new stdclass();
 
 $lang->branch->menu      = $lang->product->menu;
 $lang->story->menu       = $lang->product->menu;
@@ -347,7 +388,6 @@ $lang->job->menu     = $lang->ci->menu;
 
 $lang->doc = new stdclass();
 $lang->doc->menu = new stdclass();
-//$lang->doc->menu->createLib = array('link' => '<i class="icon icon-folder-plus"></i>&nbsp;Add Library|doc|createLib', 'float' => 'right');
 
 $lang->svn = new stdclass();
 $lang->git = new stdclass();
@@ -365,33 +405,39 @@ $lang->report->notice = new stdclass();
 $lang->report->notice->help = 'Note: The report is generated on the results of browsing the list. Click, e.g. AssignedToMe, then click Create Report to generate a report based on AssignedToMe list.';
 
 $lang->company = new stdclass();
+$lang->dept    = new stdclass();
+$lang->group   = new stdclass();
+$lang->user    = new stdclass();
 $lang->company->menu = new stdclass();
-$lang->company->menu->browseUser  = array('link' => 'User|company|browse', 'subModule' => 'user');
-$lang->company->menu->dept        = array('link' => 'Department|dept|browse', 'subModule' => 'dept');
-$lang->company->menu->browseGroup = array('link' => 'Privilege|group|browse', 'subModule' => 'group');
-$lang->company->menu->dynamic     = 'Dynamics|company|dynamic|';
+$lang->dept->menu    = new stdclass();
+$lang->group->menu   = new stdclass();
+$lang->user->menu    = new stdclass();
+
+$lang->company = new stdclass();
+$lang->company->menu = new stdclass();
+$lang->company->menu->browseUser  = array('link' => 'User|company|browse', 'subModule' => ',user,');
+$lang->company->menu->dept        = array('link' => 'Dept|dept|browse', 'subModule' => 'dept');
+$lang->company->menu->browseGroup = array('link' => 'Group|group|browse', 'subModule' => 'group');
+$lang->company->menu->dynamic     = 'Dynamic|company|dynamic|';
 $lang->company->menu->view        = array('link' => 'Company|company|view');
-
-$lang->dept  = new stdclass();
-$lang->group = new stdclass();
-$lang->user  = new stdclass();
-
-$lang->dept->menu  = $lang->company->menu;
-$lang->group->menu = $lang->company->menu;
-$lang->user->menu  = $lang->company->menu;
 
 $lang->admin = new stdclass();
 $lang->admin->menu = new stdclass();
 $lang->admin->menu->index     = array('link' => 'Home|admin|index', 'alias' => 'register,certifytemail,certifyztmobile,ztcompany');
+$lang->admin->menu->company   = array('link' => 'Company|company|browse|', 'subModule' => ',user,dept,group,', 'alias' => ',dynamic,view,');
 $lang->admin->menu->message   = array('link' => 'Notification|message|index', 'subModule' => 'message,mail,webhook');
-$lang->admin->menu->custom    = array('link' => 'Custom|custom|set', 'subModule' => 'custom');
-$lang->admin->menu->sso       = array('link' => 'Integration|admin|sso');
-$lang->admin->menu->extension = array('link' => 'Extension|extension|browse', 'subModule' => 'extension');
-$lang->admin->menu->dev       = array('link' => 'Develop|dev|api', 'alias' => 'db', 'subModule' => 'dev,entry');
-$lang->admin->menu->translate = array('link' => 'Translate|dev|translate');
+//$lang->admin->menu->custom    = array('link' => 'Custom|custom|set', 'subModule' => 'custom');
+//$lang->admin->menu->sso       = array('link' => 'Integration|admin|sso');
+//$lang->admin->menu->dev       = array('link' => 'Develop|dev|api', 'alias' => 'db', 'subModule' => 'dev,entry');
+//$lang->admin->menu->translate = array('link' => 'Translate|dev|translate');
 $lang->admin->menu->data      = array('link' => 'Data|backup|index', 'subModule' => 'backup,action');
 $lang->admin->menu->safe      = array('link' => 'Security|admin|safe', 'alias' => 'checkweak');
 $lang->admin->menu->system    = array('link' => 'System|cron|index', 'subModule' => 'cron');
+
+$lang->company->menu = $lang->company->menu;
+$lang->dept->menu    = $lang->company->menu;
+$lang->group->menu   = $lang->company->menu;
+$lang->user->menu    = $lang->company->menu;
 
 $lang->admin->subMenu = new stdclass();
 $lang->admin->subMenu->message = new stdclass();
@@ -431,19 +477,6 @@ $lang->webhook   = new stdclass();
 $lang->message   = new stdclass();
 $lang->search    = new stdclass();
 
-$lang->convert->menu   = $lang->admin->menu;
-$lang->upgrade->menu   = $lang->admin->menu;
-$lang->action->menu    = $lang->admin->menu;
-$lang->backup->menu    = $lang->admin->menu;
-$lang->cron->menu      = $lang->admin->menu;
-$lang->extension->menu = $lang->admin->menu;
-$lang->custom->menu    = $lang->admin->menu;
-$lang->mail->menu      = $lang->admin->menu;
-$lang->dev->menu       = $lang->admin->menu;
-$lang->entry->menu     = $lang->admin->menu;
-$lang->webhook->menu   = $lang->admin->menu;
-$lang->message->menu   = $lang->admin->menu;
-
 $lang->menugroup = new stdclass();
 $lang->menugroup->release     = 'product';
 $lang->menugroup->story       = 'product';
@@ -462,8 +495,8 @@ $lang->menugroup->testtask    = 'qa';
 $lang->menugroup->testsuite   = 'qa';
 $lang->menugroup->caselib     = 'qa';
 $lang->menugroup->testreport  = 'qa';
-$lang->menugroup->doclib      = 'doc';
-$lang->menugroup->people      = 'company';
+$lang->menugroup->report      = 'reporting';
+$lang->menugroup->people      = 'admin';
 $lang->menugroup->dept        = 'company';
 $lang->menugroup->todo        = 'my';
 $lang->menugroup->score       = 'my';
@@ -482,6 +515,93 @@ $lang->menugroup->repo    = 'ci';
 $lang->menugroup->jenkins = 'ci';
 $lang->menugroup->compile = 'ci';
 $lang->menugroup->job     = 'ci';
+
+$lang->navGroup = new stdclass();
+$lang->navGroup->my     = 'my';
+$lang->navGroup->todo   = 'my';
+$lang->navGroup->effort = 'my';
+
+$lang->navGroup->product     = 'program';
+$lang->navGroup->story       = 'program';
+$lang->navGroup->branch      = 'program';
+$lang->navGroup->productplan = 'program';
+$lang->navGroup->release     = 'program';
+$lang->navGroup->tree        = 'program';
+$lang->navGroup->project     = 'program';
+$lang->navGroup->task        = 'program';
+$lang->navGroup->qa          = 'program';
+$lang->navGroup->bug         = 'program';
+$lang->navGroup->doc         = 'program';
+$lang->navGroup->testcase    = 'program';
+$lang->navGroup->testtask    = 'program';
+$lang->navGroup->testreport  = 'program';
+$lang->navGroup->testsuite   = 'program';
+$lang->navGroup->caselib     = 'program';
+$lang->navGroup->feedback    = 'program';
+$lang->navGroup->deploy      = 'program';
+$lang->navGroup->stakeholder = 'program';
+
+$lang->navGroup->programplan    = 'program';
+$lang->navGroup->workestimation = 'program';
+$lang->navGroup->budget         = 'program';
+$lang->navGroup->review         = 'program';
+$lang->navGroup->reviewissue    = 'program';
+$lang->navGroup->weekly         = 'program';
+$lang->navGroup->milestone      = 'program';
+$lang->navGroup->pssp           = 'program';
+$lang->navGroup->design         = 'program';
+$lang->navGroup->repo           = 'program';
+$lang->navGroup->issue          = 'program';
+$lang->navGroup->risk           = 'program';
+$lang->navGroup->auditplan      = 'program';
+$lang->navGroup->cm             = 'program';
+$lang->navGroup->nc             = 'program';
+$lang->navGroup->job            = 'program';
+$lang->navGroup->jenkins        = 'program';
+$lang->navGroup->compile        = 'program';
+$lang->navGroup->build          = 'program';
+
+$lang->navGroup->durationestimation = 'program';
+
+$lang->navGroup->stage         = 'system';
+$lang->navGroup->measurement   = 'system';
+$lang->navGroup->report        = 'system';
+$lang->navGroup->sqlbuilder    = 'system';
+$lang->navGroup->auditcl       = 'system';
+$lang->navGroup->cmcl          = 'system';
+$lang->navGroup->process       = 'system';
+$lang->navGroup->activity      = 'system';
+$lang->navGroup->output        = 'system';
+$lang->navGroup->classify      = 'system';
+$lang->navGroup->subject       = 'system';
+$lang->navGroup->baseline      = 'system';
+$lang->navGroup->reviewcl      = 'system';
+$lang->navGroup->reviewsetting = 'system';
+$lang->navGroup->holiday       = 'system';
+
+$lang->navGroup->attend   = 'attend';
+$lang->navGroup->leave    = 'attend';
+$lang->navGroup->makeup   = 'attend';
+$lang->navGroup->overtime = 'attend';
+$lang->navGroup->lieu     = 'attend';
+
+$lang->navGroup->admin     = 'admin';
+$lang->navGroup->company   = 'admin';
+$lang->navGroup->dept      = 'admin';
+$lang->navGroup->ldap      = 'admin';
+$lang->navGroup->group     = 'admin';
+$lang->navGroup->webhook   = 'admin';
+$lang->navGroup->sms       = 'admin';
+$lang->navGroup->message   = 'admin';
+$lang->navGroup->user      = 'admin';
+$lang->navGroup->custom    = 'admin';
+$lang->navGroup->cron      = 'admin';
+$lang->navGroup->backup    = 'admin';
+$lang->navGroup->mail      = 'admin';
+$lang->navGroup->dev       = 'admin';
+$lang->navGroup->extension = 'admin';
+$lang->navGroup->action    = 'admin';
+$lang->navGroup->search    = 'admin';
 
 $lang->error = new stdclass();
 $lang->error->companyNotFound = "The domain %s cannot be found!";
@@ -880,6 +1000,87 @@ if(isset($config->global->flow) and $config->global->flow == 'onlyTest')
     unset($lang->searchObjects['project']);
     unset($lang->searchObjects['productplan']);
 }
+
+$lang->menu->cmmi = new stdclass();
+$lang->menu->cmmi->programindex   = array('link' => 'Home|program|index|program={PROGRAM}');
+$lang->menu->cmmi->programplan    = array('link' => 'Programplan|programplan|browse|program={PROGRAM}', 'subModule' => 'programplan');
+$lang->menu->cmmi->project        = array('link' => $lang->projectCommon . '|project|task|projectID={PROJECT}', 'subModule' => ',project,task,');
+$lang->menu->cmmi->weekly         = array('link' => 'Weekly|weekly|index|program={PROGRAM}', 'subModule' => ',milestone,');
+$lang->menu->cmmi->doc            = array('link' => 'Doc|doc|index|program={PROGRAM}');
+$lang->menu->cmmi->product        = array('link' => 'Story|product|browse|product={PRODUCT}&branch=&browseType=unclosed&queryID=0&storyType=requirement', 'subModule' => ',story,');
+$lang->menu->cmmi->design         = 'Design|design|browse|product={PRODUCT}';
+$lang->menu->cmmi->ci             = 'Ci|repo|browse|';
+$lang->menu->cmmi->qa             = array('link' => 'QA|bug|browse|product={PRODUCT}', 'subModule' => ',testcase,testtask,testsuite,testreport,caselib,');
+$lang->menu->cmmi->release        = array('link' => 'Release|release|browse|product={PRODUCT}', 'subModule' => 'release');
+$lang->menu->cmmi->issue          = 'Issue|issue|browse|';
+$lang->menu->cmmi->risk           = 'Risk|risk|browse|';
+$lang->menu->cmmi->list           = array('link' => 'More|workestimation|index|program={PROGRAM}', 'class' => 'dropdown dropdown-hover cmmi-list', 'subModule' => 'stakeholder,workestimation,durationestimation,budget,pssp,stakeholder');
+
+$lang->menu->srcum = new stdclass();
+$lang->menu->srcum->programindex   = array('link' => 'Home|program|index|program={PROGRAM}');
+
+$lang->cmmi = new stdclass();
+$lang->cmmi->subMenu = new stdclass();
+$lang->cmmi->subMenu->list = new stdclass();
+$lang->cmmi->subMenu->list->workestimation = array('link' => 'Workestimation|workestimation|index|program=%s', 'subModule' => 'durationestimation,budget');
+$lang->cmmi->subMenu->list->program        = 'Program|program|edit|';
+
+$lang->cmmiproduct    = new stdclass();
+$lang->workestimation = new stdclass();
+$lang->budget         = new stdclass();
+$lang->programplan    = new stdclass();
+$lang->review         = new stdclass();
+$lang->weekly         = new stdclass();
+$lang->milestone      = new stdclass();
+$lang->design         = new stdclass();
+$lang->auditplan      = new stdclass();
+$lang->cm             = new stdclass();
+$lang->nc             = new stdclass();
+$lang->pssp           = new stdclass();
+$lang->issue          = new stdclass();
+$lang->risk           = new stdclass();
+$lang->stakeholder    = new stdclass();
+$lang->durationestimation = new stdclass();
+
+$lang->workestimation->menu = new stdclass();
+$lang->budget->menu         = new stdclass();
+$lang->programplan->menu    = new stdclass();
+$lang->review->menu         = new stdclass();
+$lang->weekly->menu         = new stdclass();
+$lang->milestone->menu      = new stdclass();
+$lang->cmmiproduct->menu    = new stdclass();
+$lang->design->menu         = new stdclass();
+$lang->auditplan->menu      = new stdclass();
+$lang->cm->menu             = new stdclass();
+$lang->pssp->menu           = new stdclass();
+$lang->issue->menu          = new stdclass();
+$lang->risk->menu           = new stdclass();
+$lang->stakeholder->menu    = new stdclass();
+$lang->durationestimation->menu = new stdclass();
+
+$lang->workestimation->menu->index    = 'Workestimation|workestimation|index|program={PROGRAM}';
+$lang->workestimation->menu->duration = array('link' => 'Durationestimation|durationestimation|index|program={PROGRAM}', 'subModule' => 'durationestimation');
+$lang->workestimation->menu->budget   = array('link' => 'Budget|budget|summary|', 'subModule' => 'budget');
+
+$lang->durationestimation->menu = $lang->workestimation->menu;
+$lang->budget->menu = $lang->workestimation->menu;
+
+$lang->programplan->menu->gantt = array('link' => 'Gantt|programplan|browse|programID={PROGRAM}&productID={PRODUCT}&type=gantt');
+$lang->programplan->menu->lists = 'Stage|programplan|browse|programID={PROGRAM}&productID={PRODUCT}&type=lists';
+
+$lang->weekly->menu->browse = 'Weekly|weekly|index|program={PROGRAM}';
+$lang->weekly->menu->issue  = 'Milestone|milestone|index|program={PROGRAM}';
+
+$lang->cmmiproduct->menu->plan        = array('link' => 'Plan|productplan|browse|productID={PRODUCT}', 'subModule' => 'productplan');
+$lang->cmmiproduct->menu->requirement = 'User Story|product|browse|product={PRODUCT}&branch=&browseType=unclosed&queryID=0&storyType=requirement';
+$lang->cmmiproduct->menu->story       = 'Software Story|product|browse|product={PRODUCT}&branch=&browseType=unclosed&queryID=0&storyType=story';
+$lang->cmmiproduct->menu->track       = 'Track|story|track|product={PRODUCT}';
+
+$lang->milestone->menu     = $lang->weekly->menu;
+$lang->nc->menu            = $lang->auditplan->menu;
+
+$lang->noMenuModule     = array('my', 'todo', 'effort', 'program', 'report', 'attend', 'leave', 'makeup', 'overtime', 'lieu', 'holiday', 'custom', 'auditcl', 'subject', 'admin', 'mail', 'extension', 'dev', 'backup', 'action', 'cron', 'issue', 'risk', 'pssp', 'sms', 'message', 'webhook', 'search');
+$lang->haveMenuMethod   = array('custom');
 /* action */
 $lang->action->common     = 'Log';
 $lang->action->product    = $lang->productCommon;
@@ -940,6 +1141,7 @@ $lang->action->objectTypes['product']     = $lang->productCommon;
 $lang->action->objectTypes['story']       = 'Story';
 $lang->action->objectTypes['productplan'] = 'Plan';
 $lang->action->objectTypes['release']     = 'Release';
+$lang->action->objectTypes['program']     = 'Program';
 $lang->action->objectTypes['project']     = $lang->projectCommon;
 $lang->action->objectTypes['task']        = 'Task';
 $lang->action->objectTypes['build']       = 'Build';
@@ -1091,6 +1293,8 @@ $lang->action->label->unlinkchildrenstory = "unlinked a child story";
 $lang->action->label->linkparentstory     = "linked a parent story";
 $lang->action->label->unlinkparentstory   = "unlink from parent story";
 $lang->action->label->deletechildrenstory = "delete children story";
+$lang->action->label->tracked             = 'tracked';
+$lang->action->label->hangup              = 'hangup';
 
 $lang->action->dynamicAction = new stdclass;
 $lang->action->dynamicAction->todo['opened']               = 'Create Todo';
@@ -1249,6 +1453,7 @@ $lang->action->label->product     = $lang->productCommon . '|product|view|produc
 $lang->action->label->productplan = 'Plan|productplan|view|productID=%s';
 $lang->action->label->release     = 'Release|release|view|productID=%s';
 $lang->action->label->story       = 'Story|story|view|storyID=%s';
+$lang->action->label->program     = "Program|program|browse|";
 $lang->action->label->project     = "{$lang->projectCommon}|project|view|projectID=%s";
 $lang->action->label->task        = 'Task|task|view|taskID=%s';
 $lang->action->label->build       = 'Build|build|view|buildID=%s';
@@ -1265,9 +1470,11 @@ $lang->action->label->testreport  = 'Report|testreport|view|report=%s';
 $lang->action->label->entry       = 'Application|entry|browse|';
 $lang->action->label->webhook     = 'Webhook|webhook|browse|';
 $lang->action->label->space       = ' ';
+$lang->action->label->risk        = 'Risk|risk|view|riskID=%s';
 
 $lang->action->search->objectTypeList['']            = '';    
 $lang->action->search->objectTypeList['product']     = $lang->productCommon;
+$lang->action->search->objectTypeList['program']     = 'Program';
 $lang->action->search->objectTypeList['project']     = $lang->projectCommon;
 $lang->action->search->objectTypeList['bug']         = 'Bug';
 $lang->action->search->objectTypeList['case']        = 'Case'; 
@@ -1494,19 +1701,33 @@ $lang->block->lblNum       = 'Number';
 $lang->block->lblHtml      = 'HTML';
 $lang->block->dynamic      = 'Dynamics';
 $lang->block->assignToMe   = 'AssignedToMe';
+$lang->block->done         = 'Done';
 $lang->block->lblFlowchart = 'Flowchart';
 $lang->block->welcome      = 'Welcome';
 $lang->block->lblTesttask  = 'Test Request Detail';
+$lang->block->contribute   = 'Personal Contribution';
 
-$lang->block->leftToday = 'Remained Work';
-$lang->block->myTask    = 'My Tasks';
-$lang->block->myStory   = 'Stories';
-$lang->block->myBug     = 'Bugs';
-$lang->block->myProject = '' . $lang->projectCommon . 's';
-$lang->block->myProduct = '' . $lang->productCommon . 's';
-$lang->block->delayed   = 'Delayed';
-$lang->block->noData    = 'No data on this type of reports.';
-$lang->block->emptyTip  = 'No data.';
+$lang->block->leftToday       = 'Remained Work';
+$lang->block->myTask          = 'My Tasks';
+$lang->block->myStory         = 'Stories';
+$lang->block->myBug           = 'Bugs';
+$lang->block->myProject       = '' . $lang->projectCommon . 's';
+$lang->block->myProduct       = '' . $lang->productCommon . 's';
+$lang->block->delayed         = 'Delayed';
+$lang->block->noData          = 'No data on this type of reports.';
+$lang->block->emptyTip        = 'No data.';
+$lang->block->openedTodos     = 'The Number Of Todos Created';
+$lang->block->openedStories   = 'The Number Of Stories Created';
+$lang->block->resolvedTasks   = 'The Number Of Tasks Resolved';
+$lang->block->resolvedBugs    = 'The Number Of Bugs Resolved';
+$lang->block->openedTestcases = 'The Number Of Test Case Created';
+$lang->block->cmmi            = 'CMMI 3';
+$lang->block->scrum           = 'Scrum+';
+$lang->block->allProject      = 'All ' . $lang->projectCommon;
+$lang->block->doingProject    = 'Doning ' . $lang->projectCommon;
+$lang->block->finishProject   = 'Finish ' . $lang->projectCommon;
+$lang->block->estimatedHours  = 'Estimated Hours';
+$lang->block->consumedHours   = 'Consumed Hours';
 
 $lang->block->params = new stdclass();
 $lang->block->params->name  = 'Name';
@@ -1525,6 +1746,85 @@ $lang->block->refresh            = 'Refresh';
 $lang->block->nbsp               = ' ';
 $lang->block->hidden             = 'Hide';
 $lang->block->dynamicInfo        = "<span class='timeline-tag'>%s</span> <span class='timeline-text'>%s <em>%s</em> %s <a href='%s' title='%s'>%s</a></span>";
+
+$lang->block->productName        = $lang->productCommon . ' Name';
+$lang->block->totalStory         = 'The Total ' . $lang->storyCommon;
+$lang->block->totalBug           = 'The Total Bug';
+$lang->block->totalRelease       = 'Release The Number';
+
+$lang->block->default['cmmi']['program']['1']['title']  = $lang->projectCommon . 'Weekly';
+$lang->block->default['cmmi']['program']['1']['block']  = 'Pmmireport';
+$lang->block->default['cmmi']['program']['1']['source'] = 'Program';
+$lang->block->default['cmmi']['program']['1']['grid']   = 8;
+
+$lang->block->default['cmmi']['program']['2']['title']  = 'Estimate';
+$lang->block->default['cmmi']['program']['2']['block']  = 'cmmiestimate';
+$lang->block->default['cmmi']['program']['2']['source'] = 'program';
+$lang->block->default['cmmi']['program']['2']['grid']   = 4;
+
+$lang->block->default['cmmi']['program']['3']['title']  = 'Plan Gantt Chart';
+$lang->block->default['cmmi']['program']['3']['block']  = 'cmmigantt';
+$lang->block->default['cmmi']['program']['3']['source'] = 'program';
+$lang->block->default['cmmi']['program']['3']['grid']   = 8;
+
+$lang->block->default['cmmi']['program']['4']['title']  = 'Progress Chart';
+$lang->block->default['cmmi']['program']['4']['block']  = 'cmmiprogress';
+$lang->block->default['cmmi']['program']['4']['grid']   = 4;
+
+$lang->block->default['cmmi']['program']['5']['title']  = 'Program Issue';
+$lang->block->default['cmmi']['program']['5']['block']  = 'cmmiissue';
+$lang->block->default['cmmi']['program']['5']['source'] = 'program';
+$lang->block->default['cmmi']['program']['5']['grid']   = 8;
+
+$lang->block->default['cmmi']['program']['5']['params']['type']    = 'all';
+$lang->block->default['cmmi']['program']['5']['params']['num']     = '15';
+$lang->block->default['cmmi']['program']['5']['params']['orderBy'] = 'id_desc';
+
+$lang->block->default['cmmi']['program']['6']['title']  = 'Dynamic';
+$lang->block->default['cmmi']['program']['6']['block']  = 'dynamic';
+$lang->block->default['cmmi']['program']['6']['grid']   = 4;
+$lang->block->default['cmmi']['program']['6']['source'] = '';
+
+$lang->block->default['cmmi']['program']['7']['title']  = $lang->projectCommon . 'Risk';
+$lang->block->default['cmmi']['program']['7']['block']  = 'cmmirisk';
+$lang->block->default['cmmi']['program']['7']['source'] = 'program';
+$lang->block->default['cmmi']['program']['7']['grid']   = 8;
+
+$lang->block->default['cmmi']['program']['7']['params']['type']    = 'all';
+$lang->block->default['cmmi']['program']['7']['params']['num']     = '15';
+$lang->block->default['cmmi']['program']['7']['params']['orderBy'] = 'id_desc';
+
+$lang->block->default['scrum']['program']['1']['title'] =  $lang->projectCommon . ' Overall';
+$lang->block->default['scrum']['program']['1']['block'] = 'scrumoverall';
+$lang->block->default['scrum']['program']['1']['grid']  = 8;
+
+$lang->block->default['scrum']['program']['2']['title'] = $lang->projectCommon . ' List';
+$lang->block->default['scrum']['program']['2']['block'] = 'scrumlist';
+$lang->block->default['scrum']['program']['2']['grid']  = 8;
+
+$lang->block->default['scrum']['program']['3']['title'] = $lang->productCommon . ' Road Map';
+$lang->block->default['scrum']['program']['3']['block'] = 'scrumroadmap';
+$lang->block->default['scrum']['program']['3']['grid']  = 8;
+
+$lang->block->default['scrum']['program']['4']['title'] = 'Test Version';
+$lang->block->default['scrum']['program']['4']['block'] = 'scrumtest';
+$lang->block->default['scrum']['program']['4']['grid']  = 8;
+
+$lang->block->default['scrum']['program']['4']['params']['type']    = 'all';
+$lang->block->default['scrum']['program']['4']['params']['num']     = '15';
+$lang->block->default['scrum']['program']['4']['params']['orderBy'] = 'id_desc';
+
+$lang->block->default['scrum']['program']['5']['title'] = $lang->productCommon . ' Overview';
+$lang->block->default['scrum']['program']['5']['block'] = 'scrumproduct';
+$lang->block->default['scrum']['program']['5']['grid']  = 4;
+
+$lang->block->default['scrum']['program']['6']['title'] = $lang->projectCommon . ' Overview';
+$lang->block->default['scrum']['program']['6']['block'] = 'scrumproject';
+$lang->block->default['scrum']['program']['6']['grid']  = 4;
+
+$lang->block->default['scrum']['program']['7']['title'] = 'Dynamic';
+$lang->block->default['scrum']['program']['7']['block'] = 'scrumdynamic';
+$lang->block->default['scrum']['program']['7']['grid']  = 4;
 
 $lang->block->default['product']['1']['title'] = $lang->productCommon . ' Report';
 $lang->block->default['product']['1']['block'] = 'statistic';
@@ -1618,77 +1918,52 @@ $lang->block->default['full']['my']['1']['title']  = 'Welcome';
 $lang->block->default['full']['my']['1']['block']  = 'welcome';
 $lang->block->default['full']['my']['1']['grid']   = 8;
 $lang->block->default['full']['my']['1']['source'] = '';
+
 $lang->block->default['full']['my']['2']['title']  = 'Dynamics';
 $lang->block->default['full']['my']['2']['block']  = 'dynamic';
 $lang->block->default['full']['my']['2']['grid']   = 4;
 $lang->block->default['full']['my']['2']['source'] = '';
-$lang->block->default['full']['my']['3']['title']  = 'Flowchart';
-$lang->block->default['full']['my']['3']['block']  = 'flowchart';
-$lang->block->default['full']['my']['3']['grid']   = 8;
-$lang->block->default['full']['my']['3']['source'] = '';
-$lang->block->default['full']['my']['4']['title']  = 'My Todos';
-$lang->block->default['full']['my']['4']['block']  = 'list';
-$lang->block->default['full']['my']['4']['grid']   = 4;
-$lang->block->default['full']['my']['4']['source'] = 'todo';
-$lang->block->default['full']['my']['4']['params']['num'] = '20';
-$lang->block->default['full']['my']['5'] = $lang->block->default['project']['1'];
-$lang->block->default['full']['my']['5']['source'] = 'project';
-$lang->block->default['full']['my']['6'] = $lang->block->default['project']['2'];
-$lang->block->default['full']['my']['6']['source'] = 'project';
-$lang->block->default['full']['my']['7'] = $lang->block->default['product']['1'];
-$lang->block->default['full']['my']['7']['source'] = 'product';
-$lang->block->default['full']['my']['8'] = $lang->block->default['product']['2'];
-$lang->block->default['full']['my']['8']['source'] = 'product';
-$lang->block->default['full']['my']['9'] = $lang->block->default['qa']['2'];
-$lang->block->default['full']['my']['9']['source'] = 'qa';
 
-$lang->block->default['onlyTest']['my']['1'] = $lang->block->default['qa']['1'];
-$lang->block->default['onlyTest']['my']['1']['source'] = 'qa';
-$lang->block->default['onlyTest']['my']['1']['grid']   = '8';
-$lang->block->default['onlyTest']['my']['2']['title']  = 'Dynamics';
-$lang->block->default['onlyTest']['my']['2']['block']  = 'dynamic';
-$lang->block->default['onlyTest']['my']['2']['grid']   = 4;
-$lang->block->default['onlyTest']['my']['2']['source'] = '';
-$lang->block->default['onlyTest']['my']['3']['title']  = 'My Todos';
-$lang->block->default['onlyTest']['my']['3']['block']  = 'list';
-$lang->block->default['onlyTest']['my']['3']['grid']   = 6;
-$lang->block->default['onlyTest']['my']['3']['source'] = 'todo';
-$lang->block->default['onlyTest']['my']['3']['params']['num'] = '20';
-$lang->block->default['onlyTest']['my']['4'] = $lang->block->default['qa']['2'];
-$lang->block->default['onlyTest']['my']['4']['source'] = 'qa';
-$lang->block->default['onlyTest']['my']['4']['grid']   = 6;
+$lang->block->default['full']['my']['3']['title']  = 'My Todos';
+$lang->block->default['full']['my']['3']['block']  = 'list';
+$lang->block->default['full']['my']['3']['grid']   = 4;
+$lang->block->default['full']['my']['3']['source'] = 'todo';
+$lang->block->default['full']['my']['3']['params']['num'] = '20';
 
-$lang->block->default['onlyStory']['my']['1'] = $lang->block->default['project']['1'];
-$lang->block->default['onlyStory']['my']['1']['source'] = 'project';
-$lang->block->default['onlyStory']['my']['1']['grid']   = 8;
-$lang->block->default['onlyStory']['my']['2']['title']  = 'Dynamics';
-$lang->block->default['onlyStory']['my']['2']['block']  = 'dynamic';
-$lang->block->default['onlyStory']['my']['2']['grid']   = 4;
-$lang->block->default['onlyStory']['my']['2']['source'] = '';
-$lang->block->default['onlyStory']['my']['3']['title']  = 'My Todos';
-$lang->block->default['onlyStory']['my']['3']['block']  = 'list';
-$lang->block->default['onlyStory']['my']['3']['grid']   = 6;
-$lang->block->default['onlyStory']['my']['3']['source'] = 'todo';
-$lang->block->default['onlyStory']['my']['3']['params']['num'] = '20';
-$lang->block->default['onlyStory']['my']['4'] = $lang->block->default['product']['2'];
-$lang->block->default['onlyStory']['my']['4']['source'] = 'product';
-$lang->block->default['onlyStory']['my']['4']['grid']   = 6;
+$lang->block->default['full']['my']['4']['title']  = $lang->projectCommon . ' Statistic';
+$lang->block->default['full']['my']['4']['block']  = 'statistic';
+$lang->block->default['full']['my']['4']['source'] = 'program';
+$lang->block->default['full']['my']['4']['grid']   = 8;
 
-$lang->block->default['onlyTask']['my']['1'] = $lang->block->default['project']['1'];
-$lang->block->default['onlyTask']['my']['1']['source'] = 'project';
-$lang->block->default['onlyTask']['my']['1']['grid']   = 8;
-$lang->block->default['onlyTask']['my']['2']['title']  = 'Dynamics';
-$lang->block->default['onlyTask']['my']['2']['block']  = 'dynamic';
-$lang->block->default['onlyTask']['my']['2']['grid']   = 4;
-$lang->block->default['onlyTask']['my']['2']['source'] = '';
-$lang->block->default['onlyTask']['my']['3']['title']  = 'My Todos';
-$lang->block->default['onlyTask']['my']['3']['block']  = 'list';
-$lang->block->default['onlyTask']['my']['3']['grid']   = 6;
-$lang->block->default['onlyTask']['my']['3']['source'] = 'todo';
-$lang->block->default['onlyTask']['my']['3']['params']['num'] = '20';
-$lang->block->default['onlyTask']['my']['4'] = $lang->block->default['project']['2'];
-$lang->block->default['onlyTask']['my']['4']['source'] = 'project';
-$lang->block->default['onlyTask']['my']['4']['grid']   = 6;
+$lang->block->default['full']['my']['5']['title']  = 'Personal Contribution';
+$lang->block->default['full']['my']['5']['block']  = 'contribute';
+$lang->block->default['full']['my']['5']['source'] = '';
+$lang->block->default['full']['my']['5']['grid']   = 4;
+
+$lang->block->default['full']['my']['6']['title']  = 'Recent ' . $lang->projectCommon;
+$lang->block->default['full']['my']['6']['block']  = 'recentprogram';
+$lang->block->default['full']['my']['6']['source'] = 'program';
+$lang->block->default['full']['my']['6']['grid']   = 8;
+
+$lang->block->default['full']['my']['7']['title']  = 'Assigned To Me';
+$lang->block->default['full']['my']['7']['block']  = 'task';
+$lang->block->default['full']['my']['7']['grid']   = 4;
+
+$lang->block->default['full']['my']['7']['params']['orderBy'] = 'id_desc';
+$lang->block->default['full']['my']['7']['params']['num']     = '15';
+$lang->block->default['full']['my']['7']['params']['type']    = 'assignedTo';
+
+$lang->block->default['full']['my']['8']['title'] = 'Human Input';
+$lang->block->default['full']['my']['8']['block'] = 'programteam';
+$lang->block->default['full']['my']['8']['grid']  = 8;
+
+$lang->block->default['full']['my']['9']['title']  = $lang->projectCommon . ' List';
+$lang->block->default['full']['my']['9']['block']  = 'program';
+$lang->block->default['full']['my']['9']['source'] = 'program';
+$lang->block->default['full']['my']['9']['grid']   = 8;
+
+$lang->block->default['full']['my']['9']['params']['orderBy'] = 'id_desc';
+$lang->block->default['full']['my']['9']['params']['num']     = '15';
 
 $lang->block->num     = 'Number';
 $lang->block->type    = 'Type';
@@ -1707,11 +1982,37 @@ $lang->block->availableBlocks->plan     = 'Plans';
 $lang->block->availableBlocks->release  = 'Releases';
 $lang->block->availableBlocks->build    = 'Builds';
 $lang->block->availableBlocks->testtask = 'Requests';
+$lang->block->availableBlocks->risk     = 'My Risks';
 
+$lang->block->moduleList['program'] = $lang->projectCommon;
 $lang->block->moduleList['product'] = $lang->productCommon;
 $lang->block->moduleList['project'] = $lang->projectCommon;
 $lang->block->moduleList['qa']      = 'Test';
 $lang->block->moduleList['todo']    = 'Todo';
+
+$lang->block->modules['program'] = new stdclass();
+$lang->block->modules['program']->availableBlocks = new stdclass();
+$lang->block->modules['program']->availableBlocks->program       = $lang->projectCommon . ' List';
+$lang->block->modules['program']->availableBlocks->recentprogram = 'Recent ' . $lang->projectCommon;
+$lang->block->modules['program']->availableBlocks->statistic     = $lang->projectCommon . ' Statistic';
+
+$lang->block->modules['scrum']['index'] = new stdclass();
+$lang->block->modules['scrum']['index']->availableBlocks = new stdclass();
+$lang->block->modules['scrum']['index']->availableBlocks->scrumoverall  = $lang->projectCommon . ' Overall';
+$lang->block->modules['scrum']['index']->availableBlocks->scrumlist     = $lang->projectCommon . ' List';
+$lang->block->modules['scrum']['index']->availableBlocks->scrumproject  = $lang->projectCommon . ' Overview';
+$lang->block->modules['scrum']['index']->availableBlocks->scrumproduct  = $lang->productCommon . ' Overview';
+$lang->block->modules['scrum']['index']->availableBlocks->scrumtest     = 'Test Version';
+$lang->block->modules['scrum']['index']->availableBlocks->scrumroadmap  = $lang->productCommon . ' Rode Map';
+
+$lang->block->modules['cmmi']['index'] = new stdclass();
+$lang->block->modules['cmmi']['index']->availableBlocks = new stdclass();
+$lang->block->modules['cmmi']['index']->availableBlocks->cmmireport    = $lang->projectCommon . ' Weekly';
+$lang->block->modules['cmmi']['index']->availableBlocks->cmmiestimate  = 'Estimate';
+$lang->block->modules['cmmi']['index']->availableBlocks->cmmigantt     = 'Plan Gantt Chart';
+$lang->block->modules['cmmi']['index']->availableBlocks->cmmiprogress  = 'Progress Chart';
+$lang->block->modules['cmmi']['index']->availableBlocks->cmmiissue     = $lang->projectCommon . ' Issue';
+$lang->block->modules['cmmi']['index']->availableBlocks->cmmirisk      = $lang->projectCommon . ' Risk';
 
 $lang->block->modules['product'] = new stdclass();
 $lang->block->modules['product']->availableBlocks = new stdclass();
@@ -1792,6 +2093,7 @@ $lang->block->orderByList->story['stage_desc']  = 'Story Phase DESC';
 $lang->block->todoNum = 'Todo';
 $lang->block->taskNum = 'Task';
 $lang->block->bugNum  = 'Bug';
+$lang->block->riskNum = 'Risk';
 
 $lang->block->typeList = new stdclass();
 
@@ -1824,11 +2126,31 @@ $lang->block->typeList->project['doing']    = 'Ongoing';
 $lang->block->typeList->project['all']      = 'All';
 $lang->block->typeList->project['involved'] = 'Involved';
 
+$lang->block->typeList->scrum['undone']   = 'Unfinished';
+$lang->block->typeList->scrum['doing']    = 'Ongoing中';
+$lang->block->typeList->scrum['all']      = 'All';
+$lang->block->typeList->scrum['involved'] = 'Involved';
+
 $lang->block->typeList->testtask['wait']    = 'Waiting';
 $lang->block->typeList->testtask['doing']   = 'Ongoing';
 $lang->block->typeList->testtask['blocked'] = 'Blocked';
 $lang->block->typeList->testtask['done']    = 'Done';
 $lang->block->typeList->testtask['all']     = 'All';
+
+$lang->block->modules['program']->moreLinkList = new stdclass();
+$lang->block->modules['program']->moreLinkList->recentprogram = 'program|browse|';
+$lang->block->modules['program']->moreLinkList->statistic     = 'program|browse|';
+$lang->block->modules['program']->moreLinkList->program       = 'program|browse|';
+$lang->block->modules['program']->moreLinkList->cmmireport    = 'weekly|index|';
+$lang->block->modules['program']->moreLinkList->cmmiestimate  = 'workestimation|index|';
+$lang->block->modules['program']->moreLinkList->cmmiissue     = 'issue|browse|';
+$lang->block->modules['program']->moreLinkList->cmmirisk      = 'risk|browse|';
+$lang->block->modules['program']->moreLinkList->scrumlist     = 'project|all|';
+$lang->block->modules['program']->moreLinkList->scrumroadmap  = 'product|all|';
+$lang->block->modules['program']->moreLinkList->scrumtest     = 'testtask|browse|';
+$lang->block->modules['program']->moreLinkList->scrumproduct  = 'product|all|';
+$lang->block->modules['program']->moreLinkList->scrumproject  = 'project|all|';
+$lang->block->modules['program']->moreLinkList->scrumdynamic  = 'company|dynamic|';
 
 $lang->block->modules['product']->moreLinkList        = new stdclass();
 $lang->block->modules['product']->moreLinkList->list  = 'product|all|product=&line=0&status=%s';
@@ -1882,6 +2204,34 @@ $lang->branch->deleted = 'Delete';
 
 $lang->branch->confirmDelete = 'Do you want to delete this @branch@?';
 $lang->branch->canNotDelete  = 'There is data in @branch@. It cannot be deleted.';
+/* budget */
+$lang->budget->create         = 'Create Budget';
+$lang->budget->edit           = 'Edit Budget';
+$lang->budget->total          = 'Total Budget';
+$lang->budget->summary        = 'Summary';
+$lang->budget->browse         = 'Browse Dudget';
+$lang->budget->list           = 'Budget List';
+$lang->budget->view           = 'Budget Detail';
+$lang->budget->delete         = 'Delete';
+$lang->budget->batchCreate    = 'Batch Create';
+$lang->budget->common         = 'Cost Estimate';
+$lang->budget->id             = 'ID';
+$lang->budget->stage          = 'Stage';
+$lang->budget->subject        = 'Subject';
+$lang->budget->name           = 'Name of fee';
+$lang->budget->amount         = 'Estimated amount';
+$lang->budget->desc           = 'Explain';
+$lang->budget->yuan           = 'yuan';
+$lang->budget->dollar         = 'Dollars';
+$lang->budget->createdBy      = 'CreatedBy';
+$lang->budget->createdDate    = 'CreatedDate';
+$lang->budget->lastEditedBy   = 'LastEditBy';
+$lang->budget->lastEditedDate = 'LastEditedDate';
+$lang->budget->basicInfo      = 'BasicInfo';
+$lang->budget->noData         = 'No Data';
+
+$lang->budget->summaryReport = 'SummaryReport';
+$lang->budget->confirmDelete = 'Are you sure you want to delete it?';
 /* bug */
 $lang->bug->common           = 'Bug';
 $lang->bug->id               = 'ID';
@@ -2561,26 +2911,69 @@ $lang->cron->notice->dow  = 'Range:0-6';
 $lang->cron->notice->help = 'Note：If the server is restarted or the Cron is not working, it means the Cron has stopped. You can restart it by clicking 【Restart】 or refresh this page. If the last execution time changes, it means the Cron is running.';
 $lang->cron->notice->errorRule = '"%s" is not valid';
 /* custom */
-$lang->custom->common     = 'Custom';
-$lang->custom->index      = 'Home';
-$lang->custom->set        = 'Customize';
-$lang->custom->restore    = 'Reset';
-$lang->custom->key        = 'Key';
-$lang->custom->value      = 'Value';
-$lang->custom->flow       = 'Concept';
-$lang->custom->working    = 'Mode';
-$lang->custom->select     = 'Select Concept';
-$lang->custom->branch     = 'Multi-Branch';
-$lang->custom->owner      = 'Owner';
-$lang->custom->module     = 'Module';
-$lang->custom->section    = 'Section';
-$lang->custom->lang       = 'Language';
-$lang->custom->setPublic  = 'Set Public';
-$lang->custom->required   = 'Required Field';
-$lang->custom->score      = 'Point';
-$lang->custom->timezone   = 'Timezone';
-$lang->custom->scoreReset = 'Reset Points';
-$lang->custom->scoreTitle = 'Point Feature';
+$lang->custom->common             = 'Custom';
+$lang->custom->index              = 'Home';
+$lang->custom->set                = 'Customize';
+$lang->custom->restore            = 'Reset';
+$lang->custom->key                = 'Key';
+$lang->custom->value              = 'Value';
+$lang->custom->flow               = 'Concept';
+$lang->custom->working            = 'Mode';
+$lang->custom->select             = 'Select Concept';
+$lang->custom->branch             = 'Multi-Branch';
+$lang->custom->owner              = 'Owner';
+$lang->custom->module             = 'Module';
+$lang->custom->section            = 'Section';
+$lang->custom->lang               = 'Language';
+$lang->custom->setPublic          = 'Set Public';
+$lang->custom->required           = 'Required Field';
+$lang->custom->score              = 'Point';
+$lang->custom->timezone           = 'Timezone';
+$lang->custom->scoreReset         = 'Reset Points';
+$lang->custom->scoreTitle         = 'Point Feature';
+$lang->custom->setscrum           = 'Interval Hint';
+$lang->custom->setcmmi            = 'Switch Views';
+$lang->custom->estimate           = 'Estimated configuration';
+$lang->custom->estimateConfig     = 'Estimated configuration';
+$lang->custom->estimateUnit       = 'Estimating Unit';
+$lang->custom->estimateEfficiency = 'Productivity';
+$lang->custom->estimateCost       = 'Unit Labour Cost';
+$lang->custom->estimateHours      = 'Daily Working Hours';
+$lang->custom->estimateDays       = 'Working Days Per Week';
+$lang->custom->region             = 'Interval';
+$lang->custom->tips               = 'Tips';
+$lang->custom->setTips            = 'Set Tips';
+$lang->custom->isRange            = 'Is Target Control';
+$lang->custom->plan               = 'Plan';
+$lang->custom->planStatus         = 'Enable Plan';
+$lang->custom->concept            = 'Concept';
+
+$lang->custom->object['program'] = 'Program';
+$lang->custom->program->fields['unitList'] = 'Unit List';
+
+$lang->custom->unitList['efficiency'] = 'Working Hours/';
+$lang->custom->unitList['manhour']    = 'Man-hour/';
+$lang->custom->unitList['cost']       = 'Yuan/Hour';
+$lang->custom->unitList['hours']      = 'Hours';
+$lang->custom->unitList['days']       = 'Days';
+$lang->custom->unitList['loc']        = 'KLOC';
+
+$lang->custom->tipProgressList['SPI'] = 'Schedule Performance Index(SPI)';
+$lang->custom->tipProgressList['SV']  = 'Schedule Variance(SV%)';
+
+$lang->custom->tipCostList['CPI'] = 'Cost Performed Index(CPI)';
+$lang->custom->tipCostList['CV']  = 'Cost Variance(CV%)';
+
+$lang->custom->planStatusList[0]  = 'No';
+$lang->custom->planStatusList[1]  = 'Yes';
+
+$lang->custom->tipRangeList[0]  = 'No';
+$lang->custom->tipRangeList[1]  = 'Yes';
+
+$lang->custom->regionMustNumber = 'The interval must be a number!';
+$lang->custom->tipNotEmpty      = 'The prompt can not be empty!';
+
+$lang->custom->numberError = 'The interval must be greater than zero!';
 
 $lang->custom->object['story']    = 'Story';
 $lang->custom->object['task']     = 'Task';
@@ -2640,7 +3033,7 @@ $lang->custom->user->fields['statusList']   = 'Status';
 $lang->custom->user->fields['contactField'] = 'Available Contact';
 $lang->custom->user->fields['deleted']      = 'Deleted User';
 
-$lang->custom->system = array('flow', 'working', 'required', 'score');
+$lang->custom->system = array('flow', 'working', 'required', 'score', 'estimate');
 
 $lang->custom->block->fields['closed'] = 'Closed Block';
 
@@ -2687,18 +3080,12 @@ $lang->custom->weekendList[2] = '2-Day Off';
 $lang->custom->weekendList[1] = '1-Day Off';
 
 $lang->custom->productProject = new stdclass();
-$lang->custom->productProject->relation['0_0'] = 'Product - Project';
-$lang->custom->productProject->relation['0_1'] = 'Product - Iteration';
-$lang->custom->productProject->relation['1_1'] = 'Project - Iteration';
-$lang->custom->productProject->relation['0_2'] = 'Product - Sprint';
-$lang->custom->productProject->relation['1_2'] = 'Project - Sprint';
+$lang->custom->productProject->relation['0_0'] = 'Program - Product - Iteration';
+$lang->custom->productProject->relation['0_1'] = 'Program - Product - Sprint';
 
 $lang->custom->productProject->notice = 'Select a concept that fits your team.';
 
-$lang->custom->workingList['full']      = 'Application Lifecycle Management';
-$lang->custom->workingList['onlyTest']  = 'Test Management';
-$lang->custom->workingList['onlyStory'] = 'Story Management';
-$lang->custom->workingList['onlyTask']  = 'Task Management';
+$lang->custom->workingList['full'] = 'Application Lifecycle Management';
 
 $lang->custom->menuTip  = 'Click to show/hide the menu. Drag to switch display order.';
 $lang->custom->saveFail = 'Failed to save!';
@@ -2725,7 +3112,8 @@ $lang->custom->conceptOptions->story['1'] = 'Story';
 $lang->custom->conceptOptions->hourPoint = array();
 $lang->custom->conceptOptions->hourPoint['0'] = 'Hour';
 $lang->custom->conceptOptions->hourPoint['1'] = 'Story Point';
-$lang->custom->conceptOptions->hourPoint['2'] = 'Function Point';
+$lang->custom->conceptOptions->hourPoint['2'] = 'Function Ponit';
+$lang->custom->conceptOptions->hourPoint['3'] = 'Code Line';
 /* datatable */
 $lang->datatable = new stdclass();
 $lang->datatable->common = 'Data Table';
@@ -2776,6 +3164,62 @@ $lang->dept->successSave   = " Saved!";
 $lang->dept->error = new stdclass();
 $lang->dept->error->hasSons  = 'This Department has child departments. You cannot delete it!';
 $lang->dept->error->hasUsers = 'This Department has users. You cannot delete it!';
+/* design */
+$lang->design->common        = 'Design';
+$lang->design->browse        = 'List';
+$lang->design->commit        = 'Link Commit';
+$lang->design->submission    = 'Commit';
+$lang->design->version       = 'Revision';
+$lang->design->assignedTo    = 'AssignedTo';
+$lang->design->actions       = 'Actions';
+$lang->design->delete        = 'Delete';
+$lang->design->confirmDelete = 'Do you want to delete this design?';
+$lang->design->edit          = 'Edit';
+$lang->design->byQuery       = 'Search';
+$lang->design->products      = 'Linked Product';
+$lang->design->story         = 'Linked Story';
+$lang->design->file          = 'File';
+$lang->design->id            = 'ID';
+$lang->design->story         = 'Story';
+$lang->design->ditto         = 'Ditto';
+$lang->design->type          = 'Type';
+$lang->design->name          = 'Name';
+$lang->design->create        = 'Create Design';
+$lang->design->batchCreate   = 'Batch Create';
+$lang->design->view          = 'View';
+$lang->design->desc          = 'Description';
+$lang->design->product       = 'Linked Product';
+$lang->design->basicInfo     = 'Basic Information';
+$lang->design->commitDate    = 'Committed Date';
+$lang->design->commitBy      = 'Commit By';
+$lang->design->affectedStory = "{$lang->storyCommon}";
+$lang->design->affectedTasks = 'Task';
+$lang->design->submit        = 'Submit Review';
+$lang->design->revision      = 'Linked Code';
+$lang->design->designView    = 'Details';
+$lang->design->reviewObject  = 'Review Object';
+$lang->design->createdBy     = 'CreatedBy';
+$lang->design->createdDate   = 'CreatedDate';
+$lang->design->basicInfo     = 'Basic Information';
+
+$lang->design->typeList         = array();
+$lang->design->typeList['']     = '';
+$lang->design->typeList['HLDS'] = 'High-Level';
+$lang->design->typeList['DDS']  = 'Detailed';
+$lang->design->typeList['DBDS'] = 'Database';
+$lang->design->typeList['ADS']  = 'API';
+
+$lang->design->range          = 'Impact';
+$lang->design->errorSelection = 'No record selected!';
+$lang->design->noDesign       = 'No record.';
+$lang->design->noCommit       = 'No record commited.';
+
+$lang->design->rangeList           = array();
+$lang->design->rangeList['all']    = 'All';
+$lang->design->rangeList['assign'] = 'Selected';
+
+$lang->design->featureBar['all'] = 'All';
+$lang->design->featureBar += $lang->design->typeList;
 /* dev */
 $lang->dev->common     = 'Develop';
 $lang->dev->api        = 'API';
@@ -3112,6 +3556,30 @@ $lang->doclib->tabList['project'] = $lang->projectCommon;
 $lang->doclib->tabList['custom']  = 'Custom';
 
 $lang->doclib->nameList['custom'] = 'Custom Name';
+/* durationestimation */
+$lang->durationestimation->index        = 'Estimated lead time home';
+$lang->durationestimation->create       = 'Time estimate setting';
+$lang->durationestimation->common       = 'Estimation of project duration';
+$lang->durationestimation->stage        = 'Stage';
+$lang->durationestimation->workloadRate = 'Workload share';
+$lang->durationestimation->workload     = 'Workload';
+$lang->durationestimation->worktimeRate = 'Full-time rate';
+$lang->durationestimation->people       = 'Estimated number';
+$lang->durationestimation->members      = 'Number of people invested';
+$lang->durationestimation->startDate    = 'Start date';
+$lang->durationestimation->endDate      = 'End Date';
+$lang->durationestimation->setting      = 'Set Up';
+
+$lang->durationestimation->setWorkestimation = "Please enter the estimated workload information first";
+$lang->durationestimation->summary           = "Project scale: <strong class='text-danger'> %s {$lang->hourCommon}</strong>, Estimate workload: <strong id='totalWorkload' class='text-danger'>0</strong>, Total number of participants: <strong id='totalStaff' class='text-danger'>0</strong>";
+$lang->durationestimation->workloadError     = "The sum of the workload must be 100%";
+
+$lang->durationestimation->placeholder = new stdclass(); 
+$lang->durationestimation->placeholder->scale          = '';
+$lang->durationestimation->placeholder->productivity   = '';
+$lang->durationestimation->placeholder->duration       = '';
+$lang->durationestimation->placeholder->unitLaborCost  = '';
+$lang->durationestimation->placeholder->totalLaborCost = '';
 /* entry */
 $lang->entry->common  = 'Application';
 $lang->entry->list    = 'Applications';
@@ -3355,14 +3823,18 @@ $lang->group->managePrivByGroup  = 'Manage Privileges by Group';
 $lang->group->managePrivByModule = 'Manage Privileges by Module';
 $lang->group->byModuleTips       = '<span class="tips">(Press Shift/Ctrl to Multi-select)</span>';
 $lang->group->manageMember       = 'Manage Members';
+$lang->group->managePgmAdmin     = 'Manage Program Admins';
 $lang->group->confirmDelete      = 'Do you want to delete this user group?';
 $lang->group->successSaved       = 'Saved.';
 $lang->group->errorNotSaved      = 'Failed. Please select actions and groups.';
+$lang->group->program            = 'Manage Programs';
 $lang->group->viewList           = 'Access Sight';
+$lang->group->programList        = 'Access Program';
 $lang->group->productList        = 'Access Product';
 $lang->group->projectList        = 'Access Project';
 $lang->group->dynamic            = 'Access Dynamics';
 $lang->group->noticeVisit        = 'Blank means no access limit.';
+$lang->group->noneProgram        = "No Program";
 $lang->group->noneProduct        = "No {$lang->productCommon}";
 $lang->group->noneProject        = "No {$lang->projectCommon}";
 
@@ -3378,6 +3850,7 @@ $lang->group->priv     = 'Privilege Group';
 $lang->group->option   = 'Option';
 $lang->group->inside   = 'Group Users';
 $lang->group->outside  = 'Other Users';
+$lang->group->limited  = 'Limited Users';
 $lang->group->other    = 'Others';
 $lang->group->all      = 'All Privileges';
 
@@ -3439,6 +3912,32 @@ $lang->group->versions['1_1']       = 'ZenTao1.1';
 $lang->group->versions['1_0_1']     = 'ZenTao1.0.1';
 
 include (dirname(__FILE__) . '/resource.php');
+/* holiday */
+if(!isset($lang->holiday)) $lang->holiday = new stdclass();
+$lang->holiday->common = 'Holiday';
+$lang->holiday->browse = 'Browse';
+$lang->holiday->create = 'Create';
+$lang->holiday->edit   = 'Edit';
+$lang->holiday->delete = 'Delete';
+
+$lang->holiday->createAction  = 'Create Holiday';
+$lang->holiday->editAction    = 'Edit Holiday';
+$lang->holiday->deleteAction  = 'Delete Holiday';
+
+$lang->holiday->id    = 'ID';
+$lang->holiday->name  = 'Name';
+$lang->holiday->desc  = 'Description';
+$lang->holiday->type  = 'Type';
+$lang->holiday->begin = 'Begin';
+$lang->holiday->end   = 'End';
+$lang->holiday->all   = 'All';
+
+$lang->holiday->holiday = 'Holiday';
+
+$lang->holiday->typeList['holiday'] = 'Holiday';
+$lang->holiday->typeList['working'] = 'Working Day';
+
+$lang->holiday->emptyTip = 'No Holiday';
 /* index */
 $lang->index->common = 'Home';
 $lang->index->index  = 'Home';
@@ -3678,6 +4177,105 @@ $lang->install->meshiot->desc  = <<<EOD
   <li>Battery Available: no changes required to any equipment on your site</li>
 </ul>
 EOD;
+/* issue */
+$lang->issue->common            = 'Issue';
+$lang->issue->browse            = 'List';
+$lang->issue->resolvedBy        = 'Resolved By';
+$lang->issue->program           = 'Linked Project';
+$lang->issue->title             = 'Title';
+$lang->issue->desc              = 'Description';
+$lang->issue->pri               = 'Priority';
+$lang->issue->severity          = 'Severity';
+$lang->issue->type              = 'Type';
+$lang->issue->effectedArea      = 'Impact';
+$lang->issue->activity          = 'Activities';
+$lang->issue->deadline          = 'Deadline';
+$lang->issue->resolution        = 'Resolution';
+$lang->issue->resolutionComment = 'Comment';
+$lang->issue->resolvedDate      = 'Resolved Date';
+$lang->issue->status            = 'Status';
+$lang->issue->createdBy         = 'CreatedBy';
+$lang->issue->createdDate       = 'CreatedDate';
+$lang->issue->owner             = 'Owner';
+$lang->issue->editedBy          = 'EditedBy';
+$lang->issue->editedDate        = 'EditedDate';
+$lang->issue->activateBy        = 'ActivatedBy';
+$lang->issue->activateDate      = 'ActivatedDate';
+$lang->issue->closeBy           = 'ClosedBy';
+$lang->issue->closedDate        = 'ClosedDate';
+$lang->issue->assignedTo        = 'AssignedTo';
+$lang->issue->assignedBy        = 'AssignedBy';
+$lang->issue->assignedDate      = 'AssignedDate';
+$lang->issue->resolve           = 'Resolved';
+$lang->issue->id                = 'ID';
+
+$lang->issue->delete            = 'Delete';
+$lang->issue->search            = 'Search';
+$lang->issue->basicInfo         = 'Basic Information';
+$lang->issue->activate          = 'Activate';
+$lang->issue->assignTo          = 'Assign';
+$lang->issue->create            = 'Create';
+$lang->issue->edit              = 'Edit';
+$lang->issue->batchCreate       = 'Batch Create';
+
+$lang->issue->labelList['all']       = 'All';
+$lang->issue->labelList['open']      = 'Open';
+$lang->issue->labelList['assignto']  = 'AssignedToMe';
+$lang->issue->labelList['closed']    = 'Closed';
+$lang->issue->labelList['suspended'] = 'Suspended';
+$lang->issue->labelList['cancelled'] = 'Canceled';
+
+$lang->issue->priList[''] = '';
+$lang->issue->priList['1'] = 1;
+$lang->issue->priList['2'] = 2;
+$lang->issue->priList['3'] = 3;
+$lang->issue->priList['4'] = 4;
+
+$lang->issue->severityList[''] = '';
+$lang->issue->severityList['1'] = '1';
+$lang->issue->severityList['2'] = '2';
+$lang->issue->severityList['3'] = '3';
+$lang->issue->severityList['4'] = '4';
+
+$lang->issue->typeList[''] = '';
+$lang->issue->typeList['design']       = 'Design';
+$lang->issue->typeList['code']         = 'Code';
+$lang->issue->typeList['performance']  = 'Performance';
+$lang->issue->typeList['version']      = 'Version';
+$lang->issue->typeList['storyadd']     = 'New Story';
+$lang->issue->typeList['storychanged'] = 'Story Change';
+$lang->issue->typeList['storyremoved'] = 'Story Deleted';
+$lang->issue->typeList['data']         = 'Data';
+
+$lang->issue->resolutionList['resolved'] = 'Resolved';
+$lang->issue->resolutionList['tostory']  = 'To Story';
+$lang->issue->resolutionList['tobug']    = 'To Bug';
+$lang->issue->resolutionList['torisk']   = 'To Risk';
+$lang->issue->resolutionList['totask']   = 'To Task';
+
+$lang->issue->statusList['unconfirmed'] = 'Unconfirmed';
+$lang->issue->statusList['confirmed']   = 'Confirmed';
+$lang->issue->statusList['unresolved']  = 'Unresolved';
+$lang->issue->statusList['resolved']    = 'Resolved';
+$lang->issue->statusList['canceled']    = 'Canceled';
+$lang->issue->statusList['closed']      = 'Closed';
+$lang->issue->statusList['active']      = 'Active';
+$lang->issue->statusList['suspended']   = 'Suspended';
+
+$lang->issue->resolveMethods = array();
+$lang->issue->resolveMethods['resolved'] = 'Resolved';
+$lang->issue->resolveMethods['totask']   = 'To Task';
+$lang->issue->resolveMethods['tobug']    = 'To Bug';
+$lang->issue->resolveMethods['tostory']  = 'To Story';
+$lang->issue->resolveMethods['torisk']   = 'To Risk'; 
+
+$lang->issue->confirmDelete = 'Do you want to delete this issue?';
+
+$lang->issue->logComments = array();
+$lang->issue->logComments['totask']  = " created Task %s";
+$lang->issue->logComments['tostory'] = " created Story %s";
+$lang->issue->logComments['tobug']   = " created Bug %s" ;
+$lang->issue->logComments['torisk']  = " created Risk %s";
 /* jenkins */
 $lang->jenkins->common        = 'Jenkins';
 $lang->jenkins->browse        = 'Jenkins';
@@ -3886,6 +4484,106 @@ $lang->message->browserSetting->pollTimePlaceholder = 'Notify the time intervals
 
 $lang->message->browserSetting->turnonList[1] = 'On';
 $lang->message->browserSetting->turnonList[0] = 'Off';
+/* milestone */
+$lang->milestone->index       = 'Milestone Home';
+$lang->milestone->title       = 'Milestone Report';
+$lang->milestone->common      = 'Project Milestone Report';
+$lang->milestone->name        = 'Milestone Name';
+$lang->milestone->stage       = 'Milestone Stage';
+$lang->milestone->save        = 'Save';
+
+$lang->milestone->startedWeeks  = 'Started Weeks';
+$lang->milestone->finishedWeeks = 'Finished Weeks';
+$lang->milestone->offset        = 'Milestone Deviation';
+
+$lang->milestone->processCommon = 'Project Current Status';
+$lang->milestone->process       = 'Project Schedule';
+$lang->milestone->projectCost   = 'Project Cost';
+$lang->milestone->toNow         = 'So far';
+$lang->milestone->targetRange   = 'Target Range';
+$lang->milestone->ge            = 'ge';
+$lang->milestone->le            = 'le';
+$lang->milestone->analysis      = 'Analysis';
+$lang->milestone->PV            = 'The work to be done(PV)';
+$lang->milestone->EV            = 'Actual work done(EV)';
+$lang->milestone->AC            = 'Actual cost(AC)';
+$lang->milestone->SPI           = 'Project schedule performance(SPI)';
+$lang->milestone->CPI           = 'Project cost performance(CPI)';
+$lang->milestone->SV            = 'Rate of progress deviation(SV%)';
+$lang->milestone->CV            = 'Cost deviation rate(CV%)';
+
+$lang->milestone->workHours   = 'Workload (man-hour)';
+$lang->milestone->allStage    = 'Project Stage';
+$lang->milestone->devHours    = 'Development Workload';
+$lang->milestone->toHours     = 'Rework Workload';
+$lang->milestone->qaHours     = 'Test Workload';
+$lang->milestone->rowSummary  = 'Workload Subtotal';
+$lang->milestone->rowPercent  = 'Percentage Distribution(%)';
+$lang->milestone->colPercent  = 'Percentage of workload(%)';
+$lang->milestone->colSummary  = 'Total';
+$lang->milestone->qatoDev     = 'Test Development ratio';
+
+$lang->milestone->projectRisk     = '5.Project Risks (top five highest priority risks)';
+$lang->milestone->riskCountermove = 'Risk Countermove';
+$lang->milestone->riskDescriptio  = 'Risk Description';
+$lang->milestone->riskPossibility = 'Risk Possibility';
+$lang->milestone->riskSeriousness = 'Risk Seriousness';
+$lang->milestone->riskFactor      = 'Risk Factor';
+$lang->milestone->riskMeasures    = 'Risk Measures';
+$lang->milestone->riskAccumulate  = 'Risk Accumulate';
+
+$lang->milestone->otherIssue       = 'Other Issue';
+$lang->milestone->issueSolutions   = 'Issue Solutions';
+$lang->milestone->issueDescription = 'Issue Description';
+$lang->milestone->needHelp         = 'Help';
+$lang->milestone->issuePropose     = 'Issue Propose';
+
+$lang->milestone->demandStatus     = '4.Customer Demand Analysis';
+$lang->milestone->storyUnit        = 'Unit:Item';
+$lang->milestone->engineeringStage = 'Engineering Stage';
+$lang->milestone->rateChange       = 'Rate of change in demand';
+$lang->milestone->originalStory    = 'Quantity of original demand';
+$lang->milestone->modifyNumber     = 'Total post-change requirements';
+$lang->milestone->changeStory      = 'Number of changed requirements';
+
+$lang->milestone->paogressForecast   = 'Project Forecast';
+$lang->milestone->duration           = 'Construction period(day)';
+$lang->milestone->cost               = 'Cost(hours)';
+$lang->milestone->forecastResults    = 'Forecast Results';
+$lang->milestone->plannedValue       = 'Planned Value';
+$lang->milestone->predictedValue     = 'Predicted Value';
+$lang->milestone->predictedValueDesc = 'Rentenformel (Germany)：If the project progress performance(SPI)=0,So the predicted value=0,Otherwise,Predicted value=Planned value divided by Project schedule performance(SPI)';
+$lang->milestone->periodDeviation    = 'Period Deviation';
+$lang->milestone->costDeviation      = 'Cost Deviation';
+$lang->milestone->nextStage          = 'Next Stage';
+$lang->milestone->overallProject     = 'Overall Project';
+$lang->milestone->corrective         = 'Corrective Measure';
+$lang->milestone->timeOverrun        = 'The total construction time will exceed:%s day.';
+$lang->milestone->costOverrun        = 'The total cost will exceed:%s unit';
+$lang->milestone->saveOtherProblem   = 'Save Other Problem';
+
+$lang->milestone->chart = new stdclass();
+$lang->milestone->chart->title    = 'Trend Chart of project progress to date';
+$lang->milestone->chart->time     = 'No';
+$lang->milestone->chart->week     = 'week';
+$lang->milestone->chart->month    = 'month';
+$lang->milestone->chart->workhour = 'Development Workload Analysis Chart';
+
+$lang->milestone->otherproblem      = '6.Other Problem';
+$lang->milestone->problemandsuggest = 'Problem and Suggest';
+$lang->milestone->suggest           = 'Suggest';
+$lang->milestone->needhelp          = 'Does it require high-level support?';
+$lang->milestone->prodescr          = 'Problem Description';
+
+$lang->milestone->quality = new stdclass();
+$lang->milestone->quality->total         = 'Total';
+$lang->milestone->quality->identify      = 'Defect identification phase';
+$lang->milestone->quality->injection     = 'Defect injection phase';
+$lang->milestone->quality->scale         = 'Scale';
+$lang->milestone->quality->identifyRate       = 'Defect recognition rate';
+$lang->milestone->quality->injectionRate      = 'Defect injection rate';
+
+$lang->milestone->options  = 'Options';
 /* misc */
 $lang->misc = new stdclass();
 $lang->misc->common = 'Misc';
@@ -4010,6 +4708,7 @@ $lang->misc->releaseDate['7.2.stable']  = '2015-05-22';
 $lang->misc->releaseDate['7.1.stable']  = '2015-03-07';
 $lang->misc->releaseDate['6.3.stable']  = '2014-11-07';
 
+$lang->misc->feature->all['20.0'][]   = array('title'=>'Add program, reset priv.', 'desc' => '');
 $lang->misc->feature->all['12.4.1'][] = array('title'=>'Fix Bug', 'desc' => '');
 
 $lang->misc->feature->all['12.4.stable'][] = array('title'=>'Fix Bug', 'desc' => '');
@@ -4125,6 +4824,10 @@ $lang->my->bug            = 'My Bugs';
 $lang->my->testTask       = 'My Builds';
 $lang->my->testCase       = 'My Cases';
 $lang->my->story          = 'My Stories';
+$lang->my->requirement    = 'My Requirements';
+$lang->my->program        = 'My Programs';
+$lang->my->myProgram      = "My Programs";
+$lang->my->createProgram  = 'Create Program';
 $lang->my->myProject      = "My {$lang->projectCommon}s";
 $lang->my->profile        = 'My Profile';
 $lang->my->dynamic        = 'My Dynamics';
@@ -4386,6 +5089,183 @@ $lang->productplan->beginGeEnd   = 'ID %s begin time should not be >= end time.'
 $lang->productplan->featureBar['browse']['all']       = 'All';
 $lang->productplan->featureBar['browse']['unexpired'] = 'Unexpired';
 $lang->productplan->featureBar['browse']['overdue']   = 'Expired';
+/* program */
+$lang->program->index              = 'Project';
+$lang->program->create             = 'Create';
+$lang->program->createGuide        = 'Select The Project Template';
+$lang->program->edit               = 'Edit';
+$lang->program->browse             = 'Project List';
+$lang->program->all                = 'All';
+$lang->program->start              = 'Start';
+$lang->program->finish             = 'Finish';
+$lang->program->suspend            = 'Suspend';
+$lang->program->delete             = 'Delete';
+$lang->program->close              = 'Close';
+$lang->program->activate           = 'Activate';
+$lang->program->group              = 'Group';
+$lang->program->createGroup        = 'Create Group';
+$lang->program->editGroup          = 'Edit Group';
+$lang->program->copyGroup          = 'Copy Group';
+$lang->program->manageView         = 'Manage View';
+$lang->program->managePriv         = 'Manage Priv';
+$lang->program->manageMembers      = 'Project Team';
+$lang->program->export             = 'Export';
+$lang->program->manageGroupMember  = 'Manage Grop';
+
+$lang->program->common             = 'Project';
+$lang->program->stage              = 'Stage';
+$lang->program->name               = 'Name';
+$lang->program->template           = 'Template';
+$lang->program->category           = 'Category';
+$lang->program->desc               = 'Description';
+$lang->program->code               = 'Code';
+$lang->program->copy               = 'Copy';
+$lang->program->begin              = 'Begin';
+$lang->program->end                = 'End';
+$lang->program->status             = 'Status';
+$lang->program->PM                 = 'Project Manager';
+$lang->program->budget             = 'Budget';
+$lang->program->dateRange          = 'Date Range';
+$lang->program->to                 = ' to ';
+$lang->program->realFinished       = 'Real finished';
+$lang->program->realStarted        = 'Real started';
+$lang->program->bygrid             = 'Grid';
+$lang->program->bylist             = 'List';
+$lang->program->mine               = 'Participated';
+$lang->program->setPlanduration    = 'Set Planduration';
+$lang->program->privway            = 'Priv Way';
+$lang->program->durationEstimation = 'Duration Estimation';
+$lang->program->progress           = 'Program Progress';
+$lang->program->teamCount          = 'The Number Of Team';
+$lang->program->leftStories        = 'Left Stories';
+$lang->program->leftTasks          = 'Left Tasks';
+$lang->program->leftBugs           = 'Left Bugs';
+$lang->program->children           = 'Subprogram';
+$lang->program->parent             = 'Parent Program';
+$lang->program->allStories         = 'All stories';
+$lang->program->doneStories        = 'Done stories';
+$lang->program->leftStories        = 'Left stories';
+$lang->program->allInput           = 'All Input';
+$lang->program->weekly             = 'Program Weekly';
+$lang->program->pv                 = 'PV';
+$lang->program->ev                 = 'EV';
+$lang->program->sv                 = 'SV%';
+$lang->program->ac                 = 'AC';
+$lang->program->cv                 = 'CV%';
+$lang->program->pm                 = 'PM';
+$lang->program->teamCount          = 'The Number Of Team';
+
+$lang->program->unitList[''] = '';
+$lang->program->unitList['yuan']   = 'Yuan';
+$lang->program->unitList['dollar'] = 'Dollars';
+
+$lang->program->templateList['scrum'] = "Scrum";
+$lang->program->templateList['cmmi']  = "CMMI";
+
+$lang->program->categoryList['single']   = "Single product";
+$lang->program->categoryList['multiple'] = "Multiple products";
+
+$lang->program->featureBar['all']       = 'All';
+$lang->program->featureBar['doing']     = 'Going';
+$lang->program->featureBar['wait']      = 'Waiting';
+$lang->program->featureBar['suspended'] = 'Suspended';
+$lang->program->featureBar['closed']    = 'Closed';
+
+$lang->program->aclList['open']    = "Default (Users who can visit {$lang->projectCommon} can access it.)";
+$lang->program->aclList['private'] = 'Private (For team members only.)';
+$lang->program->aclList['custom']  = 'Custom (Team members and the whitelist users can access it.)';
+
+$lang->program->privwayList['extend'] = 'Extend(Mix program priv and common priv.)';
+$lang->program->privwayList['reset']  = 'Reset(Only program prive.)';
+
+$lang->program->statusList['wait']      = 'Wait';
+$lang->program->statusList['doing']     = 'Doing';
+$lang->program->statusList['suspended'] = 'Suspended';
+$lang->program->statusList['closed']    = 'Closed';
+
+$lang->program->noProgram          = 'No Program';
+$lang->program->accessDenied       = 'Has No Access To The Program';
+$lang->program->chooseProgramType  = 'Choose management type';
+$lang->program->nextStep           = 'Next step';
+$lang->program->hoursUnit          = '%s hours';
+$lang->program->membersUnit        = '%s members';
+$lang->program->lastIteration      = 'Latest iterations';
+$lang->program->ongoingStage       = 'Ongoing stage';
+$lang->program->scrum              = 'Scrum';
+$lang->program->scrumTitle         = 'Scrum development full process project management';
+$lang->program->scrumDesc          = '<strong>Introduction: </strong>Iterate in small steps, release quickly<br><strong>Contains function points: </strong>Project overview, iterations, plans, stories, etc.';
+$lang->program->cmmi               = 'CMMI';
+$lang->program->cmmiTitle          = 'CMMI management';
+$lang->program->cmmiDesc           = '<strong>Introduction: </strong>Standardized management by stages<br><strong>Contains function points: </strong>Estimate, plan, stage, report, etc.';
+$lang->program->cannotCreateChild  = 'The project already has actual content and can not add subprojects directly. You can create a parent project for the current project and then add a child project under the new parent project.';
+$lang->program->hasChildren        = 'This project has a subproject and can not be deleted.';
+$lang->program->confirmDelete      = 'Do you want to delete this project?';
+$lang->program->emptyPM            = 'No program manager';
+$lang->program->cannotChangeToCat  = "The project already has the actual content and can not be modified as a parent project";
+$lang->program->cannotCancelCat    = "There are already children under this project. You can not unmark the parent project";
+$lang->program->parentBeginEnd     = "Begin and end date of parent project: %s ~ %s";
+$lang->program->parentBudget       = "Parent project budget: %s";
+$lang->program->beginLetterParent  = "Begin date of parent project: %s, Begin date cannot be less than the begin date of parent project.";
+$lang->program->endGreaterParent   = "End date of parent project: %s, End date cannot be greater than the end date of parent project.";
+$lang->program->beginGreateChild   = "Minimum begin date of child project: %s, the begin date of parent project cannot be greater than the minimum begin date of child project.";
+$lang->program->endLetterChild     = "Maximum end date of child project: %s, the end date of parent project cannot be less than the maximum end date of child project.";
+/* programplan */
+$lang->programplan->common = 'Program Plan';
+
+$lang->programplan->browse        = 'Browse Program Plan';
+$lang->programplan->gantt         = 'Gantt Chart';
+$lang->programplan->list          = 'Stage List';
+$lang->programplan->create        = 'Create';
+$lang->programplan->edit          = 'Edit';
+$lang->programplan->delete        = 'Delete';
+$lang->programplan->createSubPlan = 'Create Sub Plan';
+
+$lang->programplan->parent            = 'Parent Stage';
+$lang->programplan->emptyParent       = 'Not Yet';
+$lang->programplan->name              = 'Name';
+$lang->programplan->percent           = 'Plan Workload';
+$lang->programplan->percentAB         = 'Plan Workload';
+$lang->programplan->planPercent       = 'Workload';
+$lang->programplan->attribute         = 'Attribute';
+$lang->programplan->milestone         = 'Milestone';
+$lang->programplan->taskProgress      = 'Task Progress';
+$lang->programplan->task              = 'Task';
+$lang->programplan->begin             = 'Begin';
+$lang->programplan->end               = 'Finish';
+$lang->programplan->realStarted       = 'Actual Started';
+$lang->programplan->realFinished      = 'Actual Finished';
+$lang->programplan->output            = 'Output';
+$lang->programplan->openedBy          = 'Created By';
+$lang->programplan->openedDate        = 'Created Date';
+$lang->programplan->editedBy          = 'Edited By';
+$lang->programplan->editedDate        = 'Edited Date';
+$lang->programplan->duration          = 'Duration';
+$lang->programplan->version           = 'Version';
+$lang->programplan->full              = 'Full Screen';
+$lang->programplan->today             = 'Today';
+$lang->programplan->exporting         = 'Export';
+$lang->programplan->exportFail        = 'Export Fail';
+$lang->programplan->hideCriticalPath  = 'Hide Critical Path';
+$lang->programplan->showCriticalPath  = 'Show Critical Path';
+
+$lang->programplan->milestoneList[1] = 'Yes';
+$lang->programplan->milestoneList[0] = 'No';
+
+$lang->programplan->noData        = 'No Data';
+$lang->programplan->children      = 'Children';
+$lang->programplan->childrenAB    = 'Children';
+$lang->programplan->confirmDelete = 'Are you sure you want to delete the current plan?';
+
+$lang->programplan->stageCustom = new stdClass();
+$lang->programplan->stageCustom->date = 'Show Date';
+$lang->programplan->stageCustom->task = 'Show Task';
+
+$lang->programplan->error                  = new stdclass();
+$lang->programplan->error->percentNumber   = '"Workload Ration" must be number';
+$lang->programplan->error->planFinishSmall = '"Finish" must greater than "Begin"';
+$lang->programplan->error->percentOver     = 'The "Workload Ration" total cannot exceed 100%';
+$lang->programplan->error->onlyOneDev      = 'Only one development type of phase plan can be set per phase plan';
+$lang->programplan->error->createdTask     = 'The task has been decompose. Subphases cannot be added';
 /* project */
 $lang->project->common        = $lang->projectCommon;
 $lang->project->allProjects   = 'All ' . $lang->projectCommon . 's';
@@ -4803,6 +5683,7 @@ $lang->release->action->changestatus = array('main' => '$date,  $extra by  <stro
 $lang->repo->common          = 'Repo';
 $lang->repo->browse          = 'View';
 $lang->repo->viewRevision    = 'View Revision';
+$lang->repo->program         = 'Program';
 $lang->repo->create          = 'Create';
 $lang->repo->createAction    = 'Create Repo';
 $lang->repo->maintain        = 'Repo List';
@@ -5118,6 +5999,125 @@ $lang->report->annualData->poStatistics  = "Monthly Created {$lang->storyCommon}
 $lang->report->annualData->devStatistics = "Monthly Finished Task, Hour, and Resolved Bug";
 
 $lang->report->annualData->unit = " ";
+/* risk */
+$lang->risk->batchCreate = 'Batch Add';
+$lang->risk->create      = 'Add Risk';
+$lang->risk->edit        = 'Edit Risk';
+$lang->risk->browse      = 'List';
+$lang->risk->view        = 'Details';
+$lang->risk->activate    = 'Active';
+$lang->risk->hangup      = 'Suspend';
+$lang->risk->close       = 'Close';
+$lang->risk->cancel      = 'Cancle';
+$lang->risk->track       = 'Track';
+$lang->risk->assignTo    = 'Assign';
+$lang->risk->delete      = 'Delete';
+$lang->risk->byQuery     = 'Search';
+
+$lang->risk->common            = 'Risk';
+$lang->risk->source            = 'Source';
+$lang->risk->id                = 'ID';
+$lang->risk->name              = 'Name';
+$lang->risk->category          = 'Type';
+$lang->risk->strategy          = 'Strategy';
+$lang->risk->status            = 'Status';
+$lang->risk->impact            = 'Impact';
+$lang->risk->probability       = 'Probability';
+$lang->risk->riskindex         = 'Risk Index';
+$lang->risk->pri               = 'Priority';
+$lang->risk->prevention        = 'Mitigation';
+$lang->risk->remedy            = 'Contingency';
+$lang->risk->identifiedDate    = 'Identified Date';
+$lang->risk->plannedClosedDate = 'Closed Date';
+$lang->risk->assignedTo        = 'AssignedTo';
+$lang->risk->assignedDate      = 'Assigned Date';
+$lang->risk->createdBy         = 'Added By';
+$lang->risk->createdDate       = 'Added Date';
+$lang->risk->noAssigned        = 'Unassigned';
+$lang->risk->cancelBy          = 'Canceled By';
+$lang->risk->cancelDate        = 'Canceled Date';
+$lang->risk->cancelReason      = 'Cancel Reason';
+$lang->risk->resolvedBy        = 'Resolved By';
+$lang->risk->closedDate        = 'Closed Date';
+$lang->risk->actualClosedDate  = 'Closed Date';
+$lang->risk->resolution        = 'Resolution';
+$lang->risk->hangupBy          = 'Suspended By';
+$lang->risk->hangupDate        = 'Suspended Date';
+$lang->risk->activateBy        = 'Activated By';
+$lang->risk->activateDate      = 'Activated Date';
+$lang->risk->isChange          = 'Any change?';
+$lang->risk->trackedBy         = 'Tracked By';
+$lang->risk->trackedDate       = 'Tracked Date';
+$lang->risk->editedBy          = 'Edited By';
+$lang->risk->editedDate        = 'Edited By';
+
+$lang->risk->legendBasicInfo   = 'Basic Info.';
+$lang->risk->legendLifeTime    = 'About Risk';
+$lang->risk->confirmDelete     = 'Do you want to delelte this risk?';
+
+$lang->risk->action = new stdclass();
+$lang->risk->action->hangup  = '$date, suspended by <strong>$actor</strong>.' . "\n";
+$lang->risk->action->tracked = '$date, tracked by <strong>$actor</strong>.' . "\n";
+ 
+$lang->risk->sourceList[''] = '';
+$lang->risk->sourceList['business']    = 'Business';
+$lang->risk->sourceList['team']        = 'Project Team';
+$lang->risk->sourceList['logistic']    = 'Project Logistics';
+$lang->risk->sourceList['manage']      = 'Management';
+$lang->risk->sourceList['sourcing']    = 'Supplier-Procurement';
+$lang->risk->sourceList['outsourcing'] = 'Supplier-Outsourcing';
+$lang->risk->sourceList['customer']    = 'Customer';
+$lang->risk->sourceList['others']      = 'Other';
+
+$lang->risk->categoryList[''] = '';
+$lang->risk->categoryList['technical']   = 'Technology';
+$lang->risk->categoryList['manage']      = 'Management';
+$lang->risk->categoryList['business']    = 'Business';
+$lang->risk->categoryList['requirement'] = 'Requirement';
+$lang->risk->categoryList['resource']    = 'Resource';
+$lang->risk->categoryList['others']      = 'Other';
+
+$lang->risk->impactList[1] = 1;
+$lang->risk->impactList[2] = 2;
+$lang->risk->impactList[3] = 3;
+$lang->risk->impactList[4] = 4;
+$lang->risk->impactList[5] = 5;
+
+$lang->risk->probabilityList[1] = 1;
+$lang->risk->probabilityList[2] = 2;
+$lang->risk->probabilityList[3] = 3;
+$lang->risk->probabilityList[4] = 4;
+$lang->risk->probabilityList[5] = 5;
+
+$lang->risk->priList['high']   = 'High';
+$lang->risk->priList['middle'] = 'Medium';
+$lang->risk->priList['low']    = 'Low';
+
+$lang->risk->statusList[''] = '';
+$lang->risk->statusList['active']   = 'Active';
+$lang->risk->statusList['closed']   = 'Closed';
+$lang->risk->statusList['hangup']   = 'Suspended';
+$lang->risk->statusList['canceled'] = 'Canceled';
+
+$lang->risk->strategyList[''] = '';
+$lang->risk->strategyList['avoidance']    = 'Avoidance';
+$lang->risk->strategyList['mitigation']   = 'Mitigation';
+$lang->risk->strategyList['transference'] = 'Transfer';
+$lang->risk->strategyList['acceptance']   = 'Acceptance';
+
+$lang->risk->isChangeList[0] = 'No';
+$lang->risk->isChangeList[1] = 'Yes';
+
+$lang->risk->cancelReasonList[''] = '';
+$lang->risk->cancelReasonList['disappeared'] = 'Dispear';
+$lang->risk->cancelReasonList['mistake']     = 'Mistake';
+
+$lang->risk->featureBar['browse']['all']      = 'All';
+$lang->risk->featureBar['browse']['active']   = 'Active';
+$lang->risk->featureBar['browse']['assignTo'] = 'AssignToMe';
+$lang->risk->featureBar['browse']['closed']   = 'Closed';
+$lang->risk->featureBar['browse']['hangup']   = 'Suspended';
+$lang->risk->featureBar['browse']['canceled'] = 'Canceled';
 /* score */
 $lang->score->common       = 'My Points';
 $lang->score->record       = 'Points';
@@ -5278,50 +6278,83 @@ $lang->sso->bindNotice     = 'User that is just added has no permissions. You ha
 $lang->sso->bindNoPassword = 'Password should not be empty.';
 $lang->sso->bindNoUser     = 'Password is wrong/User cannot be found!';
 $lang->sso->bindHasAccount = 'This username already exists. Change your username or bind to it.';
+/* stage */
+$lang->stage->browse       = 'Stage List';
+$lang->stage->create       = 'Create Stage';
+$lang->stage->batchCreate  = 'Batch Create';
+$lang->stage->edit         = 'Edit Stage';
+$lang->stage->delete       = 'Delete Stage';
+$lang->stage->view         = 'Stage Details';
+
+$lang->stage->common       = 'Stage';
+$lang->stage->id           = 'ID';
+$lang->stage->name         = 'Name';
+$lang->stage->type         = 'Type';
+$lang->stage->percent      = 'Workload ratio';
+$lang->stage->setType      = 'Set type';
+
+$lang->stage->typeList['request'] = 'Story';
+$lang->stage->typeList['design']  = 'Design';
+$lang->stage->typeList['dev']     = 'Development';
+$lang->stage->typeList['qa']      = 'Test';
+$lang->stage->typeList['release'] = 'Release';
+$lang->stage->typeList['review']  = 'Summary Review';
+$lang->stage->typeList['other']   = 'Other';
+
+$lang->stage->viewList      = 'Stage List';
+$lang->stage->noStage       = 'There`s no phase yet';
+$lang->stage->confirmDelete = 'Are you sure you want to do this?';
 /* story */
-$lang->story->create          = "Create Story";
-$lang->story->batchCreate     = "Batch Create";
-$lang->story->change          = "Change";
-$lang->story->changeAction    = "Change Story";
-$lang->story->changed         = 'Change';
-$lang->story->assignTo        = 'Assign';
-$lang->story->assignAction    = 'Assign Story';
-$lang->story->review          = 'Review';
-$lang->story->reviewAction    = 'Review Story';
-$lang->story->needReview      = 'Need Review';
-$lang->story->batchReview     = 'Batch Review';
-$lang->story->edit            = "Edit Story";
-$lang->story->batchEdit       = "Batch Edit";
-$lang->story->subdivide       = 'Decompose';
-$lang->story->subdivideAction = 'Decompose Story';
-$lang->story->splitRequirent  = 'Decompose';
-$lang->story->close           = 'Close';
-$lang->story->closeAction     = 'Close Story';
-$lang->story->batchClose      = 'Batch Close';
-$lang->story->activate        = 'Activate';
-$lang->story->activateAction  = 'Activate Story';
-$lang->story->delete          = "Delete";
-$lang->story->deleteAction    = "Delete Story";
-$lang->story->view            = "Story Detail";
-$lang->story->setting         = "Settings";
-$lang->story->tasks           = "Linked Tasks";
-$lang->story->bugs            = "Linked Bugs";
-$lang->story->cases           = "Linked Cases";
-$lang->story->taskCount       = 'Tasks';
-$lang->story->bugCount        = 'Bugs';
-$lang->story->caseCount       = 'Cases';
-$lang->story->taskCountAB     = 'T';
-$lang->story->bugCountAB      = 'B';
-$lang->story->caseCountAB     = 'C';
-$lang->story->linkStory       = 'Link Story';
-$lang->story->unlinkStory     = 'UnLinked';
-$lang->story->export          = "Export Data";
-$lang->story->exportAction    = "Export Story";
-$lang->story->zeroCase        = "Stories without cases";
-$lang->story->zeroTask        = "Only list stories without tasks";
-$lang->story->reportChart     = "Report";
-$lang->story->reportAction    = "Story Report";
-$lang->story->copyTitle       = "Copy Title";
+$lang->story->create            = "Create Story";
+$lang->story->createStory       = 'Create Story';
+$lang->story->createRequirement = 'Create Requirement';
+$lang->story->requirement       = 'Requirement';
+$lang->story->story             = 'Story';
+$lang->story->batchCreate       = "Batch Create";
+$lang->story->change            = "Change";
+$lang->story->changeAction      = "Change Story";
+$lang->story->changed           = 'Change';
+$lang->story->assignTo          = 'Assign';
+$lang->story->assignAction      = 'Assign Story';
+$lang->story->review            = 'Review';
+$lang->story->reviewAction      = 'Review Story';
+$lang->story->needReview        = 'Need Review';
+$lang->story->batchReview       = 'Batch Review';
+$lang->story->edit              = "Edit Story";
+$lang->story->batchEdit         = "Batch Edit";
+$lang->story->subdivide         = 'Decompose';
+$lang->story->link              = 'Link';
+$lang->story->unlink            = 'Unlink';
+$lang->story->track             = 'Track';
+$lang->story->subdivideAction   = 'Decompose Story';
+$lang->story->splitRequirent    = 'Decompose';
+$lang->story->close             = 'Close';
+$lang->story->closeAction       = 'Close Story';
+$lang->story->batchClose        = 'Batch Close';
+$lang->story->activate          = 'Activate';
+$lang->story->activateAction    = 'Activate Story';
+$lang->story->delete            = "Delete";
+$lang->story->deleteAction      = "Delete Story";
+$lang->story->view              = "Story Detail";
+$lang->story->setting           = "Settings";
+$lang->story->tasks             = "Linked Tasks";
+$lang->story->bugs              = "Linked Bugs";
+$lang->story->cases             = "Linked Cases";
+$lang->story->taskCount         = 'Tasks';
+$lang->story->bugCount          = 'Bugs';
+$lang->story->caseCount         = 'Cases';
+$lang->story->taskCountAB       = 'T';
+$lang->story->bugCountAB        = 'B';
+$lang->story->caseCountAB       = 'C';
+$lang->story->linkStory         = 'Link Story';
+$lang->story->unlinkStory       = 'UnLinked';
+$lang->story->export            = "Export Data";
+$lang->story->exportAction      = "Export Story";
+$lang->story->zeroCase          = "Stories without cases";
+$lang->story->zeroTask          = "Only list stories without tasks";
+$lang->story->reportChart       = "Report";
+$lang->story->reportAction      = "Story Report";
+$lang->story->copyTitle         = "Copy Title";
 $lang->story->batchChangePlan   = "Batch Change Plans";
 $lang->story->batchChangeBranch = "Batch Change Branches";
 $lang->story->batchChangeStage  = "Batch Change Phases";
@@ -5335,6 +6368,7 @@ $lang->story->common         = 'Story';
 $lang->story->id             = 'ID';
 $lang->story->parent         = 'Parent';
 $lang->story->product        = $lang->productCommon;
+$lang->story->program        = 'Program';
 $lang->story->branch         = "Branch/Platform";
 $lang->story->module         = 'Module';
 $lang->story->moduleAB       = 'Module';
@@ -5391,6 +6425,11 @@ $lang->story->allStories     = 'All Stories';
 $lang->story->unclosed       = 'Unclosed';
 $lang->story->deleted        = 'Deleted';
 $lang->story->released       = 'Released Stories';
+$lang->story->design         = 'Designs';
+$lang->story->case           = 'Cases';
+$lang->story->bug            = 'Bugs';
+$lang->story->repoCommit     = 'Commits';
+$lang->story->noRequirement  = 'No Requirements';
 
 $lang->story->ditto       = 'Ditto';
 $lang->story->dittoNotice = 'This story is not linked to the same product as the last one is!';
@@ -5606,6 +6645,12 @@ $lang->story->chosen->reviewedBy = 'Choose ReviewedBy';
 
 $lang->story->notice = new stdClass();
 $lang->story->notice->closed = 'Story that you select is closed!';
+/* subject */
+$lang->subject->common      = 'Subject';
+$lang->subject->manage      = 'Manage Subject';
+$lang->subject->manageChild = 'Manage Child Subject';
+$lang->subject->name        = 'Subject Name';
+$lang->subject->browse      = 'Browse Subject';
 /* svn */
 $lang->svn->common  = 'Subversion';
 $lang->svn->cat     = 'View Source Code';
@@ -5658,6 +6703,7 @@ $lang->task->allModule           = 'All Module';
 
 $lang->task->common            = 'Task';
 $lang->task->id                = 'ID';
+$lang->task->program           = 'Program';
 $lang->task->project           = $lang->projectCommon;
 $lang->task->module            = 'Module';
 $lang->task->moduleAB          = 'Module';
@@ -5755,6 +6801,7 @@ $lang->task->statusList['closed']  = 'Closed';
 $lang->task->typeList['']        = '';
 $lang->task->typeList['design']  = 'Design';
 $lang->task->typeList['devel']   = 'Develop';
+$lang->task->typeList['request'] = 'Request';
 $lang->task->typeList['test']    = 'Testing';
 $lang->task->typeList['study']   = 'Study';
 $lang->task->typeList['discuss'] = 'Discuss';
@@ -5802,21 +6849,24 @@ $lang->task->createDenied          = 'Create Task is denied in this project';
 $lang->task->cannotDeleteParent    = 'Cannot delete parent task';
 
 $lang->task->error = new stdclass();
-$lang->task->error->totalNumber      = '"Total Cost" must be numbers.';
-$lang->task->error->consumedNumber   = '"Current Cost" must be numbers.';
-$lang->task->error->estimateNumber   = '"Estimates" must be numbers.';
-$lang->task->error->leftNumber       = '"Left" must be numbers.';
-$lang->task->error->recordMinus      = 'Work hours should not be negative number.';
-$lang->task->error->consumedSmall    = '"Total Cost" must be > the last number.';
-$lang->task->error->consumedThisTime = 'Please enter "Hours Cost"';
-$lang->task->error->left             = 'Please enter "Hours Left"';
-$lang->task->error->work             = '"Comment" must be <  %d characters.';
-$lang->task->error->skipClose        = 'Task: %s is not "Finished” or “Cancelled”. Do you want to close it?';
-$lang->task->error->consumed         = 'Task: %s hour must be < 0. Ignore changes to this task.';
-$lang->task->error->assignedTo       = 'Multi-user task in the current status cannot be assigned to a member who is not in the task team.';
-$lang->task->error->consumedEmpty    = '"Current Cost" should not be 0.';
-$lang->task->error->deadlineSmall    = '"Deadline" must be greater than "StartDate".';
-$lang->task->error->alreadyStarted   = 'You cannot start this task, because it is started.';
+$lang->task->error->totalNumber       = '"Total Cost" must be numbers.';
+$lang->task->error->consumedNumber    = '"Current Cost" must be numbers.';
+$lang->task->error->estimateNumber    = '"Estimates" must be numbers.';
+$lang->task->error->recordMinus       = 'Work hours should not be negative number.';
+$lang->task->error->leftNumber        = '"Left" must be numbers.';
+$lang->task->error->recordMinus       = 'Work hours should not be negative number.';
+$lang->task->error->consumedSmall     = '"Total Cost" must be > the last number.';
+$lang->task->error->consumedThisTime  = 'Please enter "Hours Cost"';
+$lang->task->error->left              = 'Please enter "Hours Left"';
+$lang->task->error->work              = '"Comment" must be <  %d characters.';
+$lang->task->error->skipClose         = 'Task: %s is not "Finished” or “Cancelled”. Do you want to close it?';
+$lang->task->error->consumed          = 'Task: %s hour must be < 0. Ignore changes to this task.';
+$lang->task->error->assignedTo        = 'Multi-user task in the current status cannot be assigned to a member who is not in the task team.';
+$lang->task->error->consumedEmpty     = '"Current Cost" should not be 0.';
+$lang->task->error->deadlineSmall     = '"Deadline" must be greater than "StartDate".';
+$lang->task->error->alreadyStarted    = 'You cannot start this task, because it is started.';
+$lang->task->error->realStartedEmpty  = '"Real Started" should not be empty.';
+$lang->task->error->finishedDateEmpty = '"Finished Date" should not be empty.';
 
 $lang->task->report = new stdclass();
 $lang->task->report->common = 'Report';
@@ -6681,6 +7731,8 @@ include dirname(__FILE__) . '/version.php';
 /* user */
 $lang->user->common           = 'User';
 $lang->user->id               = 'ID';
+$lang->user->inside           = 'Inside Members';
+$lang->user->outside          = 'Outside Members';
 $lang->user->company          = 'Company';
 $lang->user->dept             = 'Department';
 $lang->user->account          = 'Account';
@@ -6980,3 +8032,53 @@ $lang->webhook->note->typeList['default']   = 'Get a webhook url from others';
 $lang->webhook->error = new stdclass();
 $lang->webhook->error->curl   = 'Load php-curl in php.ini.';
 $lang->webhook->error->noDept = 'There is no department selected. Please choose department first.';
+/* weekly */
+$lang->weekly->common   = 'Project Weekly';
+$lang->weekly->index    = 'Weekly newspaper overview';
+$lang->weekly->progress = 'Percent Completed';
+$lang->weekly->workload = 'Workload';
+$lang->weekly->total    = 'Total';
+
+$lang->weekly->reportTtitle   = 'ITEM: Weekly Report% s (week% s)';
+$lang->weekly->summary        = 'Project status';
+$lang->weekly->finished       = 'Completion of work this week (100% of work completed)';
+$lang->weekly->postponed      = 'The work is not finished this week';
+$lang->weekly->nextWeek       = 'Schedule of work for next week';
+$lang->weekly->workloadByType = 'Workload statistics';
+
+$lang->weekly->term    = 'Reporting Cycle';
+$lang->weekly->program = 'Project Name';
+$lang->weekly->master  = 'Project Manager ';
+$lang->weekly->staff   = 'The numbers in this week';
+
+$lang->weekly->weekDesc       = 'Week% s (% s ~% s)';
+$lang->weekly->progress       = 'Current status of the project';
+$lang->weekly->analysisResult = 'Analysis results';
+$lang->weekly->cost           = 'Project cost';
+
+$lang->weekly->pv = 'The work to be done(PV)';
+$lang->weekly->ev = 'Actual work done(EV)';
+$lang->weekly->ac = 'Actual cost(AC)';
+$lang->weekly->sv = 'Rate of progress deviation(SV%)';
+$lang->weekly->cv = 'Cost deviation rate(CV%)';
+/* workestimation */
+$lang->workestimation->common         = 'Workload estimation';
+$lang->workestimation->budget         = 'Estimate';
+$lang->workestimation->index          = 'Overview';
+$lang->workestimation->scale          = 'Scale';
+$lang->workestimation->productivity   = 'Productivity';
+$lang->workestimation->duration       = 'Estimated total man-hour';
+$lang->workestimation->unitLaborCost  = 'Unit Labour cost';
+$lang->workestimation->totalLaborCost = 'Estimate labor costs';
+$lang->workestimation->dayHour        = 'Daily working hours';
+$lang->workestimation->hour           = 'Man-hour';
+$lang->workestimation->consumed       = 'Man-hours consumed';
+
+$lang->workestimation->programScaleTip = "Actual scale of current project：<strong>%s{$lang->hourCommon}</strong> <a href='###' id='useScale' class='btn btn-xs'>use</span>";
+
+$lang->workestimation->placeholder = new stdclass(); 
+$lang->workestimation->placeholder->scale          = '';
+$lang->workestimation->placeholder->productivity   = '';
+$lang->workestimation->placeholder->duration       = '';
+$lang->workestimation->placeholder->unitLaborCost  = '';
+$lang->workestimation->placeholder->totalLaborCost = '';

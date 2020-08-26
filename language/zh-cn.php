@@ -109,18 +109,55 @@ $lang->typeAB       = '类型';
 $lang->common = new stdclass();
 $lang->common->common = '公有模块';
 
-$lang->menu = new stdclass();
-$lang->menu->my      = '<span> 我的地盘</span>|my|index';
-$lang->menu->product = $lang->productCommon . '|product|index|locate=no';
-$lang->menu->project = $lang->projectCommon . '|project|index|locate=no';
-$lang->menu->qa      = '测试|qa|index';
-$lang->menu->ci      = '集成|repo|browse';
-$lang->menu->doc     = '文档|doc|index';
-$lang->menu->report  = '统计|report|index';
-$lang->menu->company = '组织|company|index';
-$lang->menu->admin   = '后台|admin|index';
+$lang->mainNav = new stdclass();
+$lang->mainNav->my        = '<i class="icon icon-menu-my"></i> 地盘|my|index|';
+$lang->mainNav->program   = '<i class="icon icon-menu-project"></i> 项目|program|browse|';
+//$lang->mainNav->reporting = '<i class="icon icon-menu-report"></i> 报表|report|index|';
+//$lang->mainNav->attend    = '<i class="icon icon-file"></i> 办公|attend|personal|';
+$lang->mainNav->system    = '<i class="icon icon-menu-users"></i> 组织|custom|estimate|';
+$lang->mainNav->admin     = '<i class="icon icon-menu-backend"></i> 后台|admin|index|';
+//$lang->mainNav->recent    = '<i class="icon icon-menu-recent"></i> 近期|recent|index|';
 
-$lang->dividerMenu = ',qa,report,';
+$lang->reporting = new stdclass();
+$lang->dividerMenu = ',admin,';
+
+$lang->menu = new stdclass();
+$lang->menu->program = '仪表盘|program|index|';
+$lang->menu->product = $lang->productCommon . '|product|index|locate=no';
+$lang->menu->project = "$lang->projectCommon|project|index|locate=no";
+$lang->menu->doc     = '文档|doc|index|';
+$lang->menu->qa      = '测试|qa|index';
+$lang->menu->company = new stdclass();
+
+$lang->program = new stdclass();
+
+$lang->system = new stdclass();
+$lang->system->menu = new stdclass();
+$lang->system->menu->estimate    = array('link' => '估算|custom|estimate|');
+$lang->system->menu->stage       = array('link' => '阶段|stage|browse|', 'subModule' => 'stage');
+$lang->system->menu->subject     = array('link' => '科目|subject|browse|');
+$lang->system->menu->holiday     = array('link' => '节假日|holiday|browse|');
+$lang->system->menu->custom      = array('link' => '自定义|custom|plan|');
+$lang->system->dividerMenu = ',auditcl,subject,';
+
+if(isset($_COOKIE['systemModel']) and $_COOKIE['systemModel'] == 'scrum')
+{
+    $lang->system->menu = new stdclass();
+    $lang->system->menu->subject  = array('link' => '科目|subject|browse|');
+    $lang->system->menu->holiday  = array('link' => '节假日|holiday|browse|');
+    $lang->system->menu->custom   = array('link' => '自定义|custom|concept|');
+    
+    $lang->mainNav->system = '<i class="icon icon-menu-users"></i> 组织|subject|browse|';
+    unset($lang->system->dividerMenu);
+}
+
+$lang->stage = new stdclass();
+$lang->stage->menu = new stdclass();
+$lang->stage->menu->browse  = array('link' => '阶段列表|stage|browse|', 'alias' => 'create,edit,batchcreate');
+$lang->stage->menu->settype = '阶段类型|stage|settype|';
+
+$lang->measurement = new stdclass();
+$lang->measurement->menu = new stdclass();
 
 $lang->searchObjects['bug']         = 'Bug';
 $lang->searchObjects['story']       = "{$lang->storyCommon}";
@@ -169,20 +206,23 @@ $lang->index->menu->project = "浏览{$lang->projectCommon}|project|browse";
 $lang->my = new stdclass();
 $lang->my->menu = new stdclass();
 
-$lang->my->menu->index          = '首页|my|index';
-$lang->my->menu->calendar       = array('link' => '日程|my|calendar|', 'subModule' => 'todo', 'alias' => 'todo');
-$lang->my->menu->task           = array('link' => '任务|my|task|', 'subModule' => 'task');
-$lang->my->menu->bug            = array('link' => 'Bug|my|bug|', 'subModule' => 'bug');
-$lang->my->menu->testtask       = array('link' => '测试|my|testtask|', 'subModule' => 'testcase,testtask', 'alias' => 'testcase');
-$lang->my->menu->story          = array('link' => "{$lang->storyCommon}|my|story|", 'subModule' => 'story');
-$lang->my->menu->myProject      = "{$lang->projectCommon}|my|project|";
-$lang->my->menu->dynamic        = '动态|my|dynamic|';
-$lang->my->menu->profile        = array('link' => '档案|my|profile', 'alias' => 'editprofile');
-$lang->my->menu->changePassword = '密码|my|changepassword';
-$lang->my->menu->manageContacts = '联系人|my|managecontacts';
-$lang->my->menu->score          = array('link' => '积分|my|score', 'subModule' => 'score');
+$lang->my->menu->index            = '首页|my|index';
+//$lang->my->menu->todo             = '待办|my|todo|';
+//$lang->my->menu->effort           = '日志|my|effort|';
+//$lang->my->menu->calendar       = array('link' => '日程|my|calendar|', 'subModule' => 'todo', 'alias' => 'todo');
+$lang->my->menu->program          = array('link' => '项目|my|program|');
+$lang->my->menu->task             = array('link' => '任务|my|task|', 'subModule' => 'task');
+$lang->my->menu->bug              = array('link' => 'Bug|my|bug|', 'subModule' => 'bug');
+$lang->my->menu->testtask         = array('link' => '测试|my|testtask|', 'subModule' => 'testcase,testtask', 'alias' => 'testcase');
+$lang->my->menu->story            = array('link' => "{$lang->storyCommon}|my|story|", 'subModule' => 'story');
+$lang->my->menu->myProject        = "{$lang->projectCommon}|my|project|";
+$lang->my->menu->dynamic          = '动态|my|dynamic|';
+//$lang->my->menu->profile        = array('link' => '档案|my|profile', 'alias' => 'editprofile');
+//$lang->my->menu->changePassword = '密码|my|changepassword';
+//$lang->my->menu->manageContacts = '联系人|my|managecontacts';
+//$lang->my->menu->score          = array('link' => '积分|my|score', 'subModule' => 'score');
 
-$lang->my->dividerMenu = ',task,myProject,profile,';
+$lang->my->dividerMenu = ',program,requirement,dynamic,';
 
 $lang->todo       = new stdclass();
 $lang->todo->menu = $lang->my->menu;
@@ -204,12 +244,12 @@ $lang->product->menu->branch  = '@branch@|branch|manage|productID=%s';
 $lang->product->menu->module  = '模块|tree|browse|productID=%s&view=story';
 $lang->product->menu->view    = array('link' => '概况|product|view|productID=%s', 'alias' => 'edit');
 
-$lang->product->dividerMenu = ',plan,project,doc,';
+$lang->product->dividerMenu = ',project,doc,';
 
-$lang->story       = new stdclass();
 $lang->productplan = new stdclass();
 $lang->release     = new stdclass();
 $lang->branch      = new stdclass();
+$lang->story       = new stdclass();
 
 $lang->branch->menu      = $lang->product->menu;
 $lang->story->menu       = $lang->product->menu;
@@ -347,7 +387,6 @@ $lang->job->menu     = $lang->ci->menu;
 
 $lang->doc = new stdclass();
 $lang->doc->menu = new stdclass();
-//$lang->doc->menu->createLib = array('link' => '<i class="icon icon-folder-plus"></i>&nbsp;添加文件夹|doc|createLib', 'float' => 'right');
 
 $lang->svn = new stdclass();
 $lang->git = new stdclass();
@@ -365,33 +404,39 @@ $lang->report->notice = new stdclass();
 $lang->report->notice->help = '注：统计报表的数据来源于列表页面的检索结果，生成统计报表前请先在列表页面进行检索。比如列表页面我们检索的是%tab%，那么报表就是基于之前检索的%tab%的结果集进行统计。';
 
 $lang->company = new stdclass();
+$lang->dept    = new stdclass();
+$lang->group   = new stdclass();
+$lang->user    = new stdclass();
 $lang->company->menu = new stdclass();
-$lang->company->menu->browseUser  = array('link' => '用户|company|browse', 'subModule' => 'user');
+$lang->dept->menu    = new stdclass();
+$lang->group->menu   = new stdclass();
+$lang->user->menu    = new stdclass();
+
+$lang->company = new stdclass();
+$lang->company->menu = new stdclass();
+$lang->company->menu->browseUser  = array('link' => '用户|company|browse', 'subModule' => ',user,');
 $lang->company->menu->dept        = array('link' => '部门|dept|browse', 'subModule' => 'dept');
 $lang->company->menu->browseGroup = array('link' => '权限|group|browse', 'subModule' => 'group');
 $lang->company->menu->dynamic     = '动态|company|dynamic|';
 $lang->company->menu->view        = array('link' => '公司|company|view');
 
-$lang->dept  = new stdclass();
-$lang->group = new stdclass();
-$lang->user  = new stdclass();
-
-$lang->dept->menu  = $lang->company->menu;
-$lang->group->menu = $lang->company->menu;
-$lang->user->menu  = $lang->company->menu;
-
 $lang->admin = new stdclass();
 $lang->admin->menu = new stdclass();
 $lang->admin->menu->index     = array('link' => '首页|admin|index', 'alias' => 'register,certifytemail,certifyztmobile,ztcompany');
+$lang->admin->menu->company   = array('link' => '组织|company|browse|', 'subModule' => ',user,dept,group,', 'alias' => ',dynamic,view,');
 $lang->admin->menu->message   = array('link' => '通知|message|index', 'subModule' => 'message,mail,webhook');
-$lang->admin->menu->custom    = array('link' => '自定义|custom|set', 'subModule' => 'custom');
-$lang->admin->menu->sso       = array('link' => '集成|admin|sso', 'subModule' => '');
-$lang->admin->menu->extension = array('link' => '插件|extension|browse', 'subModule' => 'extension');
-$lang->admin->menu->dev       = array('link' => '二次开发|dev|api', 'alias' => 'db', 'subModule' => 'dev,entry');
-$lang->admin->menu->translate = array('link' => '翻译|dev|translate');
+//$lang->admin->menu->custom    = array('link' => '自定义|custom|set', 'subModule' => 'custom');
+//$lang->admin->menu->sso       = array('link' => '集成|admin|sso', 'subModule' => '');
+//$lang->admin->menu->dev       = array('link' => '二次开发|dev|api', 'alias' => 'db', 'subModule' => 'dev,entry');
+//$lang->admin->menu->translate = array('link' => '翻译|dev|translate');
 $lang->admin->menu->data      = array('link' => '数据|backup|index', 'subModule' => 'backup,action');
 $lang->admin->menu->safe      = array('link' => '安全|admin|safe', 'alias' => 'checkweak');
-$lang->admin->menu->system    = array('link' => '系统|cron|index', 'subModule' => 'cron');
+$lang->admin->menu->system    = array('link' => '系统|cron|index', 'subModule' => 'cron,search');
+
+$lang->company->menu = $lang->company->menu;
+$lang->dept->menu    = $lang->company->menu;
+$lang->group->menu   = $lang->company->menu;
+$lang->user->menu    = $lang->company->menu;
 
 $lang->admin->subMenu = new stdclass();
 $lang->admin->subMenu->message = new stdclass();
@@ -431,19 +476,6 @@ $lang->webhook   = new stdclass();
 $lang->message   = new stdclass();
 $lang->search    = new stdclass();
 
-$lang->convert->menu   = $lang->admin->menu;
-$lang->upgrade->menu   = $lang->admin->menu;
-$lang->action->menu    = $lang->admin->menu;
-$lang->backup->menu    = $lang->admin->menu;
-$lang->cron->menu      = $lang->admin->menu;
-$lang->extension->menu = $lang->admin->menu;
-$lang->custom->menu    = $lang->admin->menu;
-$lang->mail->menu      = $lang->admin->menu;
-$lang->dev->menu       = $lang->admin->menu;
-$lang->entry->menu     = $lang->admin->menu;
-$lang->webhook->menu   = $lang->admin->menu;
-$lang->message->menu   = $lang->admin->menu;
-
 $lang->menugroup = new stdclass();
 $lang->menugroup->release     = 'product';
 $lang->menugroup->story       = 'product';
@@ -462,8 +494,8 @@ $lang->menugroup->testtask    = 'qa';
 $lang->menugroup->testsuite   = 'qa';
 $lang->menugroup->caselib     = 'qa';
 $lang->menugroup->testreport  = 'qa';
-$lang->menugroup->doclib      = 'doc';
-$lang->menugroup->people      = 'company';
+$lang->menugroup->report      = 'reporting';
+$lang->menugroup->people      = 'admin';
 $lang->menugroup->dept        = 'company';
 $lang->menugroup->todo        = 'my';
 $lang->menugroup->score       = 'my';
@@ -482,6 +514,93 @@ $lang->menugroup->repo    = 'ci';
 $lang->menugroup->jenkins = 'ci';
 $lang->menugroup->compile = 'ci';
 $lang->menugroup->job     = 'ci';
+
+$lang->navGroup = new stdclass();
+$lang->navGroup->my     = 'my';
+$lang->navGroup->todo   = 'my';
+$lang->navGroup->effort = 'my';
+
+$lang->navGroup->product     = 'program';
+$lang->navGroup->story       = 'program';
+$lang->navGroup->branch      = 'program';
+$lang->navGroup->productplan = 'program';
+$lang->navGroup->release     = 'program';
+$lang->navGroup->tree        = 'program';
+$lang->navGroup->project     = 'program';
+$lang->navGroup->task        = 'program';
+$lang->navGroup->qa          = 'program';
+$lang->navGroup->bug         = 'program';
+$lang->navGroup->doc         = 'program';
+$lang->navGroup->testcase    = 'program';
+$lang->navGroup->testtask    = 'program';
+$lang->navGroup->testreport  = 'program';
+$lang->navGroup->testsuite   = 'program';
+$lang->navGroup->caselib     = 'program';
+$lang->navGroup->feedback    = 'program';
+$lang->navGroup->deploy      = 'program';
+$lang->navGroup->stakeholder = 'program';
+
+$lang->navGroup->programplan    = 'program';
+$lang->navGroup->workestimation = 'program';
+$lang->navGroup->budget         = 'program';
+$lang->navGroup->review         = 'program';
+$lang->navGroup->reviewissue    = 'program';
+$lang->navGroup->weekly         = 'program';
+$lang->navGroup->milestone      = 'program';
+$lang->navGroup->pssp           = 'program';
+$lang->navGroup->design         = 'program';
+$lang->navGroup->repo           = 'program';
+$lang->navGroup->issue          = 'program';
+$lang->navGroup->risk           = 'program';
+$lang->navGroup->auditplan      = 'program';
+$lang->navGroup->cm             = 'program';
+$lang->navGroup->nc             = 'program';
+$lang->navGroup->job            = 'program';
+$lang->navGroup->jenkins        = 'program';
+$lang->navGroup->compile        = 'program';
+$lang->navGroup->build          = 'program';
+
+$lang->navGroup->durationestimation = 'program';
+
+$lang->navGroup->stage         = 'system';
+$lang->navGroup->measurement   = 'system';
+$lang->navGroup->report        = 'system';
+$lang->navGroup->sqlbuilder    = 'system';
+$lang->navGroup->auditcl       = 'system';
+$lang->navGroup->cmcl          = 'system';
+$lang->navGroup->process       = 'system';
+$lang->navGroup->activity      = 'system';
+$lang->navGroup->output        = 'system';
+$lang->navGroup->classify      = 'system';
+$lang->navGroup->subject       = 'system';
+$lang->navGroup->baseline      = 'system';
+$lang->navGroup->reviewcl      = 'system';
+$lang->navGroup->reviewsetting = 'system';
+$lang->navGroup->holiday       = 'system';
+
+$lang->navGroup->attend   = 'attend';
+$lang->navGroup->leave    = 'attend';
+$lang->navGroup->makeup   = 'attend';
+$lang->navGroup->overtime = 'attend';
+$lang->navGroup->lieu     = 'attend';
+
+$lang->navGroup->admin     = 'admin';
+$lang->navGroup->company   = 'admin';
+$lang->navGroup->dept      = 'admin';
+$lang->navGroup->ldap      = 'admin';
+$lang->navGroup->group     = 'admin';
+$lang->navGroup->webhook   = 'admin';
+$lang->navGroup->sms       = 'admin';
+$lang->navGroup->message   = 'admin';
+$lang->navGroup->user      = 'admin';
+$lang->navGroup->custom    = 'admin';
+$lang->navGroup->cron      = 'admin';
+$lang->navGroup->backup    = 'admin';
+$lang->navGroup->mail      = 'admin';
+$lang->navGroup->dev       = 'admin';
+$lang->navGroup->extension = 'admin';
+$lang->navGroup->action    = 'admin';
+$lang->navGroup->search    = 'admin';
 
 $lang->error = new stdclass();
 $lang->error->companyNotFound = "您访问的域名 %s 没有对应的公司。";
@@ -805,6 +924,7 @@ if(isset($config->global->flow) and $config->global->flow == 'onlyTest')
 
     $lang->testcase->subMenu = new stdclass();
     $lang->testcase->subMenu->bysuite = new stdclass();
+    $lang->testcase->subMenu->bysuite = new stdclass();
     $lang->testcase->subMenu->bysuite->create = '建套件|testsuite|create|productID=%s';
 
     $lang->testcase->menuOrder[5]  = 'product';
@@ -880,6 +1000,87 @@ if(isset($config->global->flow) and $config->global->flow == 'onlyTest')
     unset($lang->searchObjects['project']);
     unset($lang->searchObjects['productplan']);
 }
+
+$lang->menu->cmmi = new stdclass();
+$lang->menu->cmmi->programindex   = array('link' => '仪表盘|program|index|program={PROGRAM}');
+$lang->menu->cmmi->programplan    = array('link' => '计划|programplan|browse|program={PROGRAM}', 'subModule' => 'programplan');
+$lang->menu->cmmi->project        = array('link' => $lang->projectCommon . '|project|task|projectID={PROJECT}', 'subModule' => ',project,task,');
+$lang->menu->cmmi->weekly         = array('link' => '报告|weekly|index|program={PROGRAM}', 'subModule' => ',milestone,');
+$lang->menu->cmmi->doc            = array('link' => '文档|doc|index|program={PROGRAM}');
+$lang->menu->cmmi->product        = array('link' => '需求|product|browse|product={PRODUCT}&branch=&browseType=unclosed&queryID=0&storyType=requirement', 'subModule' => ',story,');
+$lang->menu->cmmi->design         = '设计|design|browse|product={PRODUCT}';
+$lang->menu->cmmi->ci             = '代码|repo|browse|';
+$lang->menu->cmmi->qa             = array('link' => '测试|bug|browse|product={PRODUCT}', 'subModule' => ',testcase,testtask,testsuite,testreport,caselib,');
+$lang->menu->cmmi->release        = array('link' => '发布|release|browse|product={PRODUCT}', 'subModule' => 'release');
+$lang->menu->cmmi->issue          = '问题|issue|browse|';
+$lang->menu->cmmi->risk           = '风险|risk|browse|';
+$lang->menu->cmmi->list           = array('link' => '更多|workestimation|index|program={PROGRAM}', 'class' => 'dropdown dropdown-hover cmmi-list', 'subModule' => 'stakeholder,workestimation,durationestimation,budget,pssp,stakeholder');
+
+$lang->menu->srcum = new stdclass();
+$lang->menu->srcum->programindex   = array('link' => '仪表盘|program|index|program={PROGRAM}');
+
+$lang->cmmi = new stdclass();
+$lang->cmmi->subMenu = new stdclass();
+$lang->cmmi->subMenu->list = new stdclass();
+$lang->cmmi->subMenu->list->workestimation = array('link' => '估算|workestimation|index|program=%s', 'subModule' => 'durationestimation,budget');
+$lang->cmmi->subMenu->list->program        = '项目|program|edit|';
+
+$lang->cmmiproduct    = new stdclass();
+$lang->workestimation = new stdclass();
+$lang->budget         = new stdclass();
+$lang->programplan    = new stdclass();
+$lang->review         = new stdclass();
+$lang->weekly         = new stdclass();
+$lang->milestone      = new stdclass();
+$lang->design         = new stdclass();
+$lang->auditplan      = new stdclass();
+$lang->cm             = new stdclass();
+$lang->nc             = new stdclass();
+$lang->pssp           = new stdclass();
+$lang->issue          = new stdclass();
+$lang->risk           = new stdclass();
+$lang->stakeholder    = new stdclass();
+$lang->durationestimation = new stdclass();
+
+$lang->workestimation->menu = new stdclass();
+$lang->budget->menu         = new stdclass();
+$lang->programplan->menu    = new stdclass();
+$lang->review->menu         = new stdclass();
+$lang->weekly->menu         = new stdclass();
+$lang->milestone->menu      = new stdclass();
+$lang->cmmiproduct->menu    = new stdclass();
+$lang->design->menu         = new stdclass();
+$lang->auditplan->menu      = new stdclass();
+$lang->cm->menu             = new stdclass();
+$lang->pssp->menu           = new stdclass();
+$lang->issue->menu          = new stdclass();
+$lang->risk->menu           = new stdclass();
+$lang->stakeholder->menu    = new stdclass();
+$lang->durationestimation->menu = new stdclass();
+
+$lang->workestimation->menu->index    = '工作量估算|workestimation|index|program={PROGRAM}';
+$lang->workestimation->menu->duration = array('link' => '工期估算|durationestimation|index|program={PROGRAM}', 'subModule' => 'durationestimation');
+$lang->workestimation->menu->budget   = array('link' => '费用估算|budget|summary|', 'subModule' => 'budget');
+
+$lang->durationestimation->menu = $lang->workestimation->menu;
+$lang->budget->menu = $lang->workestimation->menu;
+
+$lang->programplan->menu->gantt = array('link' => '甘特图|programplan|browse|programID={PROGRAM}&productID={PRODUCT}&type=gantt');
+$lang->programplan->menu->lists = array('link' => '阶段列表|programplan|browse|programID={PROGRAM}&productID={PRODUCT}&type=lists', 'alias' => 'create');
+
+$lang->weekly->menu->browse = '周报|weekly|index|program={PROGRAM}';
+$lang->weekly->menu->issue  = '里程碑报告|milestone|index|program={PROGRAM}';
+
+$lang->cmmiproduct->menu->plan        = array('link' => '排期|productplan|browse|productID={PRODUCT}', 'subModule' => 'productplan');
+$lang->cmmiproduct->menu->requirement = '用户需求|product|browse|product={PRODUCT}&branch=&browseType=unclosed&queryID=0&storyType=requirement';
+$lang->cmmiproduct->menu->story       = '软件需求|product|browse|product={PRODUCT}&branch=&browseType=unclosed&queryID=0&storyType=story';
+$lang->cmmiproduct->menu->track       = '跟踪矩阵|story|track|product={PRODUCT}';
+
+$lang->milestone->menu = $lang->weekly->menu;
+$lang->nc->menu        = $lang->auditplan->menu;
+
+$lang->noMenuModule     = array('my', 'todo', 'effort', 'program', 'attend', 'leave', 'makeup', 'overtime', 'lieu', 'holiday', 'custom', 'auditcl', 'subject', 'admin', 'mail', 'extension', 'dev', 'backup', 'action', 'cron', 'issue', 'risk', 'pssp', 'sms', 'message', 'webhook', 'search');
+$lang->haveMenuMethod   = array('custom');
 /* action */
 $lang->action->common     = '系统日志';
 $lang->action->product    = $lang->productCommon;
@@ -940,6 +1141,7 @@ $lang->action->objectTypes['product']     = $lang->productCommon;
 $lang->action->objectTypes['story']       = $lang->storyCommon;
 $lang->action->objectTypes['productplan'] = '计划';
 $lang->action->objectTypes['release']     = '发布';
+$lang->action->objectTypes['program']     = '项目';
 $lang->action->objectTypes['project']     = $lang->projectCommon;
 $lang->action->objectTypes['task']        = '任务';
 $lang->action->objectTypes['build']       = '版本';
@@ -1091,6 +1293,8 @@ $lang->action->label->unlinkchildrenstory = "取消关联子需求";
 $lang->action->label->linkparentstory     = "关联到父需求";
 $lang->action->label->unlinkparentstory   = "从父需求取消关联";
 $lang->action->label->deletechildrenstory = "删除子需求";
+$lang->action->label->tracked             = '跟踪了';
+$lang->action->label->hangup              = '挂起了';
 
 $lang->action->dynamicAction = new stdclass();
 $lang->action->dynamicAction->todo['opened']               = '创建待办';
@@ -1249,6 +1453,7 @@ $lang->action->label->product     = $lang->productCommon . '|product|view|produc
 $lang->action->label->productplan = '计划|productplan|view|productID=%s';
 $lang->action->label->release     = '发布|release|view|productID=%s';
 $lang->action->label->story       = "{$lang->storyCommon}|story|view|storyID=%s";
+$lang->action->label->program     = "项目|program|browse|";
 $lang->action->label->project     = "{$lang->projectCommon}|project|view|projectID=%s";
 $lang->action->label->task        = '任务|task|view|taskID=%s';
 $lang->action->label->build       = '版本|build|view|buildID=%s';
@@ -1265,9 +1470,11 @@ $lang->action->label->testreport  = '报告|testreport|view|report=%s';
 $lang->action->label->entry       = '应用|entry|browse|';
 $lang->action->label->webhook     = 'Webhook|webhook|browse|';
 $lang->action->label->space       = ' ';
+$lang->action->label->risk        = '风险|risk|view|riskID=%s';
 
 $lang->action->search->objectTypeList['']            = '';
 $lang->action->search->objectTypeList['product']     = $lang->productCommon;
+$lang->action->search->objectTypeList['program']     = '项目';
 $lang->action->search->objectTypeList['project']     = $lang->projectCommon;
 $lang->action->search->objectTypeList['bug']         = 'Bug';
 $lang->action->search->objectTypeList['case']        = '用例';
@@ -1494,19 +1701,33 @@ $lang->block->lblNum       = '条数';
 $lang->block->lblHtml      = 'HTML内容';
 $lang->block->dynamic      = '最新动态';
 $lang->block->assignToMe   = '指派给我';
+$lang->block->done         = '已完成';
 $lang->block->lblFlowchart = '流程图';
 $lang->block->welcome      = '欢迎总览';
 $lang->block->lblTesttask  = '查看测试详情';
+$lang->block->contribute   = '个人贡献';
 
-$lang->block->leftToday = '今天剩余工作总计';
-$lang->block->myTask    = '我的任务';
-$lang->block->myStory   = "我的{$lang->storyCommon}";
-$lang->block->myBug     = '我的BUG';
-$lang->block->myProject = '未关闭的' . $lang->projectCommon;
-$lang->block->myProduct = '未关闭的' . $lang->productCommon;
-$lang->block->delayed   = '已延期';
-$lang->block->noData    = '当前统计类型下暂无数据';
-$lang->block->emptyTip  = '暂无信息';
+$lang->block->leftToday       = '今天剩余工作总计';
+$lang->block->myTask          = '我的任务';
+$lang->block->myStory         = "我的{$lang->storyCommon}";
+$lang->block->myBug           = '我的BUG';
+$lang->block->myProject       = '未关闭的' . $lang->projectCommon;
+$lang->block->myProduct       = '未关闭的' . $lang->productCommon;
+$lang->block->delayed         = '已延期';
+$lang->block->noData          = '当前统计类型下暂无数据';
+$lang->block->emptyTip        = '暂无信息';
+$lang->block->openedTodos     = '创建的待办数';
+$lang->block->openedStories   = '创建的需求数';
+$lang->block->resolvedTasks   = '完成的任务数';
+$lang->block->resolvedBugs    = '解决Bug数';
+$lang->block->openedTestcases = '创建用例数';
+$lang->block->cmmi            = 'CMMI 3';
+$lang->block->scrum           = 'Scrum+';
+$lang->block->allProject      = '所有' . $lang->projectCommon;
+$lang->block->doingProject    = '进行中的' . $lang->projectCommon;
+$lang->block->finishProject   = '累积' . $lang->projectCommon;
+$lang->block->estimatedHours  = '预计工时';
+$lang->block->consumedHours   = '已消耗';
 
 $lang->block->params = new stdclass();
 $lang->block->params->name  = '参数名称';
@@ -1525,6 +1746,92 @@ $lang->block->refresh            = '刷新';
 $lang->block->nbsp               = '';  
 $lang->block->hidden             = '隐藏';
 $lang->block->dynamicInfo        = "<span class='timeline-tag'>%s</span> <span class='timeline-text'>%s <em>%s</em> %s <a href='%s' title='%s'>%s</a></span>";
+
+$lang->block->productName        = $lang->productCommon . '名称';
+$lang->block->totalStory         = '总' . $lang->storyCommon;
+$lang->block->totalBug           = '总Bug';
+$lang->block->totalRelease       = '发布次数';
+
+$lang->block->totalInvestment    = '总投入';
+$lang->block->totalPeople        = '总人数';
+$lang->block->spent              = '已花费';
+$lang->block->budget             = '预算';
+$lang->block->left               = '剩余';
+
+
+$lang->block->default['cmmi']['program']['1']['title']  = '项目周报';
+$lang->block->default['cmmi']['program']['1']['block']  = 'cmmireport';
+$lang->block->default['cmmi']['program']['1']['source'] = 'program';
+$lang->block->default['cmmi']['program']['1']['grid']   = 8;
+
+$lang->block->default['cmmi']['program']['2']['title']  = '估算';
+$lang->block->default['cmmi']['program']['2']['block']  = 'cmmiestimate';
+$lang->block->default['cmmi']['program']['2']['source'] = 'program';
+$lang->block->default['cmmi']['program']['2']['grid']   = 4;
+
+$lang->block->default['cmmi']['program']['3']['title']  = '计划甘特图';
+$lang->block->default['cmmi']['program']['3']['block']  = 'cmmigantt';
+$lang->block->default['cmmi']['program']['3']['source'] = 'program';
+$lang->block->default['cmmi']['program']['3']['grid']   = 8;
+
+$lang->block->default['cmmi']['program']['4']['title']  = '到目前为止项目进展趋势图';
+$lang->block->default['cmmi']['program']['4']['block']  = 'cmmiprogress';
+$lang->block->default['cmmi']['program']['4']['grid']   = 4;
+
+$lang->block->default['cmmi']['program']['5']['title']  = '项目问题';
+$lang->block->default['cmmi']['program']['5']['block']  = 'cmmiissue';
+$lang->block->default['cmmi']['program']['5']['source'] = 'program';
+$lang->block->default['cmmi']['program']['5']['grid']   = 8;
+
+$lang->block->default['cmmi']['program']['5']['params']['type']    = 'all';
+$lang->block->default['cmmi']['program']['5']['params']['num']     = '15';
+$lang->block->default['cmmi']['program']['5']['params']['orderBy'] = 'id_desc';
+
+$lang->block->default['cmmi']['program']['6']['title']  = '最新动态';
+$lang->block->default['cmmi']['program']['6']['block']  = 'scrumdynamic';
+$lang->block->default['cmmi']['program']['6']['grid']   = 4;
+$lang->block->default['cmmi']['program']['6']['source'] = 'program';
+
+$lang->block->default['cmmi']['program']['7']['title']  = '项目风险';
+$lang->block->default['cmmi']['program']['7']['block']  = 'cmmirisk';
+$lang->block->default['cmmi']['program']['7']['source'] = 'program';
+$lang->block->default['cmmi']['program']['7']['grid']   = 8;
+
+$lang->block->default['cmmi']['program']['7']['params']['type']    = 'all';
+$lang->block->default['cmmi']['program']['7']['params']['num']     = '15';
+$lang->block->default['cmmi']['program']['7']['params']['orderBy'] = 'id_desc';
+
+$lang->block->default['scrum']['program']['1']['title'] =  '项目整体情况';
+$lang->block->default['scrum']['program']['1']['block'] = 'scrumoverall';
+$lang->block->default['scrum']['program']['1']['grid']  = 8;
+
+$lang->block->default['scrum']['program']['2']['title'] = $lang->projectCommon . '列表';
+$lang->block->default['scrum']['program']['2']['block'] = 'scrumlist';
+$lang->block->default['scrum']['program']['2']['grid']  = 8;
+
+$lang->block->default['scrum']['program']['3']['title'] = $lang->productCommon . '路线图';
+$lang->block->default['scrum']['program']['3']['block'] = 'scrumroadmap';
+$lang->block->default['scrum']['program']['3']['grid']  = 8;
+
+$lang->block->default['scrum']['program']['4']['title'] = '待测版本';
+$lang->block->default['scrum']['program']['4']['block'] = 'scrumtest';
+$lang->block->default['scrum']['program']['4']['grid']  = 8;
+
+$lang->block->default['scrum']['program']['4']['params']['type']    = 'all';
+$lang->block->default['scrum']['program']['4']['params']['num']     = '15';
+$lang->block->default['scrum']['program']['4']['params']['orderBy'] = 'id_desc';
+
+$lang->block->default['scrum']['program']['5']['title'] = $lang->productCommon . '总览';
+$lang->block->default['scrum']['program']['5']['block'] = 'scrumproduct';
+$lang->block->default['scrum']['program']['5']['grid']  = 4;
+
+$lang->block->default['scrum']['program']['6']['title'] = $lang->projectCommon . '总览';
+$lang->block->default['scrum']['program']['6']['block'] = 'scrumproject';
+$lang->block->default['scrum']['program']['6']['grid']  = 4;
+
+$lang->block->default['scrum']['program']['7']['title'] = '最新动态';
+$lang->block->default['scrum']['program']['7']['block'] = 'scrumdynamic';
+$lang->block->default['scrum']['program']['7']['grid']  = 4;
 
 $lang->block->default['product']['1']['title'] = $lang->productCommon . '统计';
 $lang->block->default['product']['1']['block'] = 'statistic';
@@ -1618,77 +1925,52 @@ $lang->block->default['full']['my']['1']['title']  = '欢迎';
 $lang->block->default['full']['my']['1']['block']  = 'welcome';
 $lang->block->default['full']['my']['1']['grid']   = 8;
 $lang->block->default['full']['my']['1']['source'] = '';
+
 $lang->block->default['full']['my']['2']['title']  = '最新动态';
 $lang->block->default['full']['my']['2']['block']  = 'dynamic';
 $lang->block->default['full']['my']['2']['grid']   = 4;
 $lang->block->default['full']['my']['2']['source'] = '';
-$lang->block->default['full']['my']['3']['title']  = '流程图';
-$lang->block->default['full']['my']['3']['block']  = 'flowchart';
-$lang->block->default['full']['my']['3']['grid']   = 8;
-$lang->block->default['full']['my']['3']['source'] = '';
-$lang->block->default['full']['my']['4']['title']  = '我的待办';
-$lang->block->default['full']['my']['4']['block']  = 'list';
-$lang->block->default['full']['my']['4']['grid']   = 4;
-$lang->block->default['full']['my']['4']['source'] = 'todo';
-$lang->block->default['full']['my']['4']['params']['num'] = '20';
-$lang->block->default['full']['my']['5'] = $lang->block->default['project']['1'];
-$lang->block->default['full']['my']['5']['source'] = 'project';
-$lang->block->default['full']['my']['6'] = $lang->block->default['project']['2'];
-$lang->block->default['full']['my']['6']['source'] = 'project';
-$lang->block->default['full']['my']['7'] = $lang->block->default['product']['1'];
-$lang->block->default['full']['my']['7']['source'] = 'product';
-$lang->block->default['full']['my']['8'] = $lang->block->default['product']['2'];
-$lang->block->default['full']['my']['8']['source'] = 'product';
-$lang->block->default['full']['my']['9'] = $lang->block->default['qa']['2'];
-$lang->block->default['full']['my']['9']['source'] = 'qa';
 
-$lang->block->default['onlyTest']['my']['1'] = $lang->block->default['qa']['1'];
-$lang->block->default['onlyTest']['my']['1']['source'] = 'qa';
-$lang->block->default['onlyTest']['my']['1']['grid']   = '8';
-$lang->block->default['onlyTest']['my']['2']['title']  = '最新动态';
-$lang->block->default['onlyTest']['my']['2']['block']  = 'dynamic';
-$lang->block->default['onlyTest']['my']['2']['grid']   = 4;
-$lang->block->default['onlyTest']['my']['2']['source'] = '';
-$lang->block->default['onlyTest']['my']['3']['title']  = '我的待办';
-$lang->block->default['onlyTest']['my']['3']['block']  = 'list';
-$lang->block->default['onlyTest']['my']['3']['grid']   = 6;
-$lang->block->default['onlyTest']['my']['3']['source'] = 'todo';
-$lang->block->default['onlyTest']['my']['3']['params']['num'] = '20';
-$lang->block->default['onlyTest']['my']['4'] = $lang->block->default['qa']['2'];
-$lang->block->default['onlyTest']['my']['4']['source'] = 'qa';
-$lang->block->default['onlyTest']['my']['4']['grid']   = '6';
+$lang->block->default['full']['my']['3']['title']  = '我的待办';
+$lang->block->default['full']['my']['3']['block']  = 'list';
+$lang->block->default['full']['my']['3']['grid']   = 4;
+$lang->block->default['full']['my']['3']['source'] = 'todo';
+$lang->block->default['full']['my']['3']['params']['num'] = '20';
 
-$lang->block->default['onlyStory']['my']['1'] = $lang->block->default['product']['1'];
-$lang->block->default['onlyStory']['my']['1']['source'] = 'product';
-$lang->block->default['onlyStory']['my']['1']['grid']   = '8';
-$lang->block->default['onlyStory']['my']['2']['title']  = '最新动态';
-$lang->block->default['onlyStory']['my']['2']['block']  = 'dynamic';
-$lang->block->default['onlyStory']['my']['2']['grid']   = 4;
-$lang->block->default['onlyStory']['my']['2']['source'] = '';
-$lang->block->default['onlyStory']['my']['3']['title']  = '我的待办';
-$lang->block->default['onlyStory']['my']['3']['block']  = 'list';
-$lang->block->default['onlyStory']['my']['3']['grid']   = 6;
-$lang->block->default['onlyStory']['my']['3']['source'] = 'todo';
-$lang->block->default['onlyStory']['my']['3']['params']['num'] = '20';
-$lang->block->default['onlyStory']['my']['4'] = $lang->block->default['product']['2'];
-$lang->block->default['onlyStory']['my']['4']['source'] = 'product';
-$lang->block->default['onlyStory']['my']['4']['grid']   = '4';
+$lang->block->default['full']['my']['4']['title']  = '项目统计';
+$lang->block->default['full']['my']['4']['block']  = 'statistic';
+$lang->block->default['full']['my']['4']['source'] = 'program';
+$lang->block->default['full']['my']['4']['grid']   = 8;
 
-$lang->block->default['onlyTask']['my']['1'] = $lang->block->default['project']['1'];
-$lang->block->default['onlyTask']['my']['1']['source'] = 'project';
-$lang->block->default['onlyTask']['my']['1']['grid']   = '8';
-$lang->block->default['onlyTask']['my']['2']['title']  = '最新动态';
-$lang->block->default['onlyTask']['my']['2']['block']  = 'dynamic';
-$lang->block->default['onlyTask']['my']['2']['grid']   = 4;
-$lang->block->default['onlyTask']['my']['2']['source'] = '';
-$lang->block->default['onlyTask']['my']['3']['title']  = '我的待办';
-$lang->block->default['onlyTask']['my']['3']['block']  = 'list';
-$lang->block->default['onlyTask']['my']['3']['grid']   = 6;
-$lang->block->default['onlyTask']['my']['3']['source'] = 'todo';
-$lang->block->default['onlyTask']['my']['3']['params']['num'] = '20';
-$lang->block->default['onlyTask']['my']['4'] = $lang->block->default['project']['2'];
-$lang->block->default['onlyTask']['my']['4']['source'] = 'project';
-$lang->block->default['onlyTask']['my']['4']['grid']   = 6;
+$lang->block->default['full']['my']['5']['title']  = '个人贡献';
+$lang->block->default['full']['my']['5']['block']  = 'contribute';
+$lang->block->default['full']['my']['5']['source'] = '';
+$lang->block->default['full']['my']['5']['grid']   = 4;
+
+$lang->block->default['full']['my']['6']['title']  = '我的近期项目';
+$lang->block->default['full']['my']['6']['block']  = 'recentprogram';
+$lang->block->default['full']['my']['6']['source'] = 'program';
+$lang->block->default['full']['my']['6']['grid']   = 8;
+
+$lang->block->default['full']['my']['7']['title']  = '指派给我';
+$lang->block->default['full']['my']['7']['block']  = 'task';
+$lang->block->default['full']['my']['7']['grid']   = 4;
+
+$lang->block->default['full']['my']['7']['params']['orderBy'] = 'id_desc';
+$lang->block->default['full']['my']['7']['params']['num']     = '15';
+$lang->block->default['full']['my']['7']['params']['type']    = 'assignedTo';
+
+$lang->block->default['full']['my']['8']['title'] = '项目人力投入';
+$lang->block->default['full']['my']['8']['block'] = 'programteam';
+$lang->block->default['full']['my']['8']['grid']  = 8;
+
+$lang->block->default['full']['my']['9']['title']  = '项目列表';
+$lang->block->default['full']['my']['9']['block']  = 'program';
+$lang->block->default['full']['my']['9']['source'] = 'program';
+$lang->block->default['full']['my']['9']['grid']   = 8;
+
+$lang->block->default['full']['my']['9']['params']['orderBy'] = 'id_desc';
+$lang->block->default['full']['my']['9']['params']['num']     = '15';
 
 $lang->block->num     = '数量';
 $lang->block->type    = '类型';
@@ -1707,11 +1989,36 @@ $lang->block->availableBlocks->plan     = '计划列表';
 $lang->block->availableBlocks->release  = '发布列表';
 $lang->block->availableBlocks->build    = '版本列表';
 $lang->block->availableBlocks->testtask = '测试版本列表';
+$lang->block->availableBlocks->risk     = '我的风险';
 
+$lang->block->moduleList['program'] = '项目';
 $lang->block->moduleList['product'] = $lang->productCommon;
 $lang->block->moduleList['project'] = $lang->projectCommon;
 $lang->block->moduleList['qa']      = '测试';
 $lang->block->moduleList['todo']    = '待办';
+
+$lang->block->modules['program'] = new stdclass();
+$lang->block->modules['program']->availableBlocks = new stdclass();
+$lang->block->modules['program']->availableBlocks->program       = '项目列表';
+$lang->block->modules['program']->availableBlocks->recentprogram = '近期项目';
+$lang->block->modules['program']->availableBlocks->statistic     = '项目统计';
+
+$lang->block->modules['scrum']['index'] = new stdclass();
+$lang->block->modules['scrum']['index']->availableBlocks = new stdclass();
+$lang->block->modules['scrum']['index']->availableBlocks->scrumoverall  = '项目整体情况';
+$lang->block->modules['scrum']['index']->availableBlocks->scrumlist     = $lang->projectCommon . '列表';
+$lang->block->modules['scrum']['index']->availableBlocks->scrumproject  = $lang->projectCommon . '总览';
+$lang->block->modules['scrum']['index']->availableBlocks->scrumproduct  = $lang->productCommon . '总览';
+$lang->block->modules['scrum']['index']->availableBlocks->scrumtest     = '待测版本';
+
+$lang->block->modules['cmmi']['index'] = new stdclass();
+$lang->block->modules['cmmi']['index']->availableBlocks = new stdclass();
+$lang->block->modules['cmmi']['index']->availableBlocks->cmmireport    = '项目周报';
+$lang->block->modules['cmmi']['index']->availableBlocks->cmmiestimate  = '估算';
+$lang->block->modules['cmmi']['index']->availableBlocks->cmmigantt     = '计划甘特图';
+$lang->block->modules['cmmi']['index']->availableBlocks->cmmiprogress  = '到目前为止项目进展趋势图';
+$lang->block->modules['cmmi']['index']->availableBlocks->cmmiissue     = '项目问题';
+$lang->block->modules['cmmi']['index']->availableBlocks->cmmirisk      = '项目风险';
 
 $lang->block->modules['product'] = new stdclass();
 $lang->block->modules['product']->availableBlocks = new stdclass();
@@ -1792,6 +2099,7 @@ $lang->block->orderByList->story['stage_desc']  = '阶段倒序';
 $lang->block->todoNum = '待办数';
 $lang->block->taskNum = '任务数';
 $lang->block->bugNum  = 'Bug数';
+$lang->block->riskNum = '风险数';
 
 $lang->block->typeList = new stdclass();
 
@@ -1824,11 +2132,30 @@ $lang->block->typeList->project['doing']    = '进行中';
 $lang->block->typeList->project['all']      = '全部';
 $lang->block->typeList->project['involved'] = '我参与的';
 
+$lang->block->typeList->scrum['undone']   = '未完成';
+$lang->block->typeList->scrum['doing']    = '进行中';
+$lang->block->typeList->scrum['all']      = '全部';
+$lang->block->typeList->scrum['involved'] = '我参与的';
+
 $lang->block->typeList->testtask['wait']    = '待测版本';
 $lang->block->typeList->testtask['doing']   = '测试中版本';
 $lang->block->typeList->testtask['blocked'] = '阻塞版本';
 $lang->block->typeList->testtask['done']    = '已测版本';
 $lang->block->typeList->testtask['all']     = '全部';
+
+$lang->block->modules['program']->moreLinkList = new stdclass();
+$lang->block->modules['program']->moreLinkList->recentprogram = 'program|browse|';
+$lang->block->modules['program']->moreLinkList->statistic     = 'program|browse|';
+$lang->block->modules['program']->moreLinkList->program       = 'program|browse|';
+$lang->block->modules['program']->moreLinkList->cmmireport    = 'weekly|index|';
+$lang->block->modules['program']->moreLinkList->cmmiestimate  = 'workestimation|index|';
+$lang->block->modules['program']->moreLinkList->cmmiissue     = 'issue|browse|';
+$lang->block->modules['program']->moreLinkList->cmmirisk      = 'risk|browse|';
+$lang->block->modules['program']->moreLinkList->scrumlist     = 'project|all|';
+$lang->block->modules['program']->moreLinkList->scrumtest     = 'testtask|browse|';
+$lang->block->modules['program']->moreLinkList->scrumproduct  = 'product|all|';
+$lang->block->modules['program']->moreLinkList->scrumproject  = 'project|all|';
+$lang->block->modules['program']->moreLinkList->scrumdynamic  = 'company|dynamic|';
 
 $lang->block->modules['product']->moreLinkList        = new stdclass();
 $lang->block->modules['product']->moreLinkList->list  = 'product|all|product=&line=0&status=%s';
@@ -1882,6 +2209,34 @@ $lang->branch->deleted = '已删除';
 
 $lang->branch->confirmDelete = '是否删除该@branch@？';
 $lang->branch->canNotDelete  = '该@branch@下已经有数据，不能删除！';
+/* budget */
+$lang->budget->create         = '新建';
+$lang->budget->edit           = '编辑';
+$lang->budget->total          = '总预算';
+$lang->budget->summary        = '汇总';
+$lang->budget->browse         = '列表';
+$lang->budget->list           = '列表';
+$lang->budget->view           = '详情';
+$lang->budget->delete         = '删除';
+$lang->budget->batchCreate    = '批量新建';
+$lang->budget->common         = '费用估算';
+$lang->budget->id             = '编号';
+$lang->budget->stage          = '阶段';
+$lang->budget->subject        = '科目';
+$lang->budget->name           = '费用名称';
+$lang->budget->amount         = '预计金额';
+$lang->budget->desc           = '说明';
+$lang->budget->yuan           = '元';
+$lang->budget->dollar         = 'Dollars';
+$lang->budget->createdBy      = '由谁创建';
+$lang->budget->createdDate    = '创建时间';
+$lang->budget->lastEditedBy   = '由谁编辑';
+$lang->budget->lastEditedDate = '编辑时间';
+$lang->budget->basicInfo      = '基本信息';
+$lang->budget->noData         = '暂无记录，';
+
+$lang->budget->summaryReport = '汇总表';
+$lang->budget->confirmDelete = '您确定要删除吗？';
 /* bug */
 $lang->bug->common           = 'Bug';
 $lang->bug->id               = 'Bug编号';
@@ -2561,26 +2916,69 @@ $lang->cron->notice->dow  = '取值范围:0-6';
 $lang->cron->notice->help = '注：如果服务器重启，或者发现计划任务没有正常工作，那么计划任务已经停止工作。需要手动点击【重启】按钮，或者一分钟后刷新页面，来开启计划任务。如果任务列表中第一条记录的最后执行时间改变，说明任务开启成功。';
 $lang->cron->notice->errorRule = '"%s" 填写的不是合法的值';
 /* custom */
-$lang->custom->common     = '自定义';
-$lang->custom->index      = '首页';
-$lang->custom->set        = '自定义配置';
-$lang->custom->restore    = '恢复默认';
-$lang->custom->key        = '键';
-$lang->custom->value      = '值';
-$lang->custom->flow       = '流程';
-$lang->custom->working    = '工作方式';
-$lang->custom->select     = '请选择流程：';
-$lang->custom->branch     = '多分支';
-$lang->custom->owner      = '所有者';
-$lang->custom->module     = '模块';
-$lang->custom->section    = '附加部分';
-$lang->custom->lang       = '所属语言';
-$lang->custom->setPublic  = '设为公共';
-$lang->custom->required   = '必填项';
-$lang->custom->score      = '积分';
-$lang->custom->timezone   = '时区';
-$lang->custom->scoreReset = '重置积分';
-$lang->custom->scoreTitle = '积分功能';
+$lang->custom->common             = '自定义';
+$lang->custom->index              = '首页';
+$lang->custom->set                = '自定义配置';
+$lang->custom->restore            = '恢复默认';
+$lang->custom->key                = '键';
+$lang->custom->value              = '值';
+$lang->custom->flow               = '流程';
+$lang->custom->working            = '工作方式';
+$lang->custom->select             = '请选择流程：';
+$lang->custom->branch             = '多分支';
+$lang->custom->owner              = '所有者';
+$lang->custom->module             = '模块';
+$lang->custom->section            = '附加部分';
+$lang->custom->lang               = '所属语言';
+$lang->custom->setPublic          = '设为公共';
+$lang->custom->required           = '必填项';
+$lang->custom->score              = '积分';
+$lang->custom->timezone           = '时区';
+$lang->custom->scoreReset         = '重置积分';
+$lang->custom->scoreTitle         = '积分功能';
+$lang->custom->setscrum           = '区间提示';
+$lang->custom->setcmmi            = '切换视图';
+$lang->custom->estimate           = '估算配置';
+$lang->custom->estimateConfig     = '估算配置';
+$lang->custom->estimateUnit       = '估算单位';
+$lang->custom->estimateEfficiency = '生产率';
+$lang->custom->estimateCost       = '单位人工成本';
+$lang->custom->estimateHours      = '每日工时';
+$lang->custom->estimateDays       = '每周工作天数';
+$lang->custom->region             = '区间';
+$lang->custom->tips               = '提示语';
+$lang->custom->setTips            = '设置提示语';
+$lang->custom->isRange            = '是否目标控制范围';
+$lang->custom->plan               = '排期';
+$lang->custom->planStatus         = '是否启用排期';
+$lang->custom->concept            = '概念';
+
+$lang->custom->object['program'] = '项目';
+$lang->custom->program->fields['unitList'] = '预算单位';
+
+$lang->custom->unitList['efficiency'] = '工时/';
+$lang->custom->unitList['manhour']    = '人时/';
+$lang->custom->unitList['cost']       = '元/小时';
+$lang->custom->unitList['hours']      = '小时';
+$lang->custom->unitList['days']       = '天';
+$lang->custom->unitList['loc']        = 'KLOC';
+
+$lang->custom->tipProgressList['SPI'] = '项目进度绩效(SPI)';
+$lang->custom->tipProgressList['SV']  = '进度偏差率(SV%)';
+
+$lang->custom->tipCostList['CPI'] = '项目成本绩效(CPI)';
+$lang->custom->tipCostList['CV']  = '成本偏差率(CV%)';
+
+$lang->custom->planStatusList[0]  = '否';
+$lang->custom->planStatusList[1]  = '是';
+
+$lang->custom->tipRangeList[0]  = '否';
+$lang->custom->tipRangeList[1]  = '是';
+
+$lang->custom->regionMustNumber = '区间必须是数字';
+$lang->custom->tipNotEmpty      = '提示语不能为空';
+
+$lang->custom->numberError = '区间必须大于零';
 
 $lang->custom->object['story']    = $lang->storyCommon;
 $lang->custom->object['task']     = '任务';
@@ -2640,7 +3038,7 @@ $lang->custom->user->fields['statusList']   = '状态';
 $lang->custom->user->fields['contactField'] = '可用联系方式';
 $lang->custom->user->fields['deleted']      = '列出已删除用户';
 
-$lang->custom->system = array('flow', 'working', 'required', 'score');
+$lang->custom->system = array('flow', 'working', 'required', 'score', 'estimate');
 
 $lang->custom->block->fields['closed'] = '关闭的区块';
 
@@ -2687,18 +3085,12 @@ $lang->custom->weekendList[2] = '双休';
 $lang->custom->weekendList[1] = '单休';
 
 $lang->custom->productProject = new stdclass();
-$lang->custom->productProject->relation['0_0'] = '产品 - 项目';
-$lang->custom->productProject->relation['0_1'] = '产品 - 迭代';
-$lang->custom->productProject->relation['1_1'] = '项目 - 迭代';
-$lang->custom->productProject->relation['0_2'] = '产品 - 冲刺';
-$lang->custom->productProject->relation['1_2'] = '项目 - 冲刺';
+$lang->custom->productProject->relation['0_0'] = '项目 - 产品 - 迭代';
+$lang->custom->productProject->relation['0_1'] = '项目 - 产品 - 冲刺';
 
 $lang->custom->productProject->notice = '请根据实际情况选择适合自己团队的概念。';
 
-$lang->custom->workingList['full']      = '完整研发管理工具';
-$lang->custom->workingList['onlyTest']  = '测试管理工具';
-$lang->custom->workingList['onlyStory'] = "需求管理工具";
-$lang->custom->workingList['onlyTask']  = '任务管理工具';
+$lang->custom->workingList['full'] = '完整研发管理工具';
 
 $lang->custom->menuTip  = '点击显示或隐藏导航条目，拖拽来更改显示顺序。';
 $lang->custom->saveFail = '保存失败！';
@@ -2723,9 +3115,9 @@ $lang->custom->conceptOptions->story['0'] = '需求';
 $lang->custom->conceptOptions->story['1'] = '故事';
 
 $lang->custom->conceptOptions->hourPoint = array();
-$lang->custom->conceptOptions->hourPoint['0'] = '工时';
 $lang->custom->conceptOptions->hourPoint['1'] = '故事点';
 $lang->custom->conceptOptions->hourPoint['2'] = '功能点';
+$lang->custom->conceptOptions->hourPoint['3'] = '代码行';
 /* datatable */
 $lang->datatable = new stdclass();
 $lang->datatable->common = '数据表格';
@@ -2776,6 +3168,62 @@ $lang->dept->successSave   = " 修改成功。";
 $lang->dept->error = new stdclass();
 $lang->dept->error->hasSons  = '该部门有子部门，不能删除！';
 $lang->dept->error->hasUsers = '该部门有职员，不能删除！';
+/* design */
+$lang->design->common        = '设计';
+$lang->design->browse        = '浏览列表';
+$lang->design->commit        = '关联提交';
+$lang->design->submission    = '相关提交';
+$lang->design->version       = '版本号';
+$lang->design->assignedTo    = '指派给';
+$lang->design->actions       = '操作';
+$lang->design->delete        = '删除';
+$lang->design->confirmDelete = '您确定要删除这个设计吗？';
+$lang->design->edit          = '变更';
+$lang->design->byQuery       = '搜索';
+$lang->design->products      = '所属产品';
+$lang->design->story         = '相关需求';
+$lang->design->file          = '附件';
+$lang->design->id            = '编号';
+$lang->design->story         = '需求';
+$lang->design->ditto         = '同上';
+$lang->design->type          = '设计类型';
+$lang->design->name          = '设计名称';
+$lang->design->create        = '创建设计';
+$lang->design->batchCreate   = '批量创建';
+$lang->design->view          = '设计概况';
+$lang->design->desc          = '设计描述';
+$lang->design->product       = '所属产品';
+$lang->design->basicInfo     = '基础信息';
+$lang->design->commitBy      = '由谁提交';
+$lang->design->commitDate    = '提交时间';
+$lang->design->affectedStory = "影响{$lang->storyCommon}";
+$lang->design->affectedTasks = '影响任务';
+$lang->design->submit        = '提交评审';
+$lang->design->revision      = '查看关联代码';
+$lang->design->designView    = '查看详情';
+$lang->design->reviewObject  = '评审对象';
+$lang->design->createdBy     = '由谁创建';
+$lang->design->createdDate   = '创建时间';
+$lang->design->basicInfo     = '基本信息';
+
+$lang->design->typeList         = array();
+$lang->design->typeList['']     = '';
+$lang->design->typeList['HLDS'] = '概要设计';
+$lang->design->typeList['DDS']  = '详细设计';
+$lang->design->typeList['DBDS'] = '数据库设计';
+$lang->design->typeList['ADS']  = '接口设计';
+
+$lang->design->range          = '影响范围';
+$lang->design->errorSelection = '还没有选中记录!';
+$lang->design->noDesign       = '暂时没有记录';
+$lang->design->noCommit       = '暂时没有提交记录';
+
+$lang->design->rangeList           = array();
+$lang->design->rangeList['all']    = '全部记录';
+$lang->design->rangeList['assign'] = '选中记录';
+
+$lang->design->featureBar['all'] = '所有';
+$lang->design->featureBar += $lang->design->typeList;
 /* dev */
 $lang->dev->common     = '二次开发';
 $lang->dev->api        = 'API';
@@ -3112,6 +3560,30 @@ $lang->doclib->tabList['project'] = $lang->projectCommon;
 $lang->doclib->tabList['custom']  = '自定义';
 
 $lang->doclib->nameList['custom'] = '自定义文档库名称';
+/* durationestimation */
+$lang->durationestimation->index        = '工期估算首页';
+$lang->durationestimation->create       = '工期估算设置';
+$lang->durationestimation->common       = '项目工期估算';
+$lang->durationestimation->stage        = '阶段';
+$lang->durationestimation->workloadRate = '工作量占比';
+$lang->durationestimation->workload     = '工作量';
+$lang->durationestimation->worktimeRate = '全时率';
+$lang->durationestimation->people       = '估算人数';
+$lang->durationestimation->members      = '投入人数';
+$lang->durationestimation->startDate    = '开始日期';
+$lang->durationestimation->endDate      = '结束日期';
+$lang->durationestimation->setting      = '设置';
+
+$lang->durationestimation->setWorkestimation = "请先录入工作量估算信息";
+$lang->durationestimation->summary           = "项目规模: <strong class='text-danger'> %s {$lang->hourCommon}</strong>, 估算工作量: <strong id='totalWorkload' class='text-danger'>0</strong>, 总投入人数: <strong id='totalStaff' class='text-danger'>0</strong>";
+$lang->durationestimation->workloadError     = "工作量占比之和必须是100%";
+
+$lang->durationestimation->placeholder = new stdclass(); 
+$lang->durationestimation->placeholder->scale          = '';
+$lang->durationestimation->placeholder->productivity   = '';
+$lang->durationestimation->placeholder->duration       = '';
+$lang->durationestimation->placeholder->unitLaborCost  = '';
+$lang->durationestimation->placeholder->totalLaborCost = '';
 /* entry */
 $lang->entry->common  = '应用';
 $lang->entry->list    = '应用列表';
@@ -3355,14 +3827,18 @@ $lang->group->managePrivByGroup  = '权限维护';
 $lang->group->managePrivByModule = '按模块分配权限';
 $lang->group->byModuleTips       = '<span class="tips">（可以按住Shift或者Ctrl键进行多选）</span>';
 $lang->group->manageMember       = '成员维护';
+$lang->group->managePgmAdmin     = '维护项目管理员';
 $lang->group->confirmDelete      = '您确定删除该用户分组吗？';
 $lang->group->successSaved       = '成功保存';
 $lang->group->errorNotSaved      = '没有保存，请确认选择了权限数据。';
+$lang->group->program            = '可管理项目';
 $lang->group->viewList           = '可访问视图';
+$lang->group->programList        = '可访问项目';
 $lang->group->productList        = '可访问' . $lang->productCommon;
 $lang->group->projectList        = '可访问' . $lang->projectCommon;
 $lang->group->dynamic            = '可查看动态';
 $lang->group->noticeVisit        = '空代表没有访问限制';
+$lang->group->noneProgram        = "暂时没有项目";
 $lang->group->noneProduct        = "暂时没有{$lang->productCommon}";
 $lang->group->noneProject        = "暂时没有{$lang->projectCommon}";
 
@@ -3378,6 +3854,7 @@ $lang->group->priv     = '权限';
 $lang->group->option   = '选项';
 $lang->group->inside   = '组内用户';
 $lang->group->outside  = '组外用户';
+$lang->group->limited  = '受限用户组';
 $lang->group->other    = '其他模块';
 $lang->group->all      = '所有权限';
 
@@ -3439,6 +3916,32 @@ $lang->group->versions['1_1']       = '禅道1.1';
 $lang->group->versions['1_0_1']     = '禅道1.0.1';
 
 include (dirname(__FILE__) . '/resource.php');
+/* holiday */
+if(!isset($lang->holiday)) $lang->holiday = new stdclass();
+$lang->holiday->common = '节假日';
+$lang->holiday->browse = '浏览';
+$lang->holiday->create = '新建';
+$lang->holiday->edit   = '编辑';
+$lang->holiday->delete = '删除';
+
+$lang->holiday->createAction  = '创建节假日';
+$lang->holiday->editAction    = '编辑节假日';
+$lang->holiday->deleteAction  = '删除节假日';
+
+$lang->holiday->id    = '编号';
+$lang->holiday->name  = '名称';
+$lang->holiday->desc  = '描述';
+$lang->holiday->type  = '类型';
+$lang->holiday->begin = '开始日期';
+$lang->holiday->end   = '结束日期';
+$lang->holiday->all   = '所有';
+
+$lang->holiday->holiday = '假期';
+
+$lang->holiday->typeList['holiday'] = '假期';
+$lang->holiday->typeList['working'] = '补班';
+
+$lang->holiday->emptyTip = '暂时没有节假日。';
 /* index */
 $lang->index->common = '首页';
 $lang->index->index  = '首页';
@@ -3678,6 +4181,105 @@ $lang->install->meshiot->desc  = <<<EOD
   <li>可配电池，对既有场地无任何要求</li>
 </ul>
 EOD;
+/* issue */
+$lang->issue->common            = '项目问题';
+$lang->issue->browse            = '问题列表';
+$lang->issue->resolvedBy        = '解决者';
+$lang->issue->program           = '所属项目';
+$lang->issue->title             = '标题';
+$lang->issue->desc              = '描述';
+$lang->issue->pri               = '优先级';
+$lang->issue->severity          = '严重程度';
+$lang->issue->type              = '类别';
+$lang->issue->effectedArea      = '受影响的活动';
+$lang->issue->activity          = '活动列表';
+$lang->issue->deadline          = '计划解决日期';
+$lang->issue->resolution        = '解决方式';
+$lang->issue->resolutionComment = '解决方案';
+$lang->issue->resolvedDate      = '实际解决日期';
+$lang->issue->status            = '结果';
+$lang->issue->createdBy         = '由谁创建';
+$lang->issue->createdDate       = '创建日期';
+$lang->issue->owner             = '提出人';
+$lang->issue->editedBy          = '由谁编辑';
+$lang->issue->editedDate        = '编辑日期';
+$lang->issue->activateBy        = '由谁激活';
+$lang->issue->activateDate      = '激活日期';
+$lang->issue->closeBy           = '由谁关闭';
+$lang->issue->closedDate        = '关闭日期';
+$lang->issue->assignedTo        = '指派给';
+$lang->issue->assignedBy        = '由谁指派';
+$lang->issue->assignedDate      = '指派时间';
+$lang->issue->resolve           = '解决';
+$lang->issue->id                = '编号';
+
+$lang->issue->delete            = '删除';
+$lang->issue->search            = '搜索';
+$lang->issue->basicInfo         = '基本信息';
+$lang->issue->activate          = '激活';
+$lang->issue->assignTo          = '指派';
+$lang->issue->create            = '新建';
+$lang->issue->edit              = '编辑';
+$lang->issue->batchCreate       = '批量新建';
+
+$lang->issue->labelList['all']       = '全部';
+$lang->issue->labelList['open']      = '开放';
+$lang->issue->labelList['assignto']  = '指派给我';
+$lang->issue->labelList['closed']    = '已关闭';
+$lang->issue->labelList['suspended'] = '已挂起';
+$lang->issue->labelList['cancelled'] = '已取消';
+
+$lang->issue->priList[''] = '';
+$lang->issue->priList['1'] = 1;
+$lang->issue->priList['2'] = 2;
+$lang->issue->priList['3'] = 3;
+$lang->issue->priList['4'] = 4;
+
+$lang->issue->severityList[''] = '';
+$lang->issue->severityList['1'] = '严重';
+$lang->issue->severityList['2'] = '较严重';
+$lang->issue->severityList['3'] = '较小';
+$lang->issue->severityList['4'] = '建议';
+
+$lang->issue->typeList[''] = '';
+$lang->issue->typeList['design']       = '设计问题';
+$lang->issue->typeList['code']         = '程序缺陷';
+$lang->issue->typeList['performance']  = '性能问题';
+$lang->issue->typeList['version']      = '版本控制';
+$lang->issue->typeList['storyadd']     = '需求新增';
+$lang->issue->typeList['storychanged'] = '需求修改';
+$lang->issue->typeList['storyremoved'] = '需求删除';
+$lang->issue->typeList['data']         = '数据问题';
+
+$lang->issue->resolutionList['resolved'] = '已解决';
+$lang->issue->resolutionList['tostory']  = '转需求';
+$lang->issue->resolutionList['tobug']    = '转BUG';
+$lang->issue->resolutionList['torisk']   = '转风险';
+$lang->issue->resolutionList['totask']   = '转任务';
+
+$lang->issue->statusList['unconfirmed'] = '待确认';
+$lang->issue->statusList['confirmed']   = '已确认';
+$lang->issue->statusList['unresolved']  = '正解决';
+$lang->issue->statusList['resolved']    = '已解决';
+$lang->issue->statusList['canceled']    = '取消';
+$lang->issue->statusList['closed']      = '已关闭';
+$lang->issue->statusList['active']      = '激活';
+$lang->issue->statusList['suspended']   = '挂起';
+
+$lang->issue->resolveMethods = array();
+$lang->issue->resolveMethods['resolved'] = '已解决';
+$lang->issue->resolveMethods['totask']   = '转任务';
+$lang->issue->resolveMethods['tobug']    = '转BUG';
+$lang->issue->resolveMethods['tostory']  = '转需求';
+$lang->issue->resolveMethods['torisk']   = '转风险'; 
+
+$lang->issue->confirmDelete = '您确认删除该问题？';
+
+$lang->issue->logComments = array();
+$lang->issue->logComments['totask']  = "创建了任务：%s。";
+$lang->issue->logComments['tostory'] = "创建了需求：%s。";
+$lang->issue->logComments['tobug']   = "创建了BUG：%s。";
+$lang->issue->logComments['torisk']  = "创建了风险：%s。";
 /* jenkins */
 $lang->jenkins->common        = 'Jenkins';
 $lang->jenkins->browse        = '浏览Jenkins';
@@ -3886,6 +4488,107 @@ $lang->message->browserSetting->pollTimePlaceholder = '通知的时间间隔，�
 
 $lang->message->browserSetting->turnonList[1] = '打开';
 $lang->message->browserSetting->turnonList[0] = '关闭';
+/* milestone */
+$lang->milestone->index       = '报告首页';
+$lang->milestone->title       = '里程碑报告';
+$lang->milestone->common      = '项目里程碑报告';
+$lang->milestone->name        = '里程碑名称';
+$lang->milestone->stage       = '里程碑阶段';
+$lang->milestone->save        = '保存';
+
+$lang->milestone->startedWeeks  = '开始周数';
+$lang->milestone->finishedWeeks = '结束周数';
+$lang->milestone->offset        = '里程碑工期偏差';
+
+$lang->milestone->processCommon = '项目当前进展状况';
+$lang->milestone->process       = '项目进度';
+$lang->milestone->projectCost   = '项目成本';
+$lang->milestone->toNow         = '到目前为止';
+$lang->milestone->targetRange   = '目标控制范围';
+$lang->milestone->ge            = '大于等于';
+$lang->milestone->le            = '小于等于';
+$lang->milestone->analysis      = '分析结果';
+$lang->milestone->PV            = '计划完成的工作(PV)';
+$lang->milestone->EV            = '实际完成的工作(EV)';
+$lang->milestone->AC            = '实际花费的成本(AC)';
+$lang->milestone->SPI           = '项目进度绩效(SPI)';
+$lang->milestone->CPI           = '项目成本绩效(CPI)';
+$lang->milestone->SV            = '进度偏差率(SV%)';
+$lang->milestone->CV            = '成本偏差率(CV%)';
+
+$lang->milestone->workHours   = '工作量（人时）';
+$lang->milestone->allStage    = '工程阶段';
+$lang->milestone->devHours    = '研发工作量';
+$lang->milestone->toHours     = '返工工作量';
+$lang->milestone->reviewHours = '评审工作量';
+$lang->milestone->qaHours     = '测试工作量';
+$lang->milestone->rowSummary  = '工作量小计';
+$lang->milestone->rowPercent  = '分布百分比(%)';
+$lang->milestone->colPercent  = '占工作量百分比(%)';
+$lang->milestone->colSummary  = '总和';
+$lang->milestone->qatoDev     = '测试研发比';
+
+$lang->milestone->projectRisk     = '5.项目风险(优先最高的前五项风险)';
+$lang->milestone->riskCountermove = '风险对策';
+$lang->milestone->riskDescriptio  = '风险描述';
+$lang->milestone->riskPossibility = '可能性';
+$lang->milestone->riskSeriousness = '严重性';
+$lang->milestone->riskFactor      = '风险系数';
+$lang->milestone->riskMeasures    = '风险对策';
+$lang->milestone->riskAccumulate  = '累积的高风险';
+
+$lang->milestone->otherIssue       = '其它问题';
+$lang->milestone->issueSolutions   = '问题及解决建议';
+$lang->milestone->issueDescription = '问题描述';
+$lang->milestone->needHelp         = '是否需要高层支持';
+$lang->milestone->issuePropose     = '解决建议';
+
+$lang->milestone->demandStatus     = '4.用户需求状况分析';
+$lang->milestone->storyUnit        = '单位:Item';
+$lang->milestone->engineeringStage = '工程阶段';
+$lang->milestone->rateChange       = '需求变化率';
+$lang->milestone->originalStory    = '原始需求数量';
+$lang->milestone->modifyNumber     = '变更后需求总数';
+$lang->milestone->changeStory      = '变更的需求数';
+
+$lang->milestone->paogressForecast   = '项目进展预测';
+$lang->milestone->duration           = '工期(天)';
+$lang->milestone->cost               = '成本(人时)';
+$lang->milestone->forecastResults    = '预测结果分析';
+$lang->milestone->plannedValue       = '计划值';
+$lang->milestone->predictedValue     = '预测值';
+$lang->milestone->predictedValueDesc = '计算公式：如果项目进度绩效(SPI)=0，那么预测值=0，否则，预测值=计划值 除以 项目进度绩效(SPI)';
+$lang->milestone->periodDeviation    = '工期偏差';
+$lang->milestone->costDeviation      = '成本偏差';
+$lang->milestone->nextStage          = '下一里程碑阶段';
+$lang->milestone->overallProject     = '项目总体';
+$lang->milestone->corrective         = '纠偏措施';
+$lang->milestone->timeOverrun        = '总工期将超出:%s天。';
+$lang->milestone->costOverrun        = '总成本将超出:%s个单位。';
+$lang->milestone->saveOtherProblem   = '保存其他问题';
+
+$lang->milestone->chart = new stdclass();
+$lang->milestone->chart->title    = '到目前为止项目进展趋势图';
+$lang->milestone->chart->time     = '第';
+$lang->milestone->chart->week     = '周';
+$lang->milestone->chart->month    = '月';
+$lang->milestone->chart->workhour = '研发工作量分析图';
+
+$lang->milestone->otherproblem      = '6.其它问题';
+$lang->milestone->problemandsuggest = '问题及解决建议';
+$lang->milestone->suggest           = '解决建议';
+$lang->milestone->needhelp          = '是否需要高层支持？';
+$lang->milestone->prodescr          = '问题描述';
+
+$lang->milestone->quality = new stdclass();
+$lang->milestone->quality->total         = '合计';
+$lang->milestone->quality->identify      = '缺陷识别阶段';
+$lang->milestone->quality->injection     = '缺陷注入阶段';
+$lang->milestone->quality->scale         = '规模';
+$lang->milestone->quality->identifyRate       = '缺陷识别率';
+$lang->milestone->quality->injectionRate      = '缺陷注入率';
+
+$lang->milestone->options  = '操作';
 /* misc */
 $lang->misc = new stdclass();
 $lang->misc->common = '杂项';
@@ -4010,6 +4713,7 @@ $lang->misc->releaseDate['7.2.stable']  = '2015-05-22';
 $lang->misc->releaseDate['7.1.stable']  = '2015-03-07';
 $lang->misc->releaseDate['6.3.stable']  = '2014-11-07';
 
+$lang->misc->feature->all['20.0'][]   = array('title'=>'增加项目模板，兼容渠成', 'desc' => '');
 $lang->misc->feature->all['12.4.1'][] = array('title'=>'修复Bug', 'desc' => '');
 
 $lang->misc->feature->all['12.4.stable'][] = array('title'=>'修复Bug', 'desc' => '');
@@ -4125,6 +4829,10 @@ $lang->my->bug            = '我的Bug';
 $lang->my->testTask       = '我的版本';
 $lang->my->testCase       = '我的用例';
 $lang->my->story          = "我的{$lang->storyCommon}";
+$lang->my->requirement    = "我的用户{$lang->storyCommon}";
+$lang->my->program        = '我的项目';
+$lang->my->myProgram      = "我的项目";
+$lang->my->createProgram  = '添加项目';
 $lang->my->myProject      = "我的{$lang->projectCommon}";
 $lang->my->profile        = '我的档案';
 $lang->my->dynamic        = '我的动态';
@@ -4386,6 +5094,183 @@ $lang->productplan->beginGeEnd   = 'ID %s 开始时间不能大于结束时间';
 $lang->productplan->featureBar['browse']['all']       = '全部';
 $lang->productplan->featureBar['browse']['unexpired'] = '未过期';
 $lang->productplan->featureBar['browse']['overdue']   = '已过期';
+/* program */
+$lang->program->index              = '仪表盘';
+$lang->program->create             = '添加项目';
+$lang->program->createGuide        = '选择项目模板';
+$lang->program->edit               = '编辑项目';
+$lang->program->browse             = '项目列表';
+$lang->program->all                = '所有项目';
+$lang->program->start              = '启动项目';
+$lang->program->finish             = '完成项目';
+$lang->program->suspend            = '挂起项目';
+$lang->program->delete             = '删除项目';
+$lang->program->close              = '关闭项目';
+$lang->program->activate           = '激活项目';
+$lang->program->group              = '权限分组';
+$lang->program->createGroup        = '创建分组';
+$lang->program->editGroup          = '编辑分组';
+$lang->program->copyGroup          = '复制分组';
+$lang->program->manageView         = '维护视图';
+$lang->program->managePriv         = '维护权限';
+$lang->program->manageMembers      = '项目团队';
+$lang->program->export             = '导出';
+$lang->program->manageGroupMember  = '维护分组用户';
+
+$lang->program->common             = '项目';
+$lang->program->stage              = '阶段';
+$lang->program->name               = '项目名称';
+$lang->program->template           = '项目模板';
+$lang->program->category           = '项目类型';
+$lang->program->desc               = '项目描述';
+$lang->program->code               = '项目代号';
+$lang->program->copy               = '复制项目';
+$lang->program->begin              = '计划开始日期';
+$lang->program->end                = '计划完成日期';
+$lang->program->status             = '项目状态';
+$lang->program->PM                 = '项目负责人';
+$lang->program->budget             = '项目预算';
+$lang->program->dateRange          = '起止时间';
+$lang->program->to                 = '至';
+$lang->program->realFinished       = '实际完成日期';
+$lang->program->realStarted        = '实际开始日期';
+$lang->program->bygrid             = '看板';
+$lang->program->bylist             = '列表';
+$lang->program->mine               = '我参与的';
+$lang->program->setPlanduration    = '设置工期';
+$lang->program->privway            = '权限控制';
+$lang->program->durationEstimation = '工作量估算';
+$lang->program->progress           = '项目进度';
+$lang->program->teamCount          = '投入人数';
+$lang->program->leftStories        = '剩余需求';
+$lang->program->leftTasks          = '剩余任务';
+$lang->program->leftBugs           = '剩余Bug';
+$lang->program->children           = '子项目';
+$lang->program->parent             = '父项目';
+$lang->program->allStories         = '总需求';
+$lang->program->doneStories        = '已完成';
+$lang->program->leftStories        = '剩余需求';
+$lang->program->allInput           = '项目总投入';
+$lang->program->weekly             = '项目周报';
+$lang->program->pv                 = 'PV';
+$lang->program->ev                 = 'EV';
+$lang->program->sv                 = 'SV%';
+$lang->program->ac                 = 'AC';
+$lang->program->cv                 = 'CV%';
+$lang->program->pm                 = '项目负责人';
+$lang->program->teamCount          = '项目成员';
+
+$lang->program->unitList[''] = '';
+$lang->program->unitList['yuan']   = '元';
+$lang->program->unitList['dollar'] = 'Dollars';
+
+$lang->program->templateList['scrum'] = "Scrum";
+$lang->program->templateList['cmmi']  = "瀑布";
+
+$lang->program->categoryList['single']   = "单产品项目";
+$lang->program->categoryList['multiple'] = "多产品项目";
+
+$lang->program->featureBar['all']       = '所有';
+$lang->program->featureBar['doing']     = '进行中';
+$lang->program->featureBar['wait']      = '未开始';
+$lang->program->featureBar['suspended'] = '已挂起';
+$lang->program->featureBar['closed']    = '已关闭';
+
+$lang->program->aclList['open']    = "默认设置(有项目视图权限，即可访问)";
+$lang->program->aclList['private'] = "私有项目(只有项目团队成员才能访问)";
+$lang->program->aclList['custom']  = "自定义白名单(团队成员和白名单的成员可以访问)";
+
+$lang->program->privwayList['extend'] = '继承(取项目权限与组织权限的并集)';
+$lang->program->privwayList['reset']  = '重新定义(只取项目权限)';
+
+$lang->program->statusList['wait']      = '未开始';
+$lang->program->statusList['doing']     = '进行中';
+$lang->program->statusList['suspended'] = '已挂起';
+$lang->program->statusList['closed']    = '已关闭';
+
+$lang->program->noProgram          = '暂时没有项目';
+$lang->program->accessDenied       = '您无权访问该项目！';
+$lang->program->chooseProgramType  = '选择项目管理方式';
+$lang->program->nextStep           = '下一步';
+$lang->program->hoursUnit          = '%s工时';
+$lang->program->membersUnit        = '%s人';
+$lang->program->lastIteration      = '近期迭代';
+$lang->program->ongoingStage       = '进行中的阶段';
+$lang->program->scrum              = 'Scrum';
+$lang->program->scrumTitle         = '敏捷开发全流程项目管理';
+$lang->program->scrumDesc          = '<strong>简介：</strong>小步迭代，快速发布<br><strong>包含功能点：</strong>项目概览、迭代、计划、需求等';
+$lang->program->cmmi               = '瀑布';
+$lang->program->cmmiTitle          = '瀑布式项目管理';
+$lang->program->cmmiDesc           = '<strong>简介：</strong>按阶段规范化管理<br><strong>包含功能点：</strong>估算、计划、阶段、报告';
+$lang->program->cannotCreateChild  = '该项目已经有实际的内容，无法直接添加子项目。您可以为当前项目创建一个父项目，然后在新的父项目下面添加子项目。';
+$lang->program->hasChildren        = '该项目有子项目存在，不能删除。';
+$lang->program->confirmDelete      = "您确定删除项目[%s]吗？";
+$lang->program->emptyPM            = '暂无';
+$lang->program->cannotChangeToCat  = "该项目已经有实际的内容，无法修改为父项目";
+$lang->program->cannotCancelCat    = "该项目下已经有子项目，无法取消父项目标记";
+$lang->program->parentBeginEnd     = "父项目起止时间：%s ~ %s";
+$lang->program->parentBudget       = "父项目预算：%s";
+$lang->program->beginLetterParent  = "父项目的开始日期：%s，开始日期不能小于父项目的开始日期";
+$lang->program->endGreaterParent   = "父项目的完成日期：%s，完成日期不能大于父项目的完成日期";
+$lang->program->beginGreateChild   = "子项目的最小开始日期：%s，父项目的开始日期不能大于子项目的最小开始日期";
+$lang->program->endLetterChild     = "子项目的最大完成日期：%s，父项目的完成日期不能小于子项目的最大完成日期";
+/* programplan */
+$lang->programplan->common = '项目计划';
+
+$lang->programplan->browse        = '浏览阶段计划';
+$lang->programplan->gantt         = '甘特图';
+$lang->programplan->list          = '阶段列表';
+$lang->programplan->create        = '设置阶段';
+$lang->programplan->edit          = '编辑';
+$lang->programplan->delete        = '删除';
+$lang->programplan->createSubPlan = '创建二级阶段';
+
+$lang->programplan->parent            = '父阶段';
+$lang->programplan->emptyParent       = '无';
+$lang->programplan->name              = '名称';
+$lang->programplan->percent           = '计划工作量';
+$lang->programplan->percentAB         = '计划工作量';
+$lang->programplan->planPercent       = '工作量';
+$lang->programplan->attribute         = '阶段';
+$lang->programplan->milestone         = '里程碑';
+$lang->programplan->taskProgress      = '任务进度';
+$lang->programplan->task              = '任务';
+$lang->programplan->begin             = '计划开始';
+$lang->programplan->end               = '计划完成';
+$lang->programplan->realStarted       = '实际开始';
+$lang->programplan->realFinished      = '实际完成';
+$lang->programplan->output            = '输出';
+$lang->programplan->openedBy          = '由谁创建';
+$lang->programplan->openedDate        = '创建日期';
+$lang->programplan->editedBy          = '由谁编辑';
+$lang->programplan->editedDate        = '编辑日期';
+$lang->programplan->duration          = '计划工期';
+$lang->programplan->version           = '版本号';
+$lang->programplan->full              = '全屏';
+$lang->programplan->today             = '今天';
+$lang->programplan->exporting         = '导出';
+$lang->programplan->exportFail        = '导出失败';
+$lang->programplan->hideCriticalPath  = '隐藏关键路径';
+$lang->programplan->showCriticalPath  = '显示关键路径';
+
+$lang->programplan->milestoneList[1] = '是';
+$lang->programplan->milestoneList[0] = '否';
+
+$lang->programplan->noData        = '暂无数据。';
+$lang->programplan->children      = '二级计划';
+$lang->programplan->childrenAB    = '子';
+$lang->programplan->confirmDelete = '确定要删除当前计划吗？';
+
+$lang->programplan->stageCustom = new stdClass();
+$lang->programplan->stageCustom->date = '显示日期';
+$lang->programplan->stageCustom->task = '显示任务';
+
+$lang->programplan->error                  = new stdclass();
+$lang->programplan->error->percentNumber   = '"工作量比例"必须为数字';
+$lang->programplan->error->planFinishSmall = '"计划完成时间"必须大于"计划开始时间"';
+$lang->programplan->error->percentOver     = '"工作量比例"累计不应当超过100%';
+$lang->programplan->error->onlyOneDev      = '一级阶段计划只能设置一个开发类型的阶段计划';
+$lang->programplan->error->createdTask     = '已分解任务,不可添加子阶段';
 /* project */
 $lang->project->common        = $lang->projectCommon . '视图';
 $lang->project->allProjects   = '所有' . $lang->projectCommon;
@@ -4492,6 +5377,12 @@ $lang->project->statusList['closed']    = '已关闭';
 $lang->project->aclList['open']    = "默认设置(有{$lang->projectCommon}视图权限，即可访问)";
 $lang->project->aclList['private'] = "私有{$lang->projectCommon}(只有{$lang->projectCommon}团队成员才能访问)";
 $lang->project->aclList['custom']  = "自定义白名单(团队成员和白名单的成员可以访问)";
+
+$lang->project->storyPoint = '故事点';
+
+$lang->project->burnByList['left']       = '按剩余工时查看';
+$lang->project->burnByList['estimate']   = '按计划工时查看';
+$lang->project->burnByList['storyPoint'] = '按故事点查看';
 
 $lang->project->index             = "{$lang->projectCommon}主页";
 $lang->project->task              = '任务列表';
@@ -4803,6 +5694,7 @@ $lang->release->action->changestatus = array('main' => '$date, 由 <strong>$acto
 $lang->repo->common          = '代码';
 $lang->repo->browse          = '浏览';
 $lang->repo->viewRevision    = '查看修订';
+$lang->repo->program         = '所属项目';
 $lang->repo->create          = '创建';
 $lang->repo->createAction    = '创建版本库';
 $lang->repo->maintain        = '版本库列表';
@@ -5118,6 +6010,125 @@ $lang->report->annualData->poStatistics  = "月创建{$lang->storyCommon}数";
 $lang->report->annualData->devStatistics = "月完成任务数及累计工时和解决Bug数";
 
 $lang->report->annualData->unit = "个";
+/* risk */
+$lang->risk->batchCreate = '批量添加';
+$lang->risk->create      = '添加风险';
+$lang->risk->edit        = '编辑风险';
+$lang->risk->browse      = '浏览列表';
+$lang->risk->view        = '风险详情';
+$lang->risk->activate    = '激活';
+$lang->risk->hangup      = '挂起';
+$lang->risk->close       = '关闭';
+$lang->risk->cancel      = '取消';
+$lang->risk->track       = '跟踪';
+$lang->risk->assignTo    = '指派';
+$lang->risk->delete      = '删除';
+$lang->risk->byQuery     = '搜索';
+
+$lang->risk->common            = '风险';
+$lang->risk->source            = '来源';
+$lang->risk->id                = '编号';
+$lang->risk->name              = '风险名称';
+$lang->risk->category          = '类型';
+$lang->risk->strategy          = '策略';
+$lang->risk->status            = '状态';
+$lang->risk->impact            = '影响程度';
+$lang->risk->probability       = '发生概率';
+$lang->risk->riskindex         = '风险系数';
+$lang->risk->pri               = '优先级';
+$lang->risk->prevention        = '处理措施';
+$lang->risk->remedy            = '应急措施';
+$lang->risk->identifiedDate    = '识别日期';
+$lang->risk->plannedClosedDate = '计划关闭日期';
+$lang->risk->assignedTo        = '指派给';
+$lang->risk->assignedDate      = '指派日期';
+$lang->risk->createdBy         = '由谁创建';
+$lang->risk->createdDate       = '创建日期';
+$lang->risk->noAssigned        = '未指派';
+$lang->risk->cancelBy          = '由谁取消';
+$lang->risk->cancelDate        = '取消日期';
+$lang->risk->cancelReason      = '取消原因';
+$lang->risk->resolvedBy        = '解决者';
+$lang->risk->closedDate        = '关闭日期';
+$lang->risk->actualClosedDate  = '实际关闭日期';
+$lang->risk->resolution        = '解决措施';
+$lang->risk->hangupBy          = '由谁挂起';
+$lang->risk->hangupDate        = '挂起日期';
+$lang->risk->activateBy        = '由谁激活';
+$lang->risk->activateDate      = '激活日期';
+$lang->risk->isChange          = '风险是否变化';
+$lang->risk->trackedBy         = '由谁跟踪';
+$lang->risk->trackedDate       = '跟踪日期';
+$lang->risk->editedBy          = '由谁编辑';
+$lang->risk->editedDate        = '编辑日期';
+
+$lang->risk->legendBasicInfo   = '基本信息';
+$lang->risk->legendLifeTime    = '风险的一生';
+$lang->risk->confirmDelete     = '您确认删除该风险吗？';
+
+$lang->risk->action = new stdclass();
+$lang->risk->action->hangup  = '$date, 由 <strong>$actor</strong> 挂起。' . "\n";
+$lang->risk->action->tracked = '$date, 由 <strong>$actor</strong> 跟踪。' . "\n";
+
+$lang->risk->sourceList[''] = '';
+$lang->risk->sourceList['business']    = '业务部门';
+$lang->risk->sourceList['team']        = '项目组';
+$lang->risk->sourceList['logistic']    = '项目保障科室';
+$lang->risk->sourceList['manage']      = '管理层';
+$lang->risk->sourceList['sourcing']    = '供应商-采购';
+$lang->risk->sourceList['outsourcing'] = '供应商-外包';
+$lang->risk->sourceList['customer']    = '外部客户';
+$lang->risk->sourceList['others']      = '其他';
+
+$lang->risk->categoryList[''] = '';
+$lang->risk->categoryList['technical']   = '技术类';
+$lang->risk->categoryList['manage']      = '管理类';
+$lang->risk->categoryList['business']    = '业务类';
+$lang->risk->categoryList['requirement'] = '需求类';
+$lang->risk->categoryList['resource']    = '资源类';
+$lang->risk->categoryList['others']      = '其他';
+
+$lang->risk->impactList[1] = 1;
+$lang->risk->impactList[2] = 2;
+$lang->risk->impactList[3] = 3;
+$lang->risk->impactList[4] = 4;
+$lang->risk->impactList[5] = 5;
+
+$lang->risk->probabilityList[1] = 1;
+$lang->risk->probabilityList[2] = 2;
+$lang->risk->probabilityList[3] = 3;
+$lang->risk->probabilityList[4] = 4;
+$lang->risk->probabilityList[5] = 5;
+
+$lang->risk->priList['high']   = '高';
+$lang->risk->priList['middle'] = '中';
+$lang->risk->priList['low']    = '低';
+
+$lang->risk->statusList[''] = '';
+$lang->risk->statusList['active']   = '开放';
+$lang->risk->statusList['closed']   = '关闭';
+$lang->risk->statusList['hangup']   = '挂起';
+$lang->risk->statusList['canceled'] = '取消';
+
+$lang->risk->strategyList[''] = '';
+$lang->risk->strategyList['avoidance']    = '规避';
+$lang->risk->strategyList['mitigation']   = '缓解';
+$lang->risk->strategyList['transference'] = '转移';
+$lang->risk->strategyList['acceptance']   = '接受';
+
+$lang->risk->isChangeList[0] = '否';
+$lang->risk->isChangeList[1] = '是';
+
+$lang->risk->cancelReasonList[''] = '';
+$lang->risk->cancelReasonList['disappeared'] = '风险自行消失';
+$lang->risk->cancelReasonList['mistake']     = '识别错误';
+
+$lang->risk->featureBar['browse']['all']      = '所有';
+$lang->risk->featureBar['browse']['active']   = '开放';
+$lang->risk->featureBar['browse']['assignTo'] = '指派给我';
+$lang->risk->featureBar['browse']['closed']   = '已关闭';
+$lang->risk->featureBar['browse']['hangup']   = '已挂起';
+$lang->risk->featureBar['browse']['canceled'] = '已取消';
 /* score */
 $lang->score->common       = '我的积分';
 $lang->score->record       = '积分记录';
@@ -5278,50 +6289,83 @@ $lang->sso->bindNotice     = '添加的新用户暂时没有权限，需要联�
 $lang->sso->bindNoPassword = '密码不能为空';
 $lang->sso->bindNoUser     = '该用户的登录密码错误，或该用户不存在！';
 $lang->sso->bindHasAccount = '该用户名已经存在，请更换用户名，或直接绑定到该用户。';
+/* stage */
+$lang->stage->browse       = '浏览列表';
+$lang->stage->create       = '新建';
+$lang->stage->batchCreate  = '批量新建';
+$lang->stage->edit         = '编辑';
+$lang->stage->delete       = '删除';
+$lang->stage->view         = '阶段详情';
+
+$lang->stage->common       = '阶段';
+$lang->stage->id           = '编号';
+$lang->stage->name         = '阶段名称';
+$lang->stage->type         = '阶段分类';
+$lang->stage->percent      = '工作量比例';
+$lang->stage->setType      = '设置类型';
+
+$lang->stage->typeList['request'] = '需求';
+$lang->stage->typeList['design']  = '设计';
+$lang->stage->typeList['dev']     = '开发';
+$lang->stage->typeList['qa']      = '测试';
+$lang->stage->typeList['release'] = '发布';
+$lang->stage->typeList['review']  = '总结评审';
+$lang->stage->typeList['other']   = '其他';
+
+$lang->stage->viewList      = '浏览列表';
+$lang->stage->noStage       = '暂时没有阶段';
+$lang->stage->confirmDelete = '您确定要执行删除操作吗？';
 /* story */
-$lang->story->create          = "提{$lang->storyCommon}";
-$lang->story->batchCreate     = "批量创建";
-$lang->story->change          = "变更";
-$lang->story->changeAction    = "变更{$lang->storyCommon}";
-$lang->story->changed         = "{$lang->storyCommon}变更";
-$lang->story->assignTo        = '指派';
-$lang->story->assignAction    = "指派{$lang->storyCommon}";
-$lang->story->review          = '评审';
-$lang->story->reviewAction    = "评审{$lang->storyCommon}";
-$lang->story->needReview      = '需要评审';
-$lang->story->batchReview     = '批量评审';
-$lang->story->edit            = "编辑";
-$lang->story->batchEdit       = "批量编辑";
-$lang->story->subdivide       = '细分';
-$lang->story->subdivideAction = "细分{$lang->storyCommon}";
-$lang->story->splitRequirent  = '拆分';
-$lang->story->close           = '关闭';
-$lang->story->closeAction     = "关闭{$lang->storyCommon}";
-$lang->story->batchClose      = '批量关闭';
-$lang->story->activate        = '激活';
-$lang->story->activateAction  = "激活{$lang->storyCommon}";
-$lang->story->delete          = "删除";
-$lang->story->deleteAction    = "删除{$lang->storyCommon}";
-$lang->story->view            = "{$lang->storyCommon}详情";
-$lang->story->setting         = "设置";
-$lang->story->tasks           = "相关任务";
-$lang->story->bugs            = "相关Bug";
-$lang->story->cases           = "相关用例";
-$lang->story->taskCount       = '任务数';
-$lang->story->bugCount        = 'Bug数';
-$lang->story->caseCount       = '用例数';
-$lang->story->taskCountAB     = 'T';
-$lang->story->bugCountAB      = 'B';
-$lang->story->caseCountAB     = 'C';
-$lang->story->linkStory       = "关联{$lang->storyCommon}";
-$lang->story->unlinkStory     = "移除相关{$lang->storyCommon}";
-$lang->story->export          = "导出数据";
-$lang->story->exportAction    = "导出{$lang->storyCommon}";
-$lang->story->zeroCase        = "零用例{$lang->storyCommon}";
-$lang->story->zeroTask        = "只列零任务{$lang->storyCommon}";
-$lang->story->reportChart     = "统计报表";
-$lang->story->reportAction    = "统计报表";
-$lang->story->copyTitle       = "同{$lang->storyCommon}名称";
+$lang->story->create            = "提{$lang->storyCommon}";
+$lang->story->createStory       = '添加软需';
+$lang->story->createRequirement = '添加用需';
+$lang->story->requirement       = '用户需求';
+$lang->story->story             = '软件需求';
+$lang->story->batchCreate       = "批量创建";
+$lang->story->change            = "变更";
+$lang->story->changeAction      = "变更{$lang->storyCommon}";
+$lang->story->changed           = "{$lang->storyCommon}变更";
+$lang->story->assignTo          = '指派';
+$lang->story->assignAction      = "指派{$lang->storyCommon}";
+$lang->story->review            = '评审';
+$lang->story->reviewAction      = "评审{$lang->storyCommon}";
+$lang->story->needReview        = '需要评审';
+$lang->story->batchReview       = '批量评审';
+$lang->story->edit              = "编辑";
+$lang->story->batchEdit         = "批量编辑";
+$lang->story->subdivide         = '细分';
+$lang->story->link              = '关联';
+$lang->story->unlink            = '移除';
+$lang->story->track             = '跟踪矩阵';
+$lang->story->subdivideAction   = "细分{$lang->storyCommon}";
+$lang->story->splitRequirent    = '拆分';
+$lang->story->close             = '关闭';
+$lang->story->closeAction       = "关闭{$lang->storyCommon}";
+$lang->story->batchClose        = '批量关闭';
+$lang->story->activate          = '激活';
+$lang->story->activateAction    = "激活{$lang->storyCommon}";
+$lang->story->delete            = "删除";
+$lang->story->deleteAction      = "删除{$lang->storyCommon}";
+$lang->story->view              = "{$lang->storyCommon}详情";
+$lang->story->setting           = "设置";
+$lang->story->tasks             = "相关任务";
+$lang->story->bugs              = "相关Bug";
+$lang->story->cases             = "相关用例";
+$lang->story->taskCount         = '任务数';
+$lang->story->bugCount          = 'Bug数';
+$lang->story->caseCount         = '用例数';
+$lang->story->taskCountAB       = 'T';
+$lang->story->bugCountAB        = 'B';
+$lang->story->caseCountAB       = 'C';
+$lang->story->linkStory         = "关联{$lang->storyCommon}";
+$lang->story->unlinkStory       = "移除相关{$lang->storyCommon}";
+$lang->story->export            = "导出数据";
+$lang->story->exportAction      = "导出{$lang->storyCommon}";
+$lang->story->zeroCase          = "零用例{$lang->storyCommon}";
+$lang->story->zeroTask          = "只列零任务{$lang->storyCommon}";
+$lang->story->reportChart       = "统计报表";
+$lang->story->reportAction      = "统计报表";
+$lang->story->copyTitle         = "同{$lang->storyCommon}名称";
 $lang->story->batchChangePlan   = "批量修改计划";
 $lang->story->batchChangeBranch = "批量修改分支";
 $lang->story->batchChangeStage  = "批量修改阶段";
@@ -5335,6 +6379,7 @@ $lang->story->common         = $lang->storyCommon;
 $lang->story->id             = '编号';
 $lang->story->parent         = '父需求';
 $lang->story->product        = "所属{$lang->productCommon}";
+$lang->story->program        = "所属项目";
 $lang->story->branch         = "分支/平台";
 $lang->story->module         = '所属模块';
 $lang->story->moduleAB       = '模块';
@@ -5391,6 +6436,11 @@ $lang->story->allStories     = "所有{$lang->storyCommon}";
 $lang->story->unclosed       = '未关闭';
 $lang->story->deleted        = '已删除';
 $lang->story->released       = "已发布{$lang->storyCommon}数";
+$lang->story->design         = '相关设计';
+$lang->story->case           = '相关用例';
+$lang->story->bug            = '相关Bug';
+$lang->story->repoCommit     = '相关提交';
+$lang->story->noRequirement  = '无需求';
 
 $lang->story->ditto       = '同上';
 $lang->story->dittoNotice = "该{$lang->storyCommon}与上一{$lang->storyCommon}不属于同一产品！";
@@ -5606,6 +6656,12 @@ $lang->story->chosen->reviewedBy = '选择评审人...';
 
 $lang->story->notice = new stdClass();
 $lang->story->notice->closed = "您选择的{$lang->storyCommon}已经被关闭了！";
+/* subject */
+$lang->subject->common      = '科目';
+$lang->subject->manage      = '科目维护';
+$lang->subject->manageChild = '维护子科目';
+$lang->subject->name        = '科目名称';
+$lang->subject->browse      = '浏览科目';
 /* svn */
 $lang->svn->common  = 'Subversion';
 $lang->svn->cat     = '查看源代码';
@@ -5658,6 +6714,7 @@ $lang->task->allModule           = '所有模块';
 
 $lang->task->common           = '任务';
 $lang->task->id               = '编号';
+$lang->task->program          = '所属项目';
 $lang->task->project          = '所属' . $lang->projectCommon;
 $lang->task->module           = '所属模块';
 $lang->task->moduleAB         = '模块';
@@ -5755,6 +6812,7 @@ $lang->task->statusList['closed'] = '已关闭';
 $lang->task->typeList['']        = '';
 $lang->task->typeList['design']  = '设计';
 $lang->task->typeList['devel']   = '开发';
+$lang->task->typeList['request'] = '需求';
 $lang->task->typeList['test']    = '测试';
 $lang->task->typeList['study']   = '研究';
 $lang->task->typeList['discuss'] = '讨论';
@@ -5801,22 +6859,25 @@ $lang->task->noTask                = '暂时没有任务。';
 $lang->task->createDenied          = '你不能在该项目添加任务';
 $lang->task->cannotDeleteParent    = '不能删除父任务。';
 
-$lang->task->error                   = new stdclass();
-$lang->task->error->totalNumber      = '"总计消耗"必须为数字';
-$lang->task->error->consumedNumber   = '"本次消耗"必须为数字';
-$lang->task->error->estimateNumber   = '"最初预计"必须为数字';
-$lang->task->error->leftNumber       = '"预计剩余"必须为数字';
-$lang->task->error->recordMinus      = '工时不能为负数';
-$lang->task->error->consumedSmall    = '"总计消耗"必须大于之前消耗';
-$lang->task->error->consumedThisTime = '请填写"工时"';
-$lang->task->error->left             = '请填写"剩余"';
-$lang->task->error->work             = '"备注"必须小于%d个字符';
-$lang->task->error->skipClose        = '任务：%s 不是“已完成”或“已取消”状态，确定要关闭吗？';
-$lang->task->error->consumed         = '任务：%s工时不能小于0，忽略该任务工时的改动';
-$lang->task->error->assignedTo       = '当前状态的多人任务不能指派给任务团队外的成员。';
-$lang->task->error->consumedEmpty    = '"本次消耗"不能为0';
-$lang->task->error->deadlineSmall    = '"截止日期"必须大于"预计开始"';
-$lang->task->error->alreadyStarted   = '此任务已被启动，不能重复启动！';
+$lang->task->error                    = new stdclass();
+$lang->task->error->totalNumber       = '"总计消耗"必须为数字';
+$lang->task->error->consumedNumber    = '"本次消耗"必须为数字';
+$lang->task->error->estimateNumber    = '"最初预计"必须为数字';
+$lang->task->error->recordMinus       = '工时不能为负数';
+$lang->task->error->leftNumber        = '"预计剩余"必须为数字';
+$lang->task->error->recordMinus       = '工时不能为负数';
+$lang->task->error->consumedSmall     = '"总计消耗"必须大于之前消耗';
+$lang->task->error->consumedThisTime  = '请填写"工时"';
+$lang->task->error->left              = '请填写"剩余"';
+$lang->task->error->work              = '"备注"必须小于%d个字符';
+$lang->task->error->skipClose         = '任务：%s 不是“已完成”或“已取消”状态，确定要关闭吗？';
+$lang->task->error->consumed          = '任务：%s工时不能小于0，忽略该任务工时的改动';
+$lang->task->error->assignedTo        = '当前状态的多人任务不能指派给任务团队外的成员。';
+$lang->task->error->consumedEmpty     = '"本次消耗"不能为0';
+$lang->task->error->deadlineSmall     = '"截止日期"必须大于"预计开始"';
+$lang->task->error->alreadyStarted    = '此任务已被启动，不能重复启动！';
+$lang->task->error->realStartedEmpty  = '实际开始不能为空';
+$lang->task->error->finishedDateEmpty = '实际完成不能为空';
 
 $lang->task->report         = new stdclass();
 $lang->task->report->common = '报表';
@@ -6026,7 +7087,7 @@ $lang->testcase->deleteStep   = '删除';
 $lang->testcase->insertBefore = '之前添加';
 $lang->testcase->insertAfter  = '之后添加';
 
-$lang->testcase->assignToMe   = '给我的用例';
+$lang->testcase->assignToMe   = '指派给我的用例';
 $lang->testcase->openedByMe   = '我建的用例';
 $lang->testcase->allCases     = '所有';
 $lang->testcase->allTestcases = '所有用例';
@@ -6683,11 +7744,53 @@ $lang->upgrade->forbiddenExt  = '以下插件与新版本不兼容，已经自�
 $lang->upgrade->updateFile    = '需要更新附件信息。';
 $lang->upgrade->noticeSQL     = '检查到你的数据库跟标准不一致，尝试修复失败。请执行以下SQL语句，再刷新页面检查。';
 $lang->upgrade->afterDeleted  = '以上文件未能删除， 删除后刷新！';
+$lang->upgrade->mergeProgram  = '数据归并';
+$lang->upgrade->to15Tips      = '禅道15版本升级提示';
+$lang->upgrade->to15Button    = '我已经做好备份，开始升级吧！';
+$lang->upgrade->to15Desc      = <<<EOD
+<p>尊敬的用户，感谢对禅道的支持。自15版本开始，禅道全面升级成为通用的项目管理平台。和之前的版本相比，15版本的禅道增加了大项目和管理模型的概念。接下来我们将通过向导的方式来帮助您完成此次升级。此次升级共分为两部分：项目数据归并和权限重新设置。</p>
+<br />
+<h4>一、项目数据归并</h4>
+<p>我们会将之前的产品和项目的数据归并到大项目概念下，并根据你选择管理模型的不同，调整概念为如下：</p>
+<ul>
+  <li class='strong'>敏捷：项目 > 产品 > 迭代 > 任务</li>
+  <li class='strong'>瀑布：项目 > 产品 > 阶段 > 任务</li>
+  <li class='strong'>看板：项目 > 产品 > 看板 > 卡片</li>
+</ul>
+<br />
+<h4>二、权限重新设置</h4>
+<p>禅道自15版本开始权限以大项目为一个基础单位来进行授权，授权的机制为：</p>
+<p class='strong'>管理员授权给项目管理员 > 项目管理员授权给项目成员</p>
+<br />
+<div class='text-warning'>
+  <p>友情提示：</p>
+  <ol>
+    <li>可以先安装一个15版本的禅道，体验一下里边的概念和流程。</li>
+    <li>15版本禅道改动比较大，升级之前请做好备份。</li>
+  </ol>
+</div>
+EOD;
+
+$lang->upgrade->line     = '产品线';
+$lang->upgrade->program  = '归并项目';
+$lang->upgrade->existPGM = '已有项目';
+$lang->upgrade->pgmAdmin = '项目管理员';
+$lang->upgrade->product  = $lang->productCommon;
+$lang->upgrade->project  = $lang->projectCommon;
+
+$lang->upgrade->newProgram         = '新建';
+$lang->upgrade->mergeSummary       = "尊敬的用户，您的系统中共有%s个产品，%s个迭代等待迁移。经系统计算，我们推荐您的迁移方案如下，您也可以根据自己的情况进行调整：";
+$lang->upgrade->mergeByProductLine = "以产品线组织的产品和迭代：将整个产品线及其下面的产品和迭代归并到一个大项目中。";
+$lang->upgrade->mergeByProduct     = "以产品组织的迭代：可以选择多个产品及其下面的迭代归并到一个大项目中，也可以选择某一个产品将其下面所属的迭代归并到大项目中。";
+$lang->upgrade->mergeByProject     = "独立的迭代：可以选择若干迭代归并到一个大项目中，也可以独立归并。";
+$lang->upgrade->mergeByMoreLink    = "关联多个产品的迭代：选择这个迭代归属于哪一个产品。";
 
 include dirname(__FILE__) . '/version.php';
 /* user */
 $lang->user->common           = '用户';
 $lang->user->id               = '用户编号';
+$lang->user->inside           = '内部人员';
+$lang->user->outside          = '外部人员';
 $lang->user->company          = '所属公司';
 $lang->user->dept             = '所属部门';
 $lang->user->account          = '用户名';
@@ -6987,3 +8090,53 @@ $lang->webhook->note->typeList['default']   = '从第三方系统获取webhook�
 $lang->webhook->error = new stdclass();
 $lang->webhook->error->curl   = '需要加载php-curl扩展。';
 $lang->webhook->error->noDept = '没有选择部门，请先选择同步部门。';
+/* weekly */
+$lang->weekly->common   = '项目周报';
+$lang->weekly->index    = '周报总览';
+$lang->weekly->progress = '完成百分比';
+$lang->weekly->workload = '工作量';
+$lang->weekly->total    = '合计';
+
+$lang->weekly->reportTtitle   = '项目: %s 周报（第 %s 周）';
+$lang->weekly->summary        = '项目进展状况';
+$lang->weekly->finished       = '本周工作完成情况（100%完成的工作）';
+$lang->weekly->postponed      = '本周未完成工作';
+$lang->weekly->nextWeek       = '下周工作计划';
+$lang->weekly->workloadByType = '工作量统计';
+
+$lang->weekly->term    = '报告周期';
+$lang->weekly->program = '项目名称';
+$lang->weekly->master  = '项目经理 ';
+$lang->weekly->staff   = '本周投入人数';
+
+$lang->weekly->weekDesc       = '第 %s 周( %s ~ %s)';
+$lang->weekly->progress       = '项目当前进展状况';
+$lang->weekly->analysisResult = '分析结果';
+$lang->weekly->cost           = '项目成本';
+
+$lang->weekly->pv = '计划完成的工作(PV)';
+$lang->weekly->ev = '实际完成的工作(EV)';
+$lang->weekly->ac = '实际花费的成本(AC)';
+$lang->weekly->sv = '进度偏差率(SV%)';
+$lang->weekly->cv = '成本偏差率（CV%）';
+/* workestimation */
+$lang->workestimation->common         = '工作量估算';
+$lang->workestimation->budget         = '估算';
+$lang->workestimation->index          = '总览';
+$lang->workestimation->scale          = '规模';
+$lang->workestimation->productivity   = '生产率';
+$lang->workestimation->duration       = '估算总工时';
+$lang->workestimation->unitLaborCost  = '单位人工成本';
+$lang->workestimation->totalLaborCost = '估算人工成本';
+$lang->workestimation->dayHour        = '每日工时';
+$lang->workestimation->hour           = '工时';
+$lang->workestimation->consumed       = '已消耗工时';
+
+$lang->workestimation->programScaleTip = "当前项目实际规模：<strong>%s{$lang->hourCommon}</strong> <a href='###' id='useScale' class='btn btn-xs'>使用</span>";
+
+$lang->workestimation->placeholder = new stdclass(); 
+$lang->workestimation->placeholder->scale          = '';
+$lang->workestimation->placeholder->productivity   = '';
+$lang->workestimation->placeholder->duration       = '';
+$lang->workestimation->placeholder->unitLaborCost  = '';
+$lang->workestimation->placeholder->totalLaborCost = '';
