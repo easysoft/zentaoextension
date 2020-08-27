@@ -782,305 +782,6 @@ $lang->icons['confirmStoryChange'] = 'search';
 $lang->icons['score']              = 'tint';
 
 include (dirname(__FILE__) . '/menuOrder.php');
-
-global $config;
-if(isset($config->global->flow) and $config->global->flow == 'onlyStory')
-{
-        unset($lang->menu->project);
-    unset($lang->menu->report);
-    unset($lang->menu->qa);
-
-    unset($lang->menuOrder[15]);
-    unset($lang->menuOrder[20]);
-    unset($lang->menuOrder[35]);
-
-        unset($lang->my->menu->bug);
-    unset($lang->my->menu->testtask);
-    unset($lang->my->menu->task);
-    unset($lang->my->menu->myProject);
-
-        unset($lang->product->menu->project);
-    unset($lang->product->menu->doc);
-
-        $lang->menu->product = "{$lang->productCommon}|product|index";
-
-        unset($lang->searchObjects['bug']);
-    unset($lang->searchObjects['task']);
-    unset($lang->searchObjects['testcase']);
-    unset($lang->searchObjects['project']);
-    unset($lang->searchObjects['build']);
-    unset($lang->searchObjects['testtask']);
-    unset($lang->searchObjects['testsuite']);
-    unset($lang->searchObjects['caselib']);
-    unset($lang->searchObjects['testreport']);
-}
-
-if(isset($config->global->flow) and $config->global->flow == 'onlyTask')
-{
-        unset($lang->menu->product);
-    unset($lang->menu->report);
-    unset($lang->menu->qa);
-
-    unset($lang->menuOrder[10]);
-    unset($lang->menuOrder[20]);
-    unset($lang->menuOrder[35]);
-
-        unset($lang->my->menu->bug);
-    unset($lang->my->menu->testtask);
-    unset($lang->my->menu->story);
-
-        unset($lang->project->menu->story);
-    unset($lang->project->menu->build);
-    unset($lang->project->menu->qa);
-    unset($lang->project->menu->product);
-    unset($lang->project->menu->doc);
-
-        unset($lang->product->menu);
-    unset($lang->product->menuOrder);
-
-    unset($lang->searchObjects['story']);
-    unset($lang->searchObjects['product']);
-    unset($lang->searchObjects['testcase']);
-    unset($lang->searchObjects['release']);
-    unset($lang->searchObjects['productplan']);
-    unset($lang->searchObjects['testsuite']);
-    unset($lang->searchObjects['caselib']);
-    unset($lang->searchObjects['testreport']);
-}
-
-if(isset($config->global->flow) and $config->global->flow == 'onlyTest')
-{
-        unset($lang->menu->project);
-    unset($lang->menu->qa);
-    unset($lang->menu->report);
-
-    unset($lang->menuOrder[15]);
-    unset($lang->menuOrder[20]);
-    unset($lang->menuOrder[35]);
-
-        $lang->menu->product = "{$lang->productCommon}|product|index";
-
-        unset($lang->my->menu->task);
-    unset($lang->my->menu->myProject);
-    unset($lang->my->menu->story);
-
-        unset($lang->project->menu);
-    unset($lang->project->menuOrder);
-    $lang->project->menu = new stdclass();
-    $lang->project->menu->list = array('alias' => '');
-
-        $lang->menu->bug       = 'Bug|bug|index';
-    $lang->menu->testcase  = 'Functional Test|testcase|index';
-    $lang->menu->unit      = 'Unit Test|testtask|browseUnits';
-    $lang->menu->testsuite = 'Suite|testsuite|index';
-    $lang->menu->testtask  = 'Request|testtask|index';
-    $lang->menu->caselib   = 'Case Library|caselib|browse';
-
-    $lang->menuOrder[6]  = 'bug';
-    $lang->menuOrder[7]  = 'testcase';
-    $lang->menuOrder[8]  = 'unit';
-    $lang->menuOrder[9]  = 'testsuite';
-    $lang->menuOrder[10] = 'testtask';
-    $lang->menuOrder[11] = 'caselib';
-    $lang->menuOrder[12] = 'product';
-
-        $lang->bug->menu = new stdclass();
-    $lang->bug->menu->all           = 'All|bug|browse|productID=%s&branch=%s&browseType=all&param=%s';
-    $lang->bug->menu->unclosed      = 'Unclosed|bug|browse|productID=%s&branch=%s&browseType=unclosed&param=%s';
-    $lang->bug->menu->openedbyme    = 'ReportedByMe|bug|browse|productID=%s&branch=%s&browseType=openedbyme&param=%s';
-    $lang->bug->menu->assigntome    = 'AssignedToMe|bug|browse|productID=%s&branch=%s&browseType=assigntome&param=%s';
-    $lang->bug->menu->resolvedbyme  = 'ResolvedByMe|bug|browse|productID=%s&branch=%s&browseType=resolvedbyme&param=%s';
-    $lang->bug->menu->toclosed      = 'ToBeClosed|bug|browse|productID=%s&branch=%s&browseType=toclosed&param=%s';
-    $lang->bug->menu->unresolved    = 'Active|bug|browse|productID=%s&branch=%s&browseType=unresolved&param=%s';
-    $lang->bug->menu->more          = array('link' => 'More|bug|browse|productID=%s&branch=%s&browseType=unconfirmed&param=%s', 'class' => 'dropdown dropdown-hover');
-
-    $lang->bug->subMenu = new stdclass();
-    $lang->bug->subMenu->more = new stdclass();
-    $lang->bug->subMenu->more->unconfirmed   = 'Unconfirmed|bug|browse|productID=%s&branch=%s&browseType=unconfirmed&param=%s';
-    $lang->bug->subMenu->more->assigntonull  = 'Unassigned|bug|browse|productID=%s&branch=%s&browseType=assigntonull&param=%s';
-    $lang->bug->subMenu->more->longlifebugs  = 'Stalled|bug|browse|productID=%s&branch=%s&browseType=longlifebugs&param=%s';
-    $lang->bug->subMenu->more->postponedbugs = 'Postponed|bug|browse|productID=%s&branch=%s&browseType=postponedbugs&param=%s';
-    $lang->bug->subMenu->more->overduebugs   = 'Overdue|bug|browse|productID=%s&branch=%s&browseType=overduebugs&param=%s';
-    $lang->bug->subMenu->more->needconfirm   = 'ToBeConfirmed|bug|browse|productID=%s&branch=%s&browseType=needconfirm&param=%s';
-
-    $lang->bug->menuOrder[5]  = 'product';
-    $lang->bug->menuOrder[10] = 'all';
-    $lang->bug->menuOrder[15] = 'unclosed';
-    $lang->bug->menuOrder[20] = 'openedbyme';
-    $lang->bug->menuOrder[25] = 'assigntome';
-    $lang->bug->menuOrder[30] = 'resolvedbyme';
-    $lang->bug->menuOrder[35] = 'toclosed';
-    $lang->bug->menuOrder[40] = 'unresolved';
-    $lang->bug->menuOrder[45] = 'unconfirmed';
-    $lang->bug->menuOrder[50] = 'assigntonull';
-    $lang->bug->menuOrder[55] = 'longlifebugs';
-    $lang->bug->menuOrder[60] = 'postponedbugs';
-    $lang->bug->menuOrder[65] = 'overduebugs';
-    $lang->bug->menuOrder[70] = 'needconfirm';
-
-        $lang->testcase->menu = new stdclass();
-    $lang->testcase->menu->all     = 'All|testcase|browse|productID=%s&branch=%s&browseType=all';
-    $lang->testcase->menu->wait    = 'Waiting|testcase|browse|productID=%s&branch=%s&browseType=wait';
-    $lang->testcase->menu->bysuite = array('link' => 'Suite|testsuite|create|productID=%s', 'class' => 'dropdown dropdown-hover');
-
-    $lang->testcase->subMenu = new stdclass();
-    $lang->testcase->subMenu->bysuite = new stdclass();
-    $lang->testcase->subMenu->bysuite->create = 'Create Suite|testsuite|create|productID=%s';
-
-    $lang->testcase->menuOrder[5]  = 'product';
-    $lang->testcase->menuOrder[10] = 'all';
-    $lang->testcase->menuOrder[15] = 'wait';
-    $lang->testcase->menuOrder[20] = 'suite';
-
-        $lang->testsuite->menu = new stdclass();
-
-    $lang->testsuite->menuOrder[5]  = 'product';
-
-        $lang->testtask->menu = new stdclass();
-    $lang->testtask->menu->totalStatus = 'All|testtask|browse|productID=%s&branch=%s&type=%s,totalStatus';
-    $lang->testtask->menu->wait        = 'Waiting|testtask|browse|productID=%s&branch=%s&type=%s,wait';
-    $lang->testtask->menu->doing       = 'Doing|testtask|browse|productID=%s&branch=%s&type=%s,doing';
-    $lang->testtask->menu->blocked     = 'Blocked|testtask|browse|productID=%s&branch=%s&type=%s,blocked';
-    $lang->testtask->menu->done        = 'Done|testtask|browse|productID=%s&branch=%s&type=%s,done';
-    $lang->testtask->menu->report      = array('link' => 'Report|testreport|browse');
-
-    $lang->testtask->menuOrder[5]  = 'product';
-    $lang->testtask->menuOrder[10] = 'scope';
-    $lang->testtask->menuOrder[15] = 'totalStatus';
-    $lang->testtask->menuOrder[20] = 'wait';
-    $lang->testtask->menuOrder[25] = 'doing';
-    $lang->testtask->menuOrder[30] = 'blocked';
-    $lang->testtask->menuOrder[35] = 'done';
-    $lang->testtask->menuOrder[40] = 'report';
-
-    $lang->testreport->menu      = $lang->testtask->menu;
-    $lang->testreport->menuOrder = $lang->testtask->menuOrder;
-
-        $lang->caselib->menu = new stdclass();
-    $lang->caselib->menu->all  = 'All|caselib|browse|libID=%s&browseType=all';
-    $lang->caselib->menu->wait = 'Waiting|caselib|browse|libID=%s&browseType=wait';
-    $lang->caselib->menu->view = 'View|caselib|view|libID=%s';
-
-    $lang->caselib->menuOrder[5]  = 'lib';
-    $lang->caselib->menuOrder[10] = 'all';
-    $lang->caselib->menuOrder[15] = 'wait';
-    $lang->caselib->menuOrder[20] = 'view';
-
-        unset($lang->product->menu->story);
-    unset($lang->product->menu->project);
-    unset($lang->product->menu->release);
-    unset($lang->product->menu->dynamic);
-    unset($lang->product->menu->plan);
-    unset($lang->product->menu->roadmap);
-    unset($lang->product->menu->doc);
-    unset($lang->product->menu->module);
-    unset($lang->product->menu->index);
-
-    $lang->product->menu->build = array('link' => 'Build|product|build', 'subModule' => 'build');
-
-    $lang->product->menuOrder[5]  = 'build';
-    $lang->product->menuOrder[10] = 'view';
-    $lang->product->menuOrder[15] = 'order';
-
-    $lang->build->menu      = $lang->product->menu;
-    $lang->build->menuOrder = $lang->product->menuOrder;
-
-        $lang->menugroup->bug        = 'bug';
-    $lang->menugroup->testcase   = 'testcase';
-    $lang->menugroup->case       = 'testcase';
-    $lang->menugroup->testtask   = 'testtask';
-    $lang->menugroup->testsuite  = 'testsuite';
-    $lang->menugroup->caselib    = 'caselib';
-    $lang->menugroup->testreport = 'testtask';
-    $lang->menugroup->build      = 'product';
-
-        unset($lang->searchObjects['story']);
-    unset($lang->searchObjects['task']);
-    unset($lang->searchObjects['release']);
-    unset($lang->searchObjects['project']);
-    unset($lang->searchObjects['productplan']);
-}
-
-$lang->menu->cmmi = new stdclass();
-$lang->menu->cmmi->programindex   = array('link' => 'Home|program|index|program={PROGRAM}');
-$lang->menu->cmmi->programplan    = array('link' => 'Programplan|programplan|browse|program={PROGRAM}', 'subModule' => 'programplan');
-$lang->menu->cmmi->project        = array('link' => $lang->projectCommon . '|project|task|projectID={PROJECT}', 'subModule' => ',project,task,');
-$lang->menu->cmmi->weekly         = array('link' => 'Weekly|weekly|index|program={PROGRAM}', 'subModule' => ',milestone,');
-$lang->menu->cmmi->doc            = array('link' => 'Doc|doc|index|program={PROGRAM}');
-$lang->menu->cmmi->product        = array('link' => 'Story|product|browse|product={PRODUCT}&branch=&browseType=unclosed&queryID=0&storyType=requirement', 'subModule' => ',story,');
-$lang->menu->cmmi->design         = 'Design|design|browse|product={PRODUCT}';
-$lang->menu->cmmi->ci             = 'Ci|repo|browse|';
-$lang->menu->cmmi->qa             = array('link' => 'QA|bug|browse|product={PRODUCT}', 'subModule' => ',testcase,testtask,testsuite,testreport,caselib,');
-$lang->menu->cmmi->release        = array('link' => 'Release|release|browse|product={PRODUCT}', 'subModule' => 'release');
-$lang->menu->cmmi->issue          = 'Issue|issue|browse|';
-$lang->menu->cmmi->risk           = 'Risk|risk|browse|';
-$lang->menu->cmmi->list           = array('link' => 'More|workestimation|index|program={PROGRAM}', 'class' => 'dropdown dropdown-hover cmmi-list', 'subModule' => 'stakeholder,workestimation,durationestimation,budget,pssp,stakeholder');
-
-$lang->menu->srcum = new stdclass();
-$lang->menu->srcum->programindex   = array('link' => 'Home|program|index|program={PROGRAM}');
-
-$lang->cmmi = new stdclass();
-$lang->cmmi->subMenu = new stdclass();
-$lang->cmmi->subMenu->list = new stdclass();
-$lang->cmmi->subMenu->list->workestimation = array('link' => 'Workestimation|workestimation|index|program=%s', 'subModule' => 'durationestimation,budget');
-$lang->cmmi->subMenu->list->program        = 'Program|program|edit|';
-
-$lang->cmmiproduct    = new stdclass();
-$lang->workestimation = new stdclass();
-$lang->budget         = new stdclass();
-$lang->programplan    = new stdclass();
-$lang->review         = new stdclass();
-$lang->weekly         = new stdclass();
-$lang->milestone      = new stdclass();
-$lang->design         = new stdclass();
-$lang->auditplan      = new stdclass();
-$lang->cm             = new stdclass();
-$lang->nc             = new stdclass();
-$lang->pssp           = new stdclass();
-$lang->issue          = new stdclass();
-$lang->risk           = new stdclass();
-$lang->stakeholder    = new stdclass();
-$lang->durationestimation = new stdclass();
-
-$lang->workestimation->menu = new stdclass();
-$lang->budget->menu         = new stdclass();
-$lang->programplan->menu    = new stdclass();
-$lang->review->menu         = new stdclass();
-$lang->weekly->menu         = new stdclass();
-$lang->milestone->menu      = new stdclass();
-$lang->cmmiproduct->menu    = new stdclass();
-$lang->design->menu         = new stdclass();
-$lang->auditplan->menu      = new stdclass();
-$lang->cm->menu             = new stdclass();
-$lang->pssp->menu           = new stdclass();
-$lang->issue->menu          = new stdclass();
-$lang->risk->menu           = new stdclass();
-$lang->stakeholder->menu    = new stdclass();
-$lang->durationestimation->menu = new stdclass();
-
-$lang->workestimation->menu->index    = 'Workestimation|workestimation|index|program={PROGRAM}';
-$lang->workestimation->menu->duration = array('link' => 'Durationestimation|durationestimation|index|program={PROGRAM}', 'subModule' => 'durationestimation');
-$lang->workestimation->menu->budget   = array('link' => 'Budget|budget|summary|', 'subModule' => 'budget');
-
-$lang->durationestimation->menu = $lang->workestimation->menu;
-$lang->budget->menu = $lang->workestimation->menu;
-
-$lang->programplan->menu->gantt = array('link' => 'Gantt|programplan|browse|programID={PROGRAM}&productID={PRODUCT}&type=gantt');
-$lang->programplan->menu->lists = 'Stage|programplan|browse|programID={PROGRAM}&productID={PRODUCT}&type=lists';
-
-$lang->weekly->menu->browse = 'Weekly|weekly|index|program={PROGRAM}';
-$lang->weekly->menu->issue  = 'Milestone|milestone|index|program={PROGRAM}';
-
-$lang->cmmiproduct->menu->plan        = array('link' => 'Plan|productplan|browse|productID={PRODUCT}', 'subModule' => 'productplan');
-$lang->cmmiproduct->menu->requirement = 'User Story|product|browse|product={PRODUCT}&branch=&browseType=unclosed&queryID=0&storyType=requirement';
-$lang->cmmiproduct->menu->story       = 'Software Story|product|browse|product={PRODUCT}&branch=&browseType=unclosed&queryID=0&storyType=story';
-$lang->cmmiproduct->menu->track       = 'Track|story|track|product={PRODUCT}';
-
-$lang->milestone->menu     = $lang->weekly->menu;
-$lang->nc->menu            = $lang->auditplan->menu;
-
-$lang->noMenuModule     = array('my', 'todo', 'effort', 'program', 'report', 'attend', 'leave', 'makeup', 'overtime', 'lieu', 'holiday', 'custom', 'auditcl', 'subject', 'admin', 'mail', 'extension', 'dev', 'backup', 'action', 'cron', 'issue', 'risk', 'pssp', 'sms', 'message', 'webhook', 'search');
-$lang->haveMenuMethod   = array('custom');
 /* action */
 $lang->action->common     = 'Log';
 $lang->action->product    = $lang->productCommon;
@@ -1728,6 +1429,9 @@ $lang->block->doingProject    = 'Doning ' . $lang->projectCommon;
 $lang->block->finishProject   = 'Finish ' . $lang->projectCommon;
 $lang->block->estimatedHours  = 'Estimated Hours';
 $lang->block->consumedHours   = 'Consumed Hours';
+$lang->block->time            = 'No';
+$lang->block->week            = 'Week';
+$lang->block->month           = 'Month';
 
 $lang->block->params = new stdclass();
 $lang->block->params->name  = 'Name';
@@ -3201,6 +2905,8 @@ $lang->design->reviewObject  = 'Review Object';
 $lang->design->createdBy     = 'CreatedBy';
 $lang->design->createdDate   = 'CreatedDate';
 $lang->design->basicInfo     = 'Basic Information';
+$lang->design->assignTo      = 'Assign';
+$lang->design->noAssigned    = 'Unassigned';
 
 $lang->design->typeList         = array();
 $lang->design->typeList['']     = '';
@@ -3448,12 +3154,6 @@ $lang->doc->libIconList['custom']  = 'icon-folder-o';
 
 $lang->doc->systemLibs['product'] = $lang->productCommon;
 $lang->doc->systemLibs['project'] = $lang->projectCommon;
-
-global $config;
-if($config->global->flow == 'onlyStory' or $config->global->flow == 'onlyTest') unset($lang->doc->systemLibs['project']);
-if($config->global->flow == 'onlyStory' or $config->global->flow == 'onlyTest') unset($lang->doc->libTypeList['project']);
-if($config->global->flow == 'onlyTask')  unset($lang->doc->systemLibs['product']);
-if($config->global->flow == 'onlyTask')  unset($lang->doc->libTypeList['product']);
 
 $lang->doc->aclList['open']    = 'Public';
 $lang->doc->aclList['custom']  = 'Custom';
@@ -4040,9 +3740,6 @@ $lang->install->requestTypes['GET']       = 'GET';
 $lang->install->requestTypes['PATH_INFO'] = 'PATH_INFO';
 
 $lang->install->workingList['full']      = 'Application Lifecycle Management';
-$lang->install->workingList['onlyTest']  = 'Only Test Management';
-$lang->install->workingList['onlyStory'] = 'Only Story Management';
-$lang->install->workingList['onlyTask']  = 'Only Task Management';
 
 $lang->install->errorConnectDB      = 'Connection to the database Failed. ';
 $lang->install->errorDBName         = 'Database name should exclude “.” ';
@@ -4209,6 +3906,9 @@ $lang->issue->assignedDate      = 'AssignedDate';
 $lang->issue->resolve           = 'Resolved';
 $lang->issue->id                = 'ID';
 
+$lang->issue->view              = 'Issue Details';
+$lang->issue->close             = 'Closed';
+$lang->issue->cancel            = 'Cancel';
 $lang->issue->delete            = 'Delete';
 $lang->issue->search            = 'Search';
 $lang->issue->basicInfo         = 'Basic Information';
@@ -4484,106 +4184,6 @@ $lang->message->browserSetting->pollTimePlaceholder = 'Notify the time intervals
 
 $lang->message->browserSetting->turnonList[1] = 'On';
 $lang->message->browserSetting->turnonList[0] = 'Off';
-/* milestone */
-$lang->milestone->index       = 'Milestone Home';
-$lang->milestone->title       = 'Milestone Report';
-$lang->milestone->common      = 'Project Milestone Report';
-$lang->milestone->name        = 'Milestone Name';
-$lang->milestone->stage       = 'Milestone Stage';
-$lang->milestone->save        = 'Save';
-
-$lang->milestone->startedWeeks  = 'Started Weeks';
-$lang->milestone->finishedWeeks = 'Finished Weeks';
-$lang->milestone->offset        = 'Milestone Deviation';
-
-$lang->milestone->processCommon = 'Project Current Status';
-$lang->milestone->process       = 'Project Schedule';
-$lang->milestone->projectCost   = 'Project Cost';
-$lang->milestone->toNow         = 'So far';
-$lang->milestone->targetRange   = 'Target Range';
-$lang->milestone->ge            = 'ge';
-$lang->milestone->le            = 'le';
-$lang->milestone->analysis      = 'Analysis';
-$lang->milestone->PV            = 'The work to be done(PV)';
-$lang->milestone->EV            = 'Actual work done(EV)';
-$lang->milestone->AC            = 'Actual cost(AC)';
-$lang->milestone->SPI           = 'Project schedule performance(SPI)';
-$lang->milestone->CPI           = 'Project cost performance(CPI)';
-$lang->milestone->SV            = 'Rate of progress deviation(SV%)';
-$lang->milestone->CV            = 'Cost deviation rate(CV%)';
-
-$lang->milestone->workHours   = 'Workload (man-hour)';
-$lang->milestone->allStage    = 'Project Stage';
-$lang->milestone->devHours    = 'Development Workload';
-$lang->milestone->toHours     = 'Rework Workload';
-$lang->milestone->qaHours     = 'Test Workload';
-$lang->milestone->rowSummary  = 'Workload Subtotal';
-$lang->milestone->rowPercent  = 'Percentage Distribution(%)';
-$lang->milestone->colPercent  = 'Percentage of workload(%)';
-$lang->milestone->colSummary  = 'Total';
-$lang->milestone->qatoDev     = 'Test Development ratio';
-
-$lang->milestone->projectRisk     = '5.Project Risks (top five highest priority risks)';
-$lang->milestone->riskCountermove = 'Risk Countermove';
-$lang->milestone->riskDescriptio  = 'Risk Description';
-$lang->milestone->riskPossibility = 'Risk Possibility';
-$lang->milestone->riskSeriousness = 'Risk Seriousness';
-$lang->milestone->riskFactor      = 'Risk Factor';
-$lang->milestone->riskMeasures    = 'Risk Measures';
-$lang->milestone->riskAccumulate  = 'Risk Accumulate';
-
-$lang->milestone->otherIssue       = 'Other Issue';
-$lang->milestone->issueSolutions   = 'Issue Solutions';
-$lang->milestone->issueDescription = 'Issue Description';
-$lang->milestone->needHelp         = 'Help';
-$lang->milestone->issuePropose     = 'Issue Propose';
-
-$lang->milestone->demandStatus     = '4.Customer Demand Analysis';
-$lang->milestone->storyUnit        = 'Unit:Item';
-$lang->milestone->engineeringStage = 'Engineering Stage';
-$lang->milestone->rateChange       = 'Rate of change in demand';
-$lang->milestone->originalStory    = 'Quantity of original demand';
-$lang->milestone->modifyNumber     = 'Total post-change requirements';
-$lang->milestone->changeStory      = 'Number of changed requirements';
-
-$lang->milestone->paogressForecast   = 'Project Forecast';
-$lang->milestone->duration           = 'Construction period(day)';
-$lang->milestone->cost               = 'Cost(hours)';
-$lang->milestone->forecastResults    = 'Forecast Results';
-$lang->milestone->plannedValue       = 'Planned Value';
-$lang->milestone->predictedValue     = 'Predicted Value';
-$lang->milestone->predictedValueDesc = 'Rentenformel (Germany)：If the project progress performance(SPI)=0,So the predicted value=0,Otherwise,Predicted value=Planned value divided by Project schedule performance(SPI)';
-$lang->milestone->periodDeviation    = 'Period Deviation';
-$lang->milestone->costDeviation      = 'Cost Deviation';
-$lang->milestone->nextStage          = 'Next Stage';
-$lang->milestone->overallProject     = 'Overall Project';
-$lang->milestone->corrective         = 'Corrective Measure';
-$lang->milestone->timeOverrun        = 'The total construction time will exceed:%s day.';
-$lang->milestone->costOverrun        = 'The total cost will exceed:%s unit';
-$lang->milestone->saveOtherProblem   = 'Save Other Problem';
-
-$lang->milestone->chart = new stdclass();
-$lang->milestone->chart->title    = 'Trend Chart of project progress to date';
-$lang->milestone->chart->time     = 'No';
-$lang->milestone->chart->week     = 'week';
-$lang->milestone->chart->month    = 'month';
-$lang->milestone->chart->workhour = 'Development Workload Analysis Chart';
-
-$lang->milestone->otherproblem      = '6.Other Problem';
-$lang->milestone->problemandsuggest = 'Problem and Suggest';
-$lang->milestone->suggest           = 'Suggest';
-$lang->milestone->needhelp          = 'Does it require high-level support?';
-$lang->milestone->prodescr          = 'Problem Description';
-
-$lang->milestone->quality = new stdclass();
-$lang->milestone->quality->total         = 'Total';
-$lang->milestone->quality->identify      = 'Defect identification phase';
-$lang->milestone->quality->injection     = 'Defect injection phase';
-$lang->milestone->quality->scale         = 'Scale';
-$lang->milestone->quality->identifyRate       = 'Defect recognition rate';
-$lang->milestone->quality->injectionRate      = 'Defect injection rate';
-
-$lang->milestone->options  = 'Options';
 /* misc */
 $lang->misc = new stdclass();
 $lang->misc->common = 'Misc';
@@ -5154,6 +4754,7 @@ $lang->program->ac                 = 'AC';
 $lang->program->cv                 = 'CV%';
 $lang->program->pm                 = 'PM';
 $lang->program->teamCount          = 'The Number Of Team';
+$lang->program->longTime           = 'Long-term Project';
 
 $lang->program->unitList[''] = '';
 $lang->program->unitList['yuan']   = 'Yuan';
@@ -5193,10 +4794,8 @@ $lang->program->lastIteration      = 'Latest iterations';
 $lang->program->ongoingStage       = 'Ongoing stage';
 $lang->program->scrum              = 'Scrum';
 $lang->program->scrumTitle         = 'Scrum development full process project management';
-$lang->program->scrumDesc          = '<strong>Introduction: </strong>Iterate in small steps, release quickly<br><strong>Contains function points: </strong>Project overview, iterations, plans, stories, etc.';
 $lang->program->cmmi               = 'CMMI';
 $lang->program->cmmiTitle          = 'CMMI management';
-$lang->program->cmmiDesc           = '<strong>Introduction: </strong>Standardized management by stages<br><strong>Contains function points: </strong>Estimate, plan, stage, report, etc.';
 $lang->program->cannotCreateChild  = 'The project already has actual content and can not add subprojects directly. You can create a parent project for the current project and then add a child project under the new parent project.';
 $lang->program->hasChildren        = 'This project has a subproject and can not be deleted.';
 $lang->program->confirmDelete      = 'Do you want to delete this project?';
@@ -5209,6 +4808,7 @@ $lang->program->beginLetterParent  = "Begin date of parent project: %s, Begin da
 $lang->program->endGreaterParent   = "End date of parent project: %s, End date cannot be greater than the end date of parent project.";
 $lang->program->beginGreateChild   = "Minimum begin date of child project: %s, the begin date of parent project cannot be greater than the minimum begin date of child project.";
 $lang->program->endLetterChild     = "Maximum end date of child project: %s, the end date of parent project cannot be less than the maximum end date of child project.";
+$lang->program->childLongTime      = "There are long-term projects in the sub project, and the parent project should also be a long-term project";
 /* programplan */
 $lang->programplan->common = 'Program Plan';
 
@@ -5604,13 +5204,6 @@ $lang->project->treeLevel['all']   = 'Expand All';
 $lang->project->treeLevel['root']  = 'Collapse All';
 $lang->project->treeLevel['task']  = 'Stories&Tasks';
 $lang->project->treeLevel['story'] = 'Only Stories';
-
-global $config;
-if($config->global->flow == 'onlyTask')
-{
-    unset($lang->project->groups['story']);
-    unset($lang->project->featureBar['task']['needconfirm']);
-}
 /* qa */
 $lang->qa->common = 'QA';
 $lang->qa->index  = 'QA Home';
@@ -5840,6 +5433,7 @@ $lang->repo->error->noPriv        = 'The program does not have the privilege  to
 $lang->repo->error->output        = "The command is: %s\nThe error is(%s): %s\n";
 $lang->repo->error->clientVersion = "Client version is too low, please upgrade or change SVN client";
 $lang->repo->error->encoding      = "The encoding might be wrong. Please change the encoding and try again.";
+$lang->repo->error->deleted       = "Deletion of the repository failed. The current repository has been committed in relation to the design";
 
 $lang->repo->syncTips      = '<strong>You may find the reference about how to set Git sync from <a target="_blank" href="https://www.zentao.pm/book/zentaomanual/free-open-source-project-management-software-git-105.html">here</a>.</strong>';
 $lang->repo->encodingsTips = "The encodings of comments can be comma separated values, e.g. utf-8.";
@@ -6000,10 +5594,10 @@ $lang->report->annualData->devStatistics = "Monthly Finished Task, Hour, and Res
 
 $lang->report->annualData->unit = " ";
 /* risk */
-$lang->risk->batchCreate = 'Batch Add';
-$lang->risk->create      = 'Add Risk';
+$lang->risk->batchCreate = 'Batch Create';
+$lang->risk->create      = 'Create Risk';
 $lang->risk->edit        = 'Edit Risk';
-$lang->risk->browse      = 'List';
+$lang->risk->browse      = 'Risks';
 $lang->risk->view        = 'Details';
 $lang->risk->activate    = 'Active';
 $lang->risk->hangup      = 'Suspend';
@@ -6027,29 +5621,29 @@ $lang->risk->riskindex         = 'Risk Index';
 $lang->risk->pri               = 'Priority';
 $lang->risk->prevention        = 'Mitigation';
 $lang->risk->remedy            = 'Contingency';
-$lang->risk->identifiedDate    = 'Identified Date';
-$lang->risk->plannedClosedDate = 'Closed Date';
+$lang->risk->identifiedDate    = 'Identified';
+$lang->risk->plannedClosedDate = 'Deadline';
 $lang->risk->assignedTo        = 'AssignedTo';
-$lang->risk->assignedDate      = 'Assigned Date';
-$lang->risk->createdBy         = 'Added By';
-$lang->risk->createdDate       = 'Added Date';
+$lang->risk->assignedDate      = 'AssignedDate';
+$lang->risk->createdBy         = 'CreatedBy';
+$lang->risk->createdDate       = 'CreatedDate';
 $lang->risk->noAssigned        = 'Unassigned';
-$lang->risk->cancelBy          = 'Canceled By';
-$lang->risk->cancelDate        = 'Canceled Date';
+$lang->risk->cancelBy          = 'CanceledBy';
+$lang->risk->cancelDate        = 'CanceledDate';
 $lang->risk->cancelReason      = 'Cancel Reason';
-$lang->risk->resolvedBy        = 'Resolved By';
-$lang->risk->closedDate        = 'Closed Date';
+$lang->risk->resolvedBy        = 'ResolvedBy';
+$lang->risk->closedDate        = 'ClosedDate';
 $lang->risk->actualClosedDate  = 'Closed Date';
 $lang->risk->resolution        = 'Resolution';
-$lang->risk->hangupBy          = 'Suspended By';
-$lang->risk->hangupDate        = 'Suspended Date';
-$lang->risk->activateBy        = 'Activated By';
-$lang->risk->activateDate      = 'Activated Date';
+$lang->risk->hangupBy          = 'SuspendedBy';
+$lang->risk->hangupDate        = 'SuspendedDate';
+$lang->risk->activateBy        = 'ActivatedBy';
+$lang->risk->activateDate      = 'ActivatedDate';
 $lang->risk->isChange          = 'Any change?';
-$lang->risk->trackedBy         = 'Tracked By';
-$lang->risk->trackedDate       = 'Tracked Date';
-$lang->risk->editedBy          = 'Edited By';
-$lang->risk->editedDate        = 'Edited By';
+$lang->risk->trackedBy         = 'TrackedBy';
+$lang->risk->trackedDate       = 'TrackedDate';
+$lang->risk->editedBy          = 'EditedBy';
+$lang->risk->editedDate        = 'EditedDate';
 
 $lang->risk->legendBasicInfo   = 'Basic Info.';
 $lang->risk->legendLifeTime    = 'About Risk';
@@ -7552,10 +7146,6 @@ $lang->todo->typeList['cycle']    = 'Recur';
 $lang->todo->typeList['bug']      = 'Bug';
 $lang->todo->typeList['task']     = 'Task';
 $lang->todo->typeList['story']    = 'Story';
-
-global $config;
-if($config->global->flow == 'onlyTest' or $config->global->flow == 'onlyStory') unset($lang->todo->typeList['task']);
-if($config->global->flow == 'onlyTask' or $config->global->flow == 'onlyStory') unset($lang->todo->typeList['bug']);
 
 $lang->todo->confirmDelete  = "Do you want to delete this todo?";
 $lang->todo->thisIsPrivate  = 'This is a private todo';
