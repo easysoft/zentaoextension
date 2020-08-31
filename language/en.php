@@ -147,7 +147,7 @@ if(isset($_COOKIE['systemModel']) and $_COOKIE['systemModel'] == 'scrum')
     $lang->system->menu->holiday     = array('link' => 'Holiday|holiday|browse|');
 	$lang->system->menu->custom   = array('link' => 'Custom|custom|concept|');
     
-    $lang->system->subMenu->setmodel->cmmi  ='cmmi|custom|setcmmi|';
+    $lang->system->subMenu->setmodel->waterfall  ='waterfall|custom|setwaterfall|';
     $lang->mainNav->system = '<i class="icon icon-menu-users"></i> System|subject|settips|';
     unset($lang->system->dividerMenu);
 }
@@ -1422,7 +1422,7 @@ $lang->block->openedStories   = 'The Number Of Stories Created';
 $lang->block->resolvedTasks   = 'The Number Of Tasks Resolved';
 $lang->block->resolvedBugs    = 'The Number Of Bugs Resolved';
 $lang->block->openedTestcases = 'The Number Of Test Case Created';
-$lang->block->cmmi            = 'CMMI 3';
+$lang->block->waterfall       = 'CMMI 3';
 $lang->block->scrum           = 'Scrum+';
 $lang->block->allProject      = 'All ' . $lang->projectCommon;
 $lang->block->doingProject    = 'Doning ' . $lang->projectCommon;
@@ -1456,47 +1456,47 @@ $lang->block->totalStory         = 'The Total ' . $lang->storyCommon;
 $lang->block->totalBug           = 'The Total Bug';
 $lang->block->totalRelease       = 'Release The Number';
 
-$lang->block->default['cmmi']['program']['1']['title']  = $lang->projectCommon . 'Weekly';
-$lang->block->default['cmmi']['program']['1']['block']  = 'Pmmireport';
-$lang->block->default['cmmi']['program']['1']['source'] = 'Program';
-$lang->block->default['cmmi']['program']['1']['grid']   = 8;
+$lang->block->default['waterfall']['program']['1']['title']  = $lang->projectCommon . 'Weekly';
+$lang->block->default['waterfall']['program']['1']['block']  = 'Pmmireport';
+$lang->block->default['waterfall']['program']['1']['source'] = 'Program';
+$lang->block->default['waterfall']['program']['1']['grid']   = 8;
 
-$lang->block->default['cmmi']['program']['2']['title']  = 'Estimate';
-$lang->block->default['cmmi']['program']['2']['block']  = 'cmmiestimate';
-$lang->block->default['cmmi']['program']['2']['source'] = 'program';
-$lang->block->default['cmmi']['program']['2']['grid']   = 4;
+$lang->block->default['waterfall']['program']['2']['title']  = 'Estimate';
+$lang->block->default['waterfall']['program']['2']['block']  = 'waterfallestimate';
+$lang->block->default['waterfall']['program']['2']['source'] = 'program';
+$lang->block->default['waterfall']['program']['2']['grid']   = 4;
 
-$lang->block->default['cmmi']['program']['3']['title']  = 'Plan Gantt Chart';
-$lang->block->default['cmmi']['program']['3']['block']  = 'cmmigantt';
-$lang->block->default['cmmi']['program']['3']['source'] = 'program';
-$lang->block->default['cmmi']['program']['3']['grid']   = 8;
+$lang->block->default['waterfall']['program']['3']['title']  = 'Plan Gantt Chart';
+$lang->block->default['waterfall']['program']['3']['block']  = 'waterfallgantt';
+$lang->block->default['waterfall']['program']['3']['source'] = 'program';
+$lang->block->default['waterfall']['program']['3']['grid']   = 8;
 
-$lang->block->default['cmmi']['program']['4']['title']  = 'Progress Chart';
-$lang->block->default['cmmi']['program']['4']['block']  = 'cmmiprogress';
-$lang->block->default['cmmi']['program']['4']['grid']   = 4;
+$lang->block->default['waterfall']['program']['4']['title']  = 'Progress Chart';
+$lang->block->default['waterfall']['program']['4']['block']  = 'waterfallprogress';
+$lang->block->default['waterfall']['program']['4']['grid']   = 4;
 
-$lang->block->default['cmmi']['program']['5']['title']  = 'Program Issue';
-$lang->block->default['cmmi']['program']['5']['block']  = 'cmmiissue';
-$lang->block->default['cmmi']['program']['5']['source'] = 'program';
-$lang->block->default['cmmi']['program']['5']['grid']   = 8;
+$lang->block->default['waterfall']['program']['5']['title']  = 'Program Issue';
+$lang->block->default['waterfall']['program']['5']['block']  = 'waterfallissue';
+$lang->block->default['waterfall']['program']['5']['source'] = 'program';
+$lang->block->default['waterfall']['program']['5']['grid']   = 8;
 
-$lang->block->default['cmmi']['program']['5']['params']['type']    = 'all';
-$lang->block->default['cmmi']['program']['5']['params']['num']     = '15';
-$lang->block->default['cmmi']['program']['5']['params']['orderBy'] = 'id_desc';
+$lang->block->default['waterfall']['program']['5']['params']['type']    = 'all';
+$lang->block->default['waterfall']['program']['5']['params']['num']     = '15';
+$lang->block->default['waterfall']['program']['5']['params']['orderBy'] = 'id_desc';
 
-$lang->block->default['cmmi']['program']['6']['title']  = 'Dynamic';
-$lang->block->default['cmmi']['program']['6']['block']  = 'dynamic';
-$lang->block->default['cmmi']['program']['6']['grid']   = 4;
-$lang->block->default['cmmi']['program']['6']['source'] = '';
+$lang->block->default['waterfall']['program']['6']['title']  = 'Dynamic';
+$lang->block->default['waterfall']['program']['6']['block']  = 'dynamic';
+$lang->block->default['waterfall']['program']['6']['grid']   = 4;
+$lang->block->default['waterfall']['program']['6']['source'] = '';
 
-$lang->block->default['cmmi']['program']['7']['title']  = $lang->projectCommon . 'Risk';
-$lang->block->default['cmmi']['program']['7']['block']  = 'cmmirisk';
-$lang->block->default['cmmi']['program']['7']['source'] = 'program';
-$lang->block->default['cmmi']['program']['7']['grid']   = 8;
+$lang->block->default['waterfall']['program']['7']['title']  = $lang->projectCommon . 'Risk';
+$lang->block->default['waterfall']['program']['7']['block']  = 'waterfallrisk';
+$lang->block->default['waterfall']['program']['7']['source'] = 'program';
+$lang->block->default['waterfall']['program']['7']['grid']   = 8;
 
-$lang->block->default['cmmi']['program']['7']['params']['type']    = 'all';
-$lang->block->default['cmmi']['program']['7']['params']['num']     = '15';
-$lang->block->default['cmmi']['program']['7']['params']['orderBy'] = 'id_desc';
+$lang->block->default['waterfall']['program']['7']['params']['type']    = 'all';
+$lang->block->default['waterfall']['program']['7']['params']['num']     = '15';
+$lang->block->default['waterfall']['program']['7']['params']['orderBy'] = 'id_desc';
 
 $lang->block->default['scrum']['program']['1']['title'] =  $lang->projectCommon . ' Overall';
 $lang->block->default['scrum']['program']['1']['block'] = 'scrumoverall';
@@ -1523,7 +1523,7 @@ $lang->block->default['scrum']['program']['5']['block'] = 'scrumproduct';
 $lang->block->default['scrum']['program']['5']['grid']  = 4;
 
 $lang->block->default['scrum']['program']['6']['title'] = $lang->projectCommon . ' Overview';
-$lang->block->default['scrum']['program']['6']['block'] = 'scrumproject';
+$lang->block->default['scrum']['program']['6']['block'] = 'sprint';
 $lang->block->default['scrum']['program']['6']['grid']  = 4;
 
 $lang->block->default['scrum']['program']['7']['title'] = 'Dynamic';
@@ -1704,19 +1704,19 @@ $lang->block->modules['scrum']['index'] = new stdclass();
 $lang->block->modules['scrum']['index']->availableBlocks = new stdclass();
 $lang->block->modules['scrum']['index']->availableBlocks->scrumoverall  = $lang->projectCommon . ' Overall';
 $lang->block->modules['scrum']['index']->availableBlocks->scrumlist     = $lang->projectCommon . ' List';
-$lang->block->modules['scrum']['index']->availableBlocks->scrumproject  = $lang->projectCommon . ' Overview';
+$lang->block->modules['scrum']['index']->availableBlocks->sprint        = $lang->projectCommon . ' Overview';
 $lang->block->modules['scrum']['index']->availableBlocks->scrumproduct  = $lang->productCommon . ' Overview';
 $lang->block->modules['scrum']['index']->availableBlocks->scrumtest     = 'Test Version';
 $lang->block->modules['scrum']['index']->availableBlocks->scrumroadmap  = $lang->productCommon . ' Rode Map';
 
-$lang->block->modules['cmmi']['index'] = new stdclass();
-$lang->block->modules['cmmi']['index']->availableBlocks = new stdclass();
-$lang->block->modules['cmmi']['index']->availableBlocks->cmmireport    = $lang->projectCommon . ' Weekly';
-$lang->block->modules['cmmi']['index']->availableBlocks->cmmiestimate  = 'Estimate';
-$lang->block->modules['cmmi']['index']->availableBlocks->cmmigantt     = 'Plan Gantt Chart';
-$lang->block->modules['cmmi']['index']->availableBlocks->cmmiprogress  = 'Progress Chart';
-$lang->block->modules['cmmi']['index']->availableBlocks->cmmiissue     = $lang->projectCommon . ' Issue';
-$lang->block->modules['cmmi']['index']->availableBlocks->cmmirisk      = $lang->projectCommon . ' Risk';
+$lang->block->modules['waterfall']['index'] = new stdclass();
+$lang->block->modules['waterfall']['index']->availableBlocks = new stdclass();
+$lang->block->modules['waterfall']['index']->availableBlocks->waterfallreport    = $lang->projectCommon . ' Weekly';
+$lang->block->modules['waterfall']['index']->availableBlocks->waterfallestimate  = 'Estimate';
+$lang->block->modules['waterfall']['index']->availableBlocks->waterfallgantt     = 'Plan Gantt Chart';
+$lang->block->modules['waterfall']['index']->availableBlocks->waterfallprogress  = 'Progress Chart';
+$lang->block->modules['waterfall']['index']->availableBlocks->waterfallissue     = $lang->projectCommon . ' Issue';
+$lang->block->modules['waterfall']['index']->availableBlocks->waterfallrisk      = $lang->projectCommon . ' Risk';
 
 $lang->block->modules['product'] = new stdclass();
 $lang->block->modules['product']->availableBlocks = new stdclass();
@@ -1853,7 +1853,7 @@ $lang->block->modules['program']->moreLinkList->scrumlist     = 'project|all|';
 $lang->block->modules['program']->moreLinkList->scrumroadmap  = 'product|all|';
 $lang->block->modules['program']->moreLinkList->scrumtest     = 'testtask|browse|';
 $lang->block->modules['program']->moreLinkList->scrumproduct  = 'product|all|';
-$lang->block->modules['program']->moreLinkList->scrumproject  = 'project|all|';
+$lang->block->modules['program']->moreLinkList->sprint        = 'project|all|';
 $lang->block->modules['program']->moreLinkList->scrumdynamic  = 'company|dynamic|';
 
 $lang->block->modules['product']->moreLinkList        = new stdclass();
@@ -2636,7 +2636,7 @@ $lang->custom->timezone           = 'Timezone';
 $lang->custom->scoreReset         = 'Reset Points';
 $lang->custom->scoreTitle         = 'Point Feature';
 $lang->custom->setscrum           = 'Interval Hint';
-$lang->custom->setcmmi            = 'Switch Views';
+$lang->custom->setWaterfall       = 'Switch Views';
 $lang->custom->estimate           = 'Estimated configuration';
 $lang->custom->estimateConfig     = 'Estimated configuration';
 $lang->custom->estimateUnit       = 'Estimating Unit';
@@ -2869,44 +2869,46 @@ $lang->dept->error = new stdclass();
 $lang->dept->error->hasSons  = 'This Department has child departments. You cannot delete it!';
 $lang->dept->error->hasUsers = 'This Department has users. You cannot delete it!';
 /* design */
-$lang->design->common        = 'Design';
-$lang->design->browse        = 'List';
-$lang->design->commit        = 'Link Commit';
+$lang->design->id            = 'ID';
+$lang->design->name          = 'Name';
+$lang->design->story         = 'Story';
+$lang->design->type          = 'Type';
+$lang->design->ditto         = 'Ditto';
 $lang->design->submission    = 'Commit';
 $lang->design->version       = 'Revision';
 $lang->design->assignedTo    = 'AssignedTo';
 $lang->design->actions       = 'Actions';
-$lang->design->delete        = 'Delete';
-$lang->design->confirmDelete = 'Do you want to delete this design?';
-$lang->design->edit          = 'Edit';
 $lang->design->byQuery       = 'Search';
 $lang->design->products      = 'Linked Product';
 $lang->design->story         = 'Linked Story';
 $lang->design->file          = 'File';
-$lang->design->id            = 'ID';
-$lang->design->story         = 'Story';
-$lang->design->ditto         = 'Ditto';
-$lang->design->type          = 'Type';
-$lang->design->name          = 'Name';
-$lang->design->create        = 'Create Design';
-$lang->design->batchCreate   = 'Batch Create';
-$lang->design->view          = 'View';
 $lang->design->desc          = 'Description';
+$lang->design->range          = 'Impact';
 $lang->design->product       = 'Linked Product';
 $lang->design->basicInfo     = 'Basic Information';
 $lang->design->commitDate    = 'Committed Date';
 $lang->design->commitBy      = 'Commit By';
 $lang->design->affectedStory = "{$lang->storyCommon}";
 $lang->design->affectedTasks = 'Task';
-$lang->design->submit        = 'Submit Review';
-$lang->design->revision      = 'Linked Code';
-$lang->design->designView    = 'Details';
 $lang->design->reviewObject  = 'Review Object';
 $lang->design->createdBy     = 'CreatedBy';
 $lang->design->createdDate   = 'CreatedDate';
 $lang->design->basicInfo     = 'Basic Information';
-$lang->design->assignTo      = 'Assign';
 $lang->design->noAssigned    = 'Unassigned';
+
+$lang->design->common       = 'Design';
+$lang->design->create       = 'Create Design';
+$lang->design->batchCreate  = 'Batch Create';
+$lang->design->edit         = 'Edit';
+$lang->design->delete       = 'Delete';
+$lang->design->view         = 'View';
+$lang->design->browse       = 'List';
+$lang->design->viewCommit   = 'View Commit';
+$lang->design->linkCommit   = 'Link Commit';
+$lang->design->unlinkCommit = 'Unlink Commit';
+$lang->design->submit       = 'Submit Review';
+$lang->design->assignTo     = 'Assign';
+$lang->design->revision     = 'Linked Code';
 
 $lang->design->typeList         = array();
 $lang->design->typeList['']     = '';
@@ -2915,17 +2917,18 @@ $lang->design->typeList['DDS']  = 'Detailed';
 $lang->design->typeList['DBDS'] = 'Database';
 $lang->design->typeList['ADS']  = 'API';
 
-$lang->design->range          = 'Impact';
-$lang->design->errorSelection = 'No record selected!';
-$lang->design->noDesign       = 'No record.';
-$lang->design->noCommit       = 'No record commited.';
-
 $lang->design->rangeList           = array();
 $lang->design->rangeList['all']    = 'All';
 $lang->design->rangeList['assign'] = 'Selected';
 
 $lang->design->featureBar['all'] = 'All';
 $lang->design->featureBar += $lang->design->typeList;
+
+$lang->design->errorSelection = 'No record selected!';
+$lang->design->noDesign       = 'No record.';
+$lang->design->noCommit       = 'No record commited.';
+$lang->design->confirmDelete  = 'Do you want to delete this design?';
+$lang->design->confirmUnlink  = 'Are you sure you want to remove this submission?';
 /* dev */
 $lang->dev->common     = 'Develop';
 $lang->dev->api        = 'API';
@@ -3923,7 +3926,7 @@ $lang->issue->labelList['open']      = 'Open';
 $lang->issue->labelList['assignto']  = 'AssignedToMe';
 $lang->issue->labelList['closed']    = 'Closed';
 $lang->issue->labelList['suspended'] = 'Suspended';
-$lang->issue->labelList['cancelled'] = 'Canceled';
+$lang->issue->labelList['canceled']  = 'Canceled';
 
 $lang->issue->priList[''] = '';
 $lang->issue->priList['1'] = 1;
@@ -4760,8 +4763,8 @@ $lang->program->unitList[''] = '';
 $lang->program->unitList['yuan']   = 'Yuan';
 $lang->program->unitList['dollar'] = 'Dollars';
 
-$lang->program->templateList['scrum'] = "Scrum";
-$lang->program->templateList['cmmi']  = "CMMI";
+$lang->program->templateList['scrum']     = "Scrum";
+$lang->program->templateList['waterfall'] = "CMMI";
 
 $lang->program->categoryList['single']   = "Single product";
 $lang->program->categoryList['multiple'] = "Multiple products";
@@ -4794,8 +4797,8 @@ $lang->program->lastIteration      = 'Latest iterations';
 $lang->program->ongoingStage       = 'Ongoing stage';
 $lang->program->scrum              = 'Scrum';
 $lang->program->scrumTitle         = 'Scrum development full process project management';
-$lang->program->cmmi               = 'CMMI';
-$lang->program->cmmiTitle          = 'CMMI management';
+$lang->program->waterfall          = 'CMMI';
+$lang->program->waterfallTitle     = 'CMMI management';
 $lang->program->cannotCreateChild  = 'The project already has actual content and can not add subprojects directly. You can create a parent project for the current project and then add a child project under the new parent project.';
 $lang->program->hasChildren        = 'This project has a subproject and can not be deleted.';
 $lang->program->confirmDelete      = 'Do you want to delete this project?';
@@ -5594,20 +5597,6 @@ $lang->report->annualData->devStatistics = "Monthly Finished Task, Hour, and Res
 
 $lang->report->annualData->unit = " ";
 /* risk */
-$lang->risk->batchCreate = 'Batch Create';
-$lang->risk->create      = 'Create Risk';
-$lang->risk->edit        = 'Edit Risk';
-$lang->risk->browse      = 'Risks';
-$lang->risk->view        = 'Details';
-$lang->risk->activate    = 'Active';
-$lang->risk->hangup      = 'Suspend';
-$lang->risk->close       = 'Close';
-$lang->risk->cancel      = 'Cancle';
-$lang->risk->track       = 'Track';
-$lang->risk->assignTo    = 'Assign';
-$lang->risk->delete      = 'Delete';
-$lang->risk->byQuery     = 'Search';
-
 $lang->risk->common            = 'Risk';
 $lang->risk->source            = 'Source';
 $lang->risk->id                = 'ID';
@@ -5644,10 +5633,23 @@ $lang->risk->trackedBy         = 'TrackedBy';
 $lang->risk->trackedDate       = 'TrackedDate';
 $lang->risk->editedBy          = 'EditedBy';
 $lang->risk->editedDate        = 'EditedDate';
-
 $lang->risk->legendBasicInfo   = 'Basic Info.';
 $lang->risk->legendLifeTime    = 'About Risk';
 $lang->risk->confirmDelete     = 'Do you want to delelte this risk?';
+
+$lang->risk->batchCreate = 'Batch Create';
+$lang->risk->create      = 'Create Risk';
+$lang->risk->edit        = 'Edit Risk';
+$lang->risk->browse      = 'Risks';
+$lang->risk->view        = 'Details';
+$lang->risk->activate    = 'Active';
+$lang->risk->hangup      = 'Suspend';
+$lang->risk->close       = 'Close';
+$lang->risk->cancel      = 'Cancle';
+$lang->risk->track       = 'Track';
+$lang->risk->assignTo    = 'Assign';
+$lang->risk->delete      = 'Delete';
+$lang->risk->byQuery     = 'Search';
 
 $lang->risk->action = new stdclass();
 $lang->risk->action->hangup  = '$date, suspended by <strong>$actor</strong>.' . "\n";
@@ -6019,6 +6021,7 @@ $lang->story->allStories     = 'All Stories';
 $lang->story->unclosed       = 'Unclosed';
 $lang->story->deleted        = 'Deleted';
 $lang->story->released       = 'Released Stories';
+$lang->story->storyChanged   = 'Requirement Changed';
 $lang->story->design         = 'Designs';
 $lang->story->case           = 'Cases';
 $lang->story->bug            = 'Bugs';
