@@ -1466,31 +1466,31 @@ $lang->block->welcome      = '欢迎总览';
 $lang->block->lblTesttask  = '查看测试详情';
 $lang->block->contribute   = '我的贡献';
 
-$lang->block->leftToday       = '今天剩余工作总计';
-$lang->block->myTask          = '我的任务';
-$lang->block->myStory         = "我的{$lang->storyCommon}";
-$lang->block->myBug           = '我的BUG';
-$lang->block->myProject       = '未关闭的' . $lang->projectCommon;
-$lang->block->myProduct       = '未关闭的' . $lang->productCommon;
-$lang->block->delayed         = '已延期';
-$lang->block->noData          = '当前统计类型下暂无数据';
-$lang->block->emptyTip        = '暂无信息';
-$lang->block->openedTodos     = '创建的待办数';
-$lang->block->openedStories   = '创建的需求数';
-$lang->block->resolvedTasks   = '完成的任务数';
-$lang->block->resolvedBugs    = '解决Bug数';
-$lang->block->openedTestcases = '创建用例数';
-$lang->block->waterfall       = 'CMMI 3';
-$lang->block->scrum           = 'Scrum+';
-$lang->block->allProject      = '所有' . $lang->projectCommon;
-$lang->block->doingProject    = '进行中的' . $lang->projectCommon;
-$lang->block->finishProject   = '累积' . $lang->projectCommon;
-$lang->block->estimatedHours  = '预计工时';
-$lang->block->consumedHours   = '已消耗';
-$lang->block->time            = '第';
-$lang->block->week            = '周';
-$lang->block->month           = '月';
-$lang->block->selectProduct   = '选择产品';
+$lang->block->leftToday      = '今天剩余工作总计';
+$lang->block->myTask         = '我的任务';
+$lang->block->myStory        = "我的{$lang->storyCommon}";
+$lang->block->myBug          = '我的BUG';
+$lang->block->myProject      = '未关闭的' . $lang->projectCommon;
+$lang->block->myProduct      = '未关闭的' . $lang->productCommon;
+$lang->block->delayed        = '已延期';
+$lang->block->noData         = '当前统计类型下暂无数据';
+$lang->block->emptyTip       = '暂无信息';
+$lang->block->createdTodo    = '创建的待办数';
+$lang->block->createdStory   = '创建的软件需求数';
+$lang->block->finishedTask   = '完成的任务数';
+$lang->block->resolvedBug    = '解决的Bug数';
+$lang->block->createdCase    = '创建的用例数';
+$lang->block->waterfall      = 'CMMI 3';
+$lang->block->scrum          = 'Scrum+';
+$lang->block->allProject     = '所有' . $lang->projectCommon;
+$lang->block->doingProject   = '进行中的' . $lang->projectCommon;
+$lang->block->finishProject  = '累积' . $lang->projectCommon;
+$lang->block->estimatedHours = '预计工时';
+$lang->block->consumedHours  = '已消耗';
+$lang->block->time           = '第';
+$lang->block->week           = '周';
+$lang->block->month          = '月';
+$lang->block->selectProduct  = '选择产品';
 
 $lang->block->params = new stdclass();
 $lang->block->params->name  = '参数名称';
@@ -1510,16 +1510,16 @@ $lang->block->nbsp               = '';
 $lang->block->hidden             = '隐藏';
 $lang->block->dynamicInfo        = "<span class='timeline-tag'>%s</span> <span class='timeline-text'>%s <em>%s</em> %s <a href='%s' title='%s'>%s</a></span>";
 
-$lang->block->productName        = $lang->productCommon . '名称';
-$lang->block->totalStory         = '总' . $lang->storyCommon;
-$lang->block->totalBug           = '总Bug';
-$lang->block->totalRelease       = '发布次数';
+$lang->block->productName  = $lang->productCommon . '名称';
+$lang->block->totalStory   = '总' . $lang->storyCommon;
+$lang->block->totalBug     = '总Bug';
+$lang->block->totalRelease = '发布次数';
 
-$lang->block->totalInvestment    = '总投入';
-$lang->block->totalPeople        = '总人数';
-$lang->block->spent              = '已花费';
-$lang->block->budget             = '预算';
-$lang->block->left               = '剩余';
+$lang->block->totalInvestment = '总投入';
+$lang->block->totalPeople     = '总人数';
+$lang->block->spent           = '已花费';
+$lang->block->budget          = '预算';
+$lang->block->left            = '剩余';
 
 $lang->block->default['waterfall']['program']['1']['title']  = '项目周报';
 $lang->block->default['waterfall']['program']['1']['block']  = 'waterfallreport';
@@ -1546,11 +1546,11 @@ $lang->block->default['waterfall']['program']['5']['source'] = 'program';
 $lang->block->default['waterfall']['program']['5']['grid']   = 8;
 
 $lang->block->default['waterfall']['program']['5']['params']['type']    = 'all';
-$lang->block->default['waterfall']['program']['5']['params']['num']     = '15';
+$lang->block->default['waterfall']['program']['5']['params']['count']   = '15';
 $lang->block->default['waterfall']['program']['5']['params']['orderBy'] = 'id_desc';
 
 $lang->block->default['waterfall']['program']['6']['title']  = '最新动态';
-$lang->block->default['waterfall']['program']['6']['block']  = 'scrumdynamic';
+$lang->block->default['waterfall']['program']['6']['block']  = 'programdynamic';
 $lang->block->default['waterfall']['program']['6']['grid']   = 4;
 $lang->block->default['waterfall']['program']['6']['source'] = 'program';
 
@@ -1560,11 +1560,11 @@ $lang->block->default['waterfall']['program']['7']['source'] = 'program';
 $lang->block->default['waterfall']['program']['7']['grid']   = 8;
 
 $lang->block->default['waterfall']['program']['7']['params']['type']    = 'all';
-$lang->block->default['waterfall']['program']['7']['params']['num']     = '15';
+$lang->block->default['waterfall']['program']['7']['params']['count']   = '15';
 $lang->block->default['waterfall']['program']['7']['params']['orderBy'] = 'id_desc';
 
 $lang->block->default['scrum']['program']['1']['title'] =  '项目整体情况';
-$lang->block->default['scrum']['program']['1']['block'] = 'scrumoverall';
+$lang->block->default['scrum']['program']['1']['block'] = 'scrumoverview';
 $lang->block->default['scrum']['program']['1']['grid']  = 8;
 
 $lang->block->default['scrum']['program']['2']['title'] = $lang->projectCommon . '列表';
@@ -1580,7 +1580,7 @@ $lang->block->default['scrum']['program']['4']['block'] = 'scrumtest';
 $lang->block->default['scrum']['program']['4']['grid']  = 8;
 
 $lang->block->default['scrum']['program']['4']['params']['type']    = 'all';
-$lang->block->default['scrum']['program']['4']['params']['num']     = '15';
+$lang->block->default['scrum']['program']['4']['params']['count']   = '15';
 $lang->block->default['scrum']['program']['4']['params']['orderBy'] = 'id_desc';
 
 $lang->block->default['scrum']['program']['5']['title'] = $lang->productCommon . '总览';
@@ -1592,15 +1592,15 @@ $lang->block->default['scrum']['program']['6']['block'] = 'sprint';
 $lang->block->default['scrum']['program']['6']['grid']  = 4;
 
 $lang->block->default['scrum']['program']['7']['title'] = '最新动态';
-$lang->block->default['scrum']['program']['7']['block'] = 'scrumdynamic';
+$lang->block->default['scrum']['program']['7']['block'] = 'programdynamic';
 $lang->block->default['scrum']['program']['7']['grid']  = 4;
 
 $lang->block->default['product']['1']['title'] = $lang->productCommon . '统计';
 $lang->block->default['product']['1']['block'] = 'statistic';
 $lang->block->default['product']['1']['grid']  = 8;
 
-$lang->block->default['product']['1']['params']['type'] = 'all';
-$lang->block->default['product']['1']['params']['num']  = '20';
+$lang->block->default['product']['1']['params']['type']  = 'all';
+$lang->block->default['product']['1']['params']['count'] = '20';
 
 $lang->block->default['product']['2']['title'] = $lang->productCommon . '总览';
 $lang->block->default['product']['2']['block'] = 'overview';
@@ -1610,14 +1610,14 @@ $lang->block->default['product']['3']['title'] = '未关闭的' . $lang->product
 $lang->block->default['product']['3']['block'] = 'list';
 $lang->block->default['product']['3']['grid']  = 8;
 
-$lang->block->default['product']['3']['params']['num']  = 15;
-$lang->block->default['product']['3']['params']['type'] = 'noclosed';
+$lang->block->default['product']['3']['params']['count'] = 15;
+$lang->block->default['product']['3']['params']['type']  = 'noclosed';
 
 $lang->block->default['product']['4']['title'] = "指派给我的{$lang->storyCommon}";
 $lang->block->default['product']['4']['block'] = 'story';
 $lang->block->default['product']['4']['grid']  = 4;
 
-$lang->block->default['product']['4']['params']['num']     = 15;
+$lang->block->default['product']['4']['params']['count']   = 15;
 $lang->block->default['product']['4']['params']['orderBy'] = 'id_desc';
 $lang->block->default['product']['4']['params']['type']    = 'assignedTo';
 
@@ -1625,8 +1625,8 @@ $lang->block->default['project']['1']['title'] = $lang->projectCommon . '统计'
 $lang->block->default['project']['1']['block'] = 'statistic';
 $lang->block->default['project']['1']['grid']  = 8;
 
-$lang->block->default['project']['1']['params']['type'] = 'all';
-$lang->block->default['project']['1']['params']['num']  = '20';
+$lang->block->default['project']['1']['params']['type']  = 'all';
+$lang->block->default['project']['1']['params']['count'] = '20';
 
 $lang->block->default['project']['2']['title'] = $lang->projectCommon . '总览';
 $lang->block->default['project']['2']['block'] = 'overview';
@@ -1636,7 +1636,7 @@ $lang->block->default['project']['3']['title'] = '未关闭的' . $lang->project
 $lang->block->default['project']['3']['block'] = 'list';
 $lang->block->default['project']['3']['grid']  = 8;
 
-$lang->block->default['project']['3']['params']['num']     = 15;
+$lang->block->default['project']['3']['params']['count']   = 15;
 $lang->block->default['project']['3']['params']['orderBy'] = 'id_desc';
 $lang->block->default['project']['3']['params']['type']    = 'undone';
 
@@ -1644,7 +1644,7 @@ $lang->block->default['project']['4']['title'] = '指派给我的任务';
 $lang->block->default['project']['4']['block'] = 'task';
 $lang->block->default['project']['4']['grid']  = 4;
 
-$lang->block->default['project']['4']['params']['num']     = 15;
+$lang->block->default['project']['4']['params']['count']   = 15;
 $lang->block->default['project']['4']['params']['orderBy'] = 'id_desc';
 $lang->block->default['project']['4']['params']['type']    = 'assignedTo';
 
@@ -1652,8 +1652,8 @@ $lang->block->default['qa']['1']['title'] = '测试统计';
 $lang->block->default['qa']['1']['block'] = 'statistic';
 $lang->block->default['qa']['1']['grid']  = 8;
 
-$lang->block->default['qa']['1']['params']['type'] = 'noclosed';
-$lang->block->default['qa']['1']['params']['num']  = '20';
+$lang->block->default['qa']['1']['params']['type']  = 'noclosed';
+$lang->block->default['qa']['1']['params']['count'] = '20';
 
 //$lang->block->default['qa']['2']['title'] = '测试用例总览';
 //$lang->block->default['qa']['2']['block'] = 'overview';
@@ -1663,7 +1663,7 @@ $lang->block->default['qa']['2']['title'] = '指派给我的Bug';
 $lang->block->default['qa']['2']['block'] = 'bug';
 $lang->block->default['qa']['2']['grid']  = 4;
 
-$lang->block->default['qa']['2']['params']['num']     = 15;
+$lang->block->default['qa']['2']['params']['count']   = 15;
 $lang->block->default['qa']['2']['params']['orderBy'] = 'id_desc';
 $lang->block->default['qa']['2']['params']['type']    = 'assignedTo';
 
@@ -1671,7 +1671,7 @@ $lang->block->default['qa']['3']['title'] = '指派给我的用例';
 $lang->block->default['qa']['3']['block'] = 'case';
 $lang->block->default['qa']['3']['grid']  = 4;
 
-$lang->block->default['qa']['3']['params']['num']     = 15;
+$lang->block->default['qa']['3']['params']['count']   = 15;
 $lang->block->default['qa']['3']['params']['orderBy'] = 'id_desc';
 $lang->block->default['qa']['3']['params']['type']    = 'assigntome';
 
@@ -1679,7 +1679,7 @@ $lang->block->default['qa']['4']['title'] = '待测版本列表';
 $lang->block->default['qa']['4']['block'] = 'testtask';
 $lang->block->default['qa']['4']['grid']  = 8;
 
-$lang->block->default['qa']['4']['params']['num']     = 15;
+$lang->block->default['qa']['4']['params']['count']   = 15;
 $lang->block->default['qa']['4']['params']['orderBy'] = 'id_desc';
 $lang->block->default['qa']['4']['params']['type']    = 'wait';
 
@@ -1697,7 +1697,7 @@ $lang->block->default['full']['my']['3']['title']  = '我的待办';
 $lang->block->default['full']['my']['3']['block']  = 'list';
 $lang->block->default['full']['my']['3']['grid']   = 4;
 $lang->block->default['full']['my']['3']['source'] = 'todo';
-$lang->block->default['full']['my']['3']['params']['num'] = '20';
+$lang->block->default['full']['my']['3']['params']['count'] = '20';
 
 $lang->block->default['full']['my']['4']['title']  = '项目统计';
 $lang->block->default['full']['my']['4']['block']  = 'statistic';
@@ -1719,7 +1719,7 @@ $lang->block->default['full']['my']['7']['block']  = 'task';
 $lang->block->default['full']['my']['7']['grid']   = 4;
 
 $lang->block->default['full']['my']['7']['params']['orderBy'] = 'id_desc';
-$lang->block->default['full']['my']['7']['params']['num']     = '15';
+$lang->block->default['full']['my']['7']['params']['count']   = '15';
 $lang->block->default['full']['my']['7']['params']['type']    = 'assignedTo';
 
 $lang->block->default['full']['my']['8']['title'] = '项目人力投入';
@@ -1732,9 +1732,9 @@ $lang->block->default['full']['my']['9']['source'] = 'program';
 $lang->block->default['full']['my']['9']['grid']   = 8;
 
 $lang->block->default['full']['my']['9']['params']['orderBy'] = 'id_desc';
-$lang->block->default['full']['my']['9']['params']['num']     = '15';
+$lang->block->default['full']['my']['9']['params']['count']   = '15';
 
-$lang->block->num     = '数量';
+$lang->block->count   = '数量';
 $lang->block->type    = '类型';
 $lang->block->orderBy = '排序';
 
@@ -1767,12 +1767,13 @@ $lang->block->modules['program']->availableBlocks->statistic     = '项目统计
 
 $lang->block->modules['scrum']['index'] = new stdclass();
 $lang->block->modules['scrum']['index']->availableBlocks = new stdclass();
-$lang->block->modules['scrum']['index']->availableBlocks->scrumoverall  = '项目整体情况';
+$lang->block->modules['scrum']['index']->availableBlocks->scrumoverview = '项目整体情况';
 $lang->block->modules['scrum']['index']->availableBlocks->scrumlist     = $lang->projectCommon . '列表';
 $lang->block->modules['scrum']['index']->availableBlocks->scrumroadmap  = $lang->productCommon . '路线图';
 $lang->block->modules['scrum']['index']->availableBlocks->sprint        = $lang->projectCommon . '总览';
 $lang->block->modules['scrum']['index']->availableBlocks->scrumproduct  = $lang->productCommon . '总览';
 $lang->block->modules['scrum']['index']->availableBlocks->scrumtest     = '待测版本';
+$lang->block->modules['scrum']['index']->availableBlocks->programdynamic  = '最新动态';
 
 $lang->block->modules['waterfall']['index'] = new stdclass();
 $lang->block->modules['waterfall']['index']->availableBlocks = new stdclass();
@@ -1907,18 +1908,18 @@ $lang->block->typeList->testtask['done']    = '已测版本';
 $lang->block->typeList->testtask['all']     = '全部';
 
 $lang->block->modules['program']->moreLinkList = new stdclass();
-$lang->block->modules['program']->moreLinkList->recentprogram = 'program|browse|';
-$lang->block->modules['program']->moreLinkList->statistic     = 'program|browse|';
-$lang->block->modules['program']->moreLinkList->program       = 'program|browse|';
-$lang->block->modules['program']->moreLinkList->cmmireport    = 'weekly|index|';
-$lang->block->modules['program']->moreLinkList->cmmiestimate  = 'workestimation|index|';
-$lang->block->modules['program']->moreLinkList->cmmiissue     = 'issue|browse|';
-$lang->block->modules['program']->moreLinkList->cmmirisk      = 'risk|browse|';
-$lang->block->modules['program']->moreLinkList->scrumlist     = 'project|all|';
-$lang->block->modules['program']->moreLinkList->scrumtest     = 'testtask|browse|';
-$lang->block->modules['program']->moreLinkList->scrumproduct  = 'product|all|';
-$lang->block->modules['program']->moreLinkList->sprint        = 'project|all|';
-$lang->block->modules['program']->moreLinkList->scrumdynamic  = 'company|dynamic|';
+$lang->block->modules['program']->moreLinkList->recentprogram  = 'program|browse|';
+$lang->block->modules['program']->moreLinkList->statistic      = 'program|browse|';
+$lang->block->modules['program']->moreLinkList->program        = 'program|browse|';
+$lang->block->modules['program']->moreLinkList->cmmireport     = 'weekly|index|';
+$lang->block->modules['program']->moreLinkList->cmmiestimate   = 'workestimation|index|';
+$lang->block->modules['program']->moreLinkList->cmmiissue      = 'issue|browse|';
+$lang->block->modules['program']->moreLinkList->cmmirisk       = 'risk|browse|';
+$lang->block->modules['program']->moreLinkList->scrumlist      = 'project|all|';
+$lang->block->modules['program']->moreLinkList->scrumtest      = 'testtask|browse|';
+$lang->block->modules['program']->moreLinkList->scrumproduct   = 'product|all|';
+$lang->block->modules['program']->moreLinkList->sprint         = 'project|all|';
+$lang->block->modules['program']->moreLinkList->programdynamic = 'company|dynamic|';
 
 $lang->block->modules['product']->moreLinkList        = new stdclass();
 $lang->block->modules['product']->moreLinkList->list  = 'product|all|product=&line=0&status=%s';
@@ -2992,6 +2993,7 @@ $lang->design->noDesign       = '暂时没有记录';
 $lang->design->noCommit       = '暂时没有提交记录';
 $lang->design->confirmDelete  = '您确定要删除这个设计吗？';
 $lang->design->confirmUnlink  = '您确定要移除这个提交吗？';
+$lang->design->errorDate      = '开始日期不能大于结束日期';
 /* dev */
 $lang->dev->common     = '二次开发';
 $lang->dev->api        = 'API';
@@ -5003,9 +5005,9 @@ $lang->project->suspend  = "挂起";
 $lang->project->close    = "关闭";
 $lang->project->export   = "导出";
 
-$lang->project->typeList['sprint']    = "短期$lang->projectCommon";
-$lang->project->typeList['waterfall'] = "长期$lang->projectCommon";
-$lang->project->typeList['ops']       = "运维$lang->projectCommon";
+$lang->project->typeList['sprint']    = "短期项目";
+$lang->project->typeList['waterfall'] = "长期项目";
+$lang->project->typeList['ops']       = "运维项目";
 
 $lang->project->endList[7]   = '一星期';
 $lang->project->endList[14]  = '两星期';
@@ -5675,7 +5677,7 @@ $lang->risk->strategy          = '策略';
 $lang->risk->status            = '状态';
 $lang->risk->impact            = '影响程度';
 $lang->risk->probability       = '发生概率';
-$lang->risk->riskindex         = '风险系数';
+$lang->risk->rate              = '风险系数';
 $lang->risk->pri               = '优先级';
 $lang->risk->prevention        = '处理措施';
 $lang->risk->remedy            = '应急措施';
@@ -7396,10 +7398,10 @@ $lang->upgrade->updateFile    = '需要更新附件信息。';
 $lang->upgrade->noticeSQL     = '检查到你的数据库跟标准不一致，尝试修复失败。请执行以下SQL语句，再刷新页面检查。';
 $lang->upgrade->afterDeleted  = '以上文件未能删除， 删除后刷新！';
 $lang->upgrade->mergeProgram  = '数据归并';
-$lang->upgrade->to15Tips      = '禅道15版本升级提示';
-$lang->upgrade->to15Button    = '我已经做好备份，开始升级吧！';
-$lang->upgrade->to15Desc      = <<<EOD
-<p>尊敬的用户，感谢对禅道的支持。自15版本开始，禅道全面升级成为通用的项目管理平台。和之前的版本相比，15版本的禅道增加了大项目和管理模型的概念。接下来我们将通过向导的方式来帮助您完成此次升级。此次升级共分为两部分：项目数据归并和权限重新设置。</p>
+$lang->upgrade->to20Tips      = '禅道20版本升级提示';
+$lang->upgrade->to20Button    = '我已经做好备份，开始升级吧！';
+$lang->upgrade->to20Desc      = <<<EOD
+<p>尊敬的用户，感谢对禅道的支持。自20版本开始，禅道全面升级成为通用的项目管理平台。和之前的版本相比，20版本的禅道增加了大项目和管理模型的概念。接下来我们将通过向导的方式来帮助您完成此次升级。此次升级共分为两部分：项目数据归并和权限重新设置。</p>
 <br />
 <h4>一、项目数据归并</h4>
 <p>我们会将之前的产品和项目的数据归并到大项目概念下，并根据你选择管理模型的不同，调整概念为如下：</p>
@@ -7410,14 +7412,14 @@ $lang->upgrade->to15Desc      = <<<EOD
 </ul>
 <br />
 <h4>二、权限重新设置</h4>
-<p>禅道自15版本开始权限以大项目为一个基础单位来进行授权，授权的机制为：</p>
+<p>禅道自20版本开始权限以大项目为一个基础单位来进行授权，授权的机制为：</p>
 <p class='strong'>管理员授权给项目管理员 > 项目管理员授权给项目成员</p>
 <br />
 <div class='text-warning'>
   <p>友情提示：</p>
   <ol>
-    <li>可以先安装一个15版本的禅道，体验一下里边的概念和流程。</li>
-    <li>15版本禅道改动比较大，升级之前请做好备份。</li>
+    <li>可以先安装一个20版本的禅道，体验一下里边的概念和流程。</li>
+    <li>20版本禅道改动比较大，升级之前请做好备份。</li>
   </ol>
 </div>
 EOD;
