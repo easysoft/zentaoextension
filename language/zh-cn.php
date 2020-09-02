@@ -131,7 +131,7 @@ $lang->system->menu->estimate = array('link' => '估算|custom|estimate|');
 $lang->system->menu->stage    = array('link' => '阶段|stage|browse|', 'subModule' => 'stage');
 $lang->system->menu->subject  = array('link' => '科目|subject|browse|');
 $lang->system->menu->holiday  = array('link' => '节假日|holiday|browse|');
-$lang->system->menu->custom   = array('link' => '自定义|custom|plan|');
+$lang->system->menu->custom   = array('link' => '自定义|custom|configurewaterfall|');
 $lang->system->dividerMenu    = ',auditcl,subject,';
 
 if(isset($_COOKIE['systemModel']) and $_COOKIE['systemModel'] == 'scrum')
@@ -139,7 +139,7 @@ if(isset($_COOKIE['systemModel']) and $_COOKIE['systemModel'] == 'scrum')
     $lang->system->menu = new stdclass();
     $lang->system->menu->subject  = array('link' => '科目|subject|browse|');
     $lang->system->menu->holiday  = array('link' => '节假日|holiday|browse|');
-    $lang->system->menu->custom   = array('link' => '自定义|custom|concept|');
+    $lang->system->menu->custom   = array('link' => '自定义|custom|configurescrum|');
     
     $lang->mainNav->system = '<i class="icon icon-menu-users"></i> 组织|subject|browse|';
     unset($lang->system->dividerMenu);
@@ -206,10 +206,18 @@ $lang->my->menu->program          = array('link' => '项目|my|program|');
 $lang->my->menu->task             = array('link' => '任务|my|task|', 'subModule' => 'task');
 $lang->my->menu->bug              = array('link' => 'Bug|my|bug|', 'subModule' => 'bug');
 $lang->my->menu->testtask         = array('link' => '测试|my|testtask|', 'subModule' => 'testcase,testtask', 'alias' => 'testcase');
-$lang->my->menu->requirement      = array('link' => "用户需求|my|requirement|", 'subModule' => 'story');
-$lang->my->menu->story            = array('link' => "软件需求|my|story|", 'subModule' => 'story');
+$lang->my->menu->story            = array('link' => "需求|my|story|", 'subModule' => 'story');
 $lang->my->menu->myProject        = "{$lang->projectCommon}|my|project|";
 $lang->my->menu->dynamic          = '动态|my|dynamic|';
+
+global $config;
+if($config->URAndSR)
+{
+    $urCommon = zget($lang, 'urCommon', "用户需求");
+    $srCommon = zget($lang, 'srCommon', "软件需求");
+    $lang->my->menu->requirement = array('link' => "{$urCommon}|my|requirement|", 'subModule' => 'story');
+    $lang->my->menu->story       = array('link' => "{$srCommon}|my|story|", 'subModule' => 'story');
+}
 
 $lang->my->dividerMenu = ',program,requirement,dynamic,';
 
@@ -229,6 +237,12 @@ $lang->product->menu->doc     = array('link' => '文档|doc|objectLibs|type=prod
 $lang->product->menu->branch  = '@branch@|branch|manage|productID=%s';
 $lang->product->menu->module  = '模块|tree|browse|productID=%s&view=story';
 $lang->product->menu->view    = array('link' => '概况|product|view|productID=%s', 'alias' => 'edit');
+
+if($config->URAndSR)
+{
+    $lang->product->menu->requirement = array('link' => "{$urCommon}|product|browse|productID=%s&branch=&browseType=unclosed&param=0&storyType=requirement", 'alias' => 'batchedit', 'subModule' => 'story');
+    $lang->product->menu->story       = array('link' => "{$srCommon}|product|browse|productID=%s", 'alias' => 'batchedit', 'subModule' => 'story');
+}
 
 $lang->product->dividerMenu = ',project,doc,';
 
@@ -770,7 +784,7 @@ $lang->menu->waterfall->programplan  = array('link' => '计划|programplan|brows
 $lang->menu->waterfall->project      = array('link' => $lang->projectCommon . '|project|task|projectID={PROJECT}', 'subModule' => ',project,task,');
 $lang->menu->waterfall->weekly       = array('link' => '报告|weekly|index|program={PROGRAM}', 'subModule' => ',milestone,');
 $lang->menu->waterfall->doc          = array('link' => '文档|doc|index|program={PROGRAM}');
-$lang->menu->waterfall->product      = array('link' => '需求|product|browse|product={PRODUCT}&branch=&browseType=unclosed&queryID=0&storyType=requirement', 'subModule' => ',story,');
+$lang->menu->waterfall->product      = array('link' => '需求|product|browse|product={PRODUCT}', 'subModule' => ',story,');
 $lang->menu->waterfall->design       = '设计|design|browse|product={PRODUCT}';
 $lang->menu->waterfall->ci           = '代码|repo|browse|';
 $lang->menu->waterfall->qa           = array('link' => '测试|bug|browse|product={PRODUCT}', 'subModule' => ',testcase,testtask,testsuite,testreport,caselib,');
@@ -831,10 +845,15 @@ $lang->budget->menu = $lang->workestimation->menu;
 $lang->programplan->menu->gantt = array('link' => '甘特图|programplan|browse|programID={PROGRAM}&productID={PRODUCT}&type=gantt');
 $lang->programplan->menu->lists = array('link' => '阶段列表|programplan|browse|programID={PROGRAM}&productID={PRODUCT}&type=lists', 'alias' => 'create');
 
-$lang->waterfallproduct->menu->plan        = array('link' => "{$lang->planCommon}|productplan|browse|productID={PRODUCT}", 'subModule' => 'productplan');
-$lang->waterfallproduct->menu->requirement = '用户需求|product|browse|product={PRODUCT}&branch=&browseType=unclosed&queryID=0&storyType=requirement';
-$lang->waterfallproduct->menu->story       = '软件需求|product|browse|product={PRODUCT}&branch=&browseType=unclosed&queryID=0&storyType=story';
+if($config->planStatus) $lang->waterfallproduct->menu->plan = array('link' => "{$lang->planCommon}|productplan|browse|productID={PRODUCT}", 'subModule' => 'productplan');
+$lang->waterfallproduct->menu->story       = '需求|product|browse|product={PRODUCT}';
 $lang->waterfallproduct->menu->track       = '跟踪矩阵|story|track|product={PRODUCT}';
+
+if($config->URAndSR)
+{
+    $lang->waterfallproduct->menu->requirement = array('link' => "{$urCommon}|product|browse|productID={PRODUCT}&branch=&browseType=unclosed&param=0&storyType=requirement");
+    $lang->waterfallproduct->menu->story       = array('link' => "{$srCommon}|product|browse|productID={PRODUCT}");
+}
 
 $lang->nc->menu = $lang->auditplan->menu;
 
@@ -1230,6 +1249,7 @@ $lang->action->label->webhook     = 'Webhook|webhook|browse|';
 $lang->action->label->space       = ' ';
 $lang->action->label->risk        = '风险|risk|view|riskID=%s';
 $lang->action->label->issue       = '问题|issue|view|issueID=%s';
+$lang->action->label->design      = '设计|design|view|designID=%s';
 
 $lang->action->search->objectTypeList['']            = '';
 $lang->action->search->objectTypeList['product']     = $lang->productCommon;
@@ -1579,7 +1599,7 @@ $lang->block->default['scrum']['program']['4']['title'] = '待测版本';
 $lang->block->default['scrum']['program']['4']['block'] = 'scrumtest';
 $lang->block->default['scrum']['program']['4']['grid']  = 8;
 
-$lang->block->default['scrum']['program']['4']['params']['type']    = 'all';
+$lang->block->default['scrum']['program']['4']['params']['type']    = 'wait';
 $lang->block->default['scrum']['program']['4']['params']['count']   = '15';
 $lang->block->default['scrum']['program']['4']['params']['orderBy'] = 'id_desc';
 
@@ -1761,28 +1781,35 @@ $lang->block->moduleList['todo']    = '待办';
 
 $lang->block->modules['program'] = new stdclass();
 $lang->block->modules['program']->availableBlocks = new stdclass();
-$lang->block->modules['program']->availableBlocks->program       = '项目列表';
-$lang->block->modules['program']->availableBlocks->recentprogram = '近期项目';
-$lang->block->modules['program']->availableBlocks->statistic     = '项目统计';
+$lang->block->modules['program']->availableBlocks->program           = '项目列表';
+$lang->block->modules['program']->availableBlocks->recentprogram     = '近期项目';
+$lang->block->modules['program']->availableBlocks->statistic         = '项目统计';
+$lang->block->modules['program']->availableBlocks->programteam       = '项目人力投入';
+$lang->block->modules['program']->availableBlocks->waterfallreport   = '项目周报';
+$lang->block->modules['program']->availableBlocks->waterfallestimate = '估算';
+$lang->block->modules['program']->availableBlocks->waterfallprogress = '到目前为止项目进展趋势图';
+$lang->block->modules['program']->availableBlocks->waterfallissue    = '项目问题';
+$lang->block->modules['program']->availableBlocks->waterfallrisk     = '项目风险';
 
 $lang->block->modules['scrum']['index'] = new stdclass();
 $lang->block->modules['scrum']['index']->availableBlocks = new stdclass();
-$lang->block->modules['scrum']['index']->availableBlocks->scrumoverview = '项目整体情况';
-$lang->block->modules['scrum']['index']->availableBlocks->scrumlist     = $lang->projectCommon . '列表';
-$lang->block->modules['scrum']['index']->availableBlocks->scrumroadmap  = $lang->productCommon . '路线图';
-$lang->block->modules['scrum']['index']->availableBlocks->sprint        = $lang->projectCommon . '总览';
-$lang->block->modules['scrum']['index']->availableBlocks->scrumproduct  = $lang->productCommon . '总览';
-$lang->block->modules['scrum']['index']->availableBlocks->scrumtest     = '待测版本';
-$lang->block->modules['scrum']['index']->availableBlocks->programdynamic  = '最新动态';
+$lang->block->modules['scrum']['index']->availableBlocks->scrumoverview  = '项目整体情况';
+$lang->block->modules['scrum']['index']->availableBlocks->scrumlist      = $lang->projectCommon . '列表';
+$lang->block->modules['scrum']['index']->availableBlocks->scrumroadmap   = $lang->productCommon . '路线图';
+$lang->block->modules['scrum']['index']->availableBlocks->sprint         = $lang->projectCommon . '总览';
+$lang->block->modules['scrum']['index']->availableBlocks->scrumproduct   = $lang->productCommon . '总览';
+$lang->block->modules['scrum']['index']->availableBlocks->scrumtest      = '待测版本';
+$lang->block->modules['scrum']['index']->availableBlocks->programdynamic = '最新动态';
 
 $lang->block->modules['waterfall']['index'] = new stdclass();
 $lang->block->modules['waterfall']['index']->availableBlocks = new stdclass();
-$lang->block->modules['waterfall']['index']->availableBlocks->waterfallreport    = '项目周报';
-$lang->block->modules['waterfall']['index']->availableBlocks->waterfallestimate  = '估算';
-$lang->block->modules['waterfall']['index']->availableBlocks->waterfallgantt     = "项目{$lang->planCommon}";
-$lang->block->modules['waterfall']['index']->availableBlocks->waterfallprogress  = '到目前为止项目进展趋势图';
-$lang->block->modules['waterfall']['index']->availableBlocks->waterfallissue     = '项目问题';
-$lang->block->modules['waterfall']['index']->availableBlocks->waterfallrisk      = '项目风险';
+$lang->block->modules['waterfall']['index']->availableBlocks->waterfallreport   = '项目周报';
+$lang->block->modules['waterfall']['index']->availableBlocks->waterfallestimate = '估算';
+$lang->block->modules['waterfall']['index']->availableBlocks->waterfallgantt    = "项目{$lang->planCommon}";
+$lang->block->modules['waterfall']['index']->availableBlocks->waterfallprogress = '到目前为止项目进展趋势图';
+$lang->block->modules['waterfall']['index']->availableBlocks->waterfallissue    = '项目问题';
+$lang->block->modules['waterfall']['index']->availableBlocks->waterfallrisk     = '项目风险';
+$lang->block->modules['waterfall']['index']->availableBlocks->programdynamic    = '最新动态';
 
 $lang->block->modules['product'] = new stdclass();
 $lang->block->modules['product']->availableBlocks = new stdclass();
@@ -2713,9 +2740,9 @@ $lang->custom->region             = '区间';
 $lang->custom->tips               = '提示语';
 $lang->custom->setTips            = '设置提示语';
 $lang->custom->isRange            = '是否目标控制范围';
-$lang->custom->plan               = '排期';
-$lang->custom->planStatus         = '是否启用排期';
-$lang->custom->concept            = '概念';
+$lang->custom->configureScrum     = '概念';
+$lang->custom->URStory            = "用户需求";
+$lang->custom->SRStory            = "软件需求";
 
 $lang->custom->object['program'] = '项目';
 $lang->custom->program->fields['unitList'] = '预算单位';
@@ -2732,9 +2759,6 @@ $lang->custom->tipProgressList['SV']  = '进度偏差率(SV%)';
 
 $lang->custom->tipCostList['CPI'] = '项目成本绩效(CPI)';
 $lang->custom->tipCostList['CV']  = '成本偏差率(CV%)';
-
-$lang->custom->planStatusList[0]  = '否';
-$lang->custom->planStatusList[1]  = '是';
 
 $lang->custom->tipRangeList[0]  = '否';
 $lang->custom->tipRangeList[1]  = '是';
@@ -2882,6 +2906,20 @@ $lang->custom->conceptOptions->hourPoint = array();
 $lang->custom->conceptOptions->hourPoint['1'] = '故事点';
 $lang->custom->conceptOptions->hourPoint['2'] = '功能点';
 $lang->custom->conceptOptions->hourPoint['3'] = '代码行';
+
+$lang->custom->waterfall = new stdclass();
+$lang->custom->waterfall->plan     = '1.是否启用排期？';
+$lang->custom->waterfall->URAndSR  = '2.是否启用用户需求和软件需求概念？';
+$lang->custom->waterfall->URSRName = '3.用户需求和软件需求的概念定义？';
+
+$lang->custom->waterfallOptions = new stdclass();
+$lang->custom->waterfallOptions->URAndSR = array();
+$lang->custom->waterfallOptions->URAndSR[0] = '否';
+$lang->custom->waterfallOptions->URAndSR[1] = '是';
+
+$lang->custom->waterfallOptions->planStatus = array();
+$lang->custom->waterfallOptions->planStatus[0] = '否';
+$lang->custom->waterfallOptions->planStatus[1] = '是';
 /* datatable */
 $lang->datatable = new stdclass();
 $lang->datatable->common = '数据表格';
@@ -4330,6 +4368,7 @@ $lang->misc->feature = new stdclass();
 $lang->misc->feature->lastest  = '最新版本';
 $lang->misc->feature->detailed = '详情';
 
+$lang->misc->releaseDate['20.0']        = '2020-09-01';
 $lang->misc->releaseDate['12.4.1']      = '2020-08-10';
 $lang->misc->releaseDate['12.4.stable'] = '2020-07-28';
 $lang->misc->releaseDate['12.3.3']      = '2020-07-02';
@@ -5972,11 +6011,21 @@ $lang->stage->viewList      = '浏览列表';
 $lang->stage->noStage       = '暂时没有阶段';
 $lang->stage->confirmDelete = '您确定要执行删除操作吗？';
 /* story */
+global $config;
 $lang->story->create            = "提{$lang->storyCommon}";
-$lang->story->createStory       = '添加软需';
-$lang->story->createRequirement = '添加用需';
-$lang->story->requirement       = '用户需求';
-$lang->story->story             = '软件需求';
+$lang->story->createStory       = "提{$lang->storyCommon}";
+$lang->story->createRequirement = "提{$lang->storyCommon}";
+
+if($config->URAndSR)
+{
+    $lang->story->requirement       = zget($lang, 'urCommon', "用户需求");
+    $lang->story->story             = zget($lang, 'srCommon', "软件需求");
+    $lang->story->createStory       = '添加' . $lang->story->story;
+    $lang->story->createRequirement = '添加' . $lang->story->requirement;
+    $lang->story->affectedStories   = "影响的{$lang->story->story}";
+    $lang->storyCommon = '需求';
+}
+
 $lang->story->batchCreate       = "批量创建";
 $lang->story->change            = "变更";
 $lang->story->changeAction      = "变更{$lang->storyCommon}";
@@ -6167,6 +6216,10 @@ $lang->story->priList[2] = '2';
 $lang->story->priList[3] = '3';
 $lang->story->priList[4] = '4';
 
+$lang->story->changeList = array();
+$lang->story->changeList['no']  = '不变更';
+$lang->story->changeList['yes'] = '变更';
+
 $lang->story->legendBasicInfo      = '基本信息';
 $lang->story->legendLifeTime       = "{$lang->storyCommon}的一生";
 $lang->story->legendRelated        = '相关信息';
@@ -6205,6 +6258,7 @@ $lang->story->noStory               = "暂时没有{$lang->storyCommon}。";
 $lang->story->ignoreChangeStage     = "{$lang->storyCommon} %s 为草稿状态或已关闭状态，没有修改其阶段。";
 $lang->story->cannotDeleteParent    = "不能删除父{$lang->storyCommon}";
 $lang->story->moveChildrenTips      = "修改父{$lang->storyCommon}的所属产品会将其下的子{$lang->storyCommon}也移动到所选产品下。";
+$lang->story->changeTips            = '该软件需求关联的用户需求有变更，点击“不变更”忽略此条变更，点击“变更”来进行该软件需求的变更。';
 
 $lang->story->form = new stdclass();
 $lang->story->form->area      = "该{$lang->storyCommon}所属范围";

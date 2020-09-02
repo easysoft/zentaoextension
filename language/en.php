@@ -140,7 +140,7 @@ if(isset($_COOKIE['systemModel']) and $_COOKIE['systemModel'] == 'scrum')
     $lang->system->menu->subject  = array('link' => 'Subject|subject|browse|');
     $lang->system->menu->holiday     = array('link' => 'Holiday|holiday|browse|');
 	$lang->system->menu->custom   = array('link' => 'Custom|custom|concept|');
-    
+
     $lang->mainNav->system = '<i class="icon icon-menu-users"></i> System|subject|settips|';
     unset($lang->system->dividerMenu);
 }
@@ -206,10 +206,18 @@ $lang->my->menu->program        = array('link' => 'Program|my|program|');
 $lang->my->menu->task           = array('link' => 'Task|my|task|', 'subModule' => 'task');
 $lang->my->menu->bug            = array('link' => 'Bug|my|bug|',   'subModule' => 'bug');
 $lang->my->menu->testtask       = array('link' => 'Request|my|testtask|', 'subModule' => 'testcase,testtask', 'alias' => 'testcase');
-$lang->my->menu->requirement    = array('link' => "用户需求|my|requirement|", 'subModule' => 'story');
 $lang->my->menu->story          = array('link' => 'Story|my|story|',   'subModule' => 'story');
 $lang->my->menu->myProject      = "{$lang->projectCommon}|my|project|";
 $lang->my->menu->dynamic        = 'Dynamics|my|dynamic|';
+
+global $config;
+if($config->URAndSR)
+{
+    $urCommon = zget($lang, 'urCommon', "Requirement");
+    $srCommon = zget($lang, 'srCommon', "Story");
+    $lang->my->menu->requirement = array('link' => "{$urCommon}|my|requirement|", 'subModule' => 'story');
+    $lang->my->menu->story       = array('link' => "{$srCommon}|my|story|", 'subModule' => 'story');
+}
 
 $lang->my->dividerMenu = ',program,requirement,dynamic,';
 
@@ -229,6 +237,12 @@ $lang->product->menu->doc      = array('link' => 'Doc|doc|objectLibs|type=produc
 $lang->product->menu->branch   = '@branch@|branch|manage|productID=%s';
 $lang->product->menu->module   = 'Module|tree|browse|productID=%s&view=story';
 $lang->product->menu->view     = array('link' => 'Overview|product|view|productID=%s', 'alias' => 'edit');
+
+if($config->URAndSR)
+{
+    $lang->product->menu->requirement = array('link' => "{$urCommon}|product|browse|productID=%s&branch=&browseType=unclosed&param=0&storyType=requirement", 'alias' => 'batchedit', 'subModule' => 'story');
+    $lang->product->menu->story       = array('link' => "{$srCommon}|product|browse|productID=%s", 'alias' => 'batchedit', 'subModule' => 'story');
+}
 
 $lang->product->dividerMenu = ',plan,project,doc,';
 
@@ -763,6 +777,87 @@ $lang->icons['confirmStoryChange'] = 'search';
 $lang->icons['score']              = 'tint';
 
 include (dirname(__FILE__) . '/menuOrder.php');
+
+$lang->menu->waterfall = new stdclass();
+$lang->menu->waterfall->programindex = array('link' => 'Index|program|index|program={PROGRAM}');
+$lang->menu->waterfall->programplan  = array('link' => 'Plan|programplan|browse|program={PROGRAM}', 'subModule' => 'programplan');
+$lang->menu->waterfall->project      = array('link' => $lang->projectCommon . '|project|task|projectID={PROJECT}', 'subModule' => ',project,task,');
+$lang->menu->waterfall->weekly       = array('link' => 'Weekly|weekly|index|program={PROGRAM}', 'subModule' => ',milestone,');
+$lang->menu->waterfall->doc          = array('link' => 'Doc|doc|index|program={PROGRAM}');
+$lang->menu->waterfall->product      = array('link' => 'Story|product|browse|product={PRODUCT}', 'subModule' => ',story,');
+$lang->menu->waterfall->design       = 'Design|design|browse|product={PRODUCT}';
+$lang->menu->waterfall->ci           = 'Code|repo|browse|';
+$lang->menu->waterfall->qa           = array('link' => 'QA|bug|browse|product={PRODUCT}', 'subModule' => ',testcase,testtask,testsuite,testreport,caselib,');
+$lang->menu->waterfall->release      = array('link' => 'Release|release|browse|product={PRODUCT}', 'subModule' => 'release');
+$lang->menu->waterfall->issue        = 'Issue|issue|browse|';
+$lang->menu->waterfall->risk         = 'Risk|risk|browse|';
+$lang->menu->waterfall->list         = array('link' => 'More|workestimation|index|program={PROGRAM}', 'class' => 'dropdown dropdown-hover waterfall-list', 'subModule' => 'stakeholder,workestimation,durationestimation,budget,pssp,stakeholder');
+
+$lang->menu->srcum = new stdclass();
+$lang->menu->srcum->programindex   = array('link' => 'Index|program|index|program={PROGRAM}');
+
+$lang->waterfall = new stdclass();
+$lang->waterfall->subMenu = new stdclass();
+$lang->waterfall->subMenu->list = new stdclass();
+$lang->waterfall->subMenu->list->workestimation = array('link' => 'Estimation|workestimation|index|program=%s', 'subModule' => 'durationestimation,budget');
+$lang->waterfall->subMenu->list->program        = 'Program|program|edit|';
+
+$lang->waterfallproduct    = new stdclass();
+$lang->workestimation = new stdclass();
+$lang->budget         = new stdclass();
+$lang->programplan    = new stdclass();
+$lang->review         = new stdclass();
+$lang->weekly         = new stdclass();
+$lang->milestone      = new stdclass();
+$lang->design         = new stdclass();
+$lang->auditplan      = new stdclass();
+$lang->cm             = new stdclass();
+$lang->nc             = new stdclass();
+$lang->pssp           = new stdclass();
+$lang->issue          = new stdclass();
+$lang->risk           = new stdclass();
+$lang->stakeholder    = new stdclass();
+$lang->durationestimation = new stdclass();
+
+$lang->workestimation->menu = new stdclass();
+$lang->budget->menu         = new stdclass();
+$lang->programplan->menu    = new stdclass();
+$lang->review->menu         = new stdclass();
+$lang->weekly->menu         = new stdclass();
+$lang->milestone->menu      = new stdclass();
+$lang->waterfallproduct->menu    = new stdclass();
+$lang->design->menu         = new stdclass();
+$lang->auditplan->menu      = new stdclass();
+$lang->cm->menu             = new stdclass();
+$lang->pssp->menu           = new stdclass();
+$lang->issue->menu          = new stdclass();
+$lang->risk->menu           = new stdclass();
+$lang->stakeholder->menu    = new stdclass();
+$lang->durationestimation->menu = new stdclass();
+
+$lang->workestimation->menu->index    = 'Workload|workestimation|index|program={PROGRAM}';
+$lang->workestimation->menu->duration = array('link' => 'Duration|durationestimation|index|program={PROGRAM}', 'subModule' => 'durationestimation');
+$lang->workestimation->menu->budget   = array('link' => 'Budget|budget|summary|', 'subModule' => 'budget');
+
+$lang->durationestimation->menu = $lang->workestimation->menu;
+$lang->budget->menu = $lang->workestimation->menu;
+
+$lang->programplan->menu->gantt = array('link' => 'Gantt|programplan|browse|programID={PROGRAM}&productID={PRODUCT}&type=gantt');
+$lang->programplan->menu->lists = array('link' => 'Stage|programplan|browse|programID={PROGRAM}&productID={PRODUCT}&type=lists', 'alias' => 'create');
+
+$if($config->planStatus) lang->waterfallproduct->menu->plan = array('link' => "{$lang->planCommon}|productplan|browse|productID={PRODUCT}", 'subModule' => 'productplan');
+$lang->waterfallproduct->menu->story       = 'Story|product|browse|product={PRODUCT}';
+$lang->waterfallproduct->menu->track       = 'Track|story|track|product={PRODUCT}';
+
+if($config->URAndSR)
+{
+    $lang->waterfallproduct->menu->requirement = array('link' => "{$urCommon}|product|browse|productID={PRODUCT}&branch=&browseType=unclosed&param=0&storyType=requirement");
+    $lang->waterfallproduct->menu->story       = array('link' => "{$srCommon}|product|browse|productID={PRODUCT}");
+}
+
+$lang->nc->menu = $lang->auditplan->menu;
+
+$lang->noMenuModule   = array('my', 'todo', 'effort', 'program', 'attend', 'leave', 'makeup', 'overtime', 'lieu', 'holiday', 'custom', 'auditcl', 'subject', 'admin', 'mail', 'extension', 'dev', 'backup', 'action', 'cron', 'issue', 'risk', 'pssp', 'sms', 'message', 'webhook', 'search');
 /* action */
 $lang->action->common     = 'Log';
 $lang->action->product    = $lang->productCommon;
@@ -1154,6 +1249,7 @@ $lang->action->label->webhook     = 'Webhook|webhook|browse|';
 $lang->action->label->space       = ' ';
 $lang->action->label->risk        = 'Risk|risk|view|riskID=%s';
 $lang->action->label->issue       = 'Issue|issue|view|issueID=%s';
+$lang->action->label->design      = 'Design|design|view|designID=%s';
 
 $lang->action->search->objectTypeList['']            = '';    
 $lang->action->search->objectTypeList['product']     = $lang->productCommon;
@@ -1390,31 +1486,31 @@ $lang->block->welcome      = 'Welcome';
 $lang->block->lblTesttask  = 'Test Request Detail';
 $lang->block->contribute   = 'Personal Contribution';
 
-$lang->block->leftToday       = 'Remained Work';
-$lang->block->myTask          = 'My Tasks';
-$lang->block->myStory         = 'Stories';
-$lang->block->myBug           = 'Bugs';
-$lang->block->myProject       = '' . $lang->projectCommon . 's';
-$lang->block->myProduct       = '' . $lang->productCommon . 's';
-$lang->block->delayed         = 'Delayed';
-$lang->block->noData          = 'No data on this type of reports.';
-$lang->block->emptyTip        = 'No data.';
-$lang->block->openedTodos     = 'The Number Of Todos Created';
-$lang->block->openedStories   = 'The Number Of Stories Created';
-$lang->block->resolvedTasks   = 'The Number Of Tasks Resolved';
-$lang->block->resolvedBugs    = 'The Number Of Bugs Resolved';
-$lang->block->openedTestcases = 'The Number Of Test Case Created';
-$lang->block->waterfall       = 'CMMI 3';
-$lang->block->scrum           = 'Scrum+';
-$lang->block->allProject      = 'All ' . $lang->projectCommon;
-$lang->block->doingProject    = 'Doning ' . $lang->projectCommon;
-$lang->block->finishProject   = 'Finish ' . $lang->projectCommon;
-$lang->block->estimatedHours  = 'Estimated Hours';
-$lang->block->consumedHours   = 'Consumed Hours';
-$lang->block->time            = 'No';
-$lang->block->week            = 'Week';
-$lang->block->month           = 'Month';
-$lang->block->selectProduct   = 'Product selection';
+$lang->block->leftToday      = 'Remained Work';
+$lang->block->myTask         = 'My Tasks';
+$lang->block->myStory        = 'Stories';
+$lang->block->myBug          = 'Bugs';
+$lang->block->myProject      = '' . $lang->projectCommon . 's';
+$lang->block->myProduct      = '' . $lang->productCommon . 's';
+$lang->block->delayed        = 'Delayed';
+$lang->block->noData         = 'No data on this type of reports.';
+$lang->block->emptyTip       = 'No data.';
+$lang->block->createdTodo    = 'The Number Of Todos Created';
+$lang->block->createdStory   = 'The Number Of Stories Created';
+$lang->block->finishedTask   = 'The Number Of Tasks Resolved';
+$lang->block->resolvedBug    = 'The Number Of Bugs Resolved';
+$lang->block->createdCase    = 'The Number Of Test Case Created';
+$lang->block->waterfall      = 'CMMI 3';
+$lang->block->scrum          = 'Scrum+';
+$lang->block->allProject     = 'All ' . $lang->projectCommon;
+$lang->block->doingProject   = 'Doning ' . $lang->projectCommon;
+$lang->block->finishProject  = 'Finish ' . $lang->projectCommon;
+$lang->block->estimatedHours = 'Estimated Hours';
+$lang->block->consumedHours  = 'Consumed Hours';
+$lang->block->time           = 'No';
+$lang->block->week           = 'Week';
+$lang->block->month          = 'Month';
+$lang->block->selectProduct  = 'Product selection';
 
 $lang->block->params = new stdclass();
 $lang->block->params->name  = 'Name';
@@ -1617,10 +1713,10 @@ $lang->block->default['full']['my']['2']['block']  = 'dynamic';
 $lang->block->default['full']['my']['2']['grid']   = 4;
 $lang->block->default['full']['my']['2']['source'] = '';
 
-$lang->block->default['full']['my']['3']['title']  = 'My Todos';
-$lang->block->default['full']['my']['3']['block']  = 'list';
-$lang->block->default['full']['my']['3']['grid']   = 4;
-$lang->block->default['full']['my']['3']['source'] = 'todo';
+$lang->block->default['full']['my']['3']['title']           = 'My Todos';
+$lang->block->default['full']['my']['3']['block']           = 'list';
+$lang->block->default['full']['my']['3']['grid']            = 4;
+$lang->block->default['full']['my']['3']['source']          = 'todo';
 $lang->block->default['full']['my']['3']['params']['count'] = '20';
 
 $lang->block->default['full']['my']['4']['title']  = $lang->projectCommon . ' Statistic';
@@ -1685,27 +1781,34 @@ $lang->block->moduleList['todo']    = 'Todo';
 
 $lang->block->modules['program'] = new stdclass();
 $lang->block->modules['program']->availableBlocks = new stdclass();
-$lang->block->modules['program']->availableBlocks->program       = $lang->projectCommon . ' List';
-$lang->block->modules['program']->availableBlocks->recentprogram = 'Recent ' . $lang->projectCommon;
-$lang->block->modules['program']->availableBlocks->statistic     = $lang->projectCommon . ' Statistic';
+$lang->block->modules['program']->availableBlocks->program           = $lang->projectCommon . ' List';
+$lang->block->modules['program']->availableBlocks->recentprogram     = 'Recent ' . $lang->projectCommon;
+$lang->block->modules['program']->availableBlocks->statistic         = $lang->projectCommon . ' Statistic';
+$lang->block->modules['program']->availableBlocks->programteam       = $lang->projectCommon . 'Human Input';
+$lang->block->modules['program']->availableBlocks->waterfallreport   = $lang->projectCommon . 'Report';
+$lang->block->modules['program']->availableBlocks->waterfallestimate = 'Estimate';
+$lang->block->modules['program']->availableBlocks->waterfallprogress = 'Progress Chart';
+$lang->block->modules['program']->availableBlocks->waterfallissue    = $lang->projectCommon . 'Issue';
+$lang->block->modules['program']->availableBlocks->waterfallrisk     = $lang->projectCommon . 'Risk';
 
 $lang->block->modules['scrum']['index'] = new stdclass();
 $lang->block->modules['scrum']['index']->availableBlocks = new stdclass();
-$lang->block->modules['scrum']['index']->availableBlocks->scrumoverview = $lang->projectCommon . ' Overview';
-$lang->block->modules['scrum']['index']->availableBlocks->scrumlist     = $lang->projectCommon . ' List';
-$lang->block->modules['scrum']['index']->availableBlocks->scrumroadmap  = $lang->productCommon . ' Rode Map';
-$lang->block->modules['scrum']['index']->availableBlocks->sprint        = $lang->projectCommon . ' Overview';
-$lang->block->modules['scrum']['index']->availableBlocks->scrumproduct  = $lang->productCommon . ' Overview';
-$lang->block->modules['scrum']['index']->availableBlocks->scrumtest     = 'Test Version';
+$lang->block->modules['scrum']['index']->availableBlocks->scrumoverview  = $lang->projectCommon . ' Overview';
+$lang->block->modules['scrum']['index']->availableBlocks->scrumlist      = $lang->projectCommon . ' List';
+$lang->block->modules['scrum']['index']->availableBlocks->scrumroadmap   = $lang->productCommon . ' Rode Map';
+$lang->block->modules['scrum']['index']->availableBlocks->sprint         = $lang->projectCommon . ' Overview';
+$lang->block->modules['scrum']['index']->availableBlocks->scrumproduct   = $lang->productCommon . ' Overview';
+$lang->block->modules['scrum']['index']->availableBlocks->scrumtest      = 'Test Version';
+$lang->block->modules['scrum']['index']->availableBlocks->programdynamic = 'Dynamics';
 
 $lang->block->modules['waterfall']['index'] = new stdclass();
 $lang->block->modules['waterfall']['index']->availableBlocks = new stdclass();
-$lang->block->modules['waterfall']['index']->availableBlocks->waterfallreport    = $lang->projectCommon . ' Weekly';
-$lang->block->modules['waterfall']['index']->availableBlocks->waterfallestimate  = 'Estimate';
-$lang->block->modules['waterfall']['index']->availableBlocks->waterfallgantt     = 'Plan Gantt Chart';
-$lang->block->modules['waterfall']['index']->availableBlocks->waterfallprogress  = 'Progress Chart';
-$lang->block->modules['waterfall']['index']->availableBlocks->waterfallissue     = $lang->projectCommon . ' Issue';
-$lang->block->modules['waterfall']['index']->availableBlocks->waterfallrisk      = $lang->projectCommon . ' Risk';
+$lang->block->modules['waterfall']['index']->availableBlocks->waterfallreport   = $lang->projectCommon . ' Weekly';
+$lang->block->modules['waterfall']['index']->availableBlocks->waterfallestimate = 'Estimate';
+$lang->block->modules['waterfall']['index']->availableBlocks->waterfallgantt    = 'Plan Gantt Chart';
+$lang->block->modules['waterfall']['index']->availableBlocks->waterfallprogress = 'Progress Chart';
+$lang->block->modules['waterfall']['index']->availableBlocks->waterfallissue    = $lang->projectCommon . ' Issue';
+$lang->block->modules['waterfall']['index']->availableBlocks->waterfallrisk     = $lang->projectCommon . ' Risk';
 
 $lang->block->modules['product'] = new stdclass();
 $lang->block->modules['product']->availableBlocks = new stdclass();
@@ -1831,18 +1934,18 @@ $lang->block->typeList->testtask['done']    = 'Done';
 $lang->block->typeList->testtask['all']     = 'All';
 
 $lang->block->modules['program']->moreLinkList = new stdclass();
-$lang->block->modules['program']->moreLinkList->recentprogram = 'program|browse|';
-$lang->block->modules['program']->moreLinkList->statistic     = 'program|browse|';
-$lang->block->modules['program']->moreLinkList->program       = 'program|browse|';
-$lang->block->modules['program']->moreLinkList->cmmireport    = 'weekly|index|';
-$lang->block->modules['program']->moreLinkList->cmmiestimate  = 'workestimation|index|';
-$lang->block->modules['program']->moreLinkList->cmmiissue     = 'issue|browse|';
-$lang->block->modules['program']->moreLinkList->cmmirisk      = 'risk|browse|';
-$lang->block->modules['program']->moreLinkList->scrumlist     = 'project|all|';
-$lang->block->modules['program']->moreLinkList->scrumtest     = 'testtask|browse|';
-$lang->block->modules['program']->moreLinkList->scrumproduct  = 'product|all|';
-$lang->block->modules['program']->moreLinkList->sprint        = 'project|all|';
-$lang->block->modules['program']->moreLinkList->scrumdynamic  = 'company|dynamic|';
+$lang->block->modules['program']->moreLinkList->recentprogram  = 'program|browse|';
+$lang->block->modules['program']->moreLinkList->statistic      = 'program|browse|';
+$lang->block->modules['program']->moreLinkList->program        = 'program|browse|';
+$lang->block->modules['program']->moreLinkList->cmmireport     = 'weekly|index|';
+$lang->block->modules['program']->moreLinkList->cmmiestimate   = 'workestimation|index|';
+$lang->block->modules['program']->moreLinkList->cmmiissue      = 'issue|browse|';
+$lang->block->modules['program']->moreLinkList->cmmirisk       = 'risk|browse|';
+$lang->block->modules['program']->moreLinkList->scrumlist      = 'project|all|';
+$lang->block->modules['program']->moreLinkList->scrumtest      = 'testtask|browse|';
+$lang->block->modules['program']->moreLinkList->scrumproduct   = 'product|all|';
+$lang->block->modules['program']->moreLinkList->sprint         = 'project|all|';
+$lang->block->modules['program']->moreLinkList->programdynamic = 'company|dynamic|';
 
 $lang->block->modules['product']->moreLinkList        = new stdclass();
 $lang->block->modules['product']->moreLinkList->list  = 'product|all|product=&line=0&status=%s';
@@ -2636,9 +2739,9 @@ $lang->custom->region             = 'Interval';
 $lang->custom->tips               = 'Tips';
 $lang->custom->setTips            = 'Set Tips';
 $lang->custom->isRange            = 'Is Target Control';
-$lang->custom->plan               = 'Plan';
-$lang->custom->planStatus         = 'Enable Plan';
-$lang->custom->concept            = 'Concept';
+$lang->custom->configureScrum     = 'Concept';
+$lang->custom->URStory            = "User requirements";
+$lang->custom->SRStory            = "Software requirements";
 
 $lang->custom->object['program'] = 'Program';
 $lang->custom->program->fields['unitList'] = 'Unit List';
@@ -2655,9 +2758,6 @@ $lang->custom->tipProgressList['SV']  = 'Schedule Variance(SV%)';
 
 $lang->custom->tipCostList['CPI'] = 'Cost Performed Index(CPI)';
 $lang->custom->tipCostList['CV']  = 'Cost Variance(CV%)';
-
-$lang->custom->planStatusList[0]  = 'No';
-$lang->custom->planStatusList[1]  = 'Yes';
 
 $lang->custom->tipRangeList[0]  = 'No';
 $lang->custom->tipRangeList[1]  = 'Yes';
@@ -4253,6 +4353,7 @@ $lang->misc->feature = new stdclass();
 $lang->misc->feature->lastest  = 'Latest Version';
 $lang->misc->feature->detailed = 'Detail';
 
+$lang->misc->releaseDate['20.0']        = '2020-09-01';
 $lang->misc->releaseDate['12.4.1']      = '2020-08-10';
 $lang->misc->releaseDate['12.4.stable'] = '2020-07-28';
 $lang->misc->releaseDate['12.3.3']      = '2020-07-02';
@@ -5895,11 +5996,21 @@ $lang->stage->viewList      = 'Stage List';
 $lang->stage->noStage       = 'There`s no phase yet';
 $lang->stage->confirmDelete = 'Are you sure you want to do this?';
 /* story */
+global $config;
 $lang->story->create            = "Create Story";
 $lang->story->createStory       = 'Create Story';
 $lang->story->createRequirement = 'Create Requirement';
-$lang->story->requirement       = 'Requirement';
-$lang->story->story             = 'Story';
+
+if($config->URAndSR)
+{
+    $lang->story->requirement       = zget($lang, 'urCommon', "Requirement");
+    $lang->story->story             = zget($lang, 'srCommon', "Story");
+    $lang->story->createStory       = 'Create ' . $lang->story->story;
+    $lang->story->createRequirement = 'Create ' . $lang->story->requirement;
+    $lang->story->affectedStories   = "Affected {$lang->story->story}";
+    $lang->storyCommon = 'Story';
+}
+
 $lang->story->batchCreate       = "Batch Create";
 $lang->story->change            = "Change";
 $lang->story->changeAction      = "Change Story";
@@ -6090,6 +6201,10 @@ $lang->story->priList[2] = '2';
 $lang->story->priList[3] = '3';
 $lang->story->priList[4] = '4';
 
+$lang->story->changeList = array();
+$lang->story->changeList['no']  = 'Cancel';
+$lang->story->changeList['yes'] = 'Confirm';
+
 $lang->story->legendBasicInfo      = 'Basic Info';
 $lang->story->legendLifeTime       = 'Story Life ';
 $lang->story->legendRelated        = 'Related Info';
@@ -6116,18 +6231,19 @@ $lang->story->affectedProjects     = '' . $lang->projectCommon . 's';
 $lang->story->affectedBugs         = 'Bugs';
 $lang->story->affectedCases        = 'Cases';
 
-$lang->story->specTemplate          = "As a < type of user >, I want < some goal > so that < some reason >.";
-$lang->story->needNotReview         = 'No Review Required';
-$lang->story->successSaved          = "Story is saved!";
-$lang->story->confirmDelete         = "Do you want to delete this story?";
-$lang->story->errorEmptyChildStory  = '『Decomposed Stories』canot be blank.';
-$lang->story->errorNotSubdivide     = "If the status is not active, or the stage is not wait, or a sub story, it cannot be subdivided.";
-$lang->story->mustChooseResult      = 'Select Result';
-$lang->story->mustChoosePreVersion  = 'Select a version to revert to.';
-$lang->story->noStory               = 'No stories yet. ';
-$lang->story->ignoreChangeStage     = 'Story %s is in Draft or Closed status. Please review it..';
-$lang->story->cannotDeleteParent    = "Can not delete parent {$lang->storyCommon}";
-$lang->story->moveChildrenTips      = "Its Child {$lang->storyCommon} will be moved to the selected product when editing the linked product of Parent {$lang->storyCommon}.";
+$lang->story->specTemplate         = "As a < type of user >, I want < some goal > so that < some reason >.";
+$lang->story->needNotReview        = 'No Review Required';
+$lang->story->successSaved         = "Story is saved!";
+$lang->story->confirmDelete        = "Do you want to delete this story?";
+$lang->story->errorEmptyChildStory = '『Decomposed Stories』canot be blank.';
+$lang->story->errorNotSubdivide    = "If the status is not active, or the stage is not wait, or a sub story, it cannot be subdivided.";
+$lang->story->mustChooseResult     = 'Select Result';
+$lang->story->mustChoosePreVersion = 'Select a version to revert to.';
+$lang->story->noStory              = 'No stories yet. ';
+$lang->story->ignoreChangeStage    = 'Story %s is in Draft or Closed status. Please review it..';
+$lang->story->cannotDeleteParent   = "Can not delete parent {$lang->storyCommon}";
+$lang->story->moveChildrenTips     = "Its Child {$lang->storyCommon} will be moved to the selected product when editing the linked product of Parent {$lang->storyCommon}.";
+$lang->story->changeTips           = 'The story associated with the requirements to change, click "Cancel" ignore this change, click "Confirm" to change the story.';
 
 $lang->story->form = new stdclass();
 $lang->story->form->area      = 'Scope';
