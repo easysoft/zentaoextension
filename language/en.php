@@ -979,6 +979,7 @@ $lang->action->desc->diff1          = '<strong><i>%s</i></strong> is changed. It
 $lang->action->desc->diff2          = '<strong><i>%s</i></strong> is changed. The difference is ' . "\n" . "<blockquote class='textdiff'>%s</blockquote>" . "\n<blockquote class='original'>%s</blockquote>";
 $lang->action->desc->diff3          = 'File Name %s was changed to %s .' . "\n";
 $lang->action->desc->linked2bug     = '$date, linked to <strong>$extra</strong> by <strong>$actor</strong>';
+$lang->action->desc->resolved       = '$date, resolved by <strong>$actor</strong> ' . "\n";
 
 $lang->action->desc->createchildren     = '$date, <strong>$actor</strong> created a child task <strong>$extra</strong>。' . "\n";
 $lang->action->desc->linkchildtask      = '$date, <strong>$actor</strong> linked a child task <strong>$extra</strong>。' . "\n";
@@ -1495,11 +1496,11 @@ $lang->block->myProduct      = '' . $lang->productCommon . 's';
 $lang->block->delayed        = 'Delayed';
 $lang->block->noData         = 'No data on this type of reports.';
 $lang->block->emptyTip       = 'No data.';
-$lang->block->createdTodo    = 'The Number Of Todos Created';
-$lang->block->createdStory   = 'The Number Of Stories Created';
-$lang->block->finishedTask   = 'The Number Of Tasks Resolved';
-$lang->block->resolvedBug    = 'The Number Of Bugs Resolved';
-$lang->block->createdCase    = 'The Number Of Test Case Created';
+$lang->block->createdTodos   = 'Todos Created';
+$lang->block->createdStories = 'Stories Created';
+$lang->block->finishedTasks  = 'Tasks Finished';
+$lang->block->resolvedBugs   = 'Bugs Resolved';
+$lang->block->createdCases   = 'Cases Created';
 $lang->block->waterfall      = 'CMMI 3';
 $lang->block->scrum          = 'Scrum+';
 $lang->block->allProject     = 'All ' . $lang->projectCommon;
@@ -4066,7 +4067,7 @@ $lang->issue->resolveMethods['resolved'] = 'Resolved';
 $lang->issue->resolveMethods['totask']   = 'To Task';
 $lang->issue->resolveMethods['tobug']    = 'To Bug';
 $lang->issue->resolveMethods['tostory']  = 'To Story';
-$lang->issue->resolveMethods['torisk']   = 'To Risk'; 
+$lang->issue->resolveMethods['torisk']   = 'To Risk';
 
 $lang->issue->confirmDelete = 'Do you want to delete this issue?';
 
@@ -7573,11 +7574,11 @@ $lang->user->passwordStrengthList[2] = "<span style='color:green'>Strong</span>"
 $lang->user->statusList['active'] = 'Active';
 $lang->user->statusList['delete'] = 'Deleted';
 
-$lang->user->personalData['createdTodo']  = 'Todos Created';
-$lang->user->personalData['createdStory'] = 'Stories Created';
-$lang->user->personalData['finishedTask'] = 'Tasks Finished';
-$lang->user->personalData['resolvedBug']  = 'Bugs Resolved';
-$lang->user->personalData['createdCase']  = 'Cases Created';
+$lang->user->personalData['createdTodos']   = 'Todos Created';
+$lang->user->personalData['createdStories'] = 'Stories Created';
+$lang->user->personalData['finishedTasks']  = 'Tasks Finished';
+$lang->user->personalData['resolvedBugs']   = 'Bugs Resolved';
+$lang->user->personalData['createdCases']   = 'Cases Created';
 
 $lang->user->keepLogin['on']      = 'Keep Login';
 $lang->user->loginWithDemoUser    = 'Login as Demo User:';

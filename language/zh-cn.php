@@ -979,6 +979,7 @@ $lang->action->desc->diff1          = '修改了 <strong><i>%s</i></strong>，�
 $lang->action->desc->diff2          = '修改了 <strong><i>%s</i></strong>，区别为：' . "\n" . "<blockquote class='textdiff'>%s</blockquote>" . "\n<blockquote class='original'>%s</blockquote>";
 $lang->action->desc->diff3          = '将文件名 %s 改为 %s 。' . "\n";
 $lang->action->desc->linked2bug     = '$date 由 <strong>$actor</strong> 关联到版本 <strong>$extra</strong>';
+$lang->action->desc->resolved       = '$date, 由 <strong>$actor</strong> 解决。' . "\n";
 
 $lang->action->desc->createchildren     = '$date, 由 <strong>$actor</strong> 创建子任务 <strong>$extra</strong>。' . "\n";
 $lang->action->desc->linkchildtask      = '$date, 由 <strong>$actor</strong> 关联子任务 <strong>$extra</strong>。' . "\n";
@@ -1495,11 +1496,11 @@ $lang->block->myProduct      = '未关闭的' . $lang->productCommon;
 $lang->block->delayed        = '已延期';
 $lang->block->noData         = '当前统计类型下暂无数据';
 $lang->block->emptyTip       = '暂无信息';
-$lang->block->createdTodo    = '创建的待办数';
-$lang->block->createdStory   = '创建的软件需求数';
-$lang->block->finishedTask   = '完成的任务数';
-$lang->block->resolvedBug    = '解决的Bug数';
-$lang->block->createdCase    = '创建的用例数';
+$lang->block->createdTodos   = '创建的待办数';
+$lang->block->createdStories = '创建的软件需求数';
+$lang->block->finishedTasks  = '完成的任务数';
+$lang->block->resolvedBugs   = '解决的Bug数';
+$lang->block->createdCases   = '创建的用例数';
 $lang->block->waterfall      = 'CMMI 3';
 $lang->block->scrum          = 'Scrum+';
 $lang->block->allProject     = '所有' . $lang->projectCommon;
@@ -4066,7 +4067,7 @@ $lang->issue->resolveMethods['resolved'] = '已解决';
 $lang->issue->resolveMethods['totask']   = '转任务';
 $lang->issue->resolveMethods['tobug']    = '转BUG';
 $lang->issue->resolveMethods['tostory']  = '转需求';
-$lang->issue->resolveMethods['torisk']   = '转风险'; 
+$lang->issue->resolveMethods['torisk']   = '转风险';
 
 $lang->issue->confirmDelete = '您确认删除该问题？';
 
@@ -7619,11 +7620,11 @@ $lang->user->passwordStrengthList[2] = "<span style='color:green'>强</span>";
 $lang->user->statusList['active'] = '正常';
 $lang->user->statusList['delete'] = '删除';
 
-$lang->user->personalData['createdTodo']  = '创建的待办数';
-$lang->user->personalData['createdStory'] = "创建的{$lang->storyCommon}数";
-$lang->user->personalData['finishedTask'] = '完成的任务数';
-$lang->user->personalData['resolvedBug']  = '解决的Bug数';
-$lang->user->personalData['createdCase']  = '创建的用例数';
+$lang->user->personalData['createdTodos']   = '创建的待办数';
+$lang->user->personalData['createdStories'] = "创建的{$lang->storyCommon}数";
+$lang->user->personalData['finishedTasks']  = '完成的任务数';
+$lang->user->personalData['resolvedBugs']   = '解决的Bug数';
+$lang->user->personalData['createdCases']   = '创建的用例数';
 
 $lang->user->keepLogin['on']      = '保持登录';
 $lang->user->loginWithDemoUser    = '使用demo帐号登录：';
