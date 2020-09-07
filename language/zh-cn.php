@@ -140,7 +140,7 @@ if(isset($_COOKIE['systemModel']) and $_COOKIE['systemModel'] == 'scrum')
     $lang->system->menu->subject  = array('link' => '科目|subject|browse|');
     $lang->system->menu->holiday  = array('link' => '节假日|holiday|browse|');
     $lang->system->menu->custom   = array('link' => '自定义|custom|configurescrum|');
-    
+
     $lang->mainNav->system = '<i class="icon icon-menu-users"></i> 组织|subject|browse|';
     unset($lang->system->dividerMenu);
 }
@@ -213,10 +213,10 @@ $lang->my->menu->dynamic          = '动态|my|dynamic|';
 global $config;
 if($config->URAndSR)
 {
-    $urCommon = zget($lang, 'urCommon', "用户需求");
-    $srCommon = zget($lang, 'srCommon', "软件需求");
-    $lang->my->menu->requirement = array('link' => "{$urCommon}|my|requirement|", 'subModule' => 'story');
-    $lang->my->menu->story       = array('link' => "{$srCommon}|my|story|", 'subModule' => 'story');
+    $URCommon = zget($lang, 'URCommon', "用户需求");
+    $SRCommon = zget($lang, 'SRCommon', "软件需求");
+    $lang->my->menu->requirement = array('link' => "{$URCommon}|my|requirement|", 'subModule' => 'story');
+    $lang->my->menu->story       = array('link' => "{$SRCommon}|my|story|", 'subModule' => 'story');
 }
 
 $lang->my->dividerMenu = ',program,requirement,dynamic,';
@@ -240,8 +240,8 @@ $lang->product->menu->view    = array('link' => '概况|product|view|productID=%
 
 if($config->URAndSR)
 {
-    $lang->product->menu->requirement = array('link' => "{$urCommon}|product|browse|productID=%s&branch=&browseType=unclosed&param=0&storyType=requirement", 'alias' => 'batchedit', 'subModule' => 'story');
-    $lang->product->menu->story       = array('link' => "{$srCommon}|product|browse|productID=%s", 'alias' => 'batchedit', 'subModule' => 'story');
+    $lang->product->menu->requirement = array('link' => "{$URCommon}|product|browse|productID=%s&branch=&browseType=unclosed&param=0&storyType=requirement", 'alias' => 'batchedit', 'subModule' => 'story');
+    $lang->product->menu->story       = array('link' => "{$SRCommon}|product|browse|productID=%s", 'alias' => 'batchedit', 'subModule' => 'story');
 }
 
 $lang->product->dividerMenu = ',project,doc,';
@@ -776,8 +776,6 @@ $lang->icons['unlock']             = 'unlock-alt';
 $lang->icons['confirmStoryChange'] = 'search';
 $lang->icons['score']              = 'tint';
 
-include (dirname(__FILE__) . '/menuOrder.php');
-
 $lang->menu->waterfall = new stdclass();
 $lang->menu->waterfall->programindex = array('link' => '仪表盘|program|index|program={PROGRAM}');
 $lang->menu->waterfall->programplan  = array('link' => '计划|programplan|browse|program={PROGRAM}', 'subModule' => 'programplan');
@@ -851,13 +849,14 @@ $lang->waterfallproduct->menu->track = '跟踪矩阵|story|track|product={PRODUC
 
 if($config->URAndSR)
 {
-    $lang->waterfallproduct->menu->requirement = array('link' => "{$urCommon}|product|browse|productID={PRODUCT}&branch=&browseType=unclosed&param=0&storyType=requirement");
-    $lang->waterfallproduct->menu->story       = array('link' => "{$srCommon}|product|browse|productID={PRODUCT}");
+    $lang->waterfallproduct->menu->requirement = array('link' => "{$URCommon}|product|browse|productID={PRODUCT}&branch=&browseType=unclosed&param=0&storyType=requirement");
+    $lang->waterfallproduct->menu->story       = array('link' => "{$SRCommon}|product|browse|productID={PRODUCT}");
 }
 
 $lang->nc->menu = $lang->auditplan->menu;
-
 $lang->noMenuModule   = array('my', 'todo', 'effort', 'program', 'attend', 'leave', 'makeup', 'overtime', 'lieu', 'holiday', 'custom', 'auditcl', 'subject', 'admin', 'mail', 'extension', 'dev', 'backup', 'action', 'cron', 'issue', 'risk', 'pssp', 'sms', 'message', 'webhook', 'search');
+
+include (dirname(__FILE__) . '/menuOrder.php');
 /* action */
 $lang->action->common     = '系统日志';
 $lang->action->product    = $lang->productCommon;
@@ -1501,8 +1500,6 @@ $lang->block->createdStories = '创建的软件需求数';
 $lang->block->finishedTasks  = '完成的任务数';
 $lang->block->resolvedBugs   = '解决的Bug数';
 $lang->block->createdCases   = '创建的用例数';
-$lang->block->waterfall      = 'CMMI 3';
-$lang->block->scrum          = 'Scrum+';
 $lang->block->allProject     = '所有' . $lang->projectCommon;
 $lang->block->doingProject   = '进行中的' . $lang->projectCommon;
 $lang->block->finishProject  = '累积' . $lang->projectCommon;
@@ -1510,7 +1507,6 @@ $lang->block->estimatedHours = '预计工时';
 $lang->block->consumedHours  = '已消耗';
 $lang->block->time           = '第';
 $lang->block->week           = '周';
-$lang->block->month          = '月';
 $lang->block->selectProduct  = '选择产品';
 
 $lang->block->params = new stdclass();
@@ -2723,8 +2719,8 @@ $lang->custom->score              = '积分';
 $lang->custom->timezone           = '时区';
 $lang->custom->scoreReset         = '重置积分';
 $lang->custom->scoreTitle         = '积分功能';
-$lang->custom->setscrum           = '区间提示';
-$lang->custom->setWaterfall       = '切换视图';
+$lang->custom->setscrum           = '切换敏捷视图';
+$lang->custom->setWaterfall       = '切换瀑布视图';
 $lang->custom->estimate           = '估算配置';
 $lang->custom->estimateConfig     = '估算配置';
 $lang->custom->estimateUnit       = '估算单位';
@@ -2736,9 +2732,10 @@ $lang->custom->region             = '区间';
 $lang->custom->tips               = '提示语';
 $lang->custom->setTips            = '设置提示语';
 $lang->custom->isRange            = '是否目标控制范围';
-$lang->custom->configureScrum     = '概念';
 $lang->custom->URStory            = "用户需求";
 $lang->custom->SRStory            = "软件需求";
+$lang->custom->epic               = "史诗";
+$lang->custom->scrumStory         = "故事";
 $lang->custom->waterfallCommon    = "瀑布";
 $lang->custom->configureWaterfall = "瀑布自定义";
 $lang->custom->configureScrum     = "敏捷自定义";
@@ -2902,13 +2899,17 @@ $lang->custom->conceptOptions->story['0'] = '需求';
 $lang->custom->conceptOptions->story['1'] = '故事';
 
 $lang->custom->conceptOptions->hourPoint = array();
-$lang->custom->conceptOptions->hourPoint['1'] = '故事点';
-$lang->custom->conceptOptions->hourPoint['2'] = '功能点';
-$lang->custom->conceptOptions->hourPoint['3'] = '代码行';
+$lang->custom->conceptOptions->hourPoint['0'] = '故事点';
+$lang->custom->conceptOptions->hourPoint['1'] = '功能点';
+$lang->custom->conceptOptions->hourPoint['2'] = '代码行';
 
 $lang->custom->waterfall = new stdclass();
-$lang->custom->waterfall->URAndSR  = '是否启用用户需求和软件需求概念？';
+$lang->custom->waterfall->URAndSR  = '是否启用用户需求概念？';
 $lang->custom->waterfall->URSRName = '用户需求和软件需求的概念定义？';
+
+$lang->custom->scrum = new stdclass();
+$lang->custom->scrum->URAndSR  = '是否启用epic概念？';
+$lang->custom->scrum->URSRName = '需求的概念定义？';
 
 $lang->custom->waterfallOptions = new stdclass();
 $lang->custom->waterfallOptions->URAndSR = array();
@@ -2991,6 +2992,7 @@ $lang->design->createdBy     = '由谁创建';
 $lang->design->createdDate   = '创建时间';
 $lang->design->basicInfo     = '基本信息';
 $lang->design->noAssigned    = '未指派';
+$lang->design->comment       = '注释';
 
 $lang->design->common       = '设计';
 $lang->design->create       = '创建设计';
@@ -5037,9 +5039,9 @@ $lang->project->suspend  = "挂起";
 $lang->project->close    = "关闭";
 $lang->project->export   = "导出";
 
-$lang->project->typeList['sprint']    = "短期项目";
-$lang->project->typeList['waterfall'] = "长期项目";
-$lang->project->typeList['ops']       = "运维项目";
+$lang->project->typeList['sprint']    = "短期";
+$lang->project->typeList['waterfall'] = "长期";
+$lang->project->typeList['ops']       = "运维";
 
 $lang->project->endList[7]   = '一星期';
 $lang->project->endList[14]  = '两星期';
@@ -5539,7 +5541,7 @@ $lang->repo->error->noPriv        = '程序没有权限切换到目录 %s';
 $lang->repo->error->output        = "执行命令：%s\n错误结果(%s)： %s\n";
 $lang->repo->error->clientVersion = "客户端版本过低，请升级或更换SVN客户端";
 $lang->repo->error->encoding      = "编码可能错误，请更换编码重试。";
-$lang->repo->error->deleted       = "删除版本库失败，当前版本库已与设计关联提交";
+$lang->repo->error->deleted       = "删除版本库失败，当前版本库有提交记录与设计关联";
 
 $lang->repo->syncTips      = '请参照<a target="_blank" href="https://www.zentao.net/book/zentaopmshelp/207.html">这里</a>，设置版本库定时同步。';
 $lang->repo->encodingsTips = "提交日志的编码，可以用逗号连接起来的多个，比如utf-8。";
@@ -6011,12 +6013,11 @@ $lang->story->createRequirement = "提{$lang->storyCommon}";
 
 if($config->URAndSR)
 {
-    $lang->story->requirement       = zget($lang, 'urCommon', "用户需求");
-    $lang->story->story             = zget($lang, 'srCommon', "软件需求");
+    $lang->story->requirement       = zget($lang, 'URCommon', "用户需求");
+    $lang->story->story             = zget($lang, 'SRCommon', "软件需求");
     $lang->story->createStory       = '添加' . $lang->story->story;
     $lang->story->createRequirement = '添加' . $lang->story->requirement;
     $lang->story->affectedStories   = "影响的{$lang->story->story}";
-    $lang->storyCommon = '需求';
 }
 
 $lang->story->batchCreate       = "批量创建";
@@ -6134,7 +6135,7 @@ $lang->story->allStories     = "所有{$lang->storyCommon}";
 $lang->story->unclosed       = '未关闭';
 $lang->story->deleted        = '已删除';
 $lang->story->released       = "已发布{$lang->storyCommon}数";
-$lang->story->storyChanged   = '用需变更';
+$lang->story->URChanged      = '用需变更';
 $lang->story->design         = '相关设计';
 $lang->story->case           = '相关用例';
 $lang->story->bug            = '相关Bug';

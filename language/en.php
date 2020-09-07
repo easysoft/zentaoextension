@@ -111,7 +111,7 @@ $lang->common->common = 'Common Module';
 
 $lang->mainNav = new stdclass();
 $lang->mainNav->my          = '<i class="icon icon-menu-my"></i> My|my|index|';
-$lang->mainNav->program     = '<i class="icon icon-menu-project"></i> Program|program|index|';
+$lang->mainNav->program     = '<i class="icon icon-menu-project"></i> Program|program|browse|';
 $lang->mainNav->system      = '<i class="icon icon-menu-users"></i> System|custom|estimate|';
 $lang->mainNav->admin       = '<i class="icon icon-menu-backend"></i> Admin|admin|index|';
 
@@ -139,9 +139,9 @@ if(isset($_COOKIE['systemModel']) and $_COOKIE['systemModel'] == 'scrum')
     $lang->system->menu = new stdclass();
     $lang->system->menu->subject  = array('link' => 'Subject|subject|browse|');
     $lang->system->menu->holiday     = array('link' => 'Holiday|holiday|browse|');
-	$lang->system->menu->custom   = array('link' => 'Custom|custom|concept|');
+	$lang->system->menu->custom   = array('link' => 'Custom|custom|configurescrum|');
 
-    $lang->mainNav->system = '<i class="icon icon-menu-users"></i> System|subject|settips|';
+    $lang->mainNav->system = '<i class="icon icon-menu-users"></i> System|subject|browse|';
     unset($lang->system->dividerMenu);
 }
 
@@ -776,8 +776,6 @@ $lang->icons['unlock']             = 'unlock-alt';
 $lang->icons['confirmStoryChange'] = 'search';
 $lang->icons['score']              = 'tint';
 
-include (dirname(__FILE__) . '/menuOrder.php');
-
 $lang->menu->waterfall = new stdclass();
 $lang->menu->waterfall->programindex = array('link' => 'Index|program|index|program={PROGRAM}');
 $lang->menu->waterfall->programplan  = array('link' => 'Plan|programplan|browse|program={PROGRAM}', 'subModule' => 'programplan');
@@ -858,6 +856,9 @@ if($config->URAndSR)
 $lang->nc->menu = $lang->auditplan->menu;
 
 $lang->noMenuModule   = array('my', 'todo', 'effort', 'program', 'attend', 'leave', 'makeup', 'overtime', 'lieu', 'holiday', 'custom', 'auditcl', 'subject', 'admin', 'mail', 'extension', 'dev', 'backup', 'action', 'cron', 'issue', 'risk', 'pssp', 'sms', 'message', 'webhook', 'search');
+
+include (dirname(__FILE__) . '/menuOrder.php');
+
 /* action */
 $lang->action->common     = 'Log';
 $lang->action->product    = $lang->productCommon;
@@ -1501,8 +1502,6 @@ $lang->block->createdStories = 'Stories Created';
 $lang->block->finishedTasks  = 'Tasks Finished';
 $lang->block->resolvedBugs   = 'Bugs Resolved';
 $lang->block->createdCases   = 'Cases Created';
-$lang->block->waterfall      = 'CMMI 3';
-$lang->block->scrum          = 'Scrum+';
 $lang->block->allProject     = 'All ' . $lang->projectCommon;
 $lang->block->doingProject   = 'Doning ' . $lang->projectCommon;
 $lang->block->finishProject  = 'Finish ' . $lang->projectCommon;
@@ -1510,7 +1509,6 @@ $lang->block->estimatedHours = 'Estimated Hours';
 $lang->block->consumedHours  = 'Consumed Hours';
 $lang->block->time           = 'No';
 $lang->block->week           = 'Week';
-$lang->block->month          = 'Month';
 $lang->block->selectProduct  = 'Product selection';
 
 $lang->block->params = new stdclass();
@@ -2723,8 +2721,8 @@ $lang->custom->score              = 'Point';
 $lang->custom->timezone           = 'Timezone';
 $lang->custom->scoreReset         = 'Reset Points';
 $lang->custom->scoreTitle         = 'Point Feature';
-$lang->custom->setscrum           = 'Interval Hint';
-$lang->custom->setWaterfall       = 'Switch Views';
+$lang->custom->setscrum           = 'Switch the scrum view';
+$lang->custom->setWaterfall       = 'Switch the waterfall view';
 $lang->custom->estimate           = 'Estimated configuration';
 $lang->custom->estimateConfig     = 'Estimated configuration';
 $lang->custom->estimateUnit       = 'Estimating Unit';
@@ -2736,9 +2734,10 @@ $lang->custom->region             = 'Interval';
 $lang->custom->tips               = 'Tips';
 $lang->custom->setTips            = 'Set Tips';
 $lang->custom->isRange            = 'Is Target Control';
-$lang->custom->configureScrum     = 'Concept';
 $lang->custom->URStory            = "User requirements";
 $lang->custom->SRStory            = "Software requirements";
+$lang->custom->epic               = "Epic";
+$lang->custom->scrumStory         = "Story";
 $lang->custom->waterfallCommon    = "Waterfall";
 $lang->custom->configureWaterfall = "Waterfall Configure";
 $lang->custom->configureScrum     = "Scrum Configure";
@@ -2902,13 +2901,17 @@ $lang->custom->conceptOptions->story['0'] = 'Requiremenet';
 $lang->custom->conceptOptions->story['1'] = 'Story';
 
 $lang->custom->conceptOptions->hourPoint = array();
-$lang->custom->conceptOptions->hourPoint['1'] = 'Story Point';
-$lang->custom->conceptOptions->hourPoint['2'] = 'Function Ponit';
-$lang->custom->conceptOptions->hourPoint['3'] = 'Code Line';
+$lang->custom->conceptOptions->hourPoint['0'] = 'Story Point';
+$lang->custom->conceptOptions->hourPoint['1'] = 'Function Ponit';
+$lang->custom->conceptOptions->hourPoint['2'] = 'Code Line';
 
 $lang->custom->waterfall = new stdclass();
 $lang->custom->waterfall->URAndSR  = 'Are requirements and stories concepts enabled?';
 $lang->custom->waterfall->URSRName = 'A conceptual definition of requirements and stories?';
+
+$lang->custom->scrum = new stdclass();
+$lang->custom->scrum->URAndSR  = 'Are epic concept enabled?';
+$lang->custom->scrum->URSRName = 'A conceptual definition of epic?';
 
 $lang->custom->waterfallOptions = new stdclass();
 $lang->custom->waterfallOptions->URAndSR = array();
@@ -2991,6 +2994,7 @@ $lang->design->createdBy     = 'CreatedBy';
 $lang->design->createdDate   = 'CreatedDate';
 $lang->design->basicInfo     = 'Basic Information';
 $lang->design->noAssigned    = 'Unassigned';
+$lang->design->comment       = 'Comment';
 
 $lang->design->common       = 'Design';
 $lang->design->create       = 'Create Design';
@@ -4965,7 +4969,6 @@ $lang->programplan->error                  = new stdclass();
 $lang->programplan->error->percentNumber   = '"Workload %" must be digits.';
 $lang->programplan->error->planFinishSmall = 'The "End" date must be > the "Begin" date.';
 $lang->programplan->error->percentOver     = 'The sum of "Workload %" cannot exceed 100%.';
-$lang->programplan->error->onlyOneDev      = 'Only one stage plan can be set for a first-level stage plan.';
 $lang->programplan->error->createdTask     = 'The task has been decomposed. Sub phases cannot be added.';
 /* project */
 $lang->project->common        = $lang->projectCommon;
@@ -5540,7 +5543,7 @@ $lang->repo->error->noPriv        = 'The program does not have the privilege  to
 $lang->repo->error->output        = "The command is: %s\nThe error is(%s): %s\n";
 $lang->repo->error->clientVersion = "Client version is too low, please upgrade or change SVN client";
 $lang->repo->error->encoding      = "The encoding might be wrong. Please change the encoding and try again.";
-$lang->repo->error->deleted       = "Deletion of the repository failed. The current repository has been committed with the design.";
+$lang->repo->error->deleted       = "Deletion of the repository failed. The current repository has a commit record associated with the design.";
 
 $lang->repo->syncTips      = '<strong>You may find the reference about how to set Git sync from <a target="_blank" href="https://www.zentao.pm/book/zentaomanual/free-open-source-project-management-software-git-105.html">here</a>.</strong>';
 $lang->repo->encodingsTips = "The encodings of comments can be comma separated values, e.g. utf-8.";
@@ -6012,12 +6015,11 @@ $lang->story->createRequirement = 'Create Requirement';
 
 if($config->URAndSR)
 {
-    $lang->story->requirement       = zget($lang, 'urCommon', "Requirement");
-    $lang->story->story             = zget($lang, 'srCommon', "Story");
+    $lang->story->requirement       = zget($lang, 'URCommon', "Requirement");
+    $lang->story->story             = zget($lang, 'SRCommon', "Story");
     $lang->story->createStory       = 'Create ' . $lang->story->story;
     $lang->story->createRequirement = 'Create ' . $lang->story->requirement;
     $lang->story->affectedStories   = "Affected {$lang->story->story}";
-    $lang->storyCommon = 'Story';
 }
 
 $lang->story->batchCreate       = "Batch Create";
@@ -6135,7 +6137,7 @@ $lang->story->allStories     = 'All Stories';
 $lang->story->unclosed       = 'Unclosed';
 $lang->story->deleted        = 'Deleted';
 $lang->story->released       = 'Released Stories';
-$lang->story->storyChanged   = 'Requirement Changed';
+$lang->story->URChanged      = 'Requirement Changed';
 $lang->story->design         = 'Designs';
 $lang->story->case           = 'Cases';
 $lang->story->bug            = 'Bugs';
