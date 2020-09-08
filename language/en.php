@@ -7187,6 +7187,13 @@ $lang->testtask->featureBar['browse']['wait']        = $lang->testtask->wait;
 $lang->testtask->featureBar['browse']['doing']       = $lang->testtask->testing;
 $lang->testtask->featureBar['browse']['blocked']     = $lang->testtask->blocked;
 $lang->testtask->featureBar['browse']['done']        = $lang->testtask->done;
+
+$lang->testtask->unitTag['all']       = 'All';
+$lang->testtask->unitTag['newest']    = 'Recently';
+$lang->testtask->unitTag['thisWeek']  = 'This week';
+$lang->testtask->unitTag['lastWeek']  = 'Last week';
+$lang->testtask->unitTag['thisMonth'] = 'This month';
+$lang->testtask->unitTag['lastMonth'] = 'Last month';
 /* todo */
 $lang->todo->common       = 'Todo';
 $lang->todo->index        = "Home";
