@@ -1541,7 +1541,7 @@ $lang->block->budget          = 'Budget';
 $lang->block->left            = 'Residuals';
 
 $lang->block->default['waterfall']['program']['1']['title']  = $lang->projectCommon . 'Weekly';
-$lang->block->default['waterfall']['program']['1']['block']  = 'Pmmireport';
+$lang->block->default['waterfall']['program']['1']['block']  = 'waterfallreport';
 $lang->block->default['waterfall']['program']['1']['source'] = 'Program';
 $lang->block->default['waterfall']['program']['1']['grid']   = 8;
 
@@ -7608,6 +7608,7 @@ $lang->user->placeholder->role      = "Role is related to content and user listi
 $lang->user->placeholder->group     = "Group is related to user privileges.";
 $lang->user->placeholder->commiter  = 'SVN/Git account';
 $lang->user->placeholder->verify    = 'Please enter your login password.';
+$lang->user->placeholder->password  = '>= 6 letters and numbers';
 
 $lang->user->placeholder->passwordStrength[1] = '>= 6 letters and numbers';
 $lang->user->placeholder->passwordStrength[2] = '>= 10 letters, numbers and special characters';
