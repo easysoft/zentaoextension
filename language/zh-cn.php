@@ -201,7 +201,7 @@ $lang->my = new stdclass();
 $lang->my->menu = new stdclass();
 
 $lang->my->menu->index            = '首页|my|index';
-$lang->my->menu->todo             = '待办|my|todo|';
+$lang->my->menu->calendar         = array('link' => '日程|my|calendar|', 'subModule' => 'todo', 'alias' => 'todo');
 $lang->my->menu->program          = array('link' => '项目|my|program|');
 $lang->my->menu->task             = array('link' => '任务|my|task|', 'subModule' => 'task');
 $lang->my->menu->bug              = array('link' => 'Bug|my|bug|', 'subModule' => 'bug');
@@ -7646,7 +7646,6 @@ $lang->user->placeholder->role        = '职位影响内容和用户列表的顺
 $lang->user->placeholder->group       = '分组决定用户的权限列表。';
 $lang->user->placeholder->commiter    = '版本控制系统(subversion)中的帐号';
 $lang->user->placeholder->verify      = '请输入您的系统登录密码';
-$lang->user->placeholder->password    = '请设置您的密码。数字和字母的组合，六位以上。';
 
 $lang->user->placeholder->passwordStrength[1] = '6位以上，包含大小写字母，数字。';
 $lang->user->placeholder->passwordStrength[2] = '10位以上，包含大小写字母，数字，特殊字符。';
