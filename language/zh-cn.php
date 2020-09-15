@@ -110,13 +110,19 @@ $lang->common = new stdclass();
 $lang->common->common = '公有模块';
 
 $lang->mainNav = new stdclass();
-$lang->mainNav->my        = '<i class="icon icon-menu-my"></i> 地盘|my|index|';
-$lang->mainNav->program   = '<i class="icon icon-menu-project"></i> 项目|program|browse|';
-$lang->mainNav->system    = '<i class="icon icon-menu-users"></i> 组织|custom|estimate|';
-$lang->mainNav->admin     = '<i class="icon icon-menu-backend"></i> 后台|admin|index|';
+$lang->mainNav->my         = '<i class="icon icon-menu-my"></i> 地盘|my|index|';
+$lang->mainNav->programset = '<i class="icon icon-menu-project"></i> 项目集|programset|index|';
+$lang->mainNav->program    = '<i class="icon icon-menu-project"></i> 项目|program|browse|';
+$lang->mainNav->system     = '<i class="icon icon-menu-users"></i> 组织|custom|estimate|';
+$lang->mainNav->admin      = '<i class="icon icon-menu-backend"></i> 后台|admin|index|';
 
 $lang->reporting = new stdclass();
 $lang->dividerMenu = ',admin,';
+
+$lang->programset = new stdclass();
+$lang->programset->menu = new stdclass();
+$lang->programset->menu->index   = '主页|programset|index|';
+$lang->programset->menu->browse  = '项目集|programset|browse|';
 
 $lang->menu = new stdclass();
 $lang->menu->program = '仪表盘|program|index|';
@@ -854,7 +860,7 @@ if($config->URAndSR)
 }
 
 $lang->nc->menu = $lang->auditplan->menu;
-$lang->noMenuModule   = array('my', 'todo', 'effort', 'program', 'attend', 'leave', 'makeup', 'overtime', 'lieu', 'holiday', 'custom', 'auditcl', 'subject', 'admin', 'mail', 'extension', 'dev', 'backup', 'action', 'cron', 'issue', 'risk', 'pssp', 'sms', 'message', 'webhook', 'search');
+$lang->noMenuModule   = array('my', 'todo', 'effort', 'program', 'programset', 'attend', 'leave', 'makeup', 'overtime', 'lieu', 'holiday', 'custom', 'auditcl', 'subject', 'admin', 'mail', 'extension', 'dev', 'backup', 'action', 'cron', 'issue', 'risk', 'pssp', 'sms', 'message', 'webhook', 'search');
 
 include (dirname(__FILE__) . '/menuOrder.php');
 /* action */
