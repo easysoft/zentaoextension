@@ -51,6 +51,7 @@ $lang->required     = '必填';
 $lang->noData       = '暂无';
 $lang->fullscreen   = '全屏';
 $lang->retrack      = '收起';
+$lang->recent       = '近期';
 
 $lang->actions         = '操作';
 $lang->restore         = '恢复默认';
@@ -111,18 +112,27 @@ $lang->common->common = '公有模块';
 
 $lang->mainNav = new stdclass();
 $lang->mainNav->my         = '<i class="icon icon-menu-my"></i> 地盘|my|index|';
-$lang->mainNav->programset = '<i class="icon icon-menu-project"></i> 项目集|programset|index|';
-$lang->mainNav->program    = '<i class="icon icon-menu-project"></i> 项目|program|browse|';
+$lang->mainNav->program    = '<i class="icon icon-menu-project"></i> 项目集|program|pgmindex|';
+$lang->mainNav->product    = '<i class="icon icon-menu-project"></i> 产品|product|productlist|';
+$lang->mainNav->project    = '<i class="icon icon-menu-doc"></i> 项目|program|prjbrowse|';
 $lang->mainNav->system     = '<i class="icon icon-menu-users"></i> 组织|custom|estimate|';
 $lang->mainNav->admin      = '<i class="icon icon-menu-backend"></i> 后台|admin|index|';
 
 $lang->reporting = new stdclass();
 $lang->dividerMenu = ',admin,';
 
-$lang->programset = new stdclass();
-$lang->programset->menu = new stdclass();
-$lang->programset->menu->index   = '主页|programset|index|';
-$lang->programset->menu->browse  = '项目集|programset|browse|';
+$lang->program = new stdclass();
+$lang->program->menu = new stdclass();
+$lang->program->menu->index   = '主页|program|pgmindex|';
+$lang->program->menu->browse  = '项目集|program|pgmbrowse|';
+
+$lang->productlist = new stdclass();
+$lang->productlist->menu = new stdclass();
+$lang->productlist->menu->productlist = '产品|product|productlist|';
+
+$lang->projectlist = new stdclass();
+$lang->projectlist->menu = new stdclass();
+$lang->projectlist->menu->projectlist = '项目|project|projectlist|';
 
 $lang->menu = new stdclass();
 $lang->menu->program = '仪表盘|program|index|';
@@ -522,13 +532,14 @@ $lang->navGroup->my     = 'my';
 $lang->navGroup->todo   = 'my';
 $lang->navGroup->effort = 'my';
 
-$lang->navGroup->product     = 'program';
+$lang->navGroup->product     = 'product';
+$lang->navGroup->project     = 'project';
+
 $lang->navGroup->story       = 'program';
 $lang->navGroup->branch      = 'program';
 $lang->navGroup->productplan = 'program';
 $lang->navGroup->release     = 'program';
 $lang->navGroup->tree        = 'program';
-$lang->navGroup->project     = 'program';
 $lang->navGroup->task        = 'program';
 $lang->navGroup->qa          = 'program';
 $lang->navGroup->bug         = 'program';
@@ -860,7 +871,7 @@ if($config->URAndSR)
 }
 
 $lang->nc->menu = $lang->auditplan->menu;
-$lang->noMenuModule   = array('my', 'todo', 'effort', 'program', 'programset', 'attend', 'leave', 'makeup', 'overtime', 'lieu', 'holiday', 'custom', 'auditcl', 'subject', 'admin', 'mail', 'extension', 'dev', 'backup', 'action', 'cron', 'issue', 'risk', 'pssp', 'sms', 'message', 'webhook', 'search');
+$lang->noMenuModule   = array('my', 'todo', 'effort', 'program', 'attend', 'leave', 'makeup', 'overtime', 'lieu', 'holiday', 'custom', 'auditcl', 'subject', 'admin', 'mail', 'extension', 'dev', 'backup', 'action', 'cron', 'issue', 'risk', 'pssp', 'sms', 'message', 'webhook', 'search');
 
 include (dirname(__FILE__) . '/menuOrder.php');
 /* action */
@@ -2146,6 +2157,7 @@ $lang->bug->allBugs            = '所有';
 $lang->bug->byQuery            = '搜索';
 $lang->bug->needConfirm        = "{$lang->storyCommon}变动";
 $lang->bug->allProduct         = '所有' . $lang->productCommon;
+$lang->bug->allProject         = '所有' . $lang->prodjetCommon;
 $lang->bug->my                 = '我的';
 $lang->bug->yesterdayResolved  = '昨天解决Bug数';
 $lang->bug->yesterdayConfirmed = '昨天确认';
@@ -3631,7 +3643,7 @@ $lang->group->managePrivByGroup  = '权限维护';
 $lang->group->managePrivByModule = '按模块分配权限';
 $lang->group->byModuleTips       = '<span class="tips">（可以按住Shift或者Ctrl键进行多选）</span>';
 $lang->group->manageMember       = '成员维护';
-$lang->group->managePgmAdmin     = '维护项目管理员';
+$lang->group->managePRJadmin     = '维护项目管理员';
 $lang->group->confirmDelete      = '您确定删除该用户分组吗？';
 $lang->group->successSaved       = '成功保存';
 $lang->group->errorNotSaved      = '没有保存，请确认选择了权限数据。';
@@ -4603,6 +4615,8 @@ $lang->product->orderAction  = "{$lang->productCommon}排序";
 $lang->product->all          = "所有{$lang->productCommon}";
 $lang->product->export       = '导出数据';
 $lang->product->exportAction = "导出{$lang->productCommon}";
+$lang->product->stack        = '项目集';
+$lang->product->createstack  = '创建项目集';
 
 $lang->product->basicInfo = '基本信息';
 $lang->product->otherInfo = '其他信息';
@@ -4802,71 +4816,70 @@ $lang->productplan->featureBar['browse']['all']       = '全部';
 $lang->productplan->featureBar['browse']['unexpired'] = '未过期';
 $lang->productplan->featureBar['browse']['overdue']   = '已过期';
 /* program */
-$lang->program->index             = '仪表盘';
-$lang->program->create            = '添加项目';
-$lang->program->createGuide       = '选择项目模板';
-$lang->program->edit              = '编辑项目';
-$lang->program->browse            = '项目列表';
-$lang->program->all               = '所有项目';
-$lang->program->start             = '启动项目';
-$lang->program->finish            = '完成项目';
-$lang->program->suspend           = '挂起项目';
-$lang->program->delete            = '删除项目';
-$lang->program->close             = '关闭项目';
-$lang->program->activate          = '激活项目';
-$lang->program->group             = '权限分组';
-$lang->program->createGroup       = '创建分组';
-$lang->program->editGroup         = '编辑分组';
-$lang->program->copyGroup         = '复制分组';
-$lang->program->manageView        = '维护视图';
-$lang->program->managePriv        = '维护权限';
-$lang->program->manageMembers     = '项目团队';
-$lang->program->export            = '导出';
-$lang->program->manageGroupMember = '维护分组用户';
+$lang->program->index                = '仪表盘';
+$lang->program->PRJCreateGuide       = '选择项目模板';
+$lang->program->PRJEdit              = '编辑项目';
+$lang->program->PRJBrowse            = '项目列表';
+$lang->program->PRJAll               = '所有项目';
+$lang->program->PRJStart             = '启动项目';
+$lang->program->PRJFinish            = '完成项目';
+$lang->program->PRJSuspend           = '挂起项目';
+$lang->program->PRJDelete            = '删除项目';
+$lang->program->PRJClose             = '关闭项目';
+$lang->program->PRJActivate          = '激活项目';
+$lang->program->PRJGroup             = '权限分组';
+$lang->program->PRJCreateGroup       = '创建分组';
+$lang->program->PRJEditGroup         = '编辑分组';
+$lang->program->PRJCopyGroup         = '复制分组';
+$lang->program->PRJManageView        = '维护视图';
+$lang->program->PRJManagePriv        = '维护权限';
+$lang->program->PRJManageMembers     = '项目团队';
+$lang->program->PRJExport            = '导出';
+$lang->program->PRJManageGroupMember = '维护分组用户';
 
-$lang->program->common             = '项目';
+$lang->program->PRJCommon          = '项目';
 $lang->program->stage              = '阶段';
-$lang->program->name               = '项目名称';
-$lang->program->template           = '项目模板';
-$lang->program->category           = '项目类型';
-$lang->program->desc               = '项目描述';
-$lang->program->code               = '项目代号';
-$lang->program->copy               = '复制项目';
+$lang->program->PRJName            = '项目名称';
+$lang->program->PRJTemplate        = '项目模板';
+$lang->program->PRJCategory        = '项目类型';
+$lang->program->PRJDesc            = '项目描述';
+$lang->program->PRJCode            = '项目代号';
+$lang->program->PRJCopy            = '复制项目';
 $lang->program->begin              = '计划开始日期';
 $lang->program->end                = '计划完成日期';
-$lang->program->status             = '项目状态';
-$lang->program->PM                 = '项目负责人';
-$lang->program->budget             = '项目预算';
+$lang->program->PRJStatus          = '项目状态';
+$lang->program->PRJPM              = '项目负责人';
+$lang->program->PRJBudget          = '项目预算';
 $lang->program->dateRange          = '起止时间';
 $lang->program->to                 = '至';
-$lang->program->realFinished       = '实际完成日期';
-$lang->program->realStarted        = '实际开始日期';
+$lang->program->realEnd            = '实际完成日期';
+$lang->program->realBegan          = '实际开始日期';
 $lang->program->bygrid             = '看板';
 $lang->program->bylist             = '列表';
 $lang->program->mine               = '我参与的';
 $lang->program->setPlanduration    = '设置工期';
 $lang->program->privway            = '权限控制';
 $lang->program->durationEstimation = '工作量估算';
-$lang->program->progress           = '项目进度';
+$lang->program->PRJProgress        = '项目进度';
 $lang->program->teamCount          = '投入人数';
 $lang->program->leftStories        = '剩余需求';
 $lang->program->leftTasks          = '剩余任务';
 $lang->program->leftBugs           = '剩余Bug';
-$lang->program->children           = '子项目';
-$lang->program->parent             = '父项目';
+$lang->program->PRJChildren        = '子项目';
+$lang->program->PRJParent          = '父项目';
 $lang->program->allStories         = '总需求';
 $lang->program->doneStories        = '已完成';
 $lang->program->leftStories        = '剩余需求';
-$lang->program->allInput           = '项目总投入';
-$lang->program->weekly             = '项目周报';
+$lang->program->PRJAllInput        = '项目总投入';
+$lang->program->PRJWeekly          = '项目周报';
 $lang->program->pv                 = 'PV';
 $lang->program->ev                 = 'EV';
 $lang->program->sv                 = 'SV%';
 $lang->program->ac                 = 'AC';
 $lang->program->cv                 = 'CV%';
-$lang->program->pm                 = '项目负责人';
-$lang->program->teamCount          = '项目成员';
-$lang->program->longTime           = '长期项目';
+$lang->program->PRJPm              = '项目负责人';
+$lang->program->PRJTeamCount       = '项目成员';
+$lang->program->PRJLongTime        = '长期项目';
 
 $lang->program->unitList[''] = '';
 $lang->program->unitList['yuan']   = '元';
@@ -4875,8 +4888,8 @@ $lang->program->unitList['dollar'] = 'Dollars';
 $lang->program->templateList['scrum']     = "Scrum";
 $lang->program->templateList['waterfall'] = "瀑布";
 
-$lang->program->categoryList['single']   = "单产品项目";
-$lang->program->categoryList['multiple'] = "多产品项目";
+$lang->program->PRJCategoryList['single']   = "单产品项目";
+$lang->program->PRJCategoryList['multiple'] = "多产品项目";
 
 $lang->program->featureBar['all']       = '所有';
 $lang->program->featureBar['doing']     = '进行中';
@@ -4884,19 +4897,19 @@ $lang->program->featureBar['wait']      = '未开始';
 $lang->program->featureBar['suspended'] = '已挂起';
 $lang->program->featureBar['closed']    = '已关闭';
 
-$lang->program->aclList['open']    = "默认设置(有项目视图权限，即可访问)";
-$lang->program->aclList['private'] = "私有项目(只有项目团队成员才能访问)";
-$lang->program->aclList['custom']  = "自定义白名单(团队成员和白名单的成员可以访问)";
+$lang->program->PRJAclList['open']    = "默认设置(有项目视图权限，即可访问)";
+$lang->program->PRJAclList['private'] = "私有项目(只有项目团队成员才能访问)";
+$lang->program->PRJAclList['custom']  = "自定义白名单(团队成员和白名单的成员可以访问)";
 
-$lang->program->privwayList['extend'] = '继承(取项目权限与组织权限的并集)';
-$lang->program->privwayList['reset']  = '重新定义(只取项目权限)';
+$lang->program->PRJPrivwayList['extend'] = '继承(取项目权限与组织权限的并集)';
+$lang->program->PRJPrivwayList['reset']  = '重新定义(只取项目权限)';
 
 $lang->program->statusList['wait']      = '未开始';
 $lang->program->statusList['doing']     = '进行中';
 $lang->program->statusList['suspended'] = '已挂起';
 $lang->program->statusList['closed']    = '已关闭';
 
-$lang->program->noProgram         = '暂时没有项目';
+$lang->program->noPRJ             = '暂时没有项目';
 $lang->program->accessDenied      = '您无权访问该项目！';
 $lang->program->chooseProgramType = '选择项目管理方式';
 $lang->program->nextStep          = '下一步';
@@ -4921,6 +4934,46 @@ $lang->program->endGreaterParent  = "父项目的完成日期：%s，完成日�
 $lang->program->beginGreateChild  = "子项目的最小开始日期：%s，父项目的开始日期不能大于子项目的最小开始日期";
 $lang->program->endLetterChild    = "子项目的最大完成日期：%s，父项目的完成日期不能小于子项目的最大完成日期";
 $lang->program->childLongTime     = "子项目中有长期项目，父项目也应该是长期项目";
+
+$lang->program->PGMIndex             = '仪表盘';
+$lang->program->PGMCreate            = '添加项目集';
+$lang->program->PGMCreateGuide       = '选择项目模板';
+$lang->program->PGMEdit              = '编辑项目集';
+$lang->program->PGMBrowse            = '项目集列表';
+$lang->program->PGMAll               = '所有项目集';
+$lang->program->PGMStart             = '启动项目集';
+$lang->program->PGMFinish            = '完成项目集';
+$lang->program->PGMSuspend           = '挂起项目集';
+$lang->program->PGMDelete            = '删除项目集';
+$lang->program->PGMClose             = '关闭项目集';
+$lang->program->PGMActivate          = '激活项目集';
+$lang->program->PGMGroup             = '权限分组';
+$lang->program->PGMCreateGroup       = '创建分组';
+$lang->program->PGMEditGroup         = '编辑分组';
+$lang->program->PGMCopyGroup         = '复制分组';
+$lang->program->PGMManageView        = '维护视图';
+$lang->program->PGMManagePriv        = '维护权限';
+$lang->program->PGMManageMembers     = '项目集团队';
+$lang->program->PGMExport            = '导出';
+$lang->program->PGMManageGroupMember = '维护分组用户';
+
+$lang->program->PGMName      = '项目集名称';
+$lang->program->PGMTemplate  = '项目集模板';
+$lang->program->PGMCategory  = '项目集类型';
+$lang->program->PGMDesc      = '项目集描述';
+$lang->program->PGMCode      = '项目集代号';
+$lang->program->PGMCopy      = '复制项目集';
+$lang->program->PGMStatus    = '项目集状态';
+$lang->program->PGMPM        = '项目集负责人';
+$lang->program->PGMBudget    = '项目集预算';
+$lang->program->PGMProgress  = '项目进度';
+$lang->program->PGMChildren  = '子项目集';
+$lang->program->PGMParent    = '父项目集';
+$lang->program->PGMAllInput  = '项目集总投入';
+$lang->program->PGMTeamCount = '项目集成员';
+$lang->program->PGMLongTime  = '长期项目';
+
+$lang->program->noPGM = '暂时没有项目集';
 /* programplan */
 $lang->programplan->common = '项目计划';
 
@@ -4944,8 +4997,8 @@ $lang->programplan->taskProgress     = '任务进度';
 $lang->programplan->task             = '任务';
 $lang->programplan->begin            = '计划开始';
 $lang->programplan->end              = '计划完成';
-$lang->programplan->realStarted      = '实际开始';
-$lang->programplan->realFinished     = '实际完成';
+$lang->programplan->realBegan        = '实际开始';
+$lang->programplan->realEnd          = '实际完成';
 $lang->programplan->output           = '输出';
 $lang->programplan->openedBy         = '由谁创建';
 $lang->programplan->openedDate       = '创建日期';
@@ -5040,6 +5093,8 @@ $lang->project->effort        = '日志';
 $lang->project->relatedMember = '相关成员';
 $lang->project->watermark     = '由禅道导出';
 $lang->project->viewByUser    = '按用户查看';
+$lang->project->stack         = '项目集';
+$lang->project->createstack   = '创建项目集';
 
 $lang->project->start    = "开始";
 $lang->project->activate = "激活";
@@ -7484,7 +7539,7 @@ EOD;
 $lang->upgrade->line     = '产品线';
 $lang->upgrade->program  = '归并项目';
 $lang->upgrade->existPGM = '已有项目';
-$lang->upgrade->pgmAdmin = '项目管理员';
+$lang->upgrade->PRJadmin = '项目管理员';
 $lang->upgrade->product  = $lang->productCommon;
 $lang->upgrade->project  = $lang->projectCommon;
 
