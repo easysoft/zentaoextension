@@ -112,7 +112,7 @@ $lang->common->common = '公有模块';
 
 $lang->mainNav = new stdclass();
 $lang->mainNav->my         = '<i class="icon icon-menu-my"></i> 地盘|my|index|';
-$lang->mainNav->program    = '<i class="icon icon-menu-project"></i> 项目集|program|pgmindex|';
+$lang->mainNav->program    = '<i class="icon icon-stack"></i> 项目集|program|pgmindex|';
 $lang->mainNav->product    = '<i class="icon icon-menu-project"></i> 产品|product|productlist|';
 $lang->mainNav->project    = '<i class="icon icon-menu-doc"></i> 项目|program|prjbrowse|';
 $lang->mainNav->system     = '<i class="icon icon-menu-users"></i> 组织|custom|estimate|';
@@ -124,7 +124,7 @@ $lang->dividerMenu = ',admin,';
 $lang->program = new stdclass();
 $lang->program->menu = new stdclass();
 $lang->program->menu->index   = '主页|program|pgmindex|';
-$lang->program->menu->browse  = '项目集|program|pgmbrowse|';
+$lang->program->menu->browse  = array('link' => '项目集|program|pgmbrowse|', 'alias' => 'pgmcreate,pgmedit');
 
 $lang->productlist = new stdclass();
 $lang->productlist->menu = new stdclass();
@@ -1334,18 +1334,19 @@ $lang->action->search->label['verified']            = $lang->action->label->veri
 $lang->action->search->label['login']               = $lang->action->label->login;
 $lang->action->search->label['logout']              = $lang->action->label->logout;
 /* admin */
-$lang->admin->common        = '后台管理';
-$lang->admin->index         = '后台管理首页';
-$lang->admin->checkDB       = '检查数据库';
-$lang->admin->sso           = 'ZDOO集成';
-$lang->admin->ssoAction     = 'ZDOO集成';
-$lang->admin->safeIndex     = '安全';
-$lang->admin->checkWeak     = '弱口令检查';
-$lang->admin->certifyMobile = '认证手机';
-$lang->admin->certifyEmail  = '认证邮箱';
-$lang->admin->ztCompany     = '认证公司';
-$lang->admin->captcha       = '验证码';
-$lang->admin->getCaptcha    = '获取验证码';
+$lang->admin->common         = '后台管理';
+$lang->admin->index          = '后台管理首页';
+$lang->admin->checkDB        = '检查数据库';
+$lang->admin->sso            = 'ZDOO集成';
+$lang->admin->ssoAction      = 'ZDOO集成';
+$lang->admin->safeIndex      = '安全';
+$lang->admin->checkWeak      = '弱口令检查';
+$lang->admin->certifyMobile  = '认证手机';
+$lang->admin->certifyEmail   = '认证邮箱';
+$lang->admin->ztCompany      = '认证公司';
+$lang->admin->captcha        = '验证码';
+$lang->admin->getCaptcha     = '获取验证码';
+$lang->admin->registerAction = '登记';
 
 $lang->admin->api     = '接口';
 $lang->admin->log     = '日志';
@@ -4817,8 +4818,10 @@ $lang->productplan->featureBar['browse']['unexpired'] = '未过期';
 $lang->productplan->featureBar['browse']['overdue']   = '已过期';
 /* program */
 $lang->program->index                = '仪表盘';
+$lang->program->PRJCreate            = '创建项目';
 $lang->program->PRJCreateGuide       = '选择项目模板';
 $lang->program->PRJEdit              = '编辑项目';
+$lang->program->PRJBatchEdit         = '批量编辑';
 $lang->program->PRJBrowse            = '项目列表';
 $lang->program->PRJAll               = '所有项目';
 $lang->program->PRJStart             = '启动项目';
@@ -4836,8 +4839,12 @@ $lang->program->PRJManagePriv        = '维护权限';
 $lang->program->PRJManageMembers     = '项目团队';
 $lang->program->PRJExport            = '导出';
 $lang->program->PRJManageGroupMember = '维护分组用户';
+$lang->program->PGMList              = '项目集';
+$lang->program->PGMCreate            = '创建项目集';
+$lang->program->PRJModuleSetting     = '模块设置';
+$lang->program->PRJModuleOpen        = '列表页是否显示模块名';
 
-$lang->program->PRJCommon          = '项目';
+$lang->program->common             = '项目';
 $lang->program->stage              = '阶段';
 $lang->program->PRJName            = '项目名称';
 $lang->program->PRJTemplate        = '项目模板';
@@ -4858,7 +4865,7 @@ $lang->program->bygrid             = '看板';
 $lang->program->bylist             = '列表';
 $lang->program->mine               = '我参与的';
 $lang->program->setPlanduration    = '设置工期';
-$lang->program->privway            = '权限控制';
+$lang->program->auth               = '权限控制';
 $lang->program->durationEstimation = '工作量估算';
 $lang->program->PRJProgress        = '项目进度';
 $lang->program->teamCount          = '投入人数';
@@ -4901,8 +4908,8 @@ $lang->program->PRJAclList['open']    = "默认设置(有项目视图权限，�
 $lang->program->PRJAclList['private'] = "私有项目(只有项目团队成员才能访问)";
 $lang->program->PRJAclList['custom']  = "自定义白名单(团队成员和白名单的成员可以访问)";
 
-$lang->program->PRJPrivwayList['extend'] = '继承(取项目权限与组织权限的并集)';
-$lang->program->PRJPrivwayList['reset']  = '重新定义(只取项目权限)';
+$lang->program->PRJAuthList['extend'] = '继承(取项目权限与组织权限的并集)';
+$lang->program->PRJAuthList['reset']  = '重新定义(只取项目权限)';
 
 $lang->program->statusList['wait']      = '未开始';
 $lang->program->statusList['doing']     = '进行中';
@@ -4934,6 +4941,36 @@ $lang->program->endGreaterParent  = "父项目的完成日期：%s，完成日�
 $lang->program->beginGreateChild  = "子项目的最小开始日期：%s，父项目的开始日期不能大于子项目的最小开始日期";
 $lang->program->endLetterChild    = "子项目的最大完成日期：%s，父项目的完成日期不能小于子项目的最大完成日期";
 $lang->program->childLongTime     = "子项目中有长期项目，父项目也应该是长期项目";
+
+$lang->program->PRJModuleStatus['0']    = '不显示';
+$lang->program->PRJModuleStatus['base'] = '只显示一级模块';
+$lang->program->PRJModuleStatus['end']  = '只显示最后一级模块';
+
+$lang->program->PRJNoProgram         = '暂时没有项目';
+$lang->program->PRJAccessDenied      = '您无权访问该项目！';
+$lang->program->PRJChooseProgramType = '选择项目管理方式';
+$lang->program->nextStep             = '下一步';
+$lang->program->hoursUnit            = '%s工时';
+$lang->program->membersUnit          = '%s人';
+$lang->program->lastIteration        = '近期迭代';
+$lang->program->ongoingStage         = '进行中的阶段';
+$lang->program->scrum                = 'Scrum';
+$lang->program->scrumTitle           = '敏捷开发全流程项目管理';
+$lang->program->waterfall            = '瀑布';
+$lang->program->waterfallTitle       = '瀑布式项目管理';
+$lang->program->PRJCannotCreateChild = '该项目已经有实际的内容，无法直接添加子项目。您可以为当前项目创建一个父项目，然后在新的父项目下面添加子项目。';
+$lang->program->PRJHasChildren       = '该项目有子项目存在，不能删除。';
+$lang->program->PRJConfirmDelete     = "您确定删除项目[%s]吗？";
+$lang->program->emptyPM              = '暂无';
+$lang->program->PRJCannotChangeToCat = "该项目已经有实际的内容，无法修改为父项目";
+$lang->program->PRJCannotCancelCat   = "该项目下已经有子项目，无法取消父项目标记";
+$lang->program->PRJParentBeginEnd    = "父项目起止时间：%s ~ %s";
+$lang->program->PRJParentBudget      = "父项目预算：%s";
+$lang->program->PRJBeginLetterParent = "父项目的开始日期：%s，开始日期不能小于父项目的开始日期";
+$lang->program->PRJEndGreaterParent  = "父项目的完成日期：%s，完成日期不能大于父项目的完成日期";
+$lang->program->PRJBeginGreateChild  = "子项目的最小开始日期：%s，父项目的开始日期不能大于子项目的最小开始日期";
+$lang->program->PRJEndLetterChild    = "子项目的最大完成日期：%s，父项目的完成日期不能小于子项目的最大完成日期";
+$lang->program->PRJChildLongTime     = "子项目中有长期项目，父项目也应该是长期项目";
 
 $lang->program->PGMIndex             = '仪表盘';
 $lang->program->PGMCreate            = '添加项目集';
@@ -4973,7 +5010,17 @@ $lang->program->PGMAllInput  = '项目集总投入';
 $lang->program->PGMTeamCount = '项目集成员';
 $lang->program->PGMLongTime  = '长期项目';
 
-$lang->program->noPGM = '暂时没有项目集';
+$lang->program->noPGM         = '暂时没有项目集';
+$lang->program->PGMShowClosed = '显示已关闭';
+
+$lang->program->PGMAclList['open']    = "默认设置(有项目视图权限，即可访问)";
+$lang->program->PGMAclList['private'] = "私有项目(只有项目团队成员才能访问)";
+$lang->program->PGMAclList['custom']  = "自定义白名单(团队成员和白名单的成员可以访问)";
+
+$lang->program->PGMAuthList['extend'] = '继承(取项目权限与组织权限的并集)';
+$lang->program->PGMAuthList['reset']  = '重新定义(只取项目权限)';
+
+$lang->program->PGMFeatureBar['all']    = '所有';
 /* programplan */
 $lang->programplan->common = '项目计划';
 
@@ -5093,8 +5140,6 @@ $lang->project->effort        = '日志';
 $lang->project->relatedMember = '相关成员';
 $lang->project->watermark     = '由禅道导出';
 $lang->project->viewByUser    = '按用户查看';
-$lang->project->stack         = '项目集';
-$lang->project->createstack   = '创建项目集';
 
 $lang->project->start    = "开始";
 $lang->project->activate = "激活";
