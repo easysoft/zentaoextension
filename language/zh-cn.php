@@ -126,6 +126,11 @@ $lang->program->menu = new stdclass();
 $lang->program->menu->index   = '主页|program|pgmindex|';
 $lang->program->menu->browse  = array('link' => '项目集|program|pgmbrowse|', 'alias' => 'pgmcreate,pgmedit');
 
+$lang->program->viewMenu = new stdclass();
+$lang->program->viewMenu->view    = '概况|program|pgmview|program=%s';
+$lang->program->viewMenu->product = array('link' => '产品|program|pgmproduct|program=%s');
+$lang->program->viewMenu->project = array('link' => "$lang->projectCommon|program|pgmproject|program=%s");
+
 $lang->productlist = new stdclass();
 $lang->productlist->menu = new stdclass();
 $lang->productlist->menu->productlist = '产品|product|productlist|';
@@ -3934,7 +3939,7 @@ $lang->install->promotion      = "为您推荐易软天创旗下其他产品："
 $lang->install->chanzhi        = new stdclass();
 $lang->install->chanzhi->name  = '蝉知门户';
 $lang->install->chanzhi->logo  = 'images/main/chanzhi.ico';
-$lang->install->chanzhi->url   = 'http://www.chanzhi.org';
+$lang->install->chanzhi->url   = 'http://www.zsite.com';
 $lang->install->chanzhi->desc  = <<<EOD
 <ul>
   <li>专业的企业营销门户系统</li>
@@ -3960,7 +3965,7 @@ EOD;
 $lang->install->xuanxuan = new stdclass();
 $lang->install->xuanxuan->name  = '喧喧聊天';
 $lang->install->xuanxuan->logo  = 'images/main/xuanxuan.ico';
-$lang->install->xuanxuan->url   = 'http://www.xuan.im';
+$lang->install->xuanxuan->url   = 'http://www.xuanim.com';
 $lang->install->xuanxuan->desc  = <<<EOD
 <ul>
   <li>轻：轻量级架构，容易部署</li>
@@ -4839,8 +4844,6 @@ $lang->program->PRJManagePriv        = '维护权限';
 $lang->program->PRJManageMembers     = '项目团队';
 $lang->program->PRJExport            = '导出';
 $lang->program->PRJManageGroupMember = '维护分组用户';
-$lang->program->PGMList              = '项目集';
-$lang->program->PGMCreate            = '创建项目集';
 $lang->program->PRJModuleSetting     = '模块设置';
 $lang->program->PRJModuleOpen        = '列表页是否显示模块名';
 
@@ -4877,8 +4880,8 @@ $lang->program->PRJParent          = '父项目';
 $lang->program->allStories         = '总需求';
 $lang->program->doneStories        = '已完成';
 $lang->program->leftStories        = '剩余需求';
-$lang->program->PRJAllInput        = '项目总投入';
-$lang->program->PRJWeekly          = '项目周报';
+$lang->program->allInput           = '项目总投入';
+$lang->program->weekly             = '项目周报';
 $lang->program->pv                 = 'PV';
 $lang->program->ev                 = 'EV';
 $lang->program->sv                 = 'SV%';
@@ -4941,6 +4944,7 @@ $lang->program->endGreaterParent  = "父项目的完成日期：%s，完成日�
 $lang->program->beginGreateChild  = "子项目的最小开始日期：%s，父项目的开始日期不能大于子项目的最小开始日期";
 $lang->program->endLetterChild    = "子项目的最大完成日期：%s，父项目的完成日期不能小于子项目的最大完成日期";
 $lang->program->childLongTime     = "子项目中有长期项目，父项目也应该是长期项目";
+$lang->program->readjustTime      = '重新调整项目起止时间';
 
 $lang->program->PRJModuleStatus['0']    = '不显示';
 $lang->program->PRJModuleStatus['base'] = '只显示一级模块';
@@ -4968,11 +4972,12 @@ $lang->program->PRJParentBeginEnd    = "父项目起止时间：%s ~ %s";
 $lang->program->PRJParentBudget      = "父项目预算：%s";
 $lang->program->PRJBeginLetterParent = "父项目的开始日期：%s，开始日期不能小于父项目的开始日期";
 $lang->program->PRJEndGreaterParent  = "父项目的完成日期：%s，完成日期不能大于父项目的完成日期";
-$lang->program->PRJBeginGreateChild  = "子项目的最小开始日期：%s，父项目的开始日期不能大于子项目的最小开始日期";
-$lang->program->PRJEndLetterChild    = "子项目的最大完成日期：%s，父项目的完成日期不能小于子项目的最大完成日期";
+$lang->program->PRJBeginGreateChild  = "项目的最小开始日期：%s，项目集的开始日期不能大于项目的最小开始日期";
+$lang->program->PRJEndLetterChild    = "项目的最大完成日期：%s，项目集的完成日期不能小于项目的最大完成日期";
 $lang->program->PRJChildLongTime     = "子项目中有长期项目，父项目也应该是长期项目";
 
-$lang->program->PGMIndex             = '仪表盘';
+$lang->program->PGMCommon            = '项目集';
+$lang->program->PGMHome              = '项目集主页';
 $lang->program->PGMCreate            = '添加项目集';
 $lang->program->PGMCreateGuide       = '选择项目模板';
 $lang->program->PGMEdit              = '编辑项目集';
@@ -4983,6 +4988,7 @@ $lang->program->PGMFinish            = '完成项目集';
 $lang->program->PGMSuspend           = '挂起项目集';
 $lang->program->PGMDelete            = '删除项目集';
 $lang->program->PGMClose             = '关闭项目集';
+$lang->program->PGMView              = '项目集概况';
 $lang->program->PGMActivate          = '激活项目集';
 $lang->program->PGMGroup             = '权限分组';
 $lang->program->PGMCreateGroup       = '创建分组';
@@ -6672,6 +6678,7 @@ $lang->task->deniedNotice          = '当前任务只有%s才可以%s。';
 $lang->task->noTask                = '暂时没有任务。';
 $lang->task->createDenied          = '你不能在该项目添加任务';
 $lang->task->cannotDeleteParent    = '不能删除父任务。';
+$lang->task->addChildTask          = '因该任务已经产生消耗，为保证数据一致性，我们会帮您创建一条同名子任务记录该消耗。';
 
 $lang->task->error                    = new stdclass();
 $lang->task->error->totalNumber       = '"总计消耗"必须为数字';
@@ -6692,6 +6699,7 @@ $lang->task->error->deadlineSmall     = '"截止日期"必须大于"预计开始
 $lang->task->error->alreadyStarted    = '此任务已被启动，不能重复启动！';
 $lang->task->error->realStartedEmpty  = '实际开始不能为空';
 $lang->task->error->finishedDateEmpty = '实际完成不能为空';
+$lang->task->error->chooseOtherParent = '当前选中的父任务已有消耗，请选择其他父任务。';
 
 $lang->task->report         = new stdclass();
 $lang->task->report->common = '报表';

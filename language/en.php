@@ -6570,6 +6570,7 @@ $lang->task->deniedNotice          = 'Only the %s can %s the task.';
 $lang->task->noTask                = 'No tasks yet. ';
 $lang->task->createDenied          = 'Create Task is denied in this project';
 $lang->task->cannotDeleteParent    = 'Cannot delete parent task';
+$lang->task->addChildTask          = 'Because the task has already consumed consumption, to ensure data consistency, we will help you create a subtask with the same name to record the consumption.';
 
 $lang->task->error = new stdclass();
 $lang->task->error->totalNumber       = '"Total Cost" must be numbers.';
@@ -6590,6 +6591,7 @@ $lang->task->error->deadlineSmall     = '"Deadline" must be greater than "StartD
 $lang->task->error->alreadyStarted    = 'You cannot start this task, because it is started.';
 $lang->task->error->realStartedEmpty  = '"Real Started" should not be empty.';
 $lang->task->error->finishedDateEmpty = '"Finished Date" should not be empty.';
+$lang->task->error->chooseOtherParent = 'the currently selected parent task has been consumed, please select another parent task.';
 
 $lang->task->report = new stdclass();
 $lang->task->report->common = 'Report';
