@@ -4844,8 +4844,8 @@ $lang->program->PRJManagePriv        = '维护权限';
 $lang->program->PRJManageMembers     = '项目团队';
 $lang->program->PRJExport            = '导出';
 $lang->program->PRJManageGroupMember = '维护分组用户';
-$lang->program->PRJModuleSetting     = '模块设置';
-$lang->program->PRJModuleOpen        = '列表页是否显示模块名';
+$lang->program->PRJModuleSetting     = '项目集设置';
+$lang->program->PRJModuleOpen        = '列表页是否显示项目集名';
 
 $lang->program->common             = '项目';
 $lang->program->stage              = '阶段';
@@ -4946,9 +4946,9 @@ $lang->program->endLetterChild    = "子项目的最大完成日期：%s，父�
 $lang->program->childLongTime     = "子项目中有长期项目，父项目也应该是长期项目";
 $lang->program->readjustTime      = '重新调整项目起止时间';
 
-$lang->program->PRJModuleStatus['0']    = '不显示';
-$lang->program->PRJModuleStatus['base'] = '只显示一级模块';
-$lang->program->PRJModuleStatus['end']  = '只显示最后一级模块';
+$lang->program->PRJProgramTitle['0']    = '不显示';
+$lang->program->PRJProgramTitle['base'] = '只显示一级模块';
+$lang->program->PRJProgramTitle['end']  = '只显示最后一级模块';
 
 $lang->program->PRJNoProgram         = '暂时没有项目';
 $lang->program->PRJAccessDenied      = '您无权访问该项目！';
