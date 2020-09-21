@@ -131,20 +131,10 @@ $lang->program->viewMenu->view    = '概况|program|pgmview|program=%s';
 $lang->program->viewMenu->product = array('link' => '产品|program|pgmproduct|program=%s');
 $lang->program->viewMenu->project = array('link' => "$lang->projectCommon|program|pgmproject|program=%s");
 
-$lang->productlist = new stdclass();
-$lang->productlist->menu = new stdclass();
-$lang->productlist->menu->productlist = '产品|product|productlist|';
-
-$lang->projectlist = new stdclass();
-$lang->projectlist->menu = new stdclass();
-$lang->projectlist->menu->projectlist = '项目|project|projectlist|';
-
-$lang->menu = new stdclass();
-$lang->menu->program = '仪表盘|program|index|';
-$lang->menu->product = $lang->productCommon . '|product|index|locate=no';
-$lang->menu->project = "$lang->projectCommon|project|index|locate=no";
-$lang->menu->doc     = '文档|doc|index|';
-$lang->menu->qa      = '测试|qa|index';
+$lang->product = new stdclass();
+$lang->product->menu = new stdclass();
+$lang->product->menu->productindex = '主页|product|index|';
+$lang->product->menu->product      = $lang->productCommon . '|product|productlist|';
 
 $lang->system = new stdclass();
 $lang->system->menu = new stdclass();
@@ -245,24 +235,24 @@ $lang->my->dividerMenu = ',program,requirement,dynamic,';
 $lang->todo       = new stdclass();
 $lang->todo->menu = $lang->my->menu;
 
-$lang->product = new stdclass();
-$lang->product->menu = new stdclass();
+$lang->scrumproduct = new stdclass();
+$lang->scrumproduct->menu = new stdclass();
 
-$lang->product->menu->story   = array('link' => "{$lang->storyCommon}|product|browse|productID=%s", 'alias' => 'batchedit', 'subModule' => 'story');
-$lang->product->menu->plan    = array('link' => "{$lang->planCommon}|productplan|browse|productID=%s", 'subModule' => 'productplan');
-$lang->product->menu->release = array('link' => '发布|release|browse|productID=%s',     'subModule' => 'release');
-$lang->product->menu->roadmap = '路线图|product|roadmap|productID=%s';
-$lang->product->menu->project = "{$lang->projectCommon}|product|project|status=all&productID=%s";
-$lang->product->menu->dynamic = '动态|product|dynamic|productID=%s';
-$lang->product->menu->doc     = array('link' => '文档|doc|objectLibs|type=product&objectID=%s&from=product', 'subModule' => 'doc');
-$lang->product->menu->branch  = '@branch@|branch|manage|productID=%s';
-$lang->product->menu->module  = '模块|tree|browse|productID=%s&view=story';
-$lang->product->menu->view    = array('link' => '概况|product|view|productID=%s', 'alias' => 'edit');
+$lang->scrumproduct->menu->story   = array('link' => "{$lang->storyCommon}|product|browse|productID=%s", 'alias' => 'batchedit', 'subModule' => 'story');
+$lang->scrumproduct->menu->plan    = array('link' => "{$lang->planCommon}|productplan|browse|productID=%s", 'subModule' => 'productplan');
+$lang->scrumproduct->menu->release = array('link' => '发布|release|browse|productID=%s',     'subModule' => 'release');
+$lang->scrumproduct->menu->roadmap = '路线图|product|roadmap|productID=%s';
+$lang->scrumproduct->menu->project = "{$lang->projectCommon}|product|project|status=all&productID=%s";
+$lang->scrumproduct->menu->dynamic = '动态|product|dynamic|productID=%s';
+$lang->scrumproduct->menu->doc     = array('link' => '文档|doc|objectLibs|type=product&objectID=%s&from=product', 'subModule' => 'doc');
+$lang->scrumproduct->menu->branch  = '@branch@|branch|manage|productID=%s';
+$lang->scrumproduct->menu->module  = '模块|tree|browse|productID=%s&view=story';
+$lang->scrumproduct->menu->view    = array('link' => '概况|product|view|productID=%s', 'alias' => 'edit');
 
 if($config->URAndSR)
 {
-    $lang->product->menu->requirement = array('link' => "{$URCommon}|product|browse|productID=%s&branch=&browseType=unclosed&param=0&storyType=requirement", 'alias' => 'batchedit', 'subModule' => 'story');
-    $lang->product->menu->story       = array('link' => "{$SRCommon}|product|browse|productID=%s", 'alias' => 'batchedit', 'subModule' => 'story');
+    $lang->scrumproduct->menu->requirement = array('link' => "{$URCommon}|product|browse|productID=%s&branch=&browseType=unclosed&param=0&storyType=requirement", 'alias' => 'batchedit', 'subModule' => 'story');
+    $lang->scrumproduct->menu->story       = array('link' => "{$SRCommon}|product|browse|productID=%s", 'alias' => 'batchedit', 'subModule' => 'story');
 }
 
 $lang->product->dividerMenu = ',project,doc,';
@@ -537,48 +527,45 @@ $lang->navGroup->my     = 'my';
 $lang->navGroup->todo   = 'my';
 $lang->navGroup->effort = 'my';
 
-$lang->navGroup->product     = 'product';
-$lang->navGroup->project     = 'project';
+$lang->navGroup->story       = 'project';
+$lang->navGroup->branch      = 'project';
+$lang->navGroup->productplan = 'project';
+$lang->navGroup->release     = 'project';
+$lang->navGroup->tree        = 'project';
+$lang->navGroup->task        = 'project';
+$lang->navGroup->qa          = 'project';
+$lang->navGroup->bug         = 'project';
+$lang->navGroup->doc         = 'project';
+$lang->navGroup->testcase    = 'project';
+$lang->navGroup->testtask    = 'project';
+$lang->navGroup->testreport  = 'project';
+$lang->navGroup->testsuite   = 'project';
+$lang->navGroup->caselib     = 'project';
+$lang->navGroup->feedback    = 'project';
+$lang->navGroup->deploy      = 'project';
+$lang->navGroup->stakeholder = 'project';
 
-$lang->navGroup->story       = 'program';
-$lang->navGroup->branch      = 'program';
-$lang->navGroup->productplan = 'program';
-$lang->navGroup->release     = 'program';
-$lang->navGroup->tree        = 'program';
-$lang->navGroup->task        = 'program';
-$lang->navGroup->qa          = 'program';
-$lang->navGroup->bug         = 'program';
-$lang->navGroup->doc         = 'program';
-$lang->navGroup->testcase    = 'program';
-$lang->navGroup->testtask    = 'program';
-$lang->navGroup->testreport  = 'program';
-$lang->navGroup->testsuite   = 'program';
-$lang->navGroup->caselib     = 'program';
-$lang->navGroup->feedback    = 'program';
-$lang->navGroup->deploy      = 'program';
-$lang->navGroup->stakeholder = 'program';
+$lang->navGroup->programplan    = 'project';
+$lang->navGroup->workestimation = 'project';
+$lang->navGroup->budget         = 'project';
+$lang->navGroup->review         = 'project';
+$lang->navGroup->reviewissue    = 'project';
+$lang->navGroup->weekly         = 'project';
+$lang->navGroup->milestone      = 'project';
+$lang->navGroup->pssp           = 'project';
+$lang->navGroup->design         = 'project';
+$lang->navGroup->repo           = 'project';
+$lang->navGroup->issue          = 'project';
+$lang->navGroup->risk           = 'project';
+$lang->navGroup->auditplan      = 'project';
+$lang->navGroup->cm             = 'project';
+$lang->navGroup->nc             = 'project';
+$lang->navGroup->job            = 'project';
+$lang->navGroup->jenkins        = 'project';
+$lang->navGroup->compile        = 'project';
+$lang->navGroup->build          = 'project';
 
-$lang->navGroup->programplan    = 'program';
-$lang->navGroup->workestimation = 'program';
-$lang->navGroup->budget         = 'program';
-$lang->navGroup->review         = 'program';
-$lang->navGroup->reviewissue    = 'program';
-$lang->navGroup->weekly         = 'program';
-$lang->navGroup->milestone      = 'program';
-$lang->navGroup->pssp           = 'program';
-$lang->navGroup->design         = 'program';
-$lang->navGroup->repo           = 'program';
-$lang->navGroup->issue          = 'program';
-$lang->navGroup->risk           = 'program';
-$lang->navGroup->auditplan      = 'program';
-$lang->navGroup->cm             = 'program';
-$lang->navGroup->nc             = 'program';
-$lang->navGroup->job            = 'program';
-$lang->navGroup->jenkins        = 'program';
-$lang->navGroup->compile        = 'program';
-$lang->navGroup->build          = 'program';
-
-$lang->navGroup->durationestimation = 'program';
+$lang->navGroup->durationestimation = 'project';
 
 $lang->navGroup->stage         = 'system';
 $lang->navGroup->measurement   = 'system';
@@ -798,6 +785,14 @@ $lang->icons['unlock']             = 'unlock-alt';
 $lang->icons['confirmStoryChange'] = 'search';
 $lang->icons['score']              = 'tint';
 
+$lang->menu = new stdclass();
+$lang->menu->scrum = new stdclass();
+$lang->menu->scrum->program = '仪表盘|program|index|';
+$lang->menu->scrum->product = $lang->productCommon . '|product|index|locate=no';
+$lang->menu->scrum->project = "$lang->projectCommon|project|index|locate=no";
+$lang->menu->scrum->doc     = '文档|doc|index|';
+$lang->menu->scrum->qa      = '测试|qa|index';
+
 $lang->menu->waterfall = new stdclass();
 $lang->menu->waterfall->programindex = array('link' => '仪表盘|program|index|program={PROGRAM}');
 $lang->menu->waterfall->programplan  = array('link' => '计划|programplan|browse|program={PROGRAM}', 'subModule' => 'programplan');
@@ -812,9 +807,6 @@ $lang->menu->waterfall->release      = array('link' => '发布|release|browse|pr
 $lang->menu->waterfall->issue        = '问题|issue|browse|';
 $lang->menu->waterfall->risk         = '风险|risk|browse|';
 $lang->menu->waterfall->list         = array('link' => '更多|workestimation|index|program={PROGRAM}', 'class' => 'dropdown dropdown-hover waterfall-list', 'subModule' => 'stakeholder,workestimation,durationestimation,budget,pssp,stakeholder');
-
-$lang->menu->srcum = new stdclass();
-$lang->menu->srcum->programindex   = array('link' => '仪表盘|program|index|program={PROGRAM}');
 
 $lang->waterfall = new stdclass();
 $lang->waterfall->subMenu = new stdclass();
@@ -1339,19 +1331,19 @@ $lang->action->search->label['verified']            = $lang->action->label->veri
 $lang->action->search->label['login']               = $lang->action->label->login;
 $lang->action->search->label['logout']              = $lang->action->label->logout;
 /* admin */
-$lang->admin->common         = '后台管理';
-$lang->admin->index          = '后台管理首页';
-$lang->admin->checkDB        = '检查数据库';
-$lang->admin->sso            = 'ZDOO集成';
-$lang->admin->ssoAction      = 'ZDOO集成';
-$lang->admin->safeIndex      = '安全';
-$lang->admin->checkWeak      = '弱口令检查';
-$lang->admin->certifyMobile  = '认证手机';
-$lang->admin->certifyEmail   = '认证邮箱';
-$lang->admin->ztCompany      = '认证公司';
-$lang->admin->captcha        = '验证码';
-$lang->admin->getCaptcha     = '获取验证码';
-$lang->admin->registerAction = '登记';
+$lang->admin->common        = '后台管理';
+$lang->admin->index         = '后台管理首页';
+$lang->admin->checkDB       = '检查数据库';
+$lang->admin->sso           = 'ZDOO集成';
+$lang->admin->ssoAction     = 'ZDOO集成';
+$lang->admin->safeIndex     = '安全';
+$lang->admin->checkWeak     = '弱口令检查';
+$lang->admin->certifyMobile = '认证手机';
+$lang->admin->certifyEmail  = '认证邮箱';
+$lang->admin->ztCompany     = '认证公司';
+$lang->admin->captcha       = '验证码';
+$lang->admin->getCaptcha    = '获取验证码';
+$lang->admin->register      = '登记';
 
 $lang->admin->api     = '接口';
 $lang->admin->log     = '日志';
@@ -1369,15 +1361,15 @@ $lang->admin->notice->register = "友情提示：您还未在禅道社区(www.ze
 $lang->admin->notice->ignore   = "不再提示";
 $lang->admin->notice->int      = "『%s』应当是正整数。";
 
-$lang->admin->register = new stdclass();
-$lang->admin->register->common     = '注册新帐号绑定';
-$lang->admin->register->caption    = '禅道社区登记';
-$lang->admin->register->click      = '点击此处';
-$lang->admin->register->lblAccount = '请设置您的用户名，英文字母和数字的组合，三位以上。';
-$lang->admin->register->lblPasswd  = '请设置您的密码。数字和字母的组合，六位以上。';
-$lang->admin->register->submit     = '登记';
-$lang->admin->register->bind       = "绑定已有帐号";
-$lang->admin->register->success    = "登记账户成功";
+$lang->admin->registerNotice = new stdclass();
+$lang->admin->registerNotice->common     = '注册新帐号绑定';
+$lang->admin->registerNotice->caption    = '禅道社区登记';
+$lang->admin->registerNotice->click      = '点击此处';
+$lang->admin->registerNotice->lblAccount = '请设置您的用户名，英文字母和数字的组合，三位以上。';
+$lang->admin->registerNotice->lblPasswd  = '请设置您的密码。数字和字母的组合，六位以上。';
+$lang->admin->registerNotice->submit     = '登记';
+$lang->admin->registerNotice->bind       = "绑定已有帐号";
+$lang->admin->registerNotice->success    = "登记账户成功";
 
 $lang->admin->bind = new stdclass();
 $lang->admin->bind->caption = '关联社区帐号';
@@ -2163,7 +2155,7 @@ $lang->bug->allBugs            = '所有';
 $lang->bug->byQuery            = '搜索';
 $lang->bug->needConfirm        = "{$lang->storyCommon}变动";
 $lang->bug->allProduct         = '所有' . $lang->productCommon;
-$lang->bug->allProject         = '所有' . $lang->prodjetCommon;
+$lang->bug->allProject         = '所有' . $lang->projectCommon;
 $lang->bug->my                 = '我的';
 $lang->bug->yesterdayResolved  = '昨天解决Bug数';
 $lang->bug->yesterdayConfirmed = '昨天确认';
@@ -4822,7 +4814,7 @@ $lang->productplan->featureBar['browse']['all']       = '全部';
 $lang->productplan->featureBar['browse']['unexpired'] = '未过期';
 $lang->productplan->featureBar['browse']['overdue']   = '已过期';
 /* program */
-$lang->program->index                = '仪表盘';
+$lang->program->PRJIndex             = '仪表盘';
 $lang->program->PRJCreate            = '创建项目';
 $lang->program->PRJCreateGuide       = '选择项目模板';
 $lang->program->PRJEdit              = '编辑项目';
@@ -5145,6 +5137,8 @@ $lang->project->readjustTask  = '顺延任务的起止时间';
 $lang->project->effort        = '日志';
 $lang->project->relatedMember = '相关成员';
 $lang->project->watermark     = '由禅道导出';
+$lang->project->burnXUnit     = '(日期)';
+$lang->project->burnYUnit     = '(工时)';
 $lang->project->viewByUser    = '按用户查看';
 
 $lang->project->start    = "开始";
