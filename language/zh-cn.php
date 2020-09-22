@@ -113,7 +113,7 @@ $lang->common->common = '公有模块';
 $lang->mainNav = new stdclass();
 $lang->mainNav->my         = '<i class="icon icon-menu-my"></i> 地盘|my|index|';
 $lang->mainNav->program    = '<i class="icon icon-stack"></i> 项目集|program|pgmindex|';
-$lang->mainNav->product    = '<i class="icon icon-menu-project"></i> 产品|product|productlist|';
+$lang->mainNav->product    = '<i class="icon icon-menu-project"></i> 产品|product|index|';
 $lang->mainNav->project    = '<i class="icon icon-menu-doc"></i> 项目|program|prjbrowse|';
 $lang->mainNav->system     = '<i class="icon icon-menu-users"></i> 组织|custom|estimate|';
 $lang->mainNav->admin      = '<i class="icon icon-menu-backend"></i> 后台|admin|index|';
@@ -124,7 +124,7 @@ $lang->dividerMenu = ',admin,';
 $lang->program = new stdclass();
 $lang->program->menu = new stdclass();
 $lang->program->menu->index   = '主页|program|pgmindex|';
-$lang->program->menu->browse  = array('link' => '项目集|program|pgmbrowse|', 'alias' => 'pgmcreate,pgmedit');
+$lang->program->menu->browse  = array('link' => '项目集|program|pgmbrowse|', 'alias' => 'pgmcreate,pgmedit,pgmgroup,pgmmanagepriv,pgmmanageview,pgmmanagemembers');
 
 $lang->program->viewMenu = new stdclass();
 $lang->program->viewMenu->view    = '概况|program|pgmview|program=%s';
@@ -133,8 +133,18 @@ $lang->program->viewMenu->project = array('link' => "$lang->projectCommon|progra
 
 $lang->product = new stdclass();
 $lang->product->menu = new stdclass();
-$lang->product->menu->productindex = '主页|product|index|';
-$lang->product->menu->product      = $lang->productCommon . '|product|productlist|';
+$lang->product->menu->home = '主页|product|index|';
+$lang->product->menu->list = $lang->productCommon . '|product|all|';
+
+$lang->product->viewMenu = new stdclass();
+$lang->product->viewMenu->requirement = array('link' => "用户需求|product|browse|productID=%s&branch=&browseType=unclosed&param=0&storyType=requirement", 'alias' => 'batchedit', 'subModule' => 'story');
+$lang->product->viewMenu->story       = array('link' => "软件需求|product|browse|productID=%s", 'alias' => 'batchedit', 'subModule' => 'story');
+$lang->product->viewMenu->plan        = array('link' => "计划|productplan|browse|productID=%s", 'subModule' => 'productplan');
+$lang->product->viewMenu->release     = array('link' => '发布|release|browse|productID=%s',     'subModule' => 'release');
+$lang->product->viewMenu->roadmap     = '路线图|product|roadmap|productID=%s';
+$lang->product->viewMenu->branch      = '@branch@|branch|manage|productID=%s';
+$lang->product->viewMenu->module      = '模块|tree|browse|productID=%s&view=story';
+$lang->product->viewMenu->view        = array('link' => '概况|product|view|productID=%s', 'alias' => 'edit');
 
 $lang->system = new stdclass();
 $lang->system->menu = new stdclass();
@@ -527,9 +537,10 @@ $lang->navGroup->my     = 'my';
 $lang->navGroup->todo   = 'my';
 $lang->navGroup->effort = 'my';
 
+$lang->navGroup->productplan = 'product';
+
 $lang->navGroup->story       = 'project';
 $lang->navGroup->branch      = 'project';
-$lang->navGroup->productplan = 'project';
 $lang->navGroup->release     = 'project';
 $lang->navGroup->tree        = 'project';
 $lang->navGroup->task        = 'project';
@@ -868,7 +879,7 @@ if($config->URAndSR)
 }
 
 $lang->nc->menu = $lang->auditplan->menu;
-$lang->noMenuModule   = array('my', 'todo', 'effort', 'program', 'attend', 'leave', 'makeup', 'overtime', 'lieu', 'holiday', 'custom', 'auditcl', 'subject', 'admin', 'mail', 'extension', 'dev', 'backup', 'action', 'cron', 'issue', 'risk', 'pssp', 'sms', 'message', 'webhook', 'search');
+$lang->noMenuModule   = array('my', 'todo', 'effort', 'program', 'product', 'attend', 'leave', 'makeup', 'overtime', 'lieu', 'holiday', 'custom', 'auditcl', 'subject', 'admin', 'mail', 'extension', 'dev', 'backup', 'action', 'cron', 'issue', 'risk', 'pssp', 'sms', 'message', 'webhook', 'search');
 
 include (dirname(__FILE__) . '/menuOrder.php');
 /* action */
@@ -4613,8 +4624,6 @@ $lang->product->orderAction  = "{$lang->productCommon}排序";
 $lang->product->all          = "所有{$lang->productCommon}";
 $lang->product->export       = '导出数据';
 $lang->product->exportAction = "导出{$lang->productCommon}";
-$lang->product->stack        = '项目集';
-$lang->product->createstack  = '创建项目集';
 
 $lang->product->basicInfo = '基本信息';
 $lang->product->otherInfo = '其他信息';
@@ -4815,6 +4824,7 @@ $lang->productplan->featureBar['browse']['unexpired'] = '未过期';
 $lang->productplan->featureBar['browse']['overdue']   = '已过期';
 /* program */
 $lang->program->PRJIndex             = '仪表盘';
+$lang->program->PRJHome              = '项目主页';
 $lang->program->PRJCreate            = '创建项目';
 $lang->program->PRJCreateGuide       = '选择项目模板';
 $lang->program->PRJEdit              = '编辑项目';
@@ -4969,7 +4979,7 @@ $lang->program->PRJEndLetterChild    = "项目的最大完成日期：%s，项�
 $lang->program->PRJChildLongTime     = "子项目中有长期项目，父项目也应该是长期项目";
 
 $lang->program->PGMCommon            = '项目集';
-$lang->program->PGMHome              = '项目集主页';
+$lang->program->PGMIndex             = '项目集主页';
 $lang->program->PGMCreate            = '添加项目集';
 $lang->program->PGMCreateGuide       = '选择项目模板';
 $lang->program->PGMEdit              = '编辑项目集';
