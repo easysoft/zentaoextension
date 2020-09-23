@@ -51,6 +51,7 @@ $lang->required     = 'Required';
 $lang->noData       = 'No data.';
 $lang->fullscreen   = 'Fullscreen';
 $lang->retrack      = 'Retrack';
+$lang->recent       = 'Recent';
 
 $lang->actions         = 'Action';
 $lang->restore         = 'Reset';
@@ -4332,7 +4333,7 @@ $lang->misc->zentao->cowin['feedback']     = "Feedback";
 $lang->misc->zentao->cowin['translate']    = "Translate";
 $lang->misc->zentao->cowin['recommend']    = "More";
 
-$lang->misc->zentao->service['zentaotrain']= 'ZenTao Training';
+
 $lang->misc->zentao->service['idc']        = 'ZenTao Cloud';
 $lang->misc->zentao->service['custom']     = 'ZenTao Custom';
 $lang->misc->zentao->service['servicemore']= 'More';
@@ -4637,6 +4638,7 @@ $lang->product->errorNoProduct = "No {$lang->productCommon} is created yet!";
 $lang->product->accessDenied   = "You have no access to the {$lang->productCommon}.";
 
 $lang->product->id            = 'ID';
+$lang->product->program       = "Program";
 $lang->product->name          = "{$lang->productCommon} Name";
 $lang->product->code          = 'Code';
 $lang->product->line          = "{$lang->productCommon} Line";

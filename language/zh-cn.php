@@ -129,12 +129,12 @@ $lang->program->menu->browse  = array('link' => '项目集|program|pgmbrowse|', 
 $lang->program->viewMenu = new stdclass();
 $lang->program->viewMenu->view    = '概况|program|pgmview|program=%s';
 $lang->program->viewMenu->product = array('link' => '产品|program|pgmproduct|program=%s');
-$lang->program->viewMenu->project = array('link' => "$lang->projectCommon|program|pgmproject|program=%s");
+$lang->program->viewMenu->project = array('link' => "项目|program|pgmproject|program=%s");
 
 $lang->product = new stdclass();
 $lang->product->menu = new stdclass();
 $lang->product->menu->home = '主页|product|index|';
-$lang->product->menu->list = $lang->productCommon . '|product|all|';
+$lang->product->menu->list = array('link' => $lang->productCommon . '|product|all|', 'alias' => 'create');
 
 $lang->product->viewMenu = new stdclass();
 $lang->product->viewMenu->requirement = array('link' => "用户需求|product|browse|productID=%s&branch=&browseType=unclosed&param=0&storyType=requirement", 'alias' => 'batchedit', 'subModule' => 'story');
@@ -145,6 +145,14 @@ $lang->product->viewMenu->roadmap     = '路线图|product|roadmap|productID=%s'
 $lang->product->viewMenu->branch      = '@branch@|branch|manage|productID=%s';
 $lang->product->viewMenu->module      = '模块|tree|browse|productID=%s&view=story';
 $lang->product->viewMenu->view        = array('link' => '概况|product|view|productID=%s', 'alias' => 'edit');
+
+$lang->release     = new stdclass();
+$lang->branch      = new stdclass();
+$lang->productplan = new stdclass();
+
+$lang->release->menu     = $lang->product->viewMenu;
+$lang->branch->menu      = $lang->product->menu;
+$lang->productplan->menu = $lang->product->menu;
 
 $lang->system = new stdclass();
 $lang->system->menu = new stdclass();
@@ -250,7 +258,7 @@ $lang->scrumproduct->menu = new stdclass();
 
 $lang->scrumproduct->menu->story   = array('link' => "{$lang->storyCommon}|product|browse|productID=%s", 'alias' => 'batchedit', 'subModule' => 'story');
 $lang->scrumproduct->menu->plan    = array('link' => "{$lang->planCommon}|productplan|browse|productID=%s", 'subModule' => 'productplan');
-$lang->scrumproduct->menu->release = array('link' => '发布|release|browse|productID=%s',     'subModule' => 'release');
+//$lang->scrumproduct->menu->release = array('link' => '发布|release|browse|productID=%s',     'subModule' => 'release');
 $lang->scrumproduct->menu->roadmap = '路线图|product|roadmap|productID=%s';
 $lang->scrumproduct->menu->project = "{$lang->projectCommon}|product|project|status=all&productID=%s";
 $lang->scrumproduct->menu->dynamic = '动态|product|dynamic|productID=%s';
@@ -267,15 +275,9 @@ if($config->URAndSR)
 
 $lang->product->dividerMenu = ',project,doc,';
 
-$lang->productplan = new stdclass();
-$lang->release     = new stdclass();
-$lang->branch      = new stdclass();
-$lang->story       = new stdclass();
+$lang->story = new stdclass();
 
-$lang->branch->menu      = $lang->product->menu;
-$lang->story->menu       = $lang->product->menu;
-$lang->productplan->menu = $lang->product->menu;
-$lang->release->menu     = $lang->product->menu;
+$lang->story->menu = $lang->product->menu;
 
 $lang->project = new stdclass();
 $lang->project->menu = new stdclass();
@@ -538,10 +540,10 @@ $lang->navGroup->todo   = 'my';
 $lang->navGroup->effort = 'my';
 
 $lang->navGroup->productplan = 'product';
+$lang->navGroup->release     = 'product';
+$lang->navGroup->branch      = 'product';
 
 $lang->navGroup->story       = 'project';
-$lang->navGroup->branch      = 'project';
-$lang->navGroup->release     = 'project';
 $lang->navGroup->tree        = 'project';
 $lang->navGroup->task        = 'project';
 $lang->navGroup->qa          = 'project';
@@ -814,7 +816,7 @@ $lang->menu->waterfall->product      = array('link' => '需求|product|browse|pr
 $lang->menu->waterfall->design       = '设计|design|browse|product={PRODUCT}';
 $lang->menu->waterfall->ci           = '代码|repo|browse|';
 $lang->menu->waterfall->qa           = array('link' => '测试|bug|browse|product={PRODUCT}', 'subModule' => ',testcase,testtask,testsuite,testreport,caselib,');
-$lang->menu->waterfall->release      = array('link' => '发布|release|browse|product={PRODUCT}', 'subModule' => 'release');
+//$lang->menu->waterfall->release      = array('link' => '发布|release|browse|product={PRODUCT}', 'subModule' => 'release');
 $lang->menu->waterfall->issue        = '问题|issue|browse|';
 $lang->menu->waterfall->risk         = '风险|risk|browse|';
 $lang->menu->waterfall->list         = array('link' => '更多|workestimation|index|program={PROGRAM}', 'class' => 'dropdown dropdown-hover waterfall-list', 'subModule' => 'stakeholder,workestimation,durationestimation,budget,pssp,stakeholder');
@@ -879,7 +881,7 @@ if($config->URAndSR)
 }
 
 $lang->nc->menu = $lang->auditplan->menu;
-$lang->noMenuModule   = array('my', 'todo', 'effort', 'program', 'product', 'attend', 'leave', 'makeup', 'overtime', 'lieu', 'holiday', 'custom', 'auditcl', 'subject', 'admin', 'mail', 'extension', 'dev', 'backup', 'action', 'cron', 'issue', 'risk', 'pssp', 'sms', 'message', 'webhook', 'search');
+$lang->noMenuModule = array('my', 'todo', 'effort', 'program', 'product', 'productplan', 'release', 'attend', 'leave', 'makeup', 'overtime', 'lieu', 'holiday', 'custom', 'auditcl', 'subject', 'admin', 'mail', 'extension', 'dev', 'backup', 'action', 'cron', 'issue', 'risk', 'pssp', 'sms', 'message', 'webhook', 'search');
 
 include (dirname(__FILE__) . '/menuOrder.php');
 /* action */
@@ -4660,6 +4662,7 @@ $lang->product->errorNoProduct = "还没有创建{$lang->productCommon}！";
 $lang->product->accessDenied   = "您无权访问该{$lang->productCommon}";
 
 $lang->product->id             = '编号';
+$lang->product->program        = "所属项目集";
 $lang->product->name           = "{$lang->productCommon}名称";
 $lang->product->code           = "{$lang->productCommon}代号";
 $lang->product->line           = "{$lang->productCommon}线";
@@ -4823,7 +4826,7 @@ $lang->productplan->featureBar['browse']['all']       = '全部';
 $lang->productplan->featureBar['browse']['unexpired'] = '未过期';
 $lang->productplan->featureBar['browse']['overdue']   = '已过期';
 /* program */
-$lang->program->PRJIndex             = '仪表盘';
+$lang->program->PRJIndex             = '项目仪表盘';
 $lang->program->PRJHome              = '项目主页';
 $lang->program->PRJCreate            = '创建项目';
 $lang->program->PRJCreateGuide       = '选择项目模板';
@@ -4837,22 +4840,24 @@ $lang->program->PRJSuspend           = '挂起项目';
 $lang->program->PRJDelete            = '删除项目';
 $lang->program->PRJClose             = '关闭项目';
 $lang->program->PRJActivate          = '激活项目';
-$lang->program->PRJGroup             = '权限分组';
-$lang->program->PRJCreateGroup       = '创建分组';
-$lang->program->PRJEditGroup         = '编辑分组';
-$lang->program->PRJCopyGroup         = '复制分组';
-$lang->program->PRJManageView        = '维护视图';
-$lang->program->PRJManagePriv        = '维护权限';
+$lang->program->PRJGroup             = '项目权限分组';
+$lang->program->PRJCreateGroup       = '项目创建分组';
+$lang->program->PRJEditGroup         = '项目编辑分组';
+$lang->program->PRJCopyGroup         = '项目复制分组';
+$lang->program->PRJManageView        = '项目维护视图';
+$lang->program->PRJManagePriv        = '项目维护权限';
 $lang->program->PRJManageMembers     = '项目团队';
-$lang->program->PRJExport            = '导出';
+$lang->program->export               = '导出';
 $lang->program->PRJManageGroupMember = '维护分组用户';
 $lang->program->PRJModuleSetting     = '项目集设置';
-$lang->program->PRJModuleOpen        = '列表页是否显示项目集名';
+$lang->program->PRJModuleOpen        = '显示项目集名';
+$lang->program->PRJUpdateOrder       = '排序';
+$lang->program->PRJSort              = '项目排序';
 
 $lang->program->common             = '项目';
 $lang->program->stage              = '阶段';
 $lang->program->PRJName            = '项目名称';
-$lang->program->PRJTemplate        = '项目模板';
+$lang->program->PRJModel           = '管理类型';
 $lang->program->PRJCategory        = '项目类型';
 $lang->program->PRJDesc            = '项目描述';
 $lang->program->PRJCode            = '项目代号';
@@ -4862,6 +4867,11 @@ $lang->program->end                = '计划完成日期';
 $lang->program->PRJStatus          = '项目状态';
 $lang->program->PRJPM              = '项目负责人';
 $lang->program->PRJBudget          = '项目预算';
+$lang->program->PRJTemplate        = '项目模板';
+$lang->program->PRJEstimate        = '预计';
+$lang->program->PRJConsume         = '消耗';
+$lang->program->PRJSurplus         = '剩余';
+$lang->program->PRJProgress        = '进度';
 $lang->program->dateRange          = '起止时间';
 $lang->program->to                 = '至';
 $lang->program->realEnd            = '实际完成日期';
@@ -4872,7 +4882,6 @@ $lang->program->mine               = '我参与的';
 $lang->program->setPlanduration    = '设置工期';
 $lang->program->auth               = '权限控制';
 $lang->program->durationEstimation = '工作量估算';
-$lang->program->PRJProgress        = '项目进度';
 $lang->program->teamCount          = '投入人数';
 $lang->program->leftStories        = '剩余需求';
 $lang->program->leftTasks          = '剩余任务';
@@ -4902,6 +4911,10 @@ $lang->program->templateList['waterfall'] = "瀑布";
 
 $lang->program->PRJCategoryList['single']   = "单产品项目";
 $lang->program->PRJCategoryList['multiple'] = "多产品项目";
+
+$lang->program->PRJLifeTimeList['short'] = "短期";
+$lang->program->PRJLifeTimeList['long']  = "长期";
+$lang->program->PRJLifeTimeList['ops']   = "运维";
 
 $lang->program->featureBar['all']       = '所有';
 $lang->program->featureBar['doing']     = '进行中';
@@ -4949,8 +4962,8 @@ $lang->program->childLongTime     = "子项目中有长期项目，父项目也�
 $lang->program->readjustTime      = '重新调整项目起止时间';
 
 $lang->program->PRJProgramTitle['0']    = '不显示';
-$lang->program->PRJProgramTitle['base'] = '只显示一级模块';
-$lang->program->PRJProgramTitle['end']  = '只显示最后一级模块';
+$lang->program->PRJProgramTitle['base'] = '只显示一级项目集';
+$lang->program->PRJProgramTitle['end']  = '只显示最后一级项目集';
 
 $lang->program->PRJNoProgram         = '暂时没有项目';
 $lang->program->PRJAccessDenied      = '您无权访问该项目！';
@@ -4984,6 +4997,8 @@ $lang->program->PGMCreate            = '添加项目集';
 $lang->program->PGMCreateGuide       = '选择项目模板';
 $lang->program->PGMEdit              = '编辑项目集';
 $lang->program->PGMBrowse            = '项目集列表';
+$lang->program->PGMProduct           = '产品列表';
+$lang->program->PGMProject           = '项目列表';
 $lang->program->PGMAll               = '所有项目集';
 $lang->program->PGMStart             = '启动项目集';
 $lang->program->PGMFinish            = '完成项目集';
