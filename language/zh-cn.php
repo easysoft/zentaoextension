@@ -4826,10 +4826,10 @@ $lang->productplan->featureBar['browse']['all']       = '全部';
 $lang->productplan->featureBar['browse']['unexpired'] = '未过期';
 $lang->productplan->featureBar['browse']['overdue']   = '已过期';
 /* program */
+$lang->program->createGuide          = '选择项目模板';
 $lang->program->PRJIndex             = '项目仪表盘';
 $lang->program->PRJHome              = '项目主页';
 $lang->program->PRJCreate            = '创建项目';
-$lang->program->PRJCreateGuide       = '选择项目模板';
 $lang->program->PRJEdit              = '编辑项目';
 $lang->program->PRJBatchEdit         = '批量编辑';
 $lang->program->PRJBrowse            = '项目列表';
