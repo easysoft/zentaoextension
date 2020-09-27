@@ -134,7 +134,7 @@ $lang->program->viewMenu->project = array('link' => "项目|program|pgmproject|p
 $lang->product = new stdclass();
 $lang->product->menu = new stdclass();
 $lang->product->menu->home = '主页|product|index|';
-$lang->product->menu->list = array('link' => $lang->productCommon . '|product|all|', 'alias' => 'create');
+$lang->product->menu->list = array('link' => $lang->productCommon . '|product|all|', 'alias' => 'create,batchedit');
 
 $lang->product->viewMenu = new stdclass();
 $lang->product->viewMenu->requirement = array('link' => "用户需求|product|browse|productID=%s&branch=&browseType=unclosed&param=0&storyType=requirement", 'alias' => 'batchedit', 'subModule' => 'story');
@@ -7971,6 +7971,7 @@ $lang->workestimation->hour           = '工时';
 $lang->workestimation->consumed       = '已消耗工时';
 
 $lang->workestimation->programScaleTip = "当前项目实际规模：<strong>%s{$lang->hourCommon}</strong> <a href='###' id='useScale' class='btn btn-xs'>使用</span>";
+$lang->workestimation->tips            = '完成工作量估算后，才能进行工期估算';
 
 $lang->workestimation->placeholder = new stdclass(); 
 $lang->workestimation->placeholder->scale          = '';
