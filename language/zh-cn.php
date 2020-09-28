@@ -881,7 +881,7 @@ if($config->URAndSR)
 }
 
 $lang->nc->menu = $lang->auditplan->menu;
-$lang->noMenuModule = array('my', 'todo', 'effort', 'program', 'product', 'productplan', 'release', 'attend', 'leave', 'makeup', 'overtime', 'lieu', 'holiday', 'custom', 'auditcl', 'subject', 'admin', 'mail', 'extension', 'dev', 'backup', 'action', 'cron', 'issue', 'risk', 'pssp', 'sms', 'message', 'webhook', 'search');
+$lang->noMenuModule = array('my', 'todo', 'effort', 'program', 'product', 'productplan', 'branch', 'release', 'attend', 'leave', 'makeup', 'overtime', 'lieu', 'holiday', 'custom', 'auditcl', 'subject', 'admin', 'mail', 'extension', 'dev', 'backup', 'action', 'cron', 'issue', 'risk', 'pssp', 'sms', 'message', 'webhook', 'search');
 
 include (dirname(__FILE__) . '/menuOrder.php');
 /* action */
@@ -3582,6 +3582,8 @@ $lang->extension->errorConflicts               = '与插件“%s”冲突！';
 $lang->extension->errorDepends                 = '以下依赖插件没有安装或版本不正确：<br /><br /> %s';
 $lang->extension->errorIncompatible            = '该插件与您的禅道版本不兼容';
 $lang->extension->errorUninstallDepends        = '插件“%s”依赖该插件，不能卸载';
+$lang->extension->errorExtracted               = '包文件 %s 解压缩失败，可能不是一个有效的zip文件。错误信息如下：<br />%s';
+$lang->extension->errorFileNotEmpty            = '上传文件不能为空';
 /* file */
 $lang->file = new stdclass();
 $lang->file->common        = '附件';
@@ -4891,7 +4893,6 @@ $lang->program->PRJChildren        = '子项目';
 $lang->program->PRJParent          = '父项目';
 $lang->program->allStories         = '总需求';
 $lang->program->doneStories        = '已完成';
-$lang->program->leftStories        = '剩余需求';
 $lang->program->allInput           = '项目总投入';
 $lang->program->weekly             = '项目周报';
 $lang->program->pv                 = 'PV';
@@ -4899,11 +4900,10 @@ $lang->program->ev                 = 'EV';
 $lang->program->sv                 = 'SV%';
 $lang->program->ac                 = 'AC';
 $lang->program->cv                 = 'CV%';
-$lang->program->PRJPm              = '项目负责人';
 $lang->program->PRJTeamCount       = '项目成员';
 $lang->program->PRJLongTime        = '长期项目';
 
-$lang->program->unitList[''] = '';
+$lang->program->unitList['']       = '';
 $lang->program->unitList['yuan']   = '元';
 $lang->program->unitList['dollar'] = 'Dollars';
 
@@ -4944,7 +4944,6 @@ $lang->program->membersUnit       = '%s人';
 $lang->program->lastIteration     = '近期迭代';
 $lang->program->ongoingStage      = '进行中的阶段';
 $lang->program->scrum             = 'Scrum';
-$lang->program->scrumTitle        = '敏捷开发全流程项目管理';
 $lang->program->waterfall         = '瀑布';
 $lang->program->waterfallTitle    = '瀑布式项目管理';
 $lang->program->cannotCreateChild = '该项目已经有实际的内容，无法直接添加子项目。您可以为当前项目创建一个父项目，然后在新的父项目下面添加子项目。';
@@ -4969,19 +4968,10 @@ $lang->program->PRJProgramTitle['end']  = '只显示最后一级项目集';
 $lang->program->PRJNoProgram         = '暂时没有项目';
 $lang->program->PRJAccessDenied      = '您无权访问该项目！';
 $lang->program->PRJChooseProgramType = '选择项目管理方式';
-$lang->program->nextStep             = '下一步';
-$lang->program->hoursUnit            = '%s工时';
-$lang->program->membersUnit          = '%s人';
-$lang->program->lastIteration        = '近期迭代';
-$lang->program->ongoingStage         = '进行中的阶段';
-$lang->program->scrum                = 'Scrum';
 $lang->program->scrumTitle           = '敏捷开发全流程项目管理';
-$lang->program->waterfall            = '瀑布';
-$lang->program->waterfallTitle       = '瀑布式项目管理';
 $lang->program->PRJCannotCreateChild = '该项目已经有实际的内容，无法直接添加子项目。您可以为当前项目创建一个父项目，然后在新的父项目下面添加子项目。';
 $lang->program->PRJHasChildren       = '该项目有子项目存在，不能删除。';
 $lang->program->PRJConfirmDelete     = "您确定删除项目[%s]吗？";
-$lang->program->emptyPM              = '暂无';
 $lang->program->PRJCannotChangeToCat = "该项目已经有实际的内容，无法修改为父项目";
 $lang->program->PRJCannotCancelCat   = "该项目下已经有子项目，无法取消父项目标记";
 $lang->program->PRJParentBeginEnd    = "父项目起止时间：%s ~ %s";
@@ -5044,7 +5034,7 @@ $lang->program->PGMAclList['custom']  = "自定义白名单(团队成员和白�
 $lang->program->PGMAuthList['extend'] = '继承(取项目权限与组织权限的并集)';
 $lang->program->PGMAuthList['reset']  = '重新定义(只取项目权限)';
 
-$lang->program->PGMFeatureBar['all']    = '所有';
+$lang->program->PGMFeatureBar['all'] = '所有';
 /* programplan */
 $lang->programplan->common = '项目计划';
 
@@ -6387,6 +6377,7 @@ $lang->story->noStory               = "暂时没有{$lang->storyCommon}。";
 $lang->story->ignoreChangeStage     = "{$lang->storyCommon} %s 为草稿状态或已关闭状态，没有修改其阶段。";
 $lang->story->cannotDeleteParent    = "不能删除父{$lang->storyCommon}";
 $lang->story->moveChildrenTips      = "修改父{$lang->storyCommon}的所属产品会将其下的子{$lang->storyCommon}也移动到所选产品下。";
+$lang->story->changeBranchTips      = "修改父{$lang->storyCommon}的所属分支会将其下的子{$lang->storyCommon}也移动到所选分支下。";
 $lang->story->changeTips            = '该软件需求关联的用户需求有变更，点击“不变更”忽略此条变更，点击“变更”来进行该软件需求的变更。';
 
 $lang->story->form = new stdclass();

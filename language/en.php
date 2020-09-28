@@ -3557,6 +3557,8 @@ $lang->extension->errorConflicts               = 'Conflicted with “%s”!';
 $lang->extension->errorDepends                 = 'Dependent extension has not been installed or the version is incorrect:<br /><br /> %s';
 $lang->extension->errorIncompatible            = 'Incompatible with your ZenTao.';
 $lang->extension->errorUninstallDepends        = '“%s” is dependent on this extension. Please do not uninstall it.';
+$lang->extension->errorExtracted               = 'The package file %s extracted failed. The error is:<br />%s';
+$lang->extension->errorFileNotEmpty            = 'Please upload the file.';
 /* file */
 $lang->file = new stdclass();
 $lang->file->common        = 'File';
@@ -6261,6 +6263,7 @@ $lang->story->noStory              = 'No stories yet. ';
 $lang->story->ignoreChangeStage    = 'Story %s is in Draft or Closed status. Please review it..';
 $lang->story->cannotDeleteParent   = "Can not delete parent {$lang->storyCommon}";
 $lang->story->moveChildrenTips     = "Its Child {$lang->storyCommon} will be moved to the selected product when editing the linked product of Parent {$lang->storyCommon}.";
+$lang->story->changeBranchTips     = "Its Child {$lang->storyCommon} will be moved to the selected branch when editing the linked branch of Parent {$lang->storyCommon}.";
 $lang->story->changeTips           = 'The story associated with the requirements to change, click "Cancel" ignore this change, click "Confirm" to change the story.';
 
 $lang->story->form = new stdclass();
