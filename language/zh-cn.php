@@ -2168,7 +2168,6 @@ $lang->bug->allBugs            = '所有';
 $lang->bug->byQuery            = '搜索';
 $lang->bug->needConfirm        = "{$lang->storyCommon}变动";
 $lang->bug->allProduct         = '所有' . $lang->productCommon;
-$lang->bug->allProject         = '所有' . $lang->projectCommon;
 $lang->bug->my                 = '我的';
 $lang->bug->yesterdayResolved  = '昨天解决Bug数';
 $lang->bug->yesterdayConfirmed = '昨天确认';
@@ -4907,8 +4906,8 @@ $lang->program->unitList['']       = '';
 $lang->program->unitList['yuan']   = '元';
 $lang->program->unitList['dollar'] = 'Dollars';
 
-$lang->program->templateList['scrum']     = "Scrum";
-$lang->program->templateList['waterfall'] = "瀑布";
+$lang->program->modelList['scrum']     = "Scrum";
+$lang->program->modelList['waterfall'] = "瀑布";
 
 $lang->program->PRJCategoryList['single']   = "单产品项目";
 $lang->program->PRJCategoryList['multiple'] = "多产品项目";
@@ -5667,6 +5666,7 @@ $lang->repo->error->output        = "执行命令：%s\n错误结果(%s)： %s\n
 $lang->repo->error->clientVersion = "客户端版本过低，请升级或更换SVN客户端";
 $lang->repo->error->encoding      = "编码可能错误，请更换编码重试。";
 $lang->repo->error->deleted       = "删除版本库失败，当前版本库有提交记录与设计关联";
+$lang->repo->error->clientPath    = "客户端安装目录不能有空格！";
 
 $lang->repo->syncTips      = '请参照<a target="_blank" href="https://www.zentao.net/book/zentaopmshelp/207.html">这里</a>，设置版本库定时同步。';
 $lang->repo->encodingsTips = "提交日志的编码，可以用逗号连接起来的多个，比如utf-8。";
@@ -6377,7 +6377,6 @@ $lang->story->noStory               = "暂时没有{$lang->storyCommon}。";
 $lang->story->ignoreChangeStage     = "{$lang->storyCommon} %s 为草稿状态或已关闭状态，没有修改其阶段。";
 $lang->story->cannotDeleteParent    = "不能删除父{$lang->storyCommon}";
 $lang->story->moveChildrenTips      = "修改父{$lang->storyCommon}的所属产品会将其下的子{$lang->storyCommon}也移动到所选产品下。";
-$lang->story->changeBranchTips      = "修改父{$lang->storyCommon}的所属分支会将其下的子{$lang->storyCommon}也移动到所选分支下。";
 $lang->story->changeTips            = '该软件需求关联的用户需求有变更，点击“不变更”忽略此条变更，点击“变更”来进行该软件需求的变更。';
 
 $lang->story->form = new stdclass();
@@ -6710,7 +6709,7 @@ $lang->task->error->deadlineSmall     = '"截止日期"必须大于"预计开始
 $lang->task->error->alreadyStarted    = '此任务已被启动，不能重复启动！';
 $lang->task->error->realStartedEmpty  = '实际开始不能为空';
 $lang->task->error->finishedDateEmpty = '实际完成不能为空';
-$lang->task->error->chooseOtherParent = '当前选中的父任务已有消耗，请选择其他父任务。';
+$lang->task->error->alreadyConsumed   = '当前选中的父任务已有消耗。';
 
 $lang->task->report         = new stdclass();
 $lang->task->report->common = '报表';
