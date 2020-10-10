@@ -423,12 +423,12 @@ $lang->company->menu->view        = array('link' => 'Company|company|view');
 
 $lang->admin = new stdclass();
 $lang->admin->menu = new stdclass();
-$lang->admin->menu->index     = array('link' => 'Home|admin|index', 'alias' => 'register,certifytemail,certifyztmobile,ztcompany');
-$lang->admin->menu->company   = array('link' => 'Company|company|browse|', 'subModule' => ',user,dept,group,', 'alias' => ',dynamic,view,');
-$lang->admin->menu->message   = array('link' => 'Notification|message|index', 'subModule' => 'message,mail,webhook');
-$lang->admin->menu->data      = array('link' => 'Data|backup|index', 'subModule' => 'backup,action');
-$lang->admin->menu->safe      = array('link' => 'Security|admin|safe', 'alias' => 'checkweak');
-$lang->admin->menu->system    = array('link' => 'System|cron|index', 'subModule' => 'cron');
+$lang->admin->menu->index   = array('link' => 'Home|admin|index', 'alias' => 'register,certifytemail,certifyztmobile,ztcompany');
+$lang->admin->menu->company = array('link' => 'Personnel|company|browse|', 'subModule' => ',user,dept,group,', 'alias' => ',dynamic,view,');
+$lang->admin->menu->message = array('link' => 'Notification|message|index', 'subModule' => 'message,mail,webhook');
+$lang->admin->menu->data    = array('link' => 'Data|backup|index', 'subModule' => 'backup,action');
+$lang->admin->menu->safe    = array('link' => 'Security|admin|safe', 'alias' => 'checkweak');
+$lang->admin->menu->system  = array('link' => 'System|cron|index', 'subModule' => 'cron');
 
 $lang->company->menu = $lang->company->menu;
 $lang->dept->menu    = $lang->company->menu;
@@ -2181,12 +2181,13 @@ $lang->bug->legendRelated               = 'Related Info';
 
 $lang->bug->buttonConfirm = 'Confirm';
 
-$lang->bug->summary               = "Total <strong>%s</strong> bugs on this page, and <strong>%s</strong> Active.";
-$lang->bug->confirmChangeProduct  = "Any change to {$lang->productCommon} will cause linked {$lang->projectCommon}s, stories and tasks change. Do you want to do this?";
-$lang->bug->confirmDelete         = 'Do you want to delete this bug?';
-$lang->bug->remindTask            = 'This bug has been converted to a task. Do you want to update the status of Task(ID %s)?';
-$lang->bug->skipClose             = 'Bug %s is active. You cannot close it.';
-$lang->bug->projectAccessDenied   = "You access to the {$lang->projectCommon} to which this bug belongs is denied!";
+$lang->bug->summary              = "Total <strong>%s</strong> bugs on this page, and <strong>%s</strong> Active.";
+$lang->bug->confirmChangeProduct = "Any change to {$lang->productCommon} will cause linked {$lang->projectCommon}s, stories and tasks change. Do you want to do this?";
+$lang->bug->confirmDelete        = 'Do you want to delete this bug?';
+$lang->bug->remindTask           = 'This bug has been converted to a task. Do you want to update the status of Task(ID %s)?';
+$lang->bug->skipClose            = 'Bug %s is active. You cannot close it.';
+$lang->bug->projectAccessDenied  = "You access to the {$lang->projectCommon} to which this bug belongs is denied!";
+$lang->bug->stepsNotEmpty        = "The reproduction step cannot be empty.";
 
 $lang->bug->tplStep   = "<p>[Steps]</p><br/>";
 $lang->bug->tplResult = "<p>[Results]</p><br/>";

@@ -111,12 +111,12 @@ $lang->common = new stdclass();
 $lang->common->common = '公有模块';
 
 $lang->mainNav = new stdclass();
-$lang->mainNav->my         = '<i class="icon icon-menu-my"></i> 地盘|my|index|';
-$lang->mainNav->program    = '<i class="icon icon-stack"></i> 项目集|program|pgmindex|';
-$lang->mainNav->product    = '<i class="icon icon-menu-project"></i> 产品|product|index|';
-$lang->mainNav->project    = '<i class="icon icon-menu-doc"></i> 项目|program|prjbrowse|';
-$lang->mainNav->system     = '<i class="icon icon-menu-users"></i> 组织|custom|estimate|';
-$lang->mainNav->admin      = '<i class="icon icon-menu-backend"></i> 后台|admin|index|';
+$lang->mainNav->my      = '<i class="icon icon-menu-my"></i> 地盘|my|index|';
+$lang->mainNav->program = '<i class="icon icon-stack"></i> 项目集|program|pgmindex|';
+$lang->mainNav->product = '<i class="icon icon-menu-project"></i> 产品|product|index|';
+$lang->mainNav->project = '<i class="icon icon-menu-doc"></i> 项目|program|prjbrowse|';
+$lang->mainNav->system  = '<i class="icon icon-menu-users"></i> 组织|custom|estimate|';
+$lang->mainNav->admin   = '<i class="icon icon-menu-backend"></i> 后台|admin|index|';
 
 $lang->reporting = new stdclass();
 $lang->dividerMenu = ',admin,';
@@ -127,9 +127,12 @@ $lang->program->menu->index   = '主页|program|pgmindex|';
 $lang->program->menu->browse  = array('link' => '项目集|program|pgmbrowse|', 'alias' => 'pgmcreate,pgmedit,pgmgroup,pgmmanagepriv,pgmmanageview,pgmmanagemembers');
 
 $lang->program->viewMenu = new stdclass();
-$lang->program->viewMenu->view    = '概况|program|pgmview|program=%s';
-$lang->program->viewMenu->product = array('link' => '产品|program|pgmproduct|program=%s');
-$lang->program->viewMenu->project = array('link' => "项目|program|pgmproject|program=%s");
+$lang->program->viewMenu->view        = '概况|program|pgmview|program=%s';
+$lang->program->viewMenu->product     = array('link' => '产品|program|pgmproduct|program=%s');
+$lang->program->viewMenu->project     = array('link' => "项目|program|pgmproject|program=%s");
+$lang->program->viewMenu->plan        = array('link' => "排期|program|pgmproject|program=%s");
+$lang->program->viewMenu->personnel   = array('link' => "人员|program|pgmproject|program=%s");
+$lang->program->viewMenu->stakeholder = array('link' => "干系人|program|pgmproject|program=%s");
 
 $lang->product = new stdclass();
 $lang->product->menu = new stdclass();
@@ -446,7 +449,7 @@ $lang->company->menu->view        = array('link' => '公司|company|view');
 $lang->admin = new stdclass();
 $lang->admin->menu = new stdclass();
 $lang->admin->menu->index   = array('link' => '首页|admin|index', 'alias' => 'register,certifytemail,certifyztmobile,ztcompany');
-$lang->admin->menu->company = array('link' => '组织|company|browse|', 'subModule' => ',user,dept,group,', 'alias' => ',dynamic,view,');
+$lang->admin->menu->company = array('link' => '人员|company|browse|', 'subModule' => ',user,dept,group,', 'alias' => ',dynamic,view,');
 $lang->admin->menu->message = array('link' => '通知|message|index', 'subModule' => 'message,mail,webhook');
 $lang->admin->menu->data    = array('link' => '数据|backup|index', 'subModule' => 'backup,action');
 $lang->admin->menu->safe    = array('link' => '安全|admin|safe', 'alias' => 'checkweak');
@@ -2205,12 +2208,13 @@ $lang->bug->legendRelated               = '其他信息';
 
 $lang->bug->buttonConfirm = '确认';
 
-$lang->bug->summary               = "本页共 <strong>%s</strong> 个Bug，未解决 <strong>%s</strong>。";
-$lang->bug->confirmChangeProduct  = "修改{$lang->productCommon}会导致相应的{$lang->projectCommon}、{$lang->storyCommon}和任务发生变化，确定吗？";
-$lang->bug->confirmDelete         = '您确认要删除该Bug吗？';
-$lang->bug->remindTask            = '该Bug已经转化为任务，是否更新任务(编号:%s)状态 ?';
-$lang->bug->skipClose             = 'Bug %s 不是已解决状态，不能关闭。';
-$lang->bug->projectAccessDenied   = "您无权访问该Bug所属的{$lang->projectCommon}！";
+$lang->bug->summary              = "本页共 <strong>%s</strong> 个Bug，未解决 <strong>%s</strong>。";
+$lang->bug->confirmChangeProduct = "修改{$lang->productCommon}会导致相应的{$lang->projectCommon}、{$lang->storyCommon}和任务发生变化，确定吗？";
+$lang->bug->confirmDelete        = '您确认要删除该Bug吗？';
+$lang->bug->remindTask           = '该Bug已经转化为任务，是否更新任务(编号:%s)状态 ?';
+$lang->bug->skipClose            = 'Bug %s 不是已解决状态，不能关闭。';
+$lang->bug->projectAccessDenied  = "您无权访问该Bug所属的{$lang->projectCommon}！";
+$lang->bug->stepsNotEmpty        = "重现步骤不能为空。";
 
 $lang->bug->tplStep   = "<p>[步骤]</p><br/>";
 $lang->bug->tplResult = "<p>[结果]</p><br/>";
