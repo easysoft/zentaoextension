@@ -3405,7 +3405,7 @@ $lang->entry->id          = 'ID';
 $lang->entry->name        = 'Name';
 $lang->entry->account     = 'Account';
 $lang->entry->code        = 'Code';
-$lang->entry->freePasswd  = 'Free Password Login';
+$lang->entry->freePasswd  = 'Password-Free Login';
 $lang->entry->key         = 'Key';
 $lang->entry->ip          = 'IP';
 $lang->entry->desc        = 'Description';
@@ -4665,7 +4665,7 @@ $lang->product->latestDynamic = 'Dynamics';
 $lang->product->plan          = 'Plan';
 $lang->product->iteration     = 'Iterations';
 $lang->product->iterationInfo = '%s Iteration';
-$lang->product->iterationView = 'Detail';
+$lang->product->iterationView = 'More';
 $lang->product->createdBy     = 'CreatedBy';
 $lang->product->createdDate   = 'createdDate';
 
@@ -7706,7 +7706,7 @@ $lang->user->placeholder->password1 = '>= 6 characters';
 $lang->user->placeholder->role      = "Role is related to content and user listing order.";
 $lang->user->placeholder->group     = "Group is related to user privileges.";
 $lang->user->placeholder->commiter  = 'SVN/Git account';
-$lang->user->placeholder->verify    = 'Please enter your login password.';
+$lang->user->placeholder->verify    = 'Please enter your ZenTao login password to verify..';
 
 $lang->user->placeholder->passwordStrength[1] = '>= 6 letters and numbers';
 $lang->user->placeholder->passwordStrength[2] = '>= 10 letters, numbers and special characters';
