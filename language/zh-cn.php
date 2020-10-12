@@ -127,12 +127,16 @@ $lang->program->menu->index   = '主页|program|pgmindex|';
 $lang->program->menu->browse  = array('link' => '项目集|program|pgmbrowse|', 'alias' => 'pgmcreate,pgmedit,pgmgroup,pgmmanagepriv,pgmmanageview,pgmmanagemembers');
 
 $lang->program->viewMenu = new stdclass();
-$lang->program->viewMenu->view        = '概况|program|pgmview|program=%s';
+$lang->program->viewMenu->view        = array('link' => '概况|program|pgmview|program=%s');
 $lang->program->viewMenu->product     = array('link' => '产品|program|pgmproduct|program=%s');
 $lang->program->viewMenu->project     = array('link' => "项目|program|pgmproject|program=%s");
-$lang->program->viewMenu->plan        = array('link' => "排期|program|pgmproject|program=%s");
-$lang->program->viewMenu->personnel   = array('link' => "人员|program|pgmproject|program=%s");
-$lang->program->viewMenu->stakeholder = array('link' => "干系人|program|pgmproject|program=%s");
+$lang->program->viewMenu->personnel   = array('link' => "人员|personnel|accessible|program=%s");
+$lang->program->viewMenu->stakeholder = array('link' => "干系人|program|pgmstakeholder|program=%s", 'alias' => 'createstakeholder');
+
+$lang->personnel = new stdClass();
+$lang->personnel->menu = new stdClass();
+$lang->personnel->menu->accessible = array('link' => "可访问人员|personnel|accessible|program=%s");
+$lang->personnel->menu->putinto    = array('link' => "可投入人员|personnel|putinto|program=%s");
 
 $lang->product = new stdclass();
 $lang->product->menu = new stdclass();
@@ -622,6 +626,8 @@ $lang->navGroup->dev       = 'admin';
 $lang->navGroup->extension = 'admin';
 $lang->navGroup->action    = 'admin';
 $lang->navGroup->search    = 'admin';
+
+$lang->navGroup->personnel = 'program';
 
 $lang->error = new stdclass();
 $lang->error->companyNotFound = "您访问的域名 %s 没有对应的公司。";
@@ -3664,11 +3670,9 @@ $lang->group->managePRJadmin     = '维护项目管理员';
 $lang->group->confirmDelete      = '您确定删除该用户分组吗？';
 $lang->group->successSaved       = '成功保存';
 $lang->group->errorNotSaved      = '没有保存，请确认选择了权限数据。';
-$lang->group->program            = '可管理项目';
 $lang->group->viewList           = '可访问视图';
-$lang->group->programList        = '可访问项目';
 $lang->group->productList        = '可访问' . $lang->productCommon;
-$lang->group->projectList        = '可访问' . $lang->projectCommon;
+$lang->group->projectList        = '可访问项目';
 $lang->group->dynamic            = '可查看动态';
 $lang->group->noticeVisit        = '空代表没有访问限制';
 $lang->group->noneProgram        = "暂时没有项目";
@@ -4610,6 +4614,9 @@ $lang->my->form = new stdclass();
 $lang->my->form->lblBasic   = '基本信息';
 $lang->my->form->lblContact = '联系信息';
 $lang->my->form->lblAccount = '帐号信息';
+/* personnel */
+$lang->personnel->accessible = '可访问人员列表';
+$lang->personnel->putinto    = '可投入人员列表';
 /* product */
 $lang->product->common       = $lang->productCommon . '视图';
 $lang->product->index        = $lang->productCommon . '主页';
@@ -4872,6 +4879,7 @@ $lang->program->begin              = '计划开始日期';
 $lang->program->end                = '计划完成日期';
 $lang->program->PRJStatus          = '项目状态';
 $lang->program->PRJPM              = '项目负责人';
+$lang->program->PO                 = '产品负责人';
 $lang->program->PRJBudget          = '项目预算';
 $lang->program->PRJTemplate        = '项目模板';
 $lang->program->PRJEstimate        = '预计';
@@ -4951,7 +4959,7 @@ $lang->program->waterfall         = '瀑布';
 $lang->program->waterfallTitle    = '瀑布式项目管理';
 $lang->program->cannotCreateChild = '该项目已经有实际的内容，无法直接添加子项目。您可以为当前项目创建一个父项目，然后在新的父项目下面添加子项目。';
 $lang->program->hasChildren       = '该项目有子项目存在，不能删除。';
-$lang->program->confirmDelete     = "您确定删除项目[%s]吗？";
+$lang->program->confirmDelete     = "您确定要删除吗？";
 $lang->program->emptyPM           = '暂无';
 $lang->program->cannotChangeToCat = "该项目已经有实际的内容，无法修改为父项目";
 $lang->program->cannotCancelCat   = "该项目下已经有子项目，无法取消父项目标记";
@@ -5010,6 +5018,8 @@ $lang->program->PGMManagePriv        = '维护权限';
 $lang->program->PGMManageMembers     = '项目集团队';
 $lang->program->PGMExport            = '导出';
 $lang->program->PGMManageGroupMember = '维护分组用户';
+$lang->program->PGMStakeholder       = '干系人列表';
+$lang->program->createStakeholder    = '添加干系人';
 
 $lang->program->PGMName      = '项目集名称';
 $lang->program->PGMTemplate  = '项目集模板';
