@@ -2565,26 +2565,32 @@ $lang->cron->notice->dow  = '取值范围:0-6';
 $lang->cron->notice->help = '注：如果服务器重启，或者发现计划任务没有正常工作，那么计划任务已经停止工作。需要手动点击【重启】按钮，或者一分钟后刷新页面，来开启计划任务。如果任务列表中第一条记录的最后执行时间改变，说明任务开启成功。';
 $lang->cron->notice->errorRule = '"%s" 填写的不是合法的值';
 /* custom */
-$lang->custom->common     = '自定义';
-$lang->custom->index      = '首页';
-$lang->custom->set        = '自定义配置';
-$lang->custom->restore    = '恢复默认';
-$lang->custom->key        = '键';
-$lang->custom->value      = '值';
-$lang->custom->flow       = '流程';
-$lang->custom->working    = '工作方式';
-$lang->custom->select     = '请选择流程：';
-$lang->custom->branch     = '多分支';
-$lang->custom->owner      = '所有者';
-$lang->custom->module     = '模块';
-$lang->custom->section    = '附加部分';
-$lang->custom->lang       = '所属语言';
-$lang->custom->setPublic  = '设为公共';
-$lang->custom->required   = '必填项';
-$lang->custom->score      = '积分';
-$lang->custom->timezone   = '时区';
-$lang->custom->scoreReset = '重置积分';
-$lang->custom->scoreTitle = '积分功能';
+$lang->custom->common        = '自定义';
+$lang->custom->index         = '首页';
+$lang->custom->set           = '自定义配置';
+$lang->custom->restore       = '恢复默认';
+$lang->custom->key           = '键';
+$lang->custom->value         = '值';
+$lang->custom->flow          = '流程';
+$lang->custom->working       = '工作方式';
+$lang->custom->select        = '请选择流程：';
+$lang->custom->branch        = '多分支';
+$lang->custom->owner         = '所有者';
+$lang->custom->module        = '模块';
+$lang->custom->section       = '附加部分';
+$lang->custom->lang          = '所属语言';
+$lang->custom->setPublic     = '设为公共';
+$lang->custom->required      = '必填项';
+$lang->custom->score         = '积分';
+$lang->custom->timezone      = '时区';
+$lang->custom->scoreReset    = '重置积分';
+$lang->custom->scoreTitle    = '积分功能';
+$lang->custom->projectTitle  = $lang->projectCommon . '功能';
+$lang->custom->productTitle  = $lang->productCommon . '功能';
+$lang->custom->project       = $lang->projectCommon;
+$lang->custom->product       = $lang->productCommon;
+$lang->custom->closedProject = '已关闭' . $lang->projectCommon;
+$lang->custom->closedProduct = '已关闭' . $lang->productCommon;
 
 $lang->custom->object['story']    = $lang->storyCommon;
 $lang->custom->object['task']     = '任务';
@@ -2644,7 +2650,7 @@ $lang->custom->user->fields['statusList']   = '状态';
 $lang->custom->user->fields['contactField'] = '可用联系方式';
 $lang->custom->user->fields['deleted']      = '列出已删除用户';
 
-$lang->custom->system = array('flow', 'working', 'required', 'score');
+$lang->custom->system = array('flow', 'working', 'required', 'score', 'product', 'project');
 
 $lang->custom->block->fields['closed'] = '关闭的区块';
 
@@ -2666,6 +2672,8 @@ $lang->custom->notice->noClosedBlock               = '没有永久关闭的区�
 $lang->custom->notice->required                    = '页面提交时，选中的字段必填';
 $lang->custom->notice->conceptResult               = '我们已经根据您的选择为您设置了<b> %s-%s </b>模式，使用<b>%s</b> + <b> %s</b>。';
 $lang->custom->notice->conceptPath                 = '您可以在：后台 -> 自定义 -> 流程页面修改。';
+$lang->custom->notice->readOnlyOfProject           = '禁止修改后，已关闭' . $lang->projectCommon . '下的任务、版本、日志以及关联需求都禁止修改。';
+$lang->custom->notice->readOnlyOfProduct           = '禁止修改后，已关闭' . $lang->productCommon . '下的' . $lang->storyCommon . '、Bug、用例、日志、发布、计划都禁止修改。';
 
 $lang->custom->notice->indexPage['product']        = "从8.2版本起增加了产品主页视图，是否默认进入产品主页？";
 $lang->custom->notice->indexPage['project']        = "从8.2版本起增加了项目主页视图，是否默认进入项目主页？";
@@ -2710,6 +2718,12 @@ $lang->custom->page     = '页面';
 
 $lang->custom->scoreStatus[1] = '开启';
 $lang->custom->scoreStatus[0] = '关闭';
+
+$lang->custom->closedProjectStatus[1] = '禁止修改';
+$lang->custom->closedProjectStatus[0] = '允许修改';
+
+$lang->custom->closedProductStatus[1] = '禁止修改';
+$lang->custom->closedProductStatus[0] = '允许修改';
 
 $lang->custom->moduleName['product']     = $lang->productCommon;
 $lang->custom->moduleName['productplan'] = '计划';
@@ -3208,25 +3222,26 @@ $lang->extension->installed       = '已安装';
 $lang->extension->deactivated     = '被禁用';
 $lang->extension->available       = '已下载';
 
-$lang->extension->name        = '插件名称';
-$lang->extension->code        = '代号';
-$lang->extension->desc        = '描述';
-$lang->extension->type        = '类型';
-$lang->extension->dirs        = '安装目录';
-$lang->extension->files       = '安装文件';
-$lang->extension->status      = '状态';
-$lang->extension->version     = '版本';
-$lang->extension->latest      = '<small>最新版本<strong><a href="%s" target="_blank" class="extension">%s</a></strong>，兼容禅道<a href="https://api.zentao.net/goto.php?item=latest" target="_blank" class="alert-link"><strong>%s</strong></a></small>';
-$lang->extension->author      = '作者';
-$lang->extension->license     = '授权';
-$lang->extension->site        = '官网';
-$lang->extension->downloads   = '下载量';
-$lang->extension->compatible  = '兼容性';
-$lang->extension->grade       = '评分';
-$lang->extension->depends     = '依赖';
-$lang->extension->expireDate  = '到期日期';
-$lang->extension->zentaoCompatible  = '适用版本';
-$lang->extension->installedTime     = '安装时间';
+$lang->extension->name             = '插件名称';
+$lang->extension->code             = '代号';
+$lang->extension->desc             = '描述';
+$lang->extension->type             = '类型';
+$lang->extension->dirs             = '安装目录';
+$lang->extension->files            = '安装文件';
+$lang->extension->status           = '状态';
+$lang->extension->version          = '版本';
+$lang->extension->latest           = '<small>最新版本<strong><a href="%s" target="_blank" class="extension">%s</a></strong>，兼容禅道<a href="https://api.zentao.net/goto.php?item=latest" target="_blank" class="alert-link"><strong>%s</strong></a></small>';
+$lang->extension->author           = '作者';
+$lang->extension->license          = '授权';
+$lang->extension->site             = '官网';
+$lang->extension->downloads        = '下载量';
+$lang->extension->compatible       = '兼容性';
+$lang->extension->grade            = '评分';
+$lang->extension->depends          = '依赖';
+$lang->extension->expireDate       = '到期日期';
+$lang->extension->zentaoCompatible = '适用版本';
+$lang->extension->installedTime    = '安装时间';
+$lang->extension->life             = '终身';
 
 $lang->extension->publicList[0] = '手工下载';
 $lang->extension->publicList[1] = '直接下载';

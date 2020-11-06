@@ -2564,26 +2564,32 @@ $lang->cron->notice->dow  = 'Range:0-6';
 $lang->cron->notice->help = 'Note：If the server is restarted or the Cron is not working, it means the Cron has stopped. You can restart it by clicking 【Restart】 or refresh this page. If the last execution time changes, it means the Cron is running.';
 $lang->cron->notice->errorRule = '"%s" is not valid';
 /* custom */
-$lang->custom->common     = 'Custom';
-$lang->custom->index      = 'Home';
-$lang->custom->set        = 'Customize';
-$lang->custom->restore    = 'Reset';
-$lang->custom->key        = 'Key';
-$lang->custom->value      = 'Value';
-$lang->custom->flow       = 'Concept';
-$lang->custom->working    = 'Mode';
-$lang->custom->select     = 'Select Concept';
-$lang->custom->branch     = 'Multi-Branch';
-$lang->custom->owner      = 'Owner';
-$lang->custom->module     = 'Module';
-$lang->custom->section    = 'Section';
-$lang->custom->lang       = 'Language';
-$lang->custom->setPublic  = 'Set Public';
-$lang->custom->required   = 'Required Field';
-$lang->custom->score      = 'Point';
-$lang->custom->timezone   = 'Timezone';
-$lang->custom->scoreReset = 'Reset Points';
-$lang->custom->scoreTitle = 'Point Feature';
+$lang->custom->common        = 'Custom';
+$lang->custom->index         = 'Home';
+$lang->custom->set           = 'Customize';
+$lang->custom->restore       = 'Reset';
+$lang->custom->key           = 'Key';
+$lang->custom->value         = 'Value';
+$lang->custom->flow          = 'Concept';
+$lang->custom->working       = 'Mode';
+$lang->custom->select        = 'Select Concept';
+$lang->custom->branch        = 'Multi-Branch';
+$lang->custom->owner         = 'Owner';
+$lang->custom->module        = 'Module';
+$lang->custom->section       = 'Section';
+$lang->custom->lang          = 'Language';
+$lang->custom->setPublic     = 'Set Public';
+$lang->custom->required      = 'Required Field';
+$lang->custom->score         = 'Point';
+$lang->custom->timezone      = 'Timezone';
+$lang->custom->scoreReset    = 'Reset Points';
+$lang->custom->scoreTitle    = 'Point Feature';
+$lang->custom->projectTitle  = $lang->projectCommon . ' Feature';
+$lang->custom->productTitle  = $lang->productCommon . ' Feature';
+$lang->custom->project       = $lang->projectCommon;
+$lang->custom->product       = $lang->productCommon;
+$lang->custom->closedProject = 'Closed ' . $lang->projectCommon;
+$lang->custom->closedProduct = 'Closed ' . $lang->productCommon;
 
 $lang->custom->object['story']    = 'Story';
 $lang->custom->object['task']     = 'Task';
@@ -2643,7 +2649,7 @@ $lang->custom->user->fields['statusList']   = 'Status';
 $lang->custom->user->fields['contactField'] = 'Available Contact';
 $lang->custom->user->fields['deleted']      = 'Deleted User';
 
-$lang->custom->system = array('flow', 'working', 'required', 'score');
+$lang->custom->system = array('flow', 'working', 'required', 'score', 'product', 'project');
 
 $lang->custom->block->fields['closed'] = 'Closed Block';
 
@@ -2665,6 +2671,8 @@ $lang->custom->notice->noClosedBlock     = 'You have no blocks that are closed p
 $lang->custom->notice->required          = 'The selected field is required.';
 $lang->custom->notice->conceptResult     = 'According to your preference, <b> %s-%s </b> is set for you. Use <b>%s</b> + <b> %s</b>.';
 $lang->custom->notice->conceptPath       = 'Go to Admin -> Custom -> Concept to set it.';
+$lang->custom->notice->readOnlyOfProject = 'If Change Forbidden, any change on tasks, builds, efforts and stories of the closed project is also forbidden.';
+$lang->custom->notice->readOnlyOfProduct = 'If Change Forbidden, any change on stories, bugs, cases, efforts, releases and plans of the closed product is also forbidden.';
 
 $lang->custom->notice->indexPage['product'] = "ZenTao 8.2+ has Product Home. Do you want to go to Product Home?";
 $lang->custom->notice->indexPage['project'] = "ZenTao 8.2+ has Project Home. Do you want to go to Project Home?";
@@ -2709,6 +2717,12 @@ $lang->custom->page     = ' Page';
 
 $lang->custom->scoreStatus[1] = 'On';
 $lang->custom->scoreStatus[0] = 'Off';
+
+$lang->custom->closedProjectStatus[1] = 'Change Forbidden';
+$lang->custom->closedProjectStatus[0] = 'Change Allowed';
+
+$lang->custom->closedProductStatus[1] = 'Change Forbidden';
+$lang->custom->closedProductStatus[0] = 'Change Allowed';
 
 $lang->custom->moduleName['product']     = $lang->productCommon;
 $lang->custom->moduleName['productplan'] = 'Plan';
@@ -3207,25 +3221,26 @@ $lang->extension->installed        = 'Installed';
 $lang->extension->deactivated      = 'Deactivated';
 $lang->extension->available        = 'Downloaded';
 
-$lang->extension->name        = 'Extension Name';
-$lang->extension->code        = 'Code';
-$lang->extension->desc        = 'Description';
-$lang->extension->type        = 'Type';
-$lang->extension->dirs        = 'Installation Directory';
-$lang->extension->files       = 'Installation Files';
-$lang->extension->status      = 'Status';
-$lang->extension->version     = 'Version';
-$lang->extension->latest      = '<small>Latest:<strong><a href="%s" target="_blank" class="extension">%s</a></strong>，need zentao <a href="https://api.zentao.net/goto.php?item=latest" target="_blank"><strong>%s</strong></small>';
-$lang->extension->author      = 'Author';
-$lang->extension->license     = 'License';
-$lang->extension->site        = 'Website';
-$lang->extension->downloads   = 'Downloads';
-$lang->extension->compatible  = 'Compatibility';
-$lang->extension->grade       = 'Score';
-$lang->extension->depends     = 'Dependency';
-$lang->extension->expireDate  = 'Expire';
-$lang->extension->zentaoCompatible  = 'Compatible Version';
-$lang->extension->installedTime     = 'Installed Time';
+$lang->extension->name             = 'Extension Name';
+$lang->extension->code             = 'Code';
+$lang->extension->desc             = 'Description';
+$lang->extension->type             = 'Type';
+$lang->extension->dirs             = 'Installation Directory';
+$lang->extension->files            = 'Installation Files';
+$lang->extension->status           = 'Status';
+$lang->extension->version          = 'Version';
+$lang->extension->latest           = '<small>Latest:<strong><a href="%s" target="_blank" class="extension">%s</a></strong>，need zentao <a href="https://api.zentao.net/goto.php?item=latest" target="_blank"><strong>%s</strong></small>';
+$lang->extension->author           = 'Author';
+$lang->extension->license          = 'License';
+$lang->extension->site             = 'Website';
+$lang->extension->downloads        = 'Downloads';
+$lang->extension->compatible       = 'Compatibility';
+$lang->extension->grade            = 'Score';
+$lang->extension->depends          = 'Dependency';
+$lang->extension->expireDate       = 'Expire';
+$lang->extension->zentaoCompatible = 'Compatible Version';
+$lang->extension->installedTime    = 'Installed Time';
+$lang->extension->life             = 'lifetime';
 
 $lang->extension->publicList[0] = 'Manual';
 $lang->extension->publicList[1] = 'Auto';
@@ -3643,7 +3658,7 @@ EOD;
 $lang->install->zdoo = new stdclass();
 $lang->install->zdoo->name = 'ZDOO';
 $lang->install->zdoo->logo = 'images/main/zdoo.ico';
-$lang->install->zdoo->url  = 'https://www.zdoo.com';
+$lang->install->zdoo->url  = 'https://www.zdoo.co/';
 $lang->install->zdoo->desc = <<<EOD
 <ul>
   <li>CRM: Customer Management and Order Tracking</li>
