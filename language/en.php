@@ -384,7 +384,7 @@ $lang->admin = new stdclass();
 $lang->admin->menu = new stdclass();
 $lang->admin->menu->index     = array('link' => 'Home|admin|index', 'alias' => 'register,certifytemail,certifyztmobile,ztcompany');
 $lang->admin->menu->message   = array('link' => 'Notification|message|index', 'subModule' => 'message,mail,webhook');
-$lang->admin->menu->custom    = array('link' => 'Custom|custom|set', 'subModule' => 'custom');
+$lang->admin->menu->custom    = array('link' => 'Custom|custom|product', 'subModule' => 'custom');
 $lang->admin->menu->sso       = array('link' => 'Integration|admin|sso');
 $lang->admin->menu->extension = array('link' => 'Extension|extension|browse', 'subModule' => 'extension');
 $lang->admin->menu->dev       = array('link' => 'Develop|dev|api', 'alias' => 'db', 'subModule' => 'dev,entry');
@@ -2589,6 +2589,8 @@ $lang->custom->product       = $lang->productCommon;
 $lang->custom->closedProject = 'Closed ' . $lang->projectCommon;
 $lang->custom->closedProduct = 'Closed ' . $lang->productCommon;
 
+$lang->custom->object['product']  = $lang->productCommon;
+$lang->custom->object['project']  = $lang->projectCommon;
 $lang->custom->object['story']    = 'Story';
 $lang->custom->object['task']     = 'Task';
 $lang->custom->object['bug']      = 'Bug';
@@ -2647,7 +2649,7 @@ $lang->custom->user->fields['statusList']   = 'Status';
 $lang->custom->user->fields['contactField'] = 'Available Contact';
 $lang->custom->user->fields['deleted']      = 'Deleted User';
 
-$lang->custom->system = array('flow', 'working', 'required', 'score', 'product', 'project');
+$lang->custom->system = array('flow', 'working', 'required', 'score');
 
 $lang->custom->block->fields['closed'] = 'Closed Block';
 
@@ -5373,11 +5375,12 @@ $lang->story->batchChangeModule = "Batch Change Modules";
 $lang->story->viewAll           = "See All";
 $lang->story->toTask            = 'Convert to Task';
 $lang->story->batchToTask       = 'Batch Convert to Task';
+$lang->story->convertRelations  = 'Convert Relations';
 
 $lang->story->skipStory       = '%s is a parent story. It cannot be closed.';
 $lang->story->closedStory     = 'Story %s is closed and will not be closed.';
 $lang->story->batchToTaskTips = "This action will create a task with the same name as the selected {$lang->storyCommon} and link {$lang->storyCommon} to the task. The closed {$lang->storyCommon} will not be converted into tasks.";
-$lang->story->successToTask   = "Converted to task."
+$lang->story->successToTask   = "Converted to task.";
 
 $lang->story->common         = 'Story';
 $lang->story->id             = 'ID';
@@ -5439,7 +5442,7 @@ $lang->story->allStories     = 'All Stories';
 $lang->story->unclosed       = 'Unclosed';
 $lang->story->deleted        = 'Deleted';
 $lang->story->released       = 'Released Stories';
-$lang->story->oneUnit        = 'One Unit';
+$lang->story->one            = 'One';
 $lang->story->field          = 'Synchronized fields';
 
 $lang->story->ditto       = 'Ditto';
@@ -6538,12 +6541,11 @@ $lang->todo->closedDate   = 'ClosedDate';
 $lang->todo->deadline     = 'Expiration';
 
 $lang->todo->every        = 'Every';
-$lang->todo->appoint      = 'Appoint';
+$lang->todo->specify      = 'Specify';
 $lang->todo->everyYear    = 'Annually';
 $lang->todo->beforeDays   = "<span class='input-group-addon'>Auto create the todo</span>%s<span class='input-group-addon'>days before</span>";
 $lang->todo->dayNames     = array(1 => 'Monday', 2 => 'Tuesday', 3 => 'Wednesday', 4 => 'Thursday', 5 => 'Friday', 6 => 'Saturday', 0 => 'Sunday');
-$lang->todo->appointMonth = array('', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
-$lang->todo->appointDay   = array('', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31);
+$lang->todo->specifiedDay = array(1 => 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31);
 
 $lang->todo->confirmBug   = 'This Todo is linked to Bug #%s. Do you want to edit it?';
 $lang->todo->confirmTask  = 'This Todo is linked to Task #%s，Do you want to edit it?';

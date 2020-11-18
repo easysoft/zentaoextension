@@ -384,7 +384,7 @@ $lang->admin = new stdclass();
 $lang->admin->menu = new stdclass();
 $lang->admin->menu->index     = array('link' => '首页|admin|index', 'alias' => 'register,certifytemail,certifyztmobile,ztcompany');
 $lang->admin->menu->message   = array('link' => '通知|message|index', 'subModule' => 'message,mail,webhook');
-$lang->admin->menu->custom    = array('link' => '自定义|custom|set', 'subModule' => 'custom');
+$lang->admin->menu->custom    = array('link' => '自定义|custom|product', 'subModule' => 'custom');
 $lang->admin->menu->sso       = array('link' => '集成|admin|sso', 'subModule' => '');
 $lang->admin->menu->extension = array('link' => '插件|extension|browse', 'subModule' => 'extension');
 $lang->admin->menu->dev       = array('link' => '二次开发|dev|api', 'alias' => 'db', 'subModule' => 'dev,entry');
@@ -2590,6 +2590,8 @@ $lang->custom->product       = $lang->productCommon;
 $lang->custom->closedProject = '已关闭' . $lang->projectCommon;
 $lang->custom->closedProduct = '已关闭' . $lang->productCommon;
 
+$lang->custom->object['product']  = $lang->productCommon;
+$lang->custom->object['project']  = $lang->projectCommon;
 $lang->custom->object['story']    = $lang->storyCommon;
 $lang->custom->object['task']     = '任务';
 $lang->custom->object['bug']      = 'Bug';
@@ -2648,7 +2650,7 @@ $lang->custom->user->fields['statusList']   = '状态';
 $lang->custom->user->fields['contactField'] = '可用联系方式';
 $lang->custom->user->fields['deleted']      = '列出已删除用户';
 
-$lang->custom->system = array('flow', 'working', 'required', 'score', 'product', 'project');
+$lang->custom->system = array('flow', 'working', 'required', 'score');
 
 $lang->custom->block->fields['closed'] = '关闭的区块';
 
@@ -5374,6 +5376,7 @@ $lang->story->batchChangeModule = "批量修改模块";
 $lang->story->viewAll           = '查看全部';
 $lang->story->toTask            = '转任务';
 $lang->story->batchToTask       = '批量转任务';
+$lang->story->convertRelations  = '换算关系';
 
 $lang->story->skipStory       = '需求：%s 为父需求，将不会被关闭。';
 $lang->story->closedStory     = '需求：%s 已关闭，将不会被关闭。';
@@ -5440,7 +5443,7 @@ $lang->story->allStories     = "所有{$lang->storyCommon}";
 $lang->story->unclosed       = '未关闭';
 $lang->story->deleted        = '已删除';
 $lang->story->released       = "已发布{$lang->storyCommon}数";
-$lang->story->oneUnit        = '一个单位';
+$lang->story->one            = '一个';
 $lang->story->field          = '同步的字段';
 
 $lang->story->ditto       = '同上';
@@ -6546,12 +6549,11 @@ $lang->todo->closedDate   = '关闭时间';
 $lang->todo->deadline     = '过期时间';
 
 $lang->todo->every        = '间隔';
-$lang->todo->appoint      = '指定';
+$lang->todo->specify      = '指定';
 $lang->todo->everyYear    = '每年';
 $lang->todo->beforeDays   = "<span class='input-group-addon'>提前</span>%s<span class='input-group-addon'>天生成待办</span>";
 $lang->todo->dayNames     = array(1 => '星期一', 2 => '星期二', 3 => '星期三', 4 => '星期四', 5 => '星期五', 6 => '星期六', 0 => '星期日');
-$lang->todo->appointMonth = array('', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
-$lang->todo->appointDay   = array('', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31);
+$lang->todo->specifiedDay = array(1 => 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31);
 
 $lang->todo->confirmBug   = '该Todo关联的是Bug #%s，需要修改它吗？';
 $lang->todo->confirmTask  = '该Todo关联的是Task #%s，需要修改它吗？';
