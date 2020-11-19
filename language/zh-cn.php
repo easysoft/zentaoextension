@@ -384,7 +384,7 @@ $lang->admin = new stdclass();
 $lang->admin->menu = new stdclass();
 $lang->admin->menu->index     = array('link' => '首页|admin|index', 'alias' => 'register,certifytemail,certifyztmobile,ztcompany');
 $lang->admin->menu->message   = array('link' => '通知|message|index', 'subModule' => 'message,mail,webhook');
-$lang->admin->menu->custom    = array('link' => '自定义|custom|product', 'subModule' => 'custom');
+$lang->admin->menu->custom    = array('link' => '自定义|custom|index', 'subModule' => 'custom');
 $lang->admin->menu->sso       = array('link' => '集成|admin|sso', 'subModule' => '');
 $lang->admin->menu->extension = array('link' => '插件|extension|browse', 'subModule' => 'extension');
 $lang->admin->menu->dev       = array('link' => '二次开发|dev|api', 'alias' => 'db', 'subModule' => 'dev,entry');
@@ -3413,6 +3413,7 @@ $lang->group->copyOptions['copyPriv'] = '复制权限';
 $lang->group->copyOptions['copyUser'] = '复制用户';
 
 $lang->group->versions['']          = '修改历史';
+$lang->group->versions['12_5']      = '禅道12.5';
 $lang->group->versions['12_3']      = '禅道12.3';
 $lang->group->versions['11_6_2']    = '禅道11.6.2';
 $lang->group->versions['10_6']      = '禅道10.6';
@@ -3997,6 +3998,7 @@ $lang->misc->feature = new stdclass();
 $lang->misc->feature->lastest  = '最新版本';
 $lang->misc->feature->detailed = '详情';
 
+$lang->misc->releaseDate['12.5.stable'] = '2020-11-19';
 $lang->misc->releaseDate['12.4.4']      = '2020-10-30';
 $lang->misc->releaseDate['12.4.3']      = '2020-10-13';
 $lang->misc->releaseDate['12.4.2']      = '2020-09-18';
@@ -4046,10 +4048,12 @@ $lang->misc->releaseDate['7.2.stable']  = '2015-05-22';
 $lang->misc->releaseDate['7.1.stable']  = '2015-03-07';
 $lang->misc->releaseDate['6.3.stable']  = '2014-11-07';
 
-$lang->misc->feature->all['12.4.4'][] = array('title'=>'兼容专业版和企业版', 'desc' => '');
-$lang->misc->feature->all['12.4.3'][] = array('title'=>'修复Bug', 'desc' => '');
-$lang->misc->feature->all['12.4.2'][] = array('title'=>'修复Bug', 'desc' => '');
-$lang->misc->feature->all['12.4.1'][] = array('title'=>'修复Bug', 'desc' => '');
+$lang->misc->feature->all['12.5.stable'][] = array('title' => '解决bug，完成高优先级需求。', 'desc' => '');
+
+$lang->misc->feature->all['12.4.4'][] = array('title' => '兼容专业版和企业版', 'desc' => '');
+$lang->misc->feature->all['12.4.3'][] = array('title' => '修复Bug', 'desc' => '');
+$lang->misc->feature->all['12.4.2'][] = array('title' => '修复Bug', 'desc' => '');
+$lang->misc->feature->all['12.4.1'][] = array('title' => '修复Bug', 'desc' => '');
 
 $lang->misc->feature->all['12.4.stable'][] = array('title'=>'修复Bug', 'desc' => '');
 
