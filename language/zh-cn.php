@@ -4006,6 +4006,7 @@ $lang->misc->feature = new stdclass();
 $lang->misc->feature->lastest  = '最新版本';
 $lang->misc->feature->detailed = '详情';
 
+$lang->misc->releaseDate['12.5.1']      = '2020-11-30';
 $lang->misc->releaseDate['12.5.stable'] = '2020-11-19';
 $lang->misc->releaseDate['12.4.4']      = '2020-10-30';
 $lang->misc->releaseDate['12.4.3']      = '2020-10-13';
@@ -4056,6 +4057,7 @@ $lang->misc->releaseDate['7.2.stable']  = '2015-05-22';
 $lang->misc->releaseDate['7.1.stable']  = '2015-03-07';
 $lang->misc->releaseDate['6.3.stable']  = '2014-11-07';
 
+$lang->misc->feature->all['12.5.1'][]      = array('title' => '修复漏洞。', 'desc' => '');
 $lang->misc->feature->all['12.5.stable'][] = array('title' => '解决bug，完成高优先级需求。', 'desc' => '');
 
 $lang->misc->feature->all['12.4.4'][] = array('title' => '兼容专业版和企业版', 'desc' => '');
@@ -6989,6 +6991,7 @@ $lang->user->noticeResetFile = "<h5>普通用户请联系管理员重置密码</
     <li>文件内容为空。</li>
     <li>如果之前文件存在，删除之后重新创建。</li>
     </ol>"; 
+$lang->user->notice4Safe = "检测到您可能在使用一键安装包环境，该环境中其他站点还在用简单密码，安全起见，请及时修改密码。其他站点的登录地址：<br />%s";
 /* webhook */
 $lang->webhook->common     = 'Webhook';
 $lang->webhook->list       = 'Webhook列表';
