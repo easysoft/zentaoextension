@@ -500,7 +500,7 @@ $lang->error->URL             = "『%s』should be url.";
 $lang->error->date            = "『%s』should be valid date.";
 $lang->error->datetime        = "『%s』should be valid date.";
 $lang->error->code            = "『%s』should be letters or numbers.";
-$lang->error->account         = "『%s』should be >= 3 letters or numbers.";
+$lang->error->account         = "『%s』should be >= 3 letters, underline or numbers.";
 $lang->error->passwordsame    = "The two passwords should be the same.";
 $lang->error->passwordrule    = "Password should conform to rules. It should be >= 6 characters.";
 $lang->error->accessDenied    = 'Access is denied.';
@@ -2731,8 +2731,8 @@ $lang->custom->moduleName['project']     = $lang->projectCommon;
 
 $lang->custom->conceptQuestions['overview']         = "1. Which combination of management fits your company?";
 $lang->custom->conceptQuestions['story']            = "2. Do you use the concept of requirement or user story in your company?";
-$lang->custom->conceptQuestions['requirementpoint'] = "2. Do you use hours or function points to make estimations in your company?";
-$lang->custom->conceptQuestions['storypoint']       = "2. Do you use hours or story points to make estimations in your company?";
+$lang->custom->conceptQuestions['requirementpoint'] = "3. Do you use hours or function points to make estimations in your company?";
+$lang->custom->conceptQuestions['storypoint']       = "3. Do you use hours or story points to make estimations in your company?";
 
 $lang->custom->conceptOptions = new stdclass;
 
@@ -6924,7 +6924,7 @@ $lang->user->placeholder->passwordStrength[1] = '>= 6 letters and numbers';
 $lang->user->placeholder->passwordStrength[2] = '>= 10 letters, numbers and special characters';
 
 $lang->user->error = new stdclass();
-$lang->user->error->account        = "ID %s，account must be >= 3 letters, underline, or numbers";
+$lang->user->error->account        = "ID %s，account must be >= 3 letters, underline or numbers";
 $lang->user->error->accountDupl    = "ID %s，account is used.";
 $lang->user->error->realname       = "ID %s，must be real name";
 $lang->user->error->password       = "ID %s，password must be >= 6 characters.";
@@ -6970,7 +6970,7 @@ $lang->user->noticeResetFile = "<h5>Contact the Administrator to reset your pass
     </ol>";
 $lang->user->notice4Safe = "Warning: Weak password of one click package detected";
 $lang->user->process4DIR = "It is detected that you may be using the one click installation package environment. Other sites in the environment are still using simple passwords. For security reasons, if you do not use other sites, please handle them in time. Delete or rename the %s directory. Visit: <a href='https://www.zentao.net/book/zentaopmshelp/467.html' target='_blank'>https://www.zentao.net/book/zentaopmshelp/467.html</a>";
-$lang->user->process4DB  = "It is detected that you may be using the one click installation package environment. Other sites in the environment are still using simple passwords. For security reasons, if you do not use other sites, please handle them in time. Please visit login database and modify password field of zt_user table of %s database. Visit: <a href='https://www.zentao.net/book/zentaopmshelp/467.html' target='_blank'>https://www.zentao.net/book/zentaopmshelp/467.html</a>";
+$lang->user->process4DB  = "It is detected that you may be using the one click installation package environment. Other sites in the environment are still using simple passwords. For security reasons, if you do not use other sites, please handle them in time. Please login database and modify password field of zt_user table of %s database. Visit: <a href='https://www.zentao.net/book/zentaopmshelp/467.html' target='_blank'>https://www.zentao.net/book/zentaopmshelp/467.html</a>";
 /* webhook */
 $lang->webhook->common     = 'Webhook';
 $lang->webhook->list       = 'Hook List';

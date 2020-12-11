@@ -500,7 +500,7 @@ $lang->error->URL             = "『%s』应当为合法的URL。";
 $lang->error->date            = "『%s』应当为合法的日期。";
 $lang->error->datetime        = "『%s』应当为合法的日期。";
 $lang->error->code            = "『%s』应当为字母或数字的组合。";
-$lang->error->account         = "『%s』只能是字母和数字的组合三位以上。";
+$lang->error->account         = "『%s』只能是字母、数字或下划线的组合三位以上。";
 $lang->error->passwordsame    = "两次密码应该相同。";
 $lang->error->passwordrule    = "密码应该符合规则，长度至少为六位。";
 $lang->error->accessDenied    = '您没有访问权限';
@@ -6994,7 +6994,7 @@ $lang->user->noticeResetFile = "<h5>普通用户请联系管理员重置密码</
     </ol>"; 
 $lang->user->notice4Safe = "警告：检测到一键安装包密码口令弱";
 $lang->user->process4DIR = "检测到您可能在使用一键安装包环境，该环境中其他站点还在用简单密码，安全起见，如果不使用其他站点，请及时处理。将 %s 目录删除或改名。详情查看：<a href='https://www.zentao.net/book/zentaopmshelp/467.html' target='_blank'>https://www.zentao.net/book/zentaopmshelp/467.html</a>";
-$lang->user->process4DB  = "检测到您可能在使用一键安装包环境，该环境中其他站点还在用简单密码，安全起见，如果不使用其他站点，请及时处理。请访问登录数据库，修改 %s 数据库的zt_user表的password字段。详情查看：<a href='https://www.zentao.net/book/zentaopmshelp/467.html' target='_blank'>https://www.zentao.net/book/zentaopmshelp/467.html</a>";
+$lang->user->process4DB  = "检测到您可能在使用一键安装包环境，该环境中其他站点还在用简单密码，安全起见，如果不使用其他站点，请及时处理。请登录数据库，修改 %s 数据库的zt_user表的password字段。详情查看：<a href='https://www.zentao.net/book/zentaopmshelp/467.html' target='_blank'>https://www.zentao.net/book/zentaopmshelp/467.html</a>";
 /* webhook */
 $lang->webhook->common     = 'Webhook';
 $lang->webhook->list       = 'Webhook列表';
