@@ -1787,6 +1787,7 @@ $lang->bug->createBuild   = 'New';
 
 $lang->bug->legendBasicInfo             = 'Basic Info';
 $lang->bug->legendAttatch               = 'Files';
+$lang->bug->legendPRJExecStoryTask      = 'Project/' . $lang->executionCommon . '/Story/Task';
 $lang->bug->legendExecStoryTask         = $lang->executionCommon . '/Story/Task';
 $lang->bug->lblTypeAndSeverity          = 'Type/Severity';
 $lang->bug->lblSystemBrowserAndHardware = 'System/Browser';
@@ -5124,7 +5125,7 @@ $lang->project->chooseProgramType      = 'Select the project management model';
 $lang->project->nextStep               = 'Next step';
 $lang->project->hoursUnit              = '%s hours';
 $lang->project->membersUnit            = '%s men';
-$lang->project->lastIteration          = 'Recent iterations';
+$lang->project->lastIteration          = "Recent {$lang->executionCommon}";
 $lang->project->ongoingStage           = 'Ongoing stage';
 $lang->project->scrum                  = 'Scrum';
 $lang->project->waterfall              = 'CMMI';
@@ -6175,7 +6176,7 @@ $lang->story->lblClose    = 'Close';
 $lang->story->lblTBC      = 'Task/Bug/Case';
 
 $lang->story->checkAffection       = 'Influence';
-$lang->story->affectedProjects     = '' . $lang->executionCommon . 's';
+$lang->story->affectedProjects     = "{$lang->project->common}s/{$lang->execution->common}s";
 $lang->story->affectedBugs         = 'Bugs';
 $lang->story->affectedCases        = 'Cases';
 
@@ -7018,7 +7019,7 @@ $lang->testtask->id             = 'ID';
 $lang->testtask->common         = 'Request';
 $lang->testtask->product        = $lang->productCommon;
 $lang->testtask->project        = 'Project';
-$lang->testtask->execution      = $lang->executionCommon;
+$lang->testtask->execution      = $lang->execution->common;
 $lang->testtask->build          = 'Build';
 $lang->testtask->owner          = 'Owner';
 $lang->testtask->executor       = 'Executor';

@@ -1843,6 +1843,7 @@ $lang->bug->createBuild   = '创建';
 
 $lang->bug->legendBasicInfo             = '基本信息';
 $lang->bug->legendAttatch               = '附件';
+$lang->bug->legendPRJExecStoryTask      = "项目/" . $lang->executionCommon . "/{$lang->SRCommon}/任务";
 $lang->bug->legendExecStoryTask         = $lang->executionCommon . "/{$lang->SRCommon}/任务";
 $lang->bug->lblTypeAndSeverity          = '类型/严重程度';
 $lang->bug->lblSystemBrowserAndHardware = '系统/浏览器';
@@ -5181,7 +5182,7 @@ $lang->project->chooseProgramType      = '选中项目管理模型';
 $lang->project->nextStep               = '下一步';
 $lang->project->hoursUnit              = '%s 工时';
 $lang->project->membersUnit            = '%s人';
-$lang->project->lastIteration          = '近期迭代';
+$lang->project->lastIteration          = "近期{$lang->executionCommon}";
 $lang->project->ongoingStage           = '进行中的阶段';
 $lang->project->scrum                  = 'Scrum';
 $lang->project->waterfall              = '瀑布';
@@ -6236,7 +6237,7 @@ $lang->story->lblClose             = "关闭{$lang->SRCommon}";
 $lang->story->lblTBC               = '任务Bug用例';
 
 $lang->story->checkAffection       = '影响范围';
-$lang->story->affectedProjects     = '影响的' . $lang->executionCommon;
+$lang->story->affectedProjects     = "影响的{$lang->project->common}或{$lang->execution->common}";
 $lang->story->affectedBugs         = '影响的Bug';
 $lang->story->affectedCases        = '影响的用例';
 
@@ -7079,7 +7080,7 @@ $lang->testtask->id             = '编号';
 $lang->testtask->common         = '测试单';
 $lang->testtask->product        = '所属' . $lang->productCommon;
 $lang->testtask->project        = '所属项目';
-$lang->testtask->execution      = '所属' . $lang->executionCommon;
+$lang->testtask->execution      = '所属' . $lang->execution->common;
 $lang->testtask->build          = '版本';
 $lang->testtask->owner          = '负责人';
 $lang->testtask->executor       = '执行人';
