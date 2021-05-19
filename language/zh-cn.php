@@ -531,6 +531,7 @@ $lang->action->desc->diff3          = '将文件名 %s 改为 %s 。' . "\n";
 $lang->action->desc->linked2bug     = '$date 由 <strong>$actor</strong> 关联到版本 <strong>$extra</strong>';
 $lang->action->desc->resolved       = '$date, 由 <strong>$actor</strong> 解决。' . "\n";
 $lang->action->desc->managed        = '$date, 由 <strong>$actor</strong> 维护。' . "\n";
+$lang->action->desc->estimated      = '$date, 由 <strong>$actor</strong> 估算。' . "\n";
 
 $lang->action->desc->createchildren     = '$date, 由 <strong>$actor</strong> 创建子任务 <strong>$extra</strong>。' . "\n";
 $lang->action->desc->linkchildtask      = '$date, 由 <strong>$actor</strong> 关联子任务 <strong>$extra</strong>。' . "\n";
@@ -635,6 +636,7 @@ $lang->action->label->deletechildrenstory   = "删除子需求";
 $lang->action->label->tracked               = '跟踪了';
 $lang->action->label->hangup                = '挂起了';
 $lang->action->label->run                   = '执行了';
+$lang->action->label->estimated             = '估算了';
 
 $lang->action->dynamicAction                    = new stdclass();
 $lang->action->dynamicAction->todo['opened']    = '创建待办';
@@ -694,6 +696,7 @@ $lang->action->dynamicAction->story['undeleted']             = "还原{$lang->SR
 $lang->action->dynamicAction->story['hidden']                = "隐藏{$lang->SRCommon}";
 $lang->action->dynamicAction->story['linked2execution']      = "关联$lang->SRCommon";
 $lang->action->dynamicAction->story['unlinkedfromexecution'] = "移除$lang->SRCommon";
+$lang->action->dynamicAction->story['estimated']             = "估算$lang->SRCommon";
 
 $lang->action->dynamicAction->execution['opened']    = '创建' . $lang->executionCommon;
 $lang->action->dynamicAction->execution['edited']    = '编辑' . $lang->executionCommon;
@@ -797,6 +800,7 @@ $lang->action->dynamicAction->caselib['hidden']    = '隐藏用例库';
 
 $lang->action->dynamicAction->doclib['created'] = '创建文档库';
 $lang->action->dynamicAction->doclib['edited']  = '编辑文档库';
+$lang->action->dynamicAction->doclib['deleted'] = '删除文档库';
 
 $lang->action->dynamicAction->doc['created']   = '创建文档';
 $lang->action->dynamicAction->doc['edited']    = '编辑文档';
@@ -6280,6 +6284,7 @@ $lang->story->ignoreChangeStage     = "{$lang->SRCommon} %s 为草稿状态或�
 $lang->story->cannotDeleteParent    = "不能删除父{$lang->SRCommon}";
 $lang->story->moveChildrenTips      = "修改父{$lang->SRCommon}的所属产品会将其下的子{$lang->SRCommon}也移动到所选产品下。";
 $lang->story->changeTips            = '该软件需求关联的用户需求有变更，点击“不变更”忽略此条变更，点击“变更”来进行该软件需求的变更。';
+$lang->story->estimateMustBeNumber  = '估算值必须是数字';
 
 $lang->story->form = new stdclass();
 $lang->story->form->area      = "该{$lang->SRCommon}所属范围";

@@ -531,6 +531,7 @@ $lang->action->desc->diff3          = 'File Name %s was changed to %s .' . "\n";
 $lang->action->desc->linked2bug     = '$date, linked to <strong>$extra</strong> by <strong>$actor</strong>';
 $lang->action->desc->resolved       = '$date, resolved by <strong>$actor</strong> ' . "\n";
 $lang->action->desc->managed        = '$date, by <strong>$actor</strong> managed.' . "\n";
+$lang->action->desc->estimated      = '$date, by <strong>$actor</strong> estimated。' . "\n";
 
 $lang->action->desc->createchildren     = '$date, <strong>$actor</strong> created a child task <strong>$extra</strong>。' . "\n";
 $lang->action->desc->linkchildtask      = '$date, <strong>$actor</strong> linked a child task <strong>$extra</strong>。' . "\n";
@@ -635,6 +636,7 @@ $lang->action->label->deletechildrenstory   = "delete children story";
 $lang->action->label->tracked               = 'tracked';
 $lang->action->label->hangup                = 'hangup';
 $lang->action->label->run                   = 'run';
+$lang->action->label->estimated             = 'estimated';
 
 $lang->action->dynamicAction                    = new stdclass;
 $lang->action->dynamicAction->todo['opened']    = 'Create Todo';
@@ -694,6 +696,7 @@ $lang->action->dynamicAction->story['undeleted']             = 'Restore Story';
 $lang->action->dynamicAction->story['hidden']                = 'Hide Story';
 $lang->action->dynamicAction->story['linked2execution']      = "Link Story";
 $lang->action->dynamicAction->story['unlinkedfromexecution'] = "Unlink Story";
+$lang->action->dynamicAction->story['estimated']             = "Estimate $lang->SRCommon";
 
 $lang->action->dynamicAction->execution['opened']    = 'Create ' . $lang->executionCommon;
 $lang->action->dynamicAction->execution['edited']    = 'Edit ' . $lang->executionCommon;
@@ -797,6 +800,7 @@ $lang->action->dynamicAction->caselib['hidden']    = 'Hide Case Lib';
 
 $lang->action->dynamicAction->doclib['created'] = 'Create Doc Library';
 $lang->action->dynamicAction->doclib['edited']  = 'Edit Doc Library';
+$lang->action->dynamicAction->doclib['deleted'] = 'Delete Doc Library';
 
 $lang->action->dynamicAction->doc['created']   = 'Create Document';
 $lang->action->dynamicAction->doc['edited']    = 'Edit Document';
@@ -6218,6 +6222,7 @@ $lang->story->ignoreChangeStage    = 'Story %s is in Draft or Closed status. Ple
 $lang->story->cannotDeleteParent   = "Can not delete parent {$lang->SRCommon}";
 $lang->story->moveChildrenTips     = "Its Child {$lang->SRCommon} will be moved to the selected product when editing the linked product of Parent {$lang->SRCommon}.";
 $lang->story->changeTips           = 'The story associated with the requirements to change, click "Cancel" ignore this change, click "Confirm" to change the story.';
+$lang->story->estimateMustBeNumber = 'Estimate value must be number.';
 
 $lang->story->form = new stdclass();
 $lang->story->form->area     = 'Scope';
