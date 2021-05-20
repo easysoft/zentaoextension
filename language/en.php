@@ -3152,6 +3152,7 @@ $lang->execution->oneProduct      = "Only one stage can be linked {$lang->produc
 $lang->execution->noLinkProduct   = "Stage not linked {$lang->productCommon}";
 $lang->execution->recent          = 'Recent visits: ';
 $lang->execution->copyNoExecution = 'There are no ' . $lang->executionCommon . 'available to copy.';
+$lang->execution->noTeam          = 'No team members at the moment';
 
 $lang->execution->start    = 'Start';
 $lang->execution->activate = 'Activate';
@@ -6232,7 +6233,9 @@ $lang->story->form->file     = 'If any file that is linked to a story, please cl
 
 $lang->story->action = new stdclass();
 $lang->story->action->reviewed              = array('main' => '$date, recorded by <strong>$actor</strong>. The result is <strong>$extra</strong>.', 'extra' => 'reviewResultList');
+$lang->story->action->rejectreviewed        = array('main' => '$date, recorded by <strong>$actor</strong>. The result is <strong>$extra</strong>. The reasion is <strong>$reason</strong>.', 'extra' => 'reviewResultList', 'reason' => 'reasonList');
 $lang->story->action->closed                = array('main' => '$date, closed by <strong>$actor</strong>. The reasion is <strong>$extra</strong> $appendLink.', 'extra' => 'reasonList');
+$lang->story->action->reviewclosed          = array('main' => '$date, closed by <strong>System</strong>. The reasion is <strong>Review Failed</strong>.');
 $lang->story->action->linked2plan           = array('main' => '$date, linked by <strong>$actor</strong> to Plan <strong>$extra</strong>');
 $lang->story->action->unlinkedfromplan      = array('main' => '$date, unlinked by <strong>$actor</strong> from Plan <strong>$extra</strong>.');
 $lang->story->action->linked2execution      = array('main' => '$date, linked by <strong>$actor</strong> to ' . $lang->executionCommon . ' <strong>$extra</strong>.');
