@@ -637,6 +637,9 @@ $lang->action->label->tracked               = 'tracked';
 $lang->action->label->hangup                = 'hangup';
 $lang->action->label->run                   = 'run';
 $lang->action->label->estimated             = 'estimated';
+$lang->action->label->reviewclosed          = 'Review Failed';
+$lang->action->label->passreviewed          = 'Pass';
+$lang->action->label->clarifyreviewed       = 'Clarify';
 
 $lang->action->dynamicAction                    = new stdclass;
 $lang->action->dynamicAction->todo['opened']    = 'Create Todo';
@@ -710,6 +713,8 @@ $lang->action->dynamicAction->execution['managed']   = 'Manage ' . $lang->execut
 $lang->action->dynamicAction->execution['undeleted'] = 'Restore ' . $lang->executionCommon;
 $lang->action->dynamicAction->execution['hidden']    = 'Hide ' . $lang->executionCommon;
 $lang->action->dynamicAction->execution['moved']     = 'Improt Task';
+
+$lang->action->dynamicAction->team['managedTeam'] = 'Manage Team';
 
 $lang->action->dynamicAction->task['opened']              = 'Create Task';
 $lang->action->dynamicAction->task['edited']              = 'Edit Task';
@@ -1020,6 +1025,62 @@ $lang->api->post      = 'Refer to page list if POST Debug';
 $lang->api->error = new stdclass();
 $lang->api->error->onlySelect = 'SQL interface only allow SELECT query.';
 $lang->api->error->disabled   = 'For security reasons, this feature is disabled. You can go to the config directory and modify the configuration item %s to open this function.';
+/* automation */
+$lang->automation->common = 'Automated testing';
+$lang->automation->browse = 'Index';
+
+$lang->automation->title = 'Automated test solutions';
+
+$lang->automation->ztfSite     = 'ZTF Website';
+$lang->automation->ztfDownload = 'ZTF Download';
+$lang->automation->ztfManual   = 'ZTF Manual';
+
+$lang->automation->ztfFeature1 = 'ZTF solves various problems for you.';
+$lang->automation->ztfFeature2 = 'ZTF solves the following problems for you.';
+$lang->automation->ztfFeature3 = 'Management of use case information.';
+$lang->automation->ztfFeature4 = 'Comparison of test results';
+$lang->automation->ztfFeature5 = 'Test the execution of the script';
+$lang->automation->ztfFeature6 = 'Defect Bug submission.';
+
+$lang->automation->ztfFeature7  = 'ZTF has no dependence on the environment.';
+$lang->automation->ztfFeature8  = 'Developed in the Go language.';
+$lang->automation->ztfFeature9  = 'Deploy without any dependencies.';
+$lang->automation->ztfFeature10 = 'It works on all platforms.';
+$lang->automation->ztfFeature11 = 'There is only one executable.';
+
+$lang->automation->ztfFeature12 = 'ZTF has no requirement for automated testing.';
+$lang->automation->ztfFeature13 = 'Support for a variety of common development languages.';
+$lang->automation->ztfFeature14 = 'Can be integrated with known testing frameworks.';
+$lang->automation->ztfFeature15 = 'There are no requirements for how the script is implemented.';
+
+$lang->automation->ztfFeature16 = 'You can batch export Zen test cases to scripts';
+$lang->automation->ztfFeature17 = 'The results of the execution can be submitted to the Zentao';
+$lang->automation->ztfFeature18 = 'Execution results can be created as bug';
+$lang->automation->ztfFeature19 = 'Deep integration of ZTF and Zentao';
+
+$lang->automation->zendataSite     = 'ZenData Website';
+$lang->automation->zendataDownload = 'ZenData Download';
+$lang->automation->zendataManual   = 'ZenData Manual';
+
+$lang->automation->zendata         = 'Generic data generation tool';
+$lang->automation->zendataFeature1 = 'Do not understand the code can also be used, easy to get started';
+$lang->automation->zendataFeature2 = 'The data format is completely customizable without any restrictions';
+$lang->automation->zendataFeature3 = 'One click generates a million pieces of data, no pressure';
+
+$lang->automation->zendataFeature4 = 'Cross-platform and cross-language';
+$lang->automation->zendataFeature5 = 'Only one executable is required to run';
+$lang->automation->zendataFeature6 = 'You can use Windows, Linux, MacOS';
+$lang->automation->zendataFeature7 = 'A variety of languages can be used';
+
+$lang->automation->zendataFeature8  = 'All kinds of black tricks';
+$lang->automation->zendataFeature9  = 'Interval, Step Size, Random, Repeat, References';
+$lang->automation->zendataFeature10 = 'Specify a list of files to be queried in Excel';
+$lang->automation->zendataFeature11 = 'Parallel generation, recursive generation, reverse parsing';
+
+$lang->automation->groupTips        = 'Welcome to join the automated test QQ communication group';
+$lang->automation->groupTitle       = 'Software test communication group:';
+$lang->automation->qqGroup          = '522506766';
+$lang->automation->groupDescription = 'Software testing technology exchange community for software testing practitioners, sharing software testing tools and methods, help everyone to improve the level of software testing skills.';
 /* backup */
 $lang->backup->common      = 'Backup';
 $lang->backup->index       = 'Backup Home';
@@ -2448,6 +2509,7 @@ $lang->custom->story->fields['sourceList']       = 'Source';
 $lang->custom->story->fields['reasonList']       = 'Close Reason';
 $lang->custom->story->fields['stageList']        = 'Phase';
 $lang->custom->story->fields['statusList']       = 'Status';
+$lang->custom->story->fields['reviewRules']      = 'Review Rules';
 $lang->custom->story->fields['reviewResultList'] = 'Review Result';
 $lang->custom->story->fields['review']           = 'Need Review';
 
@@ -5206,6 +5268,7 @@ $lang->projectrelease->batchUnlinkBug   = "Batch Unlink Bugs";
 $lang->projectrelease->unlinkStory      = "Unlink {$lang->SRCommon}";
 $lang->projectrelease->unlinkBug        = 'Unlink Bug';
 $lang->projectrelease->export           = 'Export as HTML';
+$lang->projectrelease->browseAction     = "Release List";
 /* projectstory */
 $lang->projectstory->common            = "Project {$lang->SRCommon}";
 $lang->projectstory->index             = "{$lang->SRCommon} Home";
@@ -5226,7 +5289,8 @@ $lang->projectstory->featureBar['story']['unclosed'] = $lang->product->unclosed;
 $lang->projectstory->featureBar['story']['changed']  = $lang->product->changedStory;
 $lang->projectstory->featureBar['story']['closed']   = $lang->product->closedStory;
 /* qa */
-$lang->qa->index  = 'QA Home';
+$lang->qa->index       = 'QA Home';
+$lang->qa->indexAction = 'QA Index';
 /* release */
 $lang->release->common           = 'Product Release';
 $lang->release->create           = "Create Release";
@@ -6077,6 +6141,7 @@ $lang->story->closedDate     = 'ClosedDate';
 $lang->story->closedReason   = 'Reason';
 $lang->story->rejectedReason = 'Reject Reason';
 $lang->story->reviewedBy     = 'ReviewedBy';
+$lang->story->reviewers      = 'Reviewers';
 $lang->story->reviewedDate   = 'ReviewedDate';
 $lang->story->version        = 'Version';
 $lang->story->plan           = 'Linked Plan';
@@ -6109,6 +6174,8 @@ $lang->story->noRequirement  = 'No Requirements';
 $lang->story->one            = 'One';
 $lang->story->field          = 'Synchronized fields';
 $lang->story->completeRate   = 'Completion Rate';
+$lang->story->reviewed       = 'Reviewed';
+$lang->story->toBeReviewed   = 'To Be Reviewed';
 
 $lang->story->ditto       = 'Ditto';
 $lang->story->dittoNotice = 'This story is not linked to the same product as the last one is!';
@@ -6233,6 +6300,8 @@ $lang->story->form->file     = 'If any file that is linked to a story, please cl
 
 $lang->story->action = new stdclass();
 $lang->story->action->reviewed              = array('main' => '$date, recorded by <strong>$actor</strong>. The result is <strong>$extra</strong>.', 'extra' => 'reviewResultList');
+$lang->story->action->passreviewed          = array('main' => '$date, determined by the <strong>System</strong>. The result is <strong>Pass</strong>.');
+$lang->story->action->clarifyreviewed       = array('main' => '$date, determined by the <strong>System</strong>. The result is <strong>Clarify</strong>. Please re-initiate the review after changing.');
 $lang->story->action->rejectreviewed        = array('main' => '$date, recorded by <strong>$actor</strong>. The result is <strong>$extra</strong>. The reasion is <strong>$reason</strong>.', 'extra' => 'reviewResultList', 'reason' => 'reasonList');
 $lang->story->action->closed                = array('main' => '$date, closed by <strong>$actor</strong>. The reasion is <strong>$extra</strong> $appendLink.', 'extra' => 'reasonList');
 $lang->story->action->reviewclosed          = array('main' => '$date, closed by <strong>System</strong>. The reasion is <strong>Review Failed</strong>.');
@@ -6931,6 +7000,7 @@ $lang->testreport->legendLegacyBugs  = 'Left Bugs';
 $lang->testreport->legendReport      = 'Report';
 $lang->testreport->legendComment     = 'Summary';
 $lang->testreport->legendMore        = 'More';
+$lang->testreport->date              = 'Date';
 
 $lang->testreport->bugSeverityGroups   = 'Bug Severity Distribution';
 $lang->testreport->bugTypeGroups       = 'Bug Type Distribution';
@@ -6939,9 +7009,16 @@ $lang->testreport->bugOpenedByGroups   = 'Bug ReportedBy Distribution';
 $lang->testreport->bugResolvedByGroups = 'Bug ResolvedBy Distribution';
 $lang->testreport->bugResolutionGroups = 'Bug Resolution Distribution';
 $lang->testreport->bugModuleGroups     = 'Bug Module Distribution';
+$lang->testreport->bugStageGroups      = 'Bug importance stage distribution';
+$lang->testreport->bugHandleGroups     = 'Distribution of daily bug processing';
 $lang->testreport->legacyBugs          = 'Left Bugs';
 $lang->testreport->bugConfirmedRate    = 'Confirmed-Bug Rate (Resolution is fixed or postponed / status is resolved or closed)';
 $lang->testreport->bugCreateByCaseRate = 'Bug-Reported-in-Case Rate (Bugs reported in cases / New added bugs)';
+
+$lang->testreport->bugStageList = array();
+$lang->testreport->bugStageList['generated'] = 'Generated Bugs';
+$lang->testreport->bugStageList['legacy']    = 'Legacy Bugs';
+$lang->testreport->bugStageList['resolved']  = 'Resolved Bugs';
 
 $lang->testreport->caseSummary    = 'Total <strong>%s</strong> cases. <strong>%s</strong> cases run. <strong>%s</strong> results generated. <strong>%s</strong> cases failed.';
 $lang->testreport->buildSummary   = 'Tested <strong>%s</strong> builds.';
@@ -7177,6 +7254,8 @@ $lang->testtask->report->charts['bugOpenedByGroups']    = 'Bug ReportedBy Distri
 $lang->testtask->report->charts['bugResolvedByGroups']  = 'Bug ResolvedBy Distribution';
 $lang->testtask->report->charts['bugResolutionGroups']  = 'Bug Resolution Distribution';
 $lang->testtask->report->charts['bugModuleGroups']      = 'Bug Module Distribution';
+$lang->testtask->report->charts['bugStageGroups']       = 'Bug importance stage distribution';
+$lang->testtask->report->charts['bugHandleGroups']      = 'Distribution of daily bug processing';
 
 $lang->testtask->report->options = new stdclass();
 $lang->testtask->report->options->graph  = new stdclass();
@@ -7480,7 +7559,7 @@ $lang->upgrade->mergeTips     = 'Data Migration Tips';
 $lang->upgrade->toPMS15Guide  = 'ZenTao open source version 15.0.beta1 upgrade';
 $lang->upgrade->toPRO10Guide  = 'ZenTao profession version 10.0.rc1 upgrade';
 $lang->upgrade->toBIZ5Guide   = 'ZenTao enterprise version 5.0.rc1 upgrade';
-$lang->upgrade->toMAX5Guide   = 'ZenTao ultimate version upgrade';
+$lang->upgrade->toMAXGuide    = 'ZenTao ultimate version upgrade';
 $lang->upgrade->to15Desc      = <<<EOD
 <p>Dear users, ZenTao has made adjustments to navigation and concepts since version 15. The main changes are as follows:</p>
 <ol>

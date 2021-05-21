@@ -637,6 +637,9 @@ $lang->action->label->tracked               = '跟踪了';
 $lang->action->label->hangup                = '挂起了';
 $lang->action->label->run                   = '执行了';
 $lang->action->label->estimated             = '估算了';
+$lang->action->label->reviewclosed          = '评审失败';
+$lang->action->label->passreviewed          = '确认通过';
+$lang->action->label->clarifyreviewed       = '有待明确';
 
 $lang->action->dynamicAction                    = new stdclass();
 $lang->action->dynamicAction->todo['opened']    = '创建待办';
@@ -710,6 +713,8 @@ $lang->action->dynamicAction->execution['managed']   = '维护' . $lang->executi
 $lang->action->dynamicAction->execution['undeleted'] = '还原' . $lang->executionCommon;
 $lang->action->dynamicAction->execution['hidden']    = '隐藏' . $lang->executionCommon;
 $lang->action->dynamicAction->execution['moved']     = '导入任务';
+
+$lang->action->dynamicAction->team['managedTeam'] = '维护团队';
 
 $lang->action->dynamicAction->task['opened']              = '创建任务';
 $lang->action->dynamicAction->task['edited']              = '编辑任务';
@@ -5264,8 +5269,7 @@ $lang->projectrelease->batchUnlinkBug   = "批量移除Bug";
 $lang->projectrelease->unlinkStory      = "移除{$lang->SRCommon}";
 $lang->projectrelease->unlinkBug        = '移除Bug';
 $lang->projectrelease->export           = '导出HTML';
-
-$lang->projectrelease->browseAction = "发布列表";
+$lang->projectrelease->browseAction     = "发布列表";
 /* projectstory */
 $lang->projectstory->common            = "项目{$lang->SRCommon}";
 $lang->projectstory->index             = "{$lang->SRCommon}主页";
@@ -5286,8 +5290,7 @@ $lang->projectstory->featureBar['story']['unclosed'] = $lang->product->unclosed;
 $lang->projectstory->featureBar['story']['changed']  = $lang->product->changedStory;
 $lang->projectstory->featureBar['story']['closed']   = $lang->product->closedStory;
 /* qa */
-$lang->qa->index  = '测试主页';
-
+$lang->qa->index       = '测试主页';
 $lang->qa->indexAction = '测试仪表盘';
 /* release */
 $lang->release->common           = '产品发布';
@@ -6139,6 +6142,7 @@ $lang->story->closedDate     = '关闭日期';
 $lang->story->closedReason   = '关闭原因';
 $lang->story->rejectedReason = '拒绝原因';
 $lang->story->reviewedBy     = '由谁评审';
+$lang->story->reviewers      = '评审人员';
 $lang->story->reviewedDate   = '评审时间';
 $lang->story->version        = '版本号';
 $lang->story->plan           = "所属计划";
@@ -6171,6 +6175,8 @@ $lang->story->noRequirement  = '无需求';
 $lang->story->one            = '一个';
 $lang->story->field          = '同步的字段';
 $lang->story->completeRate   = '完成率';
+$lang->story->reviewed       = '已评审';
+$lang->story->toBeReviewed   = '待评审';
 
 $lang->story->ditto       = '同上';
 $lang->story->dittoNotice = "该{$lang->SRCommon}与上一{$lang->SRCommon}不属于同一产品！";
@@ -6295,6 +6301,8 @@ $lang->story->form->file      = "附件，如果该{$lang->SRCommon}有相关文
 
 $lang->story->action = new stdclass();
 $lang->story->action->reviewed              = array('main' => '$date, 由 <strong>$actor</strong> 记录评审结果，结果为 <strong>$extra</strong>。', 'extra' => 'reviewResultList');
+$lang->story->action->passreviewed          = array('main' => '$date, 由 <strong>系统</strong> 判定，结果为 <strong>确认通过</strong>。');
+$lang->story->action->clarifyreviewed       = array('main' => '$date, 由 <strong>系统</strong> 判定，结果为 <strong>有待明确</strong>，请变更后重新发起评审。');
 $lang->story->action->rejectreviewed        = array('main' => '$date, 由 <strong>$actor</strong> 记录评审结果，结果为 <strong>$extra</strong>，原因为 <strong>$reason</strong>。', 'extra' => 'reviewResultList', 'reason' => 'reasonList');
 $lang->story->action->closed                = array('main' => '$date, 由 <strong>$actor</strong> 关闭，原因为 <strong>$extra</strong> $appendLink。', 'extra' => 'reasonList');
 $lang->story->action->reviewclosed          = array('main' => '$date, 由 <strong>系统</strong> 关闭，原因为 <strong>评审失败</strong>。');
@@ -6993,6 +7001,7 @@ $lang->testreport->legendLegacyBugs  = '遗留的Bug';
 $lang->testreport->legendReport      = '报表';
 $lang->testreport->legendComment     = '总结';
 $lang->testreport->legendMore        = '更多功能';
+$lang->testreport->date              = '日期';
 
 $lang->testreport->bugSeverityGroups   = 'Bug严重级别分布';
 $lang->testreport->bugTypeGroups       = 'Bug类型分布';
@@ -7001,9 +7010,16 @@ $lang->testreport->bugOpenedByGroups   = 'Bug创建者分布';
 $lang->testreport->bugResolvedByGroups = 'Bug解决者分布';
 $lang->testreport->bugResolutionGroups = 'Bug解决方案分布';
 $lang->testreport->bugModuleGroups     = 'Bug模块分布';
+$lang->testreport->bugStageGroups      = 'Bug重要程度阶段分布';
+$lang->testreport->bugHandleGroups     = 'Bug每日处理情况分布';
 $lang->testreport->legacyBugs          = '遗留的Bug';
 $lang->testreport->bugConfirmedRate    = '有效Bug率 (方案为已解决或延期 / 状态为已解决或已关闭)';
 $lang->testreport->bugCreateByCaseRate = '用例发现Bug率 (用例创建的Bug / 时间区间中新增的Bug)';
+
+$lang->testreport->bugStageList = array();
+$lang->testreport->bugStageList['generated'] = '产生的Bug';
+$lang->testreport->bugStageList['legacy']    = '遗留的Bug';
+$lang->testreport->bugStageList['resolved']  = '解决的Bug';
 
 $lang->testreport->caseSummary    = '共有<strong>%s</strong>个用例，共执行<strong>%s</strong>个用例，产生了<strong>%s</strong>个结果，失败的用例有<strong>%s</strong>个。';
 $lang->testreport->buildSummary   = '共测试了<strong>%s</strong>个版本。';
@@ -7239,6 +7255,8 @@ $lang->testtask->report->charts['bugOpenedByGroups']    = 'Bug创建者分布';
 $lang->testtask->report->charts['bugResolvedByGroups']  = 'Bug解决者分布';
 $lang->testtask->report->charts['bugResolutionGroups']  = 'Bug解决方案分布';
 $lang->testtask->report->charts['bugModuleGroups']      = 'Bug模块分布';
+$lang->testtask->report->charts['bugStageGroups']       = 'Bug重要程度阶段分布';
+$lang->testtask->report->charts['bugHandleGroups']      = 'Bug每日处理情况分布';
 
 $lang->testtask->report->options = new stdclass();
 $lang->testtask->report->options->graph  = new stdclass();
