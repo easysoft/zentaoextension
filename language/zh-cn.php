@@ -6302,7 +6302,7 @@ $lang->story->form->file      = "附件，如果该{$lang->SRCommon}有相关文
 $lang->story->action = new stdclass();
 $lang->story->action->reviewed              = array('main' => '$date, 由 <strong>$actor</strong> 记录评审结果，结果为 <strong>$extra</strong>。', 'extra' => 'reviewResultList');
 $lang->story->action->passreviewed          = array('main' => '$date, 由 <strong>系统</strong> 判定，结果为 <strong>确认通过</strong>。');
-$lang->story->action->clarifyreviewed       = array('main' => '$date, 由 <strong>系统</strong> 判定，结果为 <strong>有待明确</strong>，请变更后重新发起评审。');
+$lang->story->action->clarifyreviewed       = array('main' => '$date, 由 <strong>系统</strong> 判定，结果为 <strong>评审不通过</strong>，请变更后重新发起评审。');
 $lang->story->action->rejectreviewed        = array('main' => '$date, 由 <strong>$actor</strong> 记录评审结果，结果为 <strong>$extra</strong>，原因为 <strong>$reason</strong>。', 'extra' => 'reviewResultList', 'reason' => 'reasonList');
 $lang->story->action->closed                = array('main' => '$date, 由 <strong>$actor</strong> 关闭，原因为 <strong>$extra</strong> $appendLink。', 'extra' => 'reasonList');
 $lang->story->action->reviewclosed          = array('main' => '$date, 由 <strong>系统</strong> 关闭，原因为 <strong>评审失败</strong>。');
@@ -6554,7 +6554,7 @@ $lang->task->recordEstimateAction = '添加工时';
 
 $lang->task->ditto             = '同上';
 $lang->task->dittoNotice       = "该任务与上一任务不属于同一%s！";
-$lang->task->selectTestStory   = "选择测试{$lang->SRCommon}";
+$lang->task->selectTestStory   = "选择测试需求";
 $lang->task->selectAllUser     = '全部';
 $lang->task->noStory           = "无{$lang->SRCommon}";
 $lang->task->noAssigned        = '未指派';
