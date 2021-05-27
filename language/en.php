@@ -486,6 +486,7 @@ $lang->action->objectTypes['webhook']     = 'Webhook';
 $lang->action->objectTypes['team']        = 'Team';
 $lang->action->objectTypes['whitelist']   = 'Whitelist';
 $lang->action->objectTypes['opportunity'] = 'Opportunity';
+$lang->action->objectTypes['trainplan']   = 'Trainplan';
 
 $lang->action->desc = new stdclass();
 $lang->action->desc->common         = '$date, <strong>$action</strong> by <strong>$actor</strong>.' . "\n";
