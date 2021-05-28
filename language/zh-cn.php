@@ -642,6 +642,7 @@ $lang->action->label->estimated             = '估算了';
 $lang->action->label->reviewclosed          = '评审失败';
 $lang->action->label->passreviewed          = '确认通过';
 $lang->action->label->clarifyreviewed       = '有待明确';
+$lang->action->label->commitsummary         = '提交培训总结';
 
 $lang->action->dynamicAction                    = new stdclass();
 $lang->action->dynamicAction->todo['opened']    = '创建待办';
@@ -860,6 +861,8 @@ $lang->action->label->risk        = '风险|risk|view|riskID=%s';
 $lang->action->label->issue       = '问题|issue|view|issueID=%s';
 $lang->action->label->design      = '设计|design|view|designID=%s';
 $lang->action->label->stakeholder = '干系人|stakeholder|view|userID=%s';
+$lang->action->label->opportunity = '机会|opportunity|view|opportunityID=%s';
+$lang->action->label->trainplan   = '培训计划|trainplan|view|trainplanID=%s';
 
 $lang->action->search = new stdclass();
 $lang->action->search->objectTypeList['']            = '';

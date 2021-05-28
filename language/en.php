@@ -642,6 +642,7 @@ $lang->action->label->estimated             = 'estimated';
 $lang->action->label->reviewclosed          = 'Review Failed';
 $lang->action->label->passreviewed          = 'Pass';
 $lang->action->label->clarifyreviewed       = 'Clarify';
+$lang->action->label->commitsummary         = 'Commit Summary';
 
 $lang->action->dynamicAction                    = new stdclass;
 $lang->action->dynamicAction->todo['opened']    = 'Create Todo';
@@ -860,6 +861,8 @@ $lang->action->label->risk        = 'Risk|risk|view|riskID=%s';
 $lang->action->label->issue       = 'Issue|issue|view|issueID=%s';
 $lang->action->label->design      = 'Design|design|view|designID=%s';
 $lang->action->label->stakeholder = 'Stakeholder|stakeholder|view|userID=%s';
+$lang->action->label->opportunity = 'Opportunity|opportunity|view|opportunityID=%s';
+$lang->action->label->trainplan   = 'Trainplan|trainplan|view|trainplanID=%s';
 
 $lang->action->search = new stdclass();
 $lang->action->search->objectTypeList['']            = '';
