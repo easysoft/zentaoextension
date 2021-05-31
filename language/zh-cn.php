@@ -487,6 +487,7 @@ $lang->action->objectTypes['team']        = '团队';
 $lang->action->objectTypes['whitelist']   = '白名单';
 $lang->action->objectTypes['opportunity'] = '机会';
 $lang->action->objectTypes['trainplan']   = '培训计划';
+$lang->action->objectTypes['gapanalysis'] = '能力差距分析';
 
 $lang->action->desc = new stdclass();
 $lang->action->desc->common         = '$date, <strong>$action</strong> by <strong>$actor</strong>。' . "\n";
@@ -863,6 +864,7 @@ $lang->action->label->design      = '设计|design|view|designID=%s';
 $lang->action->label->stakeholder = '干系人|stakeholder|view|userID=%s';
 $lang->action->label->opportunity = '机会|opportunity|view|opportunityID=%s';
 $lang->action->label->trainplan   = '培训计划|trainplan|view|trainplanID=%s';
+$lang->action->label->gapanalysis = '能力差距分析|gapanalysis|view|gapanalysisID=%s';
 
 $lang->action->search = new stdclass();
 $lang->action->search->objectTypeList['']            = '';
@@ -1729,7 +1731,7 @@ $lang->bug->productplan      = '所属' . '计划';
 $lang->bug->module           = '所属模块';
 $lang->bug->moduleAB         = '模块';
 $lang->bug->project          = '所属项目';
-$lang->bug->execution        = '所属' . $lang->executionCommon;
+$lang->bug->execution        = '所属' . $lang->execution->common;
 $lang->bug->story            = "相关需求";
 $lang->bug->storyVersion     = "{$lang->SRCommon}版本";
 $lang->bug->color            = '标题颜色';

@@ -487,6 +487,7 @@ $lang->action->objectTypes['team']        = 'Team';
 $lang->action->objectTypes['whitelist']   = 'Whitelist';
 $lang->action->objectTypes['opportunity'] = 'Opportunity';
 $lang->action->objectTypes['trainplan']   = 'Trainplan';
+$lang->action->objectTypes['gapanalysis'] = 'Gap Analysis';
 
 $lang->action->desc = new stdclass();
 $lang->action->desc->common         = '$date, <strong>$action</strong> by <strong>$actor</strong>.' . "\n";
@@ -863,6 +864,7 @@ $lang->action->label->design      = 'Design|design|view|designID=%s';
 $lang->action->label->stakeholder = 'Stakeholder|stakeholder|view|userID=%s';
 $lang->action->label->opportunity = 'Opportunity|opportunity|view|opportunityID=%s';
 $lang->action->label->trainplan   = 'Trainplan|trainplan|view|trainplanID=%s';
+$lang->action->label->gapanalysis = 'Gap Analysis|gapanalysis|view|gapanalysisID=%s';
 
 $lang->action->search = new stdclass();
 $lang->action->search->objectTypeList['']            = '';
@@ -1729,7 +1731,7 @@ $lang->bug->productplan      = 'Plan';
 $lang->bug->module           = 'Module';
 $lang->bug->moduleAB         = 'Module';
 $lang->bug->project          = 'Project';
-$lang->bug->execution        = $lang->executionCommon;
+$lang->bug->execution        = $lang->execution->common;
 $lang->bug->story            = 'Story';
 $lang->bug->storyVersion     = 'Story Version';
 $lang->bug->color            = 'Color';
