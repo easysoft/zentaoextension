@@ -5207,6 +5207,10 @@ $lang->project->aclList['open']    = "公开 (有项目视图权限即可访问)
 $lang->project->acls['private'] = '私有';
 $lang->project->acls['open']    = '公开';
 
+$lang->project->subAclList['private'] = "私有 (只有本项目负责人、团队成员和干系人可访问)";
+$lang->project->subAclList['open']    = "公开 (有项目视图权限即可访问)";
+$lang->project->subAclList['program'] = '项目集内公开（所有上级项目集负责人和干系人、本项目负责人、团队成员和干系人可访问）';
+
 $lang->project->authList['extend'] = '继承 (取系统权限与项目权限的合集)';
 $lang->project->authList['reset']  = '重新定义 (只取项目权限)';
 
@@ -7384,7 +7388,6 @@ $lang->todo->typeList['cycle']    = '周期';
 $lang->todo->typeList['bug']      = 'Bug';
 $lang->todo->typeList['task']     = '任务';
 $lang->todo->typeList['story']    = $lang->SRCommon;
-$lang->todo->typeList['review']   = '评审';
 $lang->todo->typeList['testtask'] = '测试单';
 
 $lang->todo->confirmDelete  = "您确定要删除这条待办吗？";

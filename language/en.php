@@ -5206,6 +5206,10 @@ $lang->project->aclList['open']    = "Open (accessible with project view permiss
 $lang->project->acls['private'] = 'Private';
 $lang->project->acls['open']    = 'Open';
 
+$lang->project->subAclList['private'] = "Private (Only the project leader, team members and stakeholders can access)";
+$lang->project->subAclList['open']    = "Open (accessible with project view permissions)";
+$lang->project->subAclList['program'] = 'Open in the program (all upper-level program team leaders and stakeholders, the project leader, team members and stakeholders can access)';
+
 $lang->project->authList['extend'] = 'Inherit (system privilege and project privilege)';
 $lang->project->authList['reset']  = 'Reset (project privilege only)';
 
@@ -7383,7 +7387,6 @@ $lang->todo->typeList['cycle']    = 'Recur';
 $lang->todo->typeList['bug']      = 'Bug';
 $lang->todo->typeList['task']     = 'Task';
 $lang->todo->typeList['story']    = 'Story';
-$lang->todo->typeList['review']   = 'Review';
 $lang->todo->typeList['testtask'] = 'Testtask';
 
 $lang->todo->confirmDelete  = "Do you want to delete this todo?";
