@@ -1891,6 +1891,7 @@ $lang->bug->remindTask            = 'This bug has been converted to a task. Do y
 $lang->bug->skipClose             = 'Bug %s is active. You cannot close it.';
 $lang->bug->executionAccessDenied = "You access to the {$lang->executionCommon} to which this bug belongs is denied!";
 $lang->bug->stepsNotEmpty         = "The reproduction step cannot be empty.";
+$lang->bug->confirmUnlinkBuild    = "Replacing the solution version will disassociate the bug from the old version. Are you sure you want to disassociate the bug from %s?";
 
 $lang->bug->tplStep   = "<p>[Steps]</p><br/>";
 $lang->bug->tplResult = "<p>[Results]</p><br/>";
@@ -2454,6 +2455,7 @@ $lang->custom->waterfallCommon      = "Waterfall";
 $lang->custom->buildin              = "Buildin";
 $lang->custom->editStoryConcept     = "Edit Story Concept";
 $lang->custom->setStoryConcept      = "Set Story Concept";
+$lang->custom->setDefaultConcept    = "Set Default Concept";
 $lang->custom->browseStoryConcept   = "List of story concepts";
 $lang->custom->deleteStoryConcept   = "Delete story Concept";
 $lang->custom->URConcept            = "UR Concept";
@@ -7624,10 +7626,7 @@ $lang->upgrade->mergeByProduct     = "PRODUCT-BASED iterations: You can select m
 $lang->upgrade->mergeByProject     = "Independent iterations: You can select several iterations and merge them into one large project, or merge them independently";
 $lang->upgrade->mergeByMoreLink    = "Iteration that relates multiple products: select which product the iteration belongs to.";
 $lang->upgrade->mergeRepoTips      = "Merge the selected version library under the selected product.";
-
-$lang->upgrade->needBuild4Add    = 'Full text retrieval has been added in this upgrad. Please create an index.';
-$lang->upgrade->needBuild4Adjust = 'Full text retrieval has been adjusted. Please create an index.';
-$lang->upgrade->buildIndex       = 'Create Index';
+$lang->upgrade->needBuild4Add      = 'Full text retrieval has been added in this upgrade. Need create index. Please go [Admin->System->BuildIndex] page to build index.';
 
 include dirname(__FILE__) . '/version.php';
 /* user */

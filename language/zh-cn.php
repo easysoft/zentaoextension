@@ -1891,6 +1891,7 @@ $lang->bug->remindTask            = '该Bug已经转化为任务，是否更新�
 $lang->bug->skipClose             = 'Bug %s 不是已解决状态，不能关闭。';
 $lang->bug->executionAccessDenied = "您无权访问该Bug所属的{$lang->executionCommon}！";
 $lang->bug->stepsNotEmpty         = "重现步骤不能为空。";
+$lang->bug->confirmUnlinkBuild    = "更换解决版本将取消与旧版本的关联，您确定取消该bug与%s的关联吗？";
 
 $lang->bug->tplStep   = "<p>[步骤]</p><br/>";
 $lang->bug->tplResult = "<p>[结果]</p><br/>";
@@ -2455,6 +2456,7 @@ $lang->custom->waterfallCommon      = "瀑布";
 $lang->custom->buildin              = "系统内置";
 $lang->custom->editStoryConcept     = "编辑需求概念";
 $lang->custom->setStoryConcept      = "设置需求概念";
+$lang->custom->setDefaultConcept    = "设置默认概念";
 $lang->custom->browseStoryConcept   = "需求概念列表";
 $lang->custom->deleteStoryConcept   = "删除需求概念";
 $lang->custom->URConcept            = "用需概念";
@@ -7641,10 +7643,7 @@ $lang->upgrade->mergeByProduct     = "以产品组织的迭代：可以选择多
 $lang->upgrade->mergeByProject     = "独立的迭代：可以选择若干迭代归并到一个项目中，也可以独立归并。";
 $lang->upgrade->mergeByMoreLink    = "关联多个产品的迭代：选择这个迭代归属于哪一个产品。";
 $lang->upgrade->mergeRepoTips      = "将选中的版本库归并到所选产品下。";
-
-$lang->upgrade->needBuild4Add    = '本次升级新增全文检索功能，需要创建索引。';
-$lang->upgrade->needBuild4Adjust = '本次升级全文检索功能有调整，需要创建索引。';
-$lang->upgrade->buildIndex       = '创建索引';
+$lang->upgrade->needBuild4Add      = '本次升级需要创建索引。请到 [后台->系统->重建索引] 页面，重新创建索引。';
 
 include dirname(__FILE__) . '/version.php';
 /* user */
